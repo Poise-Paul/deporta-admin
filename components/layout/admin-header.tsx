@@ -37,12 +37,13 @@ export function AdminHeader() {
       <h1 className="text-xl font-bold text-foreground">{title}</h1>
 
       <div className="flex items-center gap-4">
-        {pathname === "/dashboard" && (
+        {/* Replace the Add Quick Staff Button */}
+        {/* {pathname === "/dashboard" && (
           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
             <Plus className="h-4 w-4 mr-2" />
             Add Staff
           </Button>
-        )}
+        )} */}
 
         <div className="flex -space-x-2">
           <Avatar className="h-8 w-8 border-2 border-card">
