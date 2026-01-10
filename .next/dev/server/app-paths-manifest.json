@@ -3,6 +3,7 @@
   "/(dashboard)/app-menu/dropoff-locations/page": "app/(dashboard)/app-menu/dropoff-locations/page.js",
   "/(dashboard)/app-menu/pickup-stations/page": "app/(dashboard)/app-menu/pickup-stations/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/settings/page": "app/(dashboard)/settings/page.js",
   "/(dashboard)/staff/page": "app/(dashboard)/staff/page.js",
   "/(dashboard)/users/page": "app/(dashboard)/users/page.js",
   "/login/page": "app/login/page.js",

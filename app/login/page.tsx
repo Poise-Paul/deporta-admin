@@ -1,6 +1,7 @@
 import { LoginForm } from "@/components/auth/login-form";
 import { DeportaLogo } from "@/components/deporta-logo";
 import Image from "next/image";
+import { Toaster } from "react-hot-toast";
 
 export default function LoginPage() {
   return (
@@ -85,6 +86,7 @@ export default function LoginPage() {
           <LoginForm />
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

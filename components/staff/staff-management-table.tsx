@@ -1,99 +1,165 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, Filter, Plus, MoreVertical, Eye } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { AddStaffPayload } from "@/types";
+import { useForm } from "react-hook-form";
+import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
+import { Toaster } from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import { getStaffList } from "@/api/user";
 
-type StaffTab = "all" | "active" | "inactive"
+type StaffTab = "all" | "active" | "inactive";
 
 const tabs: { id: StaffTab; label: string }[] = [
   { id: "all", label: "All Staffs" },
   { id: "active", label: "Active" },
   { id: "inactive", label: "In-Active" },
-]
-
-const staffMembers = [
-  {
-    id: 1,
-    name: "Mr Elips",
-    role: "Super Admin",
-    email: "admin@deportalogistics.com",
-    phone: "+44 20 7946 0123",
-    dateJoined: "05/05/2025",
-    status: "active" as const,
-    avatar: "/african-man-professional.png",
-  },
-  {
-    id: 2,
-    name: "Fashina Simisola",
-    role: "Customer Rep Staff",
-    email: "davidkolawole@gmail.com",
-    phone: "+44 20 7946 0123",
-    dateJoined: "05/05/2025",
-    status: "inactive" as const,
-    avatar: "/diverse-woman-smiling.png",
-  },
-  {
-    id: 3,
-    name: "Tobiloba Dev",
-    role: "Developer",
-    email: "davidkolawole@gmail.com",
-    phone: "+44 20 7946 0123",
-    dateJoined: "05/05/2025",
-    status: "active" as const,
-    avatar: "/young-man-casual.jpg",
-  },
-  {
-    id: 4,
-    name: "Abass Koyang",
-    role: "Admin Staff",
-    email: "davidkolawole@gmail.com",
-    phone: "+44 20 7946 0123",
-    dateJoined: "05/05/2025",
-    status: "active" as const,
-    avatar: "/african-driver-man.jpg",
-  },
-  {
-    id: 5,
-    name: "Nse-Obong Paul",
-    role: "Developer",
-    email: "davidkolawole@gmail.com",
-    phone: "+44 20 7946 0123",
-    dateJoined: "05/05/2025",
-    status: "inactive" as const,
-    avatar: "/man-driver-professional.jpg",
-  },
-  {
-    id: 6,
-    name: "David Kolawole",
-    role: "Support Staff",
-    email: "davidkolawole@gmail.com",
-    phone: "+44 20 7946 0123",
-    dateJoined: "05/05/2025",
-    status: "active" as const,
-    avatar: "/young-man-casual-portrait.png",
-  },
-]
+];
 
 export function StaffManagementTable() {
-  const [activeTab, setActiveTab] = useState<StaffTab>("all")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState<StaffTab>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
-  const filteredStaff = staffMembers.filter((staff) => {
-    if (activeTab === "active") return staff.status === "active"
-    if (activeTab === "inactive") return staff.status === "inactive"
-    return true
-  })
+  const [staffLoading, setStaffLoading] = useState(false);
+
+  // get the current user
+  const {
+    data: staffData,
+    error: staffError,
+    refetch: refetchStaffs,
+    isLoading: userLoader,
+  } = useQuery({
+    queryKey: ["staffs"],
+    retry: false,
+    queryFn: () => getStaffList(),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<AddStaffPayload>();
+
+  const [selectedRole, setSelectedRole] = useState<string>("");
+
+  const [holdBtn, setHoldBtn] = useState(true);
+
+  const filteredStaff = staffData?.staffs.data.filter((staff) => {
+    if (activeTab === "active")
+      return staff.user_type.type_id.status === "active";
+    if (activeTab === "inactive")
+      return staff.user_type.type_id.status === "inactive";
+    return true;
+  });
+
+  const handleWatch = watch();
+
+  const { first_name, last_name, phone_number, email, otp, role, gender } =
+    handleWatch;
+
+  const createAdminMutation = useCreateAdmin();
+
+  const createStaffMutation = useCreateStaff();
+
+  const handleAdminStaff = () => {
+    setStaffLoading(true);
+
+    if (selectedRole === "admin") {
+      createAdminMutation.mutate(
+        {
+          first_name,
+          last_name,
+          phone_number,
+          email,
+          gender,
+          otp: otp ? otp : "",
+        },
+        {
+          onSuccess: () => {
+            setIsAddDialogOpen(false);
+          },
+          onSettled: () => {
+            setStaffLoading(false);
+          },
+        }
+      );
+    } else {
+      createStaffMutation.mutate(
+        {
+          first_name,
+          last_name,
+          phone_number,
+          email,
+          gender,
+          role: selectedRole === "staff_admin" ? "admin" : selectedRole,
+        },
+        {
+          onSuccess: () => {
+            setIsAddDialogOpen(false);
+          },
+          onSettled: () => {
+            setStaffLoading(false);
+          },
+        }
+      );
+    }
+  };
+
+  useEffect(() => {
+    const baseFieldsValid =
+      first_name && last_name && phone_number && email && gender;
+    let isRoleStepValid = false;
+
+    if (selectedRole === "admin") {
+      isRoleStepValid = !!otp;
+    } else {
+      isRoleStepValid = !!selectedRole;
+    }
+    if (baseFieldsValid && isRoleStepValid) {
+      setHoldBtn(false);
+    } else {
+      setHoldBtn(true);
+    }
+  }, [
+    first_name,
+    last_name,
+    phone_number,
+    email,
+    otp,
+    selectedRole,
+    gender,
+    role,
+  ]);
 
   return (
     <Card className="bg-card border border-border">
@@ -122,7 +188,7 @@ export function StaffManagementTable() {
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
                   )}
                 >
                   {tab.label}
@@ -143,37 +209,133 @@ export function StaffManagementTable() {
               </DialogTrigger>
               <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                  <DialogTitle>Add New Staff</DialogTitle>
+                  <DialogTitle>
+                    Add New {selectedRole === "admin" ? "Admin" : "Staff"}
+                  </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="Enter full name" />
+                    <Label htmlFor="name">First Name</Label>
+                    <Input
+                      {...register("first_name")}
+                      id="name"
+                      placeholder="Enter first name"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Last Name</Label>
+                    <Input
+                      {...register("last_name")}
+                      id="name"
+                      placeholder="Enter first name"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" type="email" placeholder="Enter email address" />
+                    <Input
+                      id="email"
+                      {...register("email")}
+                      type="email"
+                      placeholder="Enter email address"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" placeholder="Enter phone number" />
+                    <Input
+                      {...register("phone_number")}
+                      id="phone"
+                      placeholder="Enter phone number"
+                    />
                   </div>
+                  <div className="space-y-3">
+                    <Label>Gender</Label>
+                    <div className="flex gap-4">
+                      {/* Male Option */}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="radio"
+                          id="male"
+                          value="Male"
+                          className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                          {...register("gender")}
+                        />
+                        <Label
+                          htmlFor="male"
+                          className="font-normal cursor-pointer"
+                        >
+                          Male
+                        </Label>
+                      </div>
+
+                      {/* Female Option */}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="radio"
+                          id="female"
+                          value="Female"
+                          className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                          {...register("gender")}
+                        />
+                        <Label
+                          htmlFor="female"
+                          className="font-normal cursor-pointer"
+                        >
+                          Female
+                        </Label>
+                      </div>
+                    </div>
+
+                    {errors.gender && (
+                      <p className="text-sm text-destructive">
+                        {errors.gender.message as string}
+                      </p>
+                    )}
+                  </div>
+                  {selectedRole === "admin" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">OTP Code</Label>
+                      <Input
+                        id="otp"
+                        {...register("otp")}
+                        placeholder="Enter OTP Code"
+                      />
+                    </div>
+                  )}
+
                   <div className="space-y-2">
                     <Label htmlFor="role">Role</Label>
-                    <Select>
+                    <Select onValueChange={(value) => setSelectedRole(value)}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select role" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="admin">Admin Staff</SelectItem>
+                        <SelectItem value="admin">Super Admin Staff</SelectItem>
                         <SelectItem value="support">Support Staff</SelectItem>
-                        <SelectItem value="customer-rep">Customer Rep Staff</SelectItem>
+                        <SelectItem value="staff_admin">Staff Admin</SelectItem>
+                        <SelectItem value="driver">Driver</SelectItem>
+                        <SelectItem value="customer-rep">
+                          Customer Rep Staff
+                        </SelectItem>
                         <SelectItem value="developer">Developer</SelectItem>
-                        <SelectItem value="maintenance">Maintenance Staff</SelectItem>
+                        <SelectItem value="maintenance">
+                          Maintenance Staff
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Add Staff</Button>
+                  <Button
+                    disabled={staffLoading}
+                    onClick={handleAdminStaff}
+                    className={`w-full bg-primary ${
+                      holdBtn || staffLoading ? "opacity-30" : ""
+                    } hover:bg-primary/90 text-primary-foreground`}
+                  >
+                    {staffLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      "Add Staff"
+                    )}
+                  </Button>
                 </div>
               </DialogContent>
             </Dialog>
@@ -190,42 +352,74 @@ export function StaffManagementTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Name</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Role</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Email Address</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Phone</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Date Joined</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Status</th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Name
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Role
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Email Address
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Phone
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Date Joined
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Status
+                </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
               </tr>
             </thead>
             <tbody>
-              {filteredStaff.map((staff) => (
-                <tr key={staff.id} className="border-b border-border last:border-0 hover:bg-muted/50">
+              {filteredStaff?.map((staff) => (
+                <tr
+                  key={staff._id}
+                  className="border-b border-border last:border-0 hover:bg-muted/50"
+                >
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={staff.avatar || "/placeholder.svg"} alt={staff.name} />
-                        <AvatarFallback>{staff.name.charAt(0)}</AvatarFallback>
+                        <AvatarImage
+                          src={staff.profile_image || "/placeholder.svg"}
+                          alt={staff.first_name}
+                        />
+                        <AvatarFallback>
+                          {staff.first_name.charAt(0)}
+                        </AvatarFallback>
                       </Avatar>
-                      <span className="font-medium text-sm">{staff.name}</span>
+                      <span className="font-medium text-sm">
+                        {staff.first_name} {staff.last_name}
+                      </span>
                     </div>
                   </td>
-                  <td className="p-4 text-sm text-muted-foreground">{staff.role}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{staff.email}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{staff.phone}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{staff.dateJoined}</td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {staff.user_type.type_id.role}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {staff.email}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {staff.phone_number}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {new Date(staff.createdAt).toDateString()}
+                  </td>
                   <td className="p-4">
                     <Badge
                       variant="outline"
                       className={cn(
                         "font-normal",
-                        staff.status === "active"
+                        staff.user_type.type_id.status === "active"
                           ? "border-green-500 text-green-600 bg-green-50"
-                          : "border-orange-500 text-orange-600 bg-orange-50",
+                          : "border-orange-500 text-orange-600 bg-orange-50"
                       )}
                     >
-                      {staff.status === "active" ? "Active" : "In-active"}
+                      {staff.user_type.type_id.status === "active"
+                        ? "Active"
+                        : "In-active"}
                     </Badge>
                   </td>
                   <td className="p-4">
@@ -241,7 +435,9 @@ export function StaffManagementTable() {
                           View
                         </DropdownMenuItem>
                         <DropdownMenuItem className="text-destructive">
-                          {staff.status === "active" ? "De-activate" : "Activate"}
+                          {staff.user_type.type_id.status === "active"
+                            ? "De-activate"
+                            : "Activate"}
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -252,10 +448,10 @@ export function StaffManagementTable() {
           </table>
         </div>
 
-        {/* Additional Info */}
-        <div className="px-6 py-3 border-t border-border">
+        {/* Additional Info - If Needed */}
+        {/* <div className="px-6 py-3 border-t border-border">
           <p className="text-sm text-muted-foreground">Maintenance Staff</p>
-        </div>
+        </div> */}
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
@@ -288,6 +484,7 @@ export function StaffManagementTable() {
           </div>
         </div>
       </CardContent>
+      <Toaster />
     </Card>
-  )
+  );
 }
