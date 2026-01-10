@@ -1,300 +1,53 @@
-[00:00:00.414] Server  LOG      ✓ Ready in 317ms
-[00:00:15.412] Server  LOG      ○ Compiling / ...
-[00:00:15.880] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:16.091] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:16.441] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:16.441] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:16.441] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:00:16.441] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650792816}
-[00:00:16.441] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650792816}
-[00:00:16.441] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:20.243] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:00:01.432] Server  LOG      ✓ Ready in 1257ms
+[00:00:15.626] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:00:15.799] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:16.158] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:16.158] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:16.158] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
+[00:00:16.158] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005169558}
+[00:00:16.158] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3001/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005169558}
+[00:00:16.158] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:03:57.755] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:00:20.243] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:03:57.755] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:00:20.243] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650796580}
-[00:01:52.172] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650888532}
-[00:01:53.272] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:53.272] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:59.324] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:59.324] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:01.941] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650898292}
-[00:02:03.638] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:03.638] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:07.587] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650903964}
-[00:02:10.275] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650906653}
-[00:02:11.822] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:11.822] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:18.585] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650914962}
-[00:02:20.607] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:03:57.755] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005391116}
+[00:04:00.280] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3001/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005393680}
+[00:04:04.259] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:02:20.607] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:04.259] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:02:20.607] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650916960}
-[00:02:23.540] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650919918}
-[00:02:27.449] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650923827}
-[00:02:28.020] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:04.259] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005397639}
+[00:04:09.931] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005403334}
+[00:04:11.438] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005404842}
+[00:04:14.228] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3001/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005407616}
+[00:04:14.900] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3001/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005408289}
+[00:04:15.646] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:02:28.020] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:15.646] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:02:28.020] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650924379}
-[00:02:49.077] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650945434}
-[00:02:49.908] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650946263}
-[00:02:53.378] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:53.378] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:01.762] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650958122}
-[00:03:03.157] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:03.157] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:06.409] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650962786}
-[00:03:07.269] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:15.646] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005409030}
+[00:04:17.363] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005410766}
+[00:04:30.030] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3001/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005423436}
+[00:04:43.670] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:03:07.269] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:43.670] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:03:07.269] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650963625}
-[00:03:08.072] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650964451}
-[00:03:09.392] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:03:09.392] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:03:09.392] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765650965752}
-[00:06:21.570] Server  LOG      ✓ Compiled in 36ms
-[00:06:44.748] Server  LOG      ✓ Compiled in 30ms
-[00:06:47.054] Server  LOG      ✓ Compiled in 26ms
-[00:06:48.507] Server  LOG      ✓ Compiled in 28ms
-[00:06:52.289] Server  LOG      ✓ Compiled in 26ms
-[00:07:22.113] Server  LOG      ✓ Compiled in 37ms
-[00:07:22.636] Browser ERROR   ./components/deporta-logo.tsx:16:7
-Parsing ecmascript source code failed
-  14 |     <div className={cn("flex items-center gap-1", className)}>
-  15 |       <Image
-> 16 |       <svg viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8 w-12">
-     |       ^
-  17 |         {/* Stylized "BL" Logo */}
-  18 |         <path
-  19 |           d="M8 6C8 6 12 4 18 6C24 8 28 6 32 4C36 2 40 4 40 8C40 12 36 16 30 18C24 20 18 18 14 16C10 14 8 10 8 6Z"
-
-Expression expected
-
-Import traces:
-  Client Component Browser:
-    ./components/deporta-logo.tsx [Client Component Browser]
-    ./components/layout/admin-sidebar.tsx [Client Component Browser]
-    ./app/(dashboard)/layout.tsx [Client Component Browser]
-    ./app/(dashboard)/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/deporta-logo.tsx [Client Component SSR]
-    ./components/layout/admin-sidebar.tsx [Client Component SSR]
-    ./app/(dashboard)/layout.tsx [Client Component SSR]
-    ./app/(dashboard)/layout.tsx [Server Component]
-[00:07:31.052] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:07:31.232] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:31.480] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
-[00:07:31.480] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
-[00:07:31.480] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:07:31.480] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:07:31.480] Browser ERROR   Image is missing required "src" property: <img>
-[00:07:31.480] Browser ERROR   Image is missing required "alt" property. Please add Alternative Text to describe the image for screen readers and search engines.
-[00:07:31.480] Browser ERROR   Image is missing required "src" property: <img>
-[00:07:31.480] Browser ERROR   Image is missing required "alt" property. Please add Alternative Text to describe the image for screen readers and search engines.
-[00:07:31.480] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:07:31.480] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
-[00:07:31.480] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765651227866}
-[00:07:34.040] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:07:34.045] Server  LOG      ✓ Compiled in 0ms
-[00:07:34.163] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:34.294] Browser ERROR   uncaughtError: ReferenceError: Images is not defined
-[00:07:39.430] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:07:39.500] Server  LOG      ✓ Compiled in 27ms
-[00:07:39.543] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:07:39.685] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:39.809] Browser ERROR   uncaughtError: ReferenceError: Images is not defined
-[00:07:48.367] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:07:48.375] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:07:48.525] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:48.649] Browser ERROR   uncaughtError: Error: Image with src "/" is missing required "width" property.
-[00:07:56.956] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:07:57.026] Server  LOG      ✓ Compiled in 29ms
-[00:07:57.069] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:07:57.217] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:57.338] Browser ERROR   uncaughtError: Error: Image with src "/Deporta-Logo" is missing required "width" property.
-[00:08:27.624] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:08:27.698] Server  LOG      ✓ Compiled in 28ms
-[00:08:27.741] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:08:27.871] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:27.996] Browser ERROR   uncaughtError: Error: Image with src "/Deporta-Logo" is missing required "width" property.
-[00:08:33.527] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:08:33.592] Server  LOG      ✓ Compiled in 33ms
-[00:08:33.630] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:08:33.761] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:33.884] Browser ERROR   uncaughtError: Error: Image with src "/Deporta-Logo" is missing required "width" property.
-[00:08:35.947] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:08:36.010] Server  LOG      ✓ Compiled in 32ms
-[00:08:36.047] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:08:36.195] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:36.311] Browser ERROR   uncaughtError: Error: Image with src "/Deporta-Logo" is missing required "width" property.
-[00:32:18.266] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:32:18.341] Server  LOG      ✓ Compiled in 21ms
-[00:32:18.400] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:32:18.592] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:32:18.719] Browser ERROR   uncaughtError: Error: Image with src "/Deporta-Logo" is missing required "width" property.
-[00:32:20.559] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:32:20.631] Server  LOG      ✓ Compiled in 21ms
-[00:32:20.671] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:32:20.798] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:32:20.914] Browser ERROR   uncaughtError: Error: Image with src "/Deporta-Logo" is missing required "width" property.
-[00:32:32.923] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:32:32.995] Server  LOG      ✓ Compiled in 30ms
-[00:32:33.039] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:32:33.173] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:32:33.367] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:32:33.367] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:32:33.367] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:32:33.367] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
-[00:32:33.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765652729767}
-[00:32:51.279] Server  LOG      ✓ Compiled in 27ms
-[00:32:51.364] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:32:55.945] Server  LOG      ✓ Compiled in 24ms
-[00:32:57.807] Server  LOG      ✓ Compiled in 25ms
-[00:33:13.860] Server  LOG      ✓ Compiled in 28ms
-[00:34:51.245] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765652867661}
-[00:34:52.844] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:34:52.844] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:34:52.844] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765652869242}
-[00:36:46.900] Server  LOG      ✓ Compiled in 33ms
-[00:36:47.172] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true ro ro true ro
-[00:36:48.747] Server  LOG      ✓ Compiled in 26ms
-[00:36:51.450] Server  LOG      ✓ Compiled in 27ms
-[00:36:52.170] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true op op true op
-[00:36:56.896] Server  LOG      ✓ Compiled in 32ms
-[00:37:01.897] Server  LOG      ✓ Compiled in 26ms
-[00:37:02.172] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true as as true as
-[00:37:03.913] Server  LOG      ✓ Compiled in 24ms
-[00:38:00.716] Server  LOG      ✓ Compiled in 76ms
-[00:38:00.782] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:38:00.887] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:38:01.152] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:38:01.152] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:38:01.152] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:38:01.152] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:38:01.152] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
-[00:38:01.152] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653057585}
-[00:38:12.798] Server  LOG      ✓ Compiled in 27ms
-[00:38:16.444] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653072873}
-[00:38:17.341] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653073771}
-[00:49:19.058] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:49:19.058] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:49:19.058] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653735474}
-[00:51:57.723] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:51:57.857] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:51:58.055] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:51:58.055] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:51:58.055] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:51:58.055] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:51:58.055] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
-[00:51:58.055] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653894454}
-[00:52:06.447] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:52:06.616] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:52:06.616] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:52:06.616] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:52:06.616] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653903007}
-[00:52:06.616] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653903007}
-[00:52:06.616] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:53:37.096] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:53:37.222] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:53:37.222] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:53:37.222] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:53:37.222] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765653993623}
-[00:55:04.787] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:55:04.914] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:55:04.914] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:55:04.914] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:55:04.914] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765654081316}
-[00:55:37.606] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:55:37.740] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:55:37.740] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:55:37.740] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765654114121}
-[00:55:37.740] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:55:37.740] Browser WARN    Image with src "Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:55:38.923] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:55:39.054] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:55:39.054] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:55:39.054] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765654115437}
-[00:55:39.054] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:55:39.054] Browser WARN    Image with src "Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:55:58.350] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:55:58.485] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:55:58.485] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:55:58.485] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765654134864}
-[00:55:58.485] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:55:58.485] Browser WARN    Image with src "Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:57:59.071] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:57:59.196] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:57:59.196] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:57:59.196] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
-[00:57:59.196] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765654255600}
+[00:04:43.670] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005437056}
+[00:04:44.863] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768005438268}

@@ -1114,10 +1114,6 @@
     width: calc(var(--spacing) * 10);
   }
 
-  .w-12 {
-    width: calc(var(--spacing) * 12);
-  }
-
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
@@ -1971,34 +1967,6 @@
 
   .fill-primary {
     fill: var(--primary);
-  }
-
-  .fill-secondary {
-    fill: var(--secondary);
-  }
-
-  .fill-white {
-    fill: var(--color-white);
-  }
-
-  .stroke-secondary\/60 {
-    stroke: var(--secondary);
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .stroke-secondary\/60 {
-      stroke: color-mix(in oklab, var(--secondary) 60%, transparent);
-    }
-  }
-
-  .stroke-white\/60 {
-    stroke: #fff9;
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .stroke-white\/60 {
-      stroke: color-mix(in oklab, var(--color-white) 60%, transparent);
-    }
   }
 
   .object-cover {
