@@ -3845,3 +3845,440 @@ Import trace:
 [05:16:08.332] Server  LOG      ✓ Compiled in 21ms
 [05:16:12.429] Server  LOG      ✓ Compiled in 22ms
 [05:16:15.639] Server  LOG      ✓ Compiled in 20ms
+[05:20:34.785] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:20:34.786] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:23:13.881] Server  LOG      ✓ Compiled in 35ms
+[05:23:15.512] Server  LOG      ✓ Compiled in 20ms
+[05:23:46.965] Server  LOG      ✓ Compiled in 25ms
+[05:23:51.773] Server  LOG      ✓ Compiled in 35ms
+[05:23:55.853] Server  LOG      ✓ Compiled in 20ms
+[05:23:57.080] Server  LOG      ✓ Compiled in 18ms
+[05:24:21.246] Server  LOG      ✓ Compiled in 24ms
+[05:24:46.728] Server  LOG      ✓ Compiled in 21ms
+[05:24:50.348] Server  LOG      ✓ Compiled in 18ms
+[05:24:51.518] Server  LOG      ✓ Compiled in 24ms
+[05:26:27.576] Server  LOG      ✓ Compiled in 28ms
+[05:26:27.971] Browser ERROR   uncaughtError: ReferenceError: useEffec is not defined
+[05:26:29.276] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:26:29.356] Server  LOG      ✓ Compiled in 21ms
+[05:26:29.422] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:26:29.559] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:26:29.718] Browser ERROR   uncaughtError: ReferenceError: third is not defined
+[05:26:31.573] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:26:31.609] Server  LOG      ✓ Compiled in 20ms
+[05:26:31.645] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:26:31.762] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:26:31.909] Browser ERROR   uncaughtError: ReferenceError: third is not defined
+[05:26:34.929] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:26:34.966] Server  LOG      ✓ Compiled in 22ms
+[05:26:35.000] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:26:35.098] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:26:35.252] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:26:35.252] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:26:35.252] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:26:35.252] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768024748766}
+[05:26:43.351] Server  LOG      ✓ Compiled in 22ms
+[05:26:43.967] Browser ERROR   ./components/staff/staff-management-table.tsx:52:9
+Parsing ecmascript source code failed
+  50 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  51 |
+> 52 |   const [staffs, setStaffs]
+     |         ^^^^^^^^^^^^^^^^^^^
+  53 |
+  54 |   const [staffLoading, setStaffLoading] = useState(false);
+  55 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:02.550] Server  LOG      ✓ Compiled in 20ms
+[05:27:02.967] Browser ERROR   ./components/staff/staff-management-table.tsx:52:40
+Parsing ecmascript source code failed
+  50 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  51 |
+> 52 |   const [staffs, setStaffs] = useState<()
+     |                                        ^^
+  53 |
+  54 |   const [staffLoading, setStaffLoading] = useState(false);
+  55 |
+
+Parenthesized expression cannot be empty
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:05.970] Browser ERROR   ./components/staff/staff-management-table.tsx:52:40
+Parsing ecmascript source code failed
+  50 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  51 |
+> 52 |   const [staffs, setStaffs] = useState<()
+     |                                        ^^
+  53 |
+  54 |   const [staffLoading, setStaffLoading] = useState(false);
+  55 |
+
+Parenthesized expression cannot be empty
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:11.969] Browser ERROR   uncaughtError: ReferenceError: Staff is not defined
+[05:27:28.884] Server  LOG      ✓ Compiled in 30ms
+[05:27:29.967] Browser ERROR   ./components/staff/staff-management-table.tsx:32:1
+Export StaffData doesn't exist in target module
+  30 | import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+  31 | import { cn } from "@/lib/utils";
+> 32 | import { AddStaffPayload, StaffData } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  33 | import { useForm } from "react-hook-form";
+  34 | import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
+  35 | import { Toaster } from "react-hot-toast";
+
+The export StaffData was not found in module [project]/types/index.ts [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:29.967] Browser ERROR   ./components/staff/staff-management-table.tsx:32:1
+Export StaffData doesn't exist in target module
+  30 | import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+  31 | import { cn } from "@/lib/utils";
+> 32 | import { AddStaffPayload, StaffData } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  33 | import { useForm } from "react-hook-form";
+  34 | import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
+  35 | import { Toaster } from "react-hot-toast";
+
+The export StaffData was not found in module [project]/types/index.ts [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:30.092] Server  LOG      ✓ Compiled in 21ms
+[05:27:30.968] Browser ERROR   ./components/staff/staff-management-table.tsx:52:50
+Parsing ecmascript source code failed
+  50 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  51 |
+> 52 |   const [staffs, setStaffs] = useState<StaffData></StaffData>()
+     |                                                  ^
+  53 |
+  54 |   const [staffLoading, setStaffLoading] = useState(false);
+  55 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:30.968] Browser ERROR   ./components/staff/staff-management-table.tsx:32:1
+Export StaffData doesn't exist in target module
+  30 | import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+  31 | import { cn } from "@/lib/utils";
+> 32 | import { AddStaffPayload, StaffData } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  33 | import { useForm } from "react-hook-form";
+  34 | import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
+  35 | import { Toaster } from "react-hot-toast";
+
+The export StaffData was not found in module [project]/types/index.ts [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:30.968] Browser ERROR   ./components/staff/staff-management-table.tsx:32:1
+Export StaffData doesn't exist in target module
+  30 | import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+  31 | import { cn } from "@/lib/utils";
+> 32 | import { AddStaffPayload, StaffData } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  33 | import { useForm } from "react-hook-form";
+  34 | import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
+  35 | import { Toaster } from "react-hot-toast";
+
+The export StaffData was not found in module [project]/types/index.ts [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:27:33.018] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:27:33.024] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:27:33.159] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:27:33.312] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:27:33.312] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:27:33.312] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:27:33.312] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768024806825}
+[05:27:36.631] Server  LOG      ✓ Compiled in 20ms
+[05:27:36.729] Server  LOG      ✓ Compiled in 21ms
+[05:27:48.935] Server  LOG      ✓ Compiled in 18ms
+[05:28:12.606] Server  LOG      ✓ Compiled in 20ms
+[05:28:14.024] Server  LOG      ✓ Compiled in 21ms
+[05:28:15.283] Server  LOG      ✓ Compiled in 20ms
+[05:28:17.362] Server  LOG      ✓ Compiled in 23ms
+[05:28:19.647] Server  LOG      ✓ Compiled in 21ms
+[05:28:19.968] Browser ERROR   ./components/staff/staff-management-table.tsx:69:25
+Parsing ecmascript source code failed
+  67 |
+  68 |   useEffect(() => {
+> 69 |     setStaffs(staffData.)
+     |                         ^
+  70 |   }, [staffData]);
+  71 |
+  72 |   const {
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:28:31.596] Server  LOG      ✓ Compiled in 21ms
+[05:28:31.967] Browser ERROR   ./components/staff/staff-management-table.tsx:70:5
+Parsing ecmascript source code failed
+  68 |   useEffect(() => {
+  69 |     if
+> 70 |     setStaffs(staffData?.staffs.data)
+     |     ^^^^^^^^^
+  71 |   }, [staffData]);
+  72 |
+  73 |   const {
+
+Expected '(', got 'setStaffs'
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:28:38.257] Server  LOG      ✓ Compiled in 19ms
+[05:28:41.348] Server  LOG      ✓ Compiled in 20ms
+[05:28:53.599] Server  LOG      ✓ Compiled in 21ms
+[05:29:14.976] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768024908455}
+[05:29:17.363] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768024910839}
+[05:29:21.882] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:29:21.882] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:33:02.152] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025135630}
+[05:33:03.230] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025136703}
+[05:33:07.059] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:33:07.059] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:33:55.949] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025189427}
+[05:33:56.728] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025190199}
+[05:34:00.717] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025194196}
+[05:34:01.287] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025194758}
+[05:34:05.076] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:34:05.076] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:34:05.076] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025198518}
+[05:34:06.281] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025199753}
+[05:34:45.324] Server  LOG      ✓ Compiled in 29ms
+[05:34:47.107] Server  LOG      ✓ Compiled in 28ms
+[05:34:54.562] Server  LOG      ✓ Compiled in 22ms
+[05:34:57.730] Server  LOG      ✓ Compiled in 28ms
+[05:35:21.234] Server  LOG      ✓ Compiled in 20ms
+[05:35:24.775] Server  LOG      ✓ Compiled in 19ms
+[05:35:27.622] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:35:27.622] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:36:17.995] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:36:18.124] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:36:18.276] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:36:18.276] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:36:18.276] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:36:18.276] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025331743}
+[05:36:18.276] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[05:37:20.513] Server  LOG      ✓ Compiled in 24ms
+[05:37:20.968] Browser ERROR   ./components/staff/staff-management-table.tsx:457:19
+Parsing ecmascript source code failed
+  455 |               ))}
+  456 |             </tbody>
+> 457 |           </table>
+      |                   ^
+> 458 |             </thead>
+      | ^^^^^^^^^^^^^
+  459 |         </div>
+  460 |
+  461 |         {/* Additional Info - If Needed */}
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:42:10.566] Server  LOG      ✓ Compiled in 34ms
+[05:42:10.968] Browser ERROR   uncaughtError: ReferenceError: staffs is not defined
+[05:42:17.110] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:42:17.178] Server  LOG      ✓ Compiled in 24ms
+[05:42:17.234] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:42:17.388] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:42:17.555] Browser ERROR   uncaughtError: ReferenceError: React is not defined
+[05:42:21.829] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:42:21.865] Server  LOG      ✓ Compiled in 28ms
+[05:42:21.903] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:42:22.009] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:42:22.183] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:42:22.183] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:42:22.183] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:42:22.183] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025695666}
+[05:42:23.148] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:42:25.768] Server  LOG      ✓ Compiled in 23ms
+[05:42:26.969] Server  LOG      ✓ Compiled in 23ms
+[05:42:26.969] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:42:27.970] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:43:00.779] Server  LOG      ✓ Compiled in 26ms
+[05:43:00.970] Browser ERROR   ./components/staff/staff-management-table.tsx:137:12
+Parsing ecmascript source code failed
+  135 |         {
+  136 |           onSuccess: () => {
+> 137 |            await queryClient.invalidateQueries({ queryKey: ["staffs"] });
+      |            ^^^^^
+  138 |             setIsAddDialogOpen(false);
+  139 |           },
+  140 |           onSettled: () => {
+
+await isn't allowed in non-async function
+
+Import trace:
+  Server Component:
+    ./components/staff/staff-management-table.tsx
+    ./app/(dashboard)/staff/page.tsx
+[05:43:07.668] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:43:32.257] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:43:32.366] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:43:32.522] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:43:32.522] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:43:32.522] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025765981}
+[05:43:32.522] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:43:32.522] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[05:43:33.510] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:43:58.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:43:58.328] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:43:58.328] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:43:58.328] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:43:58.328] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025791804}
+[05:43:58.328] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[05:43:58.844] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:43:59.811] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025793301}
+[05:44:00.983] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:44:00.983] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:44:00.983] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025794444}
+[05:44:02.237] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025795723}
+[05:44:02.793] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://6412a77d597c.ngrok-free.app/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAxNzI5OSwiZXhwIjoxNzY4NjIyMDk5fQ.kTM0sxKGrOeZk_7AMz4UYgsw-kdnsC_mctGMdAcqQf4","Content-Type":"application/json","ngrok-skip-browser-warning":"69420"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16849:25)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async getStaffList (http://localhost:3001/_next/static/chunks/_71a2249b._.js:1229:21)"}
+[05:44:05.359] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025798853}
+[05:44:06.145] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:44:06.145] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:44:06.145] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025799618}
+[05:44:33.323] Server  LOG      ✓ Compiled in 25ms
+[05:44:37.457] Server  LOG      ✓ Compiled in 20ms
+[05:44:43.124] Server  LOG      ✓ Compiled in 19ms
+[05:44:46.061] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025839549}
+[05:45:43.632] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:45:43.632] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:47:11.921] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[05:47:12.108] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:47:12.344] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[05:47:12.344] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[05:47:12.344] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[05:47:12.344] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768025985843}
+[05:47:17.850] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:47:17.850] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:50:06.630] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3001/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026160123}
+[05:50:34.877] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:50:34.877] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:50:34.877] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026188334}
+[05:50:37.143] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026190630}
+[05:50:39.599] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:50:39.600] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:52:44.171] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3001/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026317665}
+[05:52:54.031] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:52:54.031] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[05:52:54.031] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026327494}
+[05:52:56.438] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026329924}
+[05:52:58.559] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:52:58.559] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:54:44.737] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:54:44.737] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:00:06.294] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:00:06.451] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[06:00:06.451] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[06:00:06.451] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[06:00:06.451] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026759946}
+[06:00:20.752] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:00:20.752] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:03:46.943] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[06:03:46.943] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[06:03:46.943] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768026980397}
+[06:07:34.716] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027208196}
+[06:07:43.503] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:07:43.503] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:08:43.607] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027277100}
+[06:08:44.788] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027278269}
+[06:10:00.423] Server  LOG      ✓ Compiled in 30ms
+[06:10:10.459] Server  LOG      ✓ Compiled in 22ms
+[06:10:13.616] Server  LOG      ✓ Compiled in 23ms
+[06:10:58.925] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:10:58.925] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[06:12:28.518] Browser LOG     User Erro undefined
+[06:13:12.286] Server  LOG      ✓ Compiled in 29ms
+[06:14:09.876] Browser LOG     User Erro {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","data":"{\"first_name\":\"Abass\",\"last_name\":\"Amadia\",\"phone_number\":\"+234 9067 4356 77\",\"email\":\"abassamadia45@gmail.com\",\"gender\":\"Male\",\"role\":\"customer-rep\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODAyNjMyNywiZXhwIjoxNzY4NjMxMTI3fQ.Jp9cT3Ah4KGawMJI9fXbJYfr0JUVmUWc0b-qsyx-4ww","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/add","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:16862:20)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_4aba344b._.js:17607:49)\n    at async useCreateStaff.useMutation [as mutationFn] (http://localhost:3001/_next/static/chunks/_71a2249b._.js?id=%255Bproject%255D%252Fapi%252Fstaffs%252Findex.ts+%255Bapp-client%255D+%2528ecmascript%2529:63:29)"}
+[06:14:59.084] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[06:14:59.213] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:14:59.370] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[06:14:59.371] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[06:14:59.371] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[06:14:59.371] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027652803}
+[06:17:36.627] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3001/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027810048}

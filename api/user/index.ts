@@ -16,7 +16,6 @@ export const getUser = async (): Promise<UserDataResponse> => {
 export const getStaffList = async (): Promise<StaffListResponse> => {
   try {
     const res = await api.get("/api/users/admin/staffs");
-
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

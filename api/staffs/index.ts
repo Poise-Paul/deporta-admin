@@ -10,6 +10,7 @@ import {
 } from "@/types";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { queryClient } from "../queryClient";
 
 export const useCreateAdmin = () => {
   return useMutation({
@@ -60,6 +61,7 @@ export const useCreateStaff = () => {
     onError: (error, variables) => {
       if (axios.isAxiosError(error)) {
         const err = error.response?.data as ErrorrResponse;
+        console.log("User Erro", error);
 
         toast.error(`${err?.error.message}`);
       } else {

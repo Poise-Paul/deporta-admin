@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,12 +29,13 @@ import {
 } from "@/components/ui/select";
 import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AddStaffPayload } from "@/types";
+import { AddStaffPayload, StaffData } from "@/types";
 import { useForm } from "react-hook-form";
 import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
 import { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { getStaffList } from "@/api/user";
+import { queryClient } from "@/api/queryClient";
 
 type StaffTab = "all" | "active" | "inactive";
 
@@ -74,14 +75,21 @@ export function StaffManagementTable() {
 
   const [holdBtn, setHoldBtn] = useState(true);
 
-  const filteredStaff = staffData?.staffs.data.filter((staff) => {
-    if (activeTab === "active")
-      return staff.user_type.type_id.status === "active";
-    if (activeTab === "inactive")
-      return staff.user_type.type_id.status === "inactive";
-    return true;
-  });
+  const filteredStaff = React.useMemo(() => {
+    const allStaff = staffData?.staffs?.data || [];
 
+    if (activeTab === "active") {
+      return allStaff.filter(
+        (staff) => staff.user_type?.type_id?.status === "active"
+      );
+    }
+    if (activeTab === "inactive") {
+      return allStaff.filter(
+        (staff) => staff.user_type?.type_id?.status === "inactive"
+      );
+    }
+    return allStaff;
+  }, [staffData, activeTab]);
   const handleWatch = watch();
 
   const { first_name, last_name, phone_number, email, otp, role, gender } =
@@ -106,6 +114,7 @@ export function StaffManagementTable() {
         },
         {
           onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["staffs"] });
             setIsAddDialogOpen(false);
           },
           onSettled: () => {
@@ -125,6 +134,7 @@ export function StaffManagementTable() {
         },
         {
           onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["staffs"] });
             setIsAddDialogOpen(false);
           },
           onSettled: () => {
