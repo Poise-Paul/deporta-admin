@@ -14,8 +14,20 @@ import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "@/api/user";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Loader2, Plus } from "lucide-react";
 
 export default function SettingsPage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+
   // get the current user
   const {
     data: userData,
@@ -27,6 +39,10 @@ export default function SettingsPage() {
     retry: false,
     queryFn: () => getUser(),
   });
+
+  const handleRequestEdit = () => {};
+
+  
 
   return (
     <div className="space-y-6 max-w-3xl">
@@ -68,16 +84,65 @@ export default function SettingsPage() {
       {/* Security Settings */}
       <Card className="bg-card border border-border">
         <CardHeader>
-          <CardTitle>Security</CardTitle>
-          <CardDescription>
-            Manage your password and security settings
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="currentPassword">Current Password</Label>
-            <Input id="currentPassword" type="password" />
+          <div className="flex justify-between">
+            <div>
+              <CardTitle>Security</CardTitle>
+              <CardDescription>
+                Manage your password and security settings
+              </CardDescription>
+            </div>
+            <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
+              <DialogTrigger asChild>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Request OTP
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Request Password OTP</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">First Name</Label>
+                    <Input
+                      value="email"
+                      id="email"
+                      placeholder="Enter your mail"
+                    />
+                  </div>
+
+                  <Button
+                    disabled={isLoading}
+                    onClick={handleAdminStaff}
+                    className={`w-full bg-primary ${
+                      holdBtn || staffLoading ? "opacity-30" : ""
+                    } hover:bg-primary/90 text-primary-foreground`}
+                  >
+                    {staffLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      "Add Staff"
+                    )}
+                  </Button>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="currentPassword">Current Password</Label>
+              <Input id="currentPassword" type="password" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">Enter OTP</Label>
+              <Input id="confirmPassword" type="password" />
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="newPassword">New Password</Label>

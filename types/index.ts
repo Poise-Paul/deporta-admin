@@ -77,6 +77,11 @@ export type AdminDataResponse = {
   message: string;
 };
 
+export type Response = {
+  status: boolean;
+  message: string;
+};
+
 export type StaffData = {
   _id: string;
   first_name: string;

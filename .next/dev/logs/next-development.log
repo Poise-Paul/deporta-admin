@@ -4282,3 +4282,599 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [06:14:59.371] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
 [06:14:59.371] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027652803}
 [06:17:36.627] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3001/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768027810048}
+[06:47:38.066] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[06:47:38.066] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[06:47:38.066] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768029611477}
+[07:27:01.179] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031974606}
+[07:27:05.693] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:05.693] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:05.693] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031979099}
+[07:27:09.965] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031983386}
+[07:27:15.178] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:27:15.330] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[07:27:15.330] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[07:27:15.330] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[07:27:15.330] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031988760}
+[07:27:19.808] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:27:19.955] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[07:27:19.955] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[07:27:19.955] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[07:27:19.955] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031993368}
+[07:27:19.955] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[07:27:22.414] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031995841}
+[07:27:24.687] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031998107}
+[07:27:26.576] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:26.576] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:26.576] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768031999953}
+[07:27:28.062] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032001482}
+[07:27:29.498] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:27:29.647] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[07:27:29.647] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[07:27:29.647] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[07:27:29.647] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032003060}
+[07:27:29.647] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[07:27:38.568] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032011996}
+[07:27:39.810] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:39.810] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:39.810] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032013198}
+[07:27:41.285] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032014713}
+[07:27:42.512] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032015933}
+[07:27:46.506] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032019933}
+[07:27:47.083] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:47.083] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:47.083] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032020493}
+[07:27:48.077] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032021505}
+[07:27:48.588] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032022003}
+[07:27:51.994] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032025422}
+[07:27:53.046] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:53.046] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:53.046] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032026456}
+[07:27:53.895] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032027322}
+[07:27:54.955] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:54.955] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:27:54.955] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032028366}
+[07:31:22.601] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3001/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032236061}
+[07:31:24.311] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:31:24.311] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[07:31:24.311] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032237753}
+[07:31:26.703] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032240149}
+[07:31:35.550] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[07:31:35.550] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[07:31:56.821] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3001/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032270275}
+[07:33:53.925] Server  LOG      ✓ Compiled in 33ms
+[07:33:54.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:77:9
+Parsing ecmascript source code failed
+  75 |         </CardHeader>
+  76 |         <Butto
+> 77 |         <CardContent className="space-y-4">
+     |         ^
+  78 |           <div className="space-y-2">
+  79 |             <Label htmlFor="currentPassword">Current Password</Label>
+  80 |             <Input id="currentPassword" type="password" />
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[07:34:42.608] Server  LOG      ✓ Compiled in 24ms
+[07:34:42.969] Browser ERROR   uncaughtError: ReferenceError: Plus is not defined
+[07:34:51.409] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[07:34:51.476] Server  LOG      ✓ Compiled in 20ms
+[07:34:51.531] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[07:34:51.669] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:34:51.836] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[07:34:51.836] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[07:34:51.836] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/settings","route":"/settings"}
+[07:34:51.836] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3001/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032445300}
+[07:34:56.387] Server  LOG      ✓ Compiled in 21ms
+[07:34:59.325] Server  LOG      ✓ Compiled in 22ms
+[07:35:22.147] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032475601}
+[07:35:25.161] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3001/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768032478615}
+[07:35:31.952] Server  LOG      ✓ Compiled in 26ms
+[07:35:33.359] Server  LOG      ✓ Compiled in 20ms
+[07:35:53.298] Server  LOG      ✓ Compiled in 24ms
+[07:35:56.253] Server  LOG      ✓ Compiled in 20ms
+[07:36:13.153] Server  LOG      ✓ Compiled in 26ms
+[07:36:18.471] Server  LOG      ✓ Compiled in 24ms
+[07:36:21.794] Server  LOG      ✓ Compiled in 20ms
+[07:36:44.068] Server  LOG      ✓ Compiled in 22ms
+[07:36:45.107] Server  LOG      ✓ Compiled in 19ms
+[07:36:49.471] Server  LOG      ✓ Compiled in 21ms
+[07:36:56.469] Server  LOG      ✓ Compiled in 25ms
+[07:36:56.967] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? class className
+[07:37:01.164] Server  LOG      ✓ Compiled in 20ms
+[07:37:09.482] Server  LOG      ✓ Compiled in 19ms
+[07:37:16.521] Server  LOG      ✓ Compiled in 27ms
+[07:37:21.295] Server  LOG      ✓ Compiled in 23ms
+[07:37:22.997] Server  LOG      ✓ Compiled in 18ms
+[07:37:25.467] Server  LOG      ✓ Compiled in 17ms
+[07:37:26.073] Server  LOG      ✓ Compiled in 19ms
+[07:37:29.709] Server  LOG      ✓ Compiled in 18ms
+[07:37:31.273] Server  LOG      ✓ Compiled in 20ms
+[07:37:32.697] Server  LOG      ✓ Compiled in 28ms
+[07:38:08.873] Server  LOG      ✓ Compiled in 20ms
+[07:38:11.945] Server  LOG      ✓ Compiled in 22ms
+[07:38:15.301] Server  LOG      ✓ Compiled in 18ms
+[07:38:17.052] Server  LOG      ✓ Compiled in 23ms
+[07:38:24.884] Server  LOG      ✓ Compiled in 19ms
+[07:38:26.766] Server  LOG      ✓ Compiled in 19ms
+[07:38:30.247] Server  LOG      ✓ Compiled in 21ms
+[07:38:54.050] Server  LOG      ✓ Compiled in 19ms
+[07:45:52.233] Server  LOG      ✓ Compiled in 31ms
+[07:45:54.451] Server  LOG      ✓ Compiled in 23ms
+[07:48:04.417] Server  LOG      ✓ Compiled in 25ms
+[07:48:04.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:78:32
+Parsing ecmascript source code failed
+  76 |               </CardDescription>
+  77 |             </div>
+> 78 |             <Button onClick={} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+     |                                ^^^^^^^^^
+  79 |               Request OTP
+  80 |             </Button>
+  81 |           </div>
+
+Expected '</', got 'className'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:31:38.968] Browser ERROR   uncaughtError: ReferenceError: request is not defined
+[08:31:40.602] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:31:40.639] Server  LOG      ✓ Compiled in 22ms
+[08:31:40.689] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:31:40.849] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:31:41.014] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:35:00.807] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:35:00.868] Server  LOG      ✓ Compiled in 29ms
+[08:35:00.918] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:35:01.083] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:35:01.251] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[08:35:05.922] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:35:05.959] Server  LOG      ✓ Compiled in 22ms
+[08:35:05.992] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:35:06.142] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:35:06.276] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:37:12.674] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:37:12.729] Server  LOG      ✓ Compiled in 27ms
+[08:37:12.777] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:37:12.909] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:37:13.059] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:37:40.503] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:37:40.555] Server  LOG      ✓ Compiled in 22ms
+[08:37:40.600] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:37:40.745] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:37:40.885] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:37:41.609] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:37:41.678] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:37:41.693] Server  LOG      ✓ Compiled in 29ms
+[08:37:41.780] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:37:41.920] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:38:42.426] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:38:42.476] Server  LOG      ✓ Compiled in 25ms
+[08:38:42.523] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:38:42.645] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:38:42.792] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:09.139] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:09.179] Server  LOG      ✓ Compiled in 22ms
+[08:39:09.212] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:09.338] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:09.487] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:12.119] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:12.184] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:12.193] Server  LOG      ✓ Compiled in 22ms
+[08:39:12.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:12.426] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:19.695] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:19.760] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:19.769] Server  LOG      ✓ Compiled in 22ms
+[08:39:19.855] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:19.993] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:26.259] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:26.301] Server  LOG      ✓ Compiled in 26ms
+[08:39:26.334] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:26.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:26.828] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:28.191] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:28.257] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:28.266] Server  LOG      ✓ Compiled in 22ms
+[08:39:28.383] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:28.520] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:33.337] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:33.374] Server  LOG      ✓ Compiled in 22ms
+[08:39:33.404] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:33.495] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:33.626] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:39:39.079] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:39:39.150] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:39:39.165] Server  LOG      ✓ Compiled in 26ms
+[08:39:39.277] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:39.424] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:40:25.395] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:40:25.462] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:40:25.471] Server  LOG      ✓ Compiled in 21ms
+[08:40:25.525] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:40:25.660] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:40:27.417] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:40:27.453] Server  LOG      ✓ Compiled in 21ms
+[08:40:27.489] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:40:27.621] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:40:27.758] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:40:33.037] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:40:33.102] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:40:33.111] Server  LOG      ✓ Compiled in 23ms
+[08:40:33.193] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:40:33.324] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:40:38.488] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:40:38.553] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:40:38.562] Server  LOG      ✓ Compiled in 21ms
+[08:40:38.645] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:40:38.781] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:40:45.441] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:40:45.477] Server  LOG      ✓ Compiled in 21ms
+[08:40:45.514] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:40:45.615] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:40:45.755] Browser ERROR   uncaughtError: ReferenceError: requestOtp is not defined
+[08:40:52.878] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:40:52.941] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:40:52.950] Server  LOG      ✓ Compiled in 22ms
+[08:40:53.032] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:40:53.172] Browser ERROR   uncaughtError: ReferenceError: register is not defined
+[08:41:14.800] Server  LOG      ✓ Compiled in 22ms
+[08:41:14.971] Browser ERROR   ./app/(dashboard)/settings/page.tsx:105:23
+Parsing ecmascript source code failed
+  103 |                     <Input
+  104 |                       value={}
+> 105 |                       id="name"
+      |                       ^^
+  106 |                       placeholder="Enter first name"
+  107 |                     />
+  108 |                   </div>
+
+Expected '</', got 'id'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:41:18.928] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:41:19.000] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:41:19.115] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:41:19.256] Browser ERROR   uncaughtError: ReferenceError: staffLoading is not defined
+[08:41:21.253] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:41:21.288] Server  LOG      ✓ Compiled in 23ms
+[08:41:21.318] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:41:21.442] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:41:21.580] Browser ERROR   uncaughtError: ReferenceError: staffLoading is not defined
+[08:41:31.793] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:41:31.860] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:41:31.869] Server  LOG      ✓ Compiled in 21ms
+[08:41:31.959] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:41:32.089] Browser ERROR   uncaughtError: ReferenceError: staffLoading is not defined
+[08:41:34.765] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:41:34.831] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:41:34.840] Server  LOG      ✓ Compiled in 21ms
+[08:41:34.929] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:41:35.070] Browser ERROR   uncaughtError: ReferenceError: staffLoading is not defined
+[08:41:41.043] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:41:41.081] Server  LOG      ✓ Compiled in 26ms
+[08:41:41.119] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:41:41.219] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:41:41.350] Browser ERROR   uncaughtError: ReferenceError: staffLoading is not defined
+[08:42:01.681] Server  LOG      ✓ Compiled in 21ms
+[08:42:01.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:28:9
+Parsing ecmascript source code failed
+  26 |
+  27 | export default function SettingsPage() {
+> 28 |   const [loadin]
+     |         ^^^^^^^^
+  29 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  30 |
+  31 |   // get the current user
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:45:47.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:28:9
+Parsing ecmascript source code failed
+  26 |
+  27 | export default function SettingsPage() {
+> 28 |   const [loading]
+     |         ^^^^^^^^^
+  29 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  30 |
+  31 |   // get the current user
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:45:53.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:28:9
+Parsing ecmascript source code failed
+  26 |
+  27 | export default function SettingsPage() {
+> 28 |   const [isLoading]
+     |         ^^^^^^^^^^^
+  29 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  30 |
+  31 |   // get the current user
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:45:54.970] Browser ERROR   ./app/(dashboard)/settings/page.tsx:28:9
+Parsing ecmascript source code failed
+  26 |
+  27 | export default function SettingsPage() {
+> 28 |   const [isLoading, ]
+     |         ^^^^^^^^^^^^^
+  29 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  30 |
+  31 |   // get the current user
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:46:00.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:28:9
+Parsing ecmascript source code failed
+  26 |
+  27 | export default function SettingsPage() {
+> 28 |   const [isLoading, setIsLoading]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  29 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  30 |
+  31 |   // get the current user
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[08:46:06.479] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:46:06.604] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:46:06.805] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:46:06.966] Browser ERROR   uncaughtError: ReferenceError: staffLoading is not defined
+[08:46:28.335] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[08:46:28.379] Server  LOG      ✓ Compiled in 21ms
+[08:46:28.423] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[08:46:28.559] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:46:28.692] Browser ERROR   uncaughtError: ReferenceError: handleAdminStaff is not defined
+[08:50:26.967] Browser ERROR   ./api/staffs/index.ts:74:14
+Ecmascript file had an error
+  72 | };
+  73 |
+> 74 | export const useCreateStaff = () => {
+     |              ^^^^^^^^^^^^^^
+  75 |   return useMutation({
+  76 |     mutationFn: async (data: AddStaffPayload) => {
+  77 |       const res = await api.post("/api/users/admin/staff/add", {
+
+the name `useCreateStaff` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/staffs/index.ts [Client Component Browser]
+    ./components/staff/staff-management-table.tsx [Client Component Browser]
+    ./components/staff/staff-management-table.tsx [Server Component]
+    ./app/(dashboard)/staff/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/staffs/index.ts [Client Component SSR]
+    ./components/staff/staff-management-table.tsx [Client Component SSR]
+    ./components/staff/staff-management-table.tsx [Server Component]
+    ./app/(dashboard)/staff/page.tsx [Server Component]
+[08:50:34.658] Server  LOG      ✓ Compiled in 24ms
+[08:50:34.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:50:34.927] Browser ERROR   uncaughtError: ReferenceError: handleAdminStaff is not defined
+[10:20:46.184] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[10:20:46.262] Server  LOG      ✓ Compiled in 31ms
+[10:20:46.321] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[10:20:46.470] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:20:46.639] Browser ERROR   uncaughtError: ReferenceError: handleAdminStaff is not defined
+[10:21:20.472] Server  LOG      ✓ Compiled in 31ms
+[10:21:20.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:45:3
+Parsing ecmascript source code failed
+  43 |   const 
+  44 |
+> 45 |   return (
+     |   ^^^^^^
+  46 |     <div className="space-y-6 max-w-3xl">
+  47 |       {/* Profile Settings */}
+  48 |       <Card className="bg-card border border-border">
+
+Expected ident
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[10:21:25.556] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[10:21:25.570] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[10:21:25.688] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:21:25.824] Browser ERROR   uncaughtError: ReferenceError: handleAdminStaff is not defined
+[10:21:38.416] Server  LOG      ✓ Compiled in 26ms
+[10:21:38.967] Browser ERROR   ./app/(dashboard)/settings/page.tsx:45:3
+Parsing ecmascript source code failed
+  43 |   const 
+  44 |
+> 45 |   return (
+     |   ^^^^^^
+  46 |     <div className="space-y-6 max-w-3xl">
+  47 |       {/* Profile Settings */}
+  48 |       <Card className="bg-card border border-border">
+
+Expected ident
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[10:21:40.733] Server  LOG      ✓ Compiled in 20ms
+[10:21:40.968] Browser ERROR   ./app/(dashboard)/settings/page.tsx:43:9
+Parsing ecmascript source code failed
+  41 |   });
+  42 |
+> 43 |   const handle
+     |         ^^^^^^
+  44 |
+  45 |   return (
+  46 |     <div className="space-y-6 max-w-3xl">
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[10:22:54.973] Browser ERROR   ./app/(dashboard)/settings/page.tsx:43:9
+Parsing ecmascript source code failed
+  41 |   });
+  42 |
+> 43 |   const handleHandle
+     |         ^^^^^^^^^^^^
+  44 |
+  45 |   return (
+  46 |     <div className="space-y-6 max-w-3xl">
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[10:27:09.968] Browser ERROR   ./app/(dashboard)/settings/page.tsx:43:9
+Parsing ecmascript source code failed
+  41 |   });
+  42 |
+> 43 |   const handleRequestEdit
+     |         ^^^^^^^^^^^^^^^^^
+  44 |
+  45 |   return (
+  46 |     <div className="space-y-6 max-w-3xl">
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/settings/page.tsx [Client Component Browser]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/settings/page.tsx [Client Component SSR]
+    ./app/(dashboard)/settings/page.tsx [Server Component]
+[10:27:14.187] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[10:27:14.316] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[10:27:14.460] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:27:14.623] Browser ERROR   uncaughtError: ReferenceError: handleAdminStaff is not defined
