@@ -5,6 +5,7 @@ import {
   AddStaffPayload,
   AdminDataResponse,
   ErrorrResponse,
+  ProfileUpdate,
   Response,
 } from "@/types";
 import { toast } from "react-hot-toast";
@@ -75,6 +76,35 @@ export const useCreateRequest = () => {
     mutationFn: async (email: string) => {
       const res = await api.post("/api/users/request-password-edit", {
         email,
+      });
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      toast.success(`${data.message}`);
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
+        console.log("User Erro", error);
+
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const useUpdateAccount = () => {
+  return useMutation({
+    mutationFn: async (data: ProfileUpdate) => {
+      const res = await api.post("/api/users/edit", {
+        image: data.image,
+        first_name: data.first_name,
+        last_name: data.last_name,
+        phone_number: data.phone_number,
+        date_of_birth: data.date_of_birth,
       });
       return res.data;
     },

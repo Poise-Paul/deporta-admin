@@ -14,7 +14,7 @@ import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "@/api/user";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -22,11 +22,25 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Loader2, Plus } from "lucide-react";
+import { Image, Loader2, Plus } from "lucide-react";
+import { useCreateRequest, useUpdateAccount } from "@/api/staffs";
+import { useForm } from "react-hook-form";
+import { NewPasswordPayload, ProfileUpdate } from "@/types";
+import { Toaster } from "react-hot-toast";
+import { PasswordInput } from "@/components/ui/password-input";
+import { useChangePassword } from "@/api/onboarding";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function SettingsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+
+  const [holdPasswordBtn, setHoldPasswordBtn] = useState(true);
+  const [passwordLoader, setPasswordLoader] = useState(false);
+
+  const [profoileLoader, setProfileLoader] = useState(false);
+
+  const [preview, setPreview] = useState<string | null>(null);
 
   // get the current user
   const {
@@ -40,9 +54,97 @@ export default function SettingsPage() {
     queryFn: () => getUser(),
   });
 
-  const handleRequestEdit = () => {};
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<NewPasswordPayload>({
+    defaultValues: {
+      email: userData?.user.email,
+    },
+  });
 
-  
+  const {
+    register: profileRegister,
+    handleSubmit: profileHandleSubmit,
+    watch: profileWatch,
+    formState: { errors: profileErrors },
+  } = useForm<ProfileUpdate>({
+    defaultValues: {
+      first_name: userData?.user.first_name,
+      last_name: userData?.user.last_name,
+      phone_number: userData?.user.phone_number,
+      date_of_birth: userData?.user.date_of_birth,
+    },
+  });
+
+  const handleWatch = watch();
+  const handleProfileWatch = profileWatch();
+  const requestEditMutation = useCreateRequest();
+
+  const changePasswordMutation = useChangePassword();
+
+  const { email, otp, password, confirm_password } = handleWatch;
+
+  const { first_name, last_name, phone_number, date_of_birth } =
+    handleProfileWatch;
+
+  const handleRequestEdit = () => {
+    setIsLoading(true);
+    requestEditMutation.mutate(`${userData?.user.email}`, {
+      onSuccess: () => {
+        setIsAddDialogOpen(false);
+      },
+      onSettled: () => setIsLoading(false),
+    });
+  };
+
+  const handleChangePassword = () => {
+    setPasswordLoader(true);
+    changePasswordMutation.mutate(
+      {
+        otp,
+        email: `${userData?.user.email}`,
+        password,
+        confirm_password,
+      },
+      {
+        onSettled: () => setPasswordLoader(false),
+      }
+    );
+  };
+
+  useEffect(() => {
+    if (email && otp && password && confirm_password) {
+      setHoldPasswordBtn(false);
+    } else {
+      setHoldPasswordBtn(true);
+    }
+  }, [email, otp, password, confirm_password]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      setPreview(objectUrl);
+    }
+  };
+
+  const profileUpdateMutation = useUpdateAccount();
+
+  const handleProfileUpdate = () => {
+    setProfileLoader(true);
+    profileUpdateMutation.mutate({
+      image:
+        preview ||
+        "https://globalyoungacademy.net/wp-content/uploads/gyaAvatars/1698918174-bpfull-600x600.png",
+      first_name,
+      last_name,
+      phone_number,
+      date_of_birth,
+    });
+  };
 
   return (
     <div className="space-y-6 max-w-3xl">
@@ -53,6 +155,26 @@ export default function SettingsPage() {
           <CardDescription>Manage your account information</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label>Profile Picture</Label>
+            <div className="w-20 h-20 rounded-full overflow-hidden border">
+              <Avatar className="h-20 w-20">
+                <AvatarImage
+                  className="object-cover"
+                  src={
+                    preview ||
+                    "https://globalyoungacademy.net/wp-content/uploads/gyaAvatars/1698918174-bpfull-600x600.png"
+                  }
+                  alt={"profile_img"}
+                />
+                <AvatarFallback>
+                  {userData?.user?.first_name.charAt(0)}
+                </AvatarFallback>
+              </Avatar>
+            </div>
+            <Input type="file" accept="image/*" onChange={handleFileChange} />
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
@@ -75,7 +197,10 @@ export default function SettingsPage() {
             <Label htmlFor="phone">Phone Number</Label>
             <Input id="phone" defaultValue={userData?.user?.phone_number} />
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button
+            onClick={handleProfileUpdate}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
             Save Changes
           </Button>
         </CardContent>
@@ -93,8 +218,11 @@ export default function SettingsPage() {
             </div>
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Plus className="h-4 w-4 mr-2" />
+                <Button
+                  onClick={() => setIsAddDialogOpen(true)}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  <Plus className="h-4 w-4" />
                   Request OTP
                 </Button>
               </DialogTrigger>
@@ -104,9 +232,11 @@ export default function SettingsPage() {
                 </DialogHeader>
                 <div className="space-y-4 py-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">First Name</Label>
+                    <Label htmlFor="name">Enter Email Address</Label>
                     <Input
-                      value="email"
+                      type="email"
+                      defaultValue={userData?.user.email}
+                      {...register("email")}
                       id="email"
                       placeholder="Enter your mail"
                     />
@@ -114,15 +244,15 @@ export default function SettingsPage() {
 
                   <Button
                     disabled={isLoading}
-                    onClick={handleAdminStaff}
+                    onClick={handleRequestEdit}
                     className={`w-full bg-primary ${
-                      holdBtn || staffLoading ? "opacity-30" : ""
+                      isLoading ? "opacity-30" : ""
                     } hover:bg-primary/90 text-primary-foreground`}
                   >
-                    {staffLoading ? (
+                    {isLoading ? (
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     ) : (
-                      "Add Staff"
+                      "Request OTP Code"
                     )}
                   </Button>
                 </div>
@@ -134,27 +264,45 @@ export default function SettingsPage() {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="currentPassword">Current Password</Label>
-              <Input id="currentPassword" type="password" />
+              <Label htmlFor="emailAddress">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                readOnly
+                defaultValue={userData?.user.email}
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Enter OTP</Label>
-              <Input id="confirmPassword" type="password" />
+              <PasswordInput id="otp" {...register("otp")} />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="newPassword">New Password</Label>
-              <Input id="newPassword" type="password" />
+              <PasswordInput id="newPassword" {...register("password")} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Confirm Password</Label>
-              <Input id="confirmPassword" type="password" />
+              <PasswordInput
+                {...register("confirm_password")}
+                id="confirmPassword"
+              />
             </div>
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Update Password
+          <Button
+            disabled={holdPasswordBtn || passwordLoader}
+            onClick={handleChangePassword}
+            className={`bg-primary ${
+              holdPasswordBtn || passwordLoader ? "opacity-30" : ""
+            } hover:bg-primary/90 text-primary-foreground`}
+          >
+            {passwordLoader ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              "Update Password"
+            )}
           </Button>
         </CardContent>
       </Card>
@@ -199,6 +347,7 @@ export default function SettingsPage() {
           </div>
         </CardContent>
       </Card>
+      <Toaster />
     </div>
   );
 }
