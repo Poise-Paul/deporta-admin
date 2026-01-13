@@ -37,6 +37,7 @@ import { useForm } from "react-hook-form";
 import { AddPickupStationPayload, PickupStation } from "@/types";
 import { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
+import { queryClient } from "@/api/queryClient";
 
 type LocationTab = "all" | "active" | "inactive";
 

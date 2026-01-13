@@ -8,6 +8,7 @@ import { api } from "../axios";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { queryClient } from "../queryClient";
 
 export const useCreatePickupStation = () => {
   return useMutation({
@@ -21,6 +22,7 @@ export const useCreatePickupStation = () => {
       return res.data;
     },
     onSuccess: (data: PickupStationResponse) => {
+      queryClient.invalidateQueries({ queryKey: ["pickupStations"] });
       toast.success(`${data.message}`);
       return data;
     },
@@ -36,7 +38,6 @@ export const useCreatePickupStation = () => {
     },
   });
 };
-
 
 export const getPickupStations = async (): Promise<PickupStationDetails> => {
   try {

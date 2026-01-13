@@ -18371,3 +18371,235 @@ Import trace:
     ./app/(dashboard)/app-menu/pickup-stations/page.tsx
 [75:57:24.018] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [75:57:24.018] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:52:02.258] Server  LOG      ✓ Compiled in 72ms
+[76:52:04.401] Server  LOG      ✓ Compiled in 31ms
+[76:52:05.439] Browser ERROR   ./api/pick-up-stations/index.ts:25:68
+Parsing ecmascript source code failed
+  23 |     },
+  24 |     onSuccess: (data: PickupStationResponse) => {
+> 25 |         queryClient.invalidateQueries({queryKey:{["pickupStations"]}})
+     |                                                                    ^
+  26 |       toast.success(`${data.message}`);
+  27 |       return data;
+  28 |     },
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./api/pick-up-stations/index.ts [Client Component Browser]
+    ./components/shared/location-table.tsx [Client Component Browser]
+    ./components/shared/location-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/pick-up-stations/index.ts [Client Component SSR]
+    ./components/shared/location-table.tsx [Client Component SSR]
+    ./components/shared/location-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx [Server Component]
+[76:52:15.371] Server  LOG      ✓ Compiled in 29ms
+[76:52:15.475] Browser ERROR   ./api/pick-up-stations/index.ts:25:49
+Parsing ecmascript source code failed
+  23 |     },
+  24 |     onSuccess: (data: PickupStationResponse) => {
+> 25 |         queryClient.invalidateQueries({queryKey:})
+     |                                                 ^
+  26 |       toast.success(`${data.message}`);
+  27 |       return data;
+  28 |     },
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./api/pick-up-stations/index.ts [Client Component Browser]
+    ./components/shared/location-table.tsx [Client Component Browser]
+    ./components/shared/location-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/pick-up-stations/index.ts [Client Component SSR]
+    ./components/shared/location-table.tsx [Client Component SSR]
+    ./components/shared/location-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx [Server Component]
+[76:52:17.395] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODI2NjMxNCwiZXhwIjoxNzY4ODcxMTE0fQ.nyzvCmrceLm8VWuriVQ0RX5Y1ESY-xIvfa-MC_vgd-E","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3001/_next/static/chunks/node_modules_fbadf43a._.js:13862:20)\n    at Axios.request (http://localhost:3001/_next/static/chunks/node_modules_fbadf43a._.js:14607:49)\n    at async getPickupStations (http://localhost:3001/_next/static/chunks/_82c3223d._.js:1164:21)"}
+[76:52:23.018] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[76:52:23.145] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[76:52:23.300] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[76:52:23.300] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[76:52:23.300] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[76:52:23.300] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3001/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281896997}
+[76:52:28.052] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3001/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281901738}
+[76:52:32.196] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3001/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281905883}
+[76:52:35.713] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[76:52:35.859] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[76:52:35.859] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[76:52:35.859] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[76:52:35.859] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3001/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281909542}
+[76:52:35.859] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[76:52:38.442] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3001/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281912110}
+[76:52:47.037] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3001/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281920719}
+[76:52:49.368] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:52:49.368] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:53:52.703] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[76:53:52.868] Browser WARN    Image with src "http://localhost:3001/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[76:53:52.868] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[76:53:52.868] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[76:53:52.868] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3001/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768281986536}
+[76:53:52.868] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[76:53:56.137] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:53:56.137] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:54:27.721] Server  LOG      ✓ Compiled in 50ms
+[76:54:40.992] Server  LOG      ✓ Compiled in 33ms
+[76:54:41.437] Browser ERROR   ./components/shared/location-table.tsx:103:7
+Parsing ecmascript source code failed
+  101 |         state,
+  102 |       },onS
+> 103 |       {
+      |       ^
+  104 |         onSettled: () => setIsAddDialogOpen(false),
+  105 |       }
+  106 |     );
+
+Expected ',', got '{'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:54:45.432] Browser ERROR   ./components/shared/location-table.tsx:103:7
+Parsing ecmascript source code failed
+  101 |         state,
+  102 |       },on
+> 103 |       {
+      |       ^
+  104 |         onSettled: () => setIsAddDialogOpen(false),
+  105 |       }
+  106 |     );
+
+Expected ',', got '{'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:54:47.433] Browser ERROR   ./components/shared/location-table.tsx:103:7
+Parsing ecmascript source code failed
+  101 |         state,
+  102 |       }
+> 103 |       {
+      |       ^
+  104 |         onSettled: () => setIsAddDialogOpen(false),
+  105 |       }
+  106 |     );
+
+Expected ',', got '{'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:54:55.334] Server  LOG      ✓ Compiled in 29ms
+[76:54:56.434] Browser ERROR   ./components/shared/location-table.tsx:104:94
+Parsing ecmascript source code failed
+  102 |       },
+  103 |       {
+> 104 |         onSuccess:() =>       queryClient.invalidateQueries({ queryKey: ["pickupStations"] });
+      |                                                                                              ^
+  105 |
+  106 |         onSettled: () => setIsAddDialogOpen(false),
+  107 |       }
+
+Expected ',', got ';'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:54:56.434] Browser ERROR   ./components/shared/location-table.tsx:104:94
+Parsing ecmascript source code failed
+  102 |       },
+  103 |       {
+> 104 |         onSuccess:() =>       queryClient.invalidateQueries({ queryKey: ["pickupStations"] });
+      |                                                                                              ^
+  105 |
+  106 |         onSettled: () => setIsAddDialogOpen(false),
+  107 |       }
+
+Expected ',', got ';'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:55:00.431] Browser ERROR   ./components/shared/location-table.tsx:105:94
+Parsing ecmascript source code failed
+  103 |       },
+  104 |       {
+> 105 |         onSuccess:() =>       queryClient.invalidateQueries({ queryKey: ["pickupStations"] });
+      |                                                                                              ^
+  106 |
+  107 |         onSettled: () => setIsAddDialogOpen(false),
+  108 |       }
+
+Expected ',', got ';'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:55:02.439] Browser ERROR   ./components/shared/location-table.tsx:105:94
+Parsing ecmascript source code failed
+  103 |       },
+  104 |       {
+> 105 |         onSuccess:() =>       queryClient.invalidateQueries({ queryKey: ["pickupStations"] });
+      |                                                                                              ^
+  106 |
+  107 |         onSettled: () => setIsAddDialogOpen(false),
+  108 |       }
+
+Expected ',', got ';'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:55:04.316] Server  LOG      ✓ Compiled in 30ms
+[76:55:04.436] Browser ERROR   ./components/shared/location-table.tsx:107:9
+Parsing ecmascript source code failed
+  105 |         onSuccess:() =>       queryClient.invalidateQueries({ queryKey: ["pickupStations"] })
+  106 |
+> 107 |         onSettled: () => setIsAddDialogOpen(false),
+      |         ^^^^^^^^^
+  108 |       }
+  109 |     );
+  110 |   };
+
+Expected ',', got 'onSettled'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:55:09.055] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:55:09.055] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[76:55:29.341] Server  LOG      ✓ Compiled in 31ms
+[76:55:30.391] Browser ERROR   ./components/shared/location-table.tsx:106:11
+Parsing ecmascript source code failed
+  104 |       {
+  105 |         onSuccess: () =>
+> 106 |           ,
+      |           ^
+  107 |
+  108 |         onSettled: () => setIsAddDialogOpen(false),
+  109 |       }
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[76:55:35.979] Server  LOG      ✓ Compiled in 32ms
