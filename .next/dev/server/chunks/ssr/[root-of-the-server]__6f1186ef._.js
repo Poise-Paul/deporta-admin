@@ -116,7 +116,9 @@ __turbopack_context__.s([
     "resetStaff",
     ()=>resetStaff,
     "updateSelStaff",
-    ()=>updateSelStaff
+    ()=>updateSelStaff,
+    "updateStaffStatus",
+    ()=>updateStaffStatus
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs [app-ssr] (ecmascript) <locals>");
 ;
@@ -130,10 +132,15 @@ const staffSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
         updateSelStaff: (state, action)=>{
             state.staffDetails = action.payload;
         },
+        updateStaffStatus: (state, action)=>{
+            if (state.staffDetails?.user_type?.type_id) {
+                state.staffDetails.user_type.type_id.status = action.payload; //
+            }
+        },
         resetStaff: ()=>initialState
     }
 });
-const { updateSelStaff, resetStaff } = staffSlice.actions;
+const { updateSelStaff, resetStaff, updateStaffStatus } = staffSlice.actions;
 const __TURBOPACK__default__export__ = staffSlice.reducer;
 }),
 "[project]/lib/store/index.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {

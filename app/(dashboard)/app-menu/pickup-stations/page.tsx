@@ -1,4 +1,4 @@
-import { LocationTable } from "@/components/shared/location-table"
+import { LocationTable } from "@/components/shared/location-table";
 
 const pickupStations = [
   {
@@ -55,9 +55,10 @@ const pickupStations = [
     dateAdded: "20/07/2025",
     status: "active" as const,
   },
-]
+];
 
 export default function PickupStationsPage() {
+
   return (
     <div className="space-y-6">
       <LocationTable
@@ -68,5 +69,5 @@ export default function PickupStationsPage() {
         tableTitle="All Pickup stations"
       />
     </div>
-  )
+  );
 }

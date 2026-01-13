@@ -127,12 +127,12 @@ function PickupStationsPage() {
             tableTitle: "All Pickup stations"
         }, void 0, false, {
             fileName: "[project]/app/(dashboard)/app-menu/pickup-stations/page.tsx",
-            lineNumber: 63,
+            lineNumber: 64,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/(dashboard)/app-menu/pickup-stations/page.tsx",
-        lineNumber: 62,
+        lineNumber: 63,
         columnNumber: 5
     }, this);
 }

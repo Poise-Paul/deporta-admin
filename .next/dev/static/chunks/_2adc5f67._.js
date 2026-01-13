@@ -327,6 +327,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "getAllStaffs",
+    ()=>getAllStaffs,
     "useCreateAdmin",
     ()=>useCreateAdmin,
     "useCreateRequest",
@@ -343,7 +345,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$staff$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/staff-slice.ts [app-client] (ecmascript)");
 var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature();
+;
+;
 ;
 ;
 ;
@@ -510,18 +516,21 @@ _s3(useUpdateAccount, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
 });
 const useStatusUpdate = ()=>{
     _s4();
-    // Explicitly typing useMutation<DataReturned, Error, VariablesPassed>
+    // 1. Change the first generic from 'Response' to 'StatusResponse'
+    const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"])();
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
         mutationFn: {
             "useStatusUpdate.useMutation": async (data)=>{
-                // Extracting .data from the AxiosResponse
+                console.log("Status>><,", data.isActive);
                 const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/staff/change-status`, {
                     status: data.isActive,
                     staff_id: data.staffId
                 });
-                return res.data; // This matches your 'Response' type
+                // 2. Return res.data which is now correctly typed as StatusResponse
+                return res.data;
             }
         }["useStatusUpdate.useMutation"],
+        // 3. This now matches perfectly
         onSuccess: {
             "useStatusUpdate.useMutation": (data, variables)=>{
                 __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
@@ -529,7 +538,11 @@ const useStatusUpdate = ()=>{
                         "staffs"
                     ]
                 });
-                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success(`Staff ${variables.isActive ? "De-activated" : "Activated"} successfully`);
+                // Note: check if variables.isActive is the string "active" or a boolean
+                // to make the toast message accurate
+                const isNowActive = variables.isActive === "active";
+                dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$staff$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateStaffStatus"])(variables.isActive));
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success(`Staff ${isNowActive ? "Activated" : "De-activated"} successfully`);
             }
         }["useStatusUpdate.useMutation"],
         onError: {
@@ -544,11 +557,21 @@ const useStatusUpdate = ()=>{
         }["useStatusUpdate.useMutation"]
     });
 };
-_s4(useStatusUpdate, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+_s4(useStatusUpdate, "T3s2FAG2lrcYlFD5lf7SmHd+fr0=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
     ];
 });
+const getAllStaffs = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/staff/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -620,6 +643,7 @@ function StaffDetailPage({ onBack }) {
     const statusMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$staffs$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStatusUpdate"])();
     // Usage
     const handleStatusChange = ()=>{
+        console.log("current status", currentStatus);
         statusMutation.mutate({
             staffId: staffDetails?.user_type.type_id._id || "",
             isActive: currentStatus === "active" ? __TURBOPACK__imported__module__$5b$project$5d2f$types$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ActiveType"].InActive : __TURBOPACK__imported__module__$5b$project$5d2f$types$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ActiveType"].Active
@@ -640,14 +664,14 @@ function StaffDetailPage({ onBack }) {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                lineNumber: 49,
+                                lineNumber: 51,
                                 columnNumber: 11
                             }, this),
                             " Back to Staff List"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/staff/staff-details.tsx",
-                        lineNumber: 48,
+                        lineNumber: 50,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -662,37 +686,37 @@ function StaffDetailPage({ onBack }) {
                                     className: "h-4 w-4 animate-spin mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                    lineNumber: 59,
+                                    lineNumber: 61,
                                     columnNumber: 15
                                 }, this) : isActive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 63,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 65,
                                     columnNumber: 15
                                 }, this),
                                 isActive ? "De-activate Staff" : "Activate Staff"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/staff/staff-details.tsx",
-                            lineNumber: 52,
+                            lineNumber: 54,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/staff/staff-details.tsx",
-                        lineNumber: 51,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/staff/staff-details.tsx",
-                lineNumber: 47,
+                lineNumber: 49,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -711,7 +735,7 @@ function StaffDetailPage({ onBack }) {
                                                 src: staffDetails?.profile_image
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 74,
+                                                lineNumber: 76,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -722,13 +746,13 @@ function StaffDetailPage({ onBack }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 75,
+                                                lineNumber: 77,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 75,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -740,7 +764,7 @@ function StaffDetailPage({ onBack }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 82,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -748,7 +772,7 @@ function StaffDetailPage({ onBack }) {
                                         children: staffDetails?.user_type?.type_id?.role
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 85,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -757,18 +781,18 @@ function StaffDetailPage({ onBack }) {
                                         children: isActive ? "Active Account" : "Inactive Account"
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 88,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                lineNumber: 72,
+                                lineNumber: 74,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                lineNumber: 98,
+                                lineNumber: 100,
                                 columnNumber: 11
                             }, this),
                             staffDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -781,20 +805,20 @@ function StaffDetailPage({ onBack }) {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 102,
+                                                lineNumber: 104,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: staffDetails.email
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 103,
+                                                lineNumber: 105,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 103,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -804,32 +828,32 @@ function StaffDetailPage({ onBack }) {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 106,
+                                                lineNumber: 108,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: staffDetails.phone_number
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 107,
+                                                lineNumber: 109,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 107,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                lineNumber: 100,
+                                lineNumber: 102,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/staff/staff-details.tsx",
-                        lineNumber: 71,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this),
                     staffDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -844,12 +868,12 @@ function StaffDetailPage({ onBack }) {
                                             children: "Staff Information"
                                         }, void 0, false, {
                                             fileName: "[project]/components/staff/staff-details.tsx",
-                                            lineNumber: 118,
+                                            lineNumber: 120,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 119,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -860,12 +884,12 @@ function StaffDetailPage({ onBack }) {
                                                 value: staffDetails?.first_name,
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {}, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                                    lineNumber: 124,
+                                                    lineNumber: 126,
                                                     columnNumber: 25
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 123,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -873,12 +897,12 @@ function StaffDetailPage({ onBack }) {
                                                 value: staffDetails?.last_name,
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {}, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                                    lineNumber: 129,
+                                                    lineNumber: 131,
                                                     columnNumber: 25
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 126,
+                                                lineNumber: 128,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -886,12 +910,12 @@ function StaffDetailPage({ onBack }) {
                                                 value: new Date(staffDetails.createdAt).toLocaleDateString(),
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {}, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                                    lineNumber: 139,
+                                                    lineNumber: 141,
                                                     columnNumber: 25
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 138,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -899,12 +923,12 @@ function StaffDetailPage({ onBack }) {
                                                 value: staffDetails.user_type?.type_id?.role,
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"], {}, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 146,
                                                     columnNumber: 25
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 141,
+                                                lineNumber: 143,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -914,24 +938,24 @@ function StaffDetailPage({ onBack }) {
                                                     className: "text-green-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-details.tsx",
-                                                    lineNumber: 149,
+                                                    lineNumber: 151,
                                                     columnNumber: 25
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 146,
+                                                lineNumber: 148,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 120,
+                                        lineNumber: 122,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                lineNumber: 116,
+                                lineNumber: 118,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -943,12 +967,12 @@ function StaffDetailPage({ onBack }) {
                                             children: "Danger Zone"
                                         }, void 0, false, {
                                             fileName: "[project]/components/staff/staff-details.tsx",
-                                            lineNumber: 156,
+                                            lineNumber: 158,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 155,
+                                        lineNumber: 157,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -958,51 +982,52 @@ function StaffDetailPage({ onBack }) {
                                                 children: "De-activating this account will immediately revoke all access to the Deporta Logistics Admin panels."
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 161,
+                                                lineNumber: 163,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                disabled: true,
                                                 variant: "outline",
                                                 className: "text-destructive border-destructive hover:bg-destructive/10",
                                                 children: "Reset Password for Staff"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                                lineNumber: 165,
+                                                lineNumber: 167,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-details.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 162,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-details.tsx",
-                                lineNumber: 154,
+                                lineNumber: 156,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/staff/staff-details.tsx",
-                        lineNumber: 115,
+                        lineNumber: 117,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/staff/staff-details.tsx",
-                lineNumber: 69,
+                lineNumber: 71,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/staff/staff-details.tsx",
-                lineNumber: 176,
+                lineNumber: 179,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/staff/staff-details.tsx",
-        lineNumber: 45,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 }
@@ -1022,7 +1047,7 @@ function InfoItem({ label, value, icon }) {
                 children: icon
             }, void 0, false, {
                 fileName: "[project]/components/staff/staff-details.tsx",
-                lineNumber: 192,
+                lineNumber: 195,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1032,7 +1057,7 @@ function InfoItem({ label, value, icon }) {
                         children: label
                     }, void 0, false, {
                         fileName: "[project]/components/staff/staff-details.tsx",
-                        lineNumber: 196,
+                        lineNumber: 199,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1040,19 +1065,19 @@ function InfoItem({ label, value, icon }) {
                         children: value
                     }, void 0, false, {
                         fileName: "[project]/components/staff/staff-details.tsx",
-                        lineNumber: 199,
+                        lineNumber: 202,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/staff/staff-details.tsx",
-                lineNumber: 195,
+                lineNumber: 198,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/staff/staff-details.tsx",
-        lineNumber: 191,
+        lineNumber: 194,
         columnNumber: 5
     }, this);
 }

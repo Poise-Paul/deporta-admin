@@ -874,6 +874,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
         if (activeTab === "inactive") return location.status === "inactive";
         return true;
     });
+    const pickupStationMutation = usePick;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
         className: "bg-card border border-border",
         children: [
@@ -889,7 +890,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 57,
+                                    lineNumber: 58,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -899,13 +900,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                     className: "pl-9 w-72 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 58,
+                                    lineNumber: 59,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/location-table.tsx",
-                            lineNumber: 56,
+                            lineNumber: 57,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -921,12 +922,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                             children: tab.id === "all" ? `All ${title}` : tab.label
                                         }, tab.id, false, {
                                             fileName: "[project]/components/shared/location-table.tsx",
-                                            lineNumber: 70,
+                                            lineNumber: 71,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 68,
+                                    lineNumber: 69,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -937,12 +938,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/location-table.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 88,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 86,
+                                    lineNumber: 87,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -958,19 +959,19 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                         className: "h-4 w-4 mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 94,
                                                         columnNumber: 19
                                                     }, this),
                                                     addButtonText
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 92,
+                                                lineNumber: 93,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/location-table.tsx",
-                                            lineNumber: 91,
+                                            lineNumber: 92,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -984,12 +985,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                        lineNumber: 99,
+                                                        lineNumber: 100,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 98,
+                                                    lineNumber: 99,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1003,7 +1004,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                     children: "Location Name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 103,
+                                                                    lineNumber: 104,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1011,13 +1012,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                     placeholder: "Enter location name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 104,
+                                                                    lineNumber: 105,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/location-table.tsx",
-                                                            lineNumber: 102,
+                                                            lineNumber: 103,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1028,7 +1029,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                     children: "Area"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 107,
+                                                                    lineNumber: 108,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1036,13 +1037,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                     placeholder: "Enter area"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 108,
+                                                                    lineNumber: 109,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/location-table.tsx",
-                                                            lineNumber: 106,
+                                                            lineNumber: 107,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1053,7 +1054,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                     children: "State / Country"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 111,
+                                                                    lineNumber: 112,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1061,13 +1062,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                     placeholder: "Enter state/country"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 112,
+                                                                    lineNumber: 113,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/location-table.tsx",
-                                                            lineNumber: 110,
+                                                            lineNumber: 111,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1078,42 +1079,42 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/location-table.tsx",
-                                                            lineNumber: 114,
+                                                            lineNumber: 115,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 101,
+                                                    lineNumber: 102,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/location-table.tsx",
-                                            lineNumber: 97,
+                                            lineNumber: 98,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/location-table.tsx",
-                            lineNumber: 67,
+                            lineNumber: 68,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/shared/location-table.tsx",
-                    lineNumber: 54,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/shared/location-table.tsx",
-                lineNumber: 53,
+                lineNumber: 54,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1126,12 +1127,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                             children: tableTitle
                         }, void 0, false, {
                             fileName: "[project]/components/shared/location-table.tsx",
-                            lineNumber: 126,
+                            lineNumber: 127,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/location-table.tsx",
-                        lineNumber: 125,
+                        lineNumber: 126,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1148,7 +1149,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "Name"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 133,
+                                                lineNumber: 134,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1156,7 +1157,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "Area"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 134,
+                                                lineNumber: 135,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1164,7 +1165,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "State / Country"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 135,
+                                                lineNumber: 136,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1172,7 +1173,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "Added By"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 137,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1180,7 +1181,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "Date Added"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 137,
+                                                lineNumber: 138,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1188,25 +1189,25 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 138,
+                                                lineNumber: 139,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 139,
+                                                lineNumber: 140,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/location-table.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 133,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 132,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -1218,7 +1219,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                     children: location.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 145,
+                                                    lineNumber: 146,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1226,7 +1227,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                     children: location.area
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 147,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1234,7 +1235,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                     children: location.state
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 148,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1242,7 +1243,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                     children: location.addedBy
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 148,
+                                                    lineNumber: 149,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1250,7 +1251,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                     children: location.dateAdded
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 149,
+                                                    lineNumber: 150,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1261,12 +1262,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                         children: location.status === "active" ? "Active" : "In-active"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                        lineNumber: 151,
+                                                        lineNumber: 152,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 150,
+                                                    lineNumber: 151,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1283,17 +1284,17 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                                        lineNumber: 167,
+                                                                        lineNumber: 168,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                                    lineNumber: 166,
+                                                                    lineNumber: 167,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                                lineNumber: 165,
+                                                                lineNumber: 166,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -1305,14 +1306,14 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                                 className: "h-4 w-4 mr-2"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                                                lineNumber: 172,
+                                                                                lineNumber: 173,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             "View"
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                                        lineNumber: 171,
+                                                                        lineNumber: 172,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1320,46 +1321,46 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                                         children: location.status === "active" ? "De-activate" : "Activate"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                                        lineNumber: 175,
+                                                                        lineNumber: 176,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                                lineNumber: 170,
+                                                                lineNumber: 171,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/location-table.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 165,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/location-table.tsx",
-                                                    lineNumber: 163,
+                                                    lineNumber: 164,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, location.id, true, {
                                             fileName: "[project]/components/shared/location-table.tsx",
-                                            lineNumber: 144,
+                                            lineNumber: 145,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/location-table.tsx",
-                                    lineNumber: 142,
+                                    lineNumber: 143,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/location-table.tsx",
-                            lineNumber: 130,
+                            lineNumber: 131,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/location-table.tsx",
-                        lineNumber: 129,
+                        lineNumber: 130,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1375,18 +1376,18 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                             children: "of 8"
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/location-table.tsx",
-                                            lineNumber: 192,
+                                            lineNumber: 193,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/location-table.tsx",
-                                        lineNumber: 191,
+                                        lineNumber: 192,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/location-table.tsx",
-                                lineNumber: 189,
+                                lineNumber: 190,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1397,7 +1398,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                         children: "1 - Page"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/location-table.tsx",
-                                        lineNumber: 196,
+                                        lineNumber: 197,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1411,7 +1412,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "<"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 198,
+                                                lineNumber: 199,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1421,7 +1422,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "1"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 202,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1431,7 +1432,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: "2"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 208,
+                                                lineNumber: 209,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1441,37 +1442,37 @@ function LocationTable({ title, addButtonText, searchPlaceholder, locations, tab
                                                 children: ">"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/location-table.tsx",
-                                                lineNumber: 211,
+                                                lineNumber: 212,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/location-table.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 198,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/location-table.tsx",
-                                lineNumber: 195,
+                                lineNumber: 196,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/location-table.tsx",
-                        lineNumber: 188,
+                        lineNumber: 189,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/location-table.tsx",
-                lineNumber: 124,
+                lineNumber: 125,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/shared/location-table.tsx",
-        lineNumber: 52,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 }

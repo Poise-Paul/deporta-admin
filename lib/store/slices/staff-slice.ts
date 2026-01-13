@@ -16,9 +16,15 @@ const staffSlice = createSlice({
     updateSelStaff: (state, action) => {
       state.staffDetails = action.payload;
     },
+    updateStaffStatus: (state, action) => {
+      if (state.staffDetails?.user_type?.type_id) {
+        state.staffDetails.user_type.type_id.status = action.payload; //
+      }
+    },
     resetStaff: () => initialState,
   },
 });
 
-export const { updateSelStaff, resetStaff } = staffSlice.actions;
+export const { updateSelStaff, resetStaff, updateStaffStatus } =
+  staffSlice.actions;
 export default staffSlice.reducer;

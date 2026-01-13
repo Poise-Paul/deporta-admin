@@ -7,11 +7,15 @@ import {
   ErrorrResponse,
   ProfileUpdate,
   Response,
+  StaffDashboardStats,
   StatusPayload,
+  StatusResponse,
 } from "@/types";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { queryClient } from "../queryClient";
+import { useDispatch } from "react-redux";
+import { updateSelStaff, updateStaffStatus } from "@/lib/store/slices/staff-slice";
 
 export const useCreateAdmin = () => {
   return useMutation({
@@ -139,24 +143,30 @@ export const useUpdateAccount = () => {
 // Mutation for Toggle Status (Activate/Deactivate)
 
 export const useStatusUpdate = () => {
-  // Explicitly typing useMutation<DataReturned, Error, VariablesPassed>
-  return useMutation<Response, Error, StatusPayload>({
+  // 1. Change the first generic from 'Response' to 'StatusResponse'
+  const dispatch = useDispatch();
+  return useMutation<StatusResponse, Error, StatusPayload>({
     mutationFn: async (data: StatusPayload) => {
-
-      // Extracting .data from the AxiosResponse
+        console.log("Status>><,", data.isActive);
+        
       const res = await api.patch(`/api/users/admin/staff/change-status`, {
         status: data.isActive,
         staff_id: data.staffId,
       });
 
-      return res.data; // This matches your 'Response' type
+      // 2. Return res.data which is now correctly typed as StatusResponse
+      return res.data;
     },
-    onSuccess: (data, variables) => {
+    // 3. This now matches perfectly
+    onSuccess: (data: StatusResponse, variables) => {
       queryClient.invalidateQueries({ queryKey: ["staffs"] });
+
+      // Note: check if variables.isActive is the string "active" or a boolean
+      // to make the toast message accurate
+      const isNowActive = variables.isActive === "active";
+      dispatch(updateStaffStatus(variables.isActive));
       toast.success(
-        `Staff ${
-          variables.isActive ? "De-activated" : "Activated"
-        } successfully`
+        `Staff ${isNowActive ? "Activated" : "De-activated"} successfully`
       );
     },
     onError: (error) => {
@@ -168,4 +178,15 @@ export const useStatusUpdate = () => {
       }
     },
   });
+};
+
+
+export const getAllStaffs = async (): Promise<StaffDashboardStats> => {
+  try {
+    const res = await api.get("/api/users/admin/staff/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
 };

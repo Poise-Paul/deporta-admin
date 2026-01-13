@@ -1,34 +1,47 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowUpRight, Wallet, Users, MapPin, Bus } from "lucide-react"
-
-const stats = [
-  {
-    title: "Total made today",
-    value: "₦ 585,984.87",
-    icon: Wallet,
-    color: "bg-primary/10 text-primary",
-  },
-  {
-    title: "Admin Staffs",
-    value: "28",
-    icon: Users,
-    color: "bg-secondary/10 text-secondary",
-  },
-  {
-    title: "Ongoing Trips",
-    value: "913",
-    icon: MapPin,
-    color: "bg-pink-100 text-pink-600",
-  },
-  {
-    title: "Users on the app",
-    value: "500",
-    icon: Bus,
-    color: "bg-blue-100 text-blue-600",
-  },
-]
+import { getAllStaffs } from "@/api/staffs";
+import { getAllCustomers } from "@/api/user";
+import { Card, CardContent } from "@/components/ui/card";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowUpRight, Wallet, Users, MapPin, Bus } from "lucide-react";
 
 export function DashboardStats() {
+  const { data: adminData } = useQuery({
+    queryKey: ["adminDashboard"],
+    queryFn: () => getAllStaffs(),
+  });
+
+  const { data: customertData } = useQuery({
+    queryKey: ["customerDashboard"],
+    queryFn: () => getAllCustomers(),
+  });
+
+  const stats = [
+    {
+      title: "Total made today",
+      value: "₦ 585,984.87",
+      icon: Wallet,
+      color: "bg-primary/10 text-primary",
+    },
+    {
+      title: "Total Staffs",
+      value: adminData?.staffs ? adminData?.staffs[0].count : "0",
+      icon: Users,
+      color: "bg-secondary/10 text-secondary",
+    },
+    {
+      title: "Ongoing Trips",
+      value: "913",
+      icon: MapPin,
+      color: "bg-pink-100 text-pink-600",
+    },
+    {
+      title: "Customers on the app",
+      value: customertData?.customers ? customertData?.customers[0].count : "0",
+      icon: Bus,
+      color: "bg-blue-100 text-blue-600",
+    },
+  ];
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat) => (
@@ -51,5 +64,5 @@ export function DashboardStats() {
         </Card>
       ))}
     </div>
-  )
+  );
 }

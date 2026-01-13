@@ -1,4 +1,10 @@
-import { StaffListResponse, UserDataResponse } from "@/types";
+import {
+  CustomerDashboardStats,
+  DriverDashboardStats,
+  StaffDashboardStats,
+  StaffListResponse,
+  UserDataResponse,
+} from "@/types";
 import { api } from "../axios";
 import { store } from "@/lib/store";
 
@@ -20,5 +26,37 @@ export const getStaffList = async (): Promise<StaffListResponse> => {
   } catch (error) {
     console.error("Fetch User Error:", error);
     throw error;
+  }
+};
+
+export const getAllCustomers = async (): Promise<CustomerDashboardStats> => {
+  try {
+    const res = await api.get("/api/users/admin/staff/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
+};
+
+export const getAllDrivers = async (): Promise<DriverDashboardStats> => {
+  try {
+    const res = await api.get("/api/users/admin/driver/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Drivers Error:", error);
+    // Return a default structure so the UI doesn't break
+    return { data: [], total: 0 } as unknown as DriverDashboardStats;
+  }
+};
+
+export const getOnsiteDrivers = async (): Promise<DriverDashboardStats> => {
+  try {
+    const res = await api.get("/api/users/admin/onsite-driver/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Onsite Drivers Error:", error);
+    // Return a default structure
+    return { data: [], total: 0 } as unknown as DriverDashboardStats;
   }
 };

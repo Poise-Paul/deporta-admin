@@ -1,42 +1,70 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp } from "lucide-react"
+"use client";
 
-const stats = [
-  {
-    title: "Total users today",
-    value: "512",
-    change: "+18.2%",
-    borderColor: "border-l-primary",
-  },
-  {
-    title: "Total drivers today",
-    value: "318",
-    change: "+18.2%",
-    borderColor: "border-l-secondary",
-  },
-  {
-    title: "Total customers today",
-    value: "194",
-    change: "+18.2%",
-    borderColor: "border-l-pink-500",
-  },
-  {
-    title: "Total drivers on site",
-    value: "200",
-    change: "+18.2%",
-    borderColor: "border-l-green-500",
-  },
-]
+import { getAllCustomers, getAllDrivers, getOnsiteDrivers } from "@/api/user";
+import { Card, CardContent } from "@/components/ui/card";
+import { useQuery } from "@tanstack/react-query";
+import { TrendingUp } from "lucide-react";
 
 export function UserManagementStats() {
+  const { data: driverData } = useQuery({
+    queryKey: ["driverDashboard"],
+    queryFn: () => getAllDrivers(),
+    retry: false,
+  });
+
+  const { data: customerData } = useQuery({
+    queryKey: ["customerDashboard"],
+    queryFn: () => getAllCustomers(),
+  });
+
+  const { data: onsiteData } = useQuery({
+    queryKey: ["onsiteDashboard"],
+    queryFn: () => getOnsiteDrivers(),
+    retry: false,
+  });
+
+  const stats = [
+    {
+      title: "Total users today",
+      value: "512",
+      change: "+18.2%",
+      borderColor: "border-l-primary",
+    },
+    {
+      title: "Total drivers today",
+      value: driverData?.drivers ? driverData?.drivers[0].count : "0",
+      change: "+18.2%",
+      borderColor: "border-l-secondary",
+    },
+    {
+      title: "Total customers today",
+      value: customerData?.customers ? customerData?.customers[0].count : "0",
+      change: "+18.2%",
+      borderColor: "border-l-pink-500",
+    },
+    {
+      title: "Total drivers on site",
+      value: onsiteData?.drivers ? onsiteData?.drivers[0].count : "0",
+      change: "+18.2%",
+      borderColor: "border-l-green-500",
+    },
+  ];
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat) => (
-        <Card key={stat.title} className={`bg-card border border-border border-l-4 ${stat.borderColor}`}>
+        <Card
+          key={stat.title}
+          className={`bg-card border border-border border-l-4 ${stat.borderColor}`}
+        >
           <CardContent className="p-4">
-            <p className="text-sm font-medium text-foreground">{stat.title.split(" ").slice(0, 2).join(" ")}</p>
+            <p className="text-sm font-medium text-foreground">
+              {stat.title.split(" ").slice(0, 2).join(" ")}
+            </p>
             <div className="flex items-center gap-2 mt-1">
-              <span className="text-2xl font-bold text-foreground">{stat.value}</span>
+              <span className="text-2xl font-bold text-foreground">
+                {stat.value}
+              </span>
               <span className="text-xs text-green-600 flex items-center gap-0.5 bg-green-50 px-1.5 py-0.5 rounded">
                 {stat.change}
                 <TrendingUp className="h-3 w-3" />
@@ -47,5 +75,5 @@ export function UserManagementStats() {
         </Card>
       ))}
     </div>
-  )
+  );
 }

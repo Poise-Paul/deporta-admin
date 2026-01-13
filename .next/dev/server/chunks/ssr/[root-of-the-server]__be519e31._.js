@@ -1070,6 +1070,8 @@ const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
 "use strict";
 
 __turbopack_context__.s([
+    "getAllStaffs",
+    ()=>getAllStaffs,
     "useCreateAdmin",
     ()=>useCreateAdmin,
     "useCreateRequest",
@@ -1086,6 +1088,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$staff$2d$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/staff-slice.ts [app-ssr] (ecmascript)");
+;
+;
 ;
 ;
 ;
@@ -1203,24 +1209,30 @@ const useUpdateAccount = ()=>{
     });
 };
 const useStatusUpdate = ()=>{
-    // Explicitly typing useMutation<DataReturned, Error, VariablesPassed>
+    // 1. Change the first generic from 'Response' to 'StatusResponse'
+    const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useDispatch"])();
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMutation"])({
         mutationFn: async (data)=>{
-            const newStatus = data.isActive ? "in-active" : "active";
-            // Extracting .data from the AxiosResponse
+            console.log("Status>><,", data.isActive);
             const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/staff/change-status`, {
-                status: newStatus,
+                status: data.isActive,
                 staff_id: data.staffId
             });
-            return res.data; // This matches your 'Response' type
+            // 2. Return res.data which is now correctly typed as StatusResponse
+            return res.data;
         },
+        // 3. This now matches perfectly
         onSuccess: (data, variables)=>{
             __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
                 queryKey: [
                     "staffs"
                 ]
             });
-            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"].success(`Staff ${variables.isActive ? "De-activated" : "Activated"} successfully`);
+            // Note: check if variables.isActive is the string "active" or a boolean
+            // to make the toast message accurate
+            const isNowActive = variables.isActive === "active";
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$staff$2d$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateStaffStatus"])(variables.isActive));
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"].success(`Staff ${isNowActive ? "Activated" : "De-activated"} successfully`);
         },
         onError: (error)=>{
             if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
@@ -1232,11 +1244,26 @@ const useStatusUpdate = ()=>{
         }
     });
 };
+const getAllStaffs = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/staff/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
 }),
 "[project]/api/user/index.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
+    "getAllCustomers",
+    ()=>getAllCustomers,
+    "getAllDrivers",
+    ()=>getAllDrivers,
+    "getOnsiteDrivers",
+    ()=>getOnsiteDrivers,
     "getStaffList",
     ()=>getStaffList,
     "getUser",
@@ -1260,6 +1287,41 @@ const getStaffList = async ()=>{
     } catch (error) {
         console.error("Fetch User Error:", error);
         throw error;
+    }
+};
+const getAllCustomers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/staff/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const getAllDrivers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/driver/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Drivers Error:", error);
+        // Return a default structure so the UI doesn't break
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getOnsiteDrivers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/onsite-driver/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
     }
 };
 }),

@@ -34,6 +34,8 @@ export function StaffDetailPage({ onBack }: { onBack: () => void }) {
 
   // Usage
   const handleStatusChange = () => {
+    console.log("current status", currentStatus);
+    
     statusMutation.mutate({
       staffId: staffDetails?.user_type.type_id._id || "",
       isActive:
@@ -163,6 +165,7 @@ export function StaffDetailPage({ onBack }: { onBack: () => void }) {
                   to the Deporta Logistics Admin panels.
                 </p>
                 <Button
+                disabled
                   variant="outline"
                   className="text-destructive border-destructive hover:bg-destructive/10"
                 >

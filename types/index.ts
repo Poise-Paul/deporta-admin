@@ -50,6 +50,13 @@ export type AddStaffPayload = {
   otp?: string;
 };
 
+export type AddPickupStationPayload = {
+  address: string;
+  area: string;
+  state: string;
+  country: string;
+};
+
 export type UserData = {
   user_type: UserType;
   _id: string;
@@ -108,6 +115,39 @@ export type StatusPayload = {
   staffId: string;
 };
 
+export type TypeId = {
+  _id: string;
+  role: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  status: string;
+};
+
+export type DashboardStats = {
+  _id: string;
+  count: number;
+};
+
+export type StaffDashboardStats = {
+  status: boolean;
+  staffs: DashboardStats[];
+};
+
+export type CustomerDashboardStats = {
+  status: boolean;
+  customers: DashboardStats[];
+};
+
+export type DriverDashboardStats = {
+  status: boolean;
+  drivers: DashboardStats[];
+};
+
+export interface StatusResponse extends Response {
+  staffs: TypeId;
+}
+
 export type StaffData = {
   _id: string;
   first_name: string;
@@ -119,14 +159,7 @@ export type StaffData = {
   password: string;
   user_type: {
     value: string;
-    type_id: {
-      _id: string;
-      role: string;
-      createdAt: string;
-      updatedAt: string;
-      __v: number;
-      status: string;
-    };
+    type_id: TypeId;
   };
   verify_email: boolean;
   deactivate: boolean;
@@ -141,6 +174,49 @@ export type StaffListResponse = {
   status: boolean;
   staffs: {
     data: StaffData[];
+    pagination: {
+      limit: number;
+      page: number;
+      count: number;
+      totalPages: number;
+    };
+  };
+};
+
+export type PickupStation = {
+  address: string;
+  area: string;
+  state: string;
+  country: string;
+  added_by: string;
+  status: string;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export interface PickupStationResponse extends Response {
+  pickup_station: PickupStation;
+}
+
+export type PickupStationDetails = {
+  status: boolean;
+  pickup_station: {
+    data: [
+      {
+        _id: string;
+        address: string;
+        area: string;
+        state: string;
+        country: string;
+        added_by: StaffData;
+        status: ActiveType;
+        createdAt: string;
+        updatedAt: string;
+        __v: number;
+      }
+    ];
     pagination: {
       limit: number;
       page: number;
