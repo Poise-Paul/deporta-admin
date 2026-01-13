@@ -122,7 +122,8 @@ const persistConfig = {
 };
 const rootReducer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$redux$2f$dist$2f$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["combineReducers"])({
     auth: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$auth$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
-    ui: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$ui$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]
+    ui: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$ui$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
+    staff
 });
 const persistedReducer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$redux$2d$persist$2f$es$2f$persistReducer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__persistReducer$3e$__["persistReducer"])(persistConfig, rootReducer);
 const store = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["configureStore"])({

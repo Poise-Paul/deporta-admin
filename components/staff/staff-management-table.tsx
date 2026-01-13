@@ -35,6 +35,10 @@ import { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { getStaffList } from "@/api/user";
 import { queryClient } from "@/api/queryClient";
+import { Skeleton } from "../ui/skeleton";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { updateSelStaff } from "@/lib/store/slices/staff-slice";
 
 type StaffTab = "all" | "active" | "inactive";
 
@@ -56,7 +60,8 @@ export function StaffManagementTable() {
     data: staffData,
     error: staffError,
     refetch: refetchStaffs,
-    isLoading: userLoader,
+    isRefetching,
+    isLoading: staffLoader,
   } = useQuery({
     queryKey: ["staffs"],
     retry: false,
@@ -170,6 +175,37 @@ export function StaffManagementTable() {
     role,
   ]);
 
+  const TableRowSkeleton = () => (
+    <tr className="border-b border-border animate-pulse">
+      <td className="p-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-20" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-40" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-24" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-28" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-8 w-8 rounded-md" />
+      </td>
+    </tr>
+  );
+
+  const router = useRouter();
+  const dispatch = useDispatch();
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -212,7 +248,7 @@ export function StaffManagementTable() {
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                  <Plus className="h-4 w-4 mr-2" />
+                  <Plus className="h-4 w-4" />
                   Add Staff
                 </Button>
               </DialogTrigger>
@@ -358,6 +394,9 @@ export function StaffManagementTable() {
         </div>
 
         <div className="overflow-x-auto">
+          {isRefetching && !staffLoader && (
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary animate-pulse z-10" />
+          )}
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
@@ -383,76 +422,93 @@ export function StaffManagementTable() {
               </tr>
             </thead>
             <tbody>
-              {filteredStaff?.map((staff) => (
-                <tr
-                  key={staff._id}
-                  className="border-b border-border last:border-0 hover:bg-muted/50"
-                >
-                  <td className="p-4">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage
-                          src={staff.profile_image || "/placeholder.svg"}
-                          alt={staff.first_name}
-                        />
-                        <AvatarFallback>
-                          {staff.first_name.charAt(0)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="font-medium text-sm">
-                        {staff.first_name} {staff.last_name}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {staff.user_type.type_id.role}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {staff.email}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {staff.phone_number}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {new Date(staff.createdAt).toDateString()}
-                  </td>
-                  <td className="p-4">
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "font-normal",
-                        staff.user_type.type_id.status === "active"
-                          ? "border-green-500 text-green-600 bg-green-50"
-                          : "border-orange-500 text-orange-600 bg-orange-50"
-                      )}
-                    >
-                      {staff.user_type.type_id.status === "active"
-                        ? "Active"
-                        : "In-active"}
-                    </Badge>
-                  </td>
-                  <td className="p-4">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem>
-                          <Eye className="h-4 w-4 mr-2" />
-                          View
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">
-                          {staff.user_type.type_id.status === "active"
-                            ? "De-activate"
-                            : "Activate"}
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </td>
-                </tr>
-              ))}
+              {staffLoader ? (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <TableRowSkeleton key={i} />
+                  ))}
+                </>
+              ) : (
+                filteredStaff?.map((staff) => (
+                  <tr
+                    key={staff._id}
+                    className="border-b border-border last:border-0 hover:bg-muted/50"
+                  >
+                    <td className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage
+                            src={staff.profile_image || "/placeholder.svg"}
+                            alt={staff.first_name}
+                          />
+                          <AvatarFallback>
+                            {staff.first_name.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="font-medium text-sm">
+                          {staff.first_name} {staff.last_name}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {staff.user_type.type_id.role}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {staff.email}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {staff.phone_number}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {new Date(staff.createdAt).toDateString()}
+                    </td>
+                    <td className="p-4">
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          staff.user_type.type_id.status === "active"
+                            ? "border-green-500 text-green-600 bg-green-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50"
+                        )}
+                      >
+                        {staff.user_type.type_id.status === "active"
+                          ? "Active"
+                          : "In-active"}
+                      </Badge>
+                    </td>
+                    <td className="p-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <MoreVertical className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            onClick={() => {
+                              dispatch(updateSelStaff(staff));
+                              router.push(`/staff/${staff._id}`);
+                            }}
+                          >
+                            <Eye className="h-4 w-4 mr-2" />
+                            View
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="text-destructive">
+                            {staff.user_type.type_id.status === "active"
+                              ? "De-activate"
+                              : "Activate"}
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

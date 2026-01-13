@@ -90,11 +90,22 @@ export type NewPasswordPayload = {
 };
 
 export type ProfileUpdate = {
-  image: string;
+  image?: File | null; // for upload
+  imageUrl?: string | undefined; // for display
   first_name: string;
   last_name: string;
   phone_number: string;
   date_of_birth: string;
+};
+
+export enum ActiveType {
+  Active = "active",
+  InActive = "in-active",
+}
+
+export type StatusPayload = {
+  isActive: ActiveType;
+  staffId: string;
 };
 
 export type StaffData = {

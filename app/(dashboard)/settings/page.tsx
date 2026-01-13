@@ -30,6 +30,7 @@ import { Toaster } from "react-hot-toast";
 import { PasswordInput } from "@/components/ui/password-input";
 import { useChangePassword } from "@/api/onboarding";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { format } from "date-fns";
 
 export default function SettingsPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,8 +40,7 @@ export default function SettingsPage() {
   const [passwordLoader, setPasswordLoader] = useState(false);
 
   const [profoileLoader, setProfileLoader] = useState(false);
-
-  const [preview, setPreview] = useState<string | null>(null);
+  const [holdProfile, setHoldProfile] = useState(true);
 
   // get the current user
   const {
@@ -53,6 +53,9 @@ export default function SettingsPage() {
     retry: false,
     queryFn: () => getUser(),
   });
+
+  const dobRaw = userData?.user?.date_of_birth;
+  const dobFormatted = dobRaw ? format(new Date(dobRaw), "yyyy-MM-dd") : "";
 
   const {
     register,
@@ -68,16 +71,32 @@ export default function SettingsPage() {
   const {
     register: profileRegister,
     handleSubmit: profileHandleSubmit,
+    setValue,
     watch: profileWatch,
     formState: { errors: profileErrors },
   } = useForm<ProfileUpdate>({
     defaultValues: {
+      imageUrl: userData?.user.profile_image, // string URL for display
       first_name: userData?.user.first_name,
       last_name: userData?.user.last_name,
       phone_number: userData?.user.phone_number,
-      date_of_birth: userData?.user.date_of_birth,
+      date_of_birth: dobFormatted,
     },
   });
+
+  useEffect(() => {
+    if (userData?.user?.date_of_birth) {
+      const formatted = format(
+        new Date(userData.user.date_of_birth),
+        "yyyy-MM-dd"
+      );
+      setValue("date_of_birth", formatted);
+      setValue("phone_number", userData.user.phone_number);
+      setValue("first_name", userData.user.first_name);
+      setValue("last_name", userData.user.last_name);
+      setValue("imageUrl", userData.user.profile_image);
+    }
+  }, [userData, setValue]);
 
   const handleWatch = watch();
   const handleProfileWatch = profileWatch();
@@ -87,8 +106,7 @@ export default function SettingsPage() {
 
   const { email, otp, password, confirm_password } = handleWatch;
 
-  const { first_name, last_name, phone_number, date_of_birth } =
-    handleProfileWatch;
+  const imageUrl = profileWatch("imageUrl");
 
   const handleRequestEdit = () => {
     setIsLoading(true);
@@ -126,25 +144,54 @@ export default function SettingsPage() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setPreview(objectUrl);
+      setValue("image", file); // File for upload
+      setValue("imageUrl", URL.createObjectURL(file)); // Preview URL for display
     }
   };
 
   const profileUpdateMutation = useUpdateAccount();
 
+  const { first_name, last_name, phone_number, date_of_birth, image } =
+    handleProfileWatch;
+
   const handleProfileUpdate = () => {
     setProfileLoader(true);
-    profileUpdateMutation.mutate({
-      image:
-        preview ||
-        "https://globalyoungacademy.net/wp-content/uploads/gyaAvatars/1698918174-bpfull-600x600.png",
+    profileUpdateMutation.mutate(
+      {
+        image,
+        first_name,
+        last_name,
+        phone_number,
+        date_of_birth,
+      },
+      {
+        onSettled: () => setProfileLoader(false),
+      }
+    );
+  };
+
+  useEffect(() => {
+    if (!userData?.user) return; // ⛔ skip until userData is ready
+
+    const {
       first_name,
       last_name,
       phone_number,
       date_of_birth,
-    });
-  };
+      profile_image,
+    } = userData.user;
+
+    const imageUrl = profile_image || ""; // fallback if needed
+
+    const allFilled =
+      !!first_name &&
+      !!last_name &&
+      !!phone_number &&
+      !!date_of_birth &&
+      !!imageUrl;
+
+    setHoldProfile(!allFilled);
+  }, [userData]);
 
   return (
     <div className="space-y-6 max-w-3xl">
@@ -161,11 +208,8 @@ export default function SettingsPage() {
               <Avatar className="h-20 w-20">
                 <AvatarImage
                   className="object-cover"
-                  src={
-                    preview ||
-                    "https://globalyoungacademy.net/wp-content/uploads/gyaAvatars/1698918174-bpfull-600x600.png"
-                  }
-                  alt={"profile_img"}
+                  src={imageUrl}
+                  alt="profile_img"
                 />
                 <AvatarFallback>
                   {userData?.user?.first_name.charAt(0)}
@@ -178,11 +222,19 @@ export default function SettingsPage() {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
-              <Input id="firstName" defaultValue={userData?.user?.first_name} />
+              <Input
+                id="firstName"
+                {...profileRegister("first_name")}
+                defaultValue={userData?.user?.first_name}
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="lastName">Last Name</Label>
-              <Input id="lastName" defaultValue={userData?.user?.last_name} />
+              <Input
+                id="lastName"
+                {...profileRegister("last_name")}
+                defaultValue={userData?.user?.last_name}
+              />
             </div>
           </div>
           <div className="space-y-2">
@@ -190,18 +242,45 @@ export default function SettingsPage() {
             <Input
               id="email"
               type="email"
+              readOnly
+              disabled
               defaultValue={userData?.user?.email}
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input id="phone" defaultValue={userData?.user?.phone_number} />
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input
+                id="phone_number"
+                {...profileRegister("phone_number")}
+                defaultValue={userData?.user?.phone_number}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="date">Date Of Birth</Label>
+              <Input
+                id="date"
+                {...profileRegister("date_of_birth")}
+                type="date"
+                defaultValue={dobFormatted}
+              />
+            </div>
           </div>
+
           <Button
             onClick={handleProfileUpdate}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            className={`bg-primary ${
+              holdProfile || profoileLoader ? "opacity-30" : ""
+            } hover:bg-primary/90 text-primary-foreground`}
           >
-            Save Changes
+            {profoileLoader ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Saving...
+              </>
+            ) : (
+              "Save Changes"
+            )}
           </Button>
         </CardContent>
       </Card>
@@ -299,7 +378,10 @@ export default function SettingsPage() {
             } hover:bg-primary/90 text-primary-foreground`}
           >
             {passwordLoader ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Loading...
+              </>
             ) : (
               "Update Password"
             )}
