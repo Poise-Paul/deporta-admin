@@ -234,3 +234,2306 @@ Import traces:
 [10:53:12.623] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [10:53:12.623] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [10:53:14.723] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768523830977}
+[10:59:05.253] Server  LOG      ✓ Compiled in 30ms
+[10:59:13.059] Server  LOG      ✓ Compiled in 30ms
+[10:59:33.013] Server  LOG      ✓ Compiled in 29ms
+[10:59:35.811] Server  LOG      ✓ Compiled in 26ms
+[10:59:39.169] Server  LOG      ✓ Compiled in 20ms
+[10:59:52.002] Server  LOG      ✓ Compiled in 18ms
+[11:01:19.625] Server  LOG      ✓ Compiled in 16ms
+[11:04:53.531] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524529781}
+[11:04:59.909] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:04:59.909] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:05:15.851] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524552116}
+[11:05:19.666] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524555928}
+[11:05:48.153] Server  LOG      ✓ Compiled in 31ms
+[11:05:49.028] Browser ERROR   uncaughtError: ReferenceError: pickupStationMutation is not defined
+[11:05:52.265] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:05:52.314] Server  LOG      ✓ Compiled in 25ms
+[11:05:52.371] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:05:52.498] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:05:52.656] Browser ERROR   uncaughtError: ReferenceError: pickupStationMutation is not defined
+[11:06:12.377] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:06:12.425] Server  LOG      ✓ Compiled in 25ms
+[11:06:12.479] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:06:12.609] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:06:12.744] Browser ERROR   uncaughtError: ReferenceError: pickupStationMutation is not defined
+[11:06:13.596] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:06:13.635] Server  LOG      ✓ Compiled in 24ms
+[11:06:13.672] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:06:13.765] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:06:13.910] Browser ERROR   uncaughtError: ReferenceError: pickupStationMutation is not defined
+[11:06:33.855] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:06:33.901] Server  LOG      ✓ Compiled in 31ms
+[11:06:33.944] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:06:34.080] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:06:34.220] Browser ERROR   uncaughtError: ReferenceError: drop is not defined
+[11:06:34.962] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:06:34.997] Server  LOG      ✓ Compiled in 19ms
+[11:06:35.036] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:06:35.146] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:06:35.290] Browser ERROR   uncaughtError: ReferenceError: pickupStationMutation is not defined
+[11:06:39.192] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:06:39.235] Server  LOG      ✓ Compiled in 25ms
+[11:06:39.275] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:06:39.391] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:06:39.556] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:06:39.556] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:06:39.556] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:06:39.556] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524635838}
+[11:06:51.429] Server  LOG      ✓ Compiled in 29ms
+[11:07:02.186] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:07:02.186] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:07:11.334] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:07:11.334] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:07:35.347] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524691598}
+[11:07:38.044] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524694302}
+[11:07:47.401] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations/696717f5e9f51c5ce1a231c3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations/[id]","o":"http://localhost:3000/app-menu/pickup-stations/696717f5e9f51c5ce1a231c3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524703668}
+[11:07:53.797] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524710058}
+[11:08:06.683] Server  LOG      ✓ Compiled in 30ms
+[11:08:08.257] Server  LOG      ✓ Compiled in 25ms
+[11:08:20.033] Server  LOG      ✓ Compiled in 25ms
+[11:08:27.827] Server  LOG      ✓ Compiled in 28ms
+[11:08:52.854] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:08:52.854] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:09:18.007] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:09:18.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:09:18.235] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:09:18.235] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations/69698bf517d84e40f975e619","route":"/app-menu/dropoff-locations/69698bf517d84e40f975e619"}
+[11:09:18.235] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/69698bf517d84e40f975e619","o":"http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524794519}
+[11:09:54.038] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:54.131] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:54.607] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:54.709] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:54.828] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:54.925] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.025] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.113] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.211] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.303] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.409] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.505] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.610] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.704] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.812] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:55.909] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.018] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.108] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.214] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.313] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.445] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.547] Server  ERROR    ⨯ Error: The default export is not a React Component in "/app-menu/dropoff-locations/[id]/page"
+[11:09:56.547] Server  LOG      ✓ Compiled in 0ms
+[11:09:56.992] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:09:57.056] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:09:57.293] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:09:57.293] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:09:57.293] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations/69698bf517d84e40f975e619","route":"/app-menu/dropoff-locations/[id]"}
+[11:09:57.293] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524833575}
+[11:10:50.030] Browser ERROR   uncaughtError: ReferenceError: DropOffStationDetail is not defined
+[11:10:52.057] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:10:52.186] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:10:52.336] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:10:52.336] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:10:52.336] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations/69698bf517d84e40f975e619","route":"/app-menu/dropoff-locations/[id]"}
+[11:10:52.336] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524888618}
+[11:10:54.477] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:10:54.594] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:10:54.734] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:10:54.734] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:10:54.734] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:10:54.734] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524891016}
+[11:10:59.149] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/69698bf517d84e40f975e619","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768524895412}
+[11:11:06.471] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:11:06.471] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:11:15.661] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","data":"{\"pickup_station_id\":\"69698bf517d84e40f975e619\",\"address\":\"Alesh Near Ajah\",\"area\":\"Ilaje\",\"state\":\"lagos\",\"country\":\"Nigeria\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"patch","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/edit","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:17654:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18169:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async useModifyDropOffStation.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_22f6a1ab._.js:1330:29)","status":400}
+[11:12:01.839] Server  LOG      ✓ Compiled in 31ms
+[11:12:04.237] Server  LOG      ✓ Compiled in 30ms
+[11:12:13.213] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:12:13.213] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:12:16.646] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","data":"{\"pickup_station_id\":\"69698bf517d84e40f975e619\",\"address\":\"Alesh Near Ajah\",\"area\":\"Ilaje\",\"state\":\"lagos\",\"country\":\"Nigeria\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"patch","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/edit","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:17654:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18169:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async useModifyDropOffStation.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_211f8b2c._.js?id=%255Bproject%255D%252Fapi%252Fdrop-off-locations%252Findex.ts+%255Bapp-client%255D+%2528ecmascript%2529:124:29)","status":400}
+[11:12:29.556] Server  LOG      ✓ Compiled in 29ms
+[11:12:32.268] Server  LOG      ✓ Compiled in 22ms
+[11:12:36.209] Server  LOG      ✓ Compiled in 31ms
+[11:12:39.676] Server  LOG      ✓ Compiled in 28ms
+[11:12:41.344] Server  LOG      ✓ Compiled in 29ms
+[11:12:51.889] Server  LOG      ✓ Compiled in 21ms
+[11:12:53.301] Server  LOG      ✓ Compiled in 17ms
+[11:13:12.841] Server  LOG      ✓ Compiled in 22ms
+[11:13:16.336] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:13:16.336] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:13:18.806] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","data":"{\"drop_off_location_id\":\"69698bf517d84e40f975e619\",\"address\":\"Alesh Near Ajah\",\"area\":\"Ilaje\",\"state\":\"lagos\",\"country\":\"Nigeria\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"patch","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/edit","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:17654:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18169:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async useModifyDropOffStation.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_211f8b2c._.js?id=%255Bproject%255D%252Fapi%252Fdrop-off-locations%252Findex.ts+%255Bapp-client%255D+%2528ecmascript%2529:124:29)","status":400}
+[11:13:31.547] Server  LOG      ✓ Compiled in 32ms
+[11:13:35.224] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:13:35.225] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:13:38.015] Browser ERROR   ❌ Unexpected error: {}
+[11:16:52.303] Server  LOG      ✓ Compiled in 20ms
+[11:16:55.663] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:16:55.663] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:17:13.867] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:17:13.867] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:17:20.410] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:17:20.410] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:17:35.389] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525291639}
+[11:18:03.383] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/696717f5e9f51c5ce1a231c3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/696717f5e9f51c5ce1a231c3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525319653}
+[11:18:10.705] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"delete","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/delete/696717f5e9f51c5ce1a231c3","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:17654:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18169:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async useDeletePickupStation.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_211f8b2c._.js:952:29)","status":400}
+[11:18:10.705] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525326966}
+[11:18:18.248] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/696717f5e9f51c5ce1a231c3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/696717f5e9f51c5ce1a231c3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525334515}
+[11:18:19.894] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525336150}
+[11:18:47.178] Server  LOG      ✓ Compiled in 29ms
+[11:18:52.535] Server  LOG      ✓ Compiled in 29ms
+[11:19:00.943] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/696717f5e9f51c5ce1a231c3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/696717f5e9f51c5ce1a231c3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525377211}
+[11:19:07.183] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525383443}
+[11:19:11.487] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:19:11.487] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:19:29.193] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:19:29.193] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:21:49.866] Server  LOG      ✓ Compiled in 30ms
+[11:22:08.088] Server  LOG      ✓ Compiled in 32ms
+[11:22:09.032] Browser ERROR   ./components/shared/drop-off-location.tsx:93:10
+Ecmascript file had an error
+  91 |   const [searchQuery, setSearchQuery] = useState("");
+  92 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 93 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+     |          ^^^^^^^^^^^^^^^
+  94 |
+  95 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  96 |
+
+the name `isAddDialogOpen` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:22:09.032] Browser ERROR   ./components/shared/drop-off-location.tsx:93:27
+Ecmascript file had an error
+  91 |   const [searchQuery, setSearchQuery] = useState("");
+  92 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 93 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+     |                           ^^^^^^^^^^^^^^^^^^
+  94 |
+  95 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  96 |
+
+the name `setIsAddDialogOpen` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:22:14.560] Server  LOG      ✓ Compiled in 22ms
+[11:22:15.029] Browser ERROR   ./components/shared/drop-off-location.tsx:93:28
+Ecmascript file had an error
+  91 |   const [searchQuery, setSearchQuery] = useState("");
+  92 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 93 |   const [isEditDialogOpen, setIsAddDialogOpen] = useState(false);
+     |                            ^^^^^^^^^^^^^^^^^^
+  94 |
+  95 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  96 |
+
+the name `setIsAddDialogOpen` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:22:22.267] Server  LOG      ✓ Compiled in 25ms
+[11:22:23.468] Server  LOG      ✓ Compiled in 28ms
+[11:22:24.029] Browser ERROR   ./components/shared/drop-off-location.tsx:93:28
+Ecmascript file had an error
+  91 |   const [searchQuery, setSearchQuery] = useState("");
+  92 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 93 |   const [isEditDialogOpen, setIsAddDialogOpen] = useState(false);
+     |                            ^^^^^^^^^^^^^^^^^^
+  94 |
+  95 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  96 |
+
+the name `setIsAddDialogOpen` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:23:08.084] Server  LOG      ✓ Compiled in 28ms
+[11:23:09.029] Browser ERROR   uncaughtError: ReferenceError: isEdit is not defined
+[11:23:09.813] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:23:09.870] Server  LOG      ✓ Compiled in 25ms
+[11:23:09.926] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:23:10.042] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:23:10.230] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:23:10.230] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:23:10.230] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:23:10.230] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525626513}
+[11:23:19.698] Server  LOG      ✓ Compiled in 25ms
+[11:23:20.029] Browser ERROR   uncaughtError: ReferenceError: setIs is not defined
+[11:23:22.715] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:23:22.764] Server  LOG      ✓ Compiled in 22ms
+[11:23:22.806] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:23:22.907] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:23:23.071] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:23:23.071] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:23:23.071] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:23:23.071] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525639353}
+[11:23:31.273] Server  LOG      ✓ Compiled in 26ms
+[11:23:35.735] Server  LOG      ✓ Compiled in 28ms
+[11:23:47.306] Server  LOG      ✓ Compiled in 32ms
+[11:23:49.634] Server  LOG      ✓ Compiled in 25ms
+[11:24:53.426] Server  LOG      ✓ Compiled in 29ms
+[11:24:57.736] Server  LOG      ✓ Compiled in 31ms
+[11:25:07.592] Server  LOG      ✓ Compiled in 17ms
+[11:25:15.354] Server  LOG      ✓ Compiled in 24ms
+[11:25:30.666] Server  LOG      ✓ Compiled in 22ms
+[11:25:31.029] Browser ERROR   uncaughtError: ReferenceError: useModifyDropOffStation is not defined
+[11:25:34.728] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:25:34.790] Server  LOG      ✓ Compiled in 26ms
+[11:25:34.841] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:25:34.957] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:25:35.133] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:25:35.133] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:25:35.133] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:25:35.133] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525771417}
+[11:25:42.316] Server  LOG      ✓ Compiled in 22ms
+[11:26:56.541] Server  LOG      ✓ Compiled in 27ms
+[11:27:00.598] Server  LOG      ✓ Compiled in 24ms
+[11:27:30.195] Server  LOG      ✓ Compiled in 25ms
+[11:27:36.130] Server  LOG      ✓ Compiled in 30ms
+[11:27:39.428] Server  LOG      ✓ Compiled in 26ms
+[11:27:52.938] Server  LOG      ✓ Compiled in 21ms
+[11:28:08.922] Server  LOG      ✓ Compiled in 29ms
+[11:28:14.827] Server  LOG      ✓ Compiled in 26ms
+[11:28:16.475] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:28:16.475] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:28:18.106] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:28:18.106] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:28:41.438] Server  LOG      ✓ Compiled in 31ms
+[11:28:47.939] Server  LOG      ✓ Compiled in 18ms
+[11:29:10.762] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations/69698e5917d84e40f975e64f color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations/[id]","o":"http://localhost:3000/app-menu/dropoff-locations/69698e5917d84e40f975e64f","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525987029}
+[11:29:12.160] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768525988420}
+[11:29:20.773] Server  LOG      ✓ Compiled in 29ms
+[11:29:21.940] Server  LOG      ✓ Compiled in 19ms
+[11:29:25.181] Server  LOG      ✓ Compiled in 21ms
+[11:29:27.402] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:27.402] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:29.476] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:29.476] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:34.155] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:34.155] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:36.977] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:36.977] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:43.766] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:43.766] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:45.444] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:29:45.444] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:30:04.034] Server  LOG      ✓ Compiled in 27ms
+[11:30:05.421] Server  LOG      ✓ Compiled in 25ms
+[11:30:14.154] Server  LOG      ✓ Compiled in 27ms
+[11:30:15.028] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:30:15.028] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:30:16.265] Server  LOG      ✓ Compiled in 17ms
+[11:30:18.107] Server  LOG      ✓ Compiled in 23ms
+[11:30:22.821] Server  LOG      ✓ Compiled in 23ms
+[11:30:26.328] Server  LOG      ✓ Compiled in 26ms
+[11:30:27.570] Server  LOG      ✓ Compiled in 23ms
+[11:30:28.029] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:31:02.420] Server  LOG      ✓ Compiled in 29ms
+[11:31:03.029] Browser ERROR   ./components/shared/drop-off-location.tsx:96:9
+Parsing ecmascript source code failed
+  94 |   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  95 |
+> 96 |   const [modify]
+     |         ^^^^^^^^
+  97 |
+  98 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  99 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:31:07.029] Browser ERROR   ./components/shared/drop-off-location.tsx:96:9
+Parsing ecmascript source code failed
+  94 |   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  95 |
+> 96 |   const [modifyDropOff]
+     |         ^^^^^^^^^^^^^^^
+  97 |
+  98 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  99 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:31:16.029] Browser ERROR   ./components/shared/drop-off-location.tsx:96:9
+Parsing ecmascript source code failed
+  94 |   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  95 |
+> 96 |   const [modifyDropOff, setModifyDrop]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  97 |
+  98 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  99 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:31:21.029] Browser ERROR   ./components/shared/drop-off-location.tsx:96:9
+Parsing ecmascript source code failed
+  94 |   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  95 |
+> 96 |   const [dropOffId, setModifyDrop]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  97 |
+  98 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  99 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:31:35.014] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:31:35.018] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:31:35.135] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:31:35.316] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:31:36.026] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:31:36.075] Server  LOG      ✓ Compiled in 23ms
+[11:31:36.113] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:31:36.224] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:31:36.384] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:32:16.263] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:32:16.316] Server  LOG      ✓ Compiled in 27ms
+[11:32:16.356] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:32:16.476] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:32:16.642] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:32:47.825] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:32:47.877] Server  LOG      ✓ Compiled in 27ms
+[11:32:47.916] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:32:47.983] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:32:48.137] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:32:58.172] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:32:58.221] Server  LOG      ✓ Compiled in 23ms
+[11:32:58.262] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:32:58.383] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:32:58.538] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:33:02.677] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:33:02.732] Server  LOG      ✓ Compiled in 29ms
+[11:33:02.771] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:33:02.868] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:33:03.019] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:33:14.112] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:33:14.161] Server  LOG      ✓ Compiled in 28ms
+[11:33:14.202] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:33:14.282] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:33:14.411] Browser ERROR   uncaughtError: Error: `MenuItem` must be used within `Menu`
+[11:33:34.652] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:33:34.711] Server  LOG      ✓ Compiled in 25ms
+[11:33:34.753] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:33:34.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:33:35.022] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:33:35.022] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:33:35.022] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:33:35.022] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768526251289}
+[11:33:35.022] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[11:33:42.504] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:33:42.504] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:33:46.925] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:33:46.925] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:33:51.435] Server  LOG      ✓ Compiled in 21ms
+[11:35:05.375] Server  LOG      ✓ Compiled in 29ms
+[11:35:06.028] Browser ERROR   uncaughtError: ReferenceError: D is not defined
+[11:35:08.537] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:35:08.590] Server  LOG      ✓ Compiled in 25ms
+[11:35:08.631] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:35:08.741] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:35:08.897] Browser ERROR   uncaughtError: ReferenceError: DropOffLo is not defined
+[11:35:13.136] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:35:13.188] Server  LOG      ✓ Compiled in 31ms
+[11:35:13.226] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:35:13.346] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:35:13.484] Browser ERROR   uncaughtError: ReferenceError: Pick is not defined
+[11:35:17.449] Server  LOG      ✓ Compiled in 21ms
+[11:35:18.032] Browser ERROR   ./components/shared/drop-off-location.tsx:96:60
+Parsing ecmascript source code failed
+  94 |   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  95 |
+> 96 |   const [dropOffId, setDropOffId] = useState<PickupStation></PickupStation>("");
+     |                                                            ^
+  97 |
+  98 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  99 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:35:21.518] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:35:21.523] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:35:21.643] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:35:21.805] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:35:21.805] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:35:21.805] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:35:21.805] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768526358089}
+[11:35:59.182] Server  LOG      ✓ Compiled in 20ms
+[11:36:00.250] Server  LOG      ✓ Compiled in 19ms
+[11:36:17.125] Server  LOG      ✓ Compiled in 17ms
+[11:36:20.674] Server  LOG      ✓ Compiled in 23ms
+[11:36:22.369] Server  LOG      ✓ Compiled in 27ms
+[11:37:04.675] Server  LOG      ✓ Compiled in 27ms
+[11:37:05.029] Browser ERROR   ./components/shared/drop-off-location.tsx:529:69
+Parsing ecmascript source code failed
+  527 |               <Button
+  528 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 529 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  530 |                 className={`w-full bg-primary ${
+  531 |                   dropOffStationMutation.isPending || holdPickupBtn
+  532 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:37:34.029] Browser ERROR   ./components/shared/drop-off-location.tsx:531:69
+Parsing ecmascript source code failed
+  529 |               <Button
+  530 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 531 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  532 |                 className={`w-full bg-primary ${
+  533 |                   dropOffStationMutation.isPending || holdPickupBtn
+  534 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:37:36.020] Server  LOG      ✓ Compiled in 25ms
+[11:37:37.028] Browser ERROR   ./components/shared/drop-off-location.tsx:441:31
+Parsing ecmascript source code failed
+  439 |                               setDropOffId({
+  440 |                                 drop_off_location_id: station.
+> 441 |                               })
+      |                               ^
+  442 |                               setIsEditDialogOpen(true);
+  443 |                             }}
+  444 |                           >
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:37:37.307] Server  LOG      ✓ Compiled in 22ms
+[11:37:38.029] Browser ERROR   ./components/shared/drop-off-location.tsx:531:69
+Parsing ecmascript source code failed
+  529 |               <Button
+  530 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 531 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  532 |                 className={`w-full bg-primary ${
+  533 |                   dropOffStationMutation.isPending || holdPickupBtn
+  534 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:37:45.029] Browser ERROR   ./components/shared/drop-off-location.tsx:532:69
+Parsing ecmascript source code failed
+  530 |               <Button
+  531 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 532 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  533 |                 className={`w-full bg-primary ${
+  534 |                   dropOffStationMutation.isPending || holdPickupBtn
+  535 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:37:49.030] Browser ERROR   ./components/shared/drop-off-location.tsx:533:69
+Parsing ecmascript source code failed
+  531 |               <Button
+  532 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 533 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  534 |                 className={`w-full bg-primary ${
+  535 |                   dropOffStationMutation.isPending || holdPickupBtn
+  536 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:37:51.849] Server  LOG      ✓ Compiled in 27ms
+[11:37:52.029] Browser ERROR   ./components/shared/drop-off-location.tsx:443:31
+Parsing ecmascript source code failed
+  441 |                                 area:station.area,
+  442 |                                 state:
+> 443 |                               })
+      |                               ^
+  444 |                               setIsEditDialogOpen(true);
+  445 |                             }}
+  446 |                           >
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:38:21.452] Server  LOG      ✓ Compiled in 29ms
+[11:38:22.029] Browser ERROR   ./components/shared/drop-off-location.tsx:533:69
+Parsing ecmascript source code failed
+  531 |               <Button
+  532 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 533 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  534 |                 className={`w-full bg-primary ${
+  535 |                   dropOffStationMutation.isPending || holdPickupBtn
+  536 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:38:32.029] Browser ERROR   ./components/shared/drop-off-location.tsx:534:69
+Parsing ecmascript source code failed
+  532 |               <Button
+  533 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 534 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  535 |                 className={`w-full bg-primary ${
+  536 |                   dropOffStationMutation.isPending || holdPickupBtn
+  537 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:38:41.250] Server  LOG      ✓ Compiled in 29ms
+[11:38:42.029] Browser ERROR   ./components/shared/drop-off-location.tsx:444:33
+Parsing ecmascript source code failed
+  442 |                                 state:station.state,
+  443 |                                 country:station.country
+> 444 |                                 add
+      |                                 ^^^
+  445 |                               })
+  446 |                               setIsEditDialogOpen(true);
+  447 |                             }}
+
+Expected '</', got 'add'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:38:44.748] Server  LOG      ✓ Compiled in 30ms
+[11:38:45.028] Browser ERROR   ./components/shared/drop-off-location.tsx:444:33
+Parsing ecmascript source code failed
+  442 |                                 state:station.state,
+  443 |                                 country:station.country
+> 444 |                                 address:stat
+      |                                 ^^^^^^^
+  445 |                               })
+  446 |                               setIsEditDialogOpen(true);
+  447 |                             }}
+
+Expected '</', got 'address'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:38:48.029] Browser ERROR   ./components/shared/drop-off-location.tsx:444:33
+Parsing ecmascript source code failed
+  442 |                                 state:station.state,
+  443 |                                 country:station.country
+> 444 |                                 address:station.address
+      |                                 ^^^^^^^
+  445 |                               })
+  446 |                               setIsEditDialogOpen(true);
+  447 |                             }}
+
+Expected '</', got 'address'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:38:49.538] Server  LOG      ✓ Compiled in 23ms
+[11:38:50.030] Browser ERROR   ./components/shared/drop-off-location.tsx:535:69
+Parsing ecmascript source code failed
+  533 |               <Button
+  534 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 535 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  536 |                 className={`w-full bg-primary ${
+  537 |                   dropOffStationMutation.isPending || holdPickupBtn
+  538 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:39:02.029] Browser ERROR   ./components/shared/drop-off-location.tsx:535:69
+Parsing ecmascript source code failed
+  533 |               <Button
+  534 |                 disabled={dropOffStationMutation.isPending || holdPickupBtn}
+> 535 |                 onClick={() => handleModifyDropOffStation(dropOffId.)}
+      |                                                                     ^
+  536 |                 className={`w-full bg-primary ${
+  537 |                   dropOffStationMutation.isPending || holdPickupBtn
+  538 |                     ? "opacity-30"
+
+Expected '</', got ')'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:07.004] Server  LOG      ✓ Compiled in 23ms
+[11:40:08.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:11
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register, setValue, watch } = useForm<AddPickupStationPayload>({
+      |           ^^^^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:08.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:21
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                     ^^^^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:08.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:31
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                               ^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:32.153] Server  LOG      ✓ Compiled in 30ms
+[11:40:33.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:29
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register:updateR, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                             ^^^^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:33.030] Browser ERROR   ./components/shared/drop-off-location.tsx:127:39
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register:updateR, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                                       ^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:34.793] Server  LOG      ✓ Compiled in 31ms
+[11:40:35.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:36
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register:updateRegister, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                                    ^^^^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:35.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:46
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register:updateRegister, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                                              ^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:44.059] Server  LOG      ✓ Compiled in 30ms
+[11:40:45.029] Browser ERROR   ./components/shared/drop-off-location.tsx:127:58
+Ecmascript file had an error
+  125 |   });
+  126 |
+> 127 |   const { register:updateRegister, setValue:updateValue, watch } = useForm<AddPickupStationPayload>({
+      |                                                          ^^^^^
+  128 |     values: {
+  129 |       address: "",
+  130 |       area: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:40:59.634] Server  LOG      ✓ Compiled in 30ms
+[11:41:00.030] Browser ERROR   ./components/shared/drop-off-location.tsx:136:19
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: drop "lagos",
+      |                   ^^^^^^^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ',', got 'string literal (lagos, "lagos")'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:02.483] Server  LOG      ✓ Compiled in 26ms
+[11:41:03.029] Browser ERROR   ./components/shared/drop-off-location.tsx:136:25
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId. "lagos",
+      |                         ^^^^^^^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:05.701] Server  LOG      ✓ Compiled in 28ms
+[11:41:06.029] Browser ERROR   ./components/shared/drop-off-location.tsx:136:31
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state "lagos",
+      |                               ^^^^^^^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ',', got 'string literal (lagos, "lagos")'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:08.028] Browser ERROR   ./components/shared/drop-off-location.tsx:136:38
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state === "" "lagos",
+      |                                      ^^^^^^^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ',', got 'string literal (lagos, "lagos")'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:13.029] Browser ERROR   ./components/shared/drop-off-location.tsx:136:49
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state === "Lagos State" "lagos",
+      |                                                 ^^^^^^^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ',', got 'string literal (lagos, "lagos")'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:31.029] Browser ERROR   ./components/shared/drop-off-location.tsx:136:49
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state === "Lagos State" "lagos",
+      |                                                 ^^^^^^^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ',', got 'string literal (lagos, "lagos")'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:32.800] Server  LOG      ✓ Compiled in 20ms
+[11:41:33.029] Browser ERROR   ./components/shared/drop-off-location.tsx:136:58
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state === "Lagos State" ? "lagos",
+      |                                                          ^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ':', got ','
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:35.030] Browser ERROR   ./components/shared/drop-off-location.tsx:136:59
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state === "Lagos State" ? "lagos" ,
+      |                                                           ^
+  137 |     },
+  138 |   });
+  139 |
+
+Expected ':', got ','
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:36.576] Server  LOG      ✓ Compiled in 29ms
+[11:41:37.029] Browser ERROR   ./components/shared/drop-off-location.tsx:136:61
+Parsing ecmascript source code failed
+  134 |       area: "",
+  135 |       country: "Nigeria",
+> 136 |       state: dropOffId?.state === "Lagos State" ? "lagos" : ,
+      |                                                             ^
+  137 |     },
+  138 |   });
+  139 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:41:40.030] Browser ERROR   uncaughtError: ReferenceError: drop is not defined
+[11:41:44.718] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:41:44.761] Server  LOG      ✓ Compiled in 23ms
+[11:41:44.812] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:41:44.930] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:41:45.108] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:41:45.108] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:41:45.109] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:41:45.109] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768526741394}
+[11:41:51.706] Server  LOG      ✓ Compiled in 21ms
+[11:42:07.657] Server  LOG      ✓ Compiled in 26ms
+[11:42:12.874] Server  LOG      ✓ Compiled in 24ms
+[11:42:13.029] Browser ERROR   ./components/shared/drop-off-location.tsx:135:36
+Parsing ecmascript source code failed
+  133 |       address: "",
+  134 |       area: "",
+> 135 |       country: dropOffId?.state || ,
+      |                                    ^
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "",
+  138 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:18.030] Browser ERROR   ./components/shared/drop-off-location.tsx:135:36
+Parsing ecmascript source code failed
+  133 |       address: "",
+  134 |       area: "",
+> 135 |       country: dropOffId?.state || ,
+      |                                    ^
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "lagos",
+  138 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:29.029] Browser ERROR   ./components/shared/drop-off-location.tsx:135:36
+Parsing ecmascript source code failed
+  133 |       address: "",
+  134 |       area: "",
+> 135 |       country: dropOffId?.state || ,
+      |                                    ^
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state,
+  138 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:32.029] Browser ERROR   ./components/shared/drop-off-location.tsx:135:36
+Parsing ecmascript source code failed
+  133 |       address: "",
+  134 |       area: "",
+> 135 |       country: dropOffId?.state || ,
+      |                                    ^
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "",
+  138 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:39.030] Browser ERROR   ./components/shared/drop-off-location.tsx:135:35
+Parsing ecmascript source code failed
+  133 |       address: "",
+  134 |       area: "",
+> 135 |       country: dropOffId?.coun || ,
+      |                                   ^
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "",
+  138 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:39.030] Browser ERROR   ./components/shared/drop-off-location.tsx:135:38
+Parsing ecmascript source code failed
+  133 |       address: "",
+  134 |       area: "",
+> 135 |       country: dropOffId?.country || ,
+      |                                      ^
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "",
+  138 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:45.580] Server  LOG      ✓ Compiled in 23ms
+[11:42:46.029] Browser ERROR   uncaughtError: ReferenceError: drop is not defined
+[11:42:50.233] Server  LOG      ✓ Compiled in 27ms
+[11:42:51.031] Browser ERROR   ./components/shared/drop-off-location.tsx:134:23
+Parsing ecmascript source code failed
+  132 |     values: {
+  133 |       address: "",
+> 134 |       area: dropOffId.,
+      |                       ^
+  135 |       country: dropOffId?.country || "Nigeria",
+  136 |       state:
+  137 |         dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "",
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:42:55.083] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:42:55.087] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:42:55.195] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:42:55.355] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:42:55.355] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:42:55.355] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:42:55.355] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768526811640}
+[11:43:02.027] Server  LOG      ✓ Compiled in 29ms
+[11:43:11.216] Server  LOG      ✓ Compiled in 29ms
+[11:43:12.029] Browser ERROR   ./components/shared/drop-off-location.tsx:142:11
+Ecmascript file had an error
+  140 |
+  141 |   const selectedState = watch("state");
+> 142 |     const selectedState = watch("state");
+      |           ^^^^^^^^^^^^^
+  143 |   const handleWatch = watch();
+  144 |
+  145 |   const { address, area, country, state } = handleWatch;
+
+the name `selectedState` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:43:25.290] Server  LOG      ✓ Compiled in 26ms
+[11:43:50.051] Server  LOG      ✓ Compiled in 31ms
+[11:43:51.029] Browser ERROR   uncaughtError: ReferenceError: updare is not defined
+[11:43:51.619] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:43:51.667] Server  LOG      ✓ Compiled in 27ms
+[11:43:51.709] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:43:51.819] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:43:51.958] Browser ERROR   uncaughtError: ReferenceError: upda is not defined
+[11:43:54.576] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:43:54.612] Server  LOG      ✓ Compiled in 20ms
+[11:43:54.654] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:43:54.762] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:43:54.909] Browser ERROR   uncaughtError: ReferenceError: updatStat is not defined
+[11:43:56.317] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:43:56.358] Server  LOG      ✓ Compiled in 24ms
+[11:43:56.398] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:43:56.494] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:43:56.630] Browser ERROR   uncaughtError: ReferenceError: updatState is not defined
+[11:44:09.707] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:44:09.754] Server  LOG      ✓ Compiled in 26ms
+[11:44:09.794] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:44:09.886] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:44:10.052] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:44:10.052] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:44:10.052] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:44:10.052] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768526886336}
+[11:44:17.718] Server  LOG      ✓ Compiled in 21ms
+[11:45:01.944] Server  LOG      ✓ Compiled in 25ms
+[11:45:08.745] Server  LOG      ✓ Compiled in 26ms
+[11:45:16.518] Server  LOG      ✓ Compiled in 31ms
+[11:45:21.908] Server  LOG      ✓ Compiled in 24ms
+[11:45:24.119] Server  LOG      ✓ Compiled in 22ms
+[11:45:30.704] Server  LOG      ✓ Compiled in 29ms
+[11:45:31.030] Browser ERROR   uncaughtError: ReferenceError: update is not defined
+[11:45:32.750] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:45:32.793] Server  LOG      ✓ Compiled in 25ms
+[11:45:32.837] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:45:32.940] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:45:33.104] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:45:33.104] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:45:33.104] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:45:33.104] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768526969389}
+[11:50:44.564] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:50:44.564] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:52:00.454] Server  LOG      ✓ Compiled in 23ms
+[11:52:02.202] Server  LOG      ✓ Compiled in 25ms
+[11:52:03.473] Server  LOG      ✓ Compiled in 23ms
+[11:52:36.535] Server  LOG      ✓ Compiled in 36ms
+[11:52:39.627] Server  LOG      ✓ Compiled in 25ms
+[11:53:16.131] Server  LOG      ✓ Compiled in 32ms
+[11:53:17.030] Browser ERROR   ./components/shared/drop-off-location.tsx:100:9
+Parsing ecmascript source code failed
+   98 |   const [dropOffId, setDropOffId] = useState<EditDropOffStationPayload>();
+   99 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+> 100 |   const []
+      |         ^^
+  101 |   const dropOffStationMutation = useCreateDropOffStation();
+  102 |   const deleteMutation = useDeleteDropOffStation();
+  103 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:53:32.029] Browser ERROR   ./components/shared/drop-off-location.tsx:100:9
+Parsing ecmascript source code failed
+   98 |   const [dropOffId, setDropOffId] = useState<EditDropOffStationPayload>();
+   99 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+> 100 |   const [updateHoldDrop]
+      |         ^^^^^^^^^^^^^^^^
+  101 |   const dropOffStationMutation = useCreateDropOffStation();
+  102 |   const deleteMutation = useDeleteDropOffStation();
+  103 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:53:35.029] Browser ERROR   ./components/shared/drop-off-location.tsx:100:9
+Parsing ecmascript source code failed
+   98 |   const [dropOffId, setDropOffId] = useState<EditDropOffStationPayload>();
+   99 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+> 100 |   const [updateHoldDropOffBtn]
+      |         ^^^^^^^^^^^^^^^^^^^^^^
+  101 |   const dropOffStationMutation = useCreateDropOffStation();
+  102 |   const deleteMutation = useDeleteDropOffStation();
+  103 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:53:36.029] Browser ERROR   ./components/shared/drop-off-location.tsx:100:9
+Parsing ecmascript source code failed
+   98 |   const [dropOffId, setDropOffId] = useState<EditDropOffStationPayload>();
+   99 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+> 100 |   const [updateHoldDropOffBtn, ]
+      |         ^^^^^^^^^^^^^^^^^^^^^^^^
+  101 |   const dropOffStationMutation = useCreateDropOffStation();
+  102 |   const deleteMutation = useDeleteDropOffStation();
+  103 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:53:53.252] Server  LOG      ✓ Compiled in 21ms
+[11:54:07.851] Server  LOG      ✓ Compiled in 19ms
+[11:54:08.029] Browser ERROR   ./components/shared/drop-off-location.tsx:143:3
+Parsing ecmascript source code failed
+  141 |   const {} = 
+  142 |
+> 143 |   const handleAddDropOffStation = () => {
+      |   ^^^^^
+  144 |     dropOffStationMutation.mutate(
+  145 |       {
+  146 |         address,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:54:28.056] Server  LOG      ✓ Compiled in 28ms
+[11:54:29.029] Browser ERROR   ./components/shared/drop-off-location.tsx:141:3
+Parsing ecmascript source code failed
+  139 |   const 
+  140 |
+> 141 |   const { address, area, country, state } = handleWatch;
+      |   ^^^^^
+  142 |   const {} = 
+  143 |
+  144 |   const handleAddDropOffStation = () => {
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:54:34.408] Server  LOG      ✓ Compiled in 26ms
+[11:54:35.028] Browser ERROR   ./components/shared/drop-off-location.tsx:141:3
+Parsing ecmascript source code failed
+  139 |   const handleUpdateWatch = 
+  140 |
+> 141 |   const { address, area, country, state } = handleWatch;
+      |   ^^^^^
+  142 |   const {} = 
+  143 |
+  144 |   const handleAddDropOffStation = () => {
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:54:41.029] Browser ERROR   ./components/shared/drop-off-location.tsx:144:3
+Parsing ecmascript source code failed
+  142 |   const {} = 
+  143 |
+> 144 |   const handleAddDropOffStation = () => {
+      |   ^^^^^
+  145 |     dropOffStationMutation.mutate(
+  146 |       {
+  147 |         address,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:55:02.347] Server  LOG      ✓ Compiled in 29ms
+[11:55:03.029] Browser ERROR   ./components/shared/drop-off-location.tsx:142:10
+Ecmascript file had an error
+  140 |
+  141 |   const { address, area, country, state } = handleWatch;
+> 142 |   const {address, area, } = handleUpdateWatch
+      |          ^^^^^^^
+  143 |
+  144 |   const handleAddDropOffStation = () => {
+  145 |     dropOffStationMutation.mutate(
+
+the name `address` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:55:03.029] Browser ERROR   ./components/shared/drop-off-location.tsx:142:19
+Ecmascript file had an error
+  140 |
+  141 |   const { address, area, country, state } = handleWatch;
+> 142 |   const {address, area, } = handleUpdateWatch
+      |                   ^^^^
+  143 |
+  144 |   const handleAddDropOffStation = () => {
+  145 |     dropOffStationMutation.mutate(
+
+the name `area` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:55:10.366] Server  LOG      ✓ Compiled in 18ms
+[11:55:11.698] Server  LOG      ✓ Compiled in 25ms
+[11:55:14.512] Server  LOG      ✓ Compiled in 20ms
+[11:55:15.029] Browser ERROR   ./components/shared/drop-off-location.tsx:142:18
+Parsing ecmascript source code failed
+  140 |
+  141 |   const { address, area, country, state } = handleWatch;
+> 142 |   const {address:} = handleUpdateWatch
+      |                  ^
+  143 |
+  144 |   const handleAddDropOffStation = () => {
+  145 |     dropOffStationMutation.mutate(
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:55:34.454] Server  LOG      ✓ Compiled in 26ms
+[11:55:35.030] Browser ERROR   ./components/shared/drop-off-location.tsx:142:56
+Parsing ecmascript source code failed
+  140 |
+  141 |   const { address, area, country, state } = handleWatch;
+> 142 |   const {address:updateAddress, area:updateArea, state:} = handleUpdateWatch
+      |                                                        ^
+  143 |
+  144 |   const handleAddDropOffStation = () => {
+  145 |     dropOffStationMutation.mutate(
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:55:42.424] Server  LOG      ✓ Compiled in 29ms
+[11:55:47.093] Server  LOG      ✓ Compiled in 25ms
+[11:55:48.396] Server  LOG      ✓ Compiled in 18ms
+[11:55:48.688] Server  LOG      ✓ Compiled in 20ms
+[11:56:11.831] Server  LOG      ✓ Compiled in 28ms
+[11:56:43.064] Server  LOG      ✓ Compiled in 24ms
+[11:56:46.814] Server  LOG      ✓ Compiled in 25ms
+[11:56:48.896] Server  LOG      ✓ Compiled in 30ms
+[11:56:49.029] Browser ERROR   uncaughtError: ReferenceError: update is not defined
+[11:56:51.685] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:56:51.735] Server  LOG      ✓ Compiled in 31ms
+[11:56:51.793] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:56:51.910] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:56:52.099] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:56:52.099] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:56:52.099] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:56:52.099] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768527648385}
+[11:56:57.092] Server  LOG      ✓ Compiled in 29ms
+[11:57:02.068] Server  LOG      ✓ Compiled in 23ms
+[11:57:04.862] Server  LOG      ✓ Compiled in 18ms
+[11:57:07.212] Server  LOG      ✓ Compiled in 26ms
+[11:57:09.725] Server  LOG      ✓ Compiled in 26ms
+[11:57:12.554] Server  LOG      ✓ Compiled in 27ms
+[11:57:32.369] Server  LOG      ✓ Compiled in 24ms
+[11:57:33.885] Server  LOG      ✓ Compiled in 24ms
+[11:57:40.008] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:57:40.008] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:57:58.560] Server  LOG      ✓ Compiled in 30ms
+[11:57:59.030] Browser ERROR   uncaughtError: ReferenceError: hold is not defined
+[11:58:04.250] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:58:04.300] Server  LOG      ✓ Compiled in 30ms
+[11:58:04.341] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:58:04.445] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:58:04.591] Browser ERROR   uncaughtError: ReferenceError: updateHo is not defined
+[11:58:06.146] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[11:58:06.189] Server  LOG      ✓ Compiled in 28ms
+[11:58:06.230] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[11:58:06.345] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:58:06.512] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[11:58:06.512] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[11:58:06.512] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[11:58:06.512] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768527722798}
+[11:58:10.097] Server  LOG      ✓ Compiled in 26ms
+[11:58:19.172] Server  LOG      ✓ Compiled in 34ms
+[11:58:26.184] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:58:26.184] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[11:58:58.895] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","data":"{\"drop_off_station_id\":\"69698e5917d84e40f975e64f\",\"address\":\"\",\"area\":\"\",\"state\":\"lagos\",\"country\":\"Nigeria\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"patch","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/edit","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:17654:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18169:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async useModifyDropOffStation.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_22f6a1ab._.js:1330:29)","status":400}
+[11:59:28.415] Server  LOG      ✓ Compiled in 26ms
+[11:59:29.030] Browser ERROR   ./components/shared/drop-off-location.tsx:191:17
+Parsing ecmascript source code failed
+  189 |       {
+  190 |         drop_off_location_id: stationId,
+> 191 |         address:,
+      |                 ^
+  192 |         area,
+  193 |         state,
+  194 |         country,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[11:59:32.601] Server  LOG      ✓ Compiled in 20ms
+[11:59:38.377] Server  LOG      ✓ Compiled in 26ms
+[11:59:43.070] Server  LOG      ✓ Compiled in 29ms
+[11:59:47.308] Server  LOG      ✓ Compiled in 17ms
+[12:01:32.235] Server  LOG      ✓ Compiled in 27ms
+[12:02:55.713] Server  LOG      ✓ Compiled in 30ms
+[12:02:57.935] Server  LOG      ✓ Compiled in 26ms
+[12:03:14.825] Server  LOG      ✓ Compiled in 34ms
+[12:03:15.029] Browser ERROR   ./components/shared/drop-off-location.tsx:199:11
+Parsing ecmascript source code failed
+  197 |         onSettled: () => {
+  198 |           
+> 199 |         } setIsEditDialogOpen(false),
+      |           ^^^^^^^^^^^^^^^^^^^
+  200 |       }
+  201 |     );
+  202 |   };
+
+Expected ',', got 'setIsEditDialogOpen'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[12:03:29.984] Server  LOG      ✓ Compiled in 29ms
+[12:03:31.029] Browser ERROR   ./components/shared/drop-off-location.tsx:198:9
+Parsing ecmascript source code failed
+  196 |       {
+  197 |         onSuccess
+> 198 |         onSettled: () => setIsEditDialogOpen(false),
+      |         ^^^^^^^^^
+  199 |       }
+  200 |     );
+  201 |   };
+
+Unexpected token `onSettled`. Expected ... , *,  (, [, :, , ?, =, an identifier, public, protected, private, readonly, <.
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[12:03:31.064] Server  LOG      ✓ Compiled in 25ms
+[12:03:32.029] Browser ERROR   ./components/shared/drop-off-location.tsx:198:18
+Parsing ecmascript source code failed
+  196 |       {
+  197 |         onSuccess:
+> 198 |         onSettled: () => setIsEditDialogOpen(false),
+      |                  ^
+  199 |       }
+  200 |     );
+  201 |   };
+
+Expected ',', got ':'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[12:03:42.028] Browser ERROR   ./components/shared/drop-off-location.tsx:198:18
+Parsing ecmascript source code failed
+  196 |       {
+  197 |         onSuccess:() => 
+> 198 |         onSettled: () => setIsEditDialogOpen(false),
+      |                  ^
+  199 |       }
+  200 |     );
+  201 |   };
+
+Expected ',', got ':'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[12:03:47.621] Server  LOG      ✓ Compiled in 20ms
+[12:03:48.029] Browser ERROR   ./components/shared/drop-off-location.tsx:198:9
+Parsing ecmascript source code failed
+  196 |       {
+  197 |         onSuccess:() => refetch()
+> 198 |         onSettled: () => setIsEditDialogOpen(false),
+      |         ^^^^^^^^^
+  199 |       }
+  200 |     );
+  201 |   };
+
+Expected ',', got 'onSettled'
+
+Import trace:
+  Server Component:
+    ./components/shared/drop-off-location.tsx
+    ./app/(dashboard)/app-menu/dropoff-locations/page.tsx
+[12:03:54.328] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:03:54.328] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:04:07.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:04:07.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:04:44.530] Server  LOG      ✓ Compiled in 26ms
+[12:04:48.869] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:04:48.869] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:05:04.329] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768528140584}
+[12:09:42.458] Server  LOG      ✓ Compiled in 21ms
+[12:10:06.065] Server  LOG      ✓ Compiled in 26ms
+[12:10:07.849] Server  LOG      ✓ Compiled in 29ms
+[12:10:11.861] Server  LOG      ✓ Compiled in 31ms
+[12:10:42.454] Server  LOG      ✓ Compiled in 31ms
+[12:10:49.651] Server  LOG      ✓ Compiled in 30ms
+[12:10:59.250] Server  LOG      ✓ Compiled in 18ms
+[12:11:11.635] Server  LOG      ✓ Compiled in 30ms
+[12:11:17.998] Server  LOG      ✓ Compiled in 23ms
+[12:12:10.405] Server  LOG      ✓ Compiled in 31ms
+[12:12:42.184] Server  LOG      ✓ Compiled in 36ms
+[12:12:43.030] Browser ERROR   ./components/shared/location-table.tsx:116:13
+Ecmascript file had an error
+  114 |   });
+  115 |
+> 116 |     const { register, setValue, watch } = useForm<AddPickupStationPayload>({
+      |             ^^^^^^^^
+  117 |       values: {
+  118 |         address: "",
+  119 |         area: "",
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:12:43.030] Browser ERROR   ./components/shared/location-table.tsx:116:23
+Ecmascript file had an error
+  114 |   });
+  115 |
+> 116 |     const { register, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                       ^^^^^^^^
+  117 |       values: {
+  118 |         address: "",
+  119 |         area: "",
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:12:43.030] Browser ERROR   ./components/shared/location-table.tsx:116:33
+Ecmascript file had an error
+  114 |   });
+  115 |
+> 116 |     const { register, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                                 ^^^^^
+  117 |       values: {
+  118 |         address: "",
+  119 |         area: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:12:48.009] Server  LOG      ✓ Compiled in 29ms
+[12:12:49.028] Browser ERROR   ./components/shared/location-table.tsx:116:38
+Ecmascript file had an error
+  114 |   });
+  115 |
+> 116 |     const { register:updateRegister, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                                      ^^^^^^^^
+  117 |       values: {
+  118 |         address: "",
+  119 |         area: "",
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:12:49.028] Browser ERROR   ./components/shared/location-table.tsx:116:48
+Ecmascript file had an error
+  114 |   });
+  115 |
+> 116 |     const { register:updateRegister, setValue, watch } = useForm<AddPickupStationPayload>({
+      |                                                ^^^^^
+  117 |       values: {
+  118 |         address: "",
+  119 |         area: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:12:53.078] Server  LOG      ✓ Compiled in 18ms
+[12:12:54.029] Browser ERROR   ./components/shared/location-table.tsx:119:5
+Ecmascript file had an error
+  117 |     register: updateRegister,
+  118 |     setValue: updateValue,
+> 119 |     watch,
+      |     ^^^^^
+  120 |   } = useForm<AddPickupStationPayload>({
+  121 |     values: {
+  122 |       address: "",
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:13:53.473] Server  LOG      ✓ Compiled in 21ms
+[12:13:54.029] Browser ERROR   ./components/shared/location-table.tsx:94:3
+Parsing ecmascript source code failed
+  92 |   const 
+  93 |
+> 94 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+     |   ^^^^^
+  95 |
+  96 |   const pickupStationMutation = useCreatePickupStation();
+  97 |
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:13:55.634] Server  LOG      ✓ Compiled in 25ms
+[12:13:56.029] Browser ERROR   ./components/shared/location-table.tsx:92:9
+Parsing ecmascript source code failed
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  91 |
+> 92 |   const []
+     |         ^^
+  93 |
+  94 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  95 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:06.027] Browser ERROR   ./components/shared/location-table.tsx:92:9
+Parsing ecmascript source code failed
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  91 |
+> 92 |   const [pickupId, setPickupId]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^
+  93 |
+  94 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  95 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:20.983] Server  LOG      ✓ Compiled in 26ms
+[12:14:22.028] Browser ERROR   uncaughtError: ReferenceError: EditPick is not defined
+[12:14:22.769] Server  LOG      ✓ Compiled in 21ms
+[12:14:23.028] Browser ERROR   ./components/shared/location-table.tsx:48:1
+Export EditPickupStationPayload doesn't exist in target module
+  46 | import { NIGERIA_STATES } from "@/constants/nigeria-states";
+  47 | import { useForm } from "react-hook-form";
+> 48 | import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  49 | import toast, { Toaster } from "react-hot-toast";
+  50 | import { useQuery } from "@tanstack/react-query";
+  51 | import { Skeleton } from "../ui/skeleton";
+
+The export EditPickupStationPayload was not found in module [project]/types/index.ts [app-client] (ecmascript).
+Did you mean to import ActiveType?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:23.028] Browser ERROR   ./components/shared/location-table.tsx:48:1
+Export EditPickupStationPayload doesn't exist in target module
+  46 | import { NIGERIA_STATES } from "@/constants/nigeria-states";
+  47 | import { useForm } from "react-hook-form";
+> 48 | import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  49 | import toast, { Toaster } from "react-hot-toast";
+  50 | import { useQuery } from "@tanstack/react-query";
+  51 | import { Skeleton } from "../ui/skeleton";
+
+The export EditPickupStationPayload was not found in module [project]/types/index.ts [app-ssr] (ecmascript).
+Did you mean to import ActiveType?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:27.541] Server  LOG      ✓ Compiled in 18ms
+[12:14:28.029] Browser ERROR   ./components/shared/location-table.tsx:92:69
+Parsing ecmascript source code failed
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  91 |
+> 92 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload></EditPickupStationPayload>()
+     |                                                                     ^
+  93 |
+  94 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  95 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:28.029] Browser ERROR   ./components/shared/location-table.tsx:48:1
+Export EditPickupStationPayload doesn't exist in target module
+  46 | import { NIGERIA_STATES } from "@/constants/nigeria-states";
+  47 | import { useForm } from "react-hook-form";
+> 48 | import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  49 | import toast, { Toaster } from "react-hot-toast";
+  50 | import { useQuery } from "@tanstack/react-query";
+  51 | import { Skeleton } from "../ui/skeleton";
+
+The export EditPickupStationPayload was not found in module [project]/types/index.ts [app-client] (ecmascript).
+Did you mean to import ActiveType?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:28.029] Browser ERROR   ./components/shared/location-table.tsx:48:1
+Export EditPickupStationPayload doesn't exist in target module
+  46 | import { NIGERIA_STATES } from "@/constants/nigeria-states";
+  47 | import { useForm } from "react-hook-form";
+> 48 | import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  49 | import toast, { Toaster } from "react-hot-toast";
+  50 | import { useQuery } from "@tanstack/react-query";
+  51 | import { Skeleton } from "../ui/skeleton";
+
+The export EditPickupStationPayload was not found in module [project]/types/index.ts [app-ssr] (ecmascript).
+Did you mean to import ActiveType?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:33.631] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:14:33.637] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:14:33.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:14:33.973] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:14:33.973] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:14:33.973] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:14:33.973] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768528710259}
+[12:14:50.421] Server  LOG      ✓ Compiled in 28ms
+[12:14:53.002] Server  LOG      ✓ Compiled in 30ms
+[12:14:54.030] Browser ERROR   ./components/shared/location-table.tsx:422:55
+Parsing ecmascript source code failed
+  420 |                             View
+  421 |                           </DropdownMenuItem>
+> 422 |                           <DropdownMenuItem onClick={}>
+      |                                                       ^
+  423 |                             <Edit className="h-4 w-4 mr-2" />
+  424 |                             Edit
+  425 |                           </DropdownMenuItem>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:14:57.978] Server  LOG      ✓ Compiled in 28ms
+[12:14:59.029] Browser ERROR   uncaughtError: ReferenceError: e is not defined
+[12:15:05.442] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:15:05.491] Server  LOG      ✓ Compiled in 22ms
+[12:15:05.536] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:15:05.641] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:15:05.803] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:15:05.803] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:15:05.803] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:15:05.803] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768528742089}
+[12:15:13.025] Server  LOG      ✓ Compiled in 18ms
+[12:15:20.802] Server  LOG      ✓ Compiled in 28ms
+[12:15:21.029] Browser ERROR   ./components/shared/location-table.tsx:91:9
+Parsing ecmascript source code failed
+  89 |   const [searchQuery, setSearchQuery] = useState("");
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 91 |   const [edit]
+     |         ^^^^^^
+  92 |
+  93 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  94 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:15:24.029] Browser ERROR   ./components/shared/location-table.tsx:91:9
+Parsing ecmascript source code failed
+  89 |   const [searchQuery, setSearchQuery] = useState("");
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 91 |   const [editDialo]
+     |         ^^^^^^^^^^^
+  92 |
+  93 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  94 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:15:34.029] Browser ERROR   ./components/shared/location-table.tsx:91:9
+Parsing ecmascript source code failed
+  89 |   const [searchQuery, setSearchQuery] = useState("");
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 91 |   const [editDialogOpen, setEditDia]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  92 |
+  93 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  94 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:15:35.028] Browser ERROR   ./components/shared/location-table.tsx:91:9
+Parsing ecmascript source code failed
+  89 |   const [searchQuery, setSearchQuery] = useState("");
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 91 |   const [editDialogOpen, setIsEditDialogOpen]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  92 |
+  93 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  94 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:15:39.029] Browser ERROR   ./components/shared/location-table.tsx:91:9
+Parsing ecmascript source code failed
+  89 |   const [searchQuery, setSearchQuery] = useState("");
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 91 |   const [isEdiot, setIsEditDialogOpen]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  92 |
+  93 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  94 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:15:40.030] Browser ERROR   ./components/shared/location-table.tsx:91:9
+Parsing ecmascript source code failed
+  89 |   const [searchQuery, setSearchQuery] = useState("");
+  90 |   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+> 91 |   const [isEditDialogOpen, setIsEditDialogOpen]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  92 |
+  93 |   const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  94 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:16:01.084] Server  LOG      ✓ Compiled in 27ms
+[12:16:02.704] Server  LOG      ✓ Compiled in 24ms
+[12:16:04.530] Server  LOG      ✓ Compiled in 20ms
+[12:16:12.266] Server  LOG      ✓ Compiled in 24ms
+[12:16:15.873] Server  LOG      ✓ Compiled in 29ms
+[12:17:19.172] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:17:19.172] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:17:27.676] Server  LOG      ✓ Compiled in 25ms
+[12:17:31.917] Server  LOG      ✓ Compiled in 21ms
+[12:17:36.586] Server  LOG      ✓ Compiled in 26ms
+[12:17:50.570] Server  LOG      ✓ Compiled in 31ms
+[12:17:51.031] Browser ERROR   ./components/shared/location-table.tsx:134:3
+Parsing ecmascript source code failed
+  132 |   const selectedState = watch("state");
+  133 |   const 
+> 134 |   const handleWatch = watch();
+      |   ^^^^^
+  135 |
+  136 |   const { address, area, country, state } = handleWatch;
+  137 |
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:18:48.282] Server  LOG      ✓ Compiled in 29ms
+[12:18:49.029] Browser ERROR   ./components/shared/location-table.tsx:133:9
+Parsing ecmascript source code failed
+  131 |
+  132 |   const selectedState = watch("state");
+> 133 |   const selected
+      |         ^^^^^^^^
+  134 |   const handleWatch = watch();
+  135 |
+  136 |   const { address, area, country, state } = handleWatch;
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:18:55.029] Browser ERROR   ./components/shared/location-table.tsx:133:9
+Parsing ecmascript source code failed
+  131 |
+  132 |   const selectedState = watch("state");
+> 133 |   const selectedUpdateS
+      |         ^^^^^^^^^^^^^^^
+  134 |   const handleWatch = watch();
+  135 |
+  136 |   const { address, area, country, state } = handleWatch;
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:18:56.933] Server  LOG      ✓ Compiled in 31ms
+[12:18:58.029] Browser ERROR   ./components/shared/location-table.tsx:134:3
+Parsing ecmascript source code failed
+  132 |   const selectedState = watch("state");
+  133 |   const selectedUpdateState = 
+> 134 |   const handleWatch = watch();
+      |   ^^^^^
+  135 |
+  136 |   const { address, area, country, state } = handleWatch;
+  137 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:19:01.029] Browser ERROR   uncaughtError: ReferenceError: UPDATEwATC is not defined
+[12:19:02.584] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:19:02.637] Server  LOG      ✓ Compiled in 32ms
+[12:19:02.682] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:19:02.786] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:19:02.949] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:19:02.949] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:19:02.949] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:19:02.949] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768528979236}
+[12:19:04.077] Server  LOG      ✓ Compiled in 25ms
+[12:19:06.058] Server  LOG      ✓ Compiled in 26ms
+[12:19:22.682] Server  LOG      ✓ Compiled in 25ms
+[12:19:24.853] Server  LOG      ✓ Compiled in 22ms
+[12:19:27.267] Server  LOG      ✓ Compiled in 27ms
+[12:19:30.627] Server  LOG      ✓ Compiled in 33ms
+[12:19:31.029] Browser ERROR   ./components/shared/location-table.tsx:126:13
+Parsing ecmascript source code failed
+  124 |     values: {
+  125 |       address: pickupId?.address || "",
+> 126 |       area: ,
+      |             ^
+  127 |       country: "Nigeria",
+  128 |       state: "lagos",
+  129 |     },
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:19:37.028] Browser ERROR   uncaughtError: ReferenceError: ickupId is not defined
+[12:19:40.367] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:19:40.420] Server  LOG      ✓ Compiled in 24ms
+[12:19:40.466] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:19:40.572] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:19:40.741] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:19:40.741] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:19:40.741] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:19:40.741] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768529017028}
+[12:19:44.839] Server  LOG      ✓ Compiled in 34ms
+[12:19:45.029] Browser ERROR   uncaughtError: ReferenceError: ickupId is not defined
+[12:19:47.490] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:19:47.538] Server  LOG      ✓ Compiled in 19ms
+[12:19:47.586] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:19:47.689] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:19:47.855] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:19:47.855] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:19:47.855] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:19:47.855] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768529024141}
+[12:19:51.052] Server  LOG      ✓ Compiled in 27ms
+[12:19:54.168] Server  LOG      ✓ Compiled in 28ms
+[12:19:55.029] Browser ERROR   uncaughtError: ReferenceError: ickupId is not defined
+[12:19:56.397] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:19:56.448] Server  LOG      ✓ Compiled in 22ms
+[12:19:56.492] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:19:56.593] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:19:56.757] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:19:56.757] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:19:56.757] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:19:56.757] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768529033043}
+[12:20:00.669] Server  LOG      ✓ Compiled in 23ms
+[12:20:16.246] Server  LOG      ✓ Compiled in 26ms
+[12:20:23.171] Server  LOG      ✓ Compiled in 31ms
+[12:20:27.153] Server  LOG      ✓ Compiled in 19ms
+[12:20:28.030] Browser ERROR   ./components/shared/location-table.tsx:128:63
+Parsing ecmascript source code failed
+  126 |       area: pickupId?.address || "",
+  127 |       country: pickupId?.country || "",
+> 128 |       state: pickupId?.state === "Lagos State" ? "lagos" || "",
+      |                                                               ^
+  129 |     },
+  130 |   });
+  131 |
+
+Expected ':', got ','
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:20:31.390] Server  LOG      ✓ Compiled in 27ms
+[12:20:32.029] Browser ERROR   ./components/shared/location-table.tsx:128:60
+Parsing ecmascript source code failed
+  126 |       area: pickupId?.address || "",
+  127 |       country: pickupId?.country || "",
+> 128 |       state: pickupId?.state === "Lagos State" ? "lagos" : ,
+      |                                                            ^
+  129 |     },
+  130 |   });
+  131 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:20:38.861] Server  LOG      ✓ Compiled in 26ms
+[12:20:44.245] Server  LOG      ✓ Compiled in 34ms
+[12:20:56.393] Server  LOG      ✓ Compiled in 24ms
+[12:20:58.646] Server  LOG      ✓ Compiled in 28ms
+[12:20:59.030] Browser ERROR   uncaughtError: ReferenceError: sel is not defined
+[12:21:00.298] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:21:00.355] Server  LOG      ✓ Compiled in 25ms
+[12:21:00.403] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:21:00.513] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:21:00.676] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:21:00.676] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:21:00.677] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:21:00.677] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768529096945}
+[12:21:00.677] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[12:21:08.073] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:21:08.073] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:21:39.590] Server  LOG      ✓ Compiled in 19ms
+[12:21:40.029] Browser ERROR   ./components/shared/location-table.tsx:433:31
+Parsing ecmascript source code failed
+  431 |                                 address: station.address,
+  432 |                               });
+> 433 |                             } setIsEditDialogOpen(true)}
+      |                               ^^^^^^^^^^^^^^^^^^^
+  434 |                           >
+  435 |                             <Edit className="h-4 w-4 mr-2" />
+  436 |                             Edit
+
+Expected '</', got 'setIsEditDialogOpen'
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:21:44.424] Server  LOG      ✓ Compiled in 19ms
+[12:21:48.787] Server  LOG      ✓ Compiled in 36ms
+[12:21:53.277] Server  LOG      ✓ Compiled in 30ms
+[12:21:57.652] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:21:57.652] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:22:04.377] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:22:04.377] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:22:09.991] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:22:09.991] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:22:17.395] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:22:17.395] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[12:23:15.119] Server  LOG      ✓ Compiled in 26ms
+[12:23:28.980] Server  LOG      ✓ Compiled in 31ms
+[12:23:30.028] Browser ERROR   ./components/shared/location-table.tsx:96:9
+Parsing ecmascript source code failed
+  94 |
+  95 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+> 96 |   const [hold]
+     |         ^^^^^^
+  97 |
+  98 |   const pickupStationMutation = useCreatePickupStation();
+  99 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:23:38.029] Browser ERROR   ./components/shared/location-table.tsx:96:9
+Parsing ecmascript source code failed
+  94 |
+  95 |   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+> 96 |   const [holdEditPickupBtn, setHold]
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  97 |
+  98 |   const pickupStationMutation = useCreatePickupStation();
+  99 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:23:47.029] Browser ERROR   uncaughtError: ReferenceError: use is not defined
+[12:23:48.801] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[12:23:48.850] Server  LOG      ✓ Compiled in 26ms
+[12:23:48.898] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[12:23:49.013] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:23:49.176] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[12:23:49.177] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[12:23:49.177] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[12:23:49.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768529265463}
+[12:23:50.059] Server  LOG      ✓ Compiled in 21ms
+[12:24:04.398] Server  LOG      ✓ Compiled in 31ms
+[12:24:05.029] Browser ERROR   ./components/shared/location-table.tsx:137:9
+Parsing ecmascript source code failed
+  135 |   const selectedUpdateState = updateWatch("state");
+  136 |   const handleWatch = watch();
+> 137 |   const handleUpd
+      |         ^^^^^^^^^
+  138 |
+  139 |   const { address, area, country, state } = handleWatch;
+  140 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[12:24:13.128] Server  LOG      ✓ Compiled in 29ms
+[12:24:25.104] Server  LOG      ✓ Compiled in 27ms
+[12:24:34.004] Server  LOG      ✓ Compiled in 30ms
+[12:24:46.810] Server  LOG      ✓ Compiled in 29ms
+[12:24:48.361] Server  LOG      ✓ Compiled in 26ms
+[14:23:22.900] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768536439153}
+[14:23:37.876] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_bc4cbdc7._.js:13973:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_bc4cbdc7._.js:14718:49)\n    at async getDropOffStations (http://localhost:3000/_next/static/chunks/_22f6a1ab._.js:1237:21)"}
+[14:23:53.882] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_bc4cbdc7._.js:13973:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_bc4cbdc7._.js:14718:49)\n    at async getDropOffStations (http://localhost:3000/_next/static/chunks/_22f6a1ab._.js:1237:21)"}
+[23:50:13.203] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[23:50:13.329] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:50:13.485] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[23:50:13.485] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[23:50:13.485] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[23:50:13.485] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768570449733}
+[23:50:28.471] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18228:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async getDropOffStations (http://localhost:3000/_next/static/chunks/_22f6a1ab._.js:1237:21)"}
+[23:50:44.476] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODQ4NDc1MCwiZXhwIjoxNzY5MDg5NTUwfQ.PO7GXY5UT7-r19a-v-zwZaqMOse0AbigHNjkCU830qw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18228:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_7ad8fd1d._.js:18973:49)\n    at async getDropOffStations (http://localhost:3000/_next/static/chunks/_22f6a1ab._.js:1237:21)"}
+[24:03:51.668] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[24:03:51.816] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[24:03:51.816] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[24:03:51.816] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/dropoff-locations","route":"/app-menu/dropoff-locations"}
+[24:03:51.816] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768571268062}
+[24:04:00.278] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[24:04:00.278] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[24:04:11.911] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768571288120}
+[24:04:22.211] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[24:04:22.211] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[24:04:58.001] Server  LOG      ✓ Compiled in 43ms
+[24:04:58.240] Browser ERROR   ./components/shared/location-table.tsx:141:9
+Parsing ecmascript source code failed
+  139 |   const { address, area, country, state } = handleWatch;
+  140 |
+> 141 |   const {}
+      |         ^^
+  142 |
+  143 |   const handleAddPickupStation = () => {
+  144 |     pickupStationMutation.mutate(
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[24:04:59.339] Server  LOG      ✓ Compiled in 29ms
+[24:05:00.240] Browser ERROR   ./components/shared/location-table.tsx:143:3
+Parsing ecmascript source code failed
+  141 |   const {} = 
+  142 |
+> 143 |   const handleAddPickupStation = () => {
+      |   ^^^^^
+  144 |     pickupStationMutation.mutate(
+  145 |       {
+  146 |         address,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[24:05:04.239] Browser ERROR   ./components/shared/location-table.tsx:143:3
+Parsing ecmascript source code failed
+  141 |   const {} = 
+  142 |
+> 143 |   const handleAddPickupStation = () => {
+      |   ^^^^^
+  144 |     pickupStationMutation.mutate(
+  145 |       {
+  146 |         address,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[24:05:15.000] Server  LOG      ✓ Compiled in 29ms
+[24:05:56.655] Server  LOG      ✓ Compiled in 28ms
+[24:06:00.685] Server  LOG      ✓ Compiled in 33ms
+[24:06:07.317] Server  LOG      ✓ Compiled in 29ms
+[24:06:10.344] Server  LOG      ✓ Compiled in 31ms
+[24:06:11.238] Browser ERROR   ./components/shared/location-table.tsx:141:58
+Parsing ecmascript source code failed
+  139 |   const { address, area, country, state } = handleWatch;
+  140 |
+> 141 |   const {address:updateAddress, area:updateArea, country:} = handleUpdateWatch
+      |                                                          ^
+  142 |
+  143 |   const handleAddPickupStation = () => {
+  144 |     pickupStationMutation.mutate(
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/shared/location-table.tsx
+    ./app/(dashboard)/app-menu/pickup-stations/page.tsx
+[24:06:21.620] Server  LOG      ✓ Compiled in 30ms
+[24:06:26.411] Server  LOG      ✓ Compiled in 26ms
+[24:06:27.911] Server  LOG      ✓ Compiled in 20ms

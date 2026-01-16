@@ -45,10 +45,9 @@ import {
 } from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload } from "@/types";
+import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
-import { queryClient } from "@/api/queryClient";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -89,8 +88,12 @@ export function LocationTable({
   const [activeTab, setActiveTab] = useState<LocationTab>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+
+  const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
 
   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  const [holdEditPickupBtn, setHoldEditPickupBtn] = useState(true);
 
   const pickupStationMutation = useCreatePickupStation();
 
@@ -114,10 +117,33 @@ export function LocationTable({
     },
   });
 
+  const {
+    register: updateRegister,
+    setValue: updateValue,
+    watch: updateWatch,
+  } = useForm<AddPickupStationPayload>({
+    values: {
+      address: pickupId?.address || "",
+      area: pickupId?.area || "",
+      country: pickupId?.country || "Nigeria",
+      state:
+        pickupId?.state === "Lagos State" ? "lagos" : pickupId?.state || "",
+    },
+  });
+
   const selectedState = watch("state");
+  const selectedUpdateState = updateWatch("state");
   const handleWatch = watch();
+  const handleUpdateWatch = updateWatch();
 
   const { address, area, country, state } = handleWatch;
+
+  const {
+    address: updateAddress,
+    area: updateArea,
+    country: updateCountry,
+    state: updateState,
+  } = handleUpdateWatch;
 
   const handleAddPickupStation = () => {
     pickupStationMutation.mutate(
@@ -142,6 +168,14 @@ export function LocationTable({
       setHoldPickupBtn(false);
     } else {
       setHoldPickupBtn(true);
+    }
+  }, [address, area, state, country]);
+
+  useEffect(() => {
+    if (address && area && state && country) {
+      setHoldEditPickupBtn(false);
+    } else {
+      setHoldEditPickupBtn(true);
     }
   }, [address, area, state, country]);
 
@@ -405,7 +439,18 @@ export function LocationTable({
                             <Eye className="h-4 w-4 mr-2" />
                             View
                           </DropdownMenuItem>
-                          <DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => {
+                              setPickupId({
+                                pickup_station_id: station._id,
+                                area: station.area,
+                                state: station.state,
+                                country: station.country,
+                                address: station.address,
+                              });
+                              setIsEditDialogOpen(true);
+                            }}
+                          >
                             <Edit className="h-4 w-4 mr-2" />
                             Edit
                           </DropdownMenuItem>
@@ -441,6 +486,77 @@ export function LocationTable({
             </tbody>
           </table>
         </div>
+
+        {/* Edit Pickup Address Modal */}
+        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+          <DialogTrigger asChild></DialogTrigger>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="name">Pickup Address</Label>
+                <Input
+                  id="name"
+                  {...updateRegister("address")}
+                  placeholder="Enter pickup station address"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="area">Area</Label>
+                <Input
+                  id="area"
+                  {...updateRegister("area")}
+                  placeholder="Enter area"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">State</label>
+                <Select
+                  value={selectedUpdateState}
+                  onValueChange={(value) => updateValue("state", value)}
+                >
+                  <SelectTrigger className="w-full bg-transparent border-border">
+                    <SelectValue placeholder="Select a State" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {NIGERIA_STATES.map((state) => (
+                      <SelectItem key={state} value={state.toLowerCase()}>
+                        {state}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="state">Country</Label>
+                <Input
+                  id="country"
+                  {...updateRegister("country")}
+                  defaultValue={"Nigeria"}
+                  placeholder="Enter country"
+                />
+              </div>
+              <Button
+                disabled={pickupStationMutation.isPending || holdPickupBtn}
+                onClick={handleAddPickupStation}
+                className={`w-full bg-primary ${
+                  pickupStationMutation.isPending || holdPickupBtn
+                    ? "opacity-30"
+                    : ""
+                } hover:bg-primary/90 text-primary-foreground`}
+              >
+                {pickupStationMutation.isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>Edit {title.slice(0, -1)}</>
+                )}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+        {/* End Pickup Address Edit Modal */}
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">

@@ -65,6 +65,14 @@ export type EditPickupStationPayload = {
   country: string;
 };
 
+export type EditDropOffStationPayload = {
+  drop_off_location_id: string;
+  address: string;
+  area: string;
+  state: string;
+  country: string;
+};
+
 export type UserData = {
   user_type: UserType;
   _id: string;
@@ -217,7 +225,7 @@ export interface PickupStationResponse extends Response {
 }
 
 export interface DropOffLocationResponse extends Response {
-  drop_off_location: PickupStation;
+  drop_off_station: PickupStation;
 }
 
 export type PickupStationDetails = {

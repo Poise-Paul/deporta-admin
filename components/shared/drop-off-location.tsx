@@ -38,17 +38,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  getPickupStations,
-  useCreatePickupStation,
-  useDeletePickupStation,
-} from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload } from "@/types";
+import { AddPickupStationPayload, EditDropOffStationPayload } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
-import { queryClient } from "@/api/queryClient";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -57,7 +51,9 @@ import {
   getDropOffStations,
   useCreateDropOffStation,
   useDeleteDropOffStation,
+  useModifyDropOffStation,
 } from "@/api/drop-off-locations";
+import { updateSelDropOffStation } from "@/lib/store/slices/drop-off-station-slice";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -94,11 +90,12 @@ export function LocationTable({
   const [activeTab, setActiveTab] = useState<LocationTab>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
+  const [dropOffId, setDropOffId] = useState<EditDropOffStationPayload>();
   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
-
-  const pickupStationMutation = useCreateDropOffStation();
-
+  const [updateHoldDropOffBtn, setUpdateHoldDropOffBtn] = useState(true);
+  const dropOffStationMutation = useCreateDropOffStation();
   const deleteMutation = useDeleteDropOffStation();
 
   const {
@@ -119,13 +116,35 @@ export function LocationTable({
     },
   });
 
+  const {
+    register: updateRegister,
+    setValue: updateValue,
+    watch: updateWatch,
+  } = useForm<AddPickupStationPayload>({
+    values: {
+      address: dropOffId?.address || "",
+      area: dropOffId?.area || "",
+      country: dropOffId?.country || "Nigeria",
+      state:
+        dropOffId?.state === "Lagos State" ? "lagos" : dropOffId?.state || "",
+    },
+  });
+
   const selectedState = watch("state");
+  const selectedUpdateState = updateWatch("state");
   const handleWatch = watch();
+  const handleUpdateWatch = updateWatch();
 
   const { address, area, country, state } = handleWatch;
+  const {
+    address: updateAddress,
+    area: updateArea,
+    state: updateState,
+    country: updateCountry,
+  } = handleUpdateWatch;
 
   const handleAddDropOffStation = () => {
-    pickupStationMutation.mutate(
+    dropOffStationMutation.mutate(
       {
         address,
         area,
@@ -150,9 +169,36 @@ export function LocationTable({
     }
   }, [address, area, state, country]);
 
+  // Update Address
+  useEffect(() => {
+    if (updateAddress && updateArea && updateState && updateCountry) {
+      setUpdateHoldDropOffBtn(false);
+    } else {
+      setUpdateHoldDropOffBtn(true);
+    }
+  }, [updateAddress, updateArea, updateState, updateCountry]);
+
   useEffect(() => {
     refetch();
   }, [dropOffStations]);
+
+  const modifyStationMutation = useModifyDropOffStation();
+
+  const handleModifyDropOffStation = (stationId: string) => {
+    modifyStationMutation.mutate(
+      {
+        drop_off_location_id: stationId,
+        address: updateAddress,
+        area: updateArea,
+        state: updateState,
+        country: updateCountry,
+      },
+      {
+        onSuccess: () => refetch(),
+        onSettled: () => setIsEditDialogOpen(false),
+      }
+    );
+  };
 
   const filteredStations = React.useMemo(() => {
     const allStations = dropOffStations?.drop_off_station?.data || [];
@@ -293,15 +339,15 @@ export function LocationTable({
                     />
                   </div>
                   <Button
-                    disabled={pickupStationMutation.isPending || holdPickupBtn}
+                    disabled={dropOffStationMutation.isPending || holdPickupBtn}
                     onClick={handleAddDropOffStation}
                     className={`w-full bg-primary ${
-                      pickupStationMutation.isPending || holdPickupBtn
+                      dropOffStationMutation.isPending || holdPickupBtn
                         ? "opacity-30"
                         : ""
                     } hover:bg-primary/90 text-primary-foreground`}
                   >
-                    {pickupStationMutation.isPending ? (
+                    {dropOffStationMutation.isPending ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
                       <>Add {title.slice(0, -1)}</>
@@ -402,16 +448,28 @@ export function LocationTable({
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem
                             onClick={() => {
-                              dispatch(updateSelPickupStation(station));
+                              dispatch(updateSelDropOffStation(station));
                               router.push(
-                                `/app-menu/pickup-stations/${station._id}`
+                                `/app-menu/dropoff-locations/${station._id}`
                               );
                             }}
                           >
                             <Eye className="h-4 w-4 mr-2" />
                             View
                           </DropdownMenuItem>
-                          <DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              // e.preventDefault();
+                              setDropOffId({
+                                drop_off_location_id: station._id,
+                                area: station.area,
+                                state: station.state,
+                                country: station.country,
+                                address: station.address,
+                              });
+                              setIsEditDialogOpen(true);
+                            }}
+                          >
                             <Edit className="h-4 w-4 mr-2" />
                             Edit
                           </DropdownMenuItem>
@@ -444,6 +502,84 @@ export function LocationTable({
             </tbody>
           </table>
         </div>
+
+        {/* Edit Modals */}
+        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+          <DialogTrigger asChild></DialogTrigger>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="name">Drop-Off Location Address</Label>
+                <Input
+                  id="name"
+                  {...updateRegister("address")}
+                  placeholder="Enter drop-off location address"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="area">Area</Label>
+                <Input
+                  id="area"
+                  {...updateRegister("area")}
+                  placeholder="Enter area"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">State</label>
+                <Select
+                  value={selectedUpdateState}
+                  onValueChange={(value) => updateValue("state", value)}
+                >
+                  <SelectTrigger className="w-full bg-transparent border-border">
+                    <SelectValue placeholder="Select a State" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {NIGERIA_STATES.map((state) => (
+                      <SelectItem key={state} value={state.toLowerCase()}>
+                        {state}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="state">Country</Label>
+                <Input
+                  id="country"
+                  {...updateRegister("country")}
+                  defaultValue={"Nigeria"}
+                  placeholder="Enter country"
+                />
+              </div>
+              <Button
+                disabled={
+                  modifyStationMutation.isPending || updateHoldDropOffBtn
+                }
+                onClick={() =>
+                  handleModifyDropOffStation(
+                    dropOffId?.drop_off_location_id || ""
+                  )
+                }
+                className={`w-full bg-primary ${
+                  modifyStationMutation.isPending || updateHoldDropOffBtn
+                    ? "opacity-30"
+                    : ""
+                } hover:bg-primary/90 text-primary-foreground`}
+              >
+                {modifyStationMutation.isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>Edit {title.slice(0, -1)}</>
+                )}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* End Modals */}
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">

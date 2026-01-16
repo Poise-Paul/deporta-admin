@@ -43,19 +43,20 @@ import { AddPickupStationPayload } from "@/types";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useDeleteDropOffStation, useModifyDropOffStation } from "@/api/drop-off-locations";
 
 interface StationDetailProps {
   onBack: () => void;
 }
 
-export function PickupStationDetail({ onBack }: StationDetailProps) {
+export function DropOffStationDetail({ onBack }: StationDetailProps) {
   const { selStation } = useSelector((state: RootState) => state.dropOffStation);
   const isActive = selStation?.status === "active";
 
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
 
-  const deleteMutation = useDeletePickupStation();
+  const deleteMutation = useDeleteDropOffStation();
 
   const router = useRouter();
 
@@ -76,16 +77,16 @@ export function PickupStationDetail({ onBack }: StationDetailProps) {
 
   const selectedState = watch("state");
 
-  const modifyStationMutation = useModifyPickupStation();
+  const modifyStationMutation = useModifyDropOffStation();
 
   const handleWatch = watch();
   const { address, area, state, country } = handleWatch;
 
-  const handlePickupStation = () => {
+  const handleDropOffStation = () => {
     if (!selStation) return;
     modifyStationMutation.mutate(
       {
-        pickup_station_id: selStation._id,
+        drop_off_location_id: selStation._id,
         address,
         area,
         state,
@@ -168,7 +169,7 @@ export function PickupStationDetail({ onBack }: StationDetailProps) {
                 </div>
                 <Button
                   disabled={modifyStationMutation.isPending || holdPickupBtn}
-                  onClick={handlePickupStation}
+                  onClick={handleDropOffStation}
                   className={`w-full bg-primary ${
                     modifyStationMutation.isPending || holdPickupBtn
                       ? "opacity-30"
@@ -178,7 +179,7 @@ export function PickupStationDetail({ onBack }: StationDetailProps) {
                   {modifyStationMutation.isPending ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
                   ) : (
-                    <>Update Pickup Station</>
+                    <>Update Drop-Off Location</>
                   )}
                 </Button>
               </div>
