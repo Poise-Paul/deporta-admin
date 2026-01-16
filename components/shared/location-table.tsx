@@ -29,6 +29,7 @@ import {
   DeleteIcon,
   Edit,
   Trash2,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -42,6 +43,7 @@ import {
   getPickupStations,
   useCreatePickupStation,
   useDeletePickupStation,
+  useModifyPickupStation,
 } from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
@@ -96,6 +98,7 @@ export function LocationTable({
   const [holdEditPickupBtn, setHoldEditPickupBtn] = useState(true);
 
   const pickupStationMutation = useCreatePickupStation();
+  const modifyPickupStation = useModifyPickupStation();
 
   const deleteMutation = useDeletePickupStation();
 
@@ -108,14 +111,16 @@ export function LocationTable({
     queryFn: () => getPickupStations(),
   });
 
-  const { register, setValue, watch } = useForm<AddPickupStationPayload>({
-    values: {
-      address: "",
-      area: "",
-      country: "Nigeria",
-      state: "lagos",
-    },
-  });
+  const { register, reset, setValue, watch } = useForm<AddPickupStationPayload>(
+    {
+      values: {
+        address: "",
+        area: "",
+        country: "Nigeria",
+        state: "lagos",
+      },
+    }
+  );
 
   const {
     register: updateRegister,
@@ -153,7 +158,29 @@ export function LocationTable({
         country,
         state,
       },
-      { onSuccess: () => refetch(), onSettled: () => setIsAddDialogOpen(false) }
+      {
+        onSuccess: () => {
+          reset();
+          refetch();
+        },
+        onSettled: () => setIsAddDialogOpen(false),
+      }
+    );
+  };
+
+  const handleModifyPickupStation = () => {
+    modifyPickupStation.mutate(
+      {
+        pickup_station_id: pickupId?.pickup_station_id || "",
+        address: updateAddress,
+        area: updateArea,
+        country: updateCountry,
+        state: updateState,
+      },
+      {
+        onSuccess: () => refetch(),
+        onSettled: () => setIsEditDialogOpen(false),
+      }
     );
   };
 
@@ -172,28 +199,54 @@ export function LocationTable({
   }, [address, area, state, country]);
 
   useEffect(() => {
-    if (address && area && state && country) {
+    if (updateAddress && updateArea && updateState && updateCountry) {
       setHoldEditPickupBtn(false);
     } else {
       setHoldEditPickupBtn(true);
     }
-  }, [address, area, state, country]);
+  }, [updateAddress, updateArea, updateState, updateCountry]);
 
   useEffect(() => {
     refetch();
   }, [pickupStations]);
 
-  const filteredStations = React.useMemo(() => {
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
+  const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = pickupStations?.pickup_station?.data || [];
 
+    // 1. Filter by Search Query (Checking multiple fields)
+    let filtered = allStations.filter((station) => {
+      const searchStr = searchQuery.toLowerCase();
+      return (
+        station.address?.toLowerCase().includes(searchStr) ||
+        station.area?.toLowerCase().includes(searchStr) ||
+        station.state?.toLowerCase().includes(searchStr)
+      );
+    });
+
+    // 2. Filter by Tab Status
     if (activeTab === "active") {
-      return allStations.filter((station) => station.status === "active");
+      filtered = filtered.filter((s) => s.status === "active");
+    } else if (activeTab === "inactive") {
+      filtered = filtered.filter((s) => s.status === "in-active");
     }
-    if (activeTab === "inactive") {
-      return allStations.filter((station) => station.status === "in-active");
-    }
-    return allStations;
-  }, [pickupStations, activeTab]);
+
+    // 3. Calculate Total Pages based on the filtered/searched list
+    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+
+    // 4. Slice the data for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+    return { paginatedData: slicedData, totalPages: total };
+  }, [pickupStations, activeTab, currentPage, itemsPerPage, searchQuery]);
+
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [activeTab, searchQuery]);
 
   const TableRowSkeleton = () => (
     <tr className="border-b border-border animate-pulse">
@@ -237,8 +290,18 @@ export function LocationTable({
               placeholder={searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 w-72 bg-transparent"
+              className="pl-9 pr-2 w-72 bg-transparent"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+                type="button"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
 
           {/* Tabs and Actions */}
@@ -281,6 +344,7 @@ export function LocationTable({
                     <Label htmlFor="name">Pickup Address</Label>
                     <Input
                       id="name"
+                      multiple
                       {...register("address")}
                       placeholder="Enter pickup station address"
                     />
@@ -382,8 +446,8 @@ export function LocationTable({
                   ))}
                 </>
               ) : (
-                filteredStations &&
-                filteredStations.map((station) => (
+                paginatedData &&
+                paginatedData.map((station) => (
                   <tr
                     key={station._id}
                     className="border-b border-border last:border-0 hover:bg-muted/50"
@@ -483,6 +547,19 @@ export function LocationTable({
                   </tr>
                 ))
               )}
+              {/* No data! */}
+              {!isLoading && paginatedData.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="p-8 text-center text-muted-foreground"
+                  >
+                    {`No results found ${
+                      searchQuery && `for "${searchQuery}"`
+                    }`}
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -539,15 +616,15 @@ export function LocationTable({
                 />
               </div>
               <Button
-                disabled={pickupStationMutation.isPending || holdPickupBtn}
-                onClick={handleAddPickupStation}
+                disabled={modifyPickupStation.isPending || holdEditPickupBtn}
+                onClick={handleModifyPickupStation}
                 className={`w-full bg-primary ${
-                  pickupStationMutation.isPending || holdPickupBtn
+                  modifyPickupStation.isPending || holdEditPickupBtn
                     ? "opacity-30"
                     : ""
                 } hover:bg-primary/90 text-primary-foreground`}
               >
-                {pickupStationMutation.isPending ? (
+                {modifyPickupStation.isPending ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
                   <>Edit {title.slice(0, -1)}</>
@@ -559,33 +636,67 @@ export function LocationTable({
         {/* End Pickup Address Edit Modal */}
 
         {/* Pagination */}
+
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+          {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             Show
-            <select className="border border-border rounded px-2 py-1 text-sm bg-background">
-              <option>of 8</option>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              className="border border-border rounded px-2 py-1 text-sm bg-background"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
             </select>
+            per page
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">1 - Page</span>
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
-                {"<"}
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                className="h-8 w-8 bg-secondary text-secondary-foreground hover:bg-secondary/90"
-              >
-                1
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                2
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                {">"}
-              </Button>
-            </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-1">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </Button>
+
+            {/* Dynamic Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <Button
+                  key={pageNumber}
+                  variant={currentPage === pageNumber ? "default" : "ghost"}
+                  size="icon"
+                  className={cn(
+                    "h-8 w-8",
+                    currentPage === pageNumber
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      : "text-muted-foreground"
+                  )}
+                  onClick={() => setCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Button>
+              );
+            })}
+
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage >= totalPages}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              {">"}
+            </Button>
           </div>
         </div>
       </CardContent>
