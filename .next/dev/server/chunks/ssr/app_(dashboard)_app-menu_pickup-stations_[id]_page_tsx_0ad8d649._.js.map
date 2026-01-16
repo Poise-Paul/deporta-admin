@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/makanga/Documents/Projects/Websites/deporta-admin-portal/app/%28dashboard%29/app-menu/pickup-stations/%5Bid%5D/page.tsx"],"sourcesContent":["\"use client\";\n\nimport { StaffDetailPage } from \"@/components/staff/staff-details\";\nimport { useRouter } from \"next/navigation\";\n\nexport default function StaffManagementPage() {\n  const router = useRouter();\n  return (\n    <div className=\"space-y-6\">\n      <Pick onBack={() => router.back()} />\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAGA;AAHA;;;AAKe,SAAS;IACtB,MAAM,SAAS,IAAA,+IAAS;IACxB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAK,QAAQ,IAAM,OAAO,IAAI;;;;;;;;;;;AAGrC"}}]
+}

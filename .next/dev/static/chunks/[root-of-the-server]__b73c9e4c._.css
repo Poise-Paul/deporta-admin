@@ -823,6 +823,10 @@
     margin-block: calc(var(--spacing) * 1);
   }
 
+  .my-6 {
+    margin-block: calc(var(--spacing) * 6);
+  }
+
   .-mt-4 {
     margin-top: calc(var(--spacing) * -4);
   }
@@ -853,10 +857,6 @@
 
   .mt-auto {
     margin-top: auto;
-  }
-
-  .mr-1 {
-    margin-right: calc(var(--spacing) * 1);
   }
 
   .mr-2 {
@@ -1124,10 +1124,6 @@
 
   .h-\[1\.15rem\] {
     height: 1.15rem;
-  }
-
-  .h-\[2px\] {
-    height: 2px;
   }
 
   .h-\[300px\] {
@@ -2613,6 +2609,10 @@
 
   .text-yellow-600 {
     color: var(--color-yellow-600);
+  }
+
+  .capitalize {
+    text-transform: capitalize;
   }
 
   .uppercase {

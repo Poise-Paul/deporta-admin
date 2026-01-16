@@ -13,18 +13,22 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./slices/auth-slice";
 import uiReducer from "./slices/ui-slice";
 import staffReducer from "./slices/staff-slice";
+import pickupSatationReducer from "./slices/pickup-station-slice";
+import dropOffStationReducer from "./slices/drop-off-station-slice";
 
 const persistConfig = {
   key: "deporta-admin",
   version: 1,
   storage,
-  whitelist: ["auth", "staff"], // Only persist auth state
+  whitelist: ["auth", "staff", "pickupStation"], // Only persist auth state
 };
 
 const rootReducer = combineReducers({
   auth: authReducer,
   ui: uiReducer,
   staff: staffReducer,
+  pickupStation: pickupSatationReducer,
+  dropOffStation: dropOffStationReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

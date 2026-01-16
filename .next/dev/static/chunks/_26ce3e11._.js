@@ -350,7 +350,7 @@ const getAllCustomers = async ()=>{
 };
 const getAllDrivers = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/driver/total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/drivers/total");
         return res.data;
     } catch (error) {
         console.error("Fetch Drivers Error:", error);
@@ -363,7 +363,7 @@ const getAllDrivers = async ()=>{
 };
 const getOnsiteDrivers = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/onsite-driver/total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/onsite-drivers/total");
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);

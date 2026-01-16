@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,7 +19,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+import {
+  Search,
+  Filter,
+  Plus,
+  MoreVertical,
+  Eye,
+  Loader2,
+  DeleteIcon,
+  Edit,
+  Trash2,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Select,
@@ -31,13 +41,18 @@ import {
 import {
   getPickupStations,
   useCreatePickupStation,
+  useDeletePickupStation,
 } from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload, PickupStation } from "@/types";
-import { Toaster } from "react-hot-toast";
+import { AddPickupStationPayload } from "@/types";
+import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { queryClient } from "@/api/queryClient";
+import { Skeleton } from "../ui/skeleton";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -79,6 +94,17 @@ export function LocationTable({
 
   const pickupStationMutation = useCreatePickupStation();
 
+  const deleteMutation = useDeletePickupStation();
+
+  const {
+    data: pickupStations,
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["pickupStations"],
+    queryFn: () => getPickupStations(),
+  });
+
   const { register, setValue, watch } = useForm<AddPickupStationPayload>({
     values: {
       address: "",
@@ -101,10 +127,14 @@ export function LocationTable({
         country,
         state,
       },
-      {
-        onSettled: () => setIsAddDialogOpen(false),
-      }
+      { onSuccess: () => refetch(), onSettled: () => setIsAddDialogOpen(false) }
     );
+  };
+
+  const handleDeleteStation = (stationId: string) => {
+    deleteMutation.mutate(stationId, {
+      onSuccess: () => refetch(),
+    });
   };
 
   useEffect(() => {
@@ -115,19 +145,53 @@ export function LocationTable({
     }
   }, [address, area, state, country]);
 
-  const { data: pickupStations } = useQuery({
-    queryKey: ["pickupStations"],
-    queryFn: () => getPickupStations(),
-  });
+  useEffect(() => {
+    refetch();
+  }, [pickupStations]);
 
-  const filteredStations = pickupStations?.pickup_station.data.filter(
-    (station) => {
-      if (activeTab === "active") return station.status === "active";
-      if (activeTab === "inactive") return station.status === "in-active";
-      return true;
+  const filteredStations = React.useMemo(() => {
+    const allStations = pickupStations?.pickup_station?.data || [];
+
+    if (activeTab === "active") {
+      return allStations.filter((station) => station.status === "active");
     }
+    if (activeTab === "inactive") {
+      return allStations.filter((station) => station.status === "in-active");
+    }
+    return allStations;
+  }, [pickupStations, activeTab]);
+
+  const TableRowSkeleton = () => (
+    <tr className="border-b border-border animate-pulse">
+      <td className="p-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-20" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-40" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-24" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-28" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-8 w-8 rounded-md" />
+      </td>
+    </tr>
   );
 
+  const router = useRouter();
+  const dispatch = useDispatch();
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -277,7 +341,14 @@ export function LocationTable({
               </tr>
             </thead>
             <tbody>
-              {filteredStations &&
+              {isLoading ? (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <TableRowSkeleton key={i} />
+                  ))}
+                </>
+              ) : (
+                filteredStations &&
                 filteredStations.map((station) => (
                   <tr
                     key={station._id}
@@ -289,8 +360,8 @@ export function LocationTable({
                     <td className="p-4 text-sm text-muted-foreground">
                       {station.area}
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground">
-                      {station.state}
+                    <td className="p-4 text-sm capitalize text-muted-foreground">
+                      {station.state} / {station.country}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
                       {station.added_by.first_name} {station.added_by.last_name}
@@ -323,20 +394,50 @@ export function LocationTable({
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => {
+                              dispatch(updateSelPickupStation(station));
+                              router.push(
+                                `/app-menu/pickup-stations/${station._id}`
+                              );
+                            }}
+                          >
                             <Eye className="h-4 w-4 mr-2" />
                             View
                           </DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">
-                            {station.status === "active"
-                              ? "De-activate"
-                              : "Activate"}
+                          <DropdownMenuItem>
+                            <Edit className="h-4 w-4 mr-2" />
+                            Edit
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              // 1. Prevent the dropdown from closing
+                              e.preventDefault();
+
+                              // 2. Trigger your delete logic
+                              handleDeleteStation(station._id);
+                            }}
+                            className="text-destructive"
+                            disabled={deleteMutation.isPending} // Disable to prevent double-clicks
+                          >
+                            {deleteMutation.isPending ? (
+                              <>
+                                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                                Deleting...
+                              </>
+                            ) : (
+                              <>
+                                <Trash2 className="h-4 w-4 mr-2 text-destructive" />
+                                Delete
+                              </>
+                            )}
                           </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </td>
                   </tr>
-                ))}
+                ))
+              )}
             </tbody>
           </table>
         </div>

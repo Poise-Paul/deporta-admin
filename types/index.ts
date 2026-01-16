@@ -57,6 +57,14 @@ export type AddPickupStationPayload = {
   country: string;
 };
 
+export type EditPickupStationPayload = {
+  pickup_station_id: string;
+  address: string;
+  area: string;
+  state: string;
+  country: string;
+};
+
 export type UserData = {
   user_type: UserType;
   _id: string;
@@ -139,11 +147,6 @@ export type CustomerDashboardStats = {
   customers: DashboardStats[];
 };
 
-export type DriverDashboardStats = {
-  status: boolean;
-  drivers: DashboardStats[];
-};
-
 export interface StatusResponse extends Response {
   staffs: TypeId;
 }
@@ -196,32 +199,46 @@ export type PickupStation = {
   __v: number;
 };
 
+export type PickupStationDetail = {
+  address: string;
+  area: string;
+  state: string;
+  country: string;
+  added_by: StaffData;
+  status: ActiveType;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
 export interface PickupStationResponse extends Response {
   pickup_station: PickupStation;
+}
+
+export interface DropOffLocationResponse extends Response {
+  drop_off_location: PickupStation;
 }
 
 export type PickupStationDetails = {
   status: boolean;
   pickup_station: {
-    data: [
-      {
-        _id: string;
-        address: string;
-        area: string;
-        state: string;
-        country: string;
-        added_by: StaffData;
-        status: ActiveType;
-        createdAt: string;
-        updatedAt: string;
-        __v: number;
-      }
-    ];
-    pagination: {
-      limit: number;
-      page: number;
-      count: number;
-      totalPages: number;
-    };
+    data: PickupStationDetail[];
+    pagination: Pagination
   };
+};
+
+export type DropOffDetails = {
+  status: boolean;
+  drop_off_station: {
+    data: PickupStationDetail[];
+    pagination: Pagination;
+  };
+};
+
+type Pagination = {
+  limit: number;
+  page: number;
+  count: number;
+  totalPages: number;
 };

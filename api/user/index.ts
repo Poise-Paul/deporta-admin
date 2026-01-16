@@ -1,6 +1,5 @@
 import {
   CustomerDashboardStats,
-  DriverDashboardStats,
   StaffDashboardStats,
   StaffListResponse,
   UserDataResponse,
@@ -39,24 +38,24 @@ export const getAllCustomers = async (): Promise<CustomerDashboardStats> => {
   }
 };
 
-export const getAllDrivers = async (): Promise<DriverDashboardStats> => {
+export const getAllDrivers = async (): Promise<StaffDashboardStats> => {
   try {
-    const res = await api.get("/api/users/admin/driver/total");
+    const res = await api.get("/api/users/admin/drivers/total");
     return res.data;
   } catch (error) {
     console.error("Fetch Drivers Error:", error);
     // Return a default structure so the UI doesn't break
-    return { data: [], total: 0 } as unknown as DriverDashboardStats;
+    return { data: [], total: 0 } as unknown as StaffDashboardStats;
   }
 };
 
-export const getOnsiteDrivers = async (): Promise<DriverDashboardStats> => {
+export const getOnsiteDrivers = async (): Promise<StaffDashboardStats> => {
   try {
-    const res = await api.get("/api/users/admin/onsite-driver/total");
+    const res = await api.get("/api/users/admin/onsite-drivers/total");
     return res.data;
   } catch (error) {
     console.error("Fetch Onsite Drivers Error:", error);
     // Return a default structure
-    return { data: [], total: 0 } as unknown as DriverDashboardStats;
+    return { data: [], total: 0 } as unknown as StaffDashboardStats;
   }
 };

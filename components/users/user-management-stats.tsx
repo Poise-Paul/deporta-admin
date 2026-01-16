@@ -9,7 +9,6 @@ export function UserManagementStats() {
   const { data: driverData } = useQuery({
     queryKey: ["driverDashboard"],
     queryFn: () => getAllDrivers(),
-    retry: false,
   });
 
   const { data: customerData } = useQuery({
@@ -20,7 +19,6 @@ export function UserManagementStats() {
   const { data: onsiteData } = useQuery({
     queryKey: ["onsiteDashboard"],
     queryFn: () => getOnsiteDrivers(),
-    retry: false,
   });
 
   const stats = [
@@ -32,7 +30,10 @@ export function UserManagementStats() {
     },
     {
       title: "Total drivers today",
-      value: driverData?.drivers ? driverData?.drivers[0].count : "0",
+      value:
+        driverData?.staffs && driverData?.staffs.length > 0
+          ? driverData?.staffs[0].count
+          : "0",
       change: "+18.2%",
       borderColor: "border-l-secondary",
     },
@@ -44,7 +45,10 @@ export function UserManagementStats() {
     },
     {
       title: "Total drivers on site",
-      value: onsiteData?.drivers ? onsiteData?.drivers[0].count : "0",
+      value:
+        onsiteData?.staffs && onsiteData?.staffs.length > 0
+          ? onsiteData?.staffs[0].count
+          : "0",
       change: "+18.2%",
       borderColor: "border-l-green-500",
     },

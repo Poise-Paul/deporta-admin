@@ -1,4 +1,4 @@
-import { LocationTable } from "@/components/shared/location-table"
+import { LocationTable } from "@/components/shared/drop-off-location"
 
 const dropoffLocations = [
   {

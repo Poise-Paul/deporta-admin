@@ -94,6 +94,7 @@ export function StaffManagementTable() {
     }
     return allStaff;
   }, [staffData, activeTab]);
+  
   const handleWatch = watch();
 
   const { first_name, last_name, phone_number, email, otp, role, gender } =

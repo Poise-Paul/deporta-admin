@@ -76,7 +76,7 @@ const getAllCustomers = async ()=>{
 };
 const getAllDrivers = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/driver/total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/drivers/total");
         return res.data;
     } catch (error) {
         console.error("Fetch Drivers Error:", error);
@@ -89,7 +89,7 @@ const getAllDrivers = async ()=>{
 };
 const getOnsiteDrivers = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/onsite-driver/total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/onsite-drivers/total");
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);
@@ -251,8 +251,7 @@ function UserManagementStats() {
         ],
         queryFn: {
             "UserManagementStats.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAllDrivers"])()
-        }["UserManagementStats.useQuery"],
-        retry: false
+        }["UserManagementStats.useQuery"]
     });
     const { data: customerData } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
@@ -268,8 +267,7 @@ function UserManagementStats() {
         ],
         queryFn: {
             "UserManagementStats.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getOnsiteDrivers"])()
-        }["UserManagementStats.useQuery"],
-        retry: false
+        }["UserManagementStats.useQuery"]
     });
     const stats = [
         {
@@ -280,7 +278,7 @@ function UserManagementStats() {
         },
         {
             title: "Total drivers today",
-            value: driverData?.drivers ? driverData?.drivers[0].count : "0",
+            value: driverData?.staffs && driverData?.staffs.length > 0 ? driverData?.staffs[0].count : "0",
             change: "+18.2%",
             borderColor: "border-l-secondary"
         },
@@ -292,7 +290,7 @@ function UserManagementStats() {
         },
         {
             title: "Total drivers on site",
-            value: onsiteData?.drivers ? onsiteData?.drivers[0].count : "0",
+            value: onsiteData?.staffs && onsiteData?.staffs.length > 0 ? onsiteData?.staffs[0].count : "0",
             change: "+18.2%",
             borderColor: "border-l-green-500"
         }
@@ -309,7 +307,7 @@ function UserManagementStats() {
                             children: stat.title.split(" ").slice(0, 2).join(" ")
                         }, void 0, false, {
                             fileName: "[project]/components/users/user-management-stats.tsx",
-                            lineNumber: 61,
+                            lineNumber: 65,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -320,7 +318,7 @@ function UserManagementStats() {
                                     children: stat.value
                                 }, void 0, false, {
                                     fileName: "[project]/components/users/user-management-stats.tsx",
-                                    lineNumber: 65,
+                                    lineNumber: 69,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -331,19 +329,19 @@ function UserManagementStats() {
                                             className: "h-3 w-3"
                                         }, void 0, false, {
                                             fileName: "[project]/components/users/user-management-stats.tsx",
-                                            lineNumber: 70,
+                                            lineNumber: 74,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/users/user-management-stats.tsx",
-                                    lineNumber: 68,
+                                    lineNumber: 72,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/users/user-management-stats.tsx",
-                            lineNumber: 64,
+                            lineNumber: 68,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -351,23 +349,23 @@ function UserManagementStats() {
                             children: stat.title
                         }, void 0, false, {
                             fileName: "[project]/components/users/user-management-stats.tsx",
-                            lineNumber: 73,
+                            lineNumber: 77,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/users/user-management-stats.tsx",
-                    lineNumber: 60,
+                    lineNumber: 64,
                     columnNumber: 11
                 }, this)
             }, stat.title, false, {
                 fileName: "[project]/components/users/user-management-stats.tsx",
-                lineNumber: 56,
+                lineNumber: 60,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/users/user-management-stats.tsx",
-        lineNumber: 54,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 }
