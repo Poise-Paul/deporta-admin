@@ -57,6 +57,22 @@ export type AddPickupStationPayload = {
   country: string;
 };
 
+export type AddBusPayload = {
+  image?: File | null;
+  imageUrl?: string | undefined;
+  id_code: string;
+  name_label: string;
+  routes_assigned: string[];
+  drivers_assigned: string[];
+  plate_number: string;
+  capacity: string;
+  operation_schedule: string;
+  status: boolean;
+  fuel_type: FuelType;
+  tracker_id: string;
+  mileage: string;
+};
+
 export type EditPickupStationPayload = {
   pickup_station_id: string;
   address: string;
@@ -124,6 +140,11 @@ export type ProfileUpdate = {
 export enum ActiveType {
   Active = "active",
   InActive = "in-active",
+}
+
+export enum FuelType {
+  Petrol = "petrol",
+  Diesel = "diesel",
 }
 
 export type StatusPayload = {
@@ -232,7 +253,7 @@ export type PickupStationDetails = {
   status: boolean;
   pickup_station: {
     data: PickupStationDetail[];
-    pagination: Pagination
+    pagination: Pagination;
   };
 };
 
@@ -249,4 +270,57 @@ type Pagination = {
   page: number;
   count: number;
   totalPages: number;
+};
+
+// Temporary Driver
+
+export type Driver = {
+  _id: string;
+  name: string;
+};
+
+export type Bus = {
+  _id: string;
+  id_code: string;
+  name_label: string;
+  routes_assigned: string[];
+  plate_number: string;
+  capacity: number;
+  bus_photo: string;
+  operation_schedule: string;
+  drivers_assigned: string[];
+  added_by: {
+    user_type: {
+      value: string;
+      type_id: string;
+    };
+    _id: string;
+    first_name: string;
+    last_name: string;
+    phone_number: string;
+    profile_image: string;
+    email: string;
+    date_of_birth: string;
+    verify_email: boolean;
+    deactivate: boolean;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+  status: string;
+  fuel_type: string;
+  tracker_id: string;
+  mileage: string;
+  outsourcing: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type BusesResponse = {
+  status: boolean;
+  buses: {
+    data: Bus[];
+    pagination: Pagination;
+  };
 };
