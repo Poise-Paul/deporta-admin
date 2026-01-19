@@ -1,4 +1,4 @@
-import { LocationTable } from "@/components/shared/location-table"
+import { RoutesTable } from "@/components/shared/routes-table";
 
 const routes = [
   {
@@ -33,7 +33,7 @@ const routes = [
 export default function RoutesPage() {
   return (
     <div className="space-y-6">
-      <LocationTable
+      <RoutesTable
         title="Routes"
         addButtonText="Add Route"
         searchPlaceholder="Search Route By Name"
@@ -41,5 +41,5 @@ export default function RoutesPage() {
         tableTitle="All Routes"
       />
     </div>
-  )
+  );
 }

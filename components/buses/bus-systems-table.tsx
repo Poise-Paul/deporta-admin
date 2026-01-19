@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -27,73 +27,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Filter, Plus, MoreVertical, Eye, X } from "lucide-react";
+import {
+  Search,
+  Filter,
+  Plus,
+  MoreVertical,
+  Eye,
+  X,
+  Loader2,
+  Edit,
+  Delete,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { AddBusPayload, Driver, FuelType } from "@/types";
 import { DRIVERS } from "@/constants/drivers";
-import { RadioGroup } from "@radix-ui/react-dropdown-menu";
-import { RadioGroupItem } from "@radix-ui/react-radio-group";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { getAllBuses, useCreateBus } from "@/api/buses";
+import { useQuery } from "@tanstack/react-query";
 
-type BusTab = "all" | "active" | "maintenance";
+type BusTab = "all" | "active" | "maintenance" | "inactive";
 
 const tabs: { id: BusTab; label: string }[] = [
   { id: "all", label: "All Buses" },
   { id: "active", label: "Active" },
+  { id: "inactive", label: "Inactive" },
   { id: "maintenance", label: "In Maintenance" },
-];
-
-const buses = [
-  {
-    id: "DEP-02-AJAH",
-    name: "Island Runner",
-    route: "AJUB - OSBR",
-    capacity: 20,
-    driver: "Jejelola Rotimi",
-    status: "active" as const,
-    image: "/transport-bus-black.jpg",
-  },
-  {
-    id: "DEP-04-OSHODI",
-    name: "City Express",
-    route: "OSH - LKI",
-    capacity: 18,
-    driver: "David Kolawole",
-    status: "active" as const,
-    image: "/passenger-bus.jpg",
-  },
-  {
-    id: "DEP-05-FESTAC",
-    name: "Festac Shuttle",
-    route: "FST - CMS",
-    capacity: 22,
-    driver: "Adewale Qoyum",
-    status: "maintenance" as const,
-    image: "/shuttle-bus.png",
-  },
-  {
-    id: "DEP-06-IKORODU",
-    name: "Ikorodu Link",
-    route: "IKD - OWO",
-    capacity: 25,
-    driver: "Fred Denis",
-    status: "active" as const,
-    image: "/transport-bus-black.jpg",
-  },
 ];
 
 export function BusSystemsTable() {
   const [activeTab, setActiveTab] = useState<BusTab>("all");
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [holdBtn, setHoldBtn] = useState(true);
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
-
-  const filteredBuses = buses.filter((bus) => {
-    if (activeTab === "active") return bus.status === "active";
-    if (activeTab === "maintenance") return bus.status === "maintenance";
-    return true;
-  });
 
   const { register, setValue, watch, reset } = useForm<AddBusPayload>({
     values: {
@@ -114,8 +81,6 @@ export function BusSystemsTable() {
 
   const handleWatch = watch();
 
-  const { imageUrl } = handleWatch;
-
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -126,28 +91,125 @@ export function BusSystemsTable() {
 
   const selectedState = watch("fuel_type");
 
-  const crearteBusMutation = useCreateBus()
+  const createBusMutation = useCreateBus();
+
+  const {
+    image,
+    id_code,
+    name_label,
+    imageUrl,
+    routes_assigned,
+    drivers_assigned,
+    plate_number,
+    capacity,
+    operation_schedule,
+    status,
+    fuel_type,
+    tracker_id,
+    mileage,
+  } = handleWatch;
+
+  useEffect(() => {
+    if (
+      id_code &&
+      imageUrl &&
+      id_code &&
+      name_label &&
+      routes_assigned &&
+      drivers_assigned &&
+      plate_number &&
+      capacity &&
+      operation_schedule &&
+      status &&
+      fuel_type &&
+      tracker_id &&
+      mileage
+    ) {
+      setHoldBtn(false);
+    } else {
+      setHoldBtn(true);
+    }
+  }, [
+    id_code,
+    imageUrl,
+    id_code,
+    name_label,
+    routes_assigned,
+    drivers_assigned,
+    plate_number,
+    capacity,
+    operation_schedule,
+    status,
+    fuel_type,
+    tracker_id,
+    mileage,
+  ]);
+
+  const handleCreateBus = () => {
+    createBusMutation.mutate({
+      image,
+      id_code,
+      name_label,
+      routes_assigned,
+      drivers_assigned,
+      plate_number,
+      capacity,
+      operation_schedule,
+      status,
+      fuel_type,
+      tracker_id,
+      mileage,
+    });
+  };
+
+  const { data, refetch, isLoading } = useQuery({
+    queryKey: ["allBuses"],
+    queryFn: () => getAllBuses(),
+  });
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
+  const { paginatedData, totalPages } = React.useMemo(() => {
+    const allBusesData = data?.buses.data || [];
+
+    // 1. Filter by Search Query (Checking multiple fields)
+    let filtered = allBusesData.filter((bus) => {
+      const searchStr = searchQuery.toLowerCase();
+      return (
+        bus.name_label?.toLowerCase().includes(searchStr) ||
+        bus.id_code?.toLowerCase().includes(searchStr) ||
+        bus.plate_number?.toLowerCase().includes(searchStr)
+      );
+    });
+
+    // 2. Filter by Tab Status
+    if (activeTab === "active") {
+      filtered = filtered.filter((s) => s.status);
+    } else if (activeTab === "inactive") {
+      filtered = filtered.filter((s) => !s.status);
+    } else if (activeTab === "maintenance") {
+      filtered = filtered.filter((s) => s.status);
+    }
+
+    // 3. Calculate Total Pages based on the filtered/searched list
+    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+
+    // 4. Slice the data for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+    return { paginatedData: slicedData, totalPages: total };
+  }, [data, activeTab, currentPage, itemsPerPage, searchQuery]);
+
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, activeTab]);
 
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          {/* Search */}
-
-          <div>
-            <Label>Bus Image</Label>'{" "}
-            <div className="w-20 h-20 rounded-lg overflow-hidden border">
-              <Avatar className="h-20 w-20">
-                <AvatarImage
-                  className="object-cover"
-                  src={imageUrl}
-                  alt="profile_img"
-                />
-                <AvatarFallback>Bus</AvatarFallback>
-              </Avatar>
-            </div>
-            <Input type="file" accept="image/*" onChange={handleFileChange} />
-          </div>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -185,252 +247,278 @@ export function BusSystemsTable() {
             <Dialog open={isDialogueOpen} onOpenChange={setIsDialogueOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add Bus
+                  <Plus className="h-4 w-4" />
+                  Add New Bus
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
+              <DialogContent className="sm:max-w-2xl">
                 <DialogHeader>
                   <DialogTitle>Add Bus System</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Enter BUS CODE</Label>
-                    <Input
-                      id="name"
-                      {...register("id_code")}
-                      placeholder="Enter BUS CODE"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="area">Area</Label>
-                    <Input
-                      id="area"
-                      {...register("name_label")}
-                      placeholder="Enter area"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Assign Routes</label>
-                    <Select
-                      onValueChange={(value) => {
-                        const current = watch("routes_assigned") || [];
-                        if (!current.includes(value)) {
-                          setValue("routes_assigned", [...current, value]);
-                        }
-                      }}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Add a driver..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {DRIVERS.filter(
-                          (d) => !watch("routes_assigned").includes(d._id)
-                        ) // Hide already selected
-                          .map((driver) => (
-                            <SelectItem key={driver._id} value={driver._id}>
-                              {driver.first_name} {driver.last_name}
-                            </SelectItem>
-                          ))}
-                      </SelectContent>
-                    </Select>
-                    {/* Selected Drivers */}
-
-                    <div className="flex flex-wrap gap-2">
-                      {watch("routes_assigned")
-                        .filter((id) => id !== "")
-                        .map((driverId) => {
-                          const driver = DRIVERS.find(
-                            (d: Driver) => d._id === driverId
-                          );
-                          return (
-                            <Badge
-                              key={driverId}
-                              variant="secondary"
-                              className="pl-2 pr-1 py-1"
-                            >
-                              {driver?.first_name} {driver?.last_name}
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  const current = watch("routes_assigned");
-                                  setValue(
-                                    "routes_assigned",
-                                    current.filter((id) => id !== driverId)
-                                  );
-                                }}
-                                className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
-                              >
-                                <X size={12} />
-                              </button>
-                            </Badge>
-                          );
-                        })}
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">
-                      Assign Drivers
-                    </label>
-                    <Select
-                      onValueChange={(value) => {
-                        const current = watch("drivers_assigned") || [];
-                        if (!current.includes(value)) {
-                          setValue("drivers_assigned", [...current, value]);
-                        }
-                      }}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Add a driver..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {DRIVERS.filter(
-                          (d) => !watch("drivers_assigned").includes(d._id)
-                        ) // Hide already selected
-                          .map((driver) => (
-                            <SelectItem key={driver._id} value={driver._id}>
-                              {driver.first_name} {driver.last_name}
-                            </SelectItem>
-                          ))}
-                      </SelectContent>
-                    </Select>
-                    {/* Selected Drivers */}
-
-                    <div className="flex flex-wrap gap-2">
-                      {watch("drivers_assigned")
-                        .filter((id) => id !== "")
-                        .map((driverId) => {
-                          const driver = DRIVERS.find(
-                            (d: Driver) => d._id === driverId
-                          );
-                          return (
-                            <Badge
-                              key={driverId}
-                              variant="secondary"
-                              className="pl-2 pr-1 py-1"
-                            >
-                              {driver?.first_name} {driver?.last_name}
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  const current = watch("drivers_assigned");
-                                  setValue(
-                                    "drivers_assigned",
-                                    current.filter((id) => id !== driverId)
-                                  );
-                                }}
-                                className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
-                              >
-                                <X size={12} />
-                              </button>
-                            </Badge>
-                          );
-                        })}
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="area">Plate Number</Label>
-                    <Input
-                      id="plate_number"
-                      {...register("plate_number")}
-                      placeholder="Enter Plate Number"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="area">Capacity</Label>
-                    <Input
-                      id="capacity"
-                      type="number"
-                      {...register("capacity")}
-                      placeholder="Enter Capacity"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Operation Schedule</Label>
-                    <Input
-                      id="operation_schedule"
-                      type="time"
-                      {...register("operation_schedule")}
-                      placeholder="Operation Schedule"
-                    />
-                  </div>
                   <div>
-                    <Label htmlFor="state">Status</Label>
-                    <RadioGroup
-                      defaultValue="true"
-                      onValueChange={(val) =>
-                        setValue("status", val === "true")
-                      }
-                      className="flex gap-4"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="true" id="r1" />
-                        <Label htmlFor="r1">Active</Label>
+                    <Label>Bus Image</Label>{" "}
+                    <div className="w-20 h-20 mt-2 rounded-lg overflow-hidden border">
+                      <Avatar className="h-20 w-20">
+                        <AvatarImage
+                          className="object-cover h-20 w-20"
+                          src={imageUrl || "/shuttle-bus.png"}
+                          alt="profile_img"
+                        />
+                        <AvatarFallback className="">Bus Image</AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <Input
+                      type="file"
+                      className="mt-2"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                    />
+                  </div>
+                  <div className="grid gap-4 grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Enter BUS CODE</Label>
+                      <Input
+                        id="name"
+                        {...register("id_code")}
+                        placeholder="Enter BUS CODE"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="area">Name Label</Label>
+                      <Input
+                        id="area"
+                        {...register("name_label")}
+                        placeholder="Enter area"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">
+                        Assign Routes
+                      </label>
+                      <Select
+                        onValueChange={(value) => {
+                          const current = watch("routes_assigned") || [];
+                          if (!current.includes(value)) {
+                            setValue("routes_assigned", [...current, value]);
+                          }
+                        }}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Add a driver..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {DRIVERS.filter(
+                            (d) => !watch("routes_assigned").includes(d._id)
+                          ) // Hide already selected
+                            .map((driver) => (
+                              <SelectItem key={driver._id} value={driver._id}>
+                                {driver.first_name} {driver.last_name}
+                              </SelectItem>
+                            ))}
+                        </SelectContent>
+                      </Select>
+                      {/* Selected Drivers */}
+
+                      <div className="flex flex-wrap gap-2">
+                        {watch("routes_assigned")
+                          .filter((id) => id !== "")
+                          .map((driverId) => {
+                            const driver = DRIVERS.find(
+                              (d: Driver) => d._id === driverId
+                            );
+                            return (
+                              <Badge
+                                key={driverId}
+                                variant="secondary"
+                                className="pl-2 pr-1 py-1"
+                              >
+                                {driver?.first_name} {driver?.last_name}
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const current = watch("routes_assigned");
+                                    setValue(
+                                      "routes_assigned",
+                                      current.filter((id) => id !== driverId)
+                                    );
+                                  }}
+                                  className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
+                                >
+                                  <X size={12} />
+                                </button>
+                              </Badge>
+                            );
+                          })}
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="false" id="r2" />
-                        <Label htmlFor="r2">Inactive</Label>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">
+                        Assign Drivers
+                      </label>
+                      <Select
+                        onValueChange={(value) => {
+                          const current = watch("drivers_assigned") || [];
+                          if (!current.includes(value)) {
+                            setValue("drivers_assigned", [...current, value]);
+                          }
+                        }}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Add a driver..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {DRIVERS.filter(
+                            (d) => !watch("drivers_assigned").includes(d._id)
+                          ).map((driver) => (
+                            <SelectItem key={driver._id} value={driver._id}>
+                              {driver.first_name} {driver.last_name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {/* Selected Drivers */}
+
+                      <div className="flex flex-wrap gap-2">
+                        {watch("drivers_assigned")
+                          .filter((id) => id !== "")
+                          .map((driverId) => {
+                            const driver = DRIVERS.find(
+                              (d: Driver) => d._id === driverId
+                            );
+                            return (
+                              <Badge
+                                key={driverId}
+                                variant="secondary"
+                                className="pl-2 pr-1 py-1"
+                              >
+                                {driver?.first_name} {driver?.last_name}
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const current = watch("drivers_assigned");
+                                    setValue(
+                                      "drivers_assigned",
+                                      current.filter((id) => id !== driverId)
+                                    );
+                                  }}
+                                  className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
+                                >
+                                  <X size={12} />
+                                </button>
+                              </Badge>
+                            );
+                          })}
                       </div>
-                    </RadioGroup>
+                    </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Fuel Type</label>
-                    <Select
-                      value={selectedState}
-                      onValueChange={(value) => setValue("fuel_type", value as FuelType)}
-                    >
-                      <SelectTrigger className="w-full bg-transparent border-border">
-                        <SelectValue placeholder="Select a State" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem key={"1"} value={"petrol"}>
-                          Petrol
-                        </SelectItem>
-                        <SelectItem key={"2"} value={"diesel"}>
-                          Diesel
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="area">Plate Number</Label>
+                      <Input
+                        id="plate_number"
+                        {...register("plate_number")}
+                        placeholder="Enter Plate Number"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="area">Capacity</Label>
+                      <Input
+                        id="capacity"
+                        type="number"
+                        {...register("capacity")}
+                        placeholder="Enter Capacity"
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Tracker ID</Label>
-                    <Input
-                      id="tracker_id"
-                      type="time"
-                      {...register("tracker_id")}
-                      defaultValue={"Nigeria"}
-                      placeholder="Tracker ID"
-                    />
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="state">Operation Schedule</Label>
+                      <Input
+                        id="operation_schedule"
+                        type="time"
+                        {...register("operation_schedule")}
+                        placeholder="Operation Schedule"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="state">Status</Label>
+                      <RadioGroup
+                        defaultValue="true"
+                        onValueChange={(val) =>
+                          setValue("status", val === "true")
+                        }
+                        className="flex gap-4 mt-4"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="true" id="r1" />
+                          <Label htmlFor="r1">Active</Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="false" id="r2" />
+                          <Label htmlFor="r2">Inactive</Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Mileage</Label>
-                    <Input
-                      id="mileage"
-                      type="time"
-                      {...register("mileage")}
-                      placeholder="Mileage"
-                    />
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Fuel Type</label>
+                      <Select
+                        value={selectedState}
+                        onValueChange={(value) =>
+                          setValue("fuel_type", value as FuelType)
+                        }
+                      >
+                        <SelectTrigger className="w-full bg-transparent border-border">
+                          <SelectValue placeholder="Select a State" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem key={"1"} value={"petrol"}>
+                            Petrol
+                          </SelectItem>
+                          <SelectItem key={"2"} value={"diesel"}>
+                            Diesel
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="state">Tracker ID</Label>
+                      <Input
+                        id="tracker_id"
+                        {...register("tracker_id")}
+                        placeholder="Tracker ID"
+                      />
+                    </div>
                   </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="state">Mileage</Label>
+                      <Input
+                        id="mileage"
+                        {...register("mileage")}
+                        placeholder="Enter Bus Mileage"
+                      />
+                    </div>
+                  </div>
+
                   <Button
-                    disabled={
-                      modifyStationMutation.isPending || updateHoldDropOffBtn
-                    }
-                    onClick={() =>
-                      handleModifyDropOffStation(
-                        dropOffId?.drop_off_location_id || ""
-                      )
-                    }
+                    disabled={createBusMutation.isPending || holdBtn}
+                    onClick={handleCreateBus}
                     className={`w-full bg-primary ${
-                      modifyStationMutation.isPending || updateHoldDropOffBtn
-                        ? "opacity-30"
-                        : ""
+                      createBusMutation.isPending || holdBtn ? "opacity-30" : ""
                     } hover:bg-primary/90 text-primary-foreground`}
                   >
-                    {modifyStationMutation.isPending ? (
+                    {createBusMutation.isPending ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
-                      <>Create Bus</>
+                      <>Create New Bus</>
                     )}
                   </Button>
                 </div>
@@ -474,30 +562,34 @@ export function BusSystemsTable() {
               </tr>
             </thead>
             <tbody>
-              {filteredBuses.map((bus) => (
+              {paginatedData.map((bus) => (
                 <tr
-                  key={bus.id}
+                  key={bus._id}
                   className="border-b border-border last:border-0 hover:bg-muted/50"
                 >
                   <td className="p-4">
                     <img
-                      src={bus.image || "/placeholder.svg"}
-                      alt={bus.name}
+                      src={bus.bus_photo || "/placeholder.svg"}
+                      alt={bus.name_label}
                       className="w-16 h-10 rounded object-cover"
                     />
                   </td>
                   <td className="p-4 font-medium text-sm text-secondary">
-                    {bus.id}
+                    {bus.id_code}
                   </td>
-                  <td className="p-4 text-sm">{bus.name}</td>
+                  <td className="p-4 text-sm">{bus.name_label}</td>
                   <td className="p-4 text-sm text-muted-foreground">
-                    {bus.route}
+                    {bus.routes_assigned?.length > 0
+                      ? bus.drivers_assigned.join("-")
+                      : "No routes assigned"}
                   </td>
                   <td className="p-4 text-sm text-muted-foreground">
                     {bus.capacity}
                   </td>
                   <td className="p-4 text-sm text-muted-foreground">
-                    {bus.driver}
+                    {bus.drivers_assigned?.length > 0
+                      ? bus.drivers_assigned.join(", ")
+                      : "No drivers assigned"}
                   </td>
                   <td className="p-4">
                     <Badge
@@ -521,13 +613,17 @@ export function BusSystemsTable() {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem asChild>
-                          <Link href={`/app-menu/buses/${bus.id}`}>
+                          <Link href={`/app-menu/buses/${bus._id}`}>
                             <Eye className="h-4 w-4 mr-2" />
                             View Details
                           </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <Edit className="" />
+                          Edit
+                        </DropdownMenuItem>
                         <DropdownMenuItem className="text-destructive">
+                          <Delete className="text-red-700" />
                           Remove
                         </DropdownMenuItem>
                       </DropdownMenuContent>
@@ -541,32 +637,65 @@ export function BusSystemsTable() {
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+          {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             Show
-            <select className="border border-border rounded px-2 py-1 text-sm bg-background">
-              <option>of 8</option>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              className="border border-border rounded px-2 py-1 text-sm bg-background"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
             </select>
+            per page
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">1 - Page</span>
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
-                {"<"}
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                className="h-8 w-8 bg-secondary text-secondary-foreground hover:bg-secondary/90"
-              >
-                1
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                2
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                {">"}
-              </Button>
-            </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-1">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </Button>
+
+            {/* Dynamic Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <Button
+                  key={pageNumber}
+                  variant={currentPage === pageNumber ? "default" : "ghost"}
+                  size="icon"
+                  className={cn(
+                    "h-8 w-8",
+                    currentPage === pageNumber
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      : "text-muted-foreground"
+                  )}
+                  onClick={() => setCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Button>
+              );
+            })}
+
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage >= totalPages}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              {">"}
+            </Button>
           </div>
         </div>
       </CardContent>

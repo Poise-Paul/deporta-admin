@@ -1,7 +1,7 @@
 "use client";
 
+import { BusStopDetail } from "@/components/bus-stops/bus-stop-details";
 import { DropOffStationDetail } from "@/components/shared/drop-off-detail";
-import { PickupStationDetail } from "@/components/shared/pickup-station-detail";
 import { useRouter } from "next/navigation";
 
 export default function StaffManagementPage() {

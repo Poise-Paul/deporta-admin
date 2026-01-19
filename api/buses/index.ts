@@ -9,7 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-export const getBuses = async (): Promise<BusesResponse> => {
+export const getAllBuses = async (): Promise<BusesResponse> => {
   try {
     const res = await api.get("/api/users/admin/buses/get");
     return res.data;
@@ -19,7 +19,7 @@ export const getBuses = async (): Promise<BusesResponse> => {
   }
 };
 
-export const useUpdateAccount = () => {
+export const useCreateBus = () => {
   return useMutation({
     mutationFn: async (data: AddBusPayload) => {
       const formData = new FormData();
@@ -29,8 +29,6 @@ export const useUpdateAccount = () => {
         formData.append("image", data.image);
       }
 
-      // 2. Handle Arrays (routes_assigned & drivers_assigned)
-      // We append each item separately using the same key name
       data.routes_assigned.forEach((route) => {
         if (route) formData.append("routes_assigned[]", route);
       });

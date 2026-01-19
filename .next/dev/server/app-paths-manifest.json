@@ -1,4 +1,5 @@
 {
+  "/(dashboard)/app-menu/bus-stops/[id]/page": "app/(dashboard)/app-menu/bus-stops/[id]/page.js",
   "/(dashboard)/app-menu/bus-stops/page": "app/(dashboard)/app-menu/bus-stops/page.js",
   "/(dashboard)/app-menu/buses/[id]/page": "app/(dashboard)/app-menu/buses/[id]/page.js",
   "/(dashboard)/app-menu/buses/page": "app/(dashboard)/app-menu/buses/page.js",

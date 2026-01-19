@@ -245,7 +245,7 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
 
           <Card className="lg:col-span-2 border-border">
             <CardHeader>
-              <CardTitle className="text-lg">Pickup Station Details</CardTitle>
+              <CardTitle className="text-lg">Drop-Off Station Details</CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InfoItem

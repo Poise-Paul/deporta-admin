@@ -57,6 +57,14 @@ export type AddPickupStationPayload = {
   country: string;
 };
 
+export type AddBusStopPayload = {
+  routes: number;
+  location: string;
+  area: string;
+  state: string;
+  country: string;
+};
+
 export type AddBusPayload = {
   image?: File | null;
   imageUrl?: string | undefined;
@@ -84,6 +92,15 @@ export type EditPickupStationPayload = {
 export type EditDropOffStationPayload = {
   drop_off_location_id: string;
   address: string;
+  area: string;
+  state: string;
+  country: string;
+};
+
+export type EditBusStopPayload = {
+  bus_stop_id: string;
+  routes: number;
+  location: string;
   area: string;
   state: string;
   country: string;
@@ -321,6 +338,63 @@ export type BusesResponse = {
   status: boolean;
   buses: {
     data: Bus[];
+    pagination: Pagination;
+  };
+};
+
+export type BusStop = {
+  location: string;
+  area: string;
+  state: string;
+  country: string;
+  added_by: string;
+  routes: number;
+  status: string;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export interface BusStopResponse extends Response {
+  bus_stop: BusStop;
+}
+
+export type BusStopDataDetails = {
+  _id: string;
+  location: string;
+  area: string;
+  state: string;
+  country: string;
+  added_by: {
+    user_type: {
+      value: string;
+      type_id: string;
+    };
+    _id: string;
+    first_name: string;
+    last_name: string;
+    phone_number: string;
+    profile_image: string;
+    email: string;
+    date_of_birth: string;
+    verify_email: false;
+    deactivate: false;
+    createdAt: string;
+    updatedAt: string;
+    __v: 0;
+  };
+  routes: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type BusStopData = {
+  status: boolean;
+  bus_stop: {
+    data: BusStopDataDetails[];
     pagination: Pagination;
   };
 };

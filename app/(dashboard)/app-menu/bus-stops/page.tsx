@@ -1,3 +1,4 @@
+import { BusStopTable } from "@/components/bus-stops/bus-stop-table";
 import { LocationTable } from "@/components/shared/location-table"
 
 const busStops = [
@@ -33,7 +34,7 @@ const busStops = [
 export default function BusStopsPage() {
   return (
     <div className="space-y-6">
-      <LocationTable
+      <BusStopTable
         title="Bus-Stops"
         addButtonText="Add Bus Stop"
         searchPlaceholder="Search Bus Stop By Name"
@@ -41,5 +42,5 @@ export default function BusStopsPage() {
         tableTitle="All Bus-Stops"
       />
     </div>
-  )
+  );
 }

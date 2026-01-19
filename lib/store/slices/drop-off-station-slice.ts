@@ -25,6 +25,7 @@ const dropOffSlice = createSlice({
         state.selStation.status = action.payload.status;
       }
     },
+    
     resetDropOffStation: () => initialState,
   },
 });

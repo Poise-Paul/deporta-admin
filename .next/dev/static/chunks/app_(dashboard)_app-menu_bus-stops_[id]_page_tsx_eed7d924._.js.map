@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/makanga/Documents/Projects/Websites/deporta-admin-portal/app/%28dashboard%29/app-menu/bus-stops/%5Bid%5D/page.tsx"],"sourcesContent":["\"use client\";\n\nimport { DropOffStationDetail } from \"@/components/shared/drop-off-detail\";\nimport { useRouter } from \"next/navigation\";\n\nexport default function StaffManagementPage() {\n  const router = useRouter();\n  return (\n    <div className=\"space-y-6\">\n      <BusStopDetail onBack={() => router.back()} />\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAGA;;;AAHA;;AAKe,SAAS;;IACtB,MAAM,SAAS,IAAA,kJAAS;IACxB,qBACE,6LAAC;QAAI,WAAU;kBACb,cAAA,6LAAC;YAAc,QAAQ,IAAM,OAAO,IAAI;;;;;;;;;;;AAG9C;GAPwB;;QACP,kJAAS;;;KADF"}}]
+}

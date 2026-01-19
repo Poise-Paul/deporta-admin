@@ -15,12 +15,13 @@ import uiReducer from "./slices/ui-slice";
 import staffReducer from "./slices/staff-slice";
 import pickupSatationReducer from "./slices/pickup-station-slice";
 import dropOffStationReducer from "./slices/drop-off-station-slice";
+import busStopReducer from "./slices/bus-stop-slice";
 
 const persistConfig = {
   key: "deporta-admin",
   version: 1,
   storage,
-  whitelist: ["auth", "staff", "pickupStation"], // Only persist auth state
+  whitelist: ["auth", "staff", "pickupStation", "dropOffStation", "busStops"], // Only persist auth state
 };
 
 const rootReducer = combineReducers({
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   staff: staffReducer,
   pickupStation: pickupSatationReducer,
   dropOffStation: dropOffStationReducer,
+  busStops: busStopReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
