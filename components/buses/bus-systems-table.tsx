@@ -94,7 +94,10 @@ export function BusSystemsTable() {
       drivers_assigned: [""],
       plate_number: "",
       capacity: "",
-      operation_schedule: "",
+      operation_schedule: {
+        from: "",
+        to: "",
+      },
       status: true,
       fuel_type: FuelType.Petrol,
       tracker_id: "",
@@ -235,10 +238,7 @@ export function BusSystemsTable() {
   });
 
   // get the current user
-  const {
-    data: staffData,
-    refetch: refetchStaffs,
-  } = useQuery({
+  const { data: staffData, refetch: refetchStaffs } = useQuery({
     queryKey: ["staffs"],
     retry: false,
     queryFn: () => getStaffList(),
@@ -579,32 +579,22 @@ export function BusSystemsTable() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="state">Operation Schedule</Label>
+                      <Label htmlFor="schedule_from">
+                        Operation Schedule From
+                      </Label>
                       <Input
-                        id="operation_schedule"
+                        id="schedule_from"
                         type="datetime-local"
-                        {...register("operation_schedule")}
-                        placeholder="Operation Schedule"
+                        {...register("operation_schedule.from")}
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="state">Status</Label>
-                      <RadioGroup
-                        defaultValue="true"
-                        onValueChange={(val) =>
-                          setValue("status", val === "true")
-                        }
-                        className="flex gap-4 mt-4"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="true" id="r1" />
-                          <Label htmlFor="r1">Active</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="false" id="r2" />
-                          <Label htmlFor="r2">Inactive</Label>
-                        </div>
-                      </RadioGroup>
+                    <div className="space-y-2">
+                      <Label htmlFor="schedule_to">Operation Schedule To</Label>
+                      <Input
+                        id="schedule_to"
+                        type="datetime-local"
+                        {...register("operation_schedule.to")}
+                      />
                     </div>
                   </div>
 
@@ -647,6 +637,25 @@ export function BusSystemsTable() {
                         {...register("mileage")}
                         placeholder="Enter Bus Mileage"
                       />
+                    </div>
+                    <div>
+                      <Label htmlFor="state">Status</Label>
+                      <RadioGroup
+                        defaultValue="true"
+                        onValueChange={(val) =>
+                          setValue("status", val === "true")
+                        }
+                        className="flex gap-4 mt-4"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="true" id="r1" />
+                          <Label htmlFor="r1">Active</Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="false" id="r2" />
+                          <Label htmlFor="r2">Inactive</Label>
+                        </div>
+                      </RadioGroup>
                     </div>
                   </div>
 
@@ -830,9 +839,15 @@ export function BusSystemsTable() {
                           </DropdownMenuItem>
                           <DropdownMenuItem
                             onClick={() => {
-                              const formattedDate =
-                                bus.operation_schedule.slice(0, 16);
-                              setValue("operation_schedule", formattedDate);
+                              const fromDate =
+                                bus.operation_schedule.from.slice(0, 16);
+                              setValue("operation_schedule.from", fromDate);
+                              const toDate = bus.operation_schedule.to.slice(
+                                0,
+                                16
+                              );
+                              setValue("operation_schedule.to", toDate);
+
                               setBusId(bus._id);
                               setEditMode(true);
                               setValue("imageUrl", bus.bus_photo);

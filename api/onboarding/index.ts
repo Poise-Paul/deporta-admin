@@ -13,7 +13,7 @@ import axios from "axios";
 export const useLoginUser = () => {
   return useMutation({
     mutationFn: async (data: LoginPayload) => {
-      const res = await api.post("/api/users/sign-in", {
+      const res = await api.post("/api/users/admin/sign-in", {
         email: data.email,
         password: data.password,
       });

@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(dashboard)/layout,_N_T_/(dashboard)/logistics/layout,_N_T_/(dashboard)/logistics/driver-outsourcing/layout,_N_T_/(dashboard)/logistics/driver-outsourcing/page,_N_T_/logistics/driver-outsourcing"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGRhc2hib2FyZCk/logistics/driver-outsourcing/__PAGE__",
+    "/!KGRhc2hib2FyZCk/logistics/driver-outsourcing",
+    "/!KGRhc2hib2FyZCk/logistics",
+    "/!KGRhc2hib2FyZCk",
+    "/_index",
+    "/_head"
+  ]
+}

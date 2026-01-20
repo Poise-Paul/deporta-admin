@@ -1,0 +1,201 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/app-menu/bus-stops/[id]",
+      "regex": "^/app\\-menu/bus\\-stops/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/app\\-menu/bus\\-stops/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/app-menu/buses/[id]",
+      "regex": "^/app\\-menu/buses/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/app\\-menu/buses/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/app-menu/dropoff-locations/[id]",
+      "regex": "^/app\\-menu/dropoff\\-locations/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/app\\-menu/dropoff\\-locations/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/app-menu/pickup-stations/[id]",
+      "regex": "^/app\\-menu/pickup\\-stations/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/app\\-menu/pickup\\-stations/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/app-menu/routes/[id]",
+      "regex": "^/app\\-menu/routes/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/app\\-menu/routes/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/staff/[id]",
+      "regex": "^/staff/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/staff/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/app-menu/bus-stops",
+      "regex": "^/app\\-menu/bus\\-stops(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app\\-menu/bus\\-stops(?:/)?$"
+    },
+    {
+      "page": "/app-menu/buses",
+      "regex": "^/app\\-menu/buses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app\\-menu/buses(?:/)?$"
+    },
+    {
+      "page": "/app-menu/drivers",
+      "regex": "^/app\\-menu/drivers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app\\-menu/drivers(?:/)?$"
+    },
+    {
+      "page": "/app-menu/dropoff-locations",
+      "regex": "^/app\\-menu/dropoff\\-locations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app\\-menu/dropoff\\-locations(?:/)?$"
+    },
+    {
+      "page": "/app-menu/pickup-stations",
+      "regex": "^/app\\-menu/pickup\\-stations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app\\-menu/pickup\\-stations(?:/)?$"
+    },
+    {
+      "page": "/app-menu/routes",
+      "regex": "^/app\\-menu/routes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app\\-menu/routes(?:/)?$"
+    },
+    {
+      "page": "/cms",
+      "regex": "^/cms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cms(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/logistics/driver-outsourcing",
+      "regex": "^/logistics/driver\\-outsourcing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/logistics/driver\\-outsourcing(?:/)?$"
+    },
+    {
+      "page": "/logistics/vehicle-rentals",
+      "regex": "^/logistics/vehicle\\-rentals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/logistics/vehicle\\-rentals(?:/)?$"
+    },
+    {
+      "page": "/settings",
+      "regex": "^/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/settings(?:/)?$"
+    },
+    {
+      "page": "/staff",
+      "regex": "^/staff(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/staff(?:/)?$"
+    },
+    {
+      "page": "/support",
+      "regex": "^/support(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/support(?:/)?$"
+    },
+    {
+      "page": "/users",
+      "regex": "^/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/users(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

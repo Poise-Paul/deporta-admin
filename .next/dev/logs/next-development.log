@@ -24639,3 +24639,1227 @@ Check the render method of `BusDetails`.
 [117:58:10.372] Server  LOG      ✓ Compiled in 30ms
 [117:58:26.432] Server  LOG      ✓ Compiled in 28ms
 [117:58:32.833] Server  LOG      ✓ Compiled in 32ms
+[118:02:04.217] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909560299}
+[118:02:06.421] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909562493}
+[118:02:07.416] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909563499}
+[118:02:12.960] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:02:12.960] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:02:12.960] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909569019}
+[118:02:27.430] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909583513}
+[118:02:28.341] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909584416}
+[118:02:30.750] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:02:30.750] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:02:30.750] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909586812}
+[118:02:45.969] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909602052}
+[118:02:47.019] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909603085}
+[118:02:47.762] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909603845}
+[118:08:18.372] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909934418}
+[118:08:23.981] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:08:23.981] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:08:23.981] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909940042}
+[118:08:25.681] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768909941764}
+[118:27:33.775] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768911089847}
+[118:28:56.867] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:28:56.867] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:28:56.867] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768911172925}
+[118:42:14.069] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768911970154}
+[118:42:15.022] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768911971082}
+[118:42:30.439] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768911986488}
+[118:42:55.755] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/GF450DS color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/GF450DS","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768912011843}
+[118:46:01.501] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768912197575}
+[118:49:09.824] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768912385879}
+[119:00:13.395] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768913049484}
+[119:01:31.980] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768913128036}
+[119:28:38.435] Server  LOG      ✓ Compiled in 36ms
+[119:28:53.682] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/buses/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_563ce19b._.js:4161:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_563ce19b._.js:4906:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1241:21)"}
+[119:28:53.682] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_563ce19b._.js:4161:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_563ce19b._.js:4906:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1485:21)"}
+[119:28:53.682] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta.onrender.com/","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_563ce19b._.js:4161:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_563ce19b._.js:4906:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_0f272f32._.js:298:21)"}
+[119:29:56.035] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:29:56.165] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:29:56.333] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[119:29:56.333] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[119:29:56.333] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[119:29:56.333] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768914832422}
+[119:30:11.314] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/buses/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17075:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1241:21)"}
+[119:30:11.314] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17075:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1485:21)"}
+[119:30:11.314] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17075:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1662:21)"}
+[119:30:26.699] Browser ERROR   Fetch User Error: {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/buses/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:16501:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17016:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1241:21)","status":404}
+[119:30:33.386] Browser ERROR   Fetch User Error: {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/buses/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:16501:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17016:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1241:21)","status":404}
+[119:30:48.480] Browser ERROR   Fetch User Error: {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/buses/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:16501:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17016:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1241:21)","status":404}
+[119:30:58.727] Server  LOG      ✓ Compiled in 40ms
+[119:31:00.683] Browser ERROR   Fetch User Error: {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzYiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTZmNzBkZjhmNzYxZjNjZDBlNzNkNzQifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxMTE3MiwiZXhwIjoxNzY5NTE1OTcyfQ.QizRl5ZCtZg5kCmgt2gCJFyNzNYtw3ExpoqNmzA4veg","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/buses/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:16501:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17016:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_ed756d73._.js:17820:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1241:21)","status":404}
+[119:31:08.962] Server  LOG      ✓ Compiled in 34ms
+[119:31:12.634] Server  LOG      ✓ Compiled in 35ms
+[119:38:39.538] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
+
+Check the render method of `BusDetails`. 
+[119:38:39.538] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768915355624}
+[119:44:00.900] Server  LOG      ✓ Compiled in 67ms
+[119:44:49.907] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768915725978}
+[119:45:02.316] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[119:45:02.316] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[119:45:02.316] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768915738362}
+[119:45:12.544] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768915748601}
+[119:46:30.881] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768915826964}
+[119:47:04.237] Server  LOG      ✓ Compiled in 37ms
+[119:47:13.323] Server  LOG      ✓ Compiled in 32ms
+[119:49:14.374] Server  LOG      ✓ Compiled in 41ms
+[119:49:14.683] Browser ERROR   uncaughtError: ReferenceError: Dialog is not defined
+[119:49:41.764] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:49:41.766] Server  LOG      ✓ Compiled in 35ms
+[119:49:41.910] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:49:42.074] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:49:42.248] Browser ERROR   uncaughtError: ReferenceError: isDialogueOpen is not defined
+[119:49:54.922] Server  LOG      ✓ Compiled in 35ms
+[119:49:55.686] Browser ERROR   ./components/buses/bus-details.tsx:27:9
+Parsing ecmascript source code failed
+  25 |   const { selBus } = useSelector((state: RootState) => state.bus);
+  26 |
+> 27 |   const [isDialogueOpen, setIS];
+     |         ^^^^^^^^^^^^^^^^^^^^^^^
+  28 |
+  29 |   const { data: staffData, refetch: refetchStaffs } = useQuery({
+  30 |     queryKey: ["staffs"],
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[119:50:04.682] Browser ERROR   ./components/buses/bus-details.tsx:27:9
+Parsing ecmascript source code failed
+  25 |   const { selBus } = useSelector((state: RootState) => state.bus);
+  26 |
+> 27 |   const [isDialogueOpen, set];
+     |         ^^^^^^^^^^^^^^^^^^^^^
+  28 |
+  29 |   const { data: staffData, refetch: refetchStaffs } = useQuery({
+  30 |     queryKey: ["staffs"],
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[119:50:05.683] Browser ERROR   ./components/buses/bus-details.tsx:27:9
+Parsing ecmascript source code failed
+  25 |   const { selBus } = useSelector((state: RootState) => state.bus);
+  26 |
+> 27 |   const [isDialogueOpen, setIs];
+     |         ^^^^^^^^^^^^^^^^^^^^^^^
+  28 |
+  29 |   const { data: staffData, refetch: refetchStaffs } = useQuery({
+  30 |     queryKey: ["staffs"],
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[119:50:07.683] Browser ERROR   ./components/buses/bus-details.tsx:27:9
+Parsing ecmascript source code failed
+  25 |   const { selBus } = useSelector((state: RootState) => state.bus);
+  26 |
+> 27 |   const [isDialogueOpen, setIsDialogueOpen];
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  28 |
+  29 |   const { data: staffData, refetch: refetchStaffs } = useQuery({
+  30 |     queryKey: ["staffs"],
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[119:50:13.020] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:50:13.023] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:50:13.145] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:50:13.295] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:50:40.479] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:50:40.535] Server  LOG      ✓ Compiled in 41ms
+[119:50:40.560] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:50:40.690] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:50:40.838] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:50:57.345] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:50:57.408] Server  LOG      ✓ Compiled in 37ms
+[119:50:57.426] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:50:57.540] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:50:57.686] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:51:17.782] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:51:17.835] Server  LOG      ✓ Compiled in 35ms
+[119:51:17.863] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:51:17.996] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:51:18.143] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:53:02.294] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:53:02.349] Server  LOG      ✓ Compiled in 38ms
+[119:53:02.378] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:53:02.437] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:53:02.585] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:53:08.578] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:53:08.642] Server  LOG      ✓ Compiled in 34ms
+[119:53:08.664] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:53:08.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:53:08.937] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:53:14.800] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:53:14.857] Server  LOG      ✓ Compiled in 35ms
+[119:53:14.883] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:53:14.988] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:53:15.135] Browser ERROR   uncaughtError: ReferenceError: editMode is not defined
+[119:53:23.036] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:53:23.090] Server  LOG      ✓ Compiled in 33ms
+[119:53:23.115] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:53:23.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:53:23.353] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:53:48.907] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:53:48.964] Server  LOG      ✓ Compiled in 34ms
+[119:53:48.993] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:53:49.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:53:49.304] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:54:09.404] Server  LOG      ✓ Compiled in 31ms
+[119:54:09.683] Browser ERROR   ./components/buses/bus-details.tsx:492:14
+Parsing ecmascript source code failed
+  490 |             ) : (
+  491 |              
+> 492 |             )}
+      |              ^
+  493 |           </div>
+  494 |         </DialogContent>
+  495 |       </Dialog>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[119:54:11.815] Server  LOG      ✓ Compiled in 38ms
+[119:54:12.682] Browser ERROR   ./components/buses/bus-details.tsx:491:12
+Parsing ecmascript source code failed
+  489 |               </Button>
+  490 |            
+> 491 |           </div>
+      |            ^^^^^
+  492 |         </DialogContent>
+  493 |       </Dialog>
+  494 |       {/* End Bus Modal */}
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[119:54:14.435] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:54:14.533] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:54:14.654] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:54:14.801] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:03.784] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:03.847] Server  LOG      ✓ Compiled in 31ms
+[119:55:03.874] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:03.938] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:04.110] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:06.081] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:06.144] Server  LOG      ✓ Compiled in 33ms
+[119:55:06.164] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:06.284] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:06.427] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:12.837] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:12.891] Server  LOG      ✓ Compiled in 33ms
+[119:55:12.916] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:13.016] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:13.162] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:19.917] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:19.966] Server  LOG      ✓ Compiled in 36ms
+[119:55:19.988] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:20.083] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:20.224] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:22.347] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:22.403] Server  LOG      ✓ Compiled in 33ms
+[119:55:22.428] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:22.528] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:22.673] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:29.152] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:29.203] Server  LOG      ✓ Compiled in 30ms
+[119:55:29.226] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:29.326] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:29.469] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:35.746] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:35.797] Server  LOG      ✓ Compiled in 32ms
+[119:55:35.819] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:35.936] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:36.079] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:44.639] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:44.690] Server  LOG      ✓ Compiled in 29ms
+[119:55:44.714] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:44.832] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:44.976] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:49.334] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:49.383] Server  LOG      ✓ Compiled in 28ms
+[119:55:49.406] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:49.501] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:49.643] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:55:50.793] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:55:50.848] Server  LOG      ✓ Compiled in 30ms
+[119:55:50.872] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:55:50.969] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:55:51.113] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:56:25.596] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:56:25.654] Server  LOG      ✓ Compiled in 33ms
+[119:56:25.676] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:56:25.816] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:56:25.952] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[119:56:27.548] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:56:27.605] Server  LOG      ✓ Compiled in 34ms
+[119:56:27.630] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:56:27.741] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:56:27.885] Browser ERROR   uncaughtError: ReferenceError: useForm is not defined
+[119:56:31.200] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:56:31.249] Server  LOG      ✓ Compiled in 33ms
+[119:56:31.277] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:56:31.393] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:56:31.536] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[119:56:36.980] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[119:56:37.027] Server  LOG      ✓ Compiled in 29ms
+[119:56:37.051] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:56:37.148] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:56:37.289] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:15.567] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:15.707] Server  LOG      ✓ Compiled in 40ms
+[121:43:15.776] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:15.978] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:16.145] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:22.936] Server  LOG      ✓ Compiled in 35ms
+[121:43:23.685] Browser ERROR   ./components/buses/bus-details.tsx:50:24
+Parsing ecmascript source code failed
+  48 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+  49 |     defaultValues: {
+> 50 |       imageUrl: selBus.,
+     |                        ^
+  51 |       bus_id: "",
+  52 |       id_code: "",
+  53 |       name_label: "",
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:43:27.260] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:27.267] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:27.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:27.576] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:32.221] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:32.284] Server  LOG      ✓ Compiled in 39ms
+[121:43:32.304] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:32.428] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:32.573] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:33.494] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:33.547] Server  LOG      ✓ Compiled in 37ms
+[121:43:33.572] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:33.678] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:33.819] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:38.777] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:38.830] Server  LOG      ✓ Compiled in 39ms
+[121:43:38.854] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:38.954] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:39.098] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:43.690] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:43.740] Server  LOG      ✓ Compiled in 30ms
+[121:43:43.764] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:43.887] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:44.031] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:43:51.477] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:43:51.529] Server  LOG      ✓ Compiled in 29ms
+[121:43:51.553] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:43:51.670] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:43:51.821] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:00.303] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:00.372] Server  LOG      ✓ Compiled in 31ms
+[121:44:00.397] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:00.539] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:00.684] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:02.662] Server  LOG      ✓ Compiled in 31ms
+[121:44:03.683] Browser ERROR   ./components/buses/bus-details.tsx:56:21
+Parsing ecmascript source code failed
+  54 |       routes_assigned: selBus?.routes_assigned,
+  55 |       drivers_assigned: selBus?.drivers_assigned,
+> 56 |       plate_number: ,
+     |                     ^
+  57 |       capacity: "",
+  58 |       operation_schedule: "",
+  59 |       status: true,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:44:06.692] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:06.695] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:06.806] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:06.951] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:09.002] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:09.060] Server  LOG      ✓ Compiled in 36ms
+[121:44:09.079] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:09.185] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:09.329] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:15.775] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:15.831] Server  LOG      ✓ Compiled in 32ms
+[121:44:15.850] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:15.949] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:16.090] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:18.070] Server  LOG      ✓ Compiled in 31ms
+[121:44:18.685] Browser ERROR   ./components/buses/bus-details.tsx:58:27
+Parsing ecmascript source code failed
+  56 |       plate_number: selBus?.plate_number,
+  57 |       capacity: selBus?.capacity,
+> 58 |       operation_schedule: ,
+     |                           ^
+  59 |       status: true,
+  60 |       fuel_type: FuelType.Petrol,
+  61 |       tracker_id: "",
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:44:21.341] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:21.412] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:21.513] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:21.654] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:23.063] Server  LOG      ✓ Compiled in 29ms
+[121:44:23.682] Browser ERROR   ./components/buses/bus-details.tsx:58:34
+Parsing ecmascript source code failed
+  56 |       plate_number: selBus?.plate_number,
+  57 |       capacity: selBus?.capacity,
+> 58 |       operation_schedule: selBus.,
+     |                                  ^
+  59 |       status: true,
+  60 |       fuel_type: FuelType.Petrol,
+  61 |       tracker_id: "",
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:44:24.911] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:24.983] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:25.085] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:25.226] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:30.807] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:30.862] Server  LOG      ✓ Compiled in 36ms
+[121:44:30.888] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:31.004] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:31.148] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:39.304] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:39.356] Server  LOG      ✓ Compiled in 30ms
+[121:44:39.381] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:39.503] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:39.647] Browser ERROR   uncaughtError: ReferenceError: FuelType is not defined
+[121:44:49.023] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:49.074] Server  LOG      ✓ Compiled in 33ms
+[121:44:49.100] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:49.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:49.341] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:44:51.254] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:44:51.302] Server  LOG      ✓ Compiled in 29ms
+[121:44:51.326] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:44:51.423] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:44:51.564] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:45:13.926] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:45:13.979] Server  LOG      ✓ Compiled in 37ms
+[121:45:14.007] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:45:14.153] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:45:14.300] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:45:16.404] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:45:16.457] Server  LOG      ✓ Compiled in 29ms
+[121:45:16.482] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:45:16.606] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:45:16.750] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:45:21.617] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:45:21.670] Server  LOG      ✓ Compiled in 29ms
+[121:45:21.695] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:45:21.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:45:21.940] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:45:24.266] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:45:24.327] Server  LOG      ✓ Compiled in 44ms
+[121:45:24.352] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:45:24.451] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:45:24.596] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:45:48.275] Server  LOG      ✓ Compiled in 30ms
+[121:45:48.682] Browser ERROR   ./components/buses/bus-details.tsx:69:3
+Parsing ecmascript source code failed
+  67 |
+  68 |   // In a real app, this would fetch bus data based on busId
+> 69 |   const bus = {
+     |   ^^^^^
+  70 |     id: busId,
+  71 |     name: "Island Runner",
+  72 |     dateAssigned: "05/05/2025",
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:45:50.365] Server  LOG      ✓ Compiled in 32ms
+[121:45:50.682] Browser ERROR   ./components/buses/bus-details.tsx:66:9
+Parsing ecmascript source code failed
+  64 |   });
+  65 |
+> 66 |   const modify
+     |         ^^^^^^
+  67 |
+  68 |   // In a real app, this would fetch bus data based on busId
+  69 |   const bus = {
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:45:55.732] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:45:55.735] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:45:55.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:45:55.936] Browser ERROR   uncaughtError: ReferenceError: useModu is not defined
+[121:46:04.771] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:46:04.829] Server  LOG      ✓ Compiled in 31ms
+[121:46:04.849] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:46:04.983] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:46:05.121] Browser ERROR   uncaughtError: ReferenceError: useModifyBuses is not defined
+[121:46:11.369] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:46:11.375] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:46:11.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:46:11.609] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:49:45.599] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:49:45.668] Server  LOG      ✓ Compiled in 33ms
+[121:49:45.713] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:49:45.905] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:49:46.068] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:49:52.228] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:49:52.231] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:49:52.337] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:49:52.482] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:49:54.796] Server  LOG      ✓ Compiled in 32ms
+[121:49:55.683] Browser ERROR   ./components/buses/bus-details.tsx:81:3
+Parsing ecmascript source code failed
+  79 |   const 
+  80 |   // In a real app, this would fetch bus data based on busId
+> 81 |   const bus = {
+     |   ^^^^^
+  82 |     id: busId,
+  83 |     name: "Island Runner",
+  84 |     dateAssigned: "05/05/2025",
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:49:57.482] Server  LOG      ✓ Compiled in 30ms
+[121:49:57.683] Browser ERROR   ./components/buses/bus-details.tsx:79:9
+Parsing ecmascript source code failed
+  77 |   });
+  78 |
+> 79 |   const handle
+     |         ^^^^^^
+  80 |   // In a real app, this would fetch bus data based on busId
+  81 |   const bus = {
+  82 |     id: busId,
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:50:01.683] Browser ERROR   ./components/buses/bus-details.tsx:79:9
+Parsing ecmascript source code failed
+  77 |   });
+  78 |
+> 79 |   const handleModi
+     |         ^^^^^^^^^^
+  80 |   // In a real app, this would fetch bus data based on busId
+  81 |   const bus = {
+  82 |     id: busId,
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:50:05.495] Server  LOG      ✓ Compiled in 32ms
+[121:50:05.683] Browser ERROR   ./components/buses/bus-details.tsx:79:27
+Parsing ecmascript source code failed
+  77 |   });
+  78 |
+> 79 |   const handleModifyBus = ()
+     |                           ^^
+  80 |   // In a real app, this would fetch bus data based on busId
+  81 |   const bus = {
+  82 |     id: busId,
+
+Parenthesized expression cannot be empty
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[121:50:07.808] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:50:07.811] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:50:07.934] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:50:08.076] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:50:10.274] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:50:10.341] Server  LOG      ✓ Compiled in 32ms
+[121:50:10.367] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:50:10.466] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:50:10.608] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:50:46.530] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:50:46.583] Server  LOG      ✓ Compiled in 32ms
+[121:50:46.613] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:50:46.670] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:50:46.816] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:50:47.002] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:50:47.055] Server  LOG      ✓ Compiled in 35ms
+[121:50:47.083] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:50:47.211] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:50:47.351] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:51:02.243] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:51:02.331] Server  LOG      ✓ Compiled in 36ms
+[121:51:02.368] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:51:02.472] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:51:02.621] Browser ERROR   uncaughtError: ReferenceError: imageUrl is not defined
+[121:51:16.551] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:51:16.618] Server  LOG      ✓ Compiled in 30ms
+[121:51:16.644] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:51:16.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:51:16.886] Browser ERROR   uncaughtError: ReferenceError: handleWatch is not defined
+[121:51:25.132] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:51:25.195] Server  LOG      ✓ Compiled in 34ms
+[121:51:25.221] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:51:25.359] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:51:25.508] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[121:51:43.654] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:51:43.710] Server  LOG      ✓ Compiled in 32ms
+[121:51:43.736] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:51:43.853] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:51:44.001] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[121:52:46.132] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:52:46.187] Server  LOG      ✓ Compiled in 33ms
+[121:52:46.219] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:52:46.282] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:52:46.431] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[121:52:57.378] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:52:57.439] Server  LOG      ✓ Compiled in 41ms
+[121:52:57.465] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:52:57.585] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:52:57.732] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[121:52:58.946] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:52:59.001] Server  LOG      ✓ Compiled in 33ms
+[121:52:59.030] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:52:59.127] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:52:59.271] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[121:53:03.210] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:53:03.270] Server  LOG      ✓ Compiled in 33ms
+[121:53:03.291] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:53:03.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:53:03.534] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[121:53:06.813] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[121:53:06.888] Server  LOG      ✓ Compiled in 36ms
+[121:53:06.911] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[121:53:07.011] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[121:53:07.155] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:20.296] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:20.417] Server  LOG      ✓ Compiled in 39ms
+[122:04:20.483] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:20.672] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:20.855] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:22.962] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:23.024] Server  LOG      ✓ Compiled in 31ms
+[122:04:23.081] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:23.218] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:23.378] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:24.666] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:24.734] Server  LOG      ✓ Compiled in 34ms
+[122:04:24.762] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:24.876] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:25.028] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:29.625] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:29.682] Server  LOG      ✓ Compiled in 39ms
+[122:04:29.712] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:29.904] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:30.056] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:32.390] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:32.445] Server  LOG      ✓ Compiled in 32ms
+[122:04:32.476] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:32.612] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:32.764] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:36.228] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:36.279] Server  LOG      ✓ Compiled in 29ms
+[122:04:36.306] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:36.447] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:36.597] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:04:39.689] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:04:39.741] Server  LOG      ✓ Compiled in 29ms
+[122:04:39.767] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:04:39.923] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:04:40.066] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[122:05:01.748] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:05:01.802] Server  LOG      ✓ Compiled in 34ms
+[122:05:01.832] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:05:01.956] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:05:02.114] Browser ERROR   uncaughtError: ReferenceError: X is not defined
+[122:05:17.072] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:05:17.133] Server  LOG      ✓ Compiled in 31ms
+[122:05:17.161] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:05:17.316] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:05:17.472] Browser ERROR   uncaughtError: ReferenceError: selectedState is not defined
+[122:06:07.454] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:06:07.516] Server  LOG      ✓ Compiled in 34ms
+[122:06:07.543] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:06:07.682] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:06:07.831] Browser ERROR   uncaughtError: ReferenceError: holdBtn is not defined
+[122:06:25.215] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:06:25.273] Server  LOG      ✓ Compiled in 32ms
+[122:06:25.306] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:06:25.422] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:06:25.572] Browser ERROR   uncaughtError: ReferenceError: holdBtn is not defined
+[122:06:51.265] Server  LOG      ✓ Compiled in 35ms
+[122:06:51.683] Browser ERROR   ./components/buses/bus-details.tsx:50:9
+Parsing ecmascript source code failed
+  48 |   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
+  49 |
+> 50 |   const [holdBtn, setHoldBtn]
+     |         ^^^^^^^^^^^^^^^^^^^^^
+  51 |
+  52 |   const { data: staffData, refetch: refetchStaffs } = useQuery({
+  53 |     queryKey: ["staffs"],
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[122:06:58.475] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:06:58.477] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:06:58.537] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:06:58.712] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[122:06:58.813] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[122:06:58.814] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SDDHG","route":"/app-menu/buses/[id]"}
+[122:06:58.814] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768924254893}
+[122:07:00.603] Server  LOG      ✓ Compiled in 37ms
+[122:07:23.800] Server  LOG      ✓ Compiled in 40ms
+[122:07:24.683] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[122:07:30.366] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:07:30.427] Server  LOG      ✓ Compiled in 34ms
+[122:07:30.454] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:07:30.575] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:07:30.735] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[122:07:30.735] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[122:07:30.735] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SDDHG","route":"/app-menu/buses/[id]"}
+[122:07:30.735] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768924286814}
+[122:07:44.269] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[122:07:44.269] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[122:07:56.672] Server  LOG      ✓ Compiled in 39ms
+[122:07:57.590] Server  LOG      ✓ Compiled in 35ms
+[122:08:13.389] Server  LOG      ✓ Compiled in 43ms
+[122:08:25.936] Server  LOG      ✓ Compiled in 36ms
+[122:08:33.599] Server  LOG      ✓ Compiled in 35ms
+[122:08:36.312] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[122:08:36.312] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[122:10:27.225] Server  LOG      ✓ Compiled in 41ms
+[122:10:27.683] Browser ERROR   ./components/buses/bus-details.tsx:571:64
+Parsing ecmascript source code failed
+  569 |             <div>
+  570 |               <p className="text-xs text-muted-foreground">Date Created</p>
+> 571 |               <p className="font-semibold text-sm">{new Date() selBus?.createdAt}</p>
+      |                                                                ^^^^^^
+  572 |             </div>
+  573 |             <div>
+  574 |               <p className="text-xs text-muted-foreground">Status</p>
+
+Expected '</', got 'selBus'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[122:10:31.683] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: [object Date]). If you meant to render a collection of children, use an array instead.
+[122:10:32.919] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:10:32.977] Server  LOG      ✓ Compiled in 36ms
+[122:10:33.018] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:10:33.140] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:10:33.307] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[122:10:33.307] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[122:10:33.307] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SDDHG","route":"/app-menu/buses/[id]"}
+[122:10:33.307] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768924469385}
+[122:10:35.921] Server  LOG      ✓ Compiled in 33ms
+[122:10:43.585] Server  LOG      ✓ Compiled in 33ms
+[122:10:46.233] Server  LOG      ✓ Compiled in 33ms
+[122:11:07.531] Server  LOG      ✓ Compiled in 32ms
+[122:11:14.387] Server  LOG      ✓ Compiled in 33ms
+[122:11:55.605] Server  LOG      ✓ Compiled in 33ms
+[122:12:02.873] Server  LOG      ✓ Compiled in 36ms
+[122:12:03.684] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[122:12:06.734] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:12:06.819] Server  LOG      ✓ Compiled in 36ms
+[122:12:06.866] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:12:06.994] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:12:07.172] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[122:12:07.172] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[122:12:07.172] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SDDHG","route":"/app-menu/buses/[id]"}
+[122:12:07.172] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768924563251}
+[122:12:12.735] Server  LOG      ✓ Compiled in 33ms
+[122:12:14.597] Server  LOG      ✓ Compiled in 31ms
+[122:12:21.380] Server  LOG      ✓ Compiled in 31ms
+[122:12:52.780] Server  LOG      ✓ Compiled in 33ms
+[122:12:57.689] Server  LOG      ✓ Compiled in 37ms
+[122:12:58.682] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[122:13:00.780] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:13:00.868] Server  LOG      ✓ Compiled in 37ms
+[122:13:00.906] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:13:01.028] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:13:01.174] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[122:13:10.374] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[122:13:10.433] Server  LOG      ✓ Compiled in 31ms
+[122:13:10.463] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[122:13:10.588] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[122:13:10.764] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[122:13:10.764] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[122:13:10.764] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SDDHG","route":"/app-menu/buses/[id]"}
+[122:13:10.764] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768924626842}
+[122:13:11.529] Server  LOG      ✓ Compiled in 32ms
+[122:13:23.513] Server  LOG      ✓ Compiled in 33ms
+[122:13:24.828] Server  LOG      ✓ Compiled in 31ms
+[122:13:25.684] Browser ERROR   ./components/buses/bus-details.tsx:588:20
+Parsing ecmascript source code failed
+  586 |            {sel <div>
+  587 |               <p className="text-xs text-muted-foreground">Route(s) Assigned</p>
+> 588 |               <div className="flex flex-wrap gap-1">
+      |                    ^^^^^^^^^
+  589 |                 {selBus?.routes_assigned?.length > 0
+  590 |                   ? selBus?.routes_assigned.map((routeId) => {
+  591 |                       const route = tripRoutes?.trip_route.data.find(
+
+Expected '</', got 'className'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[123:37:06.683] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxNTczOCwiZXhwIjoxNzY5NTIwNTM4fQ.LiEhrbaAj9enk2dDRVEM9lUxvqlHmze4ST_fF9K-67Y","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_943202a8._.js:4238:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_943202a8._.js:4983:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_f1dfc7a2._.js:298:21)"}
+[123:37:06.683] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxNTczOCwiZXhwIjoxNzY5NTIwNTM4fQ.LiEhrbaAj9enk2dDRVEM9lUxvqlHmze4ST_fF9K-67Y","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_943202a8._.js:4238:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_943202a8._.js:4983:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_f1dfc7a2._.js:1199:21)"}
+[123:38:05.882] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[123:38:06.022] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[123:38:06.190] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[123:38:06.191] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[123:38:06.191] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SDDHG","route":"/app-menu/buses/[id]"}
+[123:38:06.191] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768929722272}
+[123:38:14.048] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768929730093}
+[123:38:17.932] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768929734001}
+[123:38:24.873] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:38:24.873] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:38:42.434] Server  LOG      ✓ Compiled in 32ms
+[123:38:42.684] Browser ERROR   ./components/buses/bus-details.tsx:685:5
+Parsing ecmascript source code failed
+  683 |       </Card>
+  684 |       <Toaster
+> 685 |     </div>
+      |     ^
+  686 |   );
+  687 | }
+  688 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[123:38:42.684] Browser ERROR   ./components/buses/bus-details.tsx:685:6
+Parsing ecmascript source code failed
+  683 |       </Card>
+  684 |       <Toaster
+> 685 |     </div>
+      |      ^^^^^
+  686 |   );
+  687 | }
+  688 |
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[123:39:01.936] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:39:01.936] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:45:51.361] Server  LOG      ✓ Compiled in 41ms
+[123:45:57.625] Server  LOG      ✓ Compiled in 35ms
+[123:45:59.770] Server  LOG      ✓ Compiled in 34ms
+[123:46:02.682] Server  LOG      ✓ Compiled in 37ms
+[123:46:08.509] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:46:08.509] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:46:37.261] Server  LOG      ✓ Compiled in 38ms
+[123:46:40.552] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:46:40.552] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:46:50.009] Server  LOG      ✓ Compiled in 39ms
+[123:46:53.173] Server  LOG      ✓ Compiled in 38ms
+[123:47:08.556] Server  LOG      ✓ Compiled in 31ms
+[123:47:10.466] Server  LOG      ✓ Compiled in 33ms
+[123:47:15.202] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:47:15.202] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:47:16.637] Browser LOG     Bus Mutation {"bus_id":"SDDHG","capacity":20,"drivers_assigned":["6961efa910c874a5a46ca5d3"],"fuel_type":"petrol","id_code":"SDDHG","mileage":"60009","name_label":"BUS-045","operation_schedule":"2026-01-21T06:47:00.000Z","plate_number":"GHHD34","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGH33"}
+[123:47:49.803] Server  LOG      ✓ Compiled in 33ms
+[123:47:55.363] Server  LOG      ✓ Compiled in 33ms
+[123:48:27.471] Server  LOG      ✓ Compiled in 38ms
+[123:48:37.516] Server  LOG      ✓ Compiled in 34ms
+[123:48:44.787] Server  LOG      ✓ Compiled in 42ms
+[123:48:48.054] Server  LOG      ✓ Compiled in 32ms
+[123:48:50.793] Server  LOG      ✓ Compiled in 40ms
+[123:48:59.782] Server  LOG      ✓ Compiled in 39ms
+[123:49:22.778] Server  LOG      ✓ Compiled in 44ms
+[123:49:28.725] Server  LOG      ✓ Compiled in 41ms
+[123:49:41.666] Browser LOG     Bus Mutation {"bus_id":"SDDHG","capacity":20,"drivers_assigned":["6961efa910c874a5a46ca5d3"],"fuel_type":"petrol","id_code":"SDDHG","mileage":"60009","name_label":"BUS-045","operation_schedule":"2026-01-21T06:47:00.000Z","plate_number":"GHHD34","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGH33"}
+[123:50:24.086] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768930460135}
+[123:50:28.388] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:50:28.388] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:50:51.988] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:50:51.988] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:51:29.530] Server  LOG      ✓ Compiled in 35ms
+[123:51:30.988] Server  LOG      ✓ Compiled in 35ms
+[123:51:32.170] Server  LOG      ✓ Compiled in 34ms
+[123:51:35.544] Server  LOG      ✓ Compiled in 34ms
+[123:51:42.311] Server  LOG      ✓ Compiled in 32ms
+[123:51:42.661] Server  LOG      ✓ Compiled in 33ms
+[123:51:46.765] Server  LOG      ✓ Compiled in 32ms
+[123:51:50.562] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:51:50.562] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:52:01.971] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:06.720] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:08.390] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:09.202] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:10.427] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:10.596] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:10.777] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:21.856] Server  LOG      ✓ Compiled in 32ms
+[123:53:24.248] Browser LOG     BusDriver {"bus_id":"696f2335ad2ba365630c6989","capacity":28,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3"],"fuel_type":"diesel","id_code":"GF450DS","image":{},"mileage":"3000","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHD344","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:53:34.950] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:53:34.950] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[123:53:46.945] Browser LOG     BusDriver {"bus_id":"696f47b45214ce5db9774040","capacity":24,"drivers_assigned":["6961efa910c874a5a46ca5d3","6961f12610c874a5a46ca5e3","6961f14e10c874a5a46ca5e8"],"fuel_type":"diesel","id_code":"GF450WW","image":{},"mileage":"3200","name_label":"Red Bus Jaguar","operation_schedule":"2026-01-21T09:39","plate_number":"GHHDSD","routes_assigned":["696f1093ad2ba365630c67bb"],"status":true,"tracker_id":"GFGFSGwer"}
+[123:54:52.945] Server  LOG      ✓ Compiled in 40ms
+[123:55:04.714] Server  LOG      ✓ Compiled in 34ms
+[123:55:07.771] Server  LOG      ✓ Compiled in 37ms
+[123:56:48.789] Server  LOG      ✓ Compiled in 33ms
+[123:56:49.684] Browser ERROR   ./components/buses/bus-systems-table.tsx:97:27
+Parsing ecmascript source code failed
+   95 |       plate_number: "",
+   96 |       capacity: "",
+>  97 |       operation_schedule: ,
+      |                           ^
+   98 |       status: true,
+   99 |       fuel_type: FuelType.Petrol,
+  100 |       tracker_id: "",
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[123:56:55.487] Server  LOG      ✓ Compiled in 33ms
+[123:56:59.503] Server  LOG      ✓ Compiled in 34ms
+[123:58:39.030] Server  LOG      ✓ Compiled in 33ms
+[123:58:45.696] Server  LOG      ✓ Compiled in 43ms
+[123:58:48.879] Server  LOG      ✓ Compiled in 40ms
+[123:58:50.160] Server  LOG      ✓ Compiled in 30ms
+[123:58:53.643] Server  LOG      ✓ Compiled in 35ms
+[123:58:55.282] Server  LOG      ✓ Compiled in 39ms
+[123:58:55.684] Browser ERROR   ./components/buses/bus-details.tsx:70:7
+Parsing ecmascript source code failed
+  68 |       operation_schedule: {
+  69 |         from:selBus?.operation_schedule.
+> 70 |       },
+     |       ^
+  71 |       status: selBus?.status ? true : false,
+  72 |       fuel_type: selBus?.fuel_type as FuelType,
+  73 |       tracker_id: selBus?.tracker_id,
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[123:59:28.684] Browser ERROR   ./components/buses/bus-details.tsx:70:7
+Parsing ecmascript source code failed
+  68 |       operation_schedule: {
+  69 |         from:selBus?.operation_schedule.
+> 70 |       },
+     |       ^
+  71 |       status: selBus?.status ? true : false,
+  72 |       fuel_type: selBus?.fuel_type as FuelType,
+  73 |       tracker_id: selBus?.tracker_id,
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[123:59:31.683] Browser ERROR   ./components/buses/bus-details.tsx:70:7
+Parsing ecmascript source code failed
+  68 |       operation_schedule: {
+  69 |         from:selBus?.operation_schedule.
+> 70 |       },
+     |       ^
+  71 |       status: selBus?.status ? true : false,
+  72 |       fuel_type: selBus?.fuel_type as FuelType,
+  73 |       tracker_id: selBus?.tracker_id,
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[123:59:40.549] Server  LOG      ✓ Compiled in 34ms
+[123:59:46.133] Server  LOG      ✓ Compiled in 34ms
+[123:59:50.745] Server  LOG      ✓ Compiled in 33ms
+[124:01:14.163] Server  LOG      ✓ Compiled in 33ms
+[124:01:16.230] Server  LOG      ✓ Compiled in 33ms
+[124:01:32.471] Server  LOG      ✓ Compiled in 42ms
+[124:02:07.371] Server  LOG      ✓ Compiled in 43ms
+[124:02:14.194] Server  LOG      ✓ Compiled in 37ms
+[124:02:16.195] Server  LOG      ✓ Compiled in 38ms
+[124:02:20.184] Server  LOG      ✓ Compiled in 37ms
+[124:03:47.656] Server  LOG      ✓ Compiled in 34ms
+[124:03:48.755] Server  LOG      ✓ Compiled in 34ms
+[124:03:58.788] Server  LOG      ✓ Compiled in 34ms
+[124:04:00.651] Server  LOG      ✓ Compiled in 40ms
+[124:04:02.396] Server  LOG      ✓ Compiled in 35ms
+[124:04:09.513] Server  LOG      ✓ Compiled in 40ms
+[124:04:55.994] Server  LOG      ✓ Compiled in 38ms
+[124:05:04.117] Server  LOG      ✓ Compiled in 36ms
+[124:07:49.844] Server  LOG      ✓ Compiled in 40ms
+[124:07:57.296] Server  LOG      ✓ Compiled in 38ms
+[124:09:06.304] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:09:06.304] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:09:59.524] Server  LOG      ✓ Compiled in 43ms
+[124:10:00.365] Server  LOG      ✓ Compiled in 35ms
+[124:10:05.478] Server  LOG      ✓ Compiled in 40ms
+[124:11:23.898] Server  LOG      ✓ Compiled in 40ms
+[124:11:24.683] Browser ERROR   ./components/buses/bus-systems-table.tsx:150:27
+Parsing ecmascript source code failed
+  148 |       plate_number &&
+  149 |       capacity &&
+> 150 |       operation_schedule. &&
+      |                           ^^
+  151 |       status &&
+  152 |       fuel_type &&
+  153 |       tracker_id &&
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[124:11:26.296] Server  LOG      ✓ Compiled in 37ms
+[124:11:31.563] Server  LOG      ✓ Compiled in 34ms
+[124:11:31.683] Browser ERROR   ./components/buses/bus-systems-table.tsx:151:7
+Parsing ecmascript source code failed
+  149 |       capacity &&
+  150 |       operation_schedule.from && operation_schedule.from
+> 151 |       status &&
+      |       ^^^^^^
+  152 |       fuel_type &&
+  153 |       tracker_id &&
+  154 |       mileage
+
+Expected ')', got 'status'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[124:11:33.684] Browser ERROR   ./components/buses/bus-systems-table.tsx:151:7
+Parsing ecmascript source code failed
+  149 |       capacity &&
+  150 |       operation_schedule.from && operation_schedule.to
+> 151 |       status &&
+      |       ^^^^^^
+  152 |       fuel_type &&
+  153 |       tracker_id &&
+  154 |       mileage
+
+Expected ')', got 'status'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[124:11:35.682] Browser ERROR   ./components/buses/bus-systems-table.tsx:151:7
+Parsing ecmascript source code failed
+  149 |       capacity &&
+  150 |       operation_schedule.from && operation_schedule.to
+> 151 |       status &&
+      |       ^^^^^^
+  152 |       fuel_type &&
+  153 |       tracker_id &&
+  154 |       mileage
+
+Expected ')', got 'status'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[124:11:39.031] Server  LOG      ✓ Compiled in 32ms
+[124:11:52.103] Server  LOG      ✓ Compiled in 32ms
+[124:11:53.273] Server  LOG      ✓ Compiled in 32ms
+[124:11:59.104] Server  LOG      ✓ Compiled in 35ms
+[124:11:59.682] Browser ERROR   ./components/buses/bus-systems-table.tsx:171:5
+Parsing ecmascript source code failed
+  169 |     capacity,
+  170 |     operation_schedule.from, operation_schedule.from
+> 171 |     status,
+      |     ^^^^^^
+  172 |     fuel_type,
+  173 |     tracker_id,
+  174 |     mileage,
+
+Expected ',', got 'status'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[124:12:01.682] Browser ERROR   ./components/buses/bus-systems-table.tsx:171:5
+Parsing ecmascript source code failed
+  169 |     capacity,
+  170 |     operation_schedule.from, operation_schedule.to
+> 171 |     status,
+      |     ^^^^^^
+  172 |     fuel_type,
+  173 |     tracker_id,
+  174 |     mileage,
+
+Expected ',', got 'status'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[124:12:02.015] Browser ERROR   The final argument passed to %s changed size between renders. The order and size of this array must remain constant.
+
+Previous: %s
+Incoming: %s useEffect [GF450DS, blob:http://localhost:3000/805b466f-7d3b-42f3-929f-00088156ecbc, GF450DS, Black Taxi Jaguar, ,696f1093ad2ba365630c67bb, ,69663ca422d08383db588b64, , , 2026-01-21T19:55, true, petrol, GFGFS233d, 3000] [GF450DS, blob:http://localhost:3000/805b466f-7d3b-42f3-929f-00088156ecbc, GF450DS, Black Taxi Jaguar, ,696f1093ad2ba365630c67bb, ,69663ca422d08383db588b64, , , 2026-01-21T19:55, 2026-01-22T20:56, true, petrol, GFGFS233d, 3000]
+[124:12:28.181] Server  LOG      ✓ Compiled in 32ms
+[124:12:30.172] Server  LOG      ✓ Compiled in 31ms
+[124:12:34.852] Server  LOG      ✓ Compiled in 37ms
+[124:12:35.682] Browser ERROR   The final argument passed to %s changed size between renders. The order and size of this array must remain constant.
+
+Previous: %s
+Incoming: %s useEffect [GF450DS, blob:http://localhost:3000/805b466f-7d3b-42f3-929f-00088156ecbc, GF450DS, Black Taxi Jaguar, ,696f1093ad2ba365630c67bb, ,69663ca422d08383db588b64, GHH333, 30, 2026-01-21T19:56, 2026-01-22T20:56, true, petrol, GFGFS233d, 3000] [GF450DS, blob:http://localhost:3000/805b466f-7d3b-42f3-929f-00088156ecbc, GF450DS, Black Taxi Jaguar, ,696f1093ad2ba365630c67bb, ,69663ca422d08383db588b64, GHH333, 30, 2026-01-21T19:56, true, petrol, GFGFS233d, 3000]
+[124:12:36.141] Server  LOG      ✓ Compiled in 33ms
+[124:13:34.081] Server  LOG      ✓ Compiled in 39ms
+[124:13:40.454] Server  LOG      ✓ Compiled in 32ms
+[124:13:43.031] Server  LOG      ✓ Compiled in 34ms
+[124:13:45.183] Server  LOG      ✓ Compiled in 42ms
+[124:13:49.893] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:13:49.893] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:14:35.975] Browser LOG     Bus Data 045 {}
+[124:19:20.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:19:20.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:20:23.448] Browser LOG     Bus Data 045 {}
+[124:24:04.321] Server  LOG      ✓ Compiled in 46ms
+[124:24:05.871] Server  LOG      ✓ Compiled in 36ms
+[124:24:14.780] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:24:14.780] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:24:57.242] Browser LOG     Bus Data 045 {}
+[124:26:06.601] Server  LOG      ✓ Compiled in 35ms
+[124:26:38.467] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SDDHG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SDDHG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932634536}
+[124:26:47.228] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:26:47.228] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:27:07.136] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932663205}
+[124:27:09.050] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[124:27:09.050] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[124:27:09.050] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932665085}
+[124:27:10.075] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932666145}
+[124:27:24.339] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[124:27:24.339] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[124:27:24.339] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932680389}
+[124:27:25.382] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932681453}
+[124:27:26.726] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[124:27:26.726] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[124:27:26.726] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932682776}
+[124:27:49.071] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1768932705117}
+[124:27:51.765] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:27:51.765] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:28:12.713] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[124:28:12.713] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[126:54:52.393] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc2ODkxNTczOCwiZXhwIjoxNzY5NTIwNTM4fQ.LiEhrbaAj9enk2dDRVEM9lUxvqlHmze4ST_fF9K-67Y","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_943202a8._.js:4225:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_943202a8._.js:4983:49)\n    at async getPickupStations (http://localhost:3000/_next/static/chunks/_60076890._.js:1157:21)"}

@@ -1109,7 +1109,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta.onrender.com/",
+    baseURL: "https://deporta-development.onrender.com",
     timeout: 15000,
     headers: {
         "Content-Type": "application/json"
@@ -1168,7 +1168,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5
 ;
 const getAllBuses = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/buses/get");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/bus/get");
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
@@ -1194,13 +1194,15 @@ const useCreateBus = ()=>{
             formData.append("name_label", data.name_label);
             formData.append("plate_number", data.plate_number);
             formData.append("capacity", data.capacity);
-            formData.append("operation_schedule", data.operation_schedule);
+            formData.append("operation_schedule[from]", data.operation_schedule.from);
+            formData.append("operation_schedule[to]", data.operation_schedule.to);
             // Convert boolean to string "true" or "false"
             formData.append("status", String(data.status));
             formData.append("fuel_type", data.fuel_type);
             formData.append("tracker_id", data.tracker_id);
             formData.append("mileage", data.mileage);
-            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/buses/create", formData, {
+            console.log("Bus Data 045", formData);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/bus/create", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -1229,7 +1231,7 @@ const useCreateBus = ()=>{
 const useDeleteBus = ()=>{
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMutation"])({
         mutationFn: async (stationId)=>{
-            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].delete(`/api/users/admin/buses/delete/${stationId}`);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].delete(`/api/users/admin/buses/bus/${stationId}`);
             return res.data;
         },
         onSuccess: (data)=>{
@@ -1272,13 +1274,14 @@ const useModifyBuses = ()=>{
             formData.append("name_label", data.name_label);
             formData.append("plate_number", data.plate_number);
             formData.append("capacity", `${data.capacity}`);
-            formData.append("operation_schedule", data.operation_schedule);
+            formData.append("operation_schedule[from]", data.operation_schedule.from);
+            formData.append("operation_schedule[to]", data.operation_schedule.to);
             // Convert boolean to string "true" or "false"
             formData.append("status", String(data.status));
             formData.append("fuel_type", data.fuel_type);
             formData.append("tracker_id", data.tracker_id);
             formData.append("mileage", data.mileage);
-            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/buses/edit`, formData, {
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/bus/edit`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -1287,6 +1290,8 @@ const useModifyBuses = ()=>{
         },
         onSuccess: (data)=>{
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+            console.log("Bus Edit Data>><M<", data);
+            //   store.dispatch(updateBusDetails())
             __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
                 queryKey: [
                     "allBuses"
@@ -1644,7 +1649,10 @@ function BusSystemsTable() {
             ],
             plate_number: "",
             capacity: "",
-            operation_schedule: "",
+            operation_schedule: {
+                from: "",
+                to: ""
+            },
             status: true,
             fuel_type: __TURBOPACK__imported__module__$5b$project$5d2f$types$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FuelType"].Petrol,
             tracker_id: "",
@@ -2468,21 +2476,20 @@ function BusSystemsTable() {
                                                                     className: "space-y-2",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                            htmlFor: "state",
-                                                                            children: "Operation Schedule"
+                                                                            htmlFor: "schedule_from",
+                                                                            children: "Operation Schedule From"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
                                                                             lineNumber: 582,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                                                            id: "operation_schedule",
+                                                                            id: "schedule_from",
                                                                             type: "datetime-local",
-                                                                            ...register("operation_schedule"),
-                                                                            placeholder: "Operation Schedule"
+                                                                            ...register("operation_schedule.from")
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 583,
+                                                                            lineNumber: 585,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
@@ -2492,80 +2499,29 @@ function BusSystemsTable() {
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                            htmlFor: "state",
-                                                                            children: "Status"
+                                                                            htmlFor: "schedule_to",
+                                                                            children: "Operation Schedule To"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 591,
+                                                                            lineNumber: 592,
                                                                             columnNumber: 23
                                                                         }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroup"], {
-                                                                            defaultValue: "true",
-                                                                            onValueChange: (val)=>setValue("status", val === "true"),
-                                                                            className: "flex gap-4 mt-4",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    className: "flex items-center space-x-2",
-                                                                                    children: [
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroupItem"], {
-                                                                                            value: "true",
-                                                                                            id: "r1"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                            lineNumber: 600,
-                                                                                            columnNumber: 27
-                                                                                        }, this),
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                                            htmlFor: "r1",
-                                                                                            children: "Active"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                            lineNumber: 601,
-                                                                                            columnNumber: 27
-                                                                                        }, this)
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                    lineNumber: 599,
-                                                                                    columnNumber: 25
-                                                                                }, this),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    className: "flex items-center space-x-2",
-                                                                                    children: [
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroupItem"], {
-                                                                                            value: "false",
-                                                                                            id: "r2"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                            lineNumber: 604,
-                                                                                            columnNumber: 27
-                                                                                        }, this),
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                                            htmlFor: "r2",
-                                                                                            children: "Inactive"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                            lineNumber: 605,
-                                                                                            columnNumber: 27
-                                                                                        }, this)
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                    lineNumber: 603,
-                                                                                    columnNumber: 25
-                                                                                }, this)
-                                                                            ]
-                                                                        }, void 0, true, {
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            id: "schedule_to",
+                                                                            type: "datetime-local",
+                                                                            ...register("operation_schedule.to")
+                                                                        }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 592,
+                                                                            lineNumber: 593,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                    lineNumber: 590,
+                                                                    lineNumber: 591,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
@@ -2585,7 +2541,7 @@ function BusSystemsTable() {
                                                                             children: "Fuel Type"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 613,
+                                                                            lineNumber: 603,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -2598,12 +2554,12 @@ function BusSystemsTable() {
                                                                                         placeholder: "Select a State"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                        lineNumber: 621,
+                                                                                        lineNumber: 611,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                    lineNumber: 620,
+                                                                                    lineNumber: 610,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2613,7 +2569,7 @@ function BusSystemsTable() {
                                                                                             children: "Petrol"
                                                                                         }, "1", false, {
                                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                            lineNumber: 624,
+                                                                                            lineNumber: 614,
                                                                                             columnNumber: 27
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2621,25 +2577,25 @@ function BusSystemsTable() {
                                                                                             children: "Diesel"
                                                                                         }, "2", false, {
                                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                            lineNumber: 627,
+                                                                                            lineNumber: 617,
                                                                                             columnNumber: 27
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                    lineNumber: 623,
+                                                                                    lineNumber: 613,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 614,
+                                                                            lineNumber: 604,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                    lineNumber: 612,
+                                                                    lineNumber: 602,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2650,13 +2606,48 @@ function BusSystemsTable() {
                                                                             children: "Tracker ID"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 634,
+                                                                            lineNumber: 624,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                                             id: "tracker_id",
                                                                             ...register("tracker_id"),
                                                                             placeholder: "Tracker ID"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                            lineNumber: 625,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                    lineNumber: 623,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                            lineNumber: 601,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-2 gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                            htmlFor: "state",
+                                                                            children: "Mileage"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                            lineNumber: 634,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            id: "mileage",
+                                                                            ...register("mileage"),
+                                                                            placeholder: "Enter Bus Mileage"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
                                                                             lineNumber: 635,
@@ -2667,44 +2658,88 @@ function BusSystemsTable() {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
                                                                     lineNumber: 633,
                                                                     columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                            htmlFor: "state",
+                                                                            children: "Status"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                            lineNumber: 642,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroup"], {
+                                                                            defaultValue: "true",
+                                                                            onValueChange: (val)=>setValue("status", val === "true"),
+                                                                            className: "flex gap-4 mt-4",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                    className: "flex items-center space-x-2",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroupItem"], {
+                                                                                            value: "true",
+                                                                                            id: "r1"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                                            lineNumber: 651,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                            htmlFor: "r1",
+                                                                                            children: "Active"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                                            lineNumber: 652,
+                                                                                            columnNumber: 27
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                                    lineNumber: 650,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                    className: "flex items-center space-x-2",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroupItem"], {
+                                                                                            value: "false",
+                                                                                            id: "r2"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                                            lineNumber: 655,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                            htmlFor: "r2",
+                                                                                            children: "Inactive"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                                            lineNumber: 656,
+                                                                                            columnNumber: 27
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                                    lineNumber: 654,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                            lineNumber: 643,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/buses/bus-systems-table.tsx",
+                                                                    lineNumber: 641,
+                                                                    columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 611,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "grid grid-cols-2 gap-4",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "space-y-2",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                        htmlFor: "state",
-                                                                        children: "Mileage"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                        lineNumber: 644,
-                                                                        columnNumber: 23
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                                                        id: "mileage",
-                                                                        ...register("mileage"),
-                                                                        placeholder: "Enter Bus Mileage"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                        lineNumber: 645,
-                                                                        columnNumber: 23
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                lineNumber: 643,
-                                                                columnNumber: 21
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 642,
+                                                            lineNumber: 632,
                                                             columnNumber: 19
                                                         }, this),
                                                         editMode ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2715,14 +2750,14 @@ function BusSystemsTable() {
                                                                 className: "h-4 w-4 animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                lineNumber: 664,
+                                                                lineNumber: 673,
                                                                 columnNumber: 25
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                 children: "Save Changes"
                                                             }, void 0, false)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 654,
+                                                            lineNumber: 663,
                                                             columnNumber: 21
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                                             disabled: createBusMutation.isPending || holdBtn,
@@ -2732,14 +2767,14 @@ function BusSystemsTable() {
                                                                 className: "h-4 w-4 animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                lineNumber: 680,
+                                                                lineNumber: 689,
                                                                 columnNumber: 25
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                 children: "Create New Bus"
                                                             }, void 0, false)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 670,
+                                                            lineNumber: 679,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
@@ -2787,12 +2822,12 @@ function BusSystemsTable() {
                             children: "All Buses"
                         }, void 0, false, {
                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                            lineNumber: 695,
+                            lineNumber: 704,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                        lineNumber: 694,
+                        lineNumber: 703,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2809,7 +2844,7 @@ function BusSystemsTable() {
                                                 children: "Bus Image"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 702,
+                                                lineNumber: 711,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2817,7 +2852,7 @@ function BusSystemsTable() {
                                                 children: "Bus ID / Code"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 705,
+                                                lineNumber: 714,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2825,7 +2860,7 @@ function BusSystemsTable() {
                                                 children: "Bus Name"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 708,
+                                                lineNumber: 717,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2833,7 +2868,7 @@ function BusSystemsTable() {
                                                 children: "Route(s) Assigned"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 711,
+                                                lineNumber: 720,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2841,7 +2876,7 @@ function BusSystemsTable() {
                                                 children: "Capacity"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 714,
+                                                lineNumber: 723,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2849,7 +2884,7 @@ function BusSystemsTable() {
                                                 children: "Driver(s) Assigned"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 717,
+                                                lineNumber: 726,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2857,25 +2892,25 @@ function BusSystemsTable() {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 720,
+                                                lineNumber: 729,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 723,
+                                                lineNumber: 732,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                        lineNumber: 701,
+                                        lineNumber: 710,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                    lineNumber: 700,
+                                    lineNumber: 709,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2885,7 +2920,7 @@ function BusSystemsTable() {
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                    lineNumber: 730,
+                                                    lineNumber: 739,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : paginatedData.map((bus)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2899,12 +2934,12 @@ function BusSystemsTable() {
                                                             className: "w-16 h-10 rounded object-cover"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 740,
+                                                            lineNumber: 749,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 739,
+                                                        lineNumber: 748,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2912,7 +2947,7 @@ function BusSystemsTable() {
                                                         children: bus.id_code
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 746,
+                                                        lineNumber: 755,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2920,7 +2955,7 @@ function BusSystemsTable() {
                                                         children: bus.name_label
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 749,
+                                                        lineNumber: 758,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2935,18 +2970,18 @@ function BusSystemsTable() {
                                                                     children: route ? route.code : routeId
                                                                 }, routeId, false, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                    lineNumber: 758,
+                                                                    lineNumber: 767,
                                                                     columnNumber: 33
                                                                 }, this);
                                                             }) : "No routes"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 751,
+                                                            lineNumber: 760,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 750,
+                                                        lineNumber: 759,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2954,7 +2989,7 @@ function BusSystemsTable() {
                                                         children: bus.capacity
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 770,
+                                                        lineNumber: 779,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2969,18 +3004,18 @@ function BusSystemsTable() {
                                                                     children: driver ? `${driver.first_name} ${driver.last_name}` : routeId
                                                                 }, routeId, false, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                    lineNumber: 783,
+                                                                    lineNumber: 792,
                                                                     columnNumber: 33
                                                                 }, this);
                                                             }) : "No Drivers Assigned"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 774,
+                                                            lineNumber: 783,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 773,
+                                                        lineNumber: 782,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2991,12 +3026,12 @@ function BusSystemsTable() {
                                                             children: bus.status === "active" ? "Active" : "In Maintenance"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 798,
+                                                            lineNumber: 807,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 797,
+                                                        lineNumber: 806,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3013,17 +3048,17 @@ function BusSystemsTable() {
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 818,
+                                                                            lineNumber: 827,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                        lineNumber: 813,
+                                                                        lineNumber: 822,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                    lineNumber: 812,
+                                                                    lineNumber: 821,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -3039,20 +3074,22 @@ function BusSystemsTable() {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                    lineNumber: 828,
+                                                                                    lineNumber: 837,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "View Details"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 822,
+                                                                            lineNumber: 831,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
                                                                             onClick: ()=>{
-                                                                                const formattedDate = bus.operation_schedule.slice(0, 16);
-                                                                                setValue("operation_schedule", formattedDate);
+                                                                                const fromDate = bus.operation_schedule.from.slice(0, 16);
+                                                                                setValue("operation_schedule.from", fromDate);
+                                                                                const toDate = bus.operation_schedule.to.slice(0, 16);
+                                                                                setValue("operation_schedule.to", toDate);
                                                                                 setBusId(bus._id);
                                                                                 setEditMode(true);
                                                                                 setValue("imageUrl", bus.bus_photo);
@@ -3074,14 +3111,14 @@ function BusSystemsTable() {
                                                                                     className: ""
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                    lineNumber: 860,
+                                                                                    lineNumber: 875,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "Edit"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 831,
+                                                                            lineNumber: 840,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -3094,7 +3131,7 @@ function BusSystemsTable() {
                                                                                 className: "animate-spin"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                lineNumber: 872,
+                                                                                lineNumber: 887,
                                                                                 columnNumber: 31
                                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                                 children: [
@@ -3102,7 +3139,7 @@ function BusSystemsTable() {
                                                                                         className: "text-destructive "
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                                        lineNumber: 875,
+                                                                                        lineNumber: 890,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Delete"
@@ -3110,30 +3147,30 @@ function BusSystemsTable() {
                                                                             }, void 0, true)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                            lineNumber: 863,
+                                                                            lineNumber: 878,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                                    lineNumber: 821,
+                                                                    lineNumber: 830,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                            lineNumber: 811,
+                                                            lineNumber: 820,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                        lineNumber: 810,
+                                                        lineNumber: 819,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, bus._id, true, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 735,
+                                                lineNumber: 744,
                                                 columnNumber: 19
                                             }, this)),
                                         !isLoading && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -3143,29 +3180,29 @@ function BusSystemsTable() {
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 888,
+                                                lineNumber: 903,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                            lineNumber: 887,
+                                            lineNumber: 902,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                    lineNumber: 726,
+                                    lineNumber: 735,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                            lineNumber: 699,
+                            lineNumber: 708,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                        lineNumber: 698,
+                        lineNumber: 707,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3185,7 +3222,7 @@ function BusSystemsTable() {
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 912,
+                                                lineNumber: 927,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3193,7 +3230,7 @@ function BusSystemsTable() {
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 913,
+                                                lineNumber: 928,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3201,20 +3238,20 @@ function BusSystemsTable() {
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                                lineNumber: 914,
+                                                lineNumber: 929,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                        lineNumber: 907,
+                                        lineNumber: 922,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                lineNumber: 905,
+                                lineNumber: 920,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3229,7 +3266,7 @@ function BusSystemsTable() {
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                        lineNumber: 922,
+                                        lineNumber: 937,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -3245,7 +3282,7 @@ function BusSystemsTable() {
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                            lineNumber: 936,
+                                            lineNumber: 951,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -3258,30 +3295,30 @@ function BusSystemsTable() {
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                        lineNumber: 954,
+                                        lineNumber: 969,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                                lineNumber: 920,
+                                lineNumber: 935,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/buses/bus-systems-table.tsx",
-                        lineNumber: 903,
+                        lineNumber: 918,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                lineNumber: 693,
+                lineNumber: 702,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/buses/bus-systems-table.tsx",
-                lineNumber: 966,
+                lineNumber: 981,
                 columnNumber: 7
             }, this)
         ]

@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(dashboard)/layout,_N_T_/(dashboard)/app-menu/layout,_N_T_/(dashboard)/app-menu/drivers/layout,_N_T_/(dashboard)/app-menu/drivers/page,_N_T_/app-menu/drivers"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGRhc2hib2FyZCk/app-menu/drivers/__PAGE__",
+    "/!KGRhc2hib2FyZCk/app-menu/drivers",
+    "/!KGRhc2hib2FyZCk/app-menu",
+    "/!KGRhc2hib2FyZCk",
+    "/_index",
+    "/_head"
+  ]
+}

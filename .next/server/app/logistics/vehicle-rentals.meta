@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(dashboard)/layout,_N_T_/(dashboard)/logistics/layout,_N_T_/(dashboard)/logistics/vehicle-rentals/layout,_N_T_/(dashboard)/logistics/vehicle-rentals/page,_N_T_/logistics/vehicle-rentals"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGRhc2hib2FyZCk/logistics/vehicle-rentals/__PAGE__",
+    "/!KGRhc2hib2FyZCk/logistics/vehicle-rentals",
+    "/!KGRhc2hib2FyZCk/logistics",
+    "/!KGRhc2hib2FyZCk",
+    "/_index",
+    "/_head"
+  ]
+}

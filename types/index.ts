@@ -87,7 +87,10 @@ export type AddBusPayload = {
   drivers_assigned: string[];
   plate_number: string;
   capacity: string;
-  operation_schedule: string;
+  operation_schedule: {
+    from: string;
+    to: string;
+  };
   status: boolean;
   fuel_type: FuelType;
   bus_id?: string;
@@ -105,7 +108,10 @@ export type EditBusPayload = {
   drivers_assigned: string[];
   plate_number: string;
   capacity: number;
-  operation_schedule: string;
+  operation_schedule: {
+    from: string;
+    to: string;
+  };
   status: boolean;
   fuel_type: FuelType;
   tracker_id: string;
@@ -348,7 +354,10 @@ export type Bus = {
   plate_number: string;
   capacity: number;
   bus_photo: string;
-  operation_schedule: string;
+  operation_schedule: {
+    from: string;
+    to: string;
+  };
   drivers_assigned: string[];
   added_by: NormalStaffData;
   status: string;

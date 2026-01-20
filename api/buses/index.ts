@@ -13,7 +13,7 @@ import { queryClient } from "../queryClient";
 
 export const getAllBuses = async (): Promise<BusesResponse> => {
   try {
-    const res = await api.get("/api/users/admin/buses/get");
+    const res = await api.get("/api/users/admin/bus/get");
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);
@@ -44,7 +44,8 @@ export const useCreateBus = () => {
       formData.append("name_label", data.name_label);
       formData.append("plate_number", data.plate_number);
       formData.append("capacity", data.capacity);
-      formData.append("operation_schedule", data.operation_schedule);
+      formData.append("operation_schedule[from]", data.operation_schedule.from);
+      formData.append("operation_schedule[to]", data.operation_schedule.to);
 
       // Convert boolean to string "true" or "false"
       formData.append("status", String(data.status));
@@ -53,7 +54,9 @@ export const useCreateBus = () => {
       formData.append("tracker_id", data.tracker_id);
       formData.append("mileage", data.mileage);
 
-      const res = await api.post("/api/users/admin/buses/create", formData, {
+      console.log("Bus Data 045", formData);
+
+      const res = await api.post("/api/users/admin/bus/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -80,9 +83,7 @@ export const useCreateBus = () => {
 export const useDeleteBus = () => {
   return useMutation({
     mutationFn: async (stationId: string) => {
-      const res = await api.delete(
-        `/api/users/admin/buses/delete/${stationId}`
-      );
+      const res = await api.delete(`/api/users/admin/buses/bus/${stationId}`);
       return res.data;
     },
     onSuccess: (data: Response) => {
@@ -122,12 +123,13 @@ export const useModifyBuses = () => {
       });
 
       // 3. Handle Primitive Fields
-      formData.append("bus_id", data.bus_id)
+      formData.append("bus_id", data.bus_id);
       formData.append("id_code", data.id_code);
       formData.append("name_label", data.name_label);
       formData.append("plate_number", data.plate_number);
       formData.append("capacity", `${data.capacity}`);
-      formData.append("operation_schedule", data.operation_schedule);
+      formData.append("operation_schedule[from]", data.operation_schedule.from);
+      formData.append("operation_schedule[to]", data.operation_schedule.to);
 
       // Convert boolean to string "true" or "false"
       formData.append("status", String(data.status));
@@ -136,7 +138,7 @@ export const useModifyBuses = () => {
       formData.append("tracker_id", data.tracker_id);
       formData.append("mileage", data.mileage);
 
-      const res = await api.patch(`/api/users/admin/buses/edit`, formData, {
+      const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -144,9 +146,11 @@ export const useModifyBuses = () => {
 
       return res.data;
     },
-    onSuccess: (data: Response) => {
+    onSuccess: (data: any) => {
       toast.success(`${data.message}`);
+      console.log("Bus Edit Data>><M<", data);
 
+      //   store.dispatch(updateBusDetails())
       queryClient.invalidateQueries({ queryKey: ["allBuses"] });
       return data;
     },
