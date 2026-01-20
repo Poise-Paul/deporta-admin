@@ -40,12 +40,31 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
-import { AddBusPayload, Driver, FuelType } from "@/types";
+import {
+  AddBusPayload,
+  Driver,
+  EditBusPayload,
+  FuelType,
+  RouteData,
+  StaffData,
+} from "@/types";
 import { DRIVERS } from "@/constants/drivers";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { getAllBuses, useCreateBus } from "@/api/buses";
+import {
+  getAllBuses,
+  useCreateBus,
+  useDeleteBus,
+  useModifyBuses,
+} from "@/api/buses";
 import { useQuery } from "@tanstack/react-query";
+import { Skeleton } from "../ui/skeleton";
+import { getRoutes } from "@/api/routes";
+import { getStaffList } from "@/api/user";
+import { Toaster } from "react-hot-toast";
+import { updateSelBus } from "@/lib/store/slices/bus-slice";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 
 type BusTab = "all" | "active" | "maintenance" | "inactive";
 
@@ -62,9 +81,13 @@ export function BusSystemsTable() {
   const [holdBtn, setHoldBtn] = useState(true);
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
 
+  const [editMode, setEditMode] = useState(false);
+  const [busId, setBusId] = useState("");
+
   const { register, setValue, watch, reset } = useForm<AddBusPayload>({
     values: {
       imageUrl: "",
+      bus_id: "",
       id_code: "",
       name_label: "",
       routes_assigned: [""],
@@ -92,6 +115,7 @@ export function BusSystemsTable() {
   const selectedState = watch("fuel_type");
 
   const createBusMutation = useCreateBus();
+  const modifyBusMutation = useModifyBuses();
 
   const {
     image,
@@ -107,6 +131,7 @@ export function BusSystemsTable() {
     fuel_type,
     tracker_id,
     mileage,
+    bus_id,
   } = handleWatch;
 
   useEffect(() => {
@@ -146,25 +171,77 @@ export function BusSystemsTable() {
   ]);
 
   const handleCreateBus = () => {
-    createBusMutation.mutate({
-      image,
-      id_code,
-      name_label,
-      routes_assigned,
-      drivers_assigned,
-      plate_number,
-      capacity,
-      operation_schedule,
-      status,
-      fuel_type,
-      tracker_id,
-      mileage,
-    });
+    createBusMutation.mutate(
+      {
+        image,
+        id_code,
+        name_label,
+        routes_assigned,
+        drivers_assigned,
+        plate_number,
+        capacity,
+        operation_schedule,
+        status,
+        fuel_type,
+        tracker_id,
+        mileage,
+      },
+      {
+        onSuccess: () => {
+          reset();
+          refetch();
+        },
+        onSettled: () => setIsDialogueOpen(false),
+      }
+    );
+  };
+
+  const handleModifyBus = () => {
+    modifyBusMutation.mutate(
+      {
+        image,
+        id_code,
+        bus_id: busId,
+        routes_assigned,
+        drivers_assigned,
+        name_label,
+        plate_number,
+        capacity: Number(capacity),
+        operation_schedule,
+        status,
+        fuel_type,
+        tracker_id,
+        mileage,
+      },
+      {
+        onSuccess: () => refetch(),
+        onSettled: () => setIsDialogueOpen(false),
+      }
+    );
   };
 
   const { data, refetch, isLoading } = useQuery({
     queryKey: ["allBuses"],
     queryFn: () => getAllBuses(),
+  });
+
+  const {
+    data: tripRoutes,
+    refetch: refetchRoutes,
+    isLoading: tripLoader,
+  } = useQuery({
+    queryKey: ["routes"],
+    queryFn: () => getRoutes(),
+  });
+
+  // get the current user
+  const {
+    data: staffData,
+    refetch: refetchStaffs,
+  } = useQuery({
+    queryKey: ["staffs"],
+    retry: false,
+    queryFn: () => getStaffList(),
   });
 
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -206,6 +283,45 @@ export function BusSystemsTable() {
     setCurrentPage(1);
   }, [searchQuery, activeTab]);
 
+  const deleteBusMitation = useDeleteBus();
+
+  const handleDelBus = (busId: string) => {
+    deleteBusMitation.mutate(busId, {
+      onSuccess: () => refetch(),
+    });
+  };
+
+  // Table Loader
+  const TableRowSkeleton = () => (
+    <tr className="border-b border-border animate-pulse">
+      <td className="p-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-20" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-40" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-24" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-28" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-8 w-8 rounded-md" />
+      </td>
+    </tr>
+  );
+  const router = useRouter();
+  const dispatch = useDispatch();
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -218,6 +334,16 @@ export function BusSystemsTable() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 w-72 bg-transparent"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+                type="button"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
 
           {/* Tabs and Actions */}
@@ -246,14 +372,22 @@ export function BusSystemsTable() {
 
             <Dialog open={isDialogueOpen} onOpenChange={setIsDialogueOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                <Button
+                  onClick={() => {
+                    reset();
+                    setEditMode(false);
+                  }}
+                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+                >
                   <Plus className="h-4 w-4" />
                   Add New Bus
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-2xl">
                 <DialogHeader>
-                  <DialogTitle>Add Bus System</DialogTitle>
+                  <DialogTitle>
+                    {editMode ? " Edit" : "Add"} Bus System
+                  </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
                   <div>
@@ -262,7 +396,10 @@ export function BusSystemsTable() {
                       <Avatar className="h-20 w-20">
                         <AvatarImage
                           className="object-cover h-20 w-20"
-                          src={imageUrl || "/shuttle-bus.png"}
+                          src={
+                            imageUrl ||
+                            "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png"
+                          }
                           alt="profile_img"
                         />
                         <AvatarFallback className="">Bus Image</AvatarFallback>
@@ -307,15 +444,16 @@ export function BusSystemsTable() {
                         }}
                       >
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Add a driver..." />
+                          <SelectValue placeholder="Add a route..." />
                         </SelectTrigger>
                         <SelectContent>
-                          {DRIVERS.filter(
-                            (d) => !watch("routes_assigned").includes(d._id)
-                          ) // Hide already selected
-                            .map((driver) => (
-                              <SelectItem key={driver._id} value={driver._id}>
-                                {driver.first_name} {driver.last_name}
+                          {tripRoutes?.trip_route.data
+                            .filter(
+                              (d) => !watch("routes_assigned").includes(d._id)
+                            ) // Hide already selected
+                            .map((route) => (
+                              <SelectItem key={route._id} value={route._id}>
+                                {route.code}
                               </SelectItem>
                             ))}
                         </SelectContent>
@@ -326,8 +464,8 @@ export function BusSystemsTable() {
                         {watch("routes_assigned")
                           .filter((id) => id !== "")
                           .map((driverId) => {
-                            const driver = DRIVERS.find(
-                              (d: Driver) => d._id === driverId
+                            const route = tripRoutes?.trip_route.data.find(
+                              (d: RouteData) => d._id === driverId
                             );
                             return (
                               <Badge
@@ -335,7 +473,7 @@ export function BusSystemsTable() {
                                 variant="secondary"
                                 className="pl-2 pr-1 py-1"
                               >
-                                {driver?.first_name} {driver?.last_name}
+                                {route?.code}
                                 <button
                                   type="button"
                                   onClick={() => {
@@ -370,13 +508,17 @@ export function BusSystemsTable() {
                           <SelectValue placeholder="Add a driver..." />
                         </SelectTrigger>
                         <SelectContent>
-                          {DRIVERS.filter(
-                            (d) => !watch("drivers_assigned").includes(d._id)
-                          ).map((driver) => (
-                            <SelectItem key={driver._id} value={driver._id}>
-                              {driver.first_name} {driver.last_name}
-                            </SelectItem>
-                          ))}
+                          {staffData?.staffs.data
+                            .filter(
+                              (d) =>
+                                d.user_type.type_id.role === "driver" &&
+                                !watch("drivers_assigned").includes(d._id)
+                            )
+                            .map((driver) => (
+                              <SelectItem key={driver._id} value={driver._id}>
+                                {driver.first_name} {driver.last_name}
+                              </SelectItem>
+                            ))}
                         </SelectContent>
                       </Select>
                       {/* Selected Drivers */}
@@ -385,8 +527,8 @@ export function BusSystemsTable() {
                         {watch("drivers_assigned")
                           .filter((id) => id !== "")
                           .map((driverId) => {
-                            const driver = DRIVERS.find(
-                              (d: Driver) => d._id === driverId
+                            const driver = staffData?.staffs.data.find(
+                              (d: StaffData) => d._id === driverId
                             );
                             return (
                               <Badge
@@ -440,7 +582,7 @@ export function BusSystemsTable() {
                       <Label htmlFor="state">Operation Schedule</Label>
                       <Input
                         id="operation_schedule"
-                        type="time"
+                        type="datetime-local"
                         {...register("operation_schedule")}
                         placeholder="Operation Schedule"
                       />
@@ -508,19 +650,39 @@ export function BusSystemsTable() {
                     </div>
                   </div>
 
-                  <Button
-                    disabled={createBusMutation.isPending || holdBtn}
-                    onClick={handleCreateBus}
-                    className={`w-full bg-primary ${
-                      createBusMutation.isPending || holdBtn ? "opacity-30" : ""
-                    } hover:bg-primary/90 text-primary-foreground`}
-                  >
-                    {createBusMutation.isPending ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>Create New Bus</>
-                    )}
-                  </Button>
+                  {editMode ? (
+                    <Button
+                      disabled={modifyBusMutation.isPending || holdBtn}
+                      onClick={handleModifyBus}
+                      className={`w-full bg-primary ${
+                        modifyBusMutation.isPending || holdBtn
+                          ? "opacity-30"
+                          : ""
+                      } hover:bg-primary/90 text-primary-foreground`}
+                    >
+                      {modifyBusMutation.isPending ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>Save Changes</>
+                      )}
+                    </Button>
+                  ) : (
+                    <Button
+                      disabled={createBusMutation.isPending || holdBtn}
+                      onClick={handleCreateBus}
+                      className={`w-full bg-primary ${
+                        createBusMutation.isPending || holdBtn
+                          ? "opacity-30"
+                          : ""
+                      } hover:bg-primary/90 text-primary-foreground`}
+                    >
+                      {createBusMutation.isPending ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>Create New Bus</>
+                      )}
+                    </Button>
+                  )}
                 </div>
               </DialogContent>
             </Dialog>
@@ -547,13 +709,13 @@ export function BusSystemsTable() {
                   Bus Name
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Route
+                  Route(s) Assigned
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Capacity
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Driver
+                  Driver(s) Assigned
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Status
@@ -562,75 +724,177 @@ export function BusSystemsTable() {
               </tr>
             </thead>
             <tbody>
-              {paginatedData.map((bus) => (
-                <tr
-                  key={bus._id}
-                  className="border-b border-border last:border-0 hover:bg-muted/50"
-                >
-                  <td className="p-4">
-                    <img
-                      src={bus.bus_photo || "/placeholder.svg"}
-                      alt={bus.name_label}
-                      className="w-16 h-10 rounded object-cover"
-                    />
-                  </td>
-                  <td className="p-4 font-medium text-sm text-secondary">
-                    {bus.id_code}
-                  </td>
-                  <td className="p-4 text-sm">{bus.name_label}</td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {bus.routes_assigned?.length > 0
-                      ? bus.drivers_assigned.join("-")
-                      : "No routes assigned"}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {bus.capacity}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {bus.drivers_assigned?.length > 0
-                      ? bus.drivers_assigned.join(", ")
-                      : "No drivers assigned"}
-                  </td>
-                  <td className="p-4">
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "font-normal",
-                        bus.status === "active"
-                          ? "border-green-500 text-green-600 bg-green-50"
-                          : "border-yellow-500 text-yellow-600 bg-yellow-50"
-                      )}
-                    >
-                      {bus.status === "active" ? "Active" : "In Maintenance"}
-                    </Badge>
-                  </td>
-                  <td className="p-4">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem asChild>
-                          <Link href={`/app-menu/buses/${bus._id}`}>
+              {isLoading ? (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <TableRowSkeleton key={i} />
+                  ))}
+                </>
+              ) : (
+                paginatedData.map((bus) => (
+                  <tr
+                    key={bus._id}
+                    className="border-b border-border last:border-0 hover:bg-muted/50"
+                  >
+                    <td className="p-4">
+                      <img
+                        src={bus.bus_photo || "/placeholder.svg"}
+                        alt={bus.name_label}
+                        className="w-16 h-10 rounded object-cover"
+                      />
+                    </td>
+                    <td className="p-4 font-medium text-sm text-secondary">
+                      {bus.id_code}
+                    </td>
+                    <td className="p-4 text-sm">{bus.name_label}</td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      <div className="flex flex-wrap gap-1">
+                        {bus.routes_assigned?.length > 0
+                          ? bus.routes_assigned.map((routeId) => {
+                              const route = tripRoutes?.trip_route.data.find(
+                                (r) => r._id === routeId
+                              );
+                              return (
+                                <Badge
+                                  key={routeId}
+                                  variant="outline"
+                                  className="text-[10px] px-1"
+                                >
+                                  {route ? route.code : routeId}
+                                </Badge>
+                              );
+                            })
+                          : "No routes"}
+                      </div>
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {bus.capacity}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      <div className="flex flex-wrap gap-1">
+                        {bus.drivers_assigned?.length > 0
+                          ? bus.drivers_assigned.map((routeId) => {
+                              const driver = staffData?.staffs.data.find(
+                                (r) =>
+                                  r.user_type.type_id.role === "driver" &&
+                                  r._id === routeId
+                              );
+                              return (
+                                <Badge
+                                  key={routeId}
+                                  variant="outline"
+                                  className="text-[10px] px-1"
+                                >
+                                  {driver
+                                    ? `${driver.first_name} ${driver.last_name}`
+                                    : routeId}
+                                </Badge>
+                              );
+                            })
+                          : "No Drivers Assigned"}
+                      </div>
+                    </td>
+                    <td className="p-4">
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          bus.status === "active"
+                            ? "border-green-500 text-green-600 bg-green-50"
+                            : "border-yellow-500 text-yellow-600 bg-yellow-50"
+                        )}
+                      >
+                        {bus.status === "active" ? "Active" : "In Maintenance"}
+                      </Badge>
+                    </td>
+                    <td className="p-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <MoreVertical className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            onClick={() => {
+                              dispatch(updateSelBus(bus));
+                              router.push(`/app-menu/buses/${bus.id_code}`);
+                            }}
+                          >
                             <Eye className="h-4 w-4 mr-2" />
                             View Details
-                          </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Edit className="" />
-                          Edit
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">
-                          <Delete className="text-red-700" />
-                          Remove
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => {
+                              const formattedDate =
+                                bus.operation_schedule.slice(0, 16);
+                              setValue("operation_schedule", formattedDate);
+                              setBusId(bus._id);
+                              setEditMode(true);
+                              setValue("imageUrl", bus.bus_photo);
+                              setValue("bus_id", bus._id);
+                              setValue("id_code", bus.id_code);
+                              setValue("name_label", bus.name_label);
+                              setValue("routes_assigned", bus.routes_assigned);
+                              setValue(
+                                "drivers_assigned",
+                                bus.drivers_assigned
+                              );
+                              setValue("plate_number", bus.plate_number);
+                              setValue("capacity", `${bus.capacity}`);
+                              setValue(
+                                "status",
+                                bus.status === "active" ? true : false
+                              );
+                              setValue("fuel_type", bus.fuel_type as FuelType);
+                              setValue("tracker_id", bus.tracker_id);
+                              setValue("mileage", bus.mileage);
+
+                              setIsDialogueOpen(true);
+                            }}
+                          >
+                            <Edit className="" />
+                            Edit
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
+
+                              handleDelBus(bus._id);
+                            }}
+                            className="text-destructive"
+                          >
+                            {deleteBusMitation.isPending ? (
+                              <Loader2 className="animate-spin" />
+                            ) : (
+                              <>
+                                <Delete className="text-destructive " />
+                                Delete
+                              </>
+                            )}
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </td>
+                  </tr>
+                ))
+              )}
+              {!isLoading && paginatedData.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="p-8 text-center text-muted-foreground"
+                  >
+                    {`No results found ${
+                      searchQuery && `for "${searchQuery}"`
+                    }`}
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
@@ -699,6 +963,7 @@ export function BusSystemsTable() {
           </div>
         </div>
       </CardContent>
+      <Toaster />
     </Card>
   );
 }

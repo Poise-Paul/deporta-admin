@@ -16,12 +16,22 @@ import staffReducer from "./slices/staff-slice";
 import pickupSatationReducer from "./slices/pickup-station-slice";
 import dropOffStationReducer from "./slices/drop-off-station-slice";
 import busStopReducer from "./slices/bus-stop-slice";
+import routesReducer from "./slices/route-slice";
+import busReducer from "./slices/bus-slice";
 
 const persistConfig = {
   key: "deporta-admin",
   version: 1,
   storage,
-  whitelist: ["auth", "staff", "pickupStation", "dropOffStation", "busStops"], // Only persist auth state
+  whitelist: [
+    "auth",
+    "staff",
+    "pickupStation",
+    "dropOffStation",
+    "busStops",
+    "routes",
+    "bus"
+  ], // Only persist auth state
 };
 
 const rootReducer = combineReducers({
@@ -31,6 +41,8 @@ const rootReducer = combineReducers({
   pickupStation: pickupSatationReducer,
   dropOffStation: dropOffStationReducer,
   busStops: busStopReducer,
+  routes: routesReducer,
+  bus: busReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

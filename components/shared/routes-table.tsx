@@ -26,7 +26,6 @@ import {
   MoreVertical,
   Eye,
   Loader2,
-  DeleteIcon,
   Edit,
   Trash2,
   X,
@@ -39,21 +38,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  getPickupStations,
-  useCreatePickupStation,
-  useDeletePickupStation,
-  useModifyPickupStation,
-} from "@/api/pick-up-stations";
+import { useDeletePickupStation } from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
+import {
+  AddPickupStationPayload,
+  AddTripRoute,
+  EditPickupStationPayload,
+  EditTripRoute,
+} from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
+import {
+  getRoutes,
+  useCreateTripRoute,
+  useDeleteRoute,
+  useModifyRoutes,
+} from "@/api/routes";
+import { getAllBusStops, useDeleteBusStop } from "@/api/bus-stops";
+import { updateSelRoute } from "@/lib/store/slices/route-slice";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -92,47 +99,66 @@ export function RoutesTable({
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
-  const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  const [routeId, setRouteId] = useState<EditTripRoute>();
 
-  const [holdPickupBtn, setHoldPickupBtn] = useState(true);
+  const [holdBtn, setHoldBtn] = useState(true);
   const [holdEditPickupBtn, setHoldEditPickupBtn] = useState(true);
 
-  const pickupStationMutation = useCreatePickupStation();
-  const modifyPickupStation = useModifyPickupStation();
+  const addTripRoute = useCreateTripRoute();
+  const modifyTripRoute = useModifyRoutes();
 
-  const deleteMutation = useDeletePickupStation();
+  const deleteMutation = useDeleteRoute();
 
   const {
-    data: pickupStations,
+    data: tripRoutes,
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["pickupStations"],
-    queryFn: () => getPickupStations(),
+    queryKey: ["routes"],
+    queryFn: () => getRoutes(),
   });
 
-  const { register, reset, setValue, watch } = useForm<AddPickupStationPayload>(
-    {
-      values: {
-        address: "",
-        area: "",
-        country: "Nigeria",
-        state: "lagos",
-      },
-    }
-  );
+  const { data: busStops } = useQuery({
+    queryKey: ["busStops"],
+    queryFn: () => getAllBusStops(),
+  });
+
+  const { register, reset, setValue, watch } = useForm<AddTripRoute>({
+    values: {
+      rate: 0,
+      flat_rate: 0,
+      rate_per_km: 0,
+      code: "",
+      destination: "",
+      starting_point: "",
+      route_distance: "",
+      number_of_stops: [],
+      country: "Nigeria",
+      state: "lagos",
+    },
+  });
 
   const {
     register: updateRegister,
     setValue: updateValue,
     watch: updateWatch,
-  } = useForm<AddPickupStationPayload>({
+  } = useForm<AddTripRoute>({
     values: {
-      address: pickupId?.address || "",
-      area: pickupId?.area || "",
-      country: pickupId?.country || "Nigeria",
+      rate: Number(routeId?.rate),
+      flat_rate: Number(routeId?.flat_rate),
+      rate_per_km: Number(routeId?.rate_per_km),
+      code: `${routeId?.code}`,
+      destination: `${routeId?.destination}`,
+      starting_point: `${routeId?.starting_point}`,
+      route_distance: `${routeId?.route_distance}`,
+      number_of_stops: Array.isArray(routeId?.number_of_stops)
+        ? routeId.number_of_stops.flat()
+        : [],
+      country: routeId?.country || "Nigeria",
       state:
-        pickupId?.state === "Lagos State" ? "lagos" : pickupId?.state || "",
+        routeId?.state === "Lagos State" || "Lagos"
+          ? "lagos"
+          : routeId?.state || "",
     },
   });
 
@@ -141,20 +167,43 @@ export function RoutesTable({
   const handleWatch = watch();
   const handleUpdateWatch = updateWatch();
 
-  const { address, area, country, state } = handleWatch;
+  const {
+    rate,
+    rate_per_km,
+    code,
+    flat_rate,
+    destination,
+    starting_point,
+    route_distance,
+    number_of_stops,
+    country,
+    state,
+  } = handleWatch;
 
   const {
-    address: updateAddress,
-    area: updateArea,
+    rate: updateRate,
+    flat_rate: updateFlatRate,
+    rate_per_km: updateRatePerKm,
+    code: updateCode,
+    starting_point: updateStartingPoint,
+    route_distance: updateRouteDistance,
+    number_of_stops: updateNumberOfStops,
+    destination: updateDestination,
     country: updateCountry,
     state: updateState,
   } = handleUpdateWatch;
 
-  const handleAddPickupStation = () => {
-    pickupStationMutation.mutate(
+  const handleAddTripRoute = () => {
+    addTripRoute.mutate(
       {
-        address,
-        area,
+        rate,
+        rate_per_km,
+        code,
+        flat_rate,
+        destination,
+        starting_point,
+        route_distance,
+        number_of_stops,
         country,
         state,
       },
@@ -169,11 +218,17 @@ export function RoutesTable({
   };
 
   const handleModifyPickupStation = () => {
-    modifyPickupStation.mutate(
+    modifyTripRoute.mutate(
       {
-        pickup_station_id: pickupId?.pickup_station_id || "",
-        address: updateAddress,
-        area: updateArea,
+        trip_route_id: routeId?.trip_route_id || "",
+        rate: updateRate,
+        rate_per_km: updateRatePerKm,
+        code: updateCode,
+        flat_rate: updateFlatRate,
+        destination: updateDestination,
+        starting_point: updateStartingPoint,
+        route_distance: updateRouteDistance,
+        number_of_stops: updateNumberOfStops,
         country: updateCountry,
         state: updateState,
       },
@@ -184,46 +239,90 @@ export function RoutesTable({
     );
   };
 
-  const handleDeleteStation = (stationId: string) => {
+  const handleDeleteRoute = (stationId: string) => {
     deleteMutation.mutate(stationId, {
       onSuccess: () => refetch(),
     });
   };
 
   useEffect(() => {
-    if (address && area && state && country) {
-      setHoldPickupBtn(false);
+    if (
+      rate &&
+      rate_per_km &&
+      code &&
+      flat_rate &&
+      destination &&
+      starting_point &&
+      route_distance &&
+      number_of_stops &&
+      country &&
+      state
+    ) {
+      setHoldBtn(false);
     } else {
-      setHoldPickupBtn(true);
+      setHoldBtn(true);
     }
-  }, [address, area, state, country]);
+  }, [
+    rate,
+    rate_per_km,
+    code,
+    flat_rate,
+    destination,
+    starting_point,
+    route_distance,
+    number_of_stops,
+    country,
+    state,
+  ]);
 
   useEffect(() => {
-    if (updateAddress && updateArea && updateState && updateCountry) {
+    if (
+      updateRate &&
+      updateFlatRate &&
+      updateRatePerKm &&
+      updateCode &&
+      updateStartingPoint &&
+      updateRouteDistance &&
+      updateNumberOfStops &&
+      updateDestination &&
+      updateCountry &&
+      updateState
+    ) {
       setHoldEditPickupBtn(false);
     } else {
       setHoldEditPickupBtn(true);
     }
-  }, [updateAddress, updateArea, updateState, updateCountry]);
+  }, [
+    updateRate,
+    updateFlatRate,
+    updateRatePerKm,
+    updateCode,
+    updateStartingPoint,
+    updateRouteDistance,
+    updateNumberOfStops,
+    updateDestination,
+    updateCountry,
+    updateState,
+  ]);
 
   useEffect(() => {
     refetch();
-  }, [pickupStations]);
+  }, [tripRoutes]);
 
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
   const { paginatedData, totalPages } = React.useMemo(() => {
-    const allStations = pickupStations?.pickup_station?.data || [];
+    const allRoutes = tripRoutes?.trip_route.data || [];
 
     // 1. Filter by Search Query (Checking multiple fields)
-    let filtered = allStations.filter((station) => {
+    let filtered = allRoutes.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
-        station.address?.toLowerCase().includes(searchStr) ||
-        station.area?.toLowerCase().includes(searchStr) ||
-        station.state?.toLowerCase().includes(searchStr)
+        station.starting_point?.toLowerCase().includes(searchStr) ||
+        station.destination?.toLowerCase().includes(searchStr) ||
+        station.code?.toLowerCase().includes(searchStr)
       );
     });
 
@@ -242,7 +341,7 @@ export function RoutesTable({
     const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
 
     return { paginatedData: slicedData, totalPages: total };
-  }, [pickupStations, activeTab, currentPage, itemsPerPage, searchQuery]);
+  }, [tripRoutes, activeTab, currentPage, itemsPerPage, searchQuery]);
 
   React.useEffect(() => {
     setCurrentPage(1);
@@ -335,28 +434,145 @@ export function RoutesTable({
                   {addButtonText}
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
+              <DialogContent className="sm:max-w-2xl">
                 <DialogHeader>
                   <DialogTitle>Add New {title.slice(0, -1)}</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
+                  <div className="grid gap-4 grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="rate">Rate</Label>
+                      <Input
+                        id="rate"
+                        multiple
+                        {...register("rate")}
+                        placeholder="Rate"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="flat_rate">Flat Rate</Label>
+                      <Input
+                        id="flat_rate"
+                        multiple
+                        {...register("flat_rate")}
+                        placeholder="Flat Rate"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="rate_per_km">Rate Per KM</Label>
+                      <Input
+                        id="rate_per_km"
+                        {...register("rate_per_km")}
+                        placeholder="Rate Per KM"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="code">Code</Label>
+                      <Input
+                        id="code"
+                        {...register("code")}
+                        placeholder="Enter Code"
+                      />
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="name">Pickup Address</Label>
+                    <Label htmlFor="starting_point">Staring Point</Label>
                     <Input
-                      id="name"
-                      multiple
-                      {...register("address")}
-                      placeholder="Enter pickup station address"
+                      id="starting_point"
+                      {...register("starting_point")}
+                      placeholder="Enter Starting Point"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="area">Area</Label>
+                    <Label htmlFor="destination">Enter Destination</Label>
                     <Input
-                      id="area"
-                      {...register("area")}
-                      placeholder="Enter area"
+                      id="destination"
+                      {...register("destination")}
+                      placeholder="Enter Destination"
                     />
                   </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="route_distance">Route Distance</Label>
+                    <Input
+                      id="route_distance"
+                      {...register("route_distance")}
+                      placeholder="Enter Route Distance"
+                    />
+                  </div>
+                  {busStops && (
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">
+                        Select Bus-Stops Along this Route
+                      </label>
+                      <Select
+                        // Value is reset to empty string so the placeholder remains visible
+                        value=""
+                        onValueChange={(value) => {
+                          const currentStops = watch("number_of_stops") || [];
+                          // Only add if it's not already in the array
+                          if (!currentStops.includes(value)) {
+                            setValue("number_of_stops", [
+                              ...currentStops,
+                              value,
+                            ]);
+                          }
+                        }}
+                      >
+                        <SelectTrigger className="w-full bg-transparent border-border">
+                          <SelectValue placeholder="Add bus-stops..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {/* Filter BUSTOPS to hide ones already selected */}
+                          {busStops?.bus_stop.data
+                            .filter(
+                              (stop) =>
+                                !watch("number_of_stops").includes(
+                                  stop.location.toLowerCase()
+                                )
+                            )
+                            .map((stop) => (
+                              <SelectItem
+                                key={stop._id}
+                                value={stop.location.toLowerCase()}
+                              >
+                                {stop.location}
+                              </SelectItem>
+                            ))}
+                        </SelectContent>
+                      </Select>
+
+                      {/* 2. Display Selected Bus-Stops as Badges */}
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {watch("number_of_stops").map((stopValue) => (
+                          <Badge
+                            key={stopValue}
+                            variant="secondary"
+                            className="flex items-center gap-1 pl-2 pr-1 py-1"
+                          >
+                            <span className="capitalize">{stopValue}</span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const current = watch("number_of_stops");
+                                setValue(
+                                  "number_of_stops",
+                                  current.filter((s) => s !== stopValue)
+                                );
+                              }}
+                              className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
+                            >
+                              <X size={14} />
+                            </button>
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   <div className="space-y-2">
                     <label className="text-sm font-medium">State</label>
                     <Select
@@ -385,15 +601,13 @@ export function RoutesTable({
                     />
                   </div>
                   <Button
-                    disabled={pickupStationMutation.isPending || holdPickupBtn}
-                    onClick={handleAddPickupStation}
+                    disabled={addTripRoute.isPending || holdBtn}
+                    onClick={handleAddTripRoute}
                     className={`w-full bg-primary ${
-                      pickupStationMutation.isPending || holdPickupBtn
-                        ? "opacity-30"
-                        : ""
+                      addTripRoute.isPending || holdBtn ? "opacity-30" : ""
                     } hover:bg-primary/90 text-primary-foreground`}
                   >
-                    {pickupStationMutation.isPending ? (
+                    {addTripRoute.isPending ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
                       <>Add {title.slice(0, -1)}</>
@@ -418,10 +632,13 @@ export function RoutesTable({
             <thead>
               <tr className="border-b border-border">
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Name
+                  Starting Point
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Area
+                  Destination
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Code
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   State / Country
@@ -453,10 +670,13 @@ export function RoutesTable({
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
                     <td className="p-4 font-medium text-sm">
-                      {station.address}
+                      {station.starting_point}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
-                      {station.area}
+                      {station.destination}
+                    </td>
+                    <td className="p-4 text-sm capitalize text-muted-foreground">
+                      {station.code}
                     </td>
                     <td className="p-4 text-sm capitalize text-muted-foreground">
                       {station.state} / {station.country}
@@ -494,9 +714,9 @@ export function RoutesTable({
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem
                             onClick={() => {
-                              dispatch(updateSelPickupStation(station));
+                              dispatch(updateSelRoute(station));
                               router.push(
-                                `/app-menu/pickup-stations/${station._id}`
+                                `/app-menu/routes/${station._id}`
                               );
                             }}
                           >
@@ -505,13 +725,24 @@ export function RoutesTable({
                           </DropdownMenuItem>
                           <DropdownMenuItem
                             onClick={() => {
-                              setPickupId({
-                                pickup_station_id: station._id,
-                                area: station.area,
+                              setRouteId({
+                                trip_route_id: station._id,
+                                rate: station.rate,
+                                flat_rate: station.flat_rate,
+                                rate_per_km: station.rate_per_km,
+                                code: station.code,
+                                destination: station.destination,
+                                starting_point: station.starting_point,
                                 state: station.state,
                                 country: station.country,
-                                address: station.address,
+                                route_distance: station.route_distance,
+                                number_of_stops: Array.isArray(
+                                  station.number_of_stops
+                                )
+                                  ? station.number_of_stops.flat()
+                                  : [],
                               });
+
                               setIsEditDialogOpen(true);
                             }}
                           >
@@ -523,8 +754,7 @@ export function RoutesTable({
                               // 1. Prevent the dropdown from closing
                               e.preventDefault();
 
-                              // 2. Trigger your delete logic
-                              handleDeleteStation(station._id);
+                              handleDeleteRoute(station._id);
                             }}
                             className="text-destructive"
                             disabled={deleteMutation.isPending} // Disable to prevent double-clicks
@@ -564,30 +794,148 @@ export function RoutesTable({
           </table>
         </div>
 
-        {/* Edit Pickup Address Modal */}
+        {/* Edit Trip Route Modal */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
           <DialogTrigger asChild></DialogTrigger>
-          <DialogContent className="sm:max-w-md">
+          <DialogContent className="sm:max-w-2xl">
             <DialogHeader>
               <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 py-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Rate</Label>
+                  <Input
+                    id="name"
+                    {...updateRegister("rate")}
+                    placeholder="Enter rate"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="flat_rate">Flat Rate</Label>
+                  <Input
+                    id="flat_rate"
+                    {...updateRegister("flat_rate")}
+                    placeholder="Enter Flat Rate"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="rate_per_km">Rate Per KM</Label>
+                  <Input
+                    id="rate_per_km"
+                    {...updateRegister("rate_per_km")}
+                    placeholder="Enter Rate Per Km"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="code">Code</Label>
+                  <Input
+                    id="code"
+                    {...updateRegister("code")}
+                    placeholder="Enter code"
+                  />
+                </div>
+              </div>
+
               <div className="space-y-2">
-                <Label htmlFor="name">Pickup Address</Label>
+                <Label htmlFor="starting_point">Starting Point</Label>
                 <Input
-                  id="name"
-                  {...updateRegister("address")}
-                  placeholder="Enter pickup station address"
+                  id="starting_point"
+                  {...updateRegister("starting_point")}
+                  placeholder="Enter Starting Point"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="area">Area</Label>
+                <Label htmlFor="destination">Destination</Label>
                 <Input
-                  id="area"
-                  {...updateRegister("area")}
-                  placeholder="Enter area"
+                  id="destination"
+                  {...updateRegister("destination")}
+                  placeholder="Enter Destination"
                 />
               </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="route_distance">Route Distance</Label>
+                <Input
+                  id="route_distance"
+                  {...updateRegister("route_distance")}
+                  placeholder="Enter Route Distance"
+                />
+              </div>
+              {busStops && (
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    Select Bus-Stops Along this Route
+                  </label>
+                  <Select
+                    // Value is reset to empty string so the placeholder remains visible
+                    value=""
+                    onValueChange={(value) => {
+                      const currentStops = updateWatch("number_of_stops") || [];
+                      // Only add if it's not already in the array
+                      if (!currentStops.includes(value)) {
+                        updateValue("number_of_stops", [
+                          ...currentStops,
+                          value,
+                        ]);
+                      }
+                    }}
+                  >
+                    <SelectTrigger className="w-full bg-transparent border-border">
+                      <SelectValue placeholder="Add bus-stops..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {/* Filter BUSTOPS to hide ones already selected */}
+                      {busStops?.bus_stop.data
+                        .filter(
+                          (stop) =>
+                            !updateWatch("number_of_stops").includes(
+                              stop.location.toLowerCase()
+                            )
+                        )
+                        .map((stop) => (
+                          <SelectItem
+                            key={stop._id}
+                            value={stop.location.toLowerCase()}
+                          >
+                            {stop.location}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
+                  </Select>
+
+                  {/* 2. Display Selected Bus-Stops as Badges */}
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {updateWatch("number_of_stops")
+                      ?.flat()
+                      .map((stopValue) => (
+                        <Badge
+                          key={stopValue}
+                          variant="secondary"
+                          className="flex items-center gap-1 pl-2 pr-1 py-1"
+                        >
+                          <span className="capitalize">{stopValue}</span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const current =
+                                updateWatch("number_of_stops").flat();
+                              updateValue(
+                                "number_of_stops",
+                                current.filter((s) => s !== stopValue)
+                              );
+                            }}
+                            className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
+                          >
+                            <X size={14} />
+                          </button>
+                        </Badge>
+                      ))}
+                  </div>
+                </div>
+              )}
               <div className="space-y-2">
                 <label className="text-sm font-medium">State</label>
                 <Select
@@ -616,15 +964,15 @@ export function RoutesTable({
                 />
               </div>
               <Button
-                disabled={modifyPickupStation.isPending || holdEditPickupBtn}
+                disabled={modifyTripRoute.isPending || holdEditPickupBtn}
                 onClick={handleModifyPickupStation}
                 className={`w-full bg-primary ${
-                  modifyPickupStation.isPending || holdEditPickupBtn
+                  modifyTripRoute.isPending || holdEditPickupBtn
                     ? "opacity-30"
                     : ""
                 } hover:bg-primary/90 text-primary-foreground`}
               >
-                {modifyPickupStation.isPending ? (
+                {modifyTripRoute.isPending ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
                   <>Edit {title.slice(0, -1)}</>

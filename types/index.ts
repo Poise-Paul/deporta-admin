@@ -57,6 +57,19 @@ export type AddPickupStationPayload = {
   country: string;
 };
 
+export type AddTripRoute = {
+  rate: number;
+  flat_rate: number;
+  rate_per_km: number;
+  code: string;
+  destination: string;
+  starting_point: string;
+  state: string;
+  country: string;
+  route_distance: string;
+  number_of_stops: string[];
+};
+
 export type AddBusStopPayload = {
   routes: number;
   location: string;
@@ -77,6 +90,24 @@ export type AddBusPayload = {
   operation_schedule: string;
   status: boolean;
   fuel_type: FuelType;
+  bus_id?: string;
+  tracker_id: string;
+  mileage: string;
+};
+
+export type EditBusPayload = {
+  image?: File | null;
+  imageUrl?: string | undefined;
+  bus_id: string;
+  id_code: string;
+  name_label: string;
+  routes_assigned: string[];
+  drivers_assigned: string[];
+  plate_number: string;
+  capacity: number;
+  operation_schedule: string;
+  status: boolean;
+  fuel_type: FuelType;
   tracker_id: string;
   mileage: string;
 };
@@ -87,6 +118,20 @@ export type EditPickupStationPayload = {
   area: string;
   state: string;
   country: string;
+};
+
+export type EditTripRoute = {
+  trip_route_id: string;
+  rate: number;
+  flat_rate: number;
+  rate_per_km: number;
+  code: string;
+  destination: string;
+  starting_point: string;
+  state: string;
+  country: string;
+  route_distance: string;
+  number_of_stops: string[];
 };
 
 export type EditDropOffStationPayload = {
@@ -232,31 +277,30 @@ export type StaffListResponse = {
   };
 };
 
-export type PickupStation = {
+export interface BasicLocationData {
   address: string;
   area: string;
   state: string;
   country: string;
+}
+
+export interface PickupStation extends BasicLocationData {
   added_by: string;
   status: string;
   _id: string;
   createdAt: string;
   updatedAt: string;
   __v: number;
-};
+}
 
-export type PickupStationDetail = {
-  address: string;
-  area: string;
-  state: string;
-  country: string;
+export interface PickupStationDetail extends BasicLocationData {
   added_by: StaffData;
   status: ActiveType;
   _id: string;
   createdAt: string;
   updatedAt: string;
   __v: number;
-};
+}
 
 export interface PickupStationResponse extends Response {
   pickup_station: PickupStation;
@@ -306,24 +350,7 @@ export type Bus = {
   bus_photo: string;
   operation_schedule: string;
   drivers_assigned: string[];
-  added_by: {
-    user_type: {
-      value: string;
-      type_id: string;
-    };
-    _id: string;
-    first_name: string;
-    last_name: string;
-    phone_number: string;
-    profile_image: string;
-    email: string;
-    date_of_birth: string;
-    verify_email: boolean;
-    deactivate: boolean;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-  };
+  added_by: NormalStaffData;
   status: string;
   fuel_type: string;
   tracker_id: string;
@@ -398,3 +425,72 @@ export type BusStopData = {
     pagination: Pagination;
   };
 };
+
+export type TripRoute = {
+  starting_point: string;
+  destination: string;
+  code: string;
+  number_of_stops: [string[]];
+  route_distance: string;
+  state: string;
+  country: string;
+  added_by: string;
+  rate: number;
+  rate_per_km: number;
+  flat_rate: number;
+  status: string;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: 0;
+};
+
+export interface GetRoutesResponse extends Response {
+  trip_route: TripRoute;
+}
+
+export type NormalStaffData = {
+  user_type: {
+    value: string;
+    type_id: string;
+  };
+  _id: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  profile_image: string;
+  email: string;
+  date_of_birth: string;
+  verify_email: boolean;
+  deactivate: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type RouteData = {
+  _id: string;
+  starting_point: string;
+  destination: string;
+  code: string;
+  number_of_stops: [string[]];
+  route_distance: string;
+  state: string;
+  country: string;
+  added_by: NormalStaffData;
+  rate: number;
+  rate_per_km: number;
+  flat_rate: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export interface GetAllRoutesData {
+  status: boolean;
+  trip_route: {
+    data: RouteData[];
+    pagination: Pagination;
+  };
+}
