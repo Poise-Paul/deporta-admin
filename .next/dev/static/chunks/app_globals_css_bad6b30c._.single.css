@@ -78,7 +78,6 @@
     --color-red-400: #ff6568;
     --color-red-500: #fb2c36;
     --color-red-600: #e40014;
-    --color-red-700: #bf000f;
     --color-orange-50: #fff7ed;
     --color-orange-500: #fe6e00;
     --color-orange-600: #f05100;
@@ -102,7 +101,6 @@
     --container-sm: 24rem;
     --container-md: 28rem;
     --container-lg: 32rem;
-    --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
     --text-xs: .75rem;
@@ -149,7 +147,6 @@
       --color-red-400: lab(63.7053% 60.745 31.3109);
       --color-red-500: lab(55.4814% 75.0732 48.8528);
       --color-red-600: lab(48.4493% 77.4328 61.5452);
-      --color-red-700: lab(40.4273% 67.2623 53.7441);
       --color-orange-50: lab(97.7008% 1.53735 5.90649);
       --color-orange-500: lab(64.272% 57.1788 90.3583);
       --color-orange-600: lab(57.1026% 64.2584 89.8886);
@@ -678,10 +675,6 @@
 
   .row-start-1 {
     grid-row-start: 1;
-  }
-
-  .clear-start {
-    clear: inline-start;
   }
 
   .\!m-0 {
@@ -1303,7 +1296,7 @@
     flex: 1;
   }
 
-  .flex-shrink-0, .shrink-0 {
+  .shrink-0 {
     flex-shrink: 0;
   }
 
@@ -1553,10 +1546,6 @@
 
   .gap-4 {
     gap: calc(var(--spacing) * 4);
-  }
-
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
   }
 
   .gap-6 {
@@ -2031,10 +2020,6 @@
     }
   }
 
-  .bg-red-500 {
-    background-color: var(--color-red-500);
-  }
-
   .bg-secondary {
     background-color: var(--secondary);
   }
@@ -2231,10 +2216,6 @@
 
   .pr-8 {
     padding-right: calc(var(--spacing) * 8);
-  }
-
-  .pr-9 {
-    padding-right: calc(var(--spacing) * 9);
   }
 
   .pr-10 {
@@ -2486,16 +2467,8 @@
     color: var(--primary-foreground);
   }
 
-  .text-red-500 {
-    color: var(--color-red-500);
-  }
-
   .text-red-600 {
     color: var(--color-red-600);
-  }
-
-  .text-red-700 {
-    color: var(--color-red-700);
   }
 
   .text-secondary {
@@ -4603,20 +4576,8 @@
   }
 
   @media (min-width: 40rem) {
-    .sm\:max-w-2 {
-      max-width: calc(var(--spacing) * 2);
-    }
-  }
-
-  @media (min-width: 40rem) {
     .sm\:max-w-2xl {
       max-width: var(--container-2xl);
-    }
-  }
-
-  @media (min-width: 40rem) {
-    .sm\:max-w-3xl {
-      max-width: var(--container-3xl);
     }
   }
 
@@ -4635,12 +4596,6 @@
   @media (min-width: 40rem) {
     .sm\:max-w-sm {
       max-width: var(--container-sm);
-    }
-  }
-
-  @media (min-width: 40rem) {
-    .sm\:max-w-xl {
-      max-width: var(--container-xl);
     }
   }
 
