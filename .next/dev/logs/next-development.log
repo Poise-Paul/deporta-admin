@@ -23,3 +23,707 @@
 [06:18:22.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1769859813102}
 [06:18:22.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1769859813102}
 [06:18:22.367] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[46:18:05.453] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[46:18:05.679] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[46:18:05.679] Browser WARN    Image with src "Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[46:18:05.962] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[46:18:05.962] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[46:18:05.962] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
+[46:18:05.962] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770003796713}
+[46:18:05.962] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770003796713}
+[46:19:28.036] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:19:28.036] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:19:28.036] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770003878748}
+[46:23:14.365] Server  LOG      ✓ Compiled in 306ms
+[46:23:14.440] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[46:23:18.156] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[46:23:18.249] Server  LOG      ✓ Compiled in 58ms
+[46:23:18.333] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[46:23:18.378] Browser ERROR   uncaughtError: ReferenceError: addDays is not defined
+[46:23:18.378] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770004109012}
+[46:23:18.427] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[46:23:18.571] Browser ERROR   uncaughtError: ReferenceError: addDays is not defined
+[46:23:36.410] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[46:23:36.467] Server  LOG      ✓ Compiled in 38ms
+[46:23:36.527] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[46:23:36.578] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[46:23:36.715] Browser ERROR   uncaughtError: ReferenceError: addDays is not defined
+[46:23:38.055] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[46:23:38.105] Server  LOG      ✓ Compiled in 26ms
+[46:23:38.141] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[46:23:38.194] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[46:23:38.333] Browser ERROR   uncaughtError: ReferenceError: addDays is not defined
+[46:23:47.873] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[46:23:47.896] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[46:23:47.904] Server  LOG      ✓ Compiled in 18ms
+[46:23:47.932] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[46:23:48.137] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:23:48.137] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:23:48.137] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[46:23:48.137] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[46:23:48.137] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[46:23:48.137] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770004138889}
+[46:24:22.472] Server  LOG      ✓ Compiled in 41ms
+[46:24:22.576] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:50:73
+Parsing ecmascript source code failed
+  48 |                 date.to ? (
+  49 |                   <>
+> 50 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  51 |                   </>
+  52 |                 ) : (
+  53 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:24:25.750] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:50:73
+Parsing ecmascript source code failed
+  48 |                 date.to ? (
+  49 |                   <>
+> 50 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  51 |                   </>
+  52 |                 ) : (
+  53 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:24:40.479] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:51:73
+Parsing ecmascript source code failed
+  49 |                 date.to ? (
+  50 |                   <>
+> 51 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  52 |                   </>
+  53 |                 ) : (
+  54 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:24:41.529] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:51:73
+Parsing ecmascript source code failed
+  49 |                 date.to ? (
+  50 |                   <>
+> 51 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  52 |                   </>
+  53 |                 ) : (
+  54 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:24:46.942] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:51:73
+Parsing ecmascript source code failed
+  49 |                 date.to ? (
+  50 |                   <>
+> 51 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  52 |                   </>
+  53 |                 ) : (
+  54 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:24:56.570] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:52:73
+Parsing ecmascript source code failed
+  50 |                 date.to ? (
+  51 |                   <>
+> 52 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  53 |                   </>
+  54 |                 ) : (
+  55 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:25:11.908] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:52:73
+Parsing ecmascript source code failed
+  50 |                 date.to ? (
+  51 |                   <>
+> 52 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  53 |                 
+  54 |                 ) : (
+  55 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:25:13.591] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:52:73
+Parsing ecmascript source code failed
+  50 |                 date.to ? (
+  51 |                   <>
+> 52 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  53 |                   </>
+  54 |                 ) : (
+  55 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:25:37.217] Server  LOG      ✓ Compiled in 18ms
+[46:25:52.668] Server  LOG      ✓ Compiled in 34ms
+[46:25:52.772] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:57:73
+Parsing ecmascript source code failed
+  55 |                 date.to ? (
+  56 |                   <>
+> 57 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  58 |                   </>
+  59 |                 ) : (
+  60 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:26:19.853] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:26:19.853] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:26:21.002] Server  LOG      ✓ Compiled in 20ms
+[46:26:21.104] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:58:73
+Parsing ecmascript source code failed
+  56 |                 date.to ? (
+  57 |                   <>
+> 58 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  59 |                   </>
+  60 |                 ) : (
+  61 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:26:23.093] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:57:73
+Parsing ecmascript source code failed
+  55 |                 date.to ? (
+  56 |                   <>
+> 57 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  58 |                   </>
+  59 |                 ) : (
+  60 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:26:23.542] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:57:73
+Parsing ecmascript source code failed
+  55 |                 date.to ? (
+  56 |                   <>
+> 57 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  58 |                   </>
+  59 |                 ) : (
+  60 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:28:49.770] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:69:73
+Parsing ecmascript source code failed
+  67 |                 date.to ? (
+  68 |                   <>
+> 69 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  70 |                   </>
+  71 |                 ) : (
+  72 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:28:53.501] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:68:73
+Parsing ecmascript source code failed
+  66 |                 date.to ? (
+  67 |                   <>
+> 68 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  69 |                   </>
+  70 |                 ) : (
+  71 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:28:54.845] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:67:73
+Parsing ecmascript source code failed
+  65 |                 date.to ? (
+  66 |                   <>
+> 67 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  68 |                   </>
+  69 |                 ) : (
+  70 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:28:56.517] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:66:73
+Parsing ecmascript source code failed
+  64 |                 date.to ? (
+  65 |                   <>
+> 66 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  67 |                   </>
+  68 |                 ) : (
+  69 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:28:58.090] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:65:73
+Parsing ecmascript source code failed
+  63 |                 date.to ? (
+  64 |                   <>
+> 65 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  66 |                   </>
+  67 |                 ) : (
+  68 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:29:21.510] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:62:73
+Parsing ecmascript source code failed
+  60 |                 date.to ? (
+  61 |                   <>
+> 62 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  63 |                   </>
+  64 |                 ) : (
+  65 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:31:45.268] Server  LOG      ✓ Compiled in 33ms
+[46:31:45.371] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:60:20
+Parsing ecmascript source code failed
+  58 |               <CalendarIcon className="h-4 w-4 mr-2" />
+  59 |               {date?.from ? (
+> 60 |               {date.to ? (
+     |                    ^
+  61 |   <>
+  62 |     {format(date.from, "LLL dd, y")} - {format(date.to, "LLL dd, y")}
+  63 |   </>
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:31:46.716] Server  LOG      ✓ Compiled in 23ms
+[46:31:46.817] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:62:73
+Parsing ecmascript source code failed
+  60 |                 date.to ? (
+  61 |                   <>
+> 62 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  63 |                   </>
+  64 |                 ) : (
+  65 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:31:47.235] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:62:73
+Parsing ecmascript source code failed
+  60 |                 date.to ? (
+  61 |                   <>
+> 62 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  63 |                   </>
+  64 |                 ) : (
+  65 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:31:56.833] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:31:56.833] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[46:32:01.971] Server  LOG      ✓ Compiled in 25ms
+[46:32:02.073] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:59:73
+Parsing ecmascript source code failed
+  57 |                 date.to ? (
+  58 |                   <>
+> 59 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  60 |                   </>
+  61 |                 ) : (
+  62 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[46:32:06.068] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:59:73
+Parsing ecmascript source code failed
+  57 |                 date.to ? (
+  58 |                   <>
+> 59 |                     {format(date.from, "LLL dd, y)} - {format(date.to, "LLL dd, y")}
+     |                                                                         ^^^
+  60 |                   </>
+  61 |                 ) : (
+  62 |                   format(date.from, "LLL dd, y")
+
+Expected '</', got 'LLL'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[51:51:48.941] Browser ERROR   React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element. initialFocus initialfocus
+[51:51:48.941] Browser ERROR   React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element. defaultMonth defaultmonth
+[51:51:48.941] Browser ERROR   React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element. numberOfMonths numberofmonths
+[51:56:28.317] Server  LOG      ✓ Compiled in 175ms
+[51:56:28.419] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:23:10
+Ecmascript file had an error
+  21 | import { addDays, format } from "date-fns"; // Useful for formatting
+  22 | import { useState } from "react";
+> 23 | import { Calendar } from "@/components/ui/calendar";
+     |          ^^^^^^^^
+  24 |
+  25 | ("recharts");
+  26 |
+
+the name `Calendar` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[52:02:48.644] Server  LOG      ✓ Compiled in 41ms
+[52:02:50.422] Server  LOG      ✓ Compiled in 31ms
+[52:02:50.525] Browser ERROR   ./components/dashboard/dashboard-analytics.tsx:84:14
+Parsing ecmascript source code failed
+  82 |               numberOfMonths={2}
+  83 |               pagedNavigation=
+> 84 |             />
+     |              ^
+  85 |           </PopoverContent>
+  86 |         </Popover>
+  87 |         {/* End PopOver */}
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-analytics.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[52:07:41.138] Server  LOG      ✓ Compiled in 31ms
+[52:07:41.220] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:07:41.221] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:07:42.810] Server  LOG      ✓ Compiled in 30ms
+[52:07:42.885] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:07:42.885] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:07:44.948] Server  LOG      ✓ Compiled in 31ms
+[52:07:45.026] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:07:45.026] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:01.021] Server  LOG      ✓ Compiled in 34ms
+[52:08:01.099] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:01.099] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:20.430] Server  LOG      ✓ Compiled in 34ms
+[52:08:20.506] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:20.506] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:27.928] Server  LOG      ✓ Compiled in 24ms
+[52:08:28.004] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:28.004] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:29.561] Server  LOG      ✓ Compiled in 32ms
+[52:08:29.635] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:29.635] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:34.039] Server  LOG      ✓ Compiled in 23ms
+[52:08:34.114] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:08:34.114] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.

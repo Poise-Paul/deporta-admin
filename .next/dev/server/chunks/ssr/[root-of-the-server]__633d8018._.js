@@ -630,6 +630,12 @@ function DashboardStats() {
     }, this);
 }
 }),
+"[project]/components/dashboard/dashboard-analytics.tsx [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+const e = new Error("Could not parse module '[project]/components/dashboard/dashboard-analytics.tsx'\n\nExpected '</', got 'LLL'");
+e.code = 'MODULE_UNPARSABLE';
+throw e;
+}),
 "[project]/components/ui/button.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -688,12 +694,6 @@ function Button({ className, variant, size, asChild = false, ...props }) {
     }, this);
 }
 ;
-}),
-"[project]/components/dashboard/dashboard-analytics.tsx [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
-
-const e = new Error("Could not parse module '[project]/components/dashboard/dashboard-analytics.tsx'\n\nExpected '</', got 'LLL'");
-e.code = 'MODULE_UNPARSABLE';
-throw e;
 }),
 "[project]/components/ui/dropdown-menu.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1923,4 +1923,4 @@ function DashboardPage() {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__2b4b45a5._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__633d8018._.js.map

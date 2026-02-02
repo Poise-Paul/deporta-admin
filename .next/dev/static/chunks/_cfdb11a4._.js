@@ -668,6 +668,12 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
+"[project]/components/dashboard/dashboard-analytics.tsx [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+const e = new Error("Could not parse module '[project]/components/dashboard/dashboard-analytics.tsx'\n\nExpected '</', got 'LLL'");
+e.code = 'MODULE_UNPARSABLE';
+throw e;
+}),
 "[project]/components/ui/button.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -732,12 +738,6 @@ __turbopack_context__.k.register(_c, "Button");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
-}),
-"[project]/components/dashboard/dashboard-analytics.tsx [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
-
-const e = new Error("Could not parse module '[project]/components/dashboard/dashboard-analytics.tsx'\n\nExpected '</', got 'LLL'");
-e.code = 'MODULE_UNPARSABLE';
-throw e;
 }),
 "[project]/components/ui/dropdown-menu.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2031,4 +2031,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 ]);
 
-//# sourceMappingURL=_26ce3e11._.js.map
+//# sourceMappingURL=_cfdb11a4._.js.map
