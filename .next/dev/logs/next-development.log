@@ -727,3 +727,1015 @@ Import traces:
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
+[52:17:50.443] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:17:50.506] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:17:50.624] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:17:50.624] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips","route":"/trips"}
+[52:17:50.624] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770025381376}
+[52:17:52.451] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:17:52.538] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:17:52.768] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:17:52.768] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:17:52.768] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:17:52.768] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:17:52.768] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[52:17:52.768] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770025383519}
+[52:18:07.736] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllStaffs (http://localhost:3000/_next/static/chunks/_30f5b39e._.js:296:21)"}
+[52:18:07.736] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllCustomers (http://localhost:3000/_next/static/chunks/_30f5b39e._.js:344:21)"}
+[52:18:21.662] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:18:21.859] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:18:21.859] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:18:21.859] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:18:21.859] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:18:21.859] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[52:18:21.859] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770025412610}
+[52:18:27.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:18:27.578] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:18:27.578] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[52:18:27.578] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:18:27.578] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:18:27.578] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[52:18:27.578] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770025418329}
+[52:30:31.931] Server  LOG      ✓ Compiled in 75ms
+[52:38:18.184] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'map')
+[52:38:18.318] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[52:38:57.794] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'map')
+[52:38:57.847] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:38:57.935] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:38:58.055] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[52:38:59.660] Browser ERROR   ./app/(dashboard)/trips/page.tsx:10:9
+Ecmascript file had an error
+   8 |
+   9 | export default function OngoingTripsScreen({ trips }: OngoingTripsProps) {
+> 10 |   const trips = [
+     |         ^^^^^
+  11 |     {
+  12 |       id: 1,
+  13 |       busImage: "/transport-bus-black.jpg",
+
+the name `trips` is defined multiple times
+[52:39:05.585] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:39:05.638] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:39:05.774] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:39:05.774] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:39:05.774] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips","route":"/trips"}
+[52:39:05.774] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770026656525}
+[52:40:33.198] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 3
+[52:40:33.198] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 3
+[52:40:35.578] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 3
+[52:43:34.505] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:46:25.477] Server  ERROR    ⨯ ReferenceError: useState is not defined
+[52:46:25.604] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[52:46:29.351] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:46:40.221] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:30.508] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:34.604] Server  ERROR    ⨯ ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[52:49:34.606] Server  ERROR    ⨯ ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[52:49:34.735] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:35.018] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:35.018] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:35.083] Server  ERROR    ⨯ ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[52:49:35.157] Browser ERROR   uncaughtError: Error: ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[52:49:35.298] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:35.298] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:36.945] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:44.859] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:46.010] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:49.831] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:53.623] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:49:57.786] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:50:22.363] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:50:25.581] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:50:30.216] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:50:30.352] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:50:32.811] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:50:52.186] Browser ERROR   ./app/(dashboard)/trips/page.tsx:4:10
+Ecmascript file had an error
+  2 | import { Input } from "@/components/ui/input";
+  3 | import { Trip } from "@/types";
+> 4 | import { useState } from "react";
+    |          ^^^^^^^^
+  5 |
+  6 | interface OngoingTripsProps {
+  7 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:51:14.492] Browser ERROR   ./app/(dashboard)/trips/page.tsx:6:10
+Ecmascript file had an error
+  4 | import { Input } from "@/components/ui/input";
+  5 | import { Trip } from "@/types";
+> 6 | import { useState } from "react";
+    |          ^^^^^^^^
+  7 |
+  8 | interface OngoingTripsProps {
+  9 |   trips: Trip[]; // Define that 'trips' is an array of Trip objects
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[52:51:18.902] Server  LOG      ✓ Compiled in 30ms
+[52:51:19.042] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:51:19.136] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:51:19.285] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:51:19.285] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:51:19.285] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips","route":"/trips"}
+[52:51:19.285] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770027390036}
+[52:51:38.176] Server  LOG      ✓ Compiled in 37ms
+[52:51:38.268] Browser ERROR   Received `%s` for a non-boolean attribute `%s`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}. true op op true op
+[52:51:43.586] Server  LOG      ✓ Compiled in 36ms
+[52:51:43.649] Browser ERROR   Expected `%s` listener to be a function, instead got a value of `%s` type. onClick boolean
+[52:51:43.649] Browser ERROR   Expected `%s` listener to be a function, instead got a value of `%s` type. onClick boolean
+[52:51:43.649] Browser ERROR   Expected `%s` listener to be a function, instead got a value of `%s` type. onClick boolean
+[52:51:43.649] Browser ERROR   Expected `%s` listener to be a function, instead got a value of `%s` type. onClick boolean
+[52:51:43.649] Browser ERROR   Expected `%s` listener to be a function, instead got a value of `%s` type. onClick boolean
+[52:51:45.309] Server  LOG      ✓ Compiled in 30ms
+[52:51:45.412] Browser ERROR   ./app/(dashboard)/trips/page.tsx:145:40
+Parsing ecmascript source code failed
+  143 |               </div>
+  144 |
+> 145 |               <ChevronRight onClick={} className="h-5 w-5 text-gray-300 self-center" />
+      |                                        ^^^^^^^^^
+  146 |             </div>
+  147 |
+  148 |             {/* Bottom Row: Stats Divider */}
+
+Expected '</', got 'className'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[52:51:47.796] Server  LOG      ✓ Compiled in 23ms
+[52:51:47.897] Browser ERROR   ./app/(dashboard)/trips/page.tsx:145:40
+Parsing ecmascript source code failed
+  143 |               </div>
+  144 |
+> 145 |               <ChevronRight onClick={()} className="h-5 w-5 text-gray-300 self-center" />
+      |                                        ^
+  146 |             </div>
+  147 |
+  148 |             {/* Bottom Row: Stats Divider */}
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[52:52:05.645] Server  LOG      ✓ Compiled in 35ms
+[52:52:05.708] Browser ERROR   uncaughtError: ReferenceError: useRouter is not defined
+[52:52:10.590] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[52:52:10.650] Server  LOG      ✓ Compiled in 32ms
+[52:52:10.736] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:52:10.741] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770027441443}
+[52:52:10.802] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:52:10.959] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:52:10.959] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:52:10.959] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips","route":"/trips"}
+[52:52:10.959] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770027441689}
+[52:52:10.959] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[52:52:21.710] Server  LOG      ✓ Compiled in 33ms
+[52:52:26.102] Server  LOG      ✓ Compiled in 22ms
+[52:52:36.353] Server  LOG      ✓ Compiled in 37ms
+[52:52:37.488] Server  LOG      ✓ Compiled in 19ms
+[52:52:39.266] Server  LOG      ✓ Compiled in 26ms
+[52:52:42.210] Server  LOG      ✓ Compiled in 37ms
+[52:52:42.314] Browser ERROR   ./app/(dashboard)/trips/page.tsx:148:66
+Parsing ecmascript source code failed
+  146 |               </div>
+  147 |
+> 148 |               <ChevronRight onClick={() => router.push(`/trips/${}`)} className="h-5 w-5 text-gray-300 self-center" />
+      |                                                                  ^
+  149 |             </div>
+  150 |
+  151 |             {/* Bottom Row: Stats Divider */}
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[52:52:45.136] Browser ERROR   ./app/(dashboard)/trips/page.tsx:148:71
+Parsing ecmascript source code failed
+  146 |               </div>
+  147 |
+> 148 |               <ChevronRight onClick={() => router.push(`/trips/${trip.}`)} className="h-5 w-5 text-gray-300 self-center" />
+      |                                                                       ^
+  149 |             </div>
+  150 |
+  151 |             {/* Bottom Row: Stats Divider */}
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[52:52:46.954] Server  LOG      ✓ Compiled in 18ms
+[52:52:50.096] Server  ERROR    ⨯ Error: The default export is not a React Component in "/trips/[id]/page"
+[52:52:50.186] Server  ERROR    ⨯ Error: The default export is not a React Component in "/trips/[id]/page"
+[52:52:50.328] Server  ERROR    ⨯ Error: The default export is not a React Component in "/trips/[id]/page"
+[52:52:50.429] Server  ERROR    ⨯ Error: The default export is not a React Component in "/trips/[id]/page"
+[52:52:50.489] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/trips/[id]/page"
+[52:53:20.778] Server  ERROR    ⨯ Error: The default export is not a React Component in "/trips/[id]/page"
+[52:53:20.882] Server  ERROR    ⨯ Error: The default export is not a React Component in "/trips/[id]/page"
+[52:53:20.928] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/trips/[id]/page"
+[52:53:22.886] Server  ERROR    ⨯ ReferenceError: tsr is not defined
+[52:53:22.983] Server  ERROR    ⨯ ReferenceError: tsr is not defined
+[52:53:22.985] Server  ERROR    ⨯ Failed to generate static paths for /trips/[id]:
+[52:53:22.990] Server  ERROR   ReferenceError: tsr is not defined
+[52:53:23.038] Browser ERROR   uncaughtError: ReferenceError: tsr is not defined
+[52:53:24.217] Server  ERROR    ⨯ ReferenceError: ts is not defined
+[52:53:24.259] Browser ERROR   uncaughtError: ReferenceError: ts is not defined
+[52:53:27.750] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[52:53:27.800] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[52:53:27.930] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[52:53:27.930] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[52:53:27.930] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips/1","route":"/trips/[id]"}
+[52:53:27.930] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips/1 color: rgb(120, 120, 120) color: inherit {"dp":"/trips/[id]","o":"http://localhost:3000/trips/1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770027518681}
+[52:54:09.110] Browser ERROR   ./app/(dashboard)/trips/[id]/page.tsx:9:1
+Parsing ecmascript source code failed
+   7 |     <Trips>
+   8 |   )
+>  9 | }
+     | ^
+  10 |
+  11 | export default page
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+[52:58:31.526] Browser ERROR   ./app/(dashboard)/trips/page.tsx:82:7
+Parsing ecmascript source code failed
+  80 |
+  81 |       <Back
+> 82 |       <div className="bg-white p-4 border-b sticky top-0 z-10">
+     |       ^
+  83 |         <h1 className="text-xl font-bold mb-4">Ongoing Trips</h1>
+  84 |         <div className="relative">
+  85 |           <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[52:58:37.709] Server  LOG      ✓ Compiled in 30ms
+[53:00:00.744] Server  LOG      ✓ Compiled in 65ms
+[53:00:11.369] Browser ERROR   ./app/(dashboard)/trips/page.tsx:82:7
+Parsing ecmascript source code failed
+  80 | <ChevronRight
+  81 |       
+> 82 |       <div className="bg-white p-4 border-b sticky top-0 z-10">
+     |       ^
+  83 |         <h1 className="text-xl font-bold mb-4">Ongoing Trips</h1>
+  84 |         <div className="relative">
+  85 |           <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[53:00:17.432] Server  LOG      ✓ Compiled in 31ms
+[53:00:55.679] Browser ERROR   ./app/(dashboard)/trips/page.tsx:81:30
+Parsing ecmascript source code failed
+  79 |     <div className="flex-1 bg-gray-50 min-h-screen pb-10">
+  80 |       {/* Header with Search */}
+> 81 |       <BackButton onClick={()} label="Dashboard" />
+     |                              ^
+  82 |
+  83 |       <div className="bg-white p-4 border-b sticky top-0 z-10">
+  84 |         <h1 className="text-xl font-bold mb-4">Ongoing Trips</h1>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./app/(dashboard)/trips/page.tsx [Client Component Browser]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(dashboard)/trips/page.tsx [Client Component SSR]
+    ./app/(dashboard)/trips/page.tsx [Server Component]
+[53:01:03.360] Server  LOG      ✓ Compiled in 28ms
+[53:01:47.675] Server  ERROR    ⨯ ReferenceError: BackButton is not defined
+[53:01:47.799] Browser ERROR   uncaughtError: ReferenceError: BackButton is not defined
+[53:01:51.639] Server  LOG      ✓ Compiled in 22ms
+[53:01:51.878] Server  ERROR    ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button data-slot="button" className=... onClick={function onClick} children=...>
+                                                   ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[53:01:51.929] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:01:52.001] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:01:52.124] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <button data-slot="button" className=... onClick={function onClick} children=...>
+                                                   ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[53:02:08.339] Server  ERROR    ⨯ ReferenceError: useRou is not defined
+[53:02:08.369] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:02:08.415] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:02:08.536] Browser ERROR   uncaughtError: ReferenceError: useRou is not defined
+[53:02:09.945] Server  ERROR    ⨯ ReferenceError: useRouter is not defined
+[53:02:09.974] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:02:10.042] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:02:10.163] Browser ERROR   uncaughtError: ReferenceError: useRouter is not defined
+[53:02:11.933] Browser ERROR   ./components/trips/TripDetailsPage.tsx:3:10
+Ecmascript file had an error
+  1 | import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  2 | import { BackButton } from "../ui/back-button";
+> 3 | import { useRouter } from "next/navigation";
+    |          ^^^^^^^^^
+  4 |
+  5 | export function TripDetailView() {
+  6 |   const trip = {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/trips/TripDetailsPage.tsx
+    ./app/(dashboard)/trips/[id]/page.tsx
+[53:02:13.055] Browser ERROR   ./components/trips/TripDetailsPage.tsx:3:10
+Ecmascript file had an error
+  1 | import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  2 | import { BackButton } from "../ui/back-button";
+> 3 | import { useRouter } from "next/navigation";
+    |          ^^^^^^^^^
+  4 |
+  5 | export function TripDetailView() {
+  6 |   const trip = {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/trips/TripDetailsPage.tsx
+    ./app/(dashboard)/trips/[id]/page.tsx
+[53:06:21.189] Browser ERROR   ./components/trips/TripDetailsPage.tsx:4:10
+Ecmascript file had an error
+  2 | import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  3 | import { BackButton } from "../ui/back-button";
+> 4 | import { useRouter } from "next/navigation";
+    |          ^^^^^^^^^
+  5 |
+  6 | export function TripDetailView() {
+  7 |   const trip = {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/trips/TripDetailsPage.tsx
+    ./app/(dashboard)/trips/[id]/page.tsx
+[53:06:26.547] Browser ERROR   ./components/trips/TripDetailsPage.tsx:4:10
+Ecmascript file had an error
+  2 | import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  3 | import { BackButton } from "../ui/back-button";
+> 4 | import { useRouter } from "next/navigation";
+    |          ^^^^^^^^^
+  5 |
+  6 | export function TripDetailView() {
+  7 |   const trip = {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/trips/TripDetailsPage.tsx
+    ./app/(dashboard)/trips/[id]/page.tsx
+[53:06:26.654] Browser ERROR   ./components/trips/TripDetailsPage.tsx:4:10
+Ecmascript file had an error
+  2 | import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  3 | import { BackButton } from "../ui/back-button";
+> 4 | import { useRouter } from "next/navigation";
+    |          ^^^^^^^^^
+  5 |
+  6 | export function TripDetailView() {
+  7 |   const trip = {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/trips/TripDetailsPage.tsx
+    ./app/(dashboard)/trips/[id]/page.tsx
+[53:06:29.603] Server  LOG      ✓ Compiled in 34ms
+[53:06:29.806] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:06:29.854] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:06:29.991] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[53:06:29.991] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[53:06:29.991] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips/1","route":"/trips/[id]"}
+[53:06:29.991] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips/1 color: rgb(120, 120, 120) color: inherit {"dp":"/trips/[id]","o":"http://localhost:3000/trips/1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028300742}
+[53:06:32.080] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:06:32.125] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:06:32.289] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[53:06:32.289] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[53:06:32.289] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/trips","route":"/trips"}
+[53:06:32.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028303016}
+[53:06:32.289] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[53:07:04.269] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:07:04.269] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:07:04.269] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028334981}
+[53:07:17.868] Server  LOG      ✓ Compiled in 65ms
+[53:07:19.273] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllStaffs (http://localhost:3000/_next/static/chunks/_30f5b39e._.js:296:21)"}
+[53:07:19.273] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllCustomers (http://localhost:3000/_next/static/chunks/_30f5b39e._.js:344:21)"}
+[53:07:19.979] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028350731}
+[53:07:28.964] Server  LOG      ✓ Compiled in 48ms
+[53:07:33.435] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:07:33.435] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:07:33.435] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028364164}
+[53:07:50.327] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028381078}
+[53:08:02.421] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips/1 color: rgb(120, 120, 120) color: inherit {"dp":"/trips/[id]","o":"http://localhost:3000/trips/1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028393172}
+[53:08:08.522] Server  LOG      ✓ Compiled in 41ms
+[53:08:16.433] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028407185}
+[53:08:25.942] Server  LOG      ✓ Compiled in 28ms
+[53:08:28.452] Server  LOG      ✓ Compiled in 31ms
+[53:09:51.644] Server  LOG      ✓ Compiled in 37ms
+[53:09:57.533] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips/1 color: rgb(120, 120, 120) color: inherit {"dp":"/trips/[id]","o":"http://localhost:3000/trips/1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028508284}
+[53:10:24.004] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028534754}
+[53:10:32.125] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:10:32.125] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:10:32.125] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028542853}
+[53:11:20.441] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028591191}
+[53:11:22.570] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:11:22.570] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:11:22.570] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770028593300}
+[53:19:25.658] Server  LOG      ✓ Compiled in 67ms
+[53:22:07.258] Server  LOG      ✓ Compiled in 127ms
+[53:22:22.839] Server  LOG      ✓ Compiled in 28ms
+[53:23:41.679] Server  LOG      ✓ Compiled in 42ms
+[53:27:11.977] Server  LOG      ✓ Compiled in 41ms
+[53:27:13.002] Server  LOG      ✓ Compiled in 30ms
+[53:27:35.159] Server  LOG      ✓ Compiled in 25ms
+[53:27:40.286] Server  LOG      ✓ Compiled in 30ms
+[53:27:44.120] Server  LOG      ✓ Compiled in 35ms
+[53:27:44.225] Browser ERROR   ./components/dashboard/onsite-filters.tsx:16:54
+Parsing ecmascript source code failed
+  14 | }
+  15 |
+> 16 | export function OnSiteFilter({value, onValueChange}: ) {
+     |                                                      ^
+  17 |   const [filter, setFilter] = useState("buses");
+  18 |
+  19 |   return (
+
+Unexpected token `)`. Expected an identifier, void, yield, null, await, break, a string literal, a numeric literal, true, false, `, -, import, this, typeof, {, [, (
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/onsite-filters.tsx [Client Component Browser]
+    ./components/dashboard/dashboard-drivers.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/onsite-filters.tsx [Client Component SSR]
+    ./components/dashboard/dashboard-drivers.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[53:30:45.950] Server  LOG      ✓ Compiled in 41ms
+[53:31:41.923] Server  LOG      ✓ Compiled in 29ms
+[53:31:42.004] Browser ERROR   uncaughtError: ReferenceError: activeFilter is not defined
+[53:31:47.943] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[53:31:48.014] Server  LOG      ✓ Compiled in 22ms
+[53:31:48.112] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:31:48.153] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.153] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.153] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.153] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.153] Browser ERROR   uncaughtError: ReferenceError: activeFilter is not defined
+[53:31:48.153] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770029818799}
+[53:31:48.211] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:31:48.363] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.363] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.363] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.363] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:48.363] Browser ERROR   uncaughtError: ReferenceError: activeFilter is not defined
+[53:31:57.120] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[53:31:57.183] Server  LOG      ✓ Compiled in 24ms
+[53:31:57.226] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:31:57.280] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:31:57.442] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:57.443] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:57.443] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:57.443] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:57.443] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[53:31:58.811] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[53:31:58.867] Server  LOG      ✓ Compiled in 25ms
+[53:31:58.910] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:31:58.967] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:31:59.125] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:59.125] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:59.125] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:59.125] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:31:59.125] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[53:32:01.442] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[53:32:01.499] Server  LOG      ✓ Compiled in 26ms
+[53:32:01.539] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[53:32:01.591] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[53:32:01.806] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:32:01.806] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:32:01.806] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[53:32:01.806] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[53:32:01.806] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[53:32:01.806] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770029832557}
+[53:32:16.795] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllStaffs (http://localhost:3000/_next/static/chunks/_43c9875c._.js:296:21)"}
+[53:32:16.795] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllCustomers (http://localhost:3000/_next/static/chunks/_43c9875c._.js:344:21)"}
+[53:32:32.800] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllStaffs (http://localhost:3000/_next/static/chunks/_43c9875c._.js:296:21)"}
+[53:32:32.800] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staff/total","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getAllCustomers (http://localhost:3000/_next/static/chunks/_43c9875c._.js:344:21)"}
+[53:32:52.909] Server  LOG      ✓ Compiled in 36ms
+[53:32:56.037] Server  LOG      ✓ Compiled in 20ms
+[53:33:36.825] Server  LOG      ✓ Compiled in 34ms
+[53:33:40.135] Server  LOG      ✓ Compiled in 40ms
+[53:34:23.591] Server  LOG      ✓ Compiled in 32ms
+[53:34:52.125] Server  LOG      ✓ Compiled in 23ms
+[53:34:53.729] Server  LOG      ✓ Compiled in 53ms
+[53:34:59.591] Server  LOG      ✓ Compiled in 34ms
+[53:35:11.799] Server  LOG      ✓ Compiled in 40ms
+[53:35:13.335] Server  LOG      ✓ Compiled in 28ms
+[53:35:15.836] Server  LOG      ✓ Compiled in 28ms
+[53:35:22.915] Server  LOG      ✓ Compiled in 33ms
+[53:35:33.453] Server  LOG      ✓ Compiled in 21ms
+[53:35:42.348] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770030053092}
+[53:35:50.410] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:35:50.410] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:35:50.411] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770030061125}
+[53:58:11.597] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770031402343}
+[53:58:24.102] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770031414847}
+[53:58:31.063] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770031421807}
+[53:58:48.947] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:58:48.947] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[53:58:48.947] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770031439669}
+[53:58:54.616] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770031445359}
+[53:59:00.071] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770031450809}
+[59:42:07.822] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052038572}
+[59:42:22.825] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getPickupStations (http://localhost:3000/_next/static/chunks/_60076890._.js:1157:21)"}
+[59:42:38.830] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwiZGVhY3RpdmF0ZSI6ZmFsc2UsImlhdCI6MTc3MDAwMzg3OCwiZXhwIjoxNzcwNjA4Njc4fQ.Qo3PFqy3QSzA9uSljkFP5UbcBW2VXQUXvx4E0sMBWHA","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:2528:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_axios_lib_99e19c7d._.js:3273:49)\n    at async getPickupStations (http://localhost:3000/_next/static/chunks/_60076890._.js:1157:21)"}
+[59:42:52.158] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052082896}
+[59:42:56.966] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052087720}
+[59:43:02.266] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052093004}
+[59:43:13.534] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052104278}
+[59:43:18.397] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052109136}
+[59:43:24.402] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[59:43:24.402] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[59:43:24.402] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052115127}
+[59:43:32.333] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/trips color: rgb(120, 120, 120) color: inherit {"dp":"/trips","o":"http://localhost:3000/trips","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052123089}
+[59:43:33.890] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[59:43:33.890] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[59:43:33.890] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052124621}
+[59:43:38.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052129127}
+[59:44:00.486] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770052151224}

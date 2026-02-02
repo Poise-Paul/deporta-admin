@@ -503,3 +503,14 @@ export interface GetAllRoutesData {
     pagination: Pagination;
   };
 }
+
+export interface Trip {
+  id: number;
+  busImage: string;
+  pickupLocation: string;
+  destination: string;
+  journeyCode: string;
+  pickupTime: string;
+  duration: string;
+  passengers: number;
+}
