@@ -9,6 +9,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -213,7 +214,7 @@ export function RoutesTable({
           refetch();
         },
         onSettled: () => setIsAddDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -235,7 +236,7 @@ export function RoutesTable({
       {
         onSuccess: () => refetch(),
         onSettled: () => setIsEditDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -312,7 +313,7 @@ export function RoutesTable({
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
-
+  
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allRoutes = tripRoutes?.trip_route.data || [];
 
@@ -341,7 +342,13 @@ export function RoutesTable({
     const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
 
     return { paginatedData: slicedData, totalPages: total };
-  }, [tripRoutes, activeTab, currentPage, itemsPerPage, searchQuery]);
+  }, [
+    tripRoutes,
+    activeTab,
+    currentPage,
+    itemsPerPage,
+    searchQuery,
+  ]);
 
   React.useEffect(() => {
     setCurrentPage(1);
@@ -415,17 +422,13 @@ export function RoutesTable({
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {tab.id === "all" ? `All ${title}` : tab.label}
                 </Button>
               ))}
             </div>
-
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
 
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
@@ -532,8 +535,8 @@ export function RoutesTable({
                             .filter(
                               (stop) =>
                                 !watch("number_of_stops").includes(
-                                  stop.location.toLowerCase()
-                                )
+                                  stop.location.toLowerCase(),
+                                ),
                             )
                             .map((stop) => (
                               <SelectItem
@@ -561,7 +564,7 @@ export function RoutesTable({
                                 const current = watch("number_of_stops");
                                 setValue(
                                   "number_of_stops",
-                                  current.filter((s) => s !== stopValue)
+                                  current.filter((s) => s !== stopValue),
                                 );
                               }}
                               className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
@@ -694,7 +697,7 @@ export function RoutesTable({
                           "font-normal",
                           station.status === "active"
                             ? "border-green-500 text-green-600 bg-green-50"
-                            : "border-orange-500 text-orange-600 bg-orange-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
                         )}
                       >
                         {station.status === "active" ? "Active" : "In-active"}
@@ -715,9 +718,7 @@ export function RoutesTable({
                           <DropdownMenuItem
                             onClick={() => {
                               dispatch(updateSelRoute(station));
-                              router.push(
-                                `/app-menu/routes/${station._id}`
-                              );
+                              router.push(`/app-menu/routes/${station._id}`);
                             }}
                           >
                             <Eye className="h-4 w-4 mr-2" />
@@ -737,7 +738,7 @@ export function RoutesTable({
                                 country: station.country,
                                 route_distance: station.route_distance,
                                 number_of_stops: Array.isArray(
-                                  station.number_of_stops
+                                  station.number_of_stops,
                                 )
                                   ? station.number_of_stops.flat()
                                   : [],
@@ -892,8 +893,8 @@ export function RoutesTable({
                         .filter(
                           (stop) =>
                             !updateWatch("number_of_stops").includes(
-                              stop.location.toLowerCase()
-                            )
+                              stop.location.toLowerCase(),
+                            ),
                         )
                         .map((stop) => (
                           <SelectItem
@@ -924,7 +925,7 @@ export function RoutesTable({
                                 updateWatch("number_of_stops").flat();
                               updateValue(
                                 "number_of_stops",
-                                current.filter((s) => s !== stopValue)
+                                current.filter((s) => s !== stopValue),
                               );
                             }}
                             className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
@@ -1026,7 +1027,7 @@ export function RoutesTable({
                     "h-8 w-8",
                     currentPage === pageNumber
                       ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
-                      : "text-muted-foreground"
+                      : "text-muted-foreground",
                   )}
                   onClick={() => setCurrentPage(pageNumber)}
                 >

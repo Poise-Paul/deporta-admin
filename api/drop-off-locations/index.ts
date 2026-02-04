@@ -1,4 +1,11 @@
-import { AddPickupStationPayload, DropOffDetails, DropOffLocationResponse, EditDropOffStationPayload, ErrorrResponse, Response } from "@/types";
+import {
+  AddPickupStationPayload,
+  DropOffDetails,
+  DropOffLocationResponse,
+  EditDropOffStationPayload,
+  ErrorrResponse,
+  Response,
+} from "@/types";
 import { api } from "../axios";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../queryClient";
@@ -6,6 +13,11 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { store } from "@/lib/store";
 import { updateDropOffDetails } from "@/lib/store/slices/drop-off-station-slice";
+
+export interface DropOffPayload {
+  status: string;
+  drop_off_station_id: string;
+}
 
 export const getDropOffStations = async (): Promise<DropOffDetails> => {
   try {
@@ -50,7 +62,7 @@ export const useDeleteDropOffStation = () => {
   return useMutation({
     mutationFn: async (stationId: string) => {
       const res = await api.delete(
-        `/api/users/admin/drop-off-station/delete/${stationId}`
+        `/api/users/admin/drop-off-station/delete/${stationId}`,
       );
       return res.data;
     },
@@ -95,6 +107,31 @@ export const useModifyDropOffStation = () => {
         const err = error.response?.data as ErrorrResponse;
         console.log("User Erro", error);
 
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const useDropOffStatus = () => {
+  return useMutation({
+    mutationFn: async (data: DropOffPayload) => {
+      const res = await api.patch(
+        `/api/users/admin/drop-off-station/change/status`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["dropOffStations"] });
+      toast.success("Updated Successfully");
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
         toast.error(`${err?.error.message}`);
       } else {
         console.error("❌ Unexpected error:", error);

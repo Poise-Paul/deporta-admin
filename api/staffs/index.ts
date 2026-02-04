@@ -4,6 +4,7 @@ import {
   AddAdminPayload,
   AddStaffPayload,
   AdminDataResponse,
+  DriversDataResponse,
   ErrorrResponse,
   ProfileUpdate,
   Response,
@@ -15,7 +16,10 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { queryClient } from "../queryClient";
 import { useDispatch } from "react-redux";
-import { updateSelStaff, updateStaffStatus } from "@/lib/store/slices/staff-slice";
+import {
+  updateSelStaff,
+  updateStaffStatus,
+} from "@/lib/store/slices/staff-slice";
 
 export const useCreateAdmin = () => {
   return useMutation({
@@ -147,11 +151,9 @@ export const useStatusUpdate = () => {
   const dispatch = useDispatch();
   return useMutation<StatusResponse, Error, StatusPayload>({
     mutationFn: async (data: StatusPayload) => {
-        console.log("Status>><,", data.isActive);
-        
-      const res = await api.patch(`/api/users/admin/staff/change-status`, {
-        status: data.isActive,
-        staff_id: data.staffId,
+      const res = await api.patch(`/api/users/admin/user/change-status`, {
+        status: data.status,
+        user_id: data.user_id,
       });
 
       // 2. Return res.data which is now correctly typed as StatusResponse
@@ -163,10 +165,10 @@ export const useStatusUpdate = () => {
 
       // Note: check if variables.isActive is the string "active" or a boolean
       // to make the toast message accurate
-      const isNowActive = variables.isActive === "active";
-      dispatch(updateStaffStatus(variables.isActive));
+      const isNowActive = variables.status === "active";
+      dispatch(updateStaffStatus(variables.status));
       toast.success(
-        `Staff ${isNowActive ? "Activated" : "De-activated"} successfully`
+        `Staff ${isNowActive ? "Activated" : "De-activated"} successfully`,
       );
     },
     onError: (error) => {
@@ -180,10 +182,19 @@ export const useStatusUpdate = () => {
   });
 };
 
-
 export const getAllStaffs = async (): Promise<StaffDashboardStats> => {
   try {
     const res = await api.get("/api/users/admin/staff/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
+};
+
+export const getDriversList = async (): Promise<DriversDataResponse> => {
+  try {
+    const res = await api.get("/api/users/admin/drivers");
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

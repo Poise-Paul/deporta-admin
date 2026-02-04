@@ -17,8 +17,8 @@ const staffSlice = createSlice({
       state.staffDetails = action.payload;
     },
     updateStaffStatus: (state, action) => {
-      if (state.staffDetails?.user_type?.type_id) {
-        state.staffDetails.user_type.type_id.status = action.payload; //
+      if (state.staffDetails) {
+        state.staffDetails.status = action.payload; //
       }
     },
     resetStaff: () => initialState,

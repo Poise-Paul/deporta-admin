@@ -9,6 +9,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -30,6 +31,8 @@ import {
   Edit,
   Trash2,
   X,
+  UserX,
+  UserCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -41,9 +44,11 @@ import {
 } from "@/components/ui/select";
 import {
   getPickupStations,
+  PickupPayload,
   useCreatePickupStation,
   useDeletePickupStation,
   useModifyPickupStation,
+  usePickupStatus,
 } from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
@@ -119,7 +124,7 @@ export function LocationTable({
         country: "Nigeria",
         state: "lagos",
       },
-    }
+    },
   );
 
   const {
@@ -164,7 +169,7 @@ export function LocationTable({
           refetch();
         },
         onSettled: () => setIsAddDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -180,7 +185,7 @@ export function LocationTable({
       {
         onSuccess: () => refetch(),
         onSettled: () => setIsEditDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -213,6 +218,8 @@ export function LocationTable({
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
+  // Role Integration
 
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = pickupStations?.pickup_station?.data || [];
@@ -247,6 +254,15 @@ export function LocationTable({
   React.useEffect(() => {
     setCurrentPage(1);
   }, [activeTab, searchQuery]);
+
+  // Update Pickup State
+  const updateMutation = usePickupStatus();
+
+  const handlePickupStatus = (data: PickupPayload) => {
+    updateMutation.mutate(data, {
+      onSuccess: () => refetch(),
+    });
+  };
 
   const TableRowSkeleton = () => (
     <tr className="border-b border-border animate-pulse">
@@ -316,17 +332,13 @@ export function LocationTable({
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {tab.id === "all" ? `All ${title}` : tab.label}
                 </Button>
               ))}
             </div>
-
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
 
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
@@ -474,7 +486,7 @@ export function LocationTable({
                           "font-normal",
                           station.status === "active"
                             ? "border-green-500 text-green-600 bg-green-50"
-                            : "border-orange-500 text-orange-600 bg-orange-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
                         )}
                       >
                         {station.status === "active" ? "Active" : "In-active"}
@@ -496,7 +508,7 @@ export function LocationTable({
                             onClick={() => {
                               dispatch(updateSelPickupStation(station));
                               router.push(
-                                `/app-menu/pickup-stations/${station._id}`
+                                `/app-menu/pickup-stations/${station._id}`,
                               );
                             }}
                           >
@@ -520,14 +532,44 @@ export function LocationTable({
                           </DropdownMenuItem>
                           <DropdownMenuItem
                             onClick={(e) => {
-                              // 1. Prevent the dropdown from closing
                               e.preventDefault();
+                              handlePickupStatus({
+                                pickup_station_id: station._id,
+                                status:
+                                  station.status === "active"
+                                    ? "in-active"
+                                    : "active",
+                              });
+                            }}
+                            className={
+                              station.status === "active"
+                                ? "text-destructive"
+                                : "text-success"
+                            }
+                          >
+                            {updateMutation.isPending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <>
+                                {station.status === "active" ? (
+                                  <UserX className="mr-2 text-destructive h-4 w-4" />
+                                ) : (
+                                  <UserCheck className="mr-2 text-success h-4 w-4" />
+                                )}
+                              </>
+                            )}
 
-                              // 2. Trigger your delete logic
+                            {station.status === "active"
+                              ? "De-activate"
+                              : "Activate"}
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
                               handleDeleteStation(station._id);
                             }}
                             className="text-destructive"
-                            disabled={deleteMutation.isPending} // Disable to prevent double-clicks
+                            disabled={deleteMutation.isPending}
                           >
                             {deleteMutation.isPending ? (
                               <>
@@ -635,8 +677,6 @@ export function LocationTable({
         </Dialog>
         {/* End Pickup Address Edit Modal */}
 
-        {/* Pagination */}
-
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
           {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -678,7 +718,7 @@ export function LocationTable({
                     "h-8 w-8",
                     currentPage === pageNumber
                       ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
-                      : "text-muted-foreground"
+                      : "text-muted-foreground",
                   )}
                   onClick={() => setCurrentPage(pageNumber)}
                 >

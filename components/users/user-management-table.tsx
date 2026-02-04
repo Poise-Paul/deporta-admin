@@ -1,98 +1,195 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Search, Filter, Download, MoreVertical, Eye } from "lucide-react"
-import { cn } from "@/lib/utils"
+import React, { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Search,
+  Filter,
+  Download,
+  MoreVertical,
+  Eye,
+  X,
+  Loader2,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
+import { Skeleton } from "../ui/skeleton";
+import { getUsersList } from "@/api/user";
+import { useStaffStatus } from "@/api/dashboard";
+import { UpdateStaff } from "@/types";
+import { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { updateSelCustomer } from "@/lib/store/slices/customer-slice";
+import { useRouter } from "next/navigation";
 
-type UserTab = "all" | "drivers" | "customers" | "onsite"
+type UserTab = "all" | "active" | "inactive";
 
 const tabs: { id: UserTab; label: string }[] = [
   { id: "all", label: "All Users" },
-  { id: "drivers", label: "Drivers" },
-  { id: "customers", label: "Customers" },
-  { id: "onsite", label: "Onsite Drivers" },
-]
-
-const users = [
-  {
-    id: 1,
-    name: "David Kolawole",
-    role: "Driver",
-    email: "davidkolawole@gmail.com",
-    phone: "+234 8132 4958 67",
-    dateJoined: "05/05/2025",
-    status: "active" as const,
-    avatar: "/african-man-professional.png",
-  },
-  {
-    id: 2,
-    name: "James David",
-    role: "Customer",
-    email: "davidkolawole@gmail.com",
-    phone: "+234 8132 4958 67",
-    dateJoined: "05/05/2025",
-    status: "inactive" as const,
-    avatar: "/young-man-casual.jpg",
-  },
-  {
-    id: 3,
-    name: "Jessica Franklin",
-    role: "Customer",
-    email: "davidkolawole@gmail.com",
-    phone: "+234 8132 4958 67",
-    dateJoined: "10/05/2025",
-    status: "active" as const,
-    avatar: "/diverse-woman-smiling.png",
-  },
-  {
-    id: 4,
-    name: "Miracle Jerly",
-    role: "Customer",
-    email: "davidkolawole@gmail.com",
-    phone: "+234 8132 4958 67",
-    dateJoined: "12/06/2025",
-    status: "inactive" as const,
-    avatar: "/professional-woman-diverse.png",
-  },
-  {
-    id: 5,
-    name: "Adewale Qoyum",
-    role: "Driver",
-    email: "davidkolawole@gmail.com",
-    phone: "+234 8132 4958 67",
-    dateJoined: "18/06/2025",
-    status: "inactive" as const,
-    avatar: "/african-driver-man.jpg",
-  },
-  {
-    id: 6,
-    name: "Fred Denis",
-    role: "Driver",
-    email: "davidkolawole@gmail.com",
-    phone: "+234 8132 4958 67",
-    dateJoined: "22/06/2025",
-    status: "active" as const,
-    avatar: "/man-driver-professional.jpg",
-  },
-]
-
+  { id: "active", label: "Active" },
+  { id: "inactive", label: "In-Active" },
+];
 export function UserManagementTable() {
-  const [activeTab, setActiveTab] = useState<UserTab>("all")
-  const [searchQuery, setSearchQuery] = useState("")
+  const [activeTab, setActiveTab] = useState<UserTab>("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredUsers = users.filter((user) => {
-    if (activeTab === "drivers") return user.role === "Driver"
-    if (activeTab === "customers") return user.role === "Customer"
-    if (activeTab === "onsite") return user.role === "Driver" && user.status === "active"
-    return true
-  })
+  // Get All Users
+  const {
+    data,
+    error: userError,
+    refetch: refetchUsers,
+    isRefetching,
+    isLoading,
+  } = useQuery({
+    queryKey: ["users"],
+    retry: false,
+    queryFn: () => getUsersList(),
+  });
 
+  const handleDownload = () => {
+    const dataToExport = data?.users.data || [];
+
+    // 2. Define Headers
+    const headers = [
+      "First Name",
+      "Last Name",
+      "Email",
+      "Phone",
+      "Role",
+      "Status",
+      "Date Joined",
+    ];
+
+    // 3. Map data to rows
+    const csvRows = dataToExport.map((staff) => [
+      staff.first_name,
+      staff.last_name,
+      staff.email,
+      staff.phone_number,
+      staff.user_type.value,
+      staff.status,
+      new Date(staff.createdAt).toLocaleDateString(),
+    ]);
+
+    // 4. Create CSV Content
+    const csvContent = [headers, ...csvRows].map((e) => e.join(",")).join("\n");
+
+    // 5. Trigger Download
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute(
+      "download",
+      `Deporta_Staff_List_${new Date().toISOString().split("T")[0]}.csv`,
+    );
+    link.click();
+  };
+
+  // Role Integration
+  const [roleFilter, setRoleFilter] = useState<string>("all");
+
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
+  const { paginatedData, totalPages } = React.useMemo(() => {
+    const allStaffs = data?.users?.data || [];
+
+    // 1. Filter by Search Query (Checking multiple fields)
+    let filtered = allStaffs.filter((staff) => {
+      const searchStr = searchQuery.toLowerCase();
+      return (
+        staff.first_name?.toLowerCase().includes(searchStr) ||
+        staff.last_name?.toLowerCase().includes(searchStr)
+      );
+    });
+
+    // 2. Filter by Tab Status
+    if (activeTab === "active") {
+      filtered = filtered.filter((s) => s.status === "active");
+    } else if (activeTab === "inactive") {
+      filtered = filtered.filter((s) => s.status === "in-active");
+    }
+    // Role Logic
+    if (roleFilter !== "all") {
+      filtered = filtered.filter((s) => {
+        // 1. Handle Verification Filters
+        if (roleFilter === "verified") return s.verify_email;
+        if (roleFilter === "non-verified") return !s.verify_email;
+
+        return s.user_type?.value?.toLowerCase() === roleFilter.toLowerCase();
+      });
+    }
+
+    // 3. Calculate Total Pages based on the filtered/searched list
+    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+
+    // 4. Slice the data for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+    return { paginatedData: slicedData, totalPages: total };
+  }, [data, activeTab, currentPage, itemsPerPage, searchQuery, roleFilter]);
+
+  // Clamps the current page if it exceeds the new total pages
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
+  // Loader
+  const TableRowSkeleton = () => (
+    <tr className="border-b border-border animate-pulse">
+      <td className="p-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-20" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-40" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-24" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-28" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-8 w-8 rounded-md" />
+      </td>
+    </tr>
+  );
+
+  const updateMutation = useStaffStatus();
+
+  const handleUpdateCustomer = (data: UpdateStaff) => {
+    updateMutation.mutate(data, {
+      onSuccess: () => refetchUsers(),
+    });
+  };
+
+  const dispatch = useDispatch();
+  const router = useRouter();
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -126,11 +223,60 @@ export function UserManagementTable() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-9 w-48 bg-transparent"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+                  type="button"
+                  aria-label="Clear search"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
-            <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className={cn(
+                    "bg-transparent",
+                    roleFilter !== "all" && "border-primary text-primary",
+                  )}
+                >
+                  <Filter className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => setRoleFilter("all")}>
+                  All Roles
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setRoleFilter("admin")}>
+                  Admin
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("corporate")}>
+                  Corporate
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("driver")}>
+                  Driver
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("customer")}>
+                  Customer
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("verified")}>
+                  Verified
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("non-verified")}>
+                  Non Verified
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <Button
+              onClick={handleDownload}
+              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+            >
               <Download className="h-4 w-4 mr-2" />
               Download
             </Button>
@@ -147,101 +293,230 @@ export function UserManagementTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Name</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Role</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Email Address</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Phone</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Date Joined</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Change Field</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Status</th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Name
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Role
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Email Address
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Phone
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Date Joined
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Verified
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Status
+                </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
               </tr>
             </thead>
             <tbody>
-              {filteredUsers.map((user) => (
-                <tr key={user.id} className="border-b border-border last:border-0 hover:bg-muted/50">
-                  <td className="p-4">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
-                        <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <span className="font-medium text-sm">{user.name}</span>
-                    </div>
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">{user.role}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{user.email}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{user.phone}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{user.dateJoined}</td>
-                  <td className="p-4 text-sm text-muted-foreground">—</td>
-                  <td className="p-4">
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "font-normal",
-                        user.status === "active"
-                          ? "border-green-500 text-green-600 bg-green-50"
-                          : "border-orange-500 text-orange-600 bg-orange-50",
-                      )}
-                    >
-                      {user.status === "active" ? "Active" : "In-active"}
-                    </Badge>
-                  </td>
-                  <td className="p-4">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem>
-                          <Eye className="h-4 w-4 mr-2" />
-                          View
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">
-                          {user.status === "active" ? "De-activate" : "Activate"}
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+              {isLoading ? (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <TableRowSkeleton key={i} />
+                  ))}
+                </>
+              ) : (
+                paginatedData.map((user) => (
+                  <tr
+                    key={user._id}
+                    className="border-b border-border last:border-0 hover:bg-muted/50"
+                  >
+                    <td className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage
+                            src={user.profile_image || "/placeholder.svg"}
+                            alt={user.first_name[0]}
+                          />
+                          <AvatarFallback>
+                            {user.first_name.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="font-medium text-sm">
+                          {user.first_name} {user.last_name}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {user.user_type.value}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {user.email}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {user.phone_number}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {new Date(user.createdAt).toLocaleDateString()}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
+                      {" "}
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          user.verify_email
+                            ? "border-green-500 text-green-600 bg-green-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
+                        )}
+                      >
+                        {user.verify_email ? "Verified" : "Not Verified"}
+                      </Badge>
+                    </td>
+                    <td className="p-4">
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          user.status === "active"
+                            ? "border-green-500 text-green-600 bg-green-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
+                        )}
+                      >
+                        {user.status === "active" ? "Active" : "In-active"}
+                      </Badge>
+                    </td>
+                    <td className="p-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
+                            <MoreVertical className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            onClick={() => {
+                              dispatch(updateSelCustomer(user));
+                              router.push(`/users/${user._id}`);
+                            }}
+                          >
+                            <Eye className="h-4 w-4 mr-2" />
+                            View
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleUpdateCustomer({
+                                status:
+                                  user.status === "active"
+                                    ? "in-active"
+                                    : "active",
+                                user_id: user._id,
+                              });
+                            }}
+                            className={
+                              user.status === "active"
+                                ? "text-destructive"
+                                : "text-success"
+                            }
+                          >
+                            {updateMutation.isPending && (
+                              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                            )}
+                            {user.status === "active"
+                              ? "De-activate"
+                              : "Activate"}
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </td>
+                  </tr>
+                ))
+              )}
+              {!isLoading && paginatedData.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="p-8 text-center text-muted-foreground"
+                  >
+                    {`No results found ${
+                      searchQuery && `for "${searchQuery}"`
+                    }`}
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+          {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             Show
-            <select className="border border-border rounded px-2 py-1 text-sm bg-background">
-              <option>of 8</option>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              className="border border-border rounded px-2 py-1 text-sm bg-background"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
             </select>
+            per page
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">1 - Page</span>
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
-                {"<"}
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                className="h-8 w-8 bg-secondary text-secondary-foreground hover:bg-secondary/90"
-              >
-                1
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                2
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                {">"}
-              </Button>
-            </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-1">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </Button>
+
+            {/* Dynamic Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <Button
+                  key={pageNumber}
+                  variant={currentPage === pageNumber ? "default" : "ghost"}
+                  size="icon"
+                  className={cn(
+                    "h-8 w-8",
+                    currentPage === pageNumber
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      : "text-muted-foreground",
+                  )}
+                  onClick={() => setCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Button>
+              );
+            })}
+
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage >= totalPages}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              {">"}
+            </Button>
           </div>
         </div>
       </CardContent>
+      <Toaster />
     </Card>
-  )
+  );
 }

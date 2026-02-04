@@ -18,6 +18,11 @@ import {
   updateSelPickupStation,
 } from "@/lib/store/slices/pickup-station-slice";
 
+export interface PickupPayload {
+  status: string;
+  pickup_station_id: string;
+}
+
 export const getPickupStations = async (): Promise<PickupStationDetails> => {
   try {
     const res = await api.get("/api/users/admin/pickup-station/get");
@@ -92,7 +97,7 @@ export const useDeletePickupStation = () => {
   return useMutation({
     mutationFn: async (stationId: string) => {
       const res = await api.delete(
-        `/api/users/admin/pickup-station/delete/${stationId}`
+        `/api/users/admin/pickup-station/delete/${stationId}`,
       );
       return res.data;
     },
@@ -106,6 +111,31 @@ export const useDeletePickupStation = () => {
         const err = error.response?.data as ErrorrResponse;
         console.log("User Erro", error);
 
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const usePickupStatus = () => {
+  return useMutation({
+    mutationFn: async (data: PickupPayload) => {
+      const res = await api.patch(
+        `/api/users/admin/pickup-station/change/status`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["pickupStations"] });
+      toast.success("Updated Successfully");
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
         toast.error(`${err?.error.message}`);
       } else {
         console.error("❌ Unexpected error:", error);

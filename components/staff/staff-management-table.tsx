@@ -9,6 +9,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -26,9 +27,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Filter, Plus, MoreVertical, Eye, Loader2 } from "lucide-react";
+import {
+  Search,
+  Filter,
+  Plus,
+  MoreVertical,
+  Eye,
+  Loader2,
+  X,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AddStaffPayload, StaffData } from "@/types";
+import { AddStaffPayload, StaffData, UpdateStaff } from "@/types";
 import { useForm } from "react-hook-form";
 import { useCreateAdmin, useCreateStaff } from "@/api/staffs";
 import { Toaster } from "react-hot-toast";
@@ -39,6 +48,7 @@ import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { updateSelStaff } from "@/lib/store/slices/staff-slice";
+import { useStaffStatus } from "@/api/dashboard";
 
 type StaffTab = "all" | "active" | "inactive";
 
@@ -79,23 +89,64 @@ export function StaffManagementTable() {
 
   const [holdBtn, setHoldBtn] = useState(true);
 
-  const filteredStaff = React.useMemo(() => {
-    const allStaff = staffData?.staffs?.data || [];
+  // Role Integration
+  const [roleFilter, setRoleFilter] = useState<string>("all");
 
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
+  const { paginatedData, totalPages } = React.useMemo(() => {
+    const allStaffs = staffData?.staffs?.data || [];
+
+    // 1. Filter by Search Query (Checking multiple fields)
+    let filtered = allStaffs.filter((staff) => {
+      const searchStr = searchQuery.toLowerCase();
+      return (
+        staff.first_name?.toLowerCase().includes(searchStr) ||
+        staff.last_name?.toLowerCase().includes(searchStr)
+      );
+    });
+
+    // 2. Filter by Tab Status
     if (activeTab === "active") {
-      return allStaff.filter(
-        (staff) => staff.user_type?.type_id?.status === "active"
+      filtered = filtered.filter((s) => s.status === "active");
+    } else if (activeTab === "inactive") {
+      filtered = filtered.filter((s) => s.status === "in-active");
+    }
+    // Role Logic
+    if (roleFilter !== "all") {
+      filtered = filtered.filter(
+        (s) =>
+          s.user_type.type_id.role.toLowerCase() === roleFilter.toLowerCase(),
       );
     }
-    if (activeTab === "inactive") {
-      return allStaff.filter(
-        (staff) => staff.user_type?.type_id?.status === "inactive"
-      );
-    }
-    return allStaff;
-  }, [staffData, activeTab]);
-  
+
+    // 3. Calculate Total Pages based on the filtered/searched list
+    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+
+    // 4. Slice the data for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+    return { paginatedData: slicedData, totalPages: total };
+  }, [
+    staffData,
+    activeTab,
+    currentPage,
+    itemsPerPage,
+    searchQuery,
+    roleFilter,
+  ]);
+
   const handleWatch = watch();
+
+  // Clamps the current page if it exceeds the new total pages
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
 
   const { first_name, last_name, phone_number, email, otp, role, gender } =
     handleWatch;
@@ -125,7 +176,7 @@ export function StaffManagementTable() {
           onSettled: () => {
             setStaffLoading(false);
           },
-        }
+        },
       );
     } else {
       createStaffMutation.mutate(
@@ -145,7 +196,7 @@ export function StaffManagementTable() {
           onSettled: () => {
             setStaffLoading(false);
           },
-        }
+        },
       );
     }
   };
@@ -205,6 +256,14 @@ export function StaffManagementTable() {
     </tr>
   );
 
+  const updateMutation = useStaffStatus();
+
+  const handleUpdateCustomer = (data: UpdateStaff) => {
+    updateMutation.mutate(data, {
+      onSuccess: () => refetchStaffs(),
+    });
+  };
+
   const router = useRouter();
   const dispatch = useDispatch();
   return (
@@ -220,6 +279,16 @@ export function StaffManagementTable() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 w-64 bg-transparent"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+                type="button"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
 
           {/* Tabs and Actions */}
@@ -234,7 +303,7 @@ export function StaffManagementTable() {
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {tab.label}
@@ -242,9 +311,41 @@ export function StaffManagementTable() {
               ))}
             </div>
 
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className={cn(
+                    "bg-transparent",
+                    roleFilter !== "all" && "border-primary text-primary",
+                  )}
+                >
+                  <Filter className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => setRoleFilter("all")}>
+                  All Roles
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setRoleFilter("admin")}>
+                  Admins
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("driver")}>
+                  Driver
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("customer-rep")}>
+                  Customer-Rep
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("support")}>
+                  Support
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("maintenance")}>
+                  Maintenance
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
@@ -430,7 +531,7 @@ export function StaffManagementTable() {
                   ))}
                 </>
               ) : (
-                filteredStaff?.map((staff) => (
+                paginatedData?.map((staff) => (
                   <tr
                     key={staff._id}
                     className="border-b border-border last:border-0 hover:bg-muted/50"
@@ -468,14 +569,12 @@ export function StaffManagementTable() {
                         variant="outline"
                         className={cn(
                           "font-normal",
-                          staff.user_type.type_id.status === "active"
+                          staff.status === "active"
                             ? "border-green-500 text-green-600 bg-green-50"
-                            : "border-orange-500 text-orange-600 bg-orange-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
                         )}
                       >
-                        {staff.user_type.type_id.status === "active"
-                          ? "Active"
-                          : "In-active"}
+                        {staff.status === "active" ? "Active" : "In-active"}
                       </Badge>
                     </td>
                     <td className="p-4">
@@ -499,16 +598,47 @@ export function StaffManagementTable() {
                             <Eye className="h-4 w-4 mr-2" />
                             View
                           </DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">
-                            {staff.user_type.type_id.status === "active"
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleUpdateCustomer({
+                                status:
+                                  staff.status === "active"
+                                    ? "in-active"
+                                    : "active",
+                                user_id: staff._id,
+                              });
+                            }}
+                            className={
+                              staff.status === "active"
+                                ? "text-destructive"
+                                : "text-success"
+                            }
+                          >
+                            {updateMutation.isPending && (
+                              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                            )}
+                            {staff.status === "active"
                               ? "De-activate"
-                              : "Activate"}
+                              : "Activate"}{" "}
                           </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </td>
                   </tr>
                 ))
+              )}
+              {!staffLoader && paginatedData.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="p-8 text-center text-muted-foreground"
+                  >
+                    {`No results found ${
+                      searchQuery && `for "${searchQuery}"`
+                    }`}
+                  </td>
+                </tr>
               )}
             </tbody>
           </table>
@@ -519,34 +649,66 @@ export function StaffManagementTable() {
           <p className="text-sm text-muted-foreground">Maintenance Staff</p>
         </div> */}
 
-        {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+          {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             Show
-            <select className="border border-border rounded px-2 py-1 text-sm bg-background">
-              <option>of 8</option>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              className="border border-border rounded px-2 py-1 text-sm bg-background"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
             </select>
+            per page
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">1 - Page</span>
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
-                {"<"}
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                className="h-8 w-8 bg-secondary text-secondary-foreground hover:bg-secondary/90"
-              >
-                1
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                2
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                {">"}
-              </Button>
-            </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-1">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </Button>
+
+            {/* Dynamic Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <Button
+                  key={pageNumber}
+                  variant={currentPage === pageNumber ? "default" : "ghost"}
+                  size="icon"
+                  className={cn(
+                    "h-8 w-8",
+                    currentPage === pageNumber
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      : "text-muted-foreground",
+                  )}
+                  onClick={() => setCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Button>
+              );
+            })}
+
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage >= totalPages}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              {">"}
+            </Button>
           </div>
         </div>
       </CardContent>

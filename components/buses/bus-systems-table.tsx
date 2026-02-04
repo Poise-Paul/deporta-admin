@@ -18,6 +18,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -195,7 +196,7 @@ export function BusSystemsTable() {
           refetch();
         },
         onSettled: () => setIsDialogueOpen(false),
-      }
+      },
     );
   };
 
@@ -219,7 +220,7 @@ export function BusSystemsTable() {
       {
         onSuccess: () => refetch(),
         onSettled: () => setIsDialogueOpen(false),
-      }
+      },
     );
   };
 
@@ -247,6 +248,8 @@ export function BusSystemsTable() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
+  const [roleFilter, setRoleFilter] = useState<string>("all");
+
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allBusesData = data?.buses.data || [];
 
@@ -269,6 +272,14 @@ export function BusSystemsTable() {
       filtered = filtered.filter((s) => s.status);
     }
 
+    // Role Logic
+    if (roleFilter !== "all") {
+      filtered = filtered.filter((s) => {
+        // 1. Handle Verification Filters
+        if (roleFilter === "outsourcing") return s.outsourcing;
+      });
+    }
+
     // 3. Calculate Total Pages based on the filtered/searched list
     const total = Math.ceil(filtered.length / itemsPerPage) || 1;
 
@@ -277,7 +288,7 @@ export function BusSystemsTable() {
     const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
 
     return { paginatedData: slicedData, totalPages: total };
-  }, [data, activeTab, currentPage, itemsPerPage, searchQuery]);
+  }, [data, activeTab, currentPage, itemsPerPage, searchQuery, roleFilter]);
 
   React.useEffect(() => {
     setCurrentPage(1);
@@ -358,7 +369,7 @@ export function BusSystemsTable() {
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {tab.label}
@@ -366,9 +377,29 @@ export function BusSystemsTable() {
               ))}
             </div>
 
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className={cn(
+                    "bg-transparent",
+                    roleFilter !== "all" && "border-primary text-primary",
+                  )}
+                >
+                  <Filter className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => setRoleFilter("all")}>
+                  All Buses
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setRoleFilter("outsourcing")}>
+                  Outsouring Buses
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Dialog open={isDialogueOpen} onOpenChange={setIsDialogueOpen}>
               <DialogTrigger asChild>
@@ -449,7 +480,7 @@ export function BusSystemsTable() {
                         <SelectContent>
                           {tripRoutes?.trip_route.data
                             .filter(
-                              (d) => !watch("routes_assigned").includes(d._id)
+                              (d) => !watch("routes_assigned").includes(d._id),
                             ) // Hide already selected
                             .map((route) => (
                               <SelectItem key={route._id} value={route._id}>
@@ -465,7 +496,7 @@ export function BusSystemsTable() {
                           .filter((id) => id !== "")
                           .map((driverId) => {
                             const route = tripRoutes?.trip_route.data.find(
-                              (d: RouteData) => d._id === driverId
+                              (d: RouteData) => d._id === driverId,
                             );
                             return (
                               <Badge
@@ -480,7 +511,7 @@ export function BusSystemsTable() {
                                     const current = watch("routes_assigned");
                                     setValue(
                                       "routes_assigned",
-                                      current.filter((id) => id !== driverId)
+                                      current.filter((id) => id !== driverId),
                                     );
                                   }}
                                   className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
@@ -512,7 +543,7 @@ export function BusSystemsTable() {
                             .filter(
                               (d) =>
                                 d.user_type.type_id.role === "driver" &&
-                                !watch("drivers_assigned").includes(d._id)
+                                !watch("drivers_assigned").includes(d._id),
                             )
                             .map((driver) => (
                               <SelectItem key={driver._id} value={driver._id}>
@@ -528,7 +559,7 @@ export function BusSystemsTable() {
                           .filter((id) => id !== "")
                           .map((driverId) => {
                             const driver = staffData?.staffs.data.find(
-                              (d: StaffData) => d._id === driverId
+                              (d: StaffData) => d._id === driverId,
                             );
                             return (
                               <Badge
@@ -543,7 +574,7 @@ export function BusSystemsTable() {
                                     const current = watch("drivers_assigned");
                                     setValue(
                                       "drivers_assigned",
-                                      current.filter((id) => id !== driverId)
+                                      current.filter((id) => id !== driverId),
                                     );
                                   }}
                                   className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
@@ -761,7 +792,7 @@ export function BusSystemsTable() {
                         {bus.routes_assigned?.length > 0
                           ? bus.routes_assigned.map((routeId) => {
                               const route = tripRoutes?.trip_route.data.find(
-                                (r) => r._id === routeId
+                                (r) => r._id === routeId,
                               );
                               return (
                                 <Badge
@@ -786,7 +817,7 @@ export function BusSystemsTable() {
                               const driver = staffData?.staffs.data.find(
                                 (r) =>
                                   r.user_type.type_id.role === "driver" &&
-                                  r._id === routeId
+                                  r._id === routeId,
                               );
                               return (
                                 <Badge
@@ -810,7 +841,7 @@ export function BusSystemsTable() {
                           "font-normal",
                           bus.status === "active"
                             ? "border-green-500 text-green-600 bg-green-50"
-                            : "border-yellow-500 text-yellow-600 bg-yellow-50"
+                            : "border-yellow-500 text-yellow-600 bg-yellow-50",
                         )}
                       >
                         {bus.status === "active" ? "Active" : "In Maintenance"}
@@ -844,7 +875,7 @@ export function BusSystemsTable() {
                               setValue("operation_schedule.from", fromDate);
                               const toDate = bus.operation_schedule.to.slice(
                                 0,
-                                16
+                                16,
                               );
                               setValue("operation_schedule.to", toDate);
 
@@ -857,13 +888,13 @@ export function BusSystemsTable() {
                               setValue("routes_assigned", bus.routes_assigned);
                               setValue(
                                 "drivers_assigned",
-                                bus.drivers_assigned
+                                bus.drivers_assigned,
                               );
                               setValue("plate_number", bus.plate_number);
                               setValue("capacity", `${bus.capacity}`);
                               setValue(
                                 "status",
-                                bus.status === "active" ? true : false
+                                bus.status === "active" ? true : false,
                               );
                               setValue("fuel_type", bus.fuel_type as FuelType);
                               setValue("tracker_id", bus.tracker_id);
@@ -956,7 +987,7 @@ export function BusSystemsTable() {
                     "h-8 w-8",
                     currentPage === pageNumber
                       ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
-                      : "text-muted-foreground"
+                      : "text-muted-foreground",
                   )}
                   onClick={() => setCurrentPage(pageNumber)}
                 >

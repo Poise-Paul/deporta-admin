@@ -9,6 +9,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -178,7 +179,7 @@ export function BusStopTable({
           refetch();
         },
         onSettled: () => setIsAddDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -195,7 +196,7 @@ export function BusStopTable({
       {
         onSuccess: () => refetch(),
         onSettled: () => setIsEditDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -337,17 +338,13 @@ export function BusStopTable({
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {tab.id === "all" ? `All ${title}` : tab.label}
                 </Button>
               ))}
             </div>
-
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
 
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
@@ -509,7 +506,7 @@ export function BusStopTable({
                           "font-normal",
                           station.status === "active"
                             ? "border-green-500 text-green-600 bg-green-50"
-                            : "border-orange-500 text-orange-600 bg-orange-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
                         )}
                       >
                         {station.status === "active" ? "Active" : "In-active"}
@@ -530,9 +527,7 @@ export function BusStopTable({
                           <DropdownMenuItem
                             onClick={() => {
                               dispatch(updateSelBusStop(station));
-                              router.push(
-                                `/app-menu/bus-stops/${station._id}`
-                              );
+                              router.push(`/app-menu/bus-stops/${station._id}`);
                             }}
                           >
                             <Eye className="h-4 w-4 mr-2" />
@@ -722,7 +717,7 @@ export function BusStopTable({
                     "h-8 w-8",
                     currentPage === pageNumber
                       ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
-                      : "text-muted-foreground"
+                      : "text-muted-foreground",
                   )}
                   onClick={() => setCurrentPage(pageNumber)}
                 >

@@ -275,12 +275,16 @@ __turbopack_context__.s([
     ()=>getAllCustomers,
     "getAllDrivers",
     ()=>getAllDrivers,
+    "getCustomerList",
+    ()=>getCustomerList,
     "getOnsiteDrivers",
     ()=>getOnsiteDrivers,
     "getStaffList",
     ()=>getStaffList,
     "getUser",
-    ()=>getUser
+    ()=>getUser,
+    "getUsersList",
+    ()=>getUsersList
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/axios.ts [app-client] (ecmascript)");
 ;
@@ -302,9 +306,27 @@ const getStaffList = async ()=>{
         throw error;
     }
 };
+const getUsersList = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/users");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
 const getAllCustomers = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/staff/total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/customers/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const getCustomerList = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/customer");
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);

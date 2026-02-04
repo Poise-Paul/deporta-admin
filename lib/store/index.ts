@@ -13,11 +13,13 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./slices/auth-slice";
 import uiReducer from "./slices/ui-slice";
 import staffReducer from "./slices/staff-slice";
+import customerReducer from "./slices/customer-slice";
 import pickupSatationReducer from "./slices/pickup-station-slice";
 import dropOffStationReducer from "./slices/drop-off-station-slice";
 import busStopReducer from "./slices/bus-stop-slice";
 import routesReducer from "./slices/route-slice";
 import busReducer from "./slices/bus-slice";
+import driverReducer from "./slices/driver-slice"
 
 const persistConfig = {
   key: "deporta-admin",
@@ -30,7 +32,8 @@ const persistConfig = {
     "dropOffStation",
     "busStops",
     "routes",
-    "bus"
+    "bus",
+    "customer",
   ], // Only persist auth state
 };
 
@@ -38,9 +41,11 @@ const rootReducer = combineReducers({
   auth: authReducer,
   ui: uiReducer,
   staff: staffReducer,
+  customer: customerReducer,
   pickupStation: pickupSatationReducer,
   dropOffStation: dropOffStationReducer,
   busStops: busStopReducer,
+  driver: driverReducer,
   routes: routesReducer,
   bus: busReducer,
 });

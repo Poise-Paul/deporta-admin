@@ -10,6 +10,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -31,6 +32,8 @@ import {
   Edit,
   Trash2,
   X,
+  UserX,
+  UserCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -50,9 +53,11 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
 import {
+  DropOffPayload,
   getDropOffStations,
   useCreateDropOffStation,
   useDeleteDropOffStation,
+  useDropOffStatus,
   useModifyDropOffStation,
 } from "@/api/drop-off-locations";
 import { updateSelDropOffStation } from "@/lib/store/slices/drop-off-station-slice";
@@ -83,9 +88,10 @@ const tabs: { id: LocationTab; label: string }[] = [
   { id: "inactive", label: "In-Active" },
 ];
 
-export function LocationTable({
+export function DropOffStation({
   title,
   addButtonText,
+  locations,
   searchPlaceholder,
   tableTitle,
 }: LocationTableProps) {
@@ -117,7 +123,7 @@ export function LocationTable({
         country: "Nigeria",
         state: "lagos",
       },
-    }
+    },
   );
 
   const {
@@ -161,7 +167,7 @@ export function LocationTable({
           refetch();
         },
         onSettled: () => setIsAddDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -206,7 +212,7 @@ export function LocationTable({
       {
         onSuccess: () => refetch(),
         onSettled: () => setIsEditDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -281,6 +287,15 @@ export function LocationTable({
   const router = useRouter();
   const dispatch = useDispatch();
 
+  // Update Pickup State
+  const updateMutation = useDropOffStatus();
+
+  const handleDropOffStatus = (data: DropOffPayload) => {
+    updateMutation.mutate(data, {
+      onSuccess: () => refetch(),
+    });
+  };
+  
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -318,17 +333,13 @@ export function LocationTable({
                   className={cn(
                     activeTab === tab.id
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-transparent border-border text-muted-foreground hover:bg-muted"
+                      : "bg-transparent border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {tab.id === "all" ? `All ${title}` : tab.label}
                 </Button>
               ))}
             </div>
-
-            <Button variant="outline" size="icon" className="bg-transparent">
-              <Filter className="h-4 w-4" />
-            </Button>
 
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
@@ -475,7 +486,7 @@ export function LocationTable({
                           "font-normal",
                           station.status === "active"
                             ? "border-green-500 text-green-600 bg-green-50"
-                            : "border-orange-500 text-orange-600 bg-orange-50"
+                            : "border-orange-500 text-orange-600 bg-orange-50",
                         )}
                       >
                         {station.status === "active" ? "Active" : "In-active"}
@@ -497,12 +508,45 @@ export function LocationTable({
                             onClick={() => {
                               dispatch(updateSelDropOffStation(station));
                               router.push(
-                                `/app-menu/dropoff-locations/${station._id}`
+                                `/app-menu/dropoff-locations/${station._id}`,
                               );
                             }}
                           >
                             <Eye className="h-4 w-4 mr-2" />
                             View
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleDropOffStatus({
+                                drop_off_station_id: station._id,
+                                status:
+                                  station.status === "active"
+                                    ? "in-active"
+                                    : "active",
+                              });
+                            }}
+                            className={
+                              station.status === "active"
+                                ? "text-destructive"
+                                : "text-success"
+                            }
+                          >
+                            {updateMutation.isPending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <>
+                                {station.status === "active" ? (
+                                  <UserX className="mr-2 text-destructive h-4 w-4" />
+                                ) : (
+                                  <UserCheck className="mr-2 text-success h-4 w-4" />
+                                )}
+                              </>
+                            )}
+
+                            {station.status === "active"
+                              ? "De-activate"
+                              : "Activate"}
                           </DropdownMenuItem>
                           <DropdownMenuItem
                             onClick={(e) => {
@@ -620,7 +664,7 @@ export function LocationTable({
                 }
                 onClick={() =>
                   handleModifyDropOffStation(
-                    dropOffId?.drop_off_location_id || ""
+                    dropOffId?.drop_off_location_id || "",
                   )
                 }
                 className={`w-full bg-primary ${
@@ -683,7 +727,7 @@ export function LocationTable({
                     "h-8 w-8",
                     currentPage === pageNumber
                       ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
-                      : "text-muted-foreground"
+                      : "text-muted-foreground",
                   )}
                   onClick={() => setCurrentPage(pageNumber)}
                 >

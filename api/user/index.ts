@@ -1,8 +1,10 @@
 import {
   CustomerDashboardStats,
+  CustomerListResponse,
   StaffDashboardStats,
   StaffListResponse,
   UserDataResponse,
+  UsersDataListResponse,
 } from "@/types";
 import { api } from "../axios";
 import { store } from "@/lib/store";
@@ -10,7 +12,6 @@ import { store } from "@/lib/store";
 export const getUser = async (): Promise<UserDataResponse> => {
   try {
     const res = await api.get("/api/users/get");
-
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);
@@ -28,9 +29,29 @@ export const getStaffList = async (): Promise<StaffListResponse> => {
   }
 };
 
+export const getUsersList = async (): Promise<UsersDataListResponse> => {
+  try {
+    const res = await api.get("/api/users/admin/users");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
+};
+
 export const getAllCustomers = async (): Promise<CustomerDashboardStats> => {
   try {
-    const res = await api.get("/api/users/admin/staff/total");
+    const res = await api.get("/api/users/admin/customers/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
+};
+
+export const getCustomerList = async (): Promise<CustomerListResponse> => {
+  try {
+    const res = await api.get("/api/users/admin/customer");
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

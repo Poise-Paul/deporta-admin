@@ -6,7 +6,7 @@ import { ArrowUpRight, Wallet, Users, MapPin, Bus } from "lucide-react";
 
 export function DashboardStats() {
   const { data: adminData } = useQuery({
-    queryKey: ["adminDashboard"],
+    queryKey: ["staffDashboard"],
     queryFn: () => getAllStaffs(),
   });
 

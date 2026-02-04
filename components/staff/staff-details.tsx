@@ -28,18 +28,18 @@ import { RootState } from "@/lib/store";
 export function StaffDetailPage({ onBack }: { onBack: () => void }) {
   const { staffDetails } = useSelector((state: RootState) => state.staff);
 
-  const isActive = staffDetails?.user_type?.type_id?.status === "active";
-  const currentStatus = staffDetails?.user_type?.type_id?.status;
+  const isActive = staffDetails?.status === "active";
+  const currentStatus = staffDetails?.status;
   const statusMutation = useStatusUpdate();
+  const [btnUsed, setBtnUsed] = useState(1);
 
   // Usage
-  const handleStatusChange = () => {
-    console.log("current status", currentStatus);
-    
+  const handleStatusChange = (btn: number) => {
+    setBtnUsed(btn);
     statusMutation.mutate({
-      staffId: staffDetails?.user_type.type_id._id || "",
-      isActive:
+      status:
         currentStatus === "active" ? ActiveType.InActive : ActiveType.Active,
+      user_id: staffDetails?._id || "",
     });
   };
 
@@ -54,10 +54,10 @@ export function StaffDetailPage({ onBack }: { onBack: () => void }) {
           <Button
             variant={isActive ? "destructive" : "default"}
             disabled={statusMutation.isPending}
-            onClick={handleStatusChange}
+            onClick={() => handleStatusChange(1)}
             className={cn(!isActive && "bg-green-600 hover:bg-green-700")}
           >
-            {statusMutation.isPending ? (
+            {statusMutation.isPending && btnUsed === 1 ? (
               <Loader2 className="h-4 w-4 animate-spin mr-2" />
             ) : isActive ? (
               <XCircle className="h-4 w-4 mr-2" />
@@ -91,7 +91,7 @@ export function StaffDetailPage({ onBack }: { onBack: () => void }) {
                 "px-4 py-1",
                 isActive
                   ? "border-green-500 text-green-600 bg-green-50"
-                  : "border-orange-500 text-orange-600 bg-orange-50"
+                  : "border-orange-500 text-orange-600 bg-orange-50",
               )}
             >
               {isActive ? "Active Account" : "Inactive Account"}
@@ -165,11 +165,15 @@ export function StaffDetailPage({ onBack }: { onBack: () => void }) {
                   to the Deporta Logistics Admin panels.
                 </p>
                 <Button
-                disabled
+                  disabled={staffDetails.status === "active" ? false : true}
                   variant="outline"
-                  className="text-destructive border-destructive hover:bg-destructive/10"
+                  onClick={() => handleStatusChange(2)}
+                  className="text-destructive border-destructive hover:bg-destructive/10 hover:text-destructive"
                 >
-                  Reset Password for Staff
+                  {statusMutation.isPending && btnUsed === 2 && (
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  )}
+                  De-activate Staff Account
                 </Button>
               </CardContent>
             </Card>

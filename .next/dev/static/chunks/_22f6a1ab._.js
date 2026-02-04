@@ -1214,6 +1214,8 @@ __turbopack_context__.s([
     ()=>useCreateDropOffStation,
     "useDeleteDropOffStation",
     ()=>useDeleteDropOffStation,
+    "useDropOffStatus",
+    ()=>useDropOffStatus,
     "useModifyDropOffStation",
     ()=>useModifyDropOffStation
 ]);
@@ -1224,7 +1226,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$drop$2d$off$2d$station$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/drop-off-station-slice.ts [app-client] (ecmascript)");
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature();
 ;
 ;
 ;
@@ -1367,6 +1369,43 @@ _s2(useModifyDropOffStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
     ];
 });
+const useDropOffStatus = ()=>{
+    _s3();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useDropOffStatus.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/drop-off-station/change/status`, data);
+                return res.data;
+            }
+        }["useDropOffStatus.useMutation"],
+        onSuccess: {
+            "useDropOffStatus.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "dropOffStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Updated Successfully");
+                return data;
+            }
+        }["useDropOffStatus.useMutation"],
+        onError: {
+            "useDropOffStatus.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useDropOffStatus.useMutation"]
+    });
+};
+_s3(useDropOffStatus, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -1375,8 +1414,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
-    "LocationTable",
-    ()=>LocationTable
+    "DropOffStation",
+    ()=>DropOffStation
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -1388,7 +1427,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/label.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$filter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/filter.js [app-client] (ecmascript) <export default as Filter>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript) <export default as Plus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ellipsis$2d$vertical$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MoreVertical$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js [app-client] (ecmascript) <export default as MoreVertical>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-client] (ecmascript) <export default as Eye>");
@@ -1396,6 +1434,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user-x.js [app-client] (ecmascript) <export default as UserX>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user-check.js [app-client] (ecmascript) <export default as UserCheck>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/select.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$nigeria$2d$states$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/constants/nigeria-states.ts [app-client] (ecmascript)");
@@ -1444,7 +1484,7 @@ const tabs = [
         label: "In-Active"
     }
 ];
-function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
+function DropOffStation({ title, addButtonText, locations, searchPlaceholder, tableTitle }) {
     _s();
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
@@ -1460,8 +1500,8 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
             "dropOffStations"
         ],
         queryFn: {
-            "LocationTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDropOffStations"])()
-        }["LocationTable.useQuery"]
+            "DropOffStation.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDropOffStations"])()
+        }["DropOffStation.useQuery"]
     });
     const { register, setValue, watch, reset } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])({
         values: {
@@ -1505,14 +1545,14 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
         });
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LocationTable.useEffect": ()=>{
+        "DropOffStation.useEffect": ()=>{
             if (address && area && state && country) {
                 setHoldPickupBtn(false);
             } else {
                 setHoldPickupBtn(true);
             }
         }
-    }["LocationTable.useEffect"], [
+    }["DropOffStation.useEffect"], [
         address,
         area,
         state,
@@ -1520,24 +1560,24 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
     ]);
     // Update Address
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LocationTable.useEffect": ()=>{
+        "DropOffStation.useEffect": ()=>{
             if (updateAddress && updateArea && updateState && updateCountry) {
                 setUpdateHoldDropOffBtn(false);
             } else {
                 setUpdateHoldDropOffBtn(true);
             }
         }
-    }["LocationTable.useEffect"], [
+    }["DropOffStation.useEffect"], [
         updateAddress,
         updateArea,
         updateState,
         updateCountry
     ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LocationTable.useEffect": ()=>{
+        "DropOffStation.useEffect": ()=>{
             refetch();
         }
-    }["LocationTable.useEffect"], [
+    }["DropOffStation.useEffect"], [
         dropOffStations
     ]);
     const modifyStationMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModifyDropOffStation"])();
@@ -1557,24 +1597,24 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
     const [currentPage, setCurrentPage] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(1);
     const [itemsPerPage, setItemsPerPage] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(10);
     const { paginatedData, totalPages } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useMemo({
-        "LocationTable.useMemo": ()=>{
+        "DropOffStation.useMemo": ()=>{
             const allStations = dropOffStations?.drop_off_station?.data || [];
             // 1. Filter by Search Query first
             let filtered = allStations.filter({
-                "LocationTable.useMemo.filtered": (station)=>{
+                "DropOffStation.useMemo.filtered": (station)=>{
                     const searchStr = searchQuery.toLowerCase();
                     return station.address?.toLowerCase().includes(searchStr) || station.area?.toLowerCase().includes(searchStr) || station.state?.toLowerCase().includes(searchStr) || station.country?.toLowerCase().includes(searchStr);
                 }
-            }["LocationTable.useMemo.filtered"]);
+            }["DropOffStation.useMemo.filtered"]);
             // 2. Then filter by Active/Inactive Tab
             if (activeTab === "active") {
                 filtered = filtered.filter({
-                    "LocationTable.useMemo": (s)=>s.status === "active"
-                }["LocationTable.useMemo"]);
+                    "DropOffStation.useMemo": (s)=>s.status === "active"
+                }["DropOffStation.useMemo"]);
             } else if (activeTab === "inactive") {
                 filtered = filtered.filter({
-                    "LocationTable.useMemo": (s)=>s.status === "in-active"
-                }["LocationTable.useMemo"]);
+                    "DropOffStation.useMemo": (s)=>s.status === "in-active"
+                }["DropOffStation.useMemo"]);
             }
             // 3. Calculate Total Pages based on the FILTERED results
             const total = Math.ceil(filtered.length / itemsPerPage) || 1;
@@ -1586,7 +1626,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                 totalPages: total
             };
         }
-    }["LocationTable.useMemo"], [
+    }["DropOffStation.useMemo"], [
         dropOffStations,
         activeTab,
         currentPage,
@@ -1594,10 +1634,10 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
         searchQuery
     ]);
     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useEffect({
-        "LocationTable.useEffect": ()=>{
+        "DropOffStation.useEffect": ()=>{
             setCurrentPage(1);
         }
-    }["LocationTable.useEffect"], [
+    }["DropOffStation.useEffect"], [
         searchQuery,
         activeTab
     ]);
@@ -1613,32 +1653,18 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                 className: "h-8 w-8 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 256,
+                                lineNumber: 262,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-4 w-32"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 257,
+                                lineNumber: 263,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 255,
-                        columnNumber: 9
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 254,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                    className: "p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-20"
-                    }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
                         lineNumber: 261,
                         columnNumber: 9
@@ -1651,21 +1677,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                     className: "p-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-40"
-                    }, void 0, false, {
-                        fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 264,
-                        columnNumber: 9
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 263,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                    className: "p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-24"
+                        className: "h-4 w-20"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
                         lineNumber: 267,
@@ -1679,7 +1691,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                     className: "p-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-28"
+                        className: "h-4 w-40"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
                         lineNumber: 270,
@@ -1693,7 +1705,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                     className: "p-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-5 w-16 rounded-full"
+                        className: "h-4 w-24"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
                         lineNumber: 273,
@@ -1707,7 +1719,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                     className: "p-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-8 w-8 rounded-md"
+                        className: "h-4 w-28"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
                         lineNumber: 276,
@@ -1717,15 +1729,50 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                     fileName: "[project]/components/shared/drop-off-location.tsx",
                     lineNumber: 275,
                     columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                    className: "p-4",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
+                        className: "h-5 w-16 rounded-full"
+                    }, void 0, false, {
+                        fileName: "[project]/components/shared/drop-off-location.tsx",
+                        lineNumber: 279,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/shared/drop-off-location.tsx",
+                    lineNumber: 278,
+                    columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                    className: "p-4",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
+                        className: "h-8 w-8 rounded-md"
+                    }, void 0, false, {
+                        fileName: "[project]/components/shared/drop-off-location.tsx",
+                        lineNumber: 282,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/shared/drop-off-location.tsx",
+                    lineNumber: 281,
+                    columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/shared/drop-off-location.tsx",
-            lineNumber: 253,
+            lineNumber: 259,
             columnNumber: 5
         }, this);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"])();
+    // Update Pickup State
+    const updateMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDropOffStatus"])();
+    const handleDropOffStatus = (data)=>{
+        updateMutation.mutate(data, {
+            onSuccess: ()=>refetch()
+        });
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
         className: "bg-card border border-border",
         children: [
@@ -1741,7 +1788,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 290,
+                                    lineNumber: 305,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1751,7 +1798,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                     className: "pl-9 pr-2 w-72 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 291,
+                                    lineNumber: 306,
                                     columnNumber: 13
                                 }, this),
                                 searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1763,18 +1810,18 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 304,
+                                        lineNumber: 319,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 298,
+                                    lineNumber: 313,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 289,
+                            lineNumber: 304,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1790,28 +1837,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                             children: tab.id === "all" ? `All ${title}` : tab.label
                                         }, tab.id, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 313,
+                                            lineNumber: 328,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 311,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                    variant: "outline",
-                                    size: "icon",
-                                    className: "bg-transparent",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$filter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__["Filter"], {
-                                        className: "h-4 w-4"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 330,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 329,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1827,19 +1858,19 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 336,
+                                                        lineNumber: 347,
                                                         columnNumber: 19
                                                     }, this),
                                                     addButtonText
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 335,
+                                                lineNumber: 346,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 334,
+                                            lineNumber: 345,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -1853,12 +1884,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 342,
+                                                        lineNumber: 353,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                    lineNumber: 341,
+                                                    lineNumber: 352,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1872,7 +1903,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     children: "Drop-Off Location"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 346,
+                                                                    lineNumber: 357,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1881,13 +1912,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     placeholder: "Enter pickup station address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 347,
+                                                                    lineNumber: 358,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 345,
+                                                            lineNumber: 356,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1898,7 +1929,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     children: "Area"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 354,
+                                                                    lineNumber: 365,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1907,13 +1938,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     placeholder: "Enter area"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 355,
+                                                                    lineNumber: 366,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 353,
+                                                            lineNumber: 364,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1924,7 +1955,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     children: "State"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 362,
+                                                                    lineNumber: 373,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1937,12 +1968,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                                 placeholder: "Select a State"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                lineNumber: 368,
+                                                                                lineNumber: 379,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 367,
+                                                                            lineNumber: 378,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1951,24 +1982,24 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                                     children: state
                                                                                 }, state, false, {
                                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                    lineNumber: 372,
+                                                                                    lineNumber: 383,
                                                                                     columnNumber: 27
                                                                                 }, this))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 370,
+                                                                            lineNumber: 381,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 363,
+                                                                    lineNumber: 374,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 361,
+                                                            lineNumber: 372,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1979,7 +2010,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     children: "Country"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 380,
+                                                                    lineNumber: 391,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1989,13 +2020,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     placeholder: "Enter country"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 381,
+                                                                    lineNumber: 392,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 379,
+                                                            lineNumber: 390,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2006,7 +2037,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                 className: "h-4 w-4 animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                lineNumber: 398,
+                                                                lineNumber: 409,
                                                                 columnNumber: 23
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                 children: [
@@ -2016,42 +2047,42 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                             }, void 0, true)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 388,
+                                                            lineNumber: 399,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 355,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 340,
+                                            lineNumber: 351,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 333,
+                                    lineNumber: 344,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 310,
+                            lineNumber: 325,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 287,
+                    lineNumber: 302,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 286,
+                lineNumber: 301,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2064,12 +2095,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                             children: tableTitle
                         }, void 0, false, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 412,
+                            lineNumber: 423,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 411,
+                        lineNumber: 422,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2086,7 +2117,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "Name"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 421,
+                                                lineNumber: 432,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2094,7 +2125,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "Area"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 424,
+                                                lineNumber: 435,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2102,7 +2133,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "State / Country"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 427,
+                                                lineNumber: 438,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2110,7 +2141,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "Added By"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 430,
+                                                lineNumber: 441,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2118,7 +2149,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "Date Added"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 433,
+                                                lineNumber: 444,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2126,25 +2157,25 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 436,
+                                                lineNumber: 447,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 439,
+                                                lineNumber: 450,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 420,
+                                        lineNumber: 431,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 419,
+                                    lineNumber: 430,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2154,7 +2185,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                    lineNumber: 446,
+                                                    lineNumber: 457,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : paginatedData && paginatedData.map((station)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2165,7 +2196,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: station.address
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 456,
+                                                        lineNumber: 467,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2173,7 +2204,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: station.area
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 459,
+                                                        lineNumber: 470,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2185,7 +2216,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 462,
+                                                        lineNumber: 473,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2197,7 +2228,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 465,
+                                                        lineNumber: 476,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2205,7 +2236,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: new Date(station.createdAt).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 468,
+                                                        lineNumber: 479,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2216,12 +2247,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                             children: station.status === "active" ? "Active" : "In-active"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 472,
+                                                            lineNumber: 483,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 471,
+                                                        lineNumber: 482,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2238,17 +2269,17 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 492,
+                                                                            lineNumber: 503,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                        lineNumber: 487,
+                                                                        lineNumber: 498,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 486,
+                                                                    lineNumber: 497,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2264,14 +2295,52 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                    lineNumber: 504,
+                                                                                    lineNumber: 515,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "View"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 496,
+                                                                            lineNumber: 507,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
+                                                                            onClick: (e)=>{
+                                                                                e.preventDefault();
+                                                                                handleDropOffStatus({
+                                                                                    drop_off_station_id: station._id,
+                                                                                    status: station.status === "active" ? "in-active" : "active"
+                                                                                });
+                                                                            },
+                                                                            className: station.status === "active" ? "text-destructive" : "text-success",
+                                                                            children: [
+                                                                                updateMutation.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                                                    className: "mr-2 h-4 w-4 animate-spin"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/drop-off-location.tsx",
+                                                                                    lineNumber: 536,
+                                                                                    columnNumber: 31
+                                                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                                                    children: station.status === "active" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__["UserX"], {
+                                                                                        className: "mr-2 text-destructive h-4 w-4"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/components/shared/drop-off-location.tsx",
+                                                                                        lineNumber: 540,
+                                                                                        columnNumber: 35
+                                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"], {
+                                                                                        className: "mr-2 text-success h-4 w-4"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/components/shared/drop-off-location.tsx",
+                                                                                        lineNumber: 542,
+                                                                                        columnNumber: 35
+                                                                                    }, this)
+                                                                                }, void 0, false),
+                                                                                station.status === "active" ? "De-activate" : "Activate"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/components/shared/drop-off-location.tsx",
+                                                                            lineNumber: 518,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2291,14 +2360,14 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                    lineNumber: 520,
+                                                                                    lineNumber: 564,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "Edit"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 507,
+                                                                            lineNumber: 551,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2314,7 +2383,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                                         className: "h-4 w-4 mr-2 animate-spin"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                        lineNumber: 533,
+                                                                                        lineNumber: 577,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Deleting..."
@@ -2325,7 +2394,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                                         className: "h-4 w-4 mr-2 text-destructive"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                        lineNumber: 538,
+                                                                                        lineNumber: 582,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Delete"
@@ -2333,30 +2402,30 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                             }, void 0, true)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 523,
+                                                                            lineNumber: 567,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 495,
+                                                                    lineNumber: 506,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 485,
+                                                            lineNumber: 496,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 484,
+                                                        lineNumber: 495,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, station._id, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 452,
+                                                lineNumber: 463,
                                                 columnNumber: 19
                                             }, this)),
                                         !isLoading && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2366,29 +2435,29 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 552,
+                                                lineNumber: 596,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 551,
+                                            lineNumber: 595,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 442,
+                                    lineNumber: 453,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 418,
+                            lineNumber: 429,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 417,
+                        lineNumber: 428,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2399,7 +2468,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                 asChild: true
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 568,
+                                lineNumber: 612,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2413,12 +2482,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 571,
+                                            lineNumber: 615,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 570,
+                                        lineNumber: 614,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2432,7 +2501,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: "Drop-Off Location Address"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 575,
+                                                        lineNumber: 619,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2441,13 +2510,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         placeholder: "Enter drop-off location address"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 576,
+                                                        lineNumber: 620,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 574,
+                                                lineNumber: 618,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2458,7 +2527,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: "Area"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 583,
+                                                        lineNumber: 627,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2467,13 +2536,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         placeholder: "Enter area"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 584,
+                                                        lineNumber: 628,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 582,
+                                                lineNumber: 626,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2484,7 +2553,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: "State"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 591,
+                                                        lineNumber: 635,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2497,12 +2566,12 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                     placeholder: "Select a State"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 597,
+                                                                    lineNumber: 641,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                lineNumber: 596,
+                                                                lineNumber: 640,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2511,24 +2580,24 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                                         children: state
                                                                     }, state, false, {
                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                        lineNumber: 601,
+                                                                        lineNumber: 645,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                lineNumber: 599,
+                                                                lineNumber: 643,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 592,
+                                                        lineNumber: 636,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 590,
+                                                lineNumber: 634,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2539,7 +2608,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         children: "Country"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 609,
+                                                        lineNumber: 653,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2549,13 +2618,13 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                         placeholder: "Enter country"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 610,
+                                                        lineNumber: 654,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 608,
+                                                lineNumber: 652,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2566,7 +2635,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                     className: "h-4 w-4 animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                    lineNumber: 633,
+                                                    lineNumber: 677,
                                                     columnNumber: 19
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                     children: [
@@ -2576,25 +2645,25 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 }, void 0, true)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 617,
+                                                lineNumber: 661,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 573,
+                                        lineNumber: 617,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 569,
+                                lineNumber: 613,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 567,
+                        lineNumber: 611,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2614,7 +2683,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 654,
+                                                lineNumber: 698,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2622,7 +2691,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 655,
+                                                lineNumber: 699,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2630,20 +2699,20 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 656,
+                                                lineNumber: 700,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 649,
+                                        lineNumber: 693,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 647,
+                                lineNumber: 691,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2658,7 +2727,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 664,
+                                        lineNumber: 708,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -2674,7 +2743,7 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 678,
+                                            lineNumber: 722,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -2687,40 +2756,40 @@ function LocationTable({ title, addButtonText, searchPlaceholder, tableTitle }) 
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 696,
+                                        lineNumber: 740,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 662,
+                                lineNumber: 706,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 645,
+                        lineNumber: 689,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 410,
+                lineNumber: 421,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 708,
+                lineNumber: 752,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/shared/drop-off-location.tsx",
-        lineNumber: 285,
+        lineNumber: 300,
         columnNumber: 5
     }, this);
 }
-_s(LocationTable, "wao0EJP+BrhdC1rHZgQx+yfP7uc=", false, function() {
+_s(DropOffStation, "VLhlOCH4/wg+okDy6W+EYAGG+mQ=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCreateDropOffStation"],
         __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDeleteDropOffStation"],
@@ -2729,12 +2798,13 @@ _s(LocationTable, "wao0EJP+BrhdC1rHZgQx+yfP7uc=", false, function() {
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"],
         __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModifyDropOffStation"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDropOffStatus"]
     ];
 });
-_c = LocationTable;
+_c = DropOffStation;
 var _c;
-__turbopack_context__.k.register(_c, "LocationTable");
+__turbopack_context__.k.register(_c, "DropOffStation");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

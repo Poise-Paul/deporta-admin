@@ -1,4 +1,4 @@
-import { LocationTable } from "@/components/shared/drop-off-location"
+import { DropOffStation } from "@/components/shared/drop-off-location"
 
 const dropoffLocations = [
   {
@@ -60,7 +60,7 @@ const dropoffLocations = [
 export default function DropoffLocationsPage() {
   return (
     <div className="space-y-6">
-      <LocationTable
+      <DropOffStation
         title="Drop Off Locations"
         addButtonText="Add Drop Off Location"
         searchPlaceholder="Search Drop Off Location By Name"
@@ -68,5 +68,6 @@ export default function DropoffLocationsPage() {
         tableTitle="All Drop Off Locations"
       />
     </div>
-  )
+  );
 }
+

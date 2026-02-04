@@ -159,6 +159,7 @@ export type EditBusStopPayload = {
 
 export type UserData = {
   user_type: UserType;
+  status?: string;
   _id: string;
   first_name: string;
   last_name: string;
@@ -216,8 +217,8 @@ export enum FuelType {
 }
 
 export type StatusPayload = {
-  isActive: ActiveType;
-  staffId: string;
+  status: ActiveType;
+  user_id: string;
 };
 
 export type TypeId = {
@@ -226,7 +227,6 @@ export type TypeId = {
   createdAt: string;
   updatedAt: string;
   __v: number;
-  status: string;
 };
 
 export type DashboardStats = {
@@ -261,6 +261,7 @@ export type StaffData = {
     value: string;
     type_id: TypeId;
   };
+  status: string;
   verify_email: boolean;
   deactivate: boolean;
   secret: string;
@@ -514,3 +515,66 @@ export interface Trip {
   duration: string;
   passengers: number;
 }
+
+export interface UsersDataListResponse {
+  status: boolean;
+  users: {
+    data: UserData[];
+    pagination: Pagination;
+  };
+}
+
+export interface CustomerListResponse {
+  status: boolean;
+  staffs: {
+    data: UserData[];
+    pagination: Pagination;
+  };
+}
+
+export type UpdateStaff = {
+  status: string;
+  user_id: string;
+};
+
+export type DriverUserType = {
+  value: string;
+  type_id: {
+    _id: string;
+    role: string;
+    is_on_site: boolean;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+    outsourcing: boolean;
+  };
+};
+
+export type DriverData = {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  profile_image: string;
+  email: string;
+  date_of_birth: string;
+  password: string;
+  user_type: DriverUserType;
+  verify_email: boolean;
+  deactivate: boolean;
+  status: string;
+  secret: string;
+  refresh_token: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: 0;
+};
+
+export type DriversDataResponse = {
+  status: boolean;
+  staffs: {
+    data: DriverData[];
+    pagination: Pagination;
+  };
+};
+
