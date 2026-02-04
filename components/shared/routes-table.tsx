@@ -622,6 +622,7 @@ export function RoutesTable({
                     <Input
                       id="country"
                       {...register("country")}
+                      disabled
                       defaultValue={"Nigeria"}
                       placeholder="Enter country"
                     />
@@ -983,6 +984,7 @@ export function RoutesTable({
                 <Input
                   id="country"
                   {...updateRegister("country")}
+                  disabled
                   defaultValue={"Nigeria"}
                   placeholder="Enter country"
                 />

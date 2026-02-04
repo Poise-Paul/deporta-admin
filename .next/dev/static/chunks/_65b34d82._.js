@@ -2051,6 +2051,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     id: "country",
                                                                     ...register("country"),
                                                                     defaultValue: "Nigeria",
+                                                                    disabled: true,
                                                                     placeholder: "Enter country"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
@@ -2071,7 +2072,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                 className: "h-4 w-4 animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                lineNumber: 436,
+                                                                lineNumber: 437,
                                                                 columnNumber: 23
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                 children: [
@@ -2081,7 +2082,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             }, void 0, true)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 426,
+                                                            lineNumber: 427,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
@@ -2129,12 +2130,12 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                             children: tableTitle
                         }, void 0, false, {
                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                            lineNumber: 450,
+                            lineNumber: 451,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 449,
+                        lineNumber: 450,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2151,7 +2152,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Location"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 459,
+                                                lineNumber: 460,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2159,7 +2160,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Area"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 462,
+                                                lineNumber: 463,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2167,7 +2168,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Routes"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 465,
+                                                lineNumber: 466,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2175,7 +2176,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "State / Country"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 468,
+                                                lineNumber: 469,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2183,7 +2184,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Added By"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 471,
+                                                lineNumber: 472,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2191,7 +2192,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Date Added"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 476,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2199,25 +2200,25 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 478,
+                                                lineNumber: 479,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 481,
+                                                lineNumber: 482,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 458,
+                                        lineNumber: 459,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 457,
+                                    lineNumber: 458,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2227,7 +2228,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                    lineNumber: 488,
+                                                    lineNumber: 489,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : paginatedData && paginatedData.map((station)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2238,7 +2239,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: station.location
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 498,
+                                                        lineNumber: 499,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2246,7 +2247,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: station.area
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 501,
+                                                        lineNumber: 502,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2254,7 +2255,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: station.routes
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 504,
+                                                        lineNumber: 505,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2266,7 +2267,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 507,
+                                                        lineNumber: 508,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2278,7 +2279,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 510,
+                                                        lineNumber: 511,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2286,7 +2287,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: new Date(station.createdAt).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 513,
+                                                        lineNumber: 514,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2297,12 +2298,12 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: station.status === "active" ? "Active" : "In-active"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 517,
+                                                            lineNumber: 518,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 516,
+                                                        lineNumber: 517,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2319,17 +2320,17 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 537,
+                                                                            lineNumber: 538,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                        lineNumber: 532,
+                                                                        lineNumber: 533,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 531,
+                                                                    lineNumber: 532,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2345,14 +2346,14 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 547,
+                                                                                    lineNumber: 548,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "View"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 541,
+                                                                            lineNumber: 542,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2372,14 +2373,14 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 563,
+                                                                                    lineNumber: 564,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "Edit"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 550,
+                                                                            lineNumber: 551,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2396,20 +2397,20 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     className: "mr-2 h-4 w-4 animate-spin"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 584,
+                                                                                    lineNumber: 585,
                                                                                     columnNumber: 31
                                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                                     children: station.status === "active" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__["UserX"], {
                                                                                         className: "mr-2 text-destructive h-4 w-4"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 588,
+                                                                                        lineNumber: 589,
                                                                                         columnNumber: 35
                                                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"], {
                                                                                         className: "mr-2 text-success h-4 w-4"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 590,
+                                                                                        lineNumber: 591,
                                                                                         columnNumber: 35
                                                                                     }, this)
                                                                                 }, void 0, false),
@@ -2417,7 +2418,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 566,
+                                                                            lineNumber: 567,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2435,7 +2436,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "h-4 w-4 mr-2 animate-spin"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 612,
+                                                                                        lineNumber: 613,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Deleting..."
@@ -2446,7 +2447,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "h-4 w-4 mr-2 text-destructive"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 617,
+                                                                                        lineNumber: 618,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Delete"
@@ -2454,30 +2455,30 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             }, void 0, true)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 599,
+                                                                            lineNumber: 600,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 540,
+                                                                    lineNumber: 541,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 530,
+                                                            lineNumber: 531,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 529,
+                                                        lineNumber: 530,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, station._id, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 494,
+                                                lineNumber: 495,
                                                 columnNumber: 19
                                             }, this)),
                                         !isLoading && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2487,29 +2488,29 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 631,
+                                                lineNumber: 632,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 630,
+                                            lineNumber: 631,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 484,
+                                    lineNumber: 485,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                            lineNumber: 456,
+                            lineNumber: 457,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 455,
+                        lineNumber: 456,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2520,7 +2521,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                 asChild: true
                             }, void 0, false, {
                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 647,
+                                lineNumber: 648,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2534,12 +2535,12 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 650,
+                                            lineNumber: 651,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 649,
+                                        lineNumber: 650,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2553,7 +2554,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: "Routes"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 654,
+                                                        lineNumber: 655,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2562,13 +2563,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         placeholder: "Enter routes"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 655,
+                                                        lineNumber: 656,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 653,
+                                                lineNumber: 654,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2579,7 +2580,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: "Enter Location"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 662,
+                                                        lineNumber: 663,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2588,13 +2589,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         placeholder: "Enter Location"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 663,
+                                                        lineNumber: 664,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 661,
+                                                lineNumber: 662,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2605,7 +2606,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: "Area"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 670,
+                                                        lineNumber: 671,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2614,13 +2615,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         placeholder: "Enter area"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 671,
+                                                        lineNumber: 672,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 669,
+                                                lineNumber: 670,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2631,7 +2632,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: "State"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 678,
+                                                        lineNumber: 679,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2644,12 +2645,12 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     placeholder: "Select a State"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 684,
+                                                                    lineNumber: 685,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                lineNumber: 683,
+                                                                lineNumber: 684,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2658,24 +2659,24 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: state
                                                                     }, state, false, {
                                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                        lineNumber: 688,
+                                                                        lineNumber: 689,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                lineNumber: 686,
+                                                                lineNumber: 687,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 679,
+                                                        lineNumber: 680,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 677,
+                                                lineNumber: 678,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2686,23 +2687,24 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: "Country"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 696,
+                                                        lineNumber: 697,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                         id: "country",
                                                         ...updateRegister("country"),
+                                                        disabled: true,
                                                         defaultValue: "Nigeria",
                                                         placeholder: "Enter country"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 697,
+                                                        lineNumber: 698,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 695,
+                                                lineNumber: 696,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2713,7 +2715,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                     className: "h-4 w-4 animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                    lineNumber: 714,
+                                                    lineNumber: 716,
                                                     columnNumber: 19
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                     children: [
@@ -2723,25 +2725,25 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 }, void 0, true)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 704,
+                                                lineNumber: 706,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 652,
+                                        lineNumber: 653,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 648,
+                                lineNumber: 649,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 646,
+                        lineNumber: 647,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2761,7 +2763,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 735,
+                                                lineNumber: 737,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2769,7 +2771,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 736,
+                                                lineNumber: 738,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2777,20 +2779,20 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 737,
+                                                lineNumber: 739,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 730,
+                                        lineNumber: 732,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 728,
+                                lineNumber: 730,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2805,7 +2807,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 745,
+                                        lineNumber: 747,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -2821,7 +2823,7 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 759,
+                                            lineNumber: 761,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -2834,30 +2836,30 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 777,
+                                        lineNumber: 779,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 743,
+                                lineNumber: 745,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 726,
+                        lineNumber: 728,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                lineNumber: 448,
+                lineNumber: 449,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                lineNumber: 789,
+                lineNumber: 791,
                 columnNumber: 7
             }, this)
         ]

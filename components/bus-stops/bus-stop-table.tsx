@@ -420,6 +420,7 @@ export function BusStopTable({
                       id="country"
                       {...register("country")}
                       defaultValue={"Nigeria"}
+                      disabled
                       placeholder="Enter country"
                     />
                   </div>
@@ -697,6 +698,7 @@ export function BusStopTable({
                 <Input
                   id="country"
                   {...updateRegister("country")}
+                  disabled
                   defaultValue={"Nigeria"}
                   placeholder="Enter country"
                 />

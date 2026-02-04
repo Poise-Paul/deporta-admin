@@ -390,6 +390,7 @@ export function LocationTable({
                   <div className="space-y-2">
                     <Label htmlFor="state">Country</Label>
                     <Input
+                      disabled
                       id="country"
                       {...register("country")}
                       defaultValue={"Nigeria"}
@@ -654,6 +655,7 @@ export function LocationTable({
                   id="country"
                   {...updateRegister("country")}
                   defaultValue={"Nigeria"}
+                  disabled
                   placeholder="Enter country"
                 />
               </div>

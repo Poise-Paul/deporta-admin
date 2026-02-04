@@ -295,7 +295,7 @@ export function DropOffStation({
       onSuccess: () => refetch(),
     });
   };
-  
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -392,6 +392,7 @@ export function DropOffStation({
                     <Input
                       id="country"
                       {...register("country")}
+                      disabled
                       defaultValue={"Nigeria"}
                       placeholder="Enter country"
                     />
@@ -653,6 +654,7 @@ export function DropOffStation({
                 <Label htmlFor="state">Country</Label>
                 <Input
                   id="country"
+                  disabled
                   {...updateRegister("country")}
                   defaultValue={"Nigeria"}
                   placeholder="Enter country"
