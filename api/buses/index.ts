@@ -11,6 +11,11 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { queryClient } from "../queryClient";
 
+export interface BusStatusType {
+  status: string;
+  bus_id: string;
+}
+
 export const getAllBuses = async (): Promise<BusesResponse> => {
   try {
     const res = await api.get("/api/users/admin/bus/get");
@@ -152,6 +157,32 @@ export const useModifyBuses = () => {
 
       //   store.dispatch(updateBusDetails())
       queryClient.invalidateQueries({ queryKey: ["allBuses"] });
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+
+export const useBusStatus = () => {
+  return useMutation({
+    mutationFn: async (data: BusStatusType) => {
+      const res = await api.patch(
+        `/api/users/admin/bus/change/status`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["buses"] });
+      toast.success("Updated Successfully");
       return data;
     },
     onError: (error, variables) => {

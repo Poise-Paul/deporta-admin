@@ -9,6 +9,7 @@
   "/(dashboard)/app-menu/dropoff-locations/page": "app/(dashboard)/app-menu/dropoff-locations/page.js",
   "/(dashboard)/app-menu/pickup-stations/[id]/page": "app/(dashboard)/app-menu/pickup-stations/[id]/page.js",
   "/(dashboard)/app-menu/pickup-stations/page": "app/(dashboard)/app-menu/pickup-stations/page.js",
+  "/(dashboard)/app-menu/routes/[id]/page": "app/(dashboard)/app-menu/routes/[id]/page.js",
   "/(dashboard)/app-menu/routes/page": "app/(dashboard)/app-menu/routes/page.js",
   "/(dashboard)/cms/page": "app/(dashboard)/cms/page.js",
   "/(dashboard)/customers/[id]/page": "app/(dashboard)/customers/[id]/page.js",

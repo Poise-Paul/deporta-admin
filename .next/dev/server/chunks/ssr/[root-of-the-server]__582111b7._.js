@@ -1278,6 +1278,8 @@ __turbopack_context__.s([
     ()=>getOnsiteDrivers,
     "getStaffList",
     ()=>getStaffList,
+    "getTotalUsers",
+    ()=>getTotalUsers,
     "getUser",
     ()=>getUser,
     "getUsersList",
@@ -1349,6 +1351,19 @@ const getOnsiteDrivers = async ()=>{
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getTotalUsers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/users/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch All Users Error:", error);
         // Return a default structure
         return {
             data: [],

@@ -132,7 +132,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
       },
       {
         onSettled: () => setIsAddDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -187,31 +187,57 @@ export function RouteDetails({ onBack }: StationDetailProps) {
               <div className="space-y-4 py-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Rate</Label>
-                    <Input
-                      id="name"
-                      {...register("rate")}
-                      placeholder="Enter rate"
-                    />
+                    <Label htmlFor="rate">Rate</Label>
+                    <div className="flex rounded-md shadow-sm">
+                      {/* Naira Symbol Add-on */}
+                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                        ₦
+                      </span>
+
+                      <Input
+                        id="rate"
+                        type="number"
+                        {...register("rate")}
+                        placeholder="Enter rate amount"
+                        className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="flat_rate">Flat Rate</Label>
-                    <Input
-                      id="flat_rate"
-                      {...register("flat_rate")}
-                      placeholder="Enter Flat Rate"
-                    />
+                    <div className="flex rounded-md shadow-sm">
+                      {/* Naira Symbol Prefix */}
+                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                        ₦
+                      </span>
+
+                      <Input
+                        id="flat_rate"
+                        type="number" // Ensures only numbers are entered
+                        {...register("flat_rate")}
+                        placeholder="0.00"
+                        className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="rate_per_km">Rate Per KM</Label>
-                    <Input
-                      id="rate_per_km"
-                      {...register("rate_per_km")}
-                      placeholder="Enter Rate Per Km"
-                    />
+                    <div className="flex rounded-md shadow-sm">
+                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                        ₦
+                      </span>
+                      <Input
+                        id="rate_per_km"
+                        type="number"
+                        {...register("rate_per_km")}
+                        placeholder="0.00"
+                        className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                      />
+                    </div>
                   </div>
+
                   <div className="space-y-2">
                     <Label htmlFor="code">Code</Label>
                     <Input
@@ -241,11 +267,19 @@ export function RouteDetails({ onBack }: StationDetailProps) {
 
                 <div className="space-y-2">
                   <Label htmlFor="route_distance">Route Distance</Label>
-                  <Input
-                    id="route_distance"
-                    {...register("route_distance")}
-                    placeholder="Enter Route Distance"
-                  />
+                  <div className="flex rounded-md shadow-sm">
+                    <Input
+                      id="route_distance"
+                      type="number"
+                      {...register("route_distance")}
+                      placeholder="0"
+                      className="rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                    />
+                    {/* KM Unit Suffix */}
+                    <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
+                      KM
+                    </span>
+                  </div>
                 </div>
                 {busStops && (
                   <div className="space-y-2">
@@ -272,8 +306,8 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                           .filter(
                             (stop) =>
                               !watch("number_of_stops").includes(
-                                stop.location.toLowerCase()
-                              )
+                                stop.location.toLowerCase(),
+                              ),
                           )
                           .map((stop) => (
                             <SelectItem
@@ -303,7 +337,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                                 const current = watch("number_of_stops").flat();
                                 setValue(
                                   "number_of_stops",
-                                  current.filter((s) => s !== stopValue)
+                                  current.filter((s) => s !== stopValue),
                                 );
                               }}
                               className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
@@ -394,7 +428,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                 className={cn(
                   isActive
                     ? "border-green-500 text-green-600 bg-green-50"
-                    : "border-orange-500 text-orange-600 bg-orange-50"
+                    : "border-orange-500 text-orange-600 bg-orange-50",
                 )}
               >
                 {isActive ? "Active Station" : "In-active Station"}
@@ -425,17 +459,17 @@ export function RouteDetails({ onBack }: StationDetailProps) {
             <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InfoItem
                 label="Rate"
-                value={`${selRoute.rate}`}
+                value={`₦${selRoute.rate}`}
                 icon={<RadioTower />}
               />
               <InfoItem
                 label="Flat Rate"
-                value={`${selRoute.flat_rate}`}
+                value={`₦${selRoute.flat_rate}`}
                 icon={<Tag />}
               />
               <InfoItem
                 label="Rate Per KM"
-                value={`${selRoute.rate_per_km}`}
+                value={`₦${selRoute.rate_per_km}`}
                 icon={<Route />}
               />
               <InfoItem
@@ -455,7 +489,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
               />
               <InfoItem
                 label="Route Distance"
-                value={`${selRoute.route_distance}`}
+                value={`${selRoute.route_distance} KM`}
                 icon={<Flag />}
               />
               <InfoItem

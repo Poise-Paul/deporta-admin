@@ -44,6 +44,8 @@ __turbopack_context__.s([
     ()=>getOnsiteDrivers,
     "getStaffList",
     ()=>getStaffList,
+    "getTotalUsers",
+    ()=>getTotalUsers,
     "getUser",
     ()=>getUser,
     "getUsersList",
@@ -115,6 +117,19 @@ const getOnsiteDrivers = async ()=>{
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getTotalUsers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/users/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch All Users Error:", error);
         // Return a default structure
         return {
             data: [],
@@ -291,10 +306,18 @@ function UserManagementStats() {
             "UserManagementStats.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getOnsiteDrivers"])()
         }["UserManagementStats.useQuery"]
     });
+    const { data: totalUsers } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "allUsers"
+        ],
+        queryFn: {
+            "UserManagementStats.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTotalUsers"])()
+        }["UserManagementStats.useQuery"]
+    });
     const stats = [
         {
             title: "Total users today",
-            value: "512",
+            value: totalUsers?.users[0].count || 0,
             change: "+18.2%",
             borderColor: "border-l-primary"
         },
@@ -329,7 +352,7 @@ function UserManagementStats() {
                             children: stat.title.split(" ").slice(0, 2).join(" ")
                         }, void 0, false, {
                             fileName: "[project]/components/users/user-management-stats.tsx",
-                            lineNumber: 65,
+                            lineNumber: 75,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -340,7 +363,7 @@ function UserManagementStats() {
                                     children: stat.value
                                 }, void 0, false, {
                                     fileName: "[project]/components/users/user-management-stats.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 79,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -351,19 +374,19 @@ function UserManagementStats() {
                                             className: "h-3 w-3"
                                         }, void 0, false, {
                                             fileName: "[project]/components/users/user-management-stats.tsx",
-                                            lineNumber: 74,
+                                            lineNumber: 84,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/users/user-management-stats.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 82,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/users/user-management-stats.tsx",
-                            lineNumber: 68,
+                            lineNumber: 78,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -371,28 +394,29 @@ function UserManagementStats() {
                             children: stat.title
                         }, void 0, false, {
                             fileName: "[project]/components/users/user-management-stats.tsx",
-                            lineNumber: 77,
+                            lineNumber: 87,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/users/user-management-stats.tsx",
-                    lineNumber: 64,
+                    lineNumber: 74,
                     columnNumber: 11
                 }, this)
             }, stat.title, false, {
                 fileName: "[project]/components/users/user-management-stats.tsx",
-                lineNumber: 60,
+                lineNumber: 70,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/users/user-management-stats.tsx",
-        lineNumber: 58,
+        lineNumber: 68,
         columnNumber: 5
     }, this);
 }
-_s(UserManagementStats, "S0IibGjrMpBSoJQ75cuFebyXm5A=", false, function() {
+_s(UserManagementStats, "+qV0odLwZSqZEC8THXw+vWjB8Lc=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"]

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Label } from "@/components/ui/label";
 import {
   Search,
   Filter,
@@ -27,12 +28,13 @@ import {
   MapPin,
   UserX,
   UserCheck,
+  Download,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import { getDriversList } from "@/api/staffs";
+import { getDriversList, useCreateStaff } from "@/api/staffs";
 import { useStaffStatus } from "@/api/dashboard";
-import { UpdateStaff } from "@/types";
+import { AddStaffPayload, UpdateStaff } from "@/types";
 import { Toaster } from "react-hot-toast";
 import { queryClient } from "@/api/queryClient";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -45,6 +47,14 @@ import {
   useOutsourceStatus,
   useSiteStatus,
 } from "@/api/driver";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useForm } from "react-hook-form";
 
 type DriverTab = "all" | "active" | "inactive";
 
@@ -58,6 +68,8 @@ export default function DriversPage() {
   const [activeTab, setActiveTab] = useState<DriverTab>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+
   // Role Integration
   const [roleFilter, setRoleFilter] = useState<string>("all");
 
@@ -65,8 +77,10 @@ export default function DriversPage() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
+  const [holdBtn, setHoldBtn] = useState(true);
+
   // get the current user
-  const { data, error, refetch, isRefetching, isLoading } = useQuery({
+  const { data, refetch, isLoading } = useQuery({
     queryKey: ["drivers"],
     retry: false,
     queryFn: () => getDriversList(),
@@ -175,6 +189,95 @@ export default function DriversPage() {
   const router = useRouter();
   const dispatch = useDispatch();
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<AddStaffPayload>();
+
+  const handleWatch = watch();
+
+  const { first_name, last_name, phone_number, email, gender } = handleWatch;
+
+  const createStaffMutation = useCreateStaff();
+  const [staffLoading, setStaffLoading] = useState(false);
+
+  const handleAdminStaff = () => {
+    setStaffLoading(true);
+
+    createStaffMutation.mutate(
+      {
+        first_name,
+        last_name,
+        phone_number: `+234 ${phone_number}`,
+        email,
+        gender,
+        role: "driver",
+      },
+      {
+        onSuccess: () => {
+          refetch();
+          setIsAddDialogOpen(false);
+        },
+        onSettled: () => {
+          setStaffLoading(false);
+        },
+      },
+    );
+  };
+
+  useEffect(() => {
+    const baseFieldsValid =
+      first_name && last_name && phone_number && email && gender;
+
+    if (baseFieldsValid) {
+      setHoldBtn(false);
+    } else {
+      setHoldBtn(true);
+    }
+  }, [first_name, last_name, phone_number, email, gender]);
+
+  const handleDownload = () => {
+    const dataToExport = data?.staffs.data || [];
+
+    // 2. Define Headers
+    const headers = [
+      "First Name",
+      "Last Name",
+      "Email",
+      "Phone",
+      "Role",
+      "Status",
+      "Date Joined",
+    ];
+
+    // 3. Map data to rows
+    const csvRows = dataToExport.map((staff) => [
+      staff.first_name,
+      staff.last_name,
+      staff.email,
+      staff.phone_number,
+      staff.user_type.value,
+      staff.status,
+      new Date(staff.createdAt).toLocaleDateString(),
+    ]);
+
+    // 4. Create CSV Content
+    const csvContent = [headers, ...csvRows].map((e) => e.join(",")).join("\n");
+
+    // 5. Trigger Download
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute(
+      "download",
+      `Deporta_Driver_List_${new Date().toISOString().split("T")[0]}.csv`,
+    );
+    link.click();
+  };
+
   return (
     <div className="space-y-6">
       <Card className="bg-card border border-border">
@@ -253,9 +356,135 @@ export default function DriversPage() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                <Plus className="h-4 w-4 mr-2" />
-                Add Driver
+              <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                    <Plus className="h-4 w-4" />
+                    Add Driver
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Add New Driver</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4 py-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">First Name</Label>
+                      <Input
+                        {...register("first_name")}
+                        id="name"
+                        placeholder="Enter first name"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Last Name</Label>
+                      <Input
+                        {...register("last_name")}
+                        id="name"
+                        placeholder="Enter first name"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        {...register("email")}
+                        type="email"
+                        placeholder="Enter email address"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <div className="flex rounded-md shadow-sm">
+                        {/* Fixed Prefix */}
+                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm">
+                          +234
+                        </span>
+
+                        {/* Input Field */}
+                        <Input
+                          {...register("phone_number")}
+                          id="phone"
+                          maxLength={10}
+                          type="tel"
+                          placeholder="801 234 5678"
+                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                      </div>
+                      {errors.phone_number && (
+                        <p className="text-xs text-destructive">
+                          {errors.phone_number.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="space-y-3">
+                      <Label>Gender</Label>
+                      <div className="flex gap-4">
+                        {/* Male Option */}
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="radio"
+                            id="male"
+                            value="Male"
+                            className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                            {...register("gender")}
+                          />
+                          <Label
+                            htmlFor="male"
+                            className="font-normal cursor-pointer"
+                          >
+                            Male
+                          </Label>
+                        </div>
+
+                        {/* Female Option */}
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="radio"
+                            id="female"
+                            value="Female"
+                            className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
+                            {...register("gender")}
+                          />
+                          <Label
+                            htmlFor="female"
+                            className="font-normal cursor-pointer"
+                          >
+                            Female
+                          </Label>
+                        </div>
+                      </div>
+
+                      {errors.gender && (
+                        <p className="text-sm text-destructive">
+                          {errors.gender.message as string}
+                        </p>
+                      )}
+                    </div>
+
+                    <Button
+                      disabled={staffLoading}
+                      onClick={handleAdminStaff}
+                      className={`w-full bg-primary ${
+                        holdBtn || staffLoading ? "opacity-30" : ""
+                      } hover:bg-primary/90 text-primary-foreground`}
+                    >
+                      {staffLoading ? (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      ) : (
+                        "Add New Driver"
+                      )}
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Button
+                onClick={handleDownload}
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+              >
+                <Download className="h-4 w-4 mr-2" />
+                Download
               </Button>
             </div>
           </div>

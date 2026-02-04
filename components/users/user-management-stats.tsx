@@ -1,6 +1,11 @@
 "use client";
 
-import { getAllCustomers, getAllDrivers, getOnsiteDrivers } from "@/api/user";
+import {
+  getAllCustomers,
+  getAllDrivers,
+  getOnsiteDrivers,
+  getTotalUsers,
+} from "@/api/user";
 import { Card, CardContent } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { TrendingUp } from "lucide-react";
@@ -21,10 +26,15 @@ export function UserManagementStats() {
     queryFn: () => getOnsiteDrivers(),
   });
 
+  const { data: totalUsers } = useQuery({
+    queryKey: ["allUsers"],
+    queryFn: () => getTotalUsers(),
+  });
+
   const stats = [
     {
       title: "Total users today",
-      value: "512",
+      value: totalUsers?.users[0].count || 0,
       change: "+18.2%",
       borderColor: "border-l-primary",
     },

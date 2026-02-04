@@ -211,6 +211,7 @@
     --color-orange-200: #ffd7a8;
     --color-orange-500: #fe6e00;
     --color-orange-600: #f05100;
+    --color-orange-700: #c53c00;
     --color-yellow-50: #fefce8;
     --color-yellow-500: #edb200;
     --color-yellow-600: #cd8900;
@@ -290,6 +291,7 @@
       --color-orange-200: lab(88.4871% 9.94918 28.8378);
       --color-orange-500: lab(64.272% 57.1788 90.3583);
       --color-orange-600: lab(57.1026% 64.2584 89.8886);
+      --color-orange-700: lab(46.4615% 57.7275 70.8507);
       --color-yellow-50: lab(98.6846% -1.79055 9.7766);
       --color-yellow-500: lab(76.3898% 14.5258 98.4589);
       --color-yellow-600: lab(62.7799% 22.4197 86.1544);
@@ -1903,6 +1905,11 @@
     border-bottom-left-radius: calc(var(--radius)  - 2px);
   }
 
+  .rounded-l-none {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
   .rounded-tl-sm {
     border-top-left-radius: calc(var(--radius)  - 4px);
   }
@@ -1910,6 +1917,11 @@
   .rounded-r-md {
     border-top-right-radius: calc(var(--radius)  - 2px);
     border-bottom-right-radius: calc(var(--radius)  - 2px);
+  }
+
+  .rounded-r-none {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .border {
@@ -1952,6 +1964,11 @@
     border-right-width: 1px;
   }
 
+  .border-r-0 {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 0;
+  }
+
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
@@ -1965,6 +1982,11 @@
   .border-l {
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
+  }
+
+  .border-l-0 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 0;
   }
 
   .border-l-2 {
@@ -3733,6 +3755,10 @@
     color: var(--accent-foreground);
   }
 
+  .focus\:text-orange-700:focus {
+    color: var(--color-orange-700);
+  }
+
   .focus\:opacity-100:focus {
     opacity: 1;
   }
@@ -3843,6 +3869,11 @@
     .focus-visible\:ring-ring\/50:focus-visible {
       --tw-ring-color: color-mix(in oklab, var(--ring) 50%, transparent);
     }
+  }
+
+  .focus-visible\:ring-offset-0:focus-visible {
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset, ) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   }
 
   .focus-visible\:ring-offset-1:focus-visible {

@@ -5,6 +5,7 @@ import {
   StaffListResponse,
   UserDataResponse,
   UsersDataListResponse,
+  UsersTotalResponse,
 } from "@/types";
 import { api } from "../axios";
 import { store } from "@/lib/store";
@@ -78,5 +79,16 @@ export const getOnsiteDrivers = async (): Promise<StaffDashboardStats> => {
     console.error("Fetch Onsite Drivers Error:", error);
     // Return a default structure
     return { data: [], total: 0 } as unknown as StaffDashboardStats;
+  }
+};
+
+export const getTotalUsers = async (): Promise<UsersTotalResponse> => {
+  try {
+    const res = await api.get("/api/users/admin/users/total");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch All Users Error:", error);
+    // Return a default structure
+    return { data: [], total: 0 } as unknown as UsersTotalResponse;
   }
 };

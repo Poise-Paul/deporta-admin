@@ -313,7 +313,7 @@ export function RoutesTable({
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
-  
+
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allRoutes = tripRoutes?.trip_route.data || [];
 
@@ -342,13 +342,7 @@ export function RoutesTable({
     const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
 
     return { paginatedData: slicedData, totalPages: total };
-  }, [
-    tripRoutes,
-    activeTab,
-    currentPage,
-    itemsPerPage,
-    searchQuery,
-  ]);
+  }, [tripRoutes, activeTab, currentPage, itemsPerPage, searchQuery]);
 
   React.useEffect(() => {
     setCurrentPage(1);
@@ -445,32 +439,53 @@ export function RoutesTable({
                   <div className="grid gap-4 grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="rate">Rate</Label>
-                      <Input
-                        id="rate"
-                        multiple
-                        {...register("rate")}
-                        placeholder="Rate"
-                      />
+                      <div className="flex rounded-md shadow-sm">
+                        {/* Naira Symbol Add-on */}
+                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                          ₦
+                        </span>
+
+                        <Input
+                          id="rate"
+                          type="number"
+                          {...register("rate")}
+                          placeholder="Enter rate amount"
+                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="flat_rate">Flat Rate</Label>
-                      <Input
-                        id="flat_rate"
-                        multiple
-                        {...register("flat_rate")}
-                        placeholder="Flat Rate"
-                      />
+                      <div className="flex rounded-md shadow-sm">
+                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                          ₦
+                        </span>
+                        <Input
+                          id="flat_rate"
+                          type="number"
+                          {...register("flat_rate")}
+                          placeholder="0.00"
+                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="rate_per_km">Rate Per KM</Label>
-                      <Input
-                        id="rate_per_km"
-                        {...register("rate_per_km")}
-                        placeholder="Rate Per KM"
-                      />
+                      <div className="flex rounded-md shadow-sm">
+                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                          ₦
+                        </span>
+                        <Input
+                          id="rate_per_km"
+                          type="number"
+                          {...register("rate_per_km")}
+                          placeholder="0.00"
+                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="code">Code</Label>
@@ -501,11 +516,19 @@ export function RoutesTable({
 
                   <div className="space-y-2">
                     <Label htmlFor="route_distance">Route Distance</Label>
-                    <Input
-                      id="route_distance"
-                      {...register("route_distance")}
-                      placeholder="Enter Route Distance"
-                    />
+                    <div className="flex rounded-md shadow-sm">
+                      <Input
+                        id="route_distance"
+                        type="number"
+                        {...register("route_distance")}
+                        placeholder="0"
+                        className="rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                      />
+                      {/* KM Unit Suffix */}
+                      <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
+                        KM
+                      </span>
+                    </div>
                   </div>
                   {busStops && (
                     <div className="space-y-2">

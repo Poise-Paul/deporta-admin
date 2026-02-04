@@ -1397,17 +1397,409 @@ function DriversPage() {
                                             lineNumber: 224,
                                             columnNumber: 15
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                            className: "bg-secondary hover:bg-secondary/90 text-secondary-foreground",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Dialog, {
+                                            open: isAddDialogOpen,
+                                            onOpenChange: setIsAddDialogOpen,
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
-                                                    className: "h-4 w-4 mr-2"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogTrigger, {
+                                                    asChild: true,
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                        className: "bg-secondary hover:bg-secondary/90 text-secondary-foreground",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
+                                                                className: "h-4 w-4"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                lineNumber: 259,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            "Add Driver"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                        lineNumber: 258,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
                                                     lineNumber: 257,
                                                     columnNumber: 17
                                                 }, this),
-                                                "Add Driver"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogContent, {
+                                                    className: "sm:max-w-md",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogHeader, {
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogTitle, {
+                                                                children: [
+                                                                    "Add New ",
+                                                                    selectedRole === "admin" ? "Admin" : "Staff"
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                lineNumber: 265,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                            lineNumber: 264,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-4 py-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            htmlFor: "name",
+                                                                            children: "First Name"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 271,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            ...register("first_name"),
+                                                                            id: "name",
+                                                                            placeholder: "Enter first name"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 272,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 270,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            htmlFor: "name",
+                                                                            children: "Last Name"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 279,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            ...register("last_name"),
+                                                                            id: "name",
+                                                                            placeholder: "Enter first name"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 280,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 278,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            htmlFor: "email",
+                                                                            children: "Email Address"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 287,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            id: "email",
+                                                                            ...register("email"),
+                                                                            type: "email",
+                                                                            placeholder: "Enter email address"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 288,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 286,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            htmlFor: "phone",
+                                                                            children: "Phone Number"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 296,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            ...register("phone_number"),
+                                                                            id: "phone",
+                                                                            placeholder: "Enter phone number"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 297,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 295,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-3",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            children: "Gender"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 304,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex gap-4",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                    className: "flex items-center space-x-2",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                                            type: "radio",
+                                                                                            id: "male",
+                                                                                            value: "Male",
+                                                                                            className: "h-4 w-4 border-gray-300 text-primary focus:ring-primary",
+                                                                                            ...register("gender")
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 308,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                                            htmlFor: "male",
+                                                                                            className: "font-normal cursor-pointer",
+                                                                                            children: "Male"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 315,
+                                                                                            columnNumber: 27
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                    lineNumber: 307,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                    className: "flex items-center space-x-2",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                                            type: "radio",
+                                                                                            id: "female",
+                                                                                            value: "Female",
+                                                                                            className: "h-4 w-4 border-gray-300 text-primary focus:ring-primary",
+                                                                                            ...register("gender")
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 325,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                                            htmlFor: "female",
+                                                                                            className: "font-normal cursor-pointer",
+                                                                                            children: "Female"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 332,
+                                                                                            columnNumber: 27
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                    lineNumber: 324,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 305,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        errors.gender && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-sm text-destructive",
+                                                                            children: errors.gender.message
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 342,
+                                                                            columnNumber: 25
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 303,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                selectedRole === "admin" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            htmlFor: "phone",
+                                                                            children: "OTP Code"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 349,
+                                                                            columnNumber: 25
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            id: "otp",
+                                                                            ...register("otp"),
+                                                                            placeholder: "Enter OTP Code"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 350,
+                                                                            columnNumber: 25
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 348,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Label, {
+                                                                            htmlFor: "role",
+                                                                            children: "Role"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 359,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Select, {
+                                                                            onValueChange: (value)=>setSelectedRole(value),
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectTrigger, {
+                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectValue, {
+                                                                                        placeholder: "Select role"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                        lineNumber: 362,
+                                                                                        columnNumber: 27
+                                                                                    }, this)
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                    lineNumber: 361,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectContent, {
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "admin",
+                                                                                            children: "Super Admin Staff"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 365,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "support",
+                                                                                            children: "Support Staff"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 368,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "staff_admin",
+                                                                                            children: "Staff Admin"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 369,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "driver",
+                                                                                            children: "Driver"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 372,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "customer-rep",
+                                                                                            children: "Customer Rep Staff"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 373,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "developer",
+                                                                                            children: "Developer"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 376,
+                                                                                            columnNumber: 27
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectItem, {
+                                                                                            value: "maintenance",
+                                                                                            children: "Maintenance Staff"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                            lineNumber: 377,
+                                                                                            columnNumber: 27
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                                    lineNumber: 364,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                            lineNumber: 360,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 358,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                                    disabled: staffLoading,
+                                                                    onClick: handleAdminStaff,
+                                                                    className: `w-full bg-primary ${holdBtn || staffLoading ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`,
+                                                                    children: staffLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                                        className: "mr-2 h-4 w-4 animate-spin"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                        lineNumber: 391,
+                                                                        columnNumber: 25
+                                                                    }, this) : "Add Staff"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                                    lineNumber: 383,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                            lineNumber: 269,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
+                                                    lineNumber: 263,
+                                                    columnNumber: 17
+                                                }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
@@ -1441,12 +1833,12 @@ function DriversPage() {
                                     children: "All Drivers"
                                 }, void 0, false, {
                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                    lineNumber: 266,
+                                    lineNumber: 405,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                lineNumber: 265,
+                                lineNumber: 404,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1463,7 +1855,7 @@ function DriversPage() {
                                                         children: "Name"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 275,
+                                                        lineNumber: 414,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1471,7 +1863,7 @@ function DriversPage() {
                                                         children: "Phone"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 278,
+                                                        lineNumber: 417,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1479,7 +1871,7 @@ function DriversPage() {
                                                         children: "Outsource"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 281,
+                                                        lineNumber: 420,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1487,7 +1879,7 @@ function DriversPage() {
                                                         children: "On-Site"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 284,
+                                                        lineNumber: 423,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1495,7 +1887,7 @@ function DriversPage() {
                                                         children: "Date Joined"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 426,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1503,25 +1895,25 @@ function DriversPage() {
                                                         children: "Status"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 290,
+                                                        lineNumber: 429,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 293,
+                                                        lineNumber: 432,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                lineNumber: 274,
+                                                lineNumber: 413,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                            lineNumber: 273,
+                                            lineNumber: 412,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -1531,7 +1923,7 @@ function DriversPage() {
                                                         ...Array(5)
                                                     ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                            lineNumber: 300,
+                                                            lineNumber: 439,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false) : paginatedData.map((driver)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -1550,20 +1942,20 @@ function DriversPage() {
                                                                                     alt: driver.first_name
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 312,
+                                                                                    lineNumber: 451,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                     children: driver.first_name.charAt(0)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 316,
+                                                                                    lineNumber: 455,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                            lineNumber: 311,
+                                                                            lineNumber: 450,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1575,18 +1967,18 @@ function DriversPage() {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                            lineNumber: 320,
+                                                                            lineNumber: 459,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                    lineNumber: 310,
+                                                                    lineNumber: 449,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 309,
+                                                                lineNumber: 448,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1594,7 +1986,7 @@ function DriversPage() {
                                                                 children: driver.phone_number
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 325,
+                                                                lineNumber: 464,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1605,12 +1997,12 @@ function DriversPage() {
                                                                     children: driver.user_type.type_id.outsourcing ? "Outsource" : "In House"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                    lineNumber: 329,
+                                                                    lineNumber: 468,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 328,
+                                                                lineNumber: 467,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1621,12 +2013,12 @@ function DriversPage() {
                                                                     children: driver.user_type.type_id.is_on_site ? "On-Site" : "Off-Site"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                    lineNumber: 344,
+                                                                    lineNumber: 483,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 343,
+                                                                lineNumber: 482,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1634,7 +2026,7 @@ function DriversPage() {
                                                                 children: new Date(driver.createdAt).toLocaleDateString()
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 358,
+                                                                lineNumber: 497,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1645,12 +2037,12 @@ function DriversPage() {
                                                                     children: driver.status === "active" ? "Active" : "In-active"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                    lineNumber: 362,
+                                                                    lineNumber: 501,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 361,
+                                                                lineNumber: 500,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1667,17 +2059,17 @@ function DriversPage() {
                                                                                     className: "h-4 w-4"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 382,
+                                                                                    lineNumber: 521,
                                                                                     columnNumber: 31
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                lineNumber: 377,
+                                                                                lineNumber: 516,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                            lineNumber: 376,
+                                                                            lineNumber: 515,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -1693,14 +2085,14 @@ function DriversPage() {
                                                                                             className: "h-4 w-4 mr-2"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 392,
+                                                                                            lineNumber: 531,
                                                                                             columnNumber: 31
                                                                                         }, this),
                                                                                         "View"
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 386,
+                                                                                    lineNumber: 525,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1717,20 +2109,20 @@ function DriversPage() {
                                                                                             className: "mr-2 h-4 w-4 animate-spin"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 413,
+                                                                                            lineNumber: 552,
                                                                                             columnNumber: 33
                                                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                                             children: driver.status === "active" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__["UserX"], {
                                                                                                 className: "mr-2 text-destructive h-4 w-4"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                                lineNumber: 417,
+                                                                                                lineNumber: 556,
                                                                                                 columnNumber: 37
                                                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"], {
                                                                                                 className: "mr-2 text-success h-4 w-4"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                                lineNumber: 419,
+                                                                                                lineNumber: 558,
                                                                                                 columnNumber: 37
                                                                                             }, this)
                                                                                         }, void 0, false),
@@ -1738,7 +2130,7 @@ function DriversPage() {
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 395,
+                                                                                    lineNumber: 534,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1755,7 +2147,7 @@ function DriversPage() {
                                                                                             className: "mr-2 h-4 w-4 animate-spin"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 442,
+                                                                                            lineNumber: 581,
                                                                                             columnNumber: 33
                                                                                         }, this),
                                                                                         driver.user_type.type_id.outsourcing ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1765,14 +2157,14 @@ function DriversPage() {
                                                                                                     className: "mr-2 h-4 w-4"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                                    lineNumber: 446,
+                                                                                                    lineNumber: 585,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 " Move In-House"
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 445,
+                                                                                            lineNumber: 584,
                                                                                             columnNumber: 33
                                                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             className: "flex items-center text-muted-foreground",
@@ -1781,7 +2173,7 @@ function DriversPage() {
                                                                                                     className: "mr-2 h-4 w-4"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                                    lineNumber: 451,
+                                                                                                    lineNumber: 590,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 " ",
@@ -1789,13 +2181,13 @@ function DriversPage() {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 450,
+                                                                                            lineNumber: 589,
                                                                                             columnNumber: 33
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 428,
+                                                                                    lineNumber: 567,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1812,7 +2204,7 @@ function DriversPage() {
                                                                                             className: "mr-2 h-4 w-4 animate-spin"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 470,
+                                                                                            lineNumber: 609,
                                                                                             columnNumber: 33
                                                                                         }, this),
                                                                                         driver.user_type.type_id.is_on_site ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1822,7 +2214,7 @@ function DriversPage() {
                                                                                                     className: "mr-2 text-orange-600 h-4 w-4"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                                    lineNumber: 474,
+                                                                                                    lineNumber: 613,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 " ",
@@ -1830,7 +2222,7 @@ function DriversPage() {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 473,
+                                                                                            lineNumber: 612,
                                                                                             columnNumber: 33
                                                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             className: "flex items-center text-green-600",
@@ -1839,43 +2231,43 @@ function DriversPage() {
                                                                                                     className: "mr-2 h-4 w-4"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                                    lineNumber: 479,
+                                                                                                    lineNumber: 618,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 " Mark as On-Site"
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                            lineNumber: 478,
+                                                                                            lineNumber: 617,
                                                                                             columnNumber: 33
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                                    lineNumber: 456,
+                                                                                    lineNumber: 595,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                            lineNumber: 385,
+                                                                            lineNumber: 524,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                    lineNumber: 375,
+                                                                    lineNumber: 514,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                                lineNumber: 374,
+                                                                lineNumber: 513,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, driver._id, true, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 305,
+                                                        lineNumber: 444,
                                                         columnNumber: 21
                                                     }, this)),
                                                 !isLoading && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -1885,29 +2277,29 @@ function DriversPage() {
                                                         children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 492,
+                                                        lineNumber: 631,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                    lineNumber: 491,
+                                                    lineNumber: 630,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                            lineNumber: 296,
+                                            lineNumber: 435,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                    lineNumber: 272,
+                                    lineNumber: 411,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                lineNumber: 271,
+                                lineNumber: 410,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1927,7 +2319,7 @@ function DriversPage() {
                                                         children: "5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 516,
+                                                        lineNumber: 655,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1935,7 +2327,7 @@ function DriversPage() {
                                                         children: "10"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 517,
+                                                        lineNumber: 656,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1943,20 +2335,20 @@ function DriversPage() {
                                                         children: "20"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                        lineNumber: 518,
+                                                        lineNumber: 657,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                lineNumber: 511,
+                                                lineNumber: 650,
                                                 columnNumber: 15
                                             }, this),
                                             "per page"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                        lineNumber: 509,
+                                        lineNumber: 648,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1971,7 +2363,7 @@ function DriversPage() {
                                                 children: "<"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                lineNumber: 526,
+                                                lineNumber: 665,
                                                 columnNumber: 15
                                             }, this),
                                             Array.from({
@@ -1987,7 +2379,7 @@ function DriversPage() {
                                                     children: pageNumber
                                                 }, pageNumber, false, {
                                                     fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                    lineNumber: 540,
+                                                    lineNumber: 679,
                                                     columnNumber: 19
                                                 }, this);
                                             }),
@@ -2000,25 +2392,25 @@ function DriversPage() {
                                                 children: ">"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                                lineNumber: 558,
+                                                lineNumber: 697,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                        lineNumber: 524,
+                                        lineNumber: 663,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                                lineNumber: 507,
+                                lineNumber: 646,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                        lineNumber: 264,
+                        lineNumber: 403,
                         columnNumber: 9
                     }, this)
                 ]
@@ -2029,7 +2421,7 @@ function DriversPage() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/app/(dashboard)/app-menu/drivers/page.tsx",
-                lineNumber: 571,
+                lineNumber: 710,
                 columnNumber: 7
             }, this)
         ]

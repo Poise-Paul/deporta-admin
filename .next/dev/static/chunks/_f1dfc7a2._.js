@@ -281,6 +281,8 @@ __turbopack_context__.s([
     ()=>getOnsiteDrivers,
     "getStaffList",
     ()=>getStaffList,
+    "getTotalUsers",
+    ()=>getTotalUsers,
     "getUser",
     ()=>getUser,
     "getUsersList",
@@ -352,6 +354,19 @@ const getOnsiteDrivers = async ()=>{
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getTotalUsers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/users/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch All Users Error:", error);
         // Return a default structure
         return {
             data: [],
@@ -982,6 +997,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 __turbopack_context__.s([
     "getAllBuses",
     ()=>getAllBuses,
+    "useBusStatus",
+    ()=>useBusStatus,
     "useCreateBus",
     ()=>useCreateBus,
     "useDeleteBus",
@@ -994,7 +1011,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-client] (ecmascript)");
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature();
 ;
 ;
 ;
@@ -1183,6 +1200,43 @@ const useModifyBuses = ()=>{
     });
 };
 _s2(useModifyBuses, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useBusStatus = ()=>{
+    _s3();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useBusStatus.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/bus/change/status`, data);
+                return res.data;
+            }
+        }["useBusStatus.useMutation"],
+        onSuccess: {
+            "useBusStatus.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "buses"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Updated Successfully");
+                return data;
+            }
+        }["useBusStatus.useMutation"],
+        onError: {
+            "useBusStatus.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useBusStatus.useMutation"]
+    });
+};
+_s3(useBusStatus, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
     ];

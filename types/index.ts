@@ -578,3 +578,12 @@ export type DriversDataResponse = {
   };
 };
 
+interface TotalCount {
+  _id: any;
+  count: number;
+}
+
+export type UsersTotalResponse = {
+  status: boolean;
+  users: TotalCount[];
+};

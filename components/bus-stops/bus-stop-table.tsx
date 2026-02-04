@@ -30,6 +30,8 @@ import {
   Edit,
   Trash2,
   X,
+  UserX,
+  UserCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -61,7 +63,9 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
 import {
+  BusStopPayload,
   getAllBusStops,
+  useBusStopStatus,
   useCreateBusStop,
   useDeleteBusStop,
   useModifyBusStop,
@@ -301,6 +305,16 @@ export function BusStopTable({
 
   const router = useRouter();
   const dispatch = useDispatch();
+
+  const updateMutation = useBusStopStatus();
+
+  const handleBustopStatus = (data: BusStopPayload) => {
+    updateMutation.mutate(data, {
+      onSuccess: () => {
+        refetch();
+      },
+    });
+  };
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -548,6 +562,39 @@ export function BusStopTable({
                           >
                             <Edit className="h-4 w-4 mr-2" />
                             Edit
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleBustopStatus({
+                                bus_stop_id: station._id,
+                                status:
+                                  station.status === "active"
+                                    ? "in-active"
+                                    : "active",
+                              });
+                            }}
+                            className={
+                              station.status === "active"
+                                ? "text-destructive"
+                                : "text-success"
+                            }
+                          >
+                            {updateMutation.isPending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <>
+                                {station.status === "active" ? (
+                                  <UserX className="mr-2 text-destructive h-4 w-4" />
+                                ) : (
+                                  <UserCheck className="mr-2 text-success h-4 w-4" />
+                                )}
+                              </>
+                            )}
+
+                            {station.status === "active"
+                              ? "De-activate"
+                              : "Activate"}
                           </DropdownMenuItem>
                           <DropdownMenuItem
                             onClick={(e) => {

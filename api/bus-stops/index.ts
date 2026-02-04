@@ -14,6 +14,11 @@ import axios from "axios";
 import { store } from "@/lib/store";
 import { updateBusStopDetails } from "@/lib/store/slices/bus-stop-slice";
 
+export interface BusStopPayload {
+  status: string;
+  bus_stop_id: string;
+}
+
 export const getAllBusStops = async (): Promise<BusStopData> => {
   try {
     const res = await api.get("/api/users/admin/bus-stop/get");
@@ -70,7 +75,7 @@ export const useModifyBusStop = () => {
     onSuccess: (data: BusStopResponse) => {
       queryClient.invalidateQueries({ queryKey: ["busStops"] });
       console.log("Bus Stop==", data.bus_stop);
-      
+
       store.dispatch(updateBusStopDetails(data.bus_stop));
       toast.success(`${data.message}`);
       return data;
@@ -92,7 +97,7 @@ export const useDeleteBusStop = () => {
   return useMutation({
     mutationFn: async (stationId: string) => {
       const res = await api.delete(
-        `/api/users/admin/bus-stop/delete/${stationId}`
+        `/api/users/admin/bus-stop/delete/${stationId}`,
       );
       return res.data;
     },
@@ -105,6 +110,31 @@ export const useDeleteBusStop = () => {
       if (axios.isAxiosError(error)) {
         const err = error.response?.data as ErrorrResponse;
 
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const useBusStopStatus = () => {
+  return useMutation({
+    mutationFn: async (data: BusStopPayload) => {
+      const res = await api.patch(
+        `/api/users/admin/bus-stop/change/status`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["busStops"] });
+      toast.success("Updated Successfully");
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
         toast.error(`${err?.error.message}`);
       } else {
         console.error("❌ Unexpected error:", error);

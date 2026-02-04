@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,22 +37,19 @@ import {
   Loader2,
   Edit,
   Delete,
+  UserX,
+  UserCheck,
+  Wrench,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
-import {
-  AddBusPayload,
-  Driver,
-  EditBusPayload,
-  FuelType,
-  RouteData,
-  StaffData,
-} from "@/types";
-import { DRIVERS } from "@/constants/drivers";
+import { AddBusPayload, FuelType, RouteData, StaffData } from "@/types";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import {
+  BusStatusType,
   getAllBuses,
+  useBusStatus,
   useCreateBus,
   useDeleteBus,
   useModifyBuses,
@@ -301,6 +297,13 @@ export function BusSystemsTable() {
       onSuccess: () => refetch(),
     });
   };
+    const handleMaintenance = (busId: string) => {
+      console.log("Bus", busId);
+      
+      // deleteBusMitation.mutate(busId, {
+      //   onSuccess: () => refetch(),
+      // });
+    };
 
   // Table Loader
   const TableRowSkeleton = () => (
@@ -333,6 +336,17 @@ export function BusSystemsTable() {
   );
   const router = useRouter();
   const dispatch = useDispatch();
+
+  const updateMutation = useBusStatus();
+
+  const handleBusStatus = (data: BusStatusType) => {
+    updateMutation.mutate(data, {
+      onSuccess: () => {
+        refetch();
+      },
+    });
+  };
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -422,7 +436,9 @@ export function BusSystemsTable() {
                 </DialogHeader>
                 <div className="space-y-4 py-4">
                   <div>
-                    <Label>Bus Image</Label>{" "}
+                    <Label>
+                      Bus Image <span className="text-destructive">*</span>
+                    </Label>
                     <div className="w-20 h-20 mt-2 rounded-lg overflow-hidden border">
                       <Avatar className="h-20 w-20">
                         <AvatarImage
@@ -445,7 +461,10 @@ export function BusSystemsTable() {
                   </div>
                   <div className="grid gap-4 grid-cols-2">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Enter BUS CODE</Label>
+                      <Label htmlFor="name">
+                        Enter BUS CODE
+                        <span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="name"
                         {...register("id_code")}
@@ -453,7 +472,9 @@ export function BusSystemsTable() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="area">Name Label</Label>
+                      <Label htmlFor="area">
+                        Name Label <span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="area"
                         {...register("name_label")}
@@ -464,7 +485,8 @@ export function BusSystemsTable() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-sm font-medium">
-                        Assign Routes
+                        Assign Routes{" "}
+                        <span className="text-destructive">*</span>
                       </label>
                       <Select
                         onValueChange={(value) => {
@@ -525,7 +547,8 @@ export function BusSystemsTable() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">
-                        Assign Drivers
+                        Assign Drivers{" "}
+                        <span className="text-destructive">*</span>
                       </label>
                       <Select
                         onValueChange={(value) => {
@@ -590,7 +613,9 @@ export function BusSystemsTable() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="area">Plate Number</Label>
+                      <Label htmlFor="area">
+                        Plate Number<span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="plate_number"
                         {...register("plate_number")}
@@ -598,7 +623,9 @@ export function BusSystemsTable() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="area">Capacity</Label>
+                      <Label htmlFor="area">
+                        Capacity<span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="capacity"
                         type="number"
@@ -612,6 +639,7 @@ export function BusSystemsTable() {
                     <div className="space-y-2">
                       <Label htmlFor="schedule_from">
                         Operation Schedule From
+                        <span className="text-destructive">*</span>
                       </Label>
                       <Input
                         id="schedule_from"
@@ -620,7 +648,10 @@ export function BusSystemsTable() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="schedule_to">Operation Schedule To</Label>
+                      <Label htmlFor="schedule_to">
+                        Operation Schedule To
+                        <span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="schedule_to"
                         type="datetime-local"
@@ -631,7 +662,9 @@ export function BusSystemsTable() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Fuel Type</label>
+                      <label className="text-sm font-medium">
+                        Fuel Type<span className="text-destructive">*</span>
+                      </label>
                       <Select
                         value={selectedState}
                         onValueChange={(value) =>
@@ -652,7 +685,9 @@ export function BusSystemsTable() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="state">Tracker ID</Label>
+                      <Label htmlFor="state">
+                        Tracker ID<span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="tracker_id"
                         {...register("tracker_id")}
@@ -662,7 +697,9 @@ export function BusSystemsTable() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="state">Mileage</Label>
+                      <Label htmlFor="state">
+                        Mileage<span className="text-destructive">*</span>
+                      </Label>
                       <Input
                         id="mileage"
                         {...register("mileage")}
@@ -670,7 +707,9 @@ export function BusSystemsTable() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="state">Status</Label>
+                      <Label htmlFor="state">
+                        Status<span className="text-destructive">*</span>
+                      </Label>
                       <RadioGroup
                         defaultValue="true"
                         onValueChange={(val) =>
@@ -844,7 +883,7 @@ export function BusSystemsTable() {
                             : "border-yellow-500 text-yellow-600 bg-yellow-50",
                         )}
                       >
-                        {bus.status === "active" ? "Active" : "In Maintenance"}
+                        {bus.status === "active" ? "Active" : "In Active"}
                       </Badge>
                     </td>
                     <td className="p-4">
@@ -909,7 +948,46 @@ export function BusSystemsTable() {
                           <DropdownMenuItem
                             onClick={(e) => {
                               e.preventDefault();
+                              handleBusStatus({
+                                status:
+                                  bus.status === "active"
+                                    ? "in-active"
+                                    : "active",
+                                bus_id: bus._id,
+                              });
+                            }}
+                            className={
+                              bus.status === "active"
+                                ? "text-destructive"
+                                : "text-success"
+                            }
+                          >
+                            {updateMutation.isPending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <>
+                                {bus.status === "active" ? (
+                                  <UserX className="mr-2 text-destructive h-4 w-4" />
+                                ) : (
+                                  <UserCheck className="mr-2 text-success h-4 w-4" />
+                                )}
+                              </>
+                            )}
 
+                            {bus.status === "active"
+                              ? "De-activate"
+                              : "Activate"}
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => handleMaintenance(bus._id)}
+                            className="text-orange-600 focus:text-orange-700 cursor-pointer"
+                          >
+                            <Wrench className="mr-2 h-4 w-4" />
+                            Move to Maintenance
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
                               handleDelBus(bus._id);
                             }}
                             className="text-destructive"
