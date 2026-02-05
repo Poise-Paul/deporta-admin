@@ -953,7 +953,7 @@ export function BusSystemsTable() {
                             : "border-green-500 text-green-600 bg-green-50",
                         )}
                       >
-                        {bus.is_maintenance ? "Maintenance" : "Okay"}
+                        {bus.is_maintenance ? "Maintenance" : "Good"}
                       </Badge>
                     </td>
                     <td className="p-4">

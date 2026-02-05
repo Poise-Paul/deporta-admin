@@ -62,13 +62,24 @@ export type AddTripRoute = {
   flat_rate: number;
   rate_per_km: number;
   code: string;
-  destination: string;
-  starting_point: string;
+  destination: EntryPoint;
+  starting_point: EntryPoint;
+  routine: {
+    monday: WeekdayType;
+    tuesday: WeekdayType;
+    wednesday: WeekdayType;
+    thursday: WeekdayType;
+    friday: WeekdayType;
+    saturday: WeekdayType;
+    sunday: WeekdayType;
+  };
   state: string;
   country: string;
   route_distance: string;
-  number_of_stops: string[];
+  number_of_stops: EntryPoint[];
 };
+
+
 
 export type AddBusStopPayload = {
   routes: number;
@@ -132,12 +143,12 @@ export type EditTripRoute = {
   flat_rate: number;
   rate_per_km: number;
   code: string;
-  destination: string;
-  starting_point: string;
+  destination: EntryPoint;
+  starting_point: EntryPoint;
   state: string;
   country: string;
   route_distance: string;
-  number_of_stops: string[];
+  number_of_stops: EntryPoint[];
 };
 
 export type EditDropOffStationPayload = {
@@ -493,12 +504,38 @@ export type NormalStaffData = {
   __v: number;
 };
 
+export type EntryPoint = {
+  value: string;
+  longitude: number;
+  latitude: number;
+};
+
+export type WeekdayType = {
+  active: boolean;
+  value: [
+    {
+      from: string;
+      too: string;
+      status: string;
+    },
+  ];
+};
+
 export type RouteData = {
+  starting_point: EntryPoint;
+  destination: EntryPoint;
+  routine: {
+    monday: WeekdayType;
+    tuesday: WeekdayType;
+    wednesday: WeekdayType;
+    thursday: WeekdayType;
+    friday: WeekdayType;
+    saturday: WeekdayType;
+    sunday: WeekdayType;
+  };
   _id: string;
-  starting_point: string;
-  destination: string;
   code: string;
-  number_of_stops: [string[]];
+  number_of_stops: EntryPoint[];
   route_distance: string;
   state: string;
   country: string;

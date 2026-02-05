@@ -42,13 +42,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { Input } from "../ui/input";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload, AddTripRoute } from "@/types";
+import { AddPickupStationPayload, AddTripRoute, EntryPoint } from "@/types";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useDeleteRoute, useModifyRoutes } from "@/api/routes";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBusStops } from "@/api/bus-stops";
+import { getDropOffStations } from "@/api/drop-off-locations";
+import { getPickupStations } from "@/api/pick-up-stations";
 
 interface StationDetailProps {
   onBack: () => void;
@@ -77,12 +79,18 @@ export function RouteDetails({ onBack }: StationDetailProps) {
       flat_rate: Number(selRoute?.flat_rate),
       rate_per_km: Number(selRoute?.rate_per_km),
       code: `${selRoute?.code}`,
-      destination: `${selRoute?.destination}`,
-      starting_point: `${selRoute?.starting_point}`,
+      destination: {
+        value: selRoute?.destination?.value || "",
+        latitude: selRoute?.destination?.latitude || 0,
+        longitude: selRoute?.destination?.longitude || 0,
+      },
+      starting_point: {
+        value: selRoute?.starting_point?.value || "",
+        latitude: selRoute?.starting_point?.latitude || 0,
+        longitude: selRoute?.starting_point?.longitude || 0,
+      },
       route_distance: `${selRoute?.route_distance}`,
-      number_of_stops: Array.isArray(selRoute?.number_of_stops)
-        ? selRoute.number_of_stops.flat()
-        : [],
+      number_of_stops: selRoute?.number_of_stops,
       country: selRoute?.country || "Nigeria",
       state:
         selRoute?.state === "Lagos State" || "Lagos"
@@ -98,6 +106,16 @@ export function RouteDetails({ onBack }: StationDetailProps) {
   const { data: busStops } = useQuery({
     queryKey: ["busStops"],
     queryFn: () => getAllBusStops(),
+  });
+
+  const { data: pickupStations } = useQuery({
+    queryKey: ["pickupStations"],
+    queryFn: () => getPickupStations(),
+  });
+
+  const { data: dropOffStations } = useQuery({
+    queryKey: ["dropOffStations"],
+    queryFn: () => getDropOffStations(),
   });
 
   const handleWatch = watch();
@@ -248,21 +266,175 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="starting_point">Starting Point</Label>
                   <Input
                     id="starting_point"
                     {...register("starting_point")}
                     placeholder="Enter Starting Point"
                   />
+                </div> */}
+
+                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">
+                    Starting Point
+                  </Label>
+
+                  {/* Name Selection */}
+                  <Select
+                    value={watch("starting_point.value")}
+                    onValueChange={(id) => {
+                      const stop = busStops?.bus_stop.data.find(
+                        (s) => s._id === id,
+                      );
+                      if (stop) {
+                        setValue("starting_point", {
+                          value: stop.location.toLowerCase(),
+                          latitude: 0,
+                          longitude: 0,
+                        });
+                      }
+                    }}
+                  >
+                    <SelectTrigger className="bg-background">
+                      <SelectValue placeholder="Select Starting Point..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {pickupStations?.pickup_station.data.map((stop) => (
+                        <SelectItem key={stop._id} value={stop._id}>
+                          {stop.address}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  {/* Coordinate Overrides (Test Numbers) */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <span className="text-[10px] text-muted-foreground uppercase">
+                        Latitude
+                      </span>
+                      <Input
+                        type="number"
+                        step="any"
+                        className="h-8 text-xs"
+                        value={watch("starting_point.latitude")}
+                        onChange={(e) =>
+                          setValue(
+                            "starting_point.latitude",
+                            parseFloat(e.target.value),
+                          )
+                        }
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-[10px] text-muted-foreground uppercase">
+                        Longitude
+                      </span>
+                      <Input
+                        type="number"
+                        step="any"
+                        className="h-8 text-xs"
+                        value={watch("starting_point.longitude")}
+                        onChange={(e) =>
+                          setValue(
+                            "starting_point.longitude",
+                            parseFloat(e.target.value),
+                          )
+                        }
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="destination">Destination</Label>
                   <Input
                     id="destination"
                     {...register("destination")}
                     placeholder="Enter Destination"
                   />
+                </div> */}
+
+                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label
+                    className="text-primary font-bold"
+                    htmlFor="destination"
+                  >
+                    Destination
+                  </Label>
+
+                  {/* Destination Name Selection */}
+                  <Select
+                    value={watch("destination.value")} // Bind to the 'value' string inside the object
+                    onValueChange={(id) => {
+                      // Find the stop in your master list
+                      const stop = busStops?.bus_stop.data.find(
+                        (s) => s._id === id,
+                      );
+                      if (stop) {
+                        setValue("destination", {
+                          value: stop.location.toLowerCase(),
+                          latitude: 0, // Mock 0 if not present
+                          longitude: 0, // Mock 0 if not present
+                        });
+                      }
+                    }}
+                  >
+                    <SelectTrigger className="bg-background">
+                      <SelectValue
+                        placeholder={
+                          watch("destination.value") || "Select Destination"
+                        }
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {dropOffStations?.drop_off_station.data.map((stop) => (
+                        <SelectItem key={stop._id} value={stop._id}>
+                          {stop.address}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  {/* Coordinate Display for Destination */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <span className="text-[10px] text-muted-foreground uppercase font-bold">
+                        Dest. Latitude
+                      </span>
+                      <Input
+                        type="number"
+                        step="any"
+                        placeholder="0.0000"
+                        className="h-8 text-xs"
+                        value={watch("destination.latitude")}
+                        onChange={(e) =>
+                          setValue(
+                            "destination.latitude",
+                            parseFloat(e.target.value) || 0,
+                          )
+                        }
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-[10px] text-muted-foreground uppercase font-bold">
+                        Dest. Longitude
+                      </span>
+                      <Input
+                        type="number"
+                        step="any"
+                        placeholder="0.0000"
+                        className="h-8 text-xs"
+                        value={watch("destination.longitude")}
+                        onChange={(e) =>
+                          setValue(
+                            "destination.longitude",
+                            parseFloat(e.target.value) || 0,
+                          )
+                        }
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -287,13 +459,34 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                       Select Bus-Stops Along this Route
                     </label>
                     <Select
-                      // Value is reset to empty string so the placeholder remains visible
-                      value=""
-                      onValueChange={(value) => {
-                        const currentStops = watch("number_of_stops") || [];
-                        // Only add if it's not already in the array
-                        if (!currentStops.includes(value)) {
-                          setValue("number_of_stops", [...currentStops, value]);
+                      value="" // Keep placeholder visible
+                      onValueChange={(id) => {
+                        // 1. Find the full stop data using the ID
+                        const selectedStop = busStops?.bus_stop.data.find(
+                          (s) => s._id === id,
+                        );
+
+                        if (selectedStop) {
+                          const currentStops = watch("number_of_stops") || [];
+
+                          // 2. Build the EntryPoint object with test coordinates
+                          const newEntry: EntryPoint = {
+                            value: selectedStop.location.toLowerCase(),
+                            longitude: 0, // Test longitude
+                            latitude: 0, // Test latitude
+                          };
+
+                          // 3. Check for duplicates using the .value property
+                          const isDuplicate = currentStops.some(
+                            (stop: EntryPoint) => stop.value === newEntry.value,
+                          );
+
+                          if (!isDuplicate) {
+                            setValue("number_of_stops", [
+                              ...currentStops,
+                              newEntry,
+                            ]);
+                          }
                         }
                       }}
                     >
@@ -301,19 +494,18 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                         <SelectValue placeholder="Add bus-stops..." />
                       </SelectTrigger>
                       <SelectContent>
-                        {/* Filter BUSTOPS to hide ones already selected */}
                         {busStops?.bus_stop.data
                           .filter(
                             (stop) =>
-                              !watch("number_of_stops").includes(
-                                stop.location.toLowerCase(),
+                              // 4. Update filter to check inside the array of objects
+                              !watch("number_of_stops")?.some(
+                                (selected: EntryPoint) =>
+                                  selected.value ===
+                                  stop.location.toLowerCase(),
                               ),
                           )
                           .map((stop) => (
-                            <SelectItem
-                              key={stop._id}
-                              value={stop.location.toLowerCase()}
-                            >
+                            <SelectItem key={stop._id} value={stop._id}>
                               {stop.location}
                             </SelectItem>
                           ))}
@@ -324,13 +516,15 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                     <div className="flex flex-wrap gap-2 mt-3">
                       {watch("number_of_stops")
                         ?.flat()
-                        .map((stopValue) => (
+                        .map((stopValue, key) => (
                           <Badge
-                            key={stopValue}
+                            key={key}
                             variant="secondary"
                             className="flex items-center gap-1 pl-2 pr-1 py-1"
                           >
-                            <span className="capitalize">{stopValue}</span>
+                            <span className="capitalize">
+                              {stopValue.value}
+                            </span>
                             <button
                               type="button"
                               onClick={() => {
@@ -418,10 +612,10 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                 <MapPin className="h-10 w-10" />
               </div>
               <h2 className="text-xl font-bold px-4">
-                {selRoute?.starting_point}
+                {selRoute?.starting_point.value}
               </h2>
               <p className="text-muted-foreground text-sm mb-4">
-                {selRoute?.destination}
+                {selRoute?.destination.value}
               </p>
               <Badge
                 variant="outline"
@@ -479,12 +673,12 @@ export function RouteDetails({ onBack }: StationDetailProps) {
               />
               <InfoItem
                 label="Starting Point"
-                value={`${selRoute.starting_point}`}
+                value={`${selRoute.starting_point.value}`}
                 icon={<Pin />}
               />
               <InfoItem
                 label="Destination"
-                value={`${selRoute.destination}`}
+                value={`${selRoute.destination.value}`}
                 icon={<Flag />}
               />
               <InfoItem
@@ -495,13 +689,15 @@ export function RouteDetails({ onBack }: StationDetailProps) {
               <InfoItem
                 label={`Number Of Stops: ${
                   Array.isArray(selRoute?.number_of_stops)
-                    ? selRoute.number_of_stops.flat().length
-                    : []
+                    ? selRoute.number_of_stops.length // .flat() is no longer needed if it's a standard array
+                    : 0
                 }`}
                 value={`${
                   Array.isArray(selRoute?.number_of_stops)
-                    ? selRoute.number_of_stops.flat().join(", ")
-                    : []
+                    ? selRoute.number_of_stops
+                        .map((stop: EntryPoint) => stop.value)
+                        .join(", ")
+                    : "No stops"
                 }`}
                 icon={<Flag />}
               />

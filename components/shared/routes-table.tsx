@@ -39,7 +39,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useDeletePickupStation } from "@/api/pick-up-stations";
+import {
+  getPickupStations,
+  useDeletePickupStation,
+} from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
 import {
@@ -47,6 +50,7 @@ import {
   AddTripRoute,
   EditPickupStationPayload,
   EditTripRoute,
+  EntryPoint,
 } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
@@ -62,6 +66,7 @@ import {
 } from "@/api/routes";
 import { getAllBusStops, useDeleteBusStop } from "@/api/bus-stops";
 import { updateSelRoute } from "@/lib/store/slices/route-slice";
+import { getDropOffStations } from "@/api/drop-off-locations";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -130,8 +135,8 @@ export function RoutesTable({
       flat_rate: 0,
       rate_per_km: 0,
       code: "",
-      destination: "",
-      starting_point: "",
+      destination: { value: "", longitude: 0, latitude: 0 },
+      starting_point: { value: "", longitude: 0, latitude: 0 },
       route_distance: "",
       number_of_stops: [],
       country: "Nigeria",
@@ -149,8 +154,14 @@ export function RoutesTable({
       flat_rate: Number(routeId?.flat_rate),
       rate_per_km: Number(routeId?.rate_per_km),
       code: `${routeId?.code}`,
-      destination: `${routeId?.destination}`,
-      starting_point: `${routeId?.starting_point}`,
+      destination:
+        typeof routeId?.destination === "object"
+          ? routeId.destination
+          : { value: routeId?.destination || "", longitude: 0, latitude: 0 },
+      starting_point:
+        typeof routeId?.starting_point === "object"
+          ? routeId.starting_point
+          : { value: routeId?.starting_point || "", longitude: 0, latitude: 0 },
       route_distance: `${routeId?.route_distance}`,
       number_of_stops: Array.isArray(routeId?.number_of_stops)
         ? routeId.number_of_stops.flat()
@@ -321,8 +332,8 @@ export function RoutesTable({
     let filtered = allRoutes.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
-        station.starting_point?.toLowerCase().includes(searchStr) ||
-        station.destination?.toLowerCase().includes(searchStr) ||
+        station.starting_point?.value.toLowerCase().includes(searchStr) ||
+        station.destination?.value.toLowerCase().includes(searchStr) ||
         station.code?.toLowerCase().includes(searchStr)
       );
     });
@@ -376,6 +387,16 @@ export function RoutesTable({
       </td>
     </tr>
   );
+
+  const { data: pickupStations } = useQuery({
+    queryKey: ["pickupStations"],
+    queryFn: () => getPickupStations(),
+  });
+
+  const { data: dropOffStations } = useQuery({
+    queryKey: ["dropOffStations"],
+    queryFn: () => getDropOffStations(),
+  });
 
   const router = useRouter();
   const dispatch = useDispatch();
@@ -497,21 +518,170 @@ export function RoutesTable({
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     <Label htmlFor="starting_point">Staring Point</Label>
                     <Input
                       id="starting_point"
                       {...register("starting_point")}
                       placeholder="Enter Starting Point"
                     />
+                  </div> */}
+                  <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                    <Label className="text-primary font-bold">
+                      Starting Point
+                    </Label>
+
+                    <Select
+                      onValueChange={(id) => {
+                        const stop = busStops?.bus_stop.data.find(
+                          (s) => s._id === id,
+                        );
+                        if (stop) {
+                          setValue("starting_point", {
+                            value: stop.location.toLowerCase(),
+                            latitude: 0,
+                            longitude: 0,
+                          });
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="bg-background">
+                        <SelectValue
+                          placeholder={
+                            watch("starting_point.value") ||
+                            "Select Starting Point"
+                          }
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {pickupStations?.pickup_station.data.map((stop) => (
+                          <SelectItem key={stop._id} value={stop._id}>
+                            {stop.address}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    {/* Hide Lat & Long */}
+                    {/* <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
+                          Start Latitude
+                        </span>
+                        <Input
+                          type="number"
+                          step="any"
+                          className="h-8 text-xs"
+                          value={watch("starting_point.latitude")}
+                          onChange={(e) =>
+                            setValue(
+                              "starting_point.latitude",
+                              parseFloat(e.target.value) || 0,
+                            )
+                          }
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
+                          Start Longitude
+                        </span>
+                        <Input
+                          type="number"
+                          step="any"
+                          className="h-8 text-xs"
+                          value={watch("starting_point.longitude")}
+                          onChange={(e) =>
+                            setValue(
+                              "starting_point.longitude",
+                              parseFloat(e.target.value) || 0,
+                            )
+                          }
+                        />
+                      </div>
+                    </div> */}
                   </div>
-                  <div className="space-y-2">
+
+                  {/* <div className="space-y-2">
                     <Label htmlFor="destination">Enter Destination</Label>
                     <Input
                       id="destination"
                       {...register("destination")}
                       placeholder="Enter Destination"
                     />
+                  </div> */}
+
+                  <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                    <Label className="text-primary font-bold">
+                      Destination
+                    </Label>
+
+                    <Select
+                      onValueChange={(id) => {
+                        const stop = busStops?.bus_stop.data.find(
+                          (s) => s._id === id,
+                        );
+                        if (stop) {
+                          setValue("destination", {
+                            value: stop.location.toLowerCase(),
+                            latitude: 0,
+                            longitude: 0,
+                          });
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="bg-background">
+                        <SelectValue
+                          placeholder={
+                            watch("destination.value") || "Select Destination"
+                          }
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {dropOffStations?.drop_off_station.data.map((stop) => (
+                          <SelectItem key={stop._id} value={stop._id}>
+                            {stop.address}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    {/* Hide Long /. Lat */}
+                    {/* <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
+                          Dest. Latitude
+                        </span>
+                        <Input
+                          type="number"
+                          step="any"
+                          className="h-8 text-xs"
+                          value={watch("destination.latitude")}
+                          onChange={(e) =>
+                            setValue(
+                              "destination.latitude",
+                              parseFloat(e.target.value) || 0,
+                            )
+                          }
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
+                          Dest. Longitude
+                        </span>
+                        <Input
+                          type="number"
+                          step="any"
+                          className="h-8 text-xs"
+                          value={watch("destination.longitude")}
+                          onChange={(e) =>
+                            setValue(
+                              "destination.longitude",
+                              parseFloat(e.target.value) || 0,
+                            )
+                          }
+                        />
+                      </div>
+                    </div> */}
                   </div>
 
                   <div className="space-y-2">
@@ -536,16 +706,34 @@ export function RoutesTable({
                         Select Bus-Stops Along this Route
                       </label>
                       <Select
-                        // Value is reset to empty string so the placeholder remains visible
-                        value=""
-                        onValueChange={(value) => {
-                          const currentStops = watch("number_of_stops") || [];
-                          // Only add if it's not already in the array
-                          if (!currentStops.includes(value)) {
-                            setValue("number_of_stops", [
-                              ...currentStops,
-                              value,
-                            ]);
+                        value="" // Keep placeholder visible
+                        onValueChange={(id) => {
+                          // 1. Find the full stop object from your data source
+                          const selectedStop = busStops?.bus_stop.data.find(
+                            (s) => s._id === id,
+                          );
+
+                          if (selectedStop) {
+                            const currentStops = watch("number_of_stops") || [];
+
+                            // 2. Create the EntryPoint object
+                            const newEntry: EntryPoint = {
+                              value: selectedStop.location.toLowerCase(),
+                              longitude: 0,
+                              latitude: 0,
+                            };
+
+                            // 3. Check for duplicates based on coordinates or value
+                            const isDuplicate = currentStops.some(
+                              (s) => s.value === newEntry.value,
+                            );
+
+                            if (!isDuplicate) {
+                              setValue("number_of_stops", [
+                                ...currentStops,
+                                newEntry,
+                              ]);
+                            }
                           }
                         }}
                       >
@@ -553,19 +741,17 @@ export function RoutesTable({
                           <SelectValue placeholder="Add bus-stops..." />
                         </SelectTrigger>
                         <SelectContent>
-                          {/* Filter BUSTOPS to hide ones already selected */}
                           {busStops?.bus_stop.data
                             .filter(
                               (stop) =>
-                                !watch("number_of_stops").includes(
-                                  stop.location.toLowerCase(),
+                                // Filter out if the location value already exists in the number_of_stops array
+                                !watch("number_of_stops")?.some(
+                                  (s) =>
+                                    s.value === stop.location.toLowerCase(),
                                 ),
                             )
                             .map((stop) => (
-                              <SelectItem
-                                key={stop._id}
-                                value={stop.location.toLowerCase()}
-                              >
+                              <SelectItem key={stop._id} value={stop._id}>
                                 {stop.location}
                               </SelectItem>
                             ))}
@@ -574,13 +760,15 @@ export function RoutesTable({
 
                       {/* 2. Display Selected Bus-Stops as Badges */}
                       <div className="flex flex-wrap gap-2 mt-3">
-                        {watch("number_of_stops").map((stopValue) => (
+                        {watch("number_of_stops").map((stopValue, key) => (
                           <Badge
-                            key={stopValue}
+                            key={key}
                             variant="secondary"
                             className="flex items-center gap-1 pl-2 pr-1 py-1"
                           >
-                            <span className="capitalize">{stopValue}</span>
+                            <span className="capitalize">
+                              {stopValue.value}
+                            </span>
                             <button
                               type="button"
                               onClick={() => {
@@ -697,10 +885,10 @@ export function RoutesTable({
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
                     <td className="p-4 font-medium text-sm">
-                      {station.starting_point}
+                      {station.starting_point.value}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
-                      {station.destination}
+                      {station.destination.value}
                     </td>
                     <td className="p-4 text-sm capitalize text-muted-foreground">
                       {station.code}
@@ -761,11 +949,7 @@ export function RoutesTable({
                                 state: station.state,
                                 country: station.country,
                                 route_distance: station.route_distance,
-                                number_of_stops: Array.isArray(
-                                  station.number_of_stops,
-                                )
-                                  ? station.number_of_stops.flat()
-                                  : [],
+                                number_of_stops: station.number_of_stops,
                               });
 
                               setIsEditDialogOpen(true);
@@ -895,16 +1079,35 @@ export function RoutesTable({
                     Select Bus-Stops Along this Route
                   </label>
                   <Select
-                    // Value is reset to empty string so the placeholder remains visible
-                    value=""
-                    onValueChange={(value) => {
-                      const currentStops = updateWatch("number_of_stops") || [];
-                      // Only add if it's not already in the array
-                      if (!currentStops.includes(value)) {
-                        updateValue("number_of_stops", [
-                          ...currentStops,
-                          value,
-                        ]);
+                    value="" // Keep placeholder visible
+                    onValueChange={(id) => {
+                      // 1. Find the full stop object from the data list using the ID
+                      const selectedStop = busStops?.bus_stop.data.find(
+                        (s) => s._id === id,
+                      );
+
+                      if (selectedStop) {
+                        const currentStops =
+                          updateWatch("number_of_stops") || [];
+
+                        // 2. Create the EntryPoint object with mock coordinates
+                        const newEntry: EntryPoint = {
+                          value: selectedStop.location.toLowerCase(),
+                          longitude: 0, // Mock coordinate
+                          latitude: 0, // Mock coordinate
+                        };
+
+                        // 3. Check if this value already exists in our array of objects
+                        const isDuplicate = currentStops.some(
+                          (stop: EntryPoint) => stop.value === newEntry.value,
+                        );
+
+                        if (!isDuplicate) {
+                          updateValue("number_of_stops", [
+                            ...currentStops,
+                            newEntry,
+                          ]);
+                        }
                       }
                     }}
                   >
@@ -912,19 +1115,17 @@ export function RoutesTable({
                       <SelectValue placeholder="Add bus-stops..." />
                     </SelectTrigger>
                     <SelectContent>
-                      {/* Filter BUSTOPS to hide ones already selected */}
                       {busStops?.bus_stop.data
                         .filter(
                           (stop) =>
-                            !updateWatch("number_of_stops").includes(
-                              stop.location.toLowerCase(),
+                            // 4. Update filter to check the 'value' property inside the objects
+                            !updateWatch("number_of_stops")?.some(
+                              (selected: EntryPoint) =>
+                                selected.value === stop.location.toLowerCase(),
                             ),
                         )
                         .map((stop) => (
-                          <SelectItem
-                            key={stop._id}
-                            value={stop.location.toLowerCase()}
-                          >
+                          <SelectItem key={stop._id} value={stop._id}>
                             {stop.location}
                           </SelectItem>
                         ))}
@@ -935,13 +1136,13 @@ export function RoutesTable({
                   <div className="flex flex-wrap gap-2 mt-3">
                     {updateWatch("number_of_stops")
                       ?.flat()
-                      .map((stopValue) => (
+                      .map((stopValue, key) => (
                         <Badge
-                          key={stopValue}
+                          key={key}
                           variant="secondary"
                           className="flex items-center gap-1 pl-2 pr-1 py-1"
                         >
-                          <span className="capitalize">{stopValue}</span>
+                          <span className="capitalize">{stopValue.value}</span>
                           <button
                             type="button"
                             onClick={() => {

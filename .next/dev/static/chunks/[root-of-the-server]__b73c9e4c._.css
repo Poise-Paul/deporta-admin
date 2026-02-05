@@ -2295,6 +2295,16 @@
     background-color: var(--muted);
   }
 
+  .bg-muted\/20 {
+    background-color: var(--muted);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-muted\/20 {
+      background-color: color-mix(in oklab, var(--muted) 20%, transparent);
+    }
+  }
+
   .bg-muted\/30 {
     background-color: var(--muted);
   }
