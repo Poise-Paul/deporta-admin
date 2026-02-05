@@ -1748,13 +1748,13 @@ function BusDetails({ busId }) {
                                                             children: driver ? `${driver.first_name} ${driver.last_name}` : routeId
                                                         }, routeId, false, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                            lineNumber: 368,
+                                                            lineNumber: 367,
                                                             columnNumber: 29
                                                         }, this);
                                                     }) : null
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                    lineNumber: 359,
+                                                    lineNumber: 358,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
@@ -1784,19 +1784,19 @@ function BusDetails({ busId }) {
                                                             className: "h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                            lineNumber: 390,
+                                                            lineNumber: 389,
                                                             columnNumber: 21
                                                         }, this),
                                                         "Update Bus"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                    lineNumber: 389,
+                                                    lineNumber: 388,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 388,
+                                                lineNumber: 387,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -1807,12 +1807,12 @@ function BusDetails({ busId }) {
                                                             children: "Edit Bus System"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                            lineNumber: 396,
+                                                            lineNumber: 395,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 395,
+                                                        lineNumber: 394,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1825,7 +1825,7 @@ function BusDetails({ busId }) {
                                                                         children: "Bus Images (Multiple)"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 400,
+                                                                        lineNumber: 399,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1840,7 +1840,7 @@ function BusDetails({ busId }) {
                                                                                             alt: `bus-preview-${index}`
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 408,
+                                                                                            lineNumber: 407,
                                                                                             columnNumber: 31
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1856,18 +1856,18 @@ function BusDetails({ busId }) {
                                                                                                 className: "h-3 w-3"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 428,
+                                                                                                lineNumber: 427,
                                                                                                 columnNumber: 33
                                                                                             }, this)
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 414,
+                                                                                            lineNumber: 413,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, index, true, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 404,
+                                                                                    lineNumber: 403,
                                                                                     columnNumber: 29
                                                                                 }, this)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1877,7 +1877,7 @@ function BusDetails({ busId }) {
                                                                                         className: "h-6 w-6 text-muted-foreground"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 435,
+                                                                                        lineNumber: 434,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1888,25 +1888,25 @@ function BusDetails({ busId }) {
                                                                                         onChange: handleFileChange
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 436,
+                                                                                        lineNumber: 435,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 434,
+                                                                                lineNumber: 433,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 401,
+                                                                        lineNumber: 400,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 399,
+                                                                lineNumber: 398,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1920,7 +1920,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Enter BUS CODE"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 451,
+                                                                                lineNumber: 450,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1929,13 +1929,13 @@ function BusDetails({ busId }) {
                                                                                 placeholder: "Enter BUS CODE"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 452,
+                                                                                lineNumber: 451,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 450,
+                                                                        lineNumber: 449,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1946,7 +1946,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Name Label"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 459,
+                                                                                lineNumber: 458,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1955,19 +1955,19 @@ function BusDetails({ busId }) {
                                                                                 placeholder: "Enter area"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 460,
+                                                                                lineNumber: 459,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 458,
+                                                                        lineNumber: 457,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 449,
+                                                                lineNumber: 448,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1981,7 +1981,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Assign Routes"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 469,
+                                                                                lineNumber: 468,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -2001,12 +2001,12 @@ function BusDetails({ busId }) {
                                                                                             placeholder: "Add a route..."
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 481,
+                                                                                            lineNumber: 480,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 480,
+                                                                                        lineNumber: 479,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2016,18 +2016,18 @@ function BusDetails({ busId }) {
                                                                                                 children: route.code
                                                                                             }, route._id, false, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 490,
+                                                                                                lineNumber: 489,
                                                                                                 columnNumber: 33
                                                                                             }, this))
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 483,
+                                                                                        lineNumber: 482,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 472,
+                                                                                lineNumber: 471,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2050,30 +2050,30 @@ function BusDetails({ busId }) {
                                                                                                     size: 12
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                    lineNumber: 523,
+                                                                                                    lineNumber: 522,
                                                                                                     columnNumber: 37
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 512,
+                                                                                                lineNumber: 511,
                                                                                                 columnNumber: 35
                                                                                             }, this)
                                                                                         ]
                                                                                     }, driverId, true, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 506,
+                                                                                        lineNumber: 505,
                                                                                         columnNumber: 33
                                                                                     }, this);
                                                                                 })
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 498,
+                                                                                lineNumber: 497,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 468,
+                                                                        lineNumber: 467,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2084,7 +2084,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Assign Drivers"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 531,
+                                                                                lineNumber: 530,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -2104,12 +2104,12 @@ function BusDetails({ busId }) {
                                                                                             placeholder: "Add a driver..."
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 543,
+                                                                                            lineNumber: 542,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 542,
+                                                                                        lineNumber: 541,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2122,18 +2122,18 @@ function BusDetails({ busId }) {
                                                                                                 ]
                                                                                             }, driver._id, true, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 553,
+                                                                                                lineNumber: 552,
                                                                                                 columnNumber: 33
                                                                                             }, this))
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 545,
+                                                                                        lineNumber: 544,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 534,
+                                                                                lineNumber: 533,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2158,36 +2158,36 @@ function BusDetails({ busId }) {
                                                                                                     size: 12
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                    lineNumber: 586,
+                                                                                                    lineNumber: 585,
                                                                                                     columnNumber: 37
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 575,
+                                                                                                lineNumber: 574,
                                                                                                 columnNumber: 35
                                                                                             }, this)
                                                                                         ]
                                                                                     }, driverId, true, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 569,
+                                                                                        lineNumber: 568,
                                                                                         columnNumber: 33
                                                                                     }, this);
                                                                                 })
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 561,
+                                                                                lineNumber: 560,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 530,
+                                                                        lineNumber: 529,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 467,
+                                                                lineNumber: 466,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2201,7 +2201,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Plate Number"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 597,
+                                                                                lineNumber: 596,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2210,13 +2210,13 @@ function BusDetails({ busId }) {
                                                                                 placeholder: "Enter Plate Number"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 598,
+                                                                                lineNumber: 597,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 596,
+                                                                        lineNumber: 595,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2227,7 +2227,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Capacity"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 605,
+                                                                                lineNumber: 604,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2237,19 +2237,19 @@ function BusDetails({ busId }) {
                                                                                 placeholder: "Enter Capacity"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 606,
+                                                                                lineNumber: 605,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 604,
+                                                                        lineNumber: 603,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 595,
+                                                                lineNumber: 594,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2263,7 +2263,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Operation Schedule From"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 616,
+                                                                                lineNumber: 615,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2272,13 +2272,13 @@ function BusDetails({ busId }) {
                                                                                 ...register("operation_schedule.from")
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 619,
+                                                                                lineNumber: 618,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 615,
+                                                                        lineNumber: 614,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2289,7 +2289,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Operation Schedule To"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 626,
+                                                                                lineNumber: 625,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2298,19 +2298,19 @@ function BusDetails({ busId }) {
                                                                                 ...register("operation_schedule.to")
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 629,
+                                                                                lineNumber: 628,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 625,
+                                                                        lineNumber: 624,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 614,
+                                                                lineNumber: 613,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2322,7 +2322,7 @@ function BusDetails({ busId }) {
                                                                             children: "Status"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                            lineNumber: 638,
+                                                                            lineNumber: 637,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroup"], {
@@ -2338,7 +2338,7 @@ function BusDetails({ busId }) {
                                                                                             id: "r1"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 647,
+                                                                                            lineNumber: 646,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -2346,13 +2346,13 @@ function BusDetails({ busId }) {
                                                                                             children: "Active"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 648,
+                                                                                            lineNumber: 647,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 646,
+                                                                                    lineNumber: 645,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2363,7 +2363,7 @@ function BusDetails({ busId }) {
                                                                                             id: "r2"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 651,
+                                                                                            lineNumber: 650,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -2371,30 +2371,30 @@ function BusDetails({ busId }) {
                                                                                             children: "Inactive"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 652,
+                                                                                            lineNumber: 651,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 650,
+                                                                                    lineNumber: 649,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                            lineNumber: 639,
+                                                                            lineNumber: 638,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                    lineNumber: 637,
+                                                                    lineNumber: 636,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 636,
+                                                                lineNumber: 635,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2408,7 +2408,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Fuel Type"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 660,
+                                                                                lineNumber: 659,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -2421,12 +2421,12 @@ function BusDetails({ busId }) {
                                                                                             placeholder: "Select a State"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                            lineNumber: 668,
+                                                                                            lineNumber: 667,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 667,
+                                                                                        lineNumber: 666,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2436,7 +2436,7 @@ function BusDetails({ busId }) {
                                                                                                 children: "Petrol"
                                                                                             }, "1", false, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 671,
+                                                                                                lineNumber: 670,
                                                                                                 columnNumber: 29
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2444,25 +2444,25 @@ function BusDetails({ busId }) {
                                                                                                 children: "Diesel"
                                                                                             }, "2", false, {
                                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                                lineNumber: 674,
+                                                                                                lineNumber: 673,
                                                                                                 columnNumber: 29
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 670,
+                                                                                        lineNumber: 669,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 661,
+                                                                                lineNumber: 660,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 659,
+                                                                        lineNumber: 658,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2473,7 +2473,7 @@ function BusDetails({ busId }) {
                                                                                 children: "Tracker ID"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 681,
+                                                                                lineNumber: 680,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2482,19 +2482,19 @@ function BusDetails({ busId }) {
                                                                                 placeholder: "Tracker ID"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 682,
+                                                                                lineNumber: 681,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 680,
+                                                                        lineNumber: 679,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 658,
+                                                                lineNumber: 657,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2507,7 +2507,7 @@ function BusDetails({ busId }) {
                                                                             children: "Mileage"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                            lineNumber: 691,
+                                                                            lineNumber: 690,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2516,18 +2516,18 @@ function BusDetails({ busId }) {
                                                                             placeholder: "Enter Bus Mileage"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                            lineNumber: 692,
+                                                                            lineNumber: 691,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                    lineNumber: 690,
+                                                                    lineNumber: 689,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 689,
+                                                                lineNumber: 688,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2538,37 +2538,37 @@ function BusDetails({ busId }) {
                                                                     className: "h-4 w-4 animate-spin"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                    lineNumber: 710,
+                                                                    lineNumber: 709,
                                                                     columnNumber: 25
                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                     children: "Save Changes"
                                                                 }, void 0, false)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 700,
+                                                                lineNumber: 699,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 398,
+                                                        lineNumber: 397,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 394,
+                                                lineNumber: 393,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                        lineNumber: 387,
+                                        lineNumber: 386,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 386,
+                                    lineNumber: 385,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2584,19 +2584,19 @@ function BusDetails({ busId }) {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 728,
+                                                        lineNumber: 727,
                                                         columnNumber: 19
                                                     }, this),
                                                     "Create New Report"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 727,
+                                                lineNumber: 726,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 726,
+                                            lineNumber: 725,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2612,7 +2612,7 @@ function BusDetails({ busId }) {
                                                                 children: "Bus Maintenance Report"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 735,
+                                                                lineNumber: 734,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2620,13 +2620,13 @@ function BusDetails({ busId }) {
                                                                 children: "Record repair details and costs for this vehicle."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 738,
+                                                                lineNumber: 737,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 734,
+                                                        lineNumber: 733,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2643,13 +2643,13 @@ function BusDetails({ busId }) {
                                                                                 children: "*"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 746,
+                                                                                lineNumber: 745,
                                                                                 columnNumber: 38
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 745,
+                                                                        lineNumber: 744,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -2660,12 +2660,12 @@ function BusDetails({ busId }) {
                                                                                     placeholder: "Select type of service"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 754,
+                                                                                    lineNumber: 753,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 753,
+                                                                                lineNumber: 752,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2675,7 +2675,7 @@ function BusDetails({ busId }) {
                                                                                         children: "Routine Checkup"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 757,
+                                                                                        lineNumber: 756,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2683,7 +2683,7 @@ function BusDetails({ busId }) {
                                                                                         children: "Engine Maintenance"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 760,
+                                                                                        lineNumber: 759,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2691,7 +2691,7 @@ function BusDetails({ busId }) {
                                                                                         children: "Tire Replacement"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 763,
+                                                                                        lineNumber: 762,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2699,7 +2699,7 @@ function BusDetails({ busId }) {
                                                                                         children: "Brake Repair"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 766,
+                                                                                        lineNumber: 765,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2707,25 +2707,25 @@ function BusDetails({ busId }) {
                                                                                         children: "Electrical Fix"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 769,
+                                                                                        lineNumber: 768,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 756,
+                                                                                lineNumber: 755,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 748,
+                                                                        lineNumber: 747,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 744,
+                                                                lineNumber: 743,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2739,13 +2739,13 @@ function BusDetails({ busId }) {
                                                                                 children: "*"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 778,
+                                                                                lineNumber: 777,
                                                                                 columnNumber: 34
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 777,
+                                                                        lineNumber: 776,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -2758,12 +2758,12 @@ function BusDetails({ busId }) {
                                                                                     placeholder: "Set Priority"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 788,
+                                                                                    lineNumber: 787,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 787,
+                                                                                lineNumber: 786,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2773,7 +2773,7 @@ function BusDetails({ busId }) {
                                                                                         children: "Normal"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 791,
+                                                                                        lineNumber: 790,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2781,7 +2781,7 @@ function BusDetails({ busId }) {
                                                                                         children: "High"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 794,
+                                                                                        lineNumber: 793,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2789,31 +2789,31 @@ function BusDetails({ busId }) {
                                                                                         children: "Urgent"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                        lineNumber: 797,
+                                                                                        lineNumber: 796,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                lineNumber: 790,
+                                                                                lineNumber: 789,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 780,
+                                                                        lineNumber: 779,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 776,
+                                                                lineNumber: 775,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 743,
+                                                        lineNumber: 742,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2828,13 +2828,13 @@ function BusDetails({ busId }) {
                                                                         children: "*"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 808,
+                                                                        lineNumber: 807,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 806,
+                                                                lineNumber: 805,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2843,13 +2843,13 @@ function BusDetails({ busId }) {
                                                                 className: "min-h-20"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 810,
+                                                                lineNumber: 809,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 805,
+                                                        lineNumber: 804,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2862,7 +2862,7 @@ function BusDetails({ busId }) {
                                                                         children: "Total Cost (₦)"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 819,
+                                                                        lineNumber: 818,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2874,13 +2874,13 @@ function BusDetails({ busId }) {
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 820,
+                                                                        lineNumber: 819,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 818,
+                                                                lineNumber: 817,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2890,7 +2890,7 @@ function BusDetails({ busId }) {
                                                                         children: "Workshop / Technician"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 835,
+                                                                        lineNumber: 834,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2901,19 +2901,19 @@ function BusDetails({ busId }) {
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                                        lineNumber: 836,
+                                                                        lineNumber: 835,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                                lineNumber: 834,
+                                                                lineNumber: 833,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 817,
+                                                        lineNumber: 816,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2925,7 +2925,7 @@ function BusDetails({ busId }) {
                                                                     children: "Status"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                    lineNumber: 852,
+                                                                    lineNumber: 851,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroup"], {
@@ -2942,7 +2942,7 @@ function BusDetails({ busId }) {
                                                                                     id: "m1"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 865,
+                                                                                    lineNumber: 864,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -2951,13 +2951,13 @@ function BusDetails({ busId }) {
                                                                                     children: "Pending"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 869,
+                                                                                    lineNumber: 868,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                            lineNumber: 864,
+                                                                            lineNumber: 863,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2968,7 +2968,7 @@ function BusDetails({ busId }) {
                                                                                     id: "m2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 874,
+                                                                                    lineNumber: 873,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -2977,30 +2977,30 @@ function BusDetails({ busId }) {
                                                                                     children: "Completed"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                                    lineNumber: 878,
+                                                                                    lineNumber: 877,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                                            lineNumber: 873,
+                                                                            lineNumber: 872,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                                    lineNumber: 853,
+                                                                    lineNumber: 852,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                            lineNumber: 851,
+                                                            lineNumber: 850,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 850,
+                                                        lineNumber: 849,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -3011,31 +3011,31 @@ function BusDetails({ busId }) {
                                                             className: "h-4 w-4 animate-spin"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                            lineNumber: 892,
+                                                            lineNumber: 891,
                                                             columnNumber: 23
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                             children: "Submit Maintenance Report"
                                                         }, void 0, false)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 886,
+                                                        lineNumber: 885,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 733,
+                                                lineNumber: 732,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 732,
+                                            lineNumber: 731,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 722,
+                                    lineNumber: 721,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -3054,7 +3054,7 @@ function BusDetails({ busId }) {
                                             children: "Bus ID/ Code"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 905,
+                                            lineNumber: 904,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3062,13 +3062,13 @@ function BusDetails({ busId }) {
                                             children: selBus?.id_code
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 906,
+                                            lineNumber: 905,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 904,
+                                    lineNumber: 903,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3078,7 +3078,7 @@ function BusDetails({ busId }) {
                                             children: "Bus Name"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 909,
+                                            lineNumber: 908,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3086,13 +3086,13 @@ function BusDetails({ busId }) {
                                             children: selBus?.name_label
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 910,
+                                            lineNumber: 909,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 908,
+                                    lineNumber: 907,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3102,7 +3102,7 @@ function BusDetails({ busId }) {
                                             children: "Date Created"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 913,
+                                            lineNumber: 912,
                                             columnNumber: 15
                                         }, this),
                                         selBus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3110,13 +3110,13 @@ function BusDetails({ busId }) {
                                             children: new Date(selBus?.createdAt).toDateString()
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 915,
+                                            lineNumber: 914,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 912,
+                                    lineNumber: 911,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3126,7 +3126,7 @@ function BusDetails({ busId }) {
                                             children: "Status"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 921,
+                                            lineNumber: 920,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -3135,13 +3135,13 @@ function BusDetails({ busId }) {
                                             children: selBus?.status
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 922,
+                                            lineNumber: 921,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 920,
+                                    lineNumber: 919,
                                     columnNumber: 13
                                 }, this),
                                 selBus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3151,7 +3151,7 @@ function BusDetails({ busId }) {
                                             children: "Route(s) Assigned"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 931,
+                                            lineNumber: 930,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3164,19 +3164,19 @@ function BusDetails({ busId }) {
                                                     children: route ? route.code : routeId
                                                 }, routeId, false, {
                                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                                    lineNumber: 941,
+                                                    lineNumber: 940,
                                                     columnNumber: 27
                                                 }, this);
                                             }) : "No routes"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 934,
+                                            lineNumber: 933,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 930,
+                                    lineNumber: 929,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3186,7 +3186,7 @@ function BusDetails({ busId }) {
                                             children: "Capacity"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 955,
+                                            lineNumber: 954,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3194,13 +3194,13 @@ function BusDetails({ busId }) {
                                             children: selBus?.capacity
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 956,
+                                            lineNumber: 955,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 954,
+                                    lineNumber: 953,
                                     columnNumber: 13
                                 }, this),
                                 selBus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3210,7 +3210,7 @@ function BusDetails({ busId }) {
                                             children: "Driver Assigned"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 960,
+                                            lineNumber: 959,
                                             columnNumber: 17
                                         }, this),
                                         selBus.drivers_assigned?.length > 0 ? selBus.drivers_assigned.map((routeId)=>{
@@ -3221,14 +3221,14 @@ function BusDetails({ busId }) {
                                                 children: driver ? `${driver.first_name} ${driver.last_name}` : routeId
                                             }, routeId, false, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 969,
+                                                lineNumber: 968,
                                                 columnNumber: 25
                                             }, this);
                                         }) : "No Drivers Assigned"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 959,
+                                    lineNumber: 958,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3238,7 +3238,7 @@ function BusDetails({ busId }) {
                                             children: "Scheduled Maintenance"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 984,
+                                            lineNumber: 983,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3246,19 +3246,19 @@ function BusDetails({ busId }) {
                                             children: bus.scheduledMaintenance
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 987,
+                                            lineNumber: 986,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 983,
+                                    lineNumber: 982,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/buses/bus-details.tsx",
-                            lineNumber: 903,
+                            lineNumber: 902,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3274,13 +3274,13 @@ function BusDetails({ busId }) {
                                             children: "(click car images to open them bigger)"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 997,
+                                            lineNumber: 996,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 995,
+                                    lineNumber: 994,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3292,18 +3292,18 @@ function BusDetails({ busId }) {
                                             className: "w-full h-24 rounded-lg object-cover cursor-pointer hover:opacity-80 transition-opacity"
                                         }, index, false, {
                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                            lineNumber: 1003,
+                                            lineNumber: 1002,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/buses/bus-details.tsx",
-                                    lineNumber: 1001,
+                                    lineNumber: 1000,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/buses/bus-details.tsx",
-                            lineNumber: 994,
+                            lineNumber: 993,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -3315,7 +3315,7 @@ function BusDetails({ busId }) {
                                         className: "z-9999 bg-black/90 backdrop-blur-sm"
                                     }, void 0, false, {
                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                        lineNumber: 1022,
+                                        lineNumber: 1021,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -3326,7 +3326,7 @@ function BusDetails({ busId }) {
                                                 children: "Bus Image"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 1025,
+                                                lineNumber: 1024,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3338,7 +3338,7 @@ function BusDetails({ busId }) {
                                                         className: "max-h-[90vh] max-w-full rounded-lg object-contain shadow-2xl"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 1027,
+                                                        lineNumber: 1026,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3349,35 +3349,35 @@ function BusDetails({ busId }) {
                                                             className: "h-10 w-10"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
-                                                            lineNumber: 1039,
+                                                            lineNumber: 1038,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                                        lineNumber: 1034,
+                                                        lineNumber: 1033,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                                lineNumber: 1026,
+                                                lineNumber: 1025,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/bus-details.tsx",
-                                        lineNumber: 1024,
+                                        lineNumber: 1023,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/buses/bus-details.tsx",
-                                lineNumber: 1020,
+                                lineNumber: 1019,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/buses/bus-details.tsx",
-                            lineNumber: 1015,
+                            lineNumber: 1014,
                             columnNumber: 11
                         }, this)
                     ]
@@ -3403,27 +3403,27 @@ function BusDetails({ busId }) {
                             className: "w-full h-full object-cover rounded-lg"
                         }, void 0, false, {
                             fileName: "[project]/components/buses/bus-details.tsx",
-                            lineNumber: 1052,
+                            lineNumber: 1051,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/buses/bus-details.tsx",
-                        lineNumber: 1051,
+                        lineNumber: 1050,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/buses/bus-details.tsx",
-                    lineNumber: 1050,
+                    lineNumber: 1049,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/buses/bus-details.tsx",
-                lineNumber: 1049,
+                lineNumber: 1048,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/buses/bus-details.tsx",
-                lineNumber: 1060,
+                lineNumber: 1059,
                 columnNumber: 7
             }, this)
         ]

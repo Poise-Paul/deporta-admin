@@ -36,6 +36,8 @@ import {
   Pin,
   Flag,
   Tag,
+  Clock,
+  ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSelector } from "react-redux";
@@ -185,6 +187,31 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     route_distance,
     number_of_stops,
   ]);
+
+  const days = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ] as const;
+
+  const formatTime = (timeStr: string) => {
+    if (!timeStr) return "N/A";
+    const date = new Date(
+      timeStr.includes("T") ? timeStr : `2000-01-01T${timeStr}`,
+    );
+
+    return date
+      .toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      })
+      .toLowerCase(); // results in "8:00 am"
+  };
 
   return (
     <div className="space-y-6">
@@ -714,6 +741,67 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                 value={new Date(selRoute.createdAt).toDateString()}
                 icon={<Calendar />}
               />
+            </CardContent>
+          </Card>
+
+          <Card className="lg:col-span-3 border-border">
+            <CardHeader>
+              <CardTitle className="text-lg">Route Trip Schedule</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {days.map((day) => {
+                  const dayData = selRoute.routine[day];
+                  const isActive = dayData?.active;
+
+                  return (
+                    <div
+                      key={day}
+                      className={`p-4 rounded-xl border ${isActive ? "bg-card border-primary/20" : "bg-muted/30 opacity-60 border-transparent"}`}
+                    >
+                      <div className="flex justify-between items-center mb-3">
+                        <h4 className="font-bold capitalize text-sm">{day}</h4>
+                        <Badge
+                          variant={isActive ? "default" : "secondary"}
+                          className="text-[10px] h-5"
+                        >
+                          {isActive ? "Active" : "Closed"}
+                        </Badge>
+                      </div>
+
+                      {isActive && dayData.value && dayData.value.length > 0 ? (
+                        <div className="space-y-2">
+                          {dayData.value.map((slot, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center justify-between gap-2 text-xs font-medium text-muted-foreground bg-muted/40 p-2.5 rounded-lg border border-border/50"
+                            >
+                              <div className="flex items-center gap-2">
+                                <Clock className="h-3.5 w-3.5 text-primary/80" />
+                                <span className="tracking-tight text-foreground">
+                                  {formatTime(slot.from)}
+                                </span>
+                              </div>
+
+                              <ArrowRight className="h-3 w-3 opacity-40" />
+
+                              <div className="flex items-center gap-2">
+                                <span className="tracking-tight text-foreground">
+                                  {formatTime(slot.too)}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-[11px] text-muted-foreground italic">
+                          No trips scheduled for this day.
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </CardContent>
           </Card>
         </div>

@@ -2171,6 +2171,16 @@
     }
   }
 
+  .border-primary\/20 {
+    border-color: var(--primary);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-primary\/20 {
+      border-color: color-mix(in oklab, var(--primary) 20%, transparent);
+    }
+  }
+
   .border-red-500 {
     border-color: var(--color-red-500);
   }
@@ -2363,6 +2373,16 @@
     }
   }
 
+  .bg-muted\/40 {
+    background-color: var(--muted);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-muted\/40 {
+      background-color: color-mix(in oklab, var(--muted) 40%, transparent);
+    }
+  }
+
   .bg-muted\/50 {
     background-color: var(--muted);
   }
@@ -2525,6 +2545,10 @@
 
   .p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+
+  .p-2\.5 {
+    padding: calc(var(--spacing) * 2.5);
   }
 
   .p-3 {
@@ -2796,6 +2820,10 @@
     font-size: 10px;
   }
 
+  .text-\[11px\] {
+    font-size: 11px;
+  }
+
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
@@ -2949,6 +2977,16 @@
     color: var(--primary-foreground);
   }
 
+  .text-primary\/80 {
+    color: var(--primary);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-primary\/80 {
+      color: color-mix(in oklab, var(--primary) 80%, transparent);
+    }
+  }
+
   .text-red-600 {
     color: var(--color-red-600);
   }
@@ -3025,6 +3063,10 @@
     text-transform: uppercase;
   }
 
+  .italic {
+    font-style: italic;
+  }
+
   .tabular-nums {
     --tw-numeric-spacing: tabular-nums;
     font-variant-numeric: var(--tw-ordinal, ) var(--tw-slashed-zero, ) var(--tw-numeric-figure, ) var(--tw-numeric-spacing, ) var(--tw-numeric-fraction, );
@@ -3047,8 +3089,16 @@
     opacity: .3;
   }
 
+  .opacity-40 {
+    opacity: .4;
+  }
+
   .opacity-50 {
     opacity: .5;
+  }
+
+  .opacity-60 {
+    opacity: .6;
   }
 
   .opacity-70 {
@@ -5396,6 +5446,18 @@
   @media (min-width: 64rem) {
     .lg\:col-span-2 {
       grid-column: span 2 / span 2;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:col-span-3 {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:col-span-4 {
+      grid-column: span 4 / span 4;
     }
   }
 

@@ -24703,3 +24703,2749 @@ Import trace:
 [131:57:08.256] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [131:57:08.257] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [131:57:10.230] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"5000\",\"flat_rate\":\"2500\",\"rate_per_km\":\"450\",\"code\":\"SSD3342CX\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"4455\",\"number_of_stops\":[{\"value\":\"ikeja mall badagry\",\"longitude\":0,\"latitude\":0},{\"value\":\"main office\",\"longitude\":-73.935242,\"latitude\":40.73061}],\"state\":\"kwara\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"12:00\",\"too\":\"14:00\",\"status\":\"scheduled\"},{\"from\":\"17:00\",\"too\":\"19:15\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"}]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[131:59:24.341] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[131:59:24.341] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[131:59:51.742] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"5000\",\"flat_rate\":\"2500\",\"rate_per_km\":\"450\",\"code\":\"SSD3342CX\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"4455\",\"number_of_stops\":[{\"value\":\"ikeja mall badagry\",\"longitude\":0,\"latitude\":0},{\"value\":\"main office\",\"longitude\":-73.935242,\"latitude\":40.73061}],\"state\":\"kwara\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"12:00\",\"too\":\"14:00\",\"status\":\"scheduled\"},{\"from\":\"17:00\",\"too\":\"19:15\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"}]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:02:38.604] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:02:38.605] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:03:05.625] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"5000\",\"flat_rate\":\"2500\",\"rate_per_km\":\"450\",\"code\":\"SSD3342CX\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"4455\",\"number_of_stops\":[{\"value\":\"ikeja mall badagry\",\"longitude\":0,\"latitude\":0},{\"value\":\"main office\",\"longitude\":-73.935242,\"latitude\":40.73061}],\"state\":\"kwara\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"12:00\",\"too\":\"14:00\",\"status\":\"scheduled\"},{\"from\":\"17:00\",\"too\":\"19:15\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"}]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:04:13.215] Server  LOG      ✓ Compiled in 52ms
+[132:04:21.192] Server  LOG      ✓ Compiled in 35ms
+[132:04:23.139] Server  LOG      ✓ Compiled in 37ms
+[132:04:25.666] Server  LOG      ✓ Compiled in 34ms
+[132:04:31.213] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:04:31.213] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:04:32.851] Browser LOG     Form Data >>> {"code":"SSD3342CX","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"2500","number_of_stops":[{"latitude":0,"longitude":0,"value":"ikeja mall badagry"},{"latitude":40.73061,"longitude":-73.935242,"value":"main office"}],"rate":"5000","rate_per_km":"450","route_distance":"4455","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"08:00","status":"scheduled","too":"10:00"},{"from":"12:00","status":"scheduled","too":"14:00"},{"from":"17:00","status":"scheduled","too":"19:15"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":true,"value":[{"from":"08:00","status":"scheduled","too":"10:00"},{"from":"08:00","status":"scheduled","too":"10:00"}]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kwara"}
+[132:04:33.895] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"5000\",\"flat_rate\":\"2500\",\"rate_per_km\":\"450\",\"code\":\"SSD3342CX\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"4455\",\"number_of_stops\":[{\"value\":\"ikeja mall badagry\",\"longitude\":0,\"latitude\":0},{\"value\":\"main office\",\"longitude\":-73.935242,\"latitude\":40.73061}],\"state\":\"kwara\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"12:00\",\"too\":\"14:00\",\"status\":\"scheduled\"},{\"from\":\"17:00\",\"too\":\"19:15\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":true,\"value\":[{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"},{\"from\":\"08:00\",\"too\":\"10:00\",\"status\":\"scheduled\"}]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:10:05.663] Server  LOG      ✓ Compiled in 54ms
+[132:10:13.491] Server  LOG      ✓ Compiled in 41ms
+[132:10:13.593] Browser ERROR   ./components/shared/routes-table.tsx:243:17
+Parsing ecmascript source code failed
+  241 |     Object.keys(formData.routine).forEach((day) => { if (formData.routine[day].active) { formData.routine[day].value = formData.routine[day].value.map((slot) => ({ from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  242 |
+> 243 |     addTripRoute.mutate(formData, {
+      |                 ^
+  244 |       onSuccess: () => {
+  245 |         reset();
+  246 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:10:27.732] Browser ERROR   ./components/shared/routes-table.tsx:244:17
+Parsing ecmascript source code failed
+  242 |       if (formData.routine[day].active) { formData.routine[day].value = formData.routine[day].value.map((slot) => ({ from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  243 |
+> 244 |     addTripRoute.mutate(formData, {
+      |                 ^
+  245 |       onSuccess: () => {
+  246 |         reset();
+  247 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:10:32.428] Browser ERROR   ./components/shared/routes-table.tsx:245:17
+Parsing ecmascript source code failed
+  243 |         formData.routine[day].value = formData.routine[day].value.map((slot) => ({ from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  244 |
+> 245 |     addTripRoute.mutate(formData, {
+      |                 ^
+  246 |       onSuccess: () => {
+  247 |         reset();
+  248 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:10:45.392] Browser ERROR   ./components/shared/routes-table.tsx:246:17
+Parsing ecmascript source code failed
+  244 |           from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  245 |
+> 246 |     addTripRoute.mutate(formData, {
+      |                 ^
+  247 |       onSuccess: () => {
+  248 |         reset();
+  249 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:04.197] Browser ERROR   ./components/shared/routes-table.tsx:247:17
+Parsing ecmascript source code failed
+  245 |           // to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  246 |
+> 247 |     addTripRoute.mutate(formData, {
+      |                 ^
+  248 |       onSuccess: () => {
+  249 |         reset();
+  250 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:06.561] Browser ERROR   ./components/shared/routes-table.tsx:246:17
+Parsing ecmascript source code failed
+  244 |           from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  245 |
+> 246 |     addTripRoute.mutate(formData, {
+      |                 ^
+  247 |       onSuccess: () => {
+  248 |         reset();
+  249 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:10.913] Browser ERROR   ./components/shared/routes-table.tsx:247:17
+Parsing ecmascript source code failed
+  245 |           // `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  246 |
+> 247 |     addTripRoute.mutate(formData, {
+      |                 ^
+  248 |       onSuccess: () => {
+  249 |         reset();
+  250 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:14.955] Browser ERROR   ./components/shared/routes-table.tsx:246:17
+Parsing ecmascript source code failed
+  244 |           from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  245 |
+> 246 |     addTripRoute.mutate(formData, {
+      |                 ^
+  247 |       onSuccess: () => {
+  248 |         reset();
+  249 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:30.784] Browser ERROR   ./components/shared/routes-table.tsx:247:17
+Parsing ecmascript source code failed
+  245 |           // to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  246 |
+> 247 |     addTripRoute.mutate(formData, {
+      |                 ^
+  248 |       onSuccess: () => {
+  249 |         reset();
+  250 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:32.499] Browser ERROR   ./components/shared/routes-table.tsx:247:17
+Parsing ecmascript source code failed
+  245 |           to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  246 |
+> 247 |     addTripRoute.mutate(formData, {
+      |                 ^
+  248 |       onSuccess: () => {
+  249 |         reset();
+  250 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:39.755] Browser ERROR   ./components/shared/routes-table.tsx:246:17
+Parsing ecmascript source code failed
+  244 |           from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  245 |
+> 246 |     addTripRoute.mutate(formData, {
+      |                 ^
+  247 |       onSuccess: () => {
+  248 |         reset();
+  249 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:51.273] Browser ERROR   ./components/shared/routes-table.tsx:246:17
+Parsing ecmascript source code failed
+  244 |           from: `2026-02-05T${slot.from}:00`, // or use today's date dynamicallyto: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  245 |
+> 246 |     addTripRoute.mutate(formData, {
+      |                 ^
+  247 |       onSuccess: () => {
+  248 |         reset();
+  249 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:52.605] Browser ERROR   ./components/shared/routes-table.tsx:246:17
+Parsing ecmascript source code failed
+  244 |           from: `2026-02-05T${slot.from}:00`, // or use today's date dynamically to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  245 |
+> 246 |     addTripRoute.mutate(formData, {
+      |                 ^
+  247 |       onSuccess: () => {
+  248 |         reset();
+  249 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:56.457] Browser ERROR   ./components/shared/routes-table.tsx:247:17
+Parsing ecmascript source code failed
+  245 |           // to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  246 |
+> 247 |     addTripRoute.mutate(formData, {
+      |                 ^
+  248 |       onSuccess: () => {
+  249 |         reset();
+  250 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:11:58.077] Browser ERROR   ./components/shared/routes-table.tsx:247:17
+Parsing ecmascript source code failed
+  245 |         to: `2026-02-05T${slot.too}:00`, // fix typo: "too" -> "to" status: slot.status, })); } });
+  246 |
+> 247 |     addTripRoute.mutate(formData, {
+      |                 ^
+  248 |       onSuccess: () => {
+  249 |         reset();
+  250 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:12:26.788] Browser ERROR   ./components/shared/routes-table.tsx:248:17
+Parsing ecmascript source code failed
+  246 |         // status: slot.status, })); } });
+  247 |
+> 248 |     addTripRoute.mutate(formData, {
+      |                 ^
+  249 |       onSuccess: () => {
+  250 |         reset();
+  251 |         refetch();
+
+Expected a semicolon
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:12:41.051] Server  LOG      ✓ Compiled in 38ms
+[132:12:42.757] Server  LOG      ✓ Compiled in 35ms
+[132:13:22.412] Server  LOG      ✓ Compiled in 44ms
+[132:13:24.202] Server  LOG      ✓ Compiled in 32ms
+[132:13:31.996] Server  LOG      ✓ Compiled in 32ms
+[132:14:19.176] Server  LOG      ✓ Compiled in 36ms
+[132:14:19.273] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:17:13.080] Server  LOG      ✓ Compiled in 42ms
+[132:17:13.086] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:17:13.413] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:17:13.417] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:17:13.417] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770313344006}
+[132:17:13.553] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:17:13.753] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:17:14.837] Server  LOG      ✓ Compiled in 45ms
+[132:17:14.940] Browser ERROR   ./components/shared/routes-table.tsx:688:6
+Parsing ecmascript source code failed
+  686 |     {watch(`routine.${day}.active`) && (
+  687 |       // render slots
+> 688 |     )}
+      |      ^
+  689 |
+  690 |                           <div className="flex items-center justify-between">
+  691 |                             <Label className="capitalize font-semibold">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:18:05.905] Browser ERROR   ./components/shared/routes-table.tsx:688:6
+Parsing ecmascript source code failed
+  686 |     {watch(`routine.${day}.active`) && (
+  687 |       // render slots
+> 688 |     )}
+      |      ^
+  689 |
+  690 |                           <div className="flex items-center justify-between">
+  691 |                             <Label className="capitalize font-semibold">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:18:07.473] Server  LOG      ✓ Compiled in 35ms
+[132:18:07.575] Browser ERROR   ./components/shared/routes-table.tsx:687:15
+Parsing ecmascript source code failed
+  685 |     />
+  686 |     {watch(`routine.${day}.active`) && (
+> 687 |        {watch(`routine.${day}.active`) && (
+      |               ^^^^^^^^^^^
+  688 |                             <div className="space-y-2">
+  689 |                               {watch(`routine.${day}.value`)?.map(
+  690 |                                 (slot, index) => (
+
+Expected '</', got 'routine.'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:18:11.698] Server  LOG      ✓ Compiled in 36ms
+[132:18:11.800] Browser ERROR   ./components/shared/routes-table.tsx:688:6
+Parsing ecmascript source code failed
+  686 |     {watch(`routine.${day}.active`) && (
+  687 |       // render slots
+> 688 |     )}
+      |      ^
+  689 |
+  690 |                           <div className="flex items-center justify-between">
+  691 |                             <Label className="capitalize font-semibold">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:18:29.510] Browser ERROR   ./components/shared/routes-table.tsx:688:6
+Parsing ecmascript source code failed
+  686 |     {watch(`routine.${day}.active`) && (
+  687 |       // render slots
+> 688 |     )}
+      |      ^
+  689 |
+  690 |                           <div className="flex items-center justify-between">
+  691 |                             <Label className="capitalize font-semibold">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:18:31.351] Browser ERROR   ./components/shared/routes-table.tsx:688:6
+Parsing ecmascript source code failed
+  686 |     {watch(`routine.${day}.active`) && (
+  687 |       // render slots
+> 688 |     )}
+      |      ^
+  689 |
+  690 |                           <div className="flex items-center justify-between">
+  691 |                             <Label className="capitalize font-semibold">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:18:35.642] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:18:35.650] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:18:35.755] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:18:35.960] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:18:40.424] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:18:40.554] Server  LOG      ✓ Compiled in 35ms
+[132:18:40.603] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:18:40.729] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:18:40.916] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:18:52.478] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:18:52.611] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:18:53.789] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:18:53.915] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:19:07.119] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:19:07.199] Server  LOG      ✓ Compiled in 38ms
+[132:19:07.247] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:19:07.304] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:19:07.434] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:19:10.513] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:19:10.577] Server  LOG      ✓ Compiled in 34ms
+[132:19:10.614] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:19:10.660] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:19:10.790] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'watch' before initialization
+[132:19:40.463] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:19:40.540] Server  LOG      ✓ Compiled in 46ms
+[132:19:40.613] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:19:40.663] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:19:40.835] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[132:19:40.835] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[132:19:40.835] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[132:19:40.835] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770313491649}
+[132:19:44.454] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:19:44.454] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:20:54.546] Server  LOG      ✓ Compiled in 41ms
+[132:21:03.933] Server  LOG      ✓ Compiled in 37ms
+[132:21:05.695] Server  LOG      ✓ Compiled in 36ms
+[132:22:10.086] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-0508:00:00","status":"scheduled","to":"2026-02-05T10:00:00"},{"from":"2026-02-0510:30:00","status":"scheduled","to":"2026-02-05T12:00:00"},{"from":"2026-02-0512:03:00","status":"scheduled","to":"2026-02-05T14:16:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:22:10.086] Browser ERROR   A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://react.dev/link/controlled-components
+[132:22:11.751] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"450\",\"flat_rate\":\"200\",\"rate_per_km\":\"2000\",\"code\":\"SDDE345\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"45\",\"number_of_stops\":[{\"value\":\"somole \",\"longitude\":0,\"latitude\":0},{\"value\":\"kolubele\",\"longitude\":0,\"latitude\":0}],\"state\":\"kebbi\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"2026-02-0508:00:00\",\"to\":\"2026-02-05T10:00:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-0510:30:00\",\"to\":\"2026-02-05T12:00:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-0512:03:00\",\"to\":\"2026-02-05T14:16:00\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":false,\"value\":[]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:23:56.811] Server  LOG      ✓ Compiled in 55ms
+[132:24:32.865] Server  LOG      ✓ Compiled in 39ms
+[132:24:35.383] Server  LOG      ✓ Compiled in 37ms
+[132:24:40.274] Server  LOG      ✓ Compiled in 40ms
+[132:24:50.806] Server  LOG      ✓ Compiled in 43ms
+[132:24:56.989] Server  LOG      ✓ Compiled in 36ms
+[132:25:04.488] Server  LOG      ✓ Compiled in 36ms
+[132:25:07.795] Server  LOG      ✓ Compiled in 32ms
+[132:25:10.106] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:25:10.106] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:25:25.899] Browser ERROR   A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://react.dev/link/controlled-components
+[132:26:47.959] Server  LOG      ✓ Compiled in 41ms
+[132:27:18.086] Server  LOG      ✓ Compiled in 40ms
+[132:27:20.485] Server  LOG      ✓ Compiled in 34ms
+[132:27:36.697] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:27:36.697] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:27:54.642] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T20:50:00","status":"scheduled","too":"2026-02-05T04:50:00"},{"from":"2026-02-05T21:52:00","status":"scheduled","too":"2026-02-05T18:55:00"},{"from":"2026-02-05T22:56:00","status":"scheduled","too":"2026-02-05T18:57:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:27:55.860] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"450\",\"flat_rate\":\"200\",\"rate_per_km\":\"2000\",\"code\":\"SDDE345\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"45\",\"number_of_stops\":[{\"value\":\"somole \",\"longitude\":0,\"latitude\":0},{\"value\":\"kolubele\",\"longitude\":0,\"latitude\":0}],\"state\":\"kebbi\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"2026-02-05T20:50:00\",\"too\":\"2026-02-05T04:50:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-05T21:52:00\",\"too\":\"2026-02-05T18:55:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-05T22:56:00\",\"too\":\"2026-02-05T18:57:00\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":false,\"value\":[]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:28:04.665] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:28:04.665] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:28:26.358] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T18:55:00","status":"scheduled","too":"2026-02-05T22:53:00"},{"from":"2026-02-05T18:55:00","status":"scheduled","too":"2026-02-05T23:53:00"},{"from":"2026-02-05T00:53:00","status":"scheduled","too":"2026-02-05T09:53:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:28:28.072] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"450\",\"flat_rate\":\"200\",\"rate_per_km\":\"2000\",\"code\":\"SDDE345\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"45\",\"number_of_stops\":[{\"value\":\"somole \",\"longitude\":0,\"latitude\":0},{\"value\":\"kolubele\",\"longitude\":0,\"latitude\":0}],\"state\":\"kebbi\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"2026-02-05T18:55:00\",\"too\":\"2026-02-05T22:53:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-05T18:55:00\",\"too\":\"2026-02-05T23:53:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-05T00:53:00\",\"too\":\"2026-02-05T09:53:00\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":false,\"value\":[]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:29:05.156] Server  LOG      ✓ Compiled in 44ms
+[132:30:20.191] Server  LOG      ✓ Compiled in 42ms
+[132:30:22.426] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:30:22.426] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:30:49.807] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T20:55:00","status":"scheduled","too":"2026-02-05T20:55:00"},{"from":"2026-02-05T20:55:00","status":"scheduled","too":"2026-02-05T18:57:00"},{"from":"2026-02-05T11:55:00","status":"scheduled","too":"2026-02-05T10:55:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:30:50.894] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"450\",\"flat_rate\":\"200\",\"rate_per_km\":\"2000\",\"code\":\"SDDE345\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"45\",\"number_of_stops\":[{\"value\":\"somole \",\"longitude\":0,\"latitude\":0},{\"value\":\"kolubele\",\"longitude\":0,\"latitude\":0}],\"state\":\"kebbi\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"2026-02-05T20:55:00\",\"too\":\"2026-02-05T20:55:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-05T20:55:00\",\"too\":\"2026-02-05T18:57:00\",\"status\":\"scheduled\"},{\"from\":\"2026-02-05T11:55:00\",\"too\":\"2026-02-05T10:55:00\",\"status\":\"scheduled\"}]},\"tuesday\":{\"active\":false,\"value\":[]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:34:23.181] Server  LOG      ✓ Compiled in 51ms
+[132:34:26.489] Server  LOG      ✓ Compiled in 41ms
+[132:34:38.748] Server  LOG      ✓ Compiled in 42ms
+[132:34:44.660] Server  LOG      ✓ Compiled in 40ms
+[132:34:44.764] Browser ERROR   ./components/shared/routes-table.tsx:725:43
+Parsing ecmascript source code failed
+  723 |                                             ...current,
+  724 |                                             { from: "08:00", to: "10:00", // also fix typo: "too" → "to" status: "pending" // <-- set default here },
+> 725 |                                           ]);
+      |                                           ^
+  726 |                                         }}
+  727 |                                       />
+  728 |                                     </div>
+
+Expected '</', got ']'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:34:58.851] Browser ERROR   ./components/shared/routes-table.tsx:726:43
+Parsing ecmascript source code failed
+  724 |                                             { from: "08:00", 
+  725 |                                               to: "10:00", // also fix typo: "too" → "to" status: "pending" // <-- set default here },
+> 726 |                                           ]);
+      |                                           ^
+  727 |                                         }}
+  728 |                                       />
+  729 |                                     </div>
+
+Expected '</', got ']'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:35:03.155] Browser ERROR   ./components/shared/routes-table.tsx:727:43
+Parsing ecmascript source code failed
+  725 |                                               to: "10:00", // also fix typo: "too" → "to" 
+  726 |                                               // status: "pending" // <-- set default here },
+> 727 |                                           ]);
+      |                                           ^
+  728 |                                         }}
+  729 |                                       />
+  730 |                                     </div>
+
+Expected '</', got ']'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:35:05.273] Browser ERROR   ./components/shared/routes-table.tsx:727:43
+Parsing ecmascript source code failed
+  725 |                                               to: "10:00", // also fix typo: "too" → "to" 
+  726 |                                             status: "pending" // <-- set default here },
+> 727 |                                           ]);
+      |                                           ^
+  728 |                                         }}
+  729 |                                       />
+  730 |                                     </div>
+
+Expected '</', got ']'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:35:12.795] Server  LOG      ✓ Compiled in 34ms
+[132:36:18.135] Server  LOG      ✓ Compiled in 39ms
+[132:36:21.944] Server  LOG      ✓ Compiled in 35ms
+[132:36:56.196] Server  LOG      ✓ Compiled in 40ms
+[132:37:17.494] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:37:17.494] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:37:32.720] Server  LOG      ✓ Compiled in 37ms
+[132:37:39.268] Server  LOG      ✓ Compiled in 35ms
+[132:37:39.841] Server  LOG      ✓ Compiled in 35ms
+[132:38:00.516] Server  LOG      ✓ Compiled in 44ms
+[132:38:03.901] Server  LOG      ✓ Compiled in 32ms
+[132:38:07.035] Server  LOG      ✓ Compiled in 35ms
+[132:38:11.057] Server  LOG      ✓ Compiled in 33ms
+[132:38:12.871] Server  LOG      ✓ Compiled in 33ms
+[132:38:12.975] Browser ERROR   ./components/shared/routes-table.tsx:707:61
+Parsing ecmascript source code failed
+  705 |                                             {
+  706 |                                               from: "08:00",
+> 707 |                                               too: "10:00", /
+      |                                                             ^
+  708 |                                               status: "pending",
+  709 |                                             },
+  710 |                                           ]);
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[132:38:36.127] Server  LOG      ✓ Compiled in 35ms
+[132:38:38.549] Server  LOG      ✓ Compiled in 35ms
+[132:38:41.750] Server  LOG      ✓ Compiled in 32ms
+[132:38:44.962] Server  LOG      ✓ Compiled in 32ms
+[132:39:17.604] Server  LOG      ✓ Compiled in 35ms
+[132:39:22.101] Server  LOG      ✓ Compiled in 35ms
+[132:39:24.035] Server  LOG      ✓ Compiled in 33ms
+[132:39:29.719] Server  LOG      ✓ Compiled in 31ms
+[132:39:35.126] Server  LOG      ✓ Compiled in 32ms
+[132:39:38.087] Server  LOG      ✓ Compiled in 31ms
+[132:39:39.617] Server  LOG      ✓ Compiled in 32ms
+[132:39:56.785] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T08:00:00","status":"pending","too":"2026-02-05T14:00:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:39:57.785] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"450\",\"flat_rate\":\"200\",\"rate_per_km\":\"2000\",\"code\":\"SDDE345\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"45\",\"number_of_stops\":[{\"value\":\"somole \",\"longitude\":0,\"latitude\":0},{\"value\":\"kolubele\",\"longitude\":0,\"latitude\":0}],\"state\":\"kebbi\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"2026-02-05T08:00:00\",\"too\":\"2026-02-05T14:00:00\",\"status\":\"pending\"}]},\"tuesday\":{\"active\":false,\"value\":[]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:40:38.292] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:40:38.292] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:40:55.512] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":""},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T21:05:00","status":"pending","too":"2026-02-05T23:05:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:40:57.073] Browser LOG     User Erro {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","data":"{\"rate\":\"450\",\"flat_rate\":\"200\",\"rate_per_km\":\"2000\",\"code\":\"SDDE345\",\"destination\":{\"value\":\"\",\"longitude\":0,\"latitude\":0},\"starting_point\":{\"value\":\"ikorodu\",\"latitude\":0,\"longitude\":0},\"route_distance\":\"45\",\"number_of_stops\":[{\"value\":\"somole \",\"longitude\":0,\"latitude\":0},{\"value\":\"kolubele\",\"longitude\":0,\"latitude\":0}],\"state\":\"kebbi\",\"country\":\"Nigeria\",\"routine\":{\"monday\":{\"active\":true,\"value\":[{\"from\":\"2026-02-05T21:05:00\",\"too\":\"2026-02-05T23:05:00\",\"status\":\"pending\"}]},\"tuesday\":{\"active\":false,\"value\":[]},\"wednesday\":{\"active\":false,\"value\":[]},\"thursday\":{\"active\":false,\"value\":[]},\"friday\":{\"active\":false,\"value\":[]},\"saturday\":{\"active\":false,\"value\":[]},\"sunday\":{\"active\":false,\"value\":[]}}}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjk4NDc0LCJleHAiOjE3NzA5MDMyNzR9.6DvvC7WBU62b8KAA1y8EAT4TPW4e663gaBHgyL4Lgb8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/create","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13373:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13888:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async useCreateTripRoute.useMutation [as mutationFn] (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1507:29)","status":400}
+[132:41:45.162] Server  LOG      ✓ Compiled in 55ms
+[132:44:53.076] Server  LOG      ✓ Compiled in 41ms
+[132:44:55.768] Server  LOG      ✓ Compiled in 35ms
+[132:44:59.296] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:44:59.296] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:45:53.733] Browser LOG     Form Data >>> {"code":"SDDE345","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":"oshodi"},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"somole "},{"latitude":0,"longitude":0,"value":"kolubele"}],"rate":"450","rate_per_km":"2000","route_distance":"45","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T21:10:00","status":"pending","too":"2026-02-05T23:10:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":true,"value":[{"from":"2026-02-05T08:00:00","status":"pending","too":"2026-02-05T10:00:00"},{"from":"2026-02-05T10:00:00","status":"pending","too":"2026-02-05T13:03:00"},{"from":"2026-02-05T16:09:00","status":"pending","too":"2026-02-05T18:05:00"}]},"wednesday":{"active":true,"value":[{"from":"2026-02-05T09:00:00","status":"pending","too":"2026-02-05T10:30:00"}]}},"starting_point":{"latitude":0,"longitude":0,"value":"ikorodu"},"state":"kebbi"}
+[132:46:03.462] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315074268}
+[132:48:09.929] Server  LOG      ✓ Compiled in 39ms
+[132:48:13.859] Server  LOG      ✓ Compiled in 35ms
+[132:48:13.961] Browser ERROR   ./components/shared/route-details.tsx:721:9
+Parsing ecmascript source code failed
+  719 |
+  720 |           <Card
+> 721 |         </div>
+      |         ^
+  722 |       )}
+  723 |       <Toaster />
+  724 |     </div>
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[132:48:13.961] Browser ERROR   ./components/shared/route-details.tsx:721:10
+Parsing ecmascript source code failed
+  719 |
+  720 |           <Card
+> 721 |         </div>
+      |          ^^^^^
+  722 |       )}
+  723 |       <Toaster />
+  724 |     </div>
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[132:48:20.912] Server  LOG      ✓ Compiled in 72ms
+[132:48:20.961] Browser ERROR   uncaughtError: ReferenceError: days is not defined
+[132:48:26.670] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:48:26.756] Server  LOG      ✓ Compiled in 66ms
+[132:48:26.827] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:48:26.844] Browser ERROR   uncaughtError: ReferenceError: days is not defined
+[132:48:26.844] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315217585}
+[132:48:26.918] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:48:27.051] Browser ERROR   uncaughtError: ReferenceError: days is not defined
+[132:48:28.995] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:48:29.063] Server  LOG      ✓ Compiled in 43ms
+[132:48:29.110] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:48:29.168] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:48:29.306] Browser ERROR   uncaughtError: ReferenceError: days is not defined
+[132:48:42.609] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:48:42.699] Server  LOG      ✓ Compiled in 36ms
+[132:48:42.728] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:48:42.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:48:42.930] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'monday')
+[132:48:53.629] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:48:53.695] Server  LOG      ✓ Compiled in 32ms
+[132:48:53.727] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:48:53.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:48:53.927] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'monday')
+[132:49:00.955] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:01.019] Server  LOG      ✓ Compiled in 30ms
+[132:49:01.051] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:01.113] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:01.250] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'monday')
+[132:49:08.113] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:08.181] Server  LOG      ✓ Compiled in 31ms
+[132:49:08.214] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:08.279] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:08.414] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'monday')
+[132:49:24.415] Server  LOG      ✓ Compiled in 32ms
+[132:49:24.521] Browser ERROR   ./components/shared/route-details.tsx:737:25
+Parsing ecmascript source code failed
+  735 |             </CardHeader>
+  736 |             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+> 737 |               {selRoute..map((day) => {
+      |                         ^
+  738 |                 const dayData = routine[day];
+  739 |                 const isActive = dayData?.active;
+  740 |
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[132:49:26.321] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:26.424] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:26.494] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:26.628] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[132:49:27.926] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:27.999] Server  LOG      ✓ Compiled in 32ms
+[132:49:28.024] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:28.174] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:28.383] Browser ERROR   uncaughtError: TypeError: selRoute.routine.map is not a function
+[132:49:30.157] Server  LOG      ✓ Compiled in 31ms
+[132:49:30.260] Browser ERROR   ./components/shared/route-details.tsx:737:33
+Parsing ecmascript source code failed
+  735 |             </CardHeader>
+  736 |             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+> 737 |               {selRoute.routine..map((day) => {
+      |                                 ^
+  738 |                 const dayData = routine[day];
+  739 |                 const isActive = dayData?.active;
+  740 |
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[132:49:33.789] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:33.862] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:33.995] Browser ERROR   uncaughtError: TypeError: selRoute.routine.map is not a function
+[132:49:38.121] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:38.223] Server  LOG      ✓ Compiled in 34ms
+[132:49:38.253] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:38.331] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:38.470] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'monday')
+[132:49:44.820] Server  LOG      ✓ Compiled in 30ms
+[132:49:44.923] Browser ERROR   ./components/shared/route-details.tsx:738:42
+Parsing ecmascript source code failed
+  736 |             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  737 |               {days.map((day) => {
+> 738 |                 const dayData = selRoute.[day];
+      |                                          ^
+  739 |                 const isActive = dayData?.active;
+  740 |
+  741 |                 return (
+
+Expected '</', got '['
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[132:49:46.584] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:46.681] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:46.749] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:46.916] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[132:49:47.517] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[132:49:47.517] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/6984dd3ab98231863f3e45b1","route":"/app-menu/routes/[id]"}
+[132:49:47.517] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315298331}
+[132:49:48.588] Server  LOG      ✓ Compiled in 33ms
+[132:49:48.649] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'monday')
+[132:49:49.728] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[132:49:49.853] Server  LOG      ✓ Compiled in 30ms
+[132:49:49.889] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[132:49:49.905] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315300644}
+[132:49:49.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[132:49:50.126] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[132:49:50.126] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/6984dd3ab98231863f3e45b1","route":"/app-menu/routes/[id]"}
+[132:49:50.126] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dd3ab98231863f3e45b1","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315300923}
+[132:49:50.126] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[132:49:50.126] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[132:50:07.867] Server  LOG      ✓ Compiled in 31ms
+[132:50:12.141] Server  LOG      ✓ Compiled in 36ms
+[132:50:37.759] Server  LOG      ✓ Compiled in 32ms
+[132:50:41.244] Server  LOG      ✓ Compiled in 33ms
+[132:50:42.700] Server  LOG      ✓ Compiled in 34ms
+[132:50:58.713] Server  LOG      ✓ Compiled in 56ms
+[132:51:06.738] Server  LOG      ✓ Compiled in 72ms
+[132:53:04.179] Server  LOG      ✓ Compiled in 62ms
+[132:53:09.034] Server  LOG      ✓ Compiled in 39ms
+[132:54:03.972] Server  LOG      ✓ Compiled in 70ms
+[132:55:21.382] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315632187}
+[132:55:23.262] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:55:23.262] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:56:28.819] Browser LOG     Form Data >>> {"code":"SSD445QF","country":"Nigeria","destination":{"latitude":0,"longitude":0,"value":"ikorodu gbagada"},"flat_rate":"200","number_of_stops":[{"latitude":0,"longitude":0,"value":"kolubele"},{"latitude":0,"longitude":0,"value":"enugu main city"}],"rate":"3000","rate_per_km":"550","route_distance":"450","routine":{"friday":{"active":false,"value":[]},"monday":{"active":true,"value":[{"from":"2026-02-05T10:02:00","status":"pending","too":"2026-02-05T12:06:00"},{"from":"2026-02-05T10:03:00","status":"pending","too":"2026-02-05T15:03:00"}]},"saturday":{"active":false,"value":[]},"sunday":{"active":false,"value":[]},"thursday":{"active":false,"value":[]},"tuesday":{"active":false,"value":[]},"wednesday":{"active":false,"value":[]}},"starting_point":{"latitude":40.73061,"longitude":-73.935242,"value":"main office"},"state":"lagos"}
+[132:56:34.662] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dfb5b98231863f3e4607 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dfb5b98231863f3e4607","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315705470}
+[132:57:01.752] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315732547}
+[132:57:12.119] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes/6984dfb5b98231863f3e4607 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/6984dfb5b98231863f3e4607","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315742925}
+[132:57:15.971] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:57:15.971] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:57:25.017] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:57:25.017] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[132:57:55.820] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315786627}
+[132:57:57.384] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315788193}
+[132:57:58.854] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315789648}
+[132:58:00.530] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315791336}
+[132:58:02.992] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations/6984a852f9d0402df9a7975e color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations/[id]","o":"http://localhost:3000/app-menu/pickup-stations/6984a852f9d0402df9a7975e","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315793802}
+[132:58:14.143] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315804946}
+[132:58:18.383] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315809179}
+[132:58:19.727] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315810530}
+[132:58:20.743] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315811557}
+[132:58:26.517] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/drivers/6984b7b5f9d0402df9a7990c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers/[id]","o":"http://localhost:3000/app-menu/drivers/6984b7b5f9d0402df9a7990c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315817331}
+[132:58:28.999] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315819806}
+[132:58:32.654] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/FHHSGG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/FHHSGG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315823458}
+[133:01:21.992] Server  LOG      ✓ Compiled in 57ms
+[133:01:23.166] Server  LOG      ✓ Compiled in 39ms
+[133:01:25.859] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770315996652}
+[133:01:28.843] Server  LOG      ✓ Compiled in 43ms
+[133:05:32.853] Server  LOG      ✓ Compiled in 49ms
+[133:05:34.839] Server  LOG      ✓ Compiled in 38ms
+[133:05:34.944] Browser ERROR   ./components/buses/bus-details.tsx:364:44
+Parsing ecmascript source code failed
+  362 |                             (r) =>
+  363 |                               r.user_type.type_id.role === "driver" &&
+> 364 |                               r.user_type. === routeId,
+      |                                            ^^^
+  365 |                           );
+  366 |                           return (
+  367 |                             <Badge
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:05:37.977] Browser ERROR   ./components/buses/bus-details.tsx:364:52
+Parsing ecmascript source code failed
+  362 |                             (r) =>
+  363 |                               r.user_type.type_id.role === "driver" &&
+> 364 |                               r.user_type.type_id. === routeId,
+      |                                                    ^^^
+  365 |                           );
+  366 |                           return (
+  367 |                             <Badge
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:05:39.955] Server  LOG      ✓ Compiled in 35ms
+[133:05:48.748] Server  LOG      ✓ Compiled in 34ms
+[133:05:56.028] Server  LOG      ✓ Compiled in 33ms
+[133:05:59.385] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/FHHSGG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/FHHSGG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316270193}
+[133:06:42.541] Server  LOG      ✓ Compiled in 31ms
+[133:06:43.781] Server  LOG      ✓ Compiled in 32ms
+[133:07:18.020] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316348820}
+[133:09:53.356] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316504164}
+[133:09:56.871] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316507681}
+[133:10:06.487] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316517286}
+[133:10:12.184] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316522983}
+[133:10:15.123] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/FHHSGG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/FHHSGG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770316525930}
+[133:12:38.675] Server  LOG      ✓ Compiled in 60ms
+[133:12:41.368] Server  LOG      ✓ Compiled in 36ms
+[133:13:51.562] Server  ERROR    ⨯ ReferenceError: Dialog is not defined
+[133:13:51.697] Browser ERROR   uncaughtError: ReferenceError: Dialog is not defined
+[133:13:57.295] Server  ERROR    ⨯ ReferenceError: Dialog is not defined
+[133:13:57.378] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:13:57.473] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:13:57.474] Browser ERROR   uncaughtError: ReferenceError: Dialog is not defined
+[133:14:03.736] Server  ERROR    ⨯ ReferenceError: Dialog is not defined
+[133:14:03.777] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:14:03.840] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:14:03.960] Browser ERROR   uncaughtError: ReferenceError: Dialog is not defined
+[133:14:11.737] Server  ERROR    ⨯ ReferenceError: isMaintenanceOpen is not defined
+[133:14:11.804] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:14:11.885] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:14:12.007] Browser ERROR   uncaughtError: ReferenceError: isMaintenanceOpen is not defined
+[133:14:33.581] Server  ERROR    ⨯ ReferenceError: isMaintenanceOpen is not defined
+[133:14:33.627] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:14:33.697] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:14:33.823] Browser ERROR   uncaughtError: ReferenceError: isMaintenanceOpen is not defined
+[133:14:47.803] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[133:14:47.874] Server  ERROR    ⨯ ReferenceError: isMaintenanceOpen is not defined
+[133:14:47.877] Server  LOG      ✓ Compiled in 34ms
+[133:14:47.916] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:14:47.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:14:48.096] Browser ERROR   uncaughtError: ReferenceError: isMaintenanceOpen is not defined
+[133:14:49.493] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[133:14:49.574] Server  ERROR    ⨯ ReferenceError: isMaintenanceOpen is not defined
+[133:14:49.578] Server  LOG      ✓ Compiled in 40ms
+[133:14:49.621] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:14:49.685] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:14:49.807] Browser ERROR   uncaughtError: ReferenceError: isMaintenanceOpen is not defined
+[133:14:52.542] Server  ERROR    ⨯ ReferenceError: useState is not defined
+[133:14:52.578] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:14:52.646] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:14:52.767] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[133:14:56.427] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 |
+  18 | interface MaintenanceReportProps {
+  19 |   busId: string;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:09.714] Server  LOG      ✓ Compiled in 33ms
+[133:15:09.815] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 |
+  18 | interface MaintenanceReportProps {
+  19 |   busId: string;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:13.980] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 |
+  18 | interface MaintenanceReportProps {
+  19 |   busId: string;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:17.508] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 |
+  18 | interface MaintenanceReportProps {
+  19 |   busId: string;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:18.665] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:28.115] Server  LOG      ✓ Compiled in 33ms
+[133:15:28.217] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:30.492] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:39.853] Server  LOG      ✓ Compiled in 34ms
+[133:15:39.956] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:46.189] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:15:52.394] Browser ERROR   ./components/buses/maintenance-report.tsx:80:3
+Parsing ecmascript source code failed
+  78 | export function MaintenanceReport({ busId }: MaintenanceReportProps) {
+  79 |   const {} = 
+> 80 |   const [isMaintenanceOpen, setIsMaintenanceOpen] = useState(false);
+     |   ^^^^^
+  81 |
+  82 |   const {
+  83 |     register: registerMaintenance,
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:16:11.404] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:16:15.063] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 |
+  19 | interface MaintenanceReportProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:16:16.829] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:16:19.123] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 |
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:16:20.963] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:17:44.288] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:17:45.394] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:17:45.394] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 |
+  22 | interface MaintenanceReportProps {
+  23 |   busId: string;
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:17:48.327] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:17:48.327] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { MaintenancePayload } from "@/types";
+  22 |
+  23 | interface MaintenanceReportProps {
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:18:12.177] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:18:12.177] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { MaintenancePayload, PriorityType } from "@/types";
+  22 |
+  23 | interface MaintenanceReportProps {
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:18:14.814] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:18:14.814] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { MaintenancePayload, PriorityType } from "@/types";
+  22 |
+  23 | interface MaintenanceReportProps {
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:18:16.251] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:18:16.251] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { MaintenancePayload, MaintenanceStatusType, PriorityType } from "@/types";
+  22 |
+  23 | interface MaintenanceReportProps {
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:09.349] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:09.349] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:21.540] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:21.540] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:24.703] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:24.703] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:26.192] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:26.192] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:28.192] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:28.192] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:29.642] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:29.642] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:41.690] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:41.690] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:59.248] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:19:59.248] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:02.213] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:02.213] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:05.447] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:05.447] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:07.422] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:07.422] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:10.800] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:10.800] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:13.361] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:13.361] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:13.628] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:13.628] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:18.865] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:18.865] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:25.905] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:25.905] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:26.312] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:26.312] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:50.238] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:50.238] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:54.513] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:54.513] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:57.896] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:57.896] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:59.344] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:20:59.344] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:03.856] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:03.856] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:05.057] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:05.057] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:07.991] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:07.991] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:09.278] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:09.278] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:14.397] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:14.397] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:38.634] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:38.634] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import {
+  22 |   MaintenancePayload,
+  23 |   MaintenanceStatusType,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:55.005] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:21:55.006] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:02.009] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:02.009] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:02.592] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:02.592] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:08.343] Server  ERROR    ⨯ ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+
+
+
+./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+
+
+[133:22:08.497] Browser ERROR   uncaughtError: Error: ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+
+
+[133:22:08.640] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:08.640] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:08.640] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:08.640] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:10.340] Server  ERROR    ⨯ ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+
+
+
+./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+
+
+[133:22:10.420] Browser ERROR   uncaughtError: Error: ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+
+
+[133:22:10.563] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:10.563] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:10.563] Browser ERROR   ./components/buses/maintenance-report.tsx:16:10
+Ecmascript file had an error
+  14 |   DialogTrigger,
+  15 | } from "@/components/ui/dialog";
+> 16 | import { useState } from "react";
+     |          ^^^^^^^^
+  17 | import toast from "react-hot-toast";
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:10.563] Browser ERROR   ./components/buses/maintenance-report.tsx:20:1
+Export useForm doesn't exist in target module
+  18 | import { useSelector } from "react-redux";
+  19 | import { RootState } from "@/lib/store";
+> 20 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  21 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  22 | import {
+  23 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:24.142] Browser ERROR   ./components/buses/maintenance-report.tsx:17:10
+Ecmascript file had an error
+  15 |   DialogTrigger,
+  16 | } from "@/components/ui/dialog";
+> 17 | import { useState } from "react";
+     |          ^^^^^^^^
+  18 | import toast from "react-hot-toast";
+  19 | import { useSelector } from "react-redux";
+  20 | import { RootState } from "@/lib/store";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:24.142] Browser ERROR   ./components/buses/maintenance-report.tsx:21:1
+Export useForm doesn't exist in target module
+  19 | import { useSelector } from "react-redux";
+  20 | import { RootState } from "@/lib/store";
+> 21 | import { useForm } from "react-hook-form";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+  23 | import {
+  24 |   MaintenancePayload,
+
+The export useForm was not found in module [project]/node_modules/react-hook-form/dist/react-server.esm.mjs [app-rsc] (ecmascript).
+Did you mean to import set?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/buses/maintenance-report.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[133:22:26.984] Server  LOG      ✓ Compiled in 34ms
+[133:22:27.322] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[133:22:27.386] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[133:22:27.568] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[133:22:27.568] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[133:22:27.568] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/FHHSGG","route":"/app-menu/buses/[id]"}
+[133:22:27.568] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/FHHSGG color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/FHHSGG","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770317258385}
+[133:22:31.782] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770317262593}

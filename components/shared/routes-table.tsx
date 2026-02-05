@@ -131,6 +131,25 @@ export function RoutesTable({
     queryFn: () => getAllBusStops(),
   });
 
+  type Day =
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday"
+    | "saturday"
+    | "sunday";
+
+  const days: Day[] = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+
   const initialDay: WeekdayType = {
     active: false,
     value: [],
@@ -236,6 +255,21 @@ export function RoutesTable({
 
   const handleAddTripRoute = () => {
     const formData = watch();
+
+    (Object.keys(formData.routine) as Day[]).forEach((day) => {
+      if (formData.routine[day].active) {
+        formData.routine[day].value = formData.routine[day].value.map(
+          (slot) => ({
+            from: `${new Date().toISOString().split("T")[0]}T${slot.from}:00`, // add "T"
+            too: `${new Date().toISOString().split("T")[0]}T${slot.too}:00`, // fix typo: "too" -> "to"
+            status: slot.status,
+          }),
+        );
+      }
+    });
+
+    console.log("Form Data >>>", formData);
+
     addTripRoute.mutate(formData, {
       onSuccess: () => {
         reset();
@@ -586,13 +620,12 @@ export function RoutesTable({
                         onValueChange={(id) => {
                           // Search in the same data source you used for the list!
                           const station =
-                            pickupStations?.pickup_station.data.find(
+                            dropOffStations?.drop_off_station.data.find(
                               (s) => s._id === id,
                             );
 
                           if (station) {
                             setValue("destination", {
-                              // Use 'address' because that's what your map uses below
                               value: station.address.value.toLowerCase(),
                               latitude: Number(station.address.latitude),
                               longitude: Number(station.address.longitude),
@@ -625,17 +658,7 @@ export function RoutesTable({
                         Weekly Operating Schedule
                       </Label>
 
-                      {(
-                        [
-                          "monday",
-                          "tuesday",
-                          "wednesday",
-                          "thursday",
-                          "friday",
-                          "saturday",
-                          "sunday",
-                        ] as const
-                      ).map((day) => (
+                      {days.map((day) => (
                         <div
                           key={day}
                           className="p-3 border rounded-md bg-muted/10 space-y-3"
@@ -656,7 +679,6 @@ export function RoutesTable({
                               />
                             </div>
                           </div>
-
                           {watch(`routine.${day}.active`) && (
                             <div className="space-y-2">
                               {watch(`routine.${day}.value`)?.map(
@@ -671,7 +693,7 @@ export function RoutesTable({
                                       </Label>
                                       <Input
                                         type="time"
-                                        value={slot.from}
+                                        value={slot.from ?? ""}
                                         onChange={(e) => {
                                           const current = [
                                             ...watch(`routine.${day}.value`),
@@ -686,7 +708,7 @@ export function RoutesTable({
                                     </div>
                                     <div>
                                       <Label className="text-[10px]">
-                                        Arrival (To)
+                                        Arrival (Too)
                                       </Label>
                                       <Input
                                         type="time"
@@ -735,7 +757,7 @@ export function RoutesTable({
                                     {
                                       from: "08:00",
                                       too: "10:00",
-                                      status: "scheduled",
+                                      status: "pending",
                                     },
                                   ]);
                                 }}
