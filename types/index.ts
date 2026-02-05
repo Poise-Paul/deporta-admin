@@ -390,6 +390,18 @@ export type Driver = {
   name: string;
 };
 
+export type RouteCode = {
+  _id: string;
+  code: string;
+};
+
+export type DriverBusData = {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  profile_image: string;
+};
+
 export type Bus = {
   operation_schedule: {
     from: string;
@@ -398,11 +410,11 @@ export type Bus = {
   _id: string;
   id_code: string;
   name_label: string;
-  routes_assigned: string[];
+  routes_assigned: RouteCode[];
   plate_number: string;
   capacity: number;
   bus_photos: string[];
-  drivers_assigned: string[];
+  drivers_assigned: DriverBusData[];
   added_by: NormalStaffData;
   status: string;
   fuel_type: string;
@@ -670,4 +682,28 @@ interface TotalCount {
 export type UsersTotalResponse = {
   status: boolean;
   users: TotalCount[];
+};
+
+export type MaintenanceData = {
+  report: {
+    title: string;
+    description: string;
+    technician_notes: string;
+  };
+  _id: string;
+  bus_id: string;
+  added_by: NormalStaffData;
+  priority: PriorityType;
+  status: MaintenanceStatusType;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type MaintenanceReportResponse = {
+  status: boolean;
+  maintenance_report: {
+    data: MaintenanceData[];
+    pagination: Pagination;
+  };
 };

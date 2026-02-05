@@ -5,6 +5,7 @@ import {
   EditBusPayload,
   ErrorrResponse,
   MaintenancePayload,
+  MaintenanceReportResponse,
   MaintenanceResponse,
   Response,
 } from "@/types";
@@ -232,7 +233,10 @@ export const useBusMaintenanceStatus = () => {
 export const useCreateReport = () => {
   return useMutation({
     mutationFn: async (data: MaintenancePayload) => {
-      const res = await api.post("/api/users/admin/maintenance-report/create",data);
+      const res = await api.post(
+        "/api/users/admin/maintenance-report/create",
+        data,
+      );
       return res.data;
     },
     onSuccess: (data: MaintenanceResponse) => {
@@ -249,4 +253,19 @@ export const useCreateReport = () => {
       }
     },
   });
+};
+
+export const getMaintenanceReports = async (
+  currentPage: number,
+  perPage: number,
+): Promise<MaintenanceReportResponse> => {
+  try {
+    const res = await api.get(
+      `/api/users/admin/maintenance-report/get?limit=${perPage}&page=${currentPage}`,
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
 };

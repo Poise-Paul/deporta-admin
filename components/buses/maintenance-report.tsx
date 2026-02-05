@@ -8,13 +8,14 @@ import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogOverlay,
   DialogPortal,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
@@ -25,7 +26,7 @@ import {
   MaintenanceStatusType,
   PriorityType,
 } from "@/types";
-import { useCreateReport } from "@/api/buses";
+import { getMaintenanceReports, useCreateReport } from "@/api/buses";
 import { Label } from "../ui/label";
 import {
   Select,
@@ -36,6 +37,9 @@ import {
 } from "../ui/select";
 import { Textarea } from "../ui/textarea";
 import { Input } from "../ui/input";
+import { Separator } from "../ui/separator";
+import { useQuery } from "@tanstack/react-query";
+import { MaintenanceDetailSheet } from "./side-reports";
 
 interface MaintenanceReportProps {
   busId: string;
@@ -99,15 +103,14 @@ const reports = [
 export function MaintenanceReport({ busId }: MaintenanceReportProps) {
   const { selBus } = useSelector((state: RootState) => state.bus);
 
+  const [holdBtn, setHoldBtn] = useState(true);
+
   const [isMaintenanceOpen, setIsMaintenanceOpen] = useState(false);
 
-  const {
-    register: registerMaintenance,
-    setValue: setValueMaintenance,
-    watch: watchMaintenance,
-    reset: resetMaintenance,
-  } = useForm<MaintenancePayload>({
-    // Use 'values' instead of 'defaultValues' to keep the bus_id in sync
+  const [selectedReport, setSelectedReport] =
+    useState<MaintenancePayload | null>(null);
+
+  const { register, setValue, watch, reset } = useForm<MaintenancePayload>({
     values: {
       bus_id: selBus?._id || "",
       priority: PriorityType.Normal,
@@ -120,19 +123,12 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
     },
   });
 
-  const handleWatchMaintenance = watchMaintenance();
-
-  const {
-    report,
-    bus_id,
-    priority,
-    status: maintenanceStatus,
-  } = handleWatchMaintenance;
+  const handleWatchMaintenance = watch();
 
   const mutationReport = useCreateReport();
 
   const handleMutationReport = () => {
-    const currentData = watchMaintenance();
+    const currentData = watch();
 
     // Basic validation
     if (!currentData.bus_id) {
@@ -142,12 +138,36 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
 
     mutationReport.mutate(currentData, {
       onSuccess: () => {
-        resetMaintenance();
+        reset();
         setIsMaintenanceOpen(false);
-        toast.success("Maintenance report submitted");
       },
     });
   };
+
+  useEffect(() => {
+    const currentReport = handleWatchMaintenance.report;
+
+    const isFormValid =
+      !!currentReport?.title &&
+      !!currentReport?.description &&
+      !!currentReport?.technician_notes &&
+      !!handleWatchMaintenance.priority;
+
+    setHoldBtn(!isFormValid);
+  }, [handleWatchMaintenance]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const { data, refetch, isLoading } = useQuery({
+    // ✅ Adding parameters to the key ensures refetching on change
+    queryKey: ["maintenanceReports", currentPage, itemsPerPage],
+    queryFn: () => getMaintenanceReports(currentPage, itemsPerPage),
+  });
+
+  // Extract pagination info safely from your MaintenanceReportResponse
+  const pagination = data?.maintenance_report?.pagination;
+  const totalPages = pagination?.totalPages || 1;
 
   return (
     <Card className="bg-card border border-border">
@@ -158,31 +178,29 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
 
         <Dialog open={isMaintenanceOpen} onOpenChange={setIsMaintenanceOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+            <Button className="bg-primary hover:bg-primary/90 text-white">
               <Plus className="h-4 w-4" />
               Create New Report
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-2xl">
+            <DialogHeader>
+              <DialogTitle>Bus Maintenance Report</DialogTitle>
+              <DialogDescription>
+                Record repair details and costs for this vehicle.
+              </DialogDescription>
+            </DialogHeader>
+            <Separator />
             <div className="space-y-4 py-4">
-              <div className="border-b pb-2">
-                <h3 className="text-lg font-medium">Bus Maintenance Report</h3>
-                <p className="text-xs text-muted-foreground">
-                  Record repair details and costs for this vehicle.
-                </p>
-              </div>
-
-              <div className="grid gap-4 grid-cols-2">
+              <div className="grid gap-5 w-full grid-cols-2">
                 <div className="space-y-2">
                   <Label>
                     Service Type <span className="text-destructive">*</span>
                   </Label>
                   <Select
-                    onValueChange={(value) =>
-                      setValueMaintenance("report.title", value)
-                    }
+                  // onValueChange={(value) => setValue("report.title", value)}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select type of service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -203,7 +221,7 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
                   </Select>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 w-full">
                   <Label>
                     Priority <span className="text-destructive">*</span>
                   </Label>
@@ -211,10 +229,10 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
                     defaultValue={PriorityType.Normal}
                     onValueChange={(value) =>
                       // Cast the string to the PriorityType Enum
-                      setValueMaintenance("priority", value as PriorityType)
+                      setValue("priority", value as PriorityType)
                     }
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Set Priority" />
                     </SelectTrigger>
                     <SelectContent>
@@ -230,47 +248,44 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label>
-                  Maintenance Description{" "}
-                  <span className="text-destructive">*</span>
-                </Label>
-                <Textarea
-                  {...registerMaintenance("report.description")}
-                  placeholder="What exactly is being fixed?"
-                  className="min-h-20"
-                />
+              <div className="space-y-2 gap-4 flex-col flex">
+                <div className="space-y-2">
+                  <Label>
+                    Maintenance Title
+                    <span className="text-destructive">*</span>
+                  </Label>
+                  <Input
+                    type="text"
+                    {...register("report.title")}
+                    placeholder="Enter the title"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>
+                    Maintenance Description{" "}
+                    <span className="text-destructive">*</span>
+                  </Label>
+                  <Textarea
+                    {...register("report.description")}
+                    placeholder="What exactly is being fixed?"
+                    className="min-h-20"
+                  />
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Total Cost (₦)</Label>
-                  <Input
-                    type="number"
-                    placeholder="0.00"
-                    onChange={(e) => {
-                      const currentNotes =
-                        watchMaintenance("report.technician_notes") || "";
-                      setValueMaintenance(
-                        "report.technician_notes",
-                        `Cost: ₦${e.target.value} | ${currentNotes}`,
-                      );
-                    }}
-                  />
+                  <Input type="number" placeholder="0.00" />
                 </div>
 
                 <div className="space-y-2">
                   <Label>Workshop / Technician</Label>
+
                   <Input
                     placeholder="e.g. Lekki Auto Center"
-                    onChange={(e) => {
-                      const currentNotes =
-                        watchMaintenance("report.technician_notes") || "";
-                      setValueMaintenance(
-                        "report.technician_notes",
-                        `${currentNotes} | Workshop: ${e.target.value}`,
-                      );
-                    }}
+                    {...register("report.technician_notes")}
                   />
                 </div>
               </div>
@@ -282,10 +297,7 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
                     defaultValue={MaintenanceStatusType.Pending}
                     onValueChange={(val) =>
                       // Cast the string to the Enum type
-                      setValueMaintenance(
-                        "status",
-                        val as MaintenanceStatusType,
-                      )
+                      setValue("status", val as MaintenanceStatusType)
                     }
                     className="flex gap-4 mt-2"
                   >
@@ -312,9 +324,9 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
               </div>
 
               <Button
-                disabled={mutationReport.isPending}
+                disabled={mutationReport.isPending || holdBtn}
                 onClick={handleMutationReport}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4"
+                className={`w-full bg-primary ${holdBtn && "opacity-30"} hover:bg-primary/90 text-primary-foreground mt-4`}
               >
                 {mutationReport.isPending ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -352,32 +364,37 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
               </tr>
             </thead>
             <tbody>
-              {reports.map((report) => (
+              {data?.maintenance_report.data.map((report) => (
                 <tr
-                  key={report.id}
+                  key={report._id}
                   className="border-b border-border last:border-0 hover:bg-muted/50"
                 >
                   <td className="p-4 text-sm text-muted-foreground whitespace-nowrap">
-                    {report.date}
+                    {new Date(report.createdAt).toLocaleString()}
                   </td>
                   <td className="p-4 max-w-md">
-                    <p className="font-medium text-sm">{report.title}</p>
+                    <p className="font-medium text-sm">{report.report.title}</p>
                     <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                      {report.description}
+                      {report.report.description}
                     </p>
                   </td>
                   <td className="p-4">
                     <div className="flex items-center gap-2">
                       <Avatar className="h-8 w-8">
                         <AvatarImage
-                          src={report.staff.avatar || "/placeholder.svg"}
-                          alt={report.staff.name}
+                          className="object-cover"
+                          src={
+                            report.added_by.profile_image || "/placeholder.svg"
+                          }
+                          alt={report.added_by.first_name}
                         />
                         <AvatarFallback>
-                          {report.staff.name.charAt(0)}
+                          {report.added_by.first_name.charAt(0)}
                         </AvatarFallback>
                       </Avatar>
-                      <span className="text-sm">{report.staff.name}</span>
+                      <span className="text-sm">
+                        {report.added_by.first_name} {report.added_by.last_name}
+                      </span>
                     </div>
                   </td>
                   <td className="p-4">
@@ -401,7 +418,6 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
                         report.priority === "urgent" && "text-red-600",
                         report.priority === "high" && "text-orange-600",
                         report.priority === "normal" && "text-foreground",
-                        report.priority === "low" && "text-muted-foreground",
                       )}
                     >
                       {report.priority.charAt(0).toUpperCase() +
@@ -411,7 +427,12 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
                     </span>
                   </td>
                   <td className="p-4">
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                    <Button
+                      variant="ghost"
+                      onClick={() => setSelectedReport(report)}
+                      size="icon"
+                      className="h-8 w-8"
+                    >
                       <MoreVertical className="h-4 w-4" />
                     </Button>
                   </td>
@@ -423,35 +444,74 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+          {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             Show
-            <select className="border border-border rounded px-2 py-1 text-sm bg-background">
-              <option>4 of 8</option>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              className="border border-border rounded px-2 py-1 text-sm bg-background"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
             </select>
+            per page
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">1 - Page</span>
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
-                {"<"}
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                className="h-8 w-8 bg-secondary text-secondary-foreground hover:bg-secondary/90"
-              >
-                1
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                2
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                {">"}
-              </Button>
-            </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-1">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </Button>
+
+            {/* Dynamic Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <Button
+                  key={pageNumber}
+                  variant={currentPage === pageNumber ? "default" : "ghost"}
+                  size="icon"
+                  className={cn(
+                    "h-8 w-8",
+                    currentPage === pageNumber
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      : "text-muted-foreground",
+                  )}
+                  onClick={() => setCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Button>
+              );
+            })}
+
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage >= totalPages}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              {">"}
+            </Button>
           </div>
         </div>
       </CardContent>
+
+      <MaintenanceDetailSheet
+        report={selectedReport}
+        isOpen={!!selectedReport}
+        onOpenChange={() => setSelectedReport(null)}
+      />
     </Card>
   );
 }

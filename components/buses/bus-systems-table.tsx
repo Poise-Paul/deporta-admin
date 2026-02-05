@@ -900,18 +900,14 @@ export function BusSystemsTable() {
                     <td className="p-4 text-sm text-muted-foreground">
                       <div className="flex flex-wrap gap-1">
                         {bus.routes_assigned?.length > 0
-                          ? bus.routes_assigned.map((routeId) => {
-                              const route = tripRoutes?.trip_route.data.find(
-                                (r) => r._id === routeId,
-                              );
-
+                          ? bus.routes_assigned.map((route) => {
                               return (
                                 <Badge
-                                  key={routeId}
+                                  key={route._id}
                                   variant="outline"
                                   className="text-[10px] px-1"
                                 >
-                                  {route ? route.code : "Unknown Route"}
+                                  {route.code}
                                 </Badge>
                               );
                             })
@@ -924,21 +920,14 @@ export function BusSystemsTable() {
                     <td className="p-4 text-sm text-muted-foreground">
                       <div className="flex flex-wrap gap-1">
                         {bus.drivers_assigned?.length > 0
-                          ? bus.drivers_assigned.map((routeId) => {
-                              const driver = staffData?.staffs.data.find(
-                                (r) =>
-                                  r.user_type.type_id.role === "driver" &&
-                                  r._id === routeId,
-                              );
+                          ? bus.drivers_assigned.map((driver) => {
                               return (
                                 <Badge
-                                  key={routeId}
+                                  key={driver._id}
                                   variant="outline"
                                   className="text-[10px] px-1"
                                 >
-                                  {driver
-                                    ? `${driver.first_name} ${driver.last_name}`
-                                    : routeId}
+                                  {driver.first_name} {driver.last_name}
                                 </Badge>
                               );
                             })
@@ -1001,6 +990,13 @@ export function BusSystemsTable() {
                                 0,
                                 16,
                               );
+                              const driverIds = bus.drivers_assigned.map(
+                                (driver) => driver._id,
+                              );
+                              const routeIds = bus.routes_assigned.map(
+                                (route) => route._id,
+                              );
+                              setValue("routes_assigned", routeIds);
                               setValue("operation_schedule.to", toDate);
 
                               setBusId(bus._id);
@@ -1009,11 +1005,8 @@ export function BusSystemsTable() {
                               setValue("bus_id", bus._id);
                               setValue("id_code", bus.id_code);
                               setValue("name_label", bus.name_label);
-                              setValue("routes_assigned", bus.routes_assigned);
-                              setValue(
-                                "drivers_assigned",
-                                bus.drivers_assigned,
-                              );
+                              setValue("routes_assigned", routeIds);
+                              setValue("drivers_assigned", driverIds);
                               setValue("plate_number", bus.plate_number);
                               setValue("capacity", `${bus.capacity}`);
                               setValue(

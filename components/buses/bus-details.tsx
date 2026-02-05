@@ -37,6 +37,7 @@ import {
   MaintenancePayload,
   MaintenanceStatusType,
   PriorityType,
+  RouteCode,
   RouteData,
   StaffData,
 } from "@/types";
@@ -82,8 +83,9 @@ export function BusDetails({ busId }: BusDetailsProps) {
       bus_id: selBus?._id,
       id_code: selBus?.id_code,
       name_label: selBus?.name_label,
-      routes_assigned: selBus?.routes_assigned,
-      drivers_assigned: selBus?.drivers_assigned,
+      routes_assigned:
+        selBus?.routes_assigned?.map((r: RouteCode) => r._id) ?? [],
+      drivers_assigned: selBus?.drivers_assigned?.map((d) => d._id) ?? [],
       plate_number: selBus?.plate_number,
       capacity: selBus?.capacity,
       operation_schedule: {
@@ -102,16 +104,23 @@ export function BusDetails({ busId }: BusDetailsProps) {
   useEffect(() => {
     if (selBus) {
       reset({
-        ...selBus,
         bus_id: selBus._id,
         imageUrl: selBus.bus_photos,
+        id_code: selBus.id_code,
+        name_label: selBus.name_label,
+        routes_assigned: selBus.routes_assigned.map((r) => r._id), // map to string[]
+        drivers_assigned: selBus.drivers_assigned.map((d) => d._id), // map to string[]
+        plate_number: selBus.plate_number,
+        capacity: selBus.capacity,
         operation_schedule: {
           from: formatDateForInput(selBus.operation_schedule?.from),
           to: formatDateForInput(selBus.operation_schedule?.to),
         },
-        fuel_type: selBus.fuel_type as FuelType,
         status: !!selBus.status,
-      } as EditBusPayload);
+        fuel_type: selBus.fuel_type as FuelType,
+        tracker_id: selBus.tracker_id,
+        mileage: selBus.mileage,
+      });
     }
   }, [selBus, reset]);
 
@@ -143,22 +152,6 @@ export function BusDetails({ busId }: BusDetailsProps) {
   const dispatch = useDispatch();
 
   const handleModifyBus = () => {
-    console.log("Bus Data", {
-      image,
-      id_code,
-      bus_id: selBus?._id || "",
-      routes_assigned,
-      drivers_assigned,
-      name_label,
-      plate_number,
-      capacity: Number(capacity),
-      operation_schedule,
-      status,
-      fuel_type,
-      tracker_id,
-      mileage,
-    });
-
     modifyBusMutation.mutate(
       {
         image,
@@ -283,12 +276,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
               <div className="flex flex-col items-center md:items-start gap-2">
                 <div className="flex -space-x-2">
                   {selBus.drivers_assigned?.length > 0
-                    ? selBus.drivers_assigned.map((routeId, key) => {
-                        const driver = staffData?.staffs?.data.find(
-                          (r) =>
-                            r.user_type.type_id.role === "driver" &&
-                            r._id === routeId,
-                        );
+                    ? selBus.drivers_assigned.map((driver, key) => {
                         return (
                           <Avatar
                             key={key}
@@ -307,21 +295,14 @@ export function BusDetails({ busId }: BusDetailsProps) {
                   </p>
                   <div className="flex flex-wrap gap-1">
                     {selBus.drivers_assigned?.length > 0
-                      ? selBus.drivers_assigned.map((routeId) => {
-                          const driver = staffData?.staffs?.data.find(
-                            (r) =>
-                              r.user_type.type_id.role === "driver" &&
-                              r._id === routeId,
-                          );
+                      ? selBus.drivers_assigned.map((driver) => {
                           return (
                             <Badge
-                              key={routeId}
+                              key={driver._id}
                               variant="outline"
                               className="text-[10px] px-1"
                             >
-                              {driver
-                                ? `${driver.first_name} ${driver.last_name}`
-                                : routeId}
+                              {driver.first_name} {driver.last_name}
                             </Badge>
                           );
                         })
@@ -701,17 +682,14 @@ export function BusDetails({ busId }: BusDetailsProps) {
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {selBus?.routes_assigned?.length > 0
-                    ? selBus?.routes_assigned.map((routeId) => {
-                        const route = tripRoutes?.trip_route.data.find(
-                          (r) => r._id === routeId,
-                        );
+                    ? selBus?.routes_assigned.map((route) => {
                         return (
                           <Badge
-                            key={routeId}
+                            key={route._id}
                             variant="outline"
                             className="text-[10px] px-1"
                           >
-                            {route ? route.code : routeId}
+                            {route.code}
                           </Badge>
                         );
                       })
@@ -727,21 +705,14 @@ export function BusDetails({ busId }: BusDetailsProps) {
               <div>
                 <p className="text-xs text-muted-foreground">Driver Assigned</p>
                 {selBus.drivers_assigned?.length > 0
-                  ? selBus.drivers_assigned.map((routeId) => {
-                      const driver = staffData?.staffs.data.find(
-                        (r) =>
-                          r.user_type.type_id.role === "driver" &&
-                          r._id === routeId,
-                      );
+                  ? selBus.drivers_assigned.map((driver) => {
                       return (
                         <Badge
-                          key={routeId}
+                          key={driver._id}
                           variant="outline"
                           className="text-[10px] px-1"
                         >
-                          {driver
-                            ? `${driver.first_name} ${driver.last_name}`
-                            : routeId}
+                          {driver.first_name} {driver.last_name}
                         </Badge>
                       );
                     })
