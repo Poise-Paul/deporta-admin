@@ -13545,3 +13545,2673 @@ Import trace:
 [113:39:38.098] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770246288856}
 [113:39:41.605] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770246292363}
 [113:39:43.201] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770246293959}
+[113:52:58.239] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[113:52:58.400] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[113:52:58.400] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[113:52:58.400] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[113:52:58.400] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247089172}
+[113:55:27.438] Server  LOG      ✓ Compiled in 67ms
+[113:55:42.952] Server  LOG      ✓ Compiled in 61ms
+[113:55:43.057] Browser ERROR   ./api/buses/index.ts:19:8
+Parsing ecmascript source code failed
+  17 | }
+  18 |
+> 19 | export interface Bus
+     |        ^^^^^^^^^
+  20 |
+  21 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  22 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[113:55:45.951] Browser ERROR   ./api/buses/index.ts:19:8
+Parsing ecmascript source code failed
+  17 | }
+  18 |
+> 19 | export interface BusMaintain
+     |        ^^^^^^^^^
+  20 |
+  21 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  22 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[113:55:49.743] Browser ERROR   ./api/buses/index.ts:19:8
+Parsing ecmascript source code failed
+  17 | }
+  18 |
+> 19 | export interface BusMaintainancePayload
+     |        ^^^^^^^^^
+  20 |
+  21 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  22 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[113:56:19.280] Server  LOG      ✓ Compiled in 33ms
+[113:56:19.382] Browser ERROR   ./api/buses/index.ts:200:14
+Ecmascript file had an error
+  198 | };
+  199 |
+> 200 | export const useBusStatus = () => {
+      |              ^^^^^^^^^^^^
+  201 |   return useMutation({
+  202 |     mutationFn: async (data: BusStatusType) => {
+  203 |       const res = await api.patch(`/api/users/admin/bus/change/status`, data);
+
+the name `useBusStatus` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[113:56:32.826] Server  LOG      ✓ Compiled in 26ms
+[113:56:34.874] Server  LOG      ✓ Compiled in 30ms
+[113:56:36.145] Server  LOG      ✓ Compiled in 24ms
+[113:56:37.490] Server  LOG      ✓ Compiled in 30ms
+[113:56:55.155] Server  LOG      ✓ Compiled in 30ms
+[113:57:49.780] Server  LOG      ✓ Compiled in 33ms
+[113:57:53.835] Server  LOG      ✓ Compiled in 28ms
+[113:57:56.641] Server  LOG      ✓ Compiled in 33ms
+[113:57:56.743] Browser ERROR   ./components/buses/bus-systems-table.tsx:296:3
+Parsing ecmascript source code failed
+  294 |   const 
+  295 |
+> 296 |   const handleDelBus = (busId: string) => {
+      |   ^^^^^
+  297 |     deleteBusMitation.mutate(busId, {
+  298 |       onSuccess: () => refetch(),
+  299 |     });
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[113:58:00.652] Server  LOG      ✓ Compiled in 31ms
+[113:58:00.754] Browser ERROR   ./components/buses/bus-systems-table.tsx:294:9
+Parsing ecmascript source code failed
+  292 |
+  293 |   const deleteBusMitation = useDeleteBus();
+> 294 |   const ma
+      |         ^^
+  295 |
+  296 |   const handleDelBus = (busId: string) => {
+  297 |     deleteBusMitation.mutate(busId, {
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[113:58:06.267] Server  LOG      ✓ Compiled in 26ms
+[113:58:06.368] Browser ERROR   ./components/buses/bus-systems-table.tsx:296:3
+Parsing ecmascript source code failed
+  294 |   const maintainBusMutation = 
+  295 |
+> 296 |   const handleDelBus = (busId: string) => {
+      |   ^^^^^
+  297 |     deleteBusMitation.mutate(busId, {
+  298 |       onSuccess: () => refetch(),
+  299 |     });
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[113:58:07.769] Browser ERROR   uncaughtError: ReferenceError: use is not defined
+[113:58:19.904] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[113:58:19.990] Server  LOG      ✓ Compiled in 26ms
+[113:58:20.048] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[113:58:20.059] Browser ERROR   uncaughtError: ReferenceError: useBusMaintenanceStatus is not defined
+[113:58:20.059] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247410780}
+[113:58:20.130] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[113:58:20.260] Browser ERROR   uncaughtError: ReferenceError: useBusMaintenanceStatus is not defined
+[113:58:21.953] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[113:58:22.018] Server  LOG      ✓ Compiled in 40ms
+[113:58:22.060] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[113:58:22.368] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[113:58:22.648] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[113:58:22.649] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[113:58:22.649] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247413387}
+[113:58:22.649] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[113:58:35.540] Server  LOG      ✓ Compiled in 32ms
+[113:58:36.990] Server  LOG      ✓ Compiled in 29ms
+[113:58:49.848] Server  LOG      ✓ Compiled in 28ms
+[113:59:01.282] Server  LOG      ✓ Compiled in 27ms
+[113:59:31.637] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247482402}
+[113:59:35.430] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247486192}
+[113:59:37.261] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247488024}
+[113:59:40.550] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247491314}
+[113:59:43.642] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247494412}
+[113:59:45.570] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247496329}
+[113:59:51.259] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247502024}
+[113:59:59.119] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247509874}
+[114:00:05.680] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247516439}
+[114:00:09.021] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247519781}
+[114:00:11.531] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247522295}
+[114:00:15.195] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247525956}
+[114:00:17.565] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247528337}
+[114:00:23.505] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770247534264}
+[114:00:34.063] Server  LOG      ✓ Compiled in 35ms
+[114:00:51.571] Server  LOG      ✓ Compiled in 33ms
+[114:01:50.453] Server  LOG      ✓ Compiled in 45ms
+[114:02:09.898] Server  LOG      ✓ Compiled in 30ms
+[114:02:14.988] Server  LOG      ✓ Compiled in 30ms
+[114:02:15.092] Browser ERROR   ./components/buses/bus-systems-table.tsx:984:62
+Parsing ecmascript source code failed
+  982 |                           </DropdownMenuItem>
+  983 |                           <DropdownMenuItem
+> 984 |                             onClick={() => handleMaintenance(}
+      |                                                              ^
+  985 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+  986 |                           >
+  987 |                             <Wrench className="mr-2 h-4 w-4" />
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:02:20.517] Server  LOG      ✓ Compiled in 32ms
+[114:02:21.929] Server  LOG      ✓ Compiled in 29ms
+[114:02:22.032] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:54
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: boolean;
+      |                                                      ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:02:24.540] Browser ERROR   ./components/buses/bus-systems-table.tsx:986:17
+Parsing ecmascript source code failed
+  984 |                             onClick={() => handleMaintenance({
+  985 |                               is_maintenance: boolean,
+> 986 |   bus_id: string;
+      |                 ^
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+  989 |                           >
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:02:30.667] Browser ERROR   ./components/buses/bus-systems-table.tsx:986:17
+Parsing ecmascript source code failed
+  984 |                             onClick={() => handleMaintenance({
+  985 |                               is_maintenance: bus,
+> 986 |   bus_id: string;
+      |                 ^
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+  989 |                           >
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:02:32.573] Browser ERROR   ./components/buses/bus-systems-table.tsx:986:17
+Parsing ecmascript source code failed
+  984 |                             onClick={() => handleMaintenance({
+  985 |                               is_maintenance: bus,
+> 986 |   bus_id: string;
+      |                 ^
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+  989 |                           >
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:02:41.221] Server  LOG      ✓ Compiled in 34ms
+[114:02:41.323] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:49:01.771] Server  LOG      ✓ Compiled in 78ms
+[114:49:01.872] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:49:01.872] Browser ERROR   ./types/index.ts:593:11
+Parsing ecmascript source code failed
+  591 |
+  592 | {
+> 593 |   "status": true,
+      |           ^
+  594 |   "buses": {
+  595 |     "data": [
+  596 |       {
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:50:13.547] Server  LOG      ✓ Compiled in 42ms
+[114:50:13.650] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:50:13.650] Browser ERROR   ./types/index.ts:594:11
+Parsing ecmascript source code failed
+  592 |
+  593 | {
+> 594 |   "status": true,
+      |           ^
+  595 |   "buses": {
+  596 |     "data": [
+  597 |       {
+
+Expected ',', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:50:28.264] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[114:50:28.264] Browser ERROR   ./types/index.ts:594:11
+Parsing ecmascript source code failed
+  592 |
+  593 | {
+> 594 |   "status": true,
+      |           ^
+  595 |   "buses": {
+  596 |     "data": [
+  597 |       {
+
+Expected ',', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:13.415] Server  LOG      ✓ Compiled in 53ms
+[116:07:13.518] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:13.518] Browser ERROR   ./types/index.ts:591:13
+Parsing ecmascript source code failed
+  589 | };
+  590 |
+> 591 | export type Bus
+      |             ^^^
+  592 |
+  593 | {
+  594 |   "status": true,
+
+Expected '{', got 'Bus'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:25.473] Server  LOG      ✓ Compiled in 30ms
+[116:07:25.576] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:25.576] Browser ERROR   ./types/index.ts:591:13
+Parsing ecmascript source code failed
+  589 | };
+  590 |
+> 591 | export type BusPayloadResponse
+      |             ^^^^^^^^^^^^^^^^^^
+  592 |
+  593 | {
+  594 |   "status": true,
+
+Expected '{', got 'BusPayloadResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:33.342] Server  LOG      ✓ Compiled in 29ms
+[116:07:33.444] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:33.444] Browser ERROR   ./types/index.ts:591:13
+Parsing ecmascript source code failed
+  589 | };
+  590 |
+> 591 | export type BusesPayloadResponse
+      |             ^^^^^^^^^^^^^^^^^^^^
+  592 |
+  593 | {
+  594 |   "status": true,
+
+Expected '{', got 'BusesPayloadResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:35.932] Server  LOG      ✓ Compiled in 29ms
+[116:07:36.034] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:36.034] Browser ERROR   ./types/index.ts:596:11
+Parsing ecmascript source code failed
+  594 |
+  595 | {
+> 596 |   "status": true,
+      |           ^
+  597 |   "buses": {
+  598 |     "data": [
+  599 |       {
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:45.390] Server  LOG      ✓ Compiled in 33ms
+[116:07:45.492] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:48.286] Server  LOG      ✓ Compiled in 29ms
+[116:07:48.388] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:48.388] Browser ERROR   ./types/index.ts:591:13
+Parsing ecmascript source code failed
+  589 | };
+  590 |
+> 591 | export type BusesPayloadResponse = {
+      |             ^^^^^^^^^^^^^^^^^^^^
+  592 |   {
+  593 |   "status": true,
+  594 |   "buses": {
+
+Expected '{', got 'BusesPayloadResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:49.323] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:49.323] Browser ERROR   ./types/index.ts:591:13
+Parsing ecmascript source code failed
+  589 | };
+  590 |
+> 591 | export type BusesPayloadResponse = {
+      |             ^^^^^^^^^^^^^^^^^^^^
+  592 |   {
+  593 |   "status": true,
+  594 |   "buses": {
+
+Expected '{', got 'BusesPayloadResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:07:51.539] Server  LOG      ✓ Compiled in 29ms
+[116:07:51.642] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:07:57.780] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:08:40.011] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:08:41.790] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:08:47.445] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:08:50.011] Server  LOG      ✓ Compiled in 31ms
+[116:08:50.112] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:08:50.112] Browser ERROR   ./types/index.ts:350:13
+Parsing ecmascript source code failed
+  348 | };
+  349 |
+> 350 | export type Bus = {
+      |             ^^^
+  351 |   _id: string;
+  352 |   id_code: string;
+  353 |   name_label: string;
+
+Expected '{', got 'Bus'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:08:52.164] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:08:52.164] Browser ERROR   ./types/index.ts:350:13
+Parsing ecmascript source code failed
+  348 | };
+  349 |
+> 350 | export type Bus = {
+      |             ^^^
+  351 |   _id: string;
+  352 |   id_code: string;
+  353 |   name_label: string;
+
+Expected '{', got 'Bus'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:08:53.973] Server  LOG      ✓ Compiled in 29ms
+[116:08:54.075] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:24.742] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:33.769] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:39.041] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:42.157] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:50.604] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:56.552] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:09:59.463] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:02.769] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:06.500] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:14.690] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:17.984] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:34.256] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:34.634] Server  LOG      ✓ Compiled in 30ms
+[116:10:34.736] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:34.736] Browser ERROR   ./types/index.ts:350:13
+Parsing ecmascript source code failed
+  348 | };
+  349 |
+> 350 | export type Bus = {
+      |             ^^^
+  351 |   _id: string;
+  352 |   id_code: string;
+  353 |   name_label: string;
+
+Expected '{', got 'Bus'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[116:10:35.690] Server  LOG      ✓ Compiled in 28ms
+[116:10:35.792] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:48.101] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:52.153] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:54.497] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:10:59.993] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:11:00.664] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:11:12.858] Server  LOG      ✓ Compiled in 35ms
+[116:11:12.960] Browser ERROR   ./components/buses/bus-systems-table.tsx:822:35
+Parsing ecmascript source code failed
+  820 |                     <td className="p-4">
+  821 |                       <img
+> 822 |                         src={bus. || "/placeholder.svg"}
+      |                                   ^^
+  823 |                         alt={bus.name_label}
+  824 |                         className="w-16 h-10 rounded object-cover"
+  825 |                       />
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:11:17.984] Server  LOG      ✓ Compiled in 30ms
+[116:11:18.085] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:12:05.952] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:12:06.986] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:12:16.098] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:51
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.,
+      |                                                   ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:12:18.189] Server  LOG      ✓ Compiled in 33ms
+[116:12:18.292] Browser ERROR   ./components/buses/bus-systems-table.tsx:986:17
+Parsing ecmascript source code failed
+  984 |                             onClick={() => handleMaintenance({
+  985 |                               is_maintenance: bus.is_maintenance,
+> 986 |   bus_id: string;
+      |                 ^
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+  989 |                           >
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:12:22.295] Server  LOG      ✓ Compiled in 38ms
+[116:12:22.401] Browser ERROR   ./components/buses/bus-systems-table.tsx:985:70
+Parsing ecmascript source code failed
+  983 |                           <DropdownMenuItem
+  984 |                             onClick={() => handleMaintenance({
+> 985 |                               is_maintenance: bus.is_maintenance ? "",
+      |                                                                      ^
+  986 |   bus_id: string;
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:12:54.518] Server  LOG      ✓ Compiled in 35ms
+[116:12:54.621] Browser ERROR   ./components/buses/bus-systems-table.tsx:986:17
+Parsing ecmascript source code failed
+  984 |                             onClick={() => handleMaintenance({
+  985 |                               is_maintenance: bus.is_maintenance ? false : true,
+> 986 |   bus_id: string;
+      |                 ^
+  987 |                             })}
+  988 |                             className="text-orange-600 focus:text-orange-700 cursor-pointer"
+  989 |                           >
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:13:04.176] Server  LOG      ✓ Compiled in 34ms
+[116:13:18.297] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMTAwMjM4LCJleHAiOjE3NzA3MDUwMzh9.iGG8mgJsDZkzcFwmnZky2lL0G7tk1aSUPwf0aEGMQFw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1245:21)"}
+[116:13:18.297] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMTAwMjM4LCJleHAiOjE3NzA3MDUwMzh9.iGG8mgJsDZkzcFwmnZky2lL0G7tk1aSUPwf0aEGMQFw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1568:21)"}
+[116:13:18.297] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMTAwMjM4LCJleHAiOjE3NzA3MDUwMzh9.iGG8mgJsDZkzcFwmnZky2lL0G7tk1aSUPwf0aEGMQFw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1751:21)"}
+[116:13:34.304] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMTAwMjM4LCJleHAiOjE3NzA3MDUwMzh9.iGG8mgJsDZkzcFwmnZky2lL0G7tk1aSUPwf0aEGMQFw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1245:21)"}
+[116:13:34.304] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMTAwMjM4LCJleHAiOjE3NzA3MDUwMzh9.iGG8mgJsDZkzcFwmnZky2lL0G7tk1aSUPwf0aEGMQFw","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1568:21)"}
+[116:24:25.660] Server  LOG      ✓ Compiled in 45ms
+[116:24:27.262] Server  LOG      ✓ Compiled in 32ms
+[116:24:34.149] Server  LOG      ✓ Compiled in 33ms
+[116:24:40.021] Server  LOG      ✓ Compiled in 35ms
+[116:24:42.139] Server  LOG      ✓ Compiled in 73ms
+[116:24:46.084] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:24:46.084] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:25:35.544] Server  LOG      ✓ Compiled in 33ms
+[116:25:35.630] Browser ERROR   uncaughtError: ReferenceError: handleFileChange is not defined
+[116:25:36.633] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[116:25:36.891] Server  LOG      ✓ Compiled in 37ms
+[116:25:36.994] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[116:25:36.999] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770256247514}
+[116:25:37.061] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[116:25:37.222] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[116:25:37.222] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[116:25:37.222] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[116:25:37.222] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770256248001}
+[116:25:40.319] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:25:40.319] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:26:06.423] Server  LOG      ✓ Compiled in 33ms
+[116:26:44.977] Server  LOG      ✓ Compiled in 34ms
+[116:26:45.099] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[116:27:17.836] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[116:27:17.881] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[116:27:18.040] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[116:27:18.040] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[116:27:18.040] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[116:27:18.040] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770256348820}
+[116:27:22.739] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[116:27:22.739] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:27:22.739] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:27:32.560] Server  LOG      ✓ Compiled in 36ms
+[116:27:34.890] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:27:34.890] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:27:38.803] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:27:38.803] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:28:56.926] Server  LOG      ✓ Compiled in 43ms
+[116:28:57.030] Browser ERROR   ./components/buses/bus-systems-table.tsx:909:51
+Parsing ecmascript source code failed
+  907 |                                   className="text-[10px] px-1"
+  908 |                                 >
+> 909 |                                   {route ? route. : routeId}
+      |                                                   ^
+  910 |                                 </Badge>
+  911 |                               );
+  912 |                             })
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:29:06.400] Server  LOG      ✓ Compiled in 33ms
+[116:29:07.530] Server  LOG      ✓ Compiled in 31ms
+[116:29:09.211] Server  LOG      ✓ Compiled in 29ms
+[116:29:19.272] Server  LOG      ✓ Compiled in 40ms
+[116:29:35.789] Server  LOG      ✓ Compiled in 31ms
+[116:29:41.106] Server  LOG      ✓ Compiled in 29ms
+[116:29:41.200] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'code')
+[116:29:46.581] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[116:29:46.695] Server  LOG      ✓ Compiled in 30ms
+[116:29:46.780] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[116:29:46.784] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770256497462}
+[116:29:46.835] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[116:29:46.990] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[116:29:46.990] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[116:29:46.990] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[116:29:46.990] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770256497768}
+[116:29:53.647] Server  LOG      ✓ Compiled in 35ms
+[116:35:33.086] Server  LOG      ✓ Compiled in 55ms
+[116:36:51.938] Server  LOG      ✓ Compiled in 35ms
+[116:36:52.040] Browser ERROR   ./components/buses/bus-systems-table.tsx:910:51
+Parsing ecmascript source code failed
+  908 |                                   className="text-[10px] px-1"
+  909 |                                 >
+> 910 |                                   {route ? route. : "Unknown Route"}
+      |                                                   ^
+  911 |                                 </Badge>
+  912 |                               );
+  913 |                             })
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:37:21.503] Server  LOG      ✓ Compiled in 30ms
+[116:37:21.606] Browser ERROR   ./components/buses/bus-systems-table.tsx:901:58
+Parsing ecmascript source code failed
+  899 |                           ? bus.routes_assigned.map((routeId) => {
+  900 |                               const route = tripRoutes?.trip_route.data.find(
+> 901 |                                 (r) => r._id === routeId.,
+      |                                                          ^
+  902 |                               );
+  903 |
+  904 |                               return (
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:37:56.845] Server  LOG      ✓ Compiled in 36ms
+[116:38:09.397] Server  LOG      ✓ Compiled in 33ms
+[116:38:10.454] Server  LOG      ✓ Compiled in 35ms
+[116:38:45.549] Server  LOG      ✓ Compiled in 37ms
+[116:38:46.918] Server  LOG      ✓ Compiled in 36ms
+[116:38:48.854] Server  LOG      ✓ Compiled in 31ms
+[116:38:48.957] Browser ERROR   ./components/buses/bus-systems-table.tsx:901:58
+Parsing ecmascript source code failed
+  899 |                           ? bus.routes_assigned.map((routeId) => {
+  900 |                               const route = tripRoutes?.trip_route.data.find(
+> 901 |                                 (r) => r._id === routeId.,
+      |                                                          ^
+  902 |                               );
+  903 |
+  904 |                               return (
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:38:59.538] Server  LOG      ✓ Compiled in 36ms
+[116:39:44.143] Server  LOG      ✓ Compiled in 29ms
+[116:40:00.993] Server  LOG      ✓ Compiled in 36ms
+[116:40:04.957] Server  LOG      ✓ Compiled in 34ms
+[116:41:02.440] Server  LOG      ✓ Compiled in 35ms
+[116:41:07.576] Server  LOG      ✓ Compiled in 29ms
+[116:41:08.842] Server  LOG      ✓ Compiled in 34ms
+[116:41:11.554] Server  LOG      ✓ Compiled in 30ms
+[116:41:17.120] Server  LOG      ✓ Compiled in 32ms
+[116:41:18.621] Server  LOG      ✓ Compiled in 29ms
+[116:41:21.272] Server  LOG      ✓ Compiled in 29ms
+[116:41:23.145] Server  LOG      ✓ Compiled in 33ms
+[116:41:25.375] Server  LOG      ✓ Compiled in 29ms
+[116:42:44.421] Server  LOG      ✓ Compiled in 49ms
+[116:42:45.427] Server  LOG      ✓ Compiled in 30ms
+[116:42:51.574] Server  LOG      ✓ Compiled in 28ms
+[116:42:57.298] Server  LOG      ✓ Compiled in 31ms
+[116:42:59.726] Server  LOG      ✓ Compiled in 30ms
+[116:43:07.554] Server  LOG      ✓ Compiled in 30ms
+[116:43:10.664] Server  LOG      ✓ Compiled in 32ms
+[116:43:52.537] Server  LOG      ✓ Compiled in 28ms
+[116:43:54.530] Server  LOG      ✓ Compiled in 29ms
+[116:45:53.942] Server  LOG      ✓ Compiled in 44ms
+[116:45:56.059] Server  LOG      ✓ Compiled in 34ms
+[116:45:58.034] Server  LOG      ✓ Compiled in 31ms
+[116:46:05.237] Server  LOG      ✓ Compiled in 31ms
+[116:46:05.341] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:29
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                            { <Wrench className="mr-2 text-orange-600 h-4 w-4" />
+> 1077 |                             Move to Maintenance}
+       |                             ^^^^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got 'Move'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:16.328] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:29
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                            {bus.is_maintenance ?  <Wrench className="mr-2 text-orange-600 h-4 w-4" />
+> 1077 |                             Move to Maintenance}
+       |                             ^^^^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got 'Move'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:27.182] Server  LOG      ✓ Compiled in 28ms
+[116:46:27.284] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:29
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                            {bus.is_maintenance ?  <Wrench className="mr-2 text-orange-600 h-4 w-4" />
+> 1077 |                             "Move to Maintenance"}
+       |                             ^^^^^^^^^^^^^^^^^^^^^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got 'string literal (Move to Maintenance, "Move to Maintenance")'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:29.520] Server  LOG      ✓ Compiled in 28ms
+[116:46:29.622] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:50
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                            {bus.is_maintenance ?  <Wrench className="mr-2 text-orange-600 h-4 w-4" /> +
+> 1077 |                             "Move to Maintenance"}
+       |                                                  ^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:33.570] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:53
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                            {bus.is_maintenance ?  <Wrench className="mr-2 text-orange-600 h-4 w-4" /> +
+> 1077 |                             "Move to Maintenance" : }
+       |                                                     ^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:45.858] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:53
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                            {bus.is_maintenance ?   +
+> 1077 |                             "Move to Maintenance" : }
+       |                                                     ^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:47.999] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:53
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                       <Wrench className="mr-2 text-orange-600 h-4 w-4" />     {bus.is_maintenance ?   +
+> 1077 |                             "Move to Maintenance" : }
+       |                                                     ^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:46:54.538] Browser ERROR   ./components/buses/bus-systems-table.tsx:1077:53
+Parsing ecmascript source code failed
+  1075 |                           >
+  1076 |                       <Wrench className="mr-2 text-orange-600 h-4 w-4" />     {bus.is_maintenance ?   
+> 1077 |                             "Move to Maintenance" : }
+       |                                                     ^
+  1078 |                           </DropdownMenuItem>
+  1079 |                           <DropdownMenuItem
+  1080 |                             onClick={(e) => {
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:47:00.922] Server  LOG      ✓ Compiled in 29ms
+[116:47:06.320] Server  LOG      ✓ Compiled in 30ms
+[116:47:26.135] Server  LOG      ✓ Compiled in 28ms
+[116:47:28.205] Server  LOG      ✓ Compiled in 31ms
+[116:47:33.353] Server  LOG      ✓ Compiled in 29ms
+[116:47:34.586] Server  LOG      ✓ Compiled in 28ms
+[116:47:36.217] Server  LOG      ✓ Compiled in 28ms
+[116:48:23.479] Server  LOG      ✓ Compiled in 37ms
+[116:48:23.567] Browser ERROR   uncaughtError: ReferenceError: maintenanceMutation is not defined
+[116:48:46.678] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[116:48:46.788] Server  LOG      ✓ Compiled in 31ms
+[116:48:46.859] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[116:48:46.862] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770257637560}
+[116:48:46.912] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[116:48:47.097] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[116:48:47.097] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[116:48:47.097] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[116:48:47.097] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770257637877}
+[116:49:17.772] Server  LOG      ✓ Compiled in 35ms
+[116:49:20.692] Server  LOG      ✓ Compiled in 34ms
+[116:49:20.794] Browser ERROR   ./components/buses/bus-systems-table.tsx:1069:31
+Parsing ecmascript source code failed
+  1067 |                               
+  1068 |                             }
+> 1069 |                               handleMaintenance({
+       |                               ^^^^^^^^^^^^^^^^^
+  1070 |                                 is_maintenance: !bus.is_maintenance, // Succinct toggle
+  1071 |                                 bus_id: bus._id,
+  1072 |                               })
+
+Expected '</', got 'handleMaintenance'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:49:28.423] Server  LOG      ✓ Compiled in 30ms
+[116:49:34.010] Server  LOG      ✓ Compiled in 30ms
+[116:50:31.989] Server  LOG      ✓ Compiled in 72ms
+[116:50:33.810] Server  LOG      ✓ Compiled in 32ms
+[116:50:37.158] Server  LOG      ✓ Compiled in 29ms
+[116:50:37.262] Browser ERROR   ./components/buses/bus-systems-table.tsx:1073:59
+Parsing ecmascript source code failed
+  1071 |                               });
+  1072 |                             }}
+> 1073 |                             className={`text-orange-600 ${} focus:text-orange-700 cursor-pointer`}
+       |                                                           ^
+  1074 |                             disabled={maintainBusMutation.isPending} // Prevent double-clicks
+  1075 |                           >
+  1076 |                             {maintainBusMutation.isPending ? (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:50:43.281] Browser ERROR   ./components/buses/bus-systems-table.tsx:1073:82
+Parsing ecmascript source code failed
+  1071 |                               });
+  1072 |                             }}
+> 1073 |                             className={`text-orange-600 ${bus.is_maintenance ? ""} focus:text-orange-700 cursor-pointer`}
+       |                                                                                  ^
+  1074 |                             disabled={maintainBusMutation.isPending} // Prevent double-clicks
+  1075 |                           >
+  1076 |                             {maintainBusMutation.isPending ? (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:50:46.180] Browser ERROR   ./components/buses/bus-systems-table.tsx:1073:67
+Parsing ecmascript source code failed
+  1071 |                               });
+  1072 |                             }}
+> 1073 |                             className={` ${bus.is_maintenance ? ""} focus:text-orange-700 cursor-pointer`}
+       |                                                                   ^
+  1074 |                             disabled={maintainBusMutation.isPending} // Prevent double-clicks
+  1075 |                           >
+  1076 |                             {maintainBusMutation.isPending ? (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:50:48.904] Browser ERROR   ./components/buses/bus-systems-table.tsx:1073:82
+Parsing ecmascript source code failed
+  1071 |                               });
+  1072 |                             }}
+> 1073 |                             className={` ${bus.is_maintenance ? "text-orange-600"} focus:text-orange-700 cursor-pointer`}
+       |                                                                                  ^
+  1074 |                             disabled={maintainBusMutation.isPending} // Prevent double-clicks
+  1075 |                           >
+  1076 |                             {maintainBusMutation.isPending ? (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:50:52.881] Browser ERROR   ./components/buses/bus-systems-table.tsx:1073:82
+Parsing ecmascript source code failed
+  1071 |                               });
+  1072 |                             }}
+> 1073 |                             className={` ${bus.is_maintenance ? "text-orange-600"}  cursor-pointer`}
+       |                                                                                  ^
+  1074 |                             disabled={maintainBusMutation.isPending} // Prevent double-clicks
+  1075 |                           >
+  1076 |                             {maintainBusMutation.isPending ? (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:50:56.380] Browser ERROR   ./components/buses/bus-systems-table.tsx:1073:104
+Parsing ecmascript source code failed
+  1071 |                               });
+  1072 |                             }}
+> 1073 |                             className={` ${bus.is_maintenance ? "text-orange-600 focus:text-orange-700"}  cursor-pointer`}
+       |                                                                                                        ^
+  1074 |                             disabled={maintainBusMutation.isPending} // Prevent double-clicks
+  1075 |                           >
+  1076 |                             {maintainBusMutation.isPending ? (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[116:51:07.559] Server  LOG      ✓ Compiled in 28ms
+[116:51:08.771] Server  LOG      ✓ Compiled in 33ms
+[116:51:11.163] Server  LOG      ✓ Compiled in 29ms
+[116:51:15.256] Server  LOG      ✓ Compiled in 29ms
+[116:51:17.840] Server  LOG      ✓ Compiled in 30ms
+[116:51:19.377] Server  LOG      ✓ Compiled in 35ms
+[116:51:20.698] Server  LOG      ✓ Compiled in 64ms
+[116:51:58.103] Server  LOG      ✓ Compiled in 38ms
+[116:52:02.022] Server  LOG      ✓ Compiled in 32ms
+[116:52:07.050] Server  LOG      ✓ Compiled in 31ms
+[116:52:09.425] Server  LOG      ✓ Compiled in 31ms
+[116:52:35.474] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:52:35.474] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:53:25.181] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:53:25.181] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[116:55:02.369] Server  LOG      ✓ Compiled in 37ms
+[116:57:18.040] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258148815}
+[116:58:42.754] Server  LOG      ✓ Compiled in 49ms
+[116:59:21.302] Server  LOG      ✓ Compiled in 36ms
+[116:59:21.405] Browser ERROR   ./components/buses/bus-details.tsx:138:11
+Ecmascript file had an error
+  136 |   };
+  137 |
+> 138 |     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      |           ^^^^^^^^^^^^^^^^
+  139 |       const selectedFiles = e.target.files;
+  140 |       if (selectedFiles && selectedFiles.length > 0) {
+  141 |         const newFiles = Array.from(selectedFiles);
+
+the name `handleFileChange` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[116:59:52.388] Server  LOG      ✓ Compiled in 34ms
+[116:59:52.464] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading '0')
+[116:59:56.022] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[116:59:56.136] Server  LOG      ✓ Compiled in 32ms
+[116:59:56.205] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[116:59:56.221] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258306905}
+[116:59:56.275] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[116:59:56.438] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[116:59:56.438] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[116:59:56.438] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[116:59:56.438] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258307218}
+[117:03:15.091] Server  LOG      ✓ Compiled in 53ms
+[117:03:21.115] Server  LOG      ✓ Compiled in 30ms
+[117:03:23.110] Server  LOG      ✓ Compiled in 41ms
+[117:03:24.677] Server  LOG      ✓ Compiled in 30ms
+[117:03:43.950] Server  LOG      ✓ Compiled in 30ms
+[117:03:44.379] Server  LOG      ✓ Compiled in 28ms
+[117:04:15.111] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:04:15.111] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:04:43.667] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:04:43.667] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:05:12.994] Server  LOG      ✓ Compiled in 79ms
+[117:05:22.906] Server  LOG      ✓ Compiled in 31ms
+[117:05:24.110] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:05:24.110] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:06:16.879] Server  LOG      ✓ Compiled in 36ms
+[117:06:20.542] Server  LOG      ✓ Compiled in 28ms
+[117:06:38.978] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:06:38.978] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:07:35.458] Server  LOG      ✓ Compiled in 36ms
+[117:07:35.544] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[117:07:38.720] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:07:38.991] Server  LOG      ✓ Compiled in 32ms
+[117:07:39.064] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:07:39.073] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258769606}
+[117:07:39.138] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:07:39.307] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:07:39.307] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:07:39.307] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:07:39.307] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258770088}
+[117:10:50.977] Server  LOG      ✓ Compiled in 78ms
+[117:10:51.059] Browser ERROR   uncaughtError: ReferenceError: selectedPreviewImage is not defined
+[117:10:56.603] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:10:56.758] Server  LOG      ✓ Compiled in 31ms
+[117:10:56.818] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:10:56.823] Browser ERROR   uncaughtError: ReferenceError: selectedPreviewImage is not defined
+[117:10:56.823] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258967488}
+[117:10:56.869] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:10:57.012] Browser ERROR   uncaughtError: ReferenceError: selectedPreviewImage is not defined
+[117:11:21.116] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:11:21.209] Server  LOG      ✓ Compiled in 38ms
+[117:11:21.250] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:11:21.302] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:11:21.468] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:11:21.468] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:11:21.468] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:11:21.468] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770258992250}
+[117:14:34.899] Server  LOG      ✓ Compiled in 61ms
+[117:14:37.824] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:14:37.824] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:14:37.824] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:14:37.824] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:14:40.323] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:14:41.334] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:14:41.334] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:14:41.334] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:14:41.334] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:14:46.813] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:14:49.952] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:14:49.952] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:14:49.952] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:14:49.952] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:14:51.538] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:14:59.726] Server  LOG      ✓ Compiled in 31ms
+[117:15:09.713] Server  LOG      ✓ Compiled in 35ms
+[117:15:11.054] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:15:11.054] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:15:11.054] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:15:11.054] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:15:16.418] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:15:21.797] Server  LOG      ✓ Compiled in 33ms
+[117:15:53.630] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:15:53.630] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:15:53.630] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:15:53.630] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:16:41.788] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:17:59.727] Server  LOG      ✓ Compiled in 80ms
+[117:17:59.807] Browser ERROR   uncaughtError: ReferenceError: DialogPortal is not defined
+[117:18:01.346] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:18:01.573] Server  LOG      ✓ Compiled in 30ms
+[117:18:01.647] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:18:01.659] Browser ERROR   uncaughtError: ReferenceError: DialogPortal is not defined
+[117:18:01.659] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770259392232}
+[117:18:01.719] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:18:01.861] Browser ERROR   uncaughtError: ReferenceError: DialogPortal is not defined
+[117:18:04.010] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:18:04.113] Server  LOG      ✓ Compiled in 31ms
+[117:18:04.158] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:18:04.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:18:04.352] Browser ERROR   uncaughtError: ReferenceError: DialogPortal is not defined
+[117:18:10.800] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:18:10.880] Server  LOG      ✓ Compiled in 38ms
+[117:18:10.931] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:18:10.982] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:18:11.123] Browser ERROR   uncaughtError: ReferenceError: DialogOverlay is not defined
+[117:18:15.177] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:18:15.260] Server  LOG      ✓ Compiled in 54ms
+[117:18:15.294] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:18:15.380] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:18:15.606] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:18:15.606] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:18:15.606] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:18:15.606] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770259406389}
+[117:18:21.579] Server  LOG      ✓ Compiled in 55ms
+[117:18:24.041] Server  LOG      ✓ Compiled in 28ms
+[117:18:32.107] Server  LOG      ✓ Compiled in 57ms
+[117:18:33.306] Server  LOG      ✓ Compiled in 28ms
+[117:18:34.887] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:18:34.887] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:18:34.887] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:18:34.887] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:18:37.617] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:18:38.797] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:18:38.797] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:18:38.797] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:18:38.797] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:18:40.256] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:20:12.985] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:20:13.037] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:20:13.204] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:20:13.204] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:20:13.204] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:20:13.204] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770259523988}
+[117:20:15.051] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:20:15.051] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:20:15.051] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:20:15.051] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:20:16.975] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:21:52.689] Server  LOG      ✓ Compiled in 92ms
+[117:21:55.912] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:21:55.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:21:55.912] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:21:55.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:23:12.873] Server  LOG      ✓ Compiled in 32ms
+[117:23:14.157] Server  LOG      ✓ Compiled in 34ms
+[117:23:15.859] Server  LOG      ✓ Compiled in 30ms
+[117:23:17.122] Server  LOG      ✓ Compiled in 32ms
+[117:23:18.887] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:23:35.372] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:23:35.427] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:23:35.598] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:23:35.598] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:23:35.598] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:23:35.598] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770259726382}
+[117:23:36.972] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:23:36.972] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:23:36.972] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[117:23:36.972] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:23:39.304] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:23:57.438] Server  LOG      ✓ Compiled in 34ms
+[117:23:57.541] Browser ERROR   ./components/buses/bus-details.tsx:745:17
+Parsing ecmascript source code failed
+  743 |               <DialogContent className="z-10000 max-w-5xl border-none bg-transparent p-0 shadow-none outline-none">
+  744 |                 <Dia
+> 745 |                 <div className="relative w-full h-full flex items-center justify-center p-4">
+      |                 ^
+  746 |                   <img
+  747 |                     src={selectedPreviewImage || ""}
+  748 |                     alt="Enlarged bus view"
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[117:23:59.811] Browser ERROR   ./components/buses/bus-details.tsx:745:17
+Parsing ecmascript source code failed
+  743 |               <DialogContent className="z-10000 max-w-5xl border-none bg-transparent p-0 shadow-none outline-none">
+  744 |                 <Dialog
+> 745 |                 <div className="relative w-full h-full flex items-center justify-center p-4">
+      |                 ^
+  746 |                   <img
+  747 |                     src={selectedPreviewImage || ""}
+  748 |                     alt="Enlarged bus view"
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[117:24:02.033] Browser ERROR   ./components/buses/bus-details.tsx:745:17
+Parsing ecmascript source code failed
+  743 |               <DialogContent className="z-10000 max-w-5xl border-none bg-transparent p-0 shadow-none outline-none">
+  744 |                 <DialogTitle
+> 745 |                 <div className="relative w-full h-full flex items-center justify-center p-4">
+      |                 ^
+  746 |                   <img
+  747 |                     src={selectedPreviewImage || ""}
+  748 |                     alt="Enlarged bus view"
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[117:24:05.434] Server  LOG      ✓ Compiled in 28ms
+[117:24:09.110] Server  LOG      ✓ Compiled in 27ms
+[117:24:11.876] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:11.876] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:23.666] Server  LOG      ✓ Compiled in 30ms
+[117:24:47.542] Server  LOG      ✓ Compiled in 31ms
+[117:24:47.635] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:47.635] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:49.701] Server  LOG      ✓ Compiled in 37ms
+[117:24:50.678] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:24:54.218] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:54.218] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:58.685] Server  LOG      ✓ Compiled in 32ms
+[117:24:58.772] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:24:58.772] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:25:00.065] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[117:25:17.140] Server  LOG      ✓ Compiled in 27ms
+[117:25:18.496] Server  LOG      ✓ Compiled in 27ms
+[117:25:20.837] Server  LOG      ✓ Compiled in 31ms
+[117:25:24.040] Server  LOG      ✓ Compiled in 27ms
+[117:25:27.812] Server  LOG      ✓ Compiled in 32ms
+[117:25:30.066] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:25:30.066] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:25:35.905] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:25:35.905] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:25:39.616] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:25:39.616] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:29:46.446] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:29:46.446] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:32:20.233] Server  LOG      ✓ Compiled in 64ms
+[117:32:24.583] Server  LOG      ✓ Compiled in 32ms
+[117:32:24.685] Browser ERROR   ./components/buses/bus-details.tsx:256:45
+Parsing ecmascript source code failed
+  254 |                 <div className="text-center md:text-left">
+  255 |                   <p className="text-sm text-muted-foreground">
+> 256 |                     Driver Assigned {selBus.}
+      |                                             ^
+  257 |                   </p>
+  258 |
+  259 |                   <div className="flex flex-wrap gap-1">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[117:32:36.152] Server  LOG      ✓ Compiled in 29ms
+[117:32:39.254] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:32:39.254] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:33:09.841] Server  LOG      ✓ Compiled in 33ms
+[117:33:11.740] Server  LOG      ✓ Compiled in 33ms
+[117:33:11.843] Browser ERROR   ./components/buses/bus-details.tsx:118:24
+Parsing ecmascript source code failed
+  116 |         image,
+  117 |         id_code,
+> 118 |         bus_id: selBus.,
+      |                        ^
+  119 |         routes_assigned,
+  120 |         drivers_assigned,
+  121 |         name_label,
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[117:33:15.378] Server  LOG      ✓ Compiled in 31ms
+[117:33:28.573] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:33:28.573] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:33:31.051] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:33:31.051] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:33:42.617] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:33:42.618] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:35:58.687] Server  LOG      ✓ Compiled in 44ms
+[117:36:25.968] Server  LOG      ✓ Compiled in 30ms
+[117:36:33.601] Server  LOG      ✓ Compiled in 32ms
+[117:36:39.279] Server  LOG      ✓ Compiled in 41ms
+[117:36:46.599] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:36:46.600] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:36:48.009] Browser LOG     Modify Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":32,"drivers_assigned":["69663ca422d08383db588b64","697b485e0d136295bc737fea","697b437f0d136295bc737f7b"],"fuel_type":"diesel","id_code":"SSHHD3","image":[{}],"mileage":"70000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-02T03:56","to":"2027-10-05T03:56"},"plate_number":"98888444dS","routes_assigned":["6983fee69396b3962c835ace"],"status":true,"tracker_id":"EDHGHE"}
+[117:37:43.861] Server  LOG      ✓ Compiled in 33ms
+[117:37:50.267] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:37:50.267] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:37:51.709] Browser LOG     Modify Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":32,"drivers_assigned":["69663ca422d08383db588b64","697b485e0d136295bc737fea","697b437f0d136295bc737f7b"],"fuel_type":"diesel","id_code":"SSHHD3","image":[{}],"mileage":"70000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-02T03:56","to":"2027-10-05T03:56"},"plate_number":"98888444dS","routes_assigned":["6983fee69396b3962c835ace"],"status":true,"tracker_id":"EDHGHE"}
+[117:38:35.156] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:38:35.156] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[117:38:42.725] Browser LOG     Modify Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":32,"drivers_assigned":["69663ca422d08383db588b64","697b485e0d136295bc737fea","697b437f0d136295bc737f7b"],"fuel_type":"diesel","id_code":"SSHHD3","image":[{}],"mileage":"70000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-02T03:56","to":"2027-10-05T03:56"},"plate_number":"98888444dS","routes_assigned":["6983fee69396b3962c835ace"],"status":true,"tracker_id":"EDHGHE"}
+[117:53:25.534] Server  LOG      ✓ Compiled in 55ms
+[117:53:26.731] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:53:33.724] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:53:33.960] Server  LOG      ✓ Compiled in 32ms
+[117:53:34.031] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:53:34.041] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261524615}
+[117:53:34.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:53:34.438] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:53:34.438] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:53:34.438] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:53:34.438] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261525224}
+[117:53:35.073] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:53:43.765] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:53:43.927] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:53:43.927] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:53:43.927] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:53:43.927] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261534713}
+[117:53:44.860] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:54:18.787] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:54:18.871] Server  LOG      ✓ Compiled in 39ms
+[117:54:18.925] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:54:18.983] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:54:19.138] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:54:19.138] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:54:19.138] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:54:19.138] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261569924}
+[117:54:20.078] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:54:36.399] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[117:54:36.479] Server  LOG      ✓ Compiled in 34ms
+[117:54:36.513] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:54:36.562] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:54:36.725] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:54:36.725] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:54:36.725] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses/SSHHD3","route":"/app-menu/buses/[id]"}
+[117:54:36.725] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261587510}
+[117:54:37.759] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:54:44.780] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:54:44.827] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:54:45.010] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:54:45.010] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[117:54:45.010] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261595775}
+[117:54:45.010] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:54:45.010] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[117:54:45.923] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:55:04.889] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:55:04.928] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:55:05.208] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:55:05.208] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[117:55:05.208] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
+[117:55:05.208] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261615992}
+[117:55:05.208] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261615992}
+[117:55:05.208] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:55:18.320] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[117:55:18.320] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[117:55:18.320] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261629063}
+[117:55:19.100] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:56:21.202] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:56:21.300] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:56:21.519] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[117:56:21.519] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[117:56:21.519] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:56:21.519] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:56:21.519] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[117:56:21.519] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261692304}
+[117:56:22.772] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[117:56:26.526] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[117:56:26.571] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[117:56:26.714] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[117:56:26.714] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[117:56:26.714] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
+[117:56:26.714] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261697481}
+[117:56:26.714] Browser WARN    Image with src "Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[117:56:34.133] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[117:56:34.133] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[117:56:34.133] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770261704890}
+[117:56:34.713] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[118:01:47.184] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:01:47.351] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:01:47.351] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:01:47.351] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/login","route":"/login"}
+[118:01:47.351] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262018139}
+[118:01:56.890] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:01:56.890] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:01:56.890] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262027586}
+[118:01:57.889] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[118:03:47.697] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:03:47.965] Server  LOG      ✓ Compiled in 58ms
+[118:03:48.082] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:03:48.350] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:03:48.580] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:03:48.580] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:03:48.733] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:03:48.733] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:03:48.733] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:03:48.733] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262139520}
+[118:03:53.908] Server  LOG      ✓ Compiled in 35ms
+[118:04:37.736] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262188522}
+[118:04:43.937] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:04:43.937] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:04:43.937] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262194693}
+[118:14:26.952] Server  LOG      ✓ Compiled in 61ms
+[118:14:52.113] Server  LOG      ✓ Compiled in 110ms
+[118:14:52.196] Browser ERROR   uncaughtError: ReferenceError: useQuery is not defined
+[118:14:55.771] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:14:56.037] Server  LOG      ✓ Compiled in 103ms
+[118:14:56.245] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:14:56.309] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:14:56.309] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:14:56.309] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262806664}
+[118:14:56.372] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:14:56.601] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:14:56.601] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:14:56.601] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:14:56.601] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:14:56.601] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:14:56.601] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770262807390}
+[118:15:00.657] Server  LOG      ✓ Compiled in 34ms
+[118:15:05.015] Server  LOG      ✓ Compiled in 35ms
+[118:15:13.891] Server  LOG      ✓ Compiled in 34ms
+[118:15:13.994] Browser ERROR   ./api/user/index.ts:85:14
+Ecmascript file had an error
+  83 | };
+  84 |
+> 85 | export const getOnsiteDrivers = async (): Promise<StaffDashboardStats> => {
+     |              ^^^^^^^^^^^^^^^^
+  86 |   try {
+  87 |     const res = await api.get("/api/users/admin/onsite-drivers/total");
+  88 |     return res.data;
+
+the name `getOnsiteDrivers` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/user/index.ts [Client Component Browser]
+    ./components/dashboard/dashboard-drivers.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/user/index.ts [Client Component SSR]
+    ./components/dashboard/dashboard-drivers.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[118:15:32.288] Server  LOG      ✓ Compiled in 29ms
+[118:15:55.867] Browser ERROR   ./types/index.ts:244:1
+Parsing ecmascript source code failed
+  242 | export type 
+  243 |
+> 244 | export type CustomerDashboardStats = {
+      | ^^^^^^
+  245 |   status: boolean;
+  246 |   customers: DashboardStats[];
+  247 | };
+
+Expected '{', got 'export'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:15:59.954] Browser ERROR   ./types/index.ts:242:13
+Parsing ecmascript source code failed
+  240 | };
+  241 |
+> 242 | export type Onsite
+      |             ^^^^^^
+  243 |
+  244 | export type CustomerDashboardStats = {
+  245 |   status: boolean;
+
+Expected '{', got 'Onsite'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:16:09.941] Server  LOG      ✓ Compiled in 27ms
+[118:16:17.343] Browser ERROR   ./types/index.ts:242:13
+Parsing ecmascript source code failed
+  240 | };
+  241 |
+> 242 | export type OnsiteDriverData = {
+      |             ^^^^^^^^^^^^^^^^
+  243 |   {
+  244 |   "status": true,
+  245 |   "staffs": {
+
+Expected '{', got 'OnsiteDriverData'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:16:19.592] Browser ERROR   ./types/index.ts:285:1
+Parsing ecmascript source code failed
+  283 |   }
+  284 | }
+> 285 | }
+      | ^
+  286 |
+  287 | export type CustomerDashboardStats = {
+  288 |   status: boolean;
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:16:20.372] Server  LOG      ✓ Compiled in 28ms
+[118:17:44.502] Server  LOG      ✓ Compiled in 31ms
+[118:17:46.911] Server  LOG      ✓ Compiled in 33ms
+[118:18:32.879] Server  LOG      ✓ Compiled in 29ms
+[118:18:35.517] Server  LOG      ✓ Compiled in 33ms
+[118:19:55.841] Server  LOG      ✓ Compiled in 31ms
+[118:19:55.950] Browser ERROR   uncaughtError: TypeError: data.map is not a function
+[118:19:59.295] Server  LOG      ✓ Compiled in 31ms
+[118:19:59.397] Browser ERROR   ./components/dashboard/dashboard-drivers.tsx:104:18
+Parsing ecmascript source code failed
+  102 |         {activeFilter === "drivers"
+  103 |           ? // Render Drivers
+> 104 |             data..map((driver) => (
+      |                  ^
+  105 |               <div
+  106 |                 key={driver.id}
+  107 |                 className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-drivers.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-drivers.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[118:20:01.070] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:01.378] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:20:01.425] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:01.425] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:01.425] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263111965}
+[118:20:01.489] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:01.683] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:01.683] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:01.683] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:01.683] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:01.683] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:01.683] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263112471}
+[118:20:02.124] Server  LOG      ✓ Compiled in 31ms
+[118:20:02.227] Browser ERROR   ./components/dashboard/dashboard-drivers.tsx:104:26
+Parsing ecmascript source code failed
+  102 |         {activeFilter === "drivers"
+  103 |           ? // Render Drivers
+> 104 |             data?.staffs..map((driver) => (
+      |                          ^
+  105 |               <div
+  106 |                 key={driver.id}
+  107 |                 className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-drivers.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-drivers.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[118:20:03.003] Browser ERROR   uncaughtError: TypeError: data?.staffs.map is not a function
+[118:20:03.520] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:03.660] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:20:03.751] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:03.933] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:03.933] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:03.933] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:03.933] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:03.933] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:03.933] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263114722}
+[118:20:04.533] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'charAt')
+[118:20:04.752] Server  LOG      ✓ Compiled in 30ms
+[118:20:04.855] Browser ERROR   ./components/dashboard/dashboard-drivers.tsx:104:31
+Parsing ecmascript source code failed
+  102 |         {activeFilter === "drivers"
+  103 |           ? // Render Drivers
+> 104 |             data?.staffs.data..map((driver) => (
+      |                               ^
+  105 |               <div
+  106 |                 key={driver.id}
+  107 |                 className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-drivers.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-drivers.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./app/(dashboard)/dashboard/page.tsx [Server Component]
+[118:20:05.884] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:05.942] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:06.129] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:06.129] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:06.129] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:06.129] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:06.129] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263116917}
+[118:20:06.129] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:06.931] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'charAt')
+[118:20:11.470] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:11.536] Server  LOG      ✓ Compiled in 29ms
+[118:20:11.600] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:20:11.690] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:11.913] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:11.913] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:11.913] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:11.913] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:11.913] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:11.913] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263122701}
+[118:20:13.521] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'charAt')
+[118:20:20.062] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:20.129] Server  LOG      ✓ Compiled in 31ms
+[118:20:20.187] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:20:20.286] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:20.474] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:20.474] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:20.474] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:20.474] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:20.474] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263131262}
+[118:20:20.474] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:22.056] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'charAt')
+[118:20:24.377] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:24.438] Server  LOG      ✓ Compiled in 29ms
+[118:20:24.502] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:20:24.678] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:24.868] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:24.868] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:24.868] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:24.868] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:24.868] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:24.868] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263135657}
+[118:20:25.484] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'charAt')
+[118:20:30.826] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:20:30.893] Server  LOG      ✓ Compiled in 28ms
+[118:20:30.949] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:20:31.033] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:20:31.222] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:31.222] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:20:31.222] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:20:31.222] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:20:31.222] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[118:20:31.222] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263142010}
+[118:20:34.344] Server  LOG      ✓ Compiled in 27ms
+[118:20:42.132] Server  LOG      ✓ Compiled in 30ms
+[118:20:53.500] Server  LOG      ✓ Compiled in 38ms
+[118:20:53.560] Server  LOG      ✓ Compiled in 28ms
+[118:20:59.307] Server  LOG      ✓ Compiled in 28ms
+[118:21:39.393] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263210180}
+[118:21:50.775] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:21:50.775] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[118:21:50.775] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263221537}

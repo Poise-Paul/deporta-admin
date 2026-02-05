@@ -1,6 +1,7 @@
 import {
   CustomerDashboardStats,
   CustomerListResponse,
+  OnsiteDriverDataResponse,
   StaffDashboardStats,
   StaffListResponse,
   UserDataResponse,
@@ -79,6 +80,17 @@ export const getOnsiteDrivers = async (): Promise<StaffDashboardStats> => {
     console.error("Fetch Onsite Drivers Error:", error);
     // Return a default structure
     return { data: [], total: 0 } as unknown as StaffDashboardStats;
+  }
+};
+
+export const getOnsiteData = async (): Promise<OnsiteDriverDataResponse> => {
+  try {
+    const res = await api.get("/api/users/admin/drivers/onsite");
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Onsite Drivers Error:", error);
+    // Return a default structure
+    return { data: [], total: 0 } as unknown as OnsiteDriverDataResponse;
   }
 };
 

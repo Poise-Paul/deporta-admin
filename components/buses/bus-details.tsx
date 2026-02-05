@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Plus, X } from "lucide-react";
+import { Edit, Loader2, Plus, Upload, X } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { getStaffList } from "@/api/user";
@@ -23,6 +23,8 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
+  DialogOverlay,
+  DialogPortal,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
@@ -48,6 +50,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
 
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
 
+  const [selectedPreviewImage, setSelectedPreviewImage] = useState<
+    string | null
+  >(null);
+
   const [holdBtn, setHoldBtn] = useState(true);
   const { data: staffData, refetch: refetchStaffs } = useQuery({
     queryKey: ["staffs"],
@@ -57,7 +63,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
 
   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
     defaultValues: {
-      imageUrl: selBus?.bus_photo,
+      imageUrl: selBus?.bus_photos,
       bus_id: selBus?._id,
       id_code: selBus?.id_code,
       name_label: selBus?.name_label,
@@ -101,15 +107,30 @@ export function BusDetails({ busId }: BusDetailsProps) {
     fuel_type,
     tracker_id,
     mileage,
-    bus_id,
   } = handleWatch;
 
   const handleModifyBus = () => {
+    console.log("Modify Bus Data", {
+      image,
+      id_code,
+      bus_id: selBus?._id || "",
+      routes_assigned,
+      drivers_assigned,
+      name_label,
+      plate_number,
+      capacity: Number(capacity),
+      operation_schedule,
+      status,
+      fuel_type,
+      tracker_id,
+      mileage,
+    });
+    
     modifyBusMutation.mutate(
       {
         image,
         id_code,
-        bus_id: busId,
+        bus_id: selBus?._id || "",
         routes_assigned,
         drivers_assigned,
         name_label,
@@ -123,15 +144,28 @@ export function BusDetails({ busId }: BusDetailsProps) {
       },
       {
         onSettled: () => setIsDialogueOpen(false),
-      }
+      },
     );
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setValue("image", file); // File for upload
-      setValue("imageUrl", URL.createObjectURL(file)); // Preview URL for display
+    const selectedFiles = e.target.files;
+    if (selectedFiles && selectedFiles.length > 0) {
+      const newFiles = Array.from(selectedFiles);
+
+      // 1. Get existing files/urls from form state to append to them
+      const existingFiles = watch("image") || [];
+      const existingUrls = watch("imageUrl") || [];
+
+      // 2. Create new preview URLs
+      const newUrls = newFiles.map((file) => URL.createObjectURL(file));
+
+      // 3. Update State (Appending new to old)
+      setValue("image", [...existingFiles, ...newFiles]);
+      setValue("imageUrl", [
+        ...(Array.isArray(existingUrls) ? existingUrls : [existingUrls]),
+        ...newUrls,
+      ]);
     }
   };
 
@@ -203,7 +237,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
             {/* Bus Image */}
             <div className="shrink-0">
               <img
-                src={selBus?.bus_photo}
+                src={selBus?.bus_photos[0]}
                 alt={selBus?.name_label}
                 className="w-full md:w-64 h-40 rounded-lg object-cover"
               />
@@ -215,10 +249,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
                 <div className="flex -space-x-2">
                   {selBus.drivers_assigned?.length > 0
                     ? selBus.drivers_assigned.map((routeId, key) => {
-                        const driver = staffData?.staffs.data.find(
+                        const driver = staffData?.staffs?.data.find(
                           (r) =>
                             r.user_type.type_id.role === "driver" &&
-                            r._id === routeId
+                            r._id === routeId,
                         );
                         return (
                           <Avatar
@@ -240,10 +274,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
                   <div className="flex flex-wrap gap-1">
                     {selBus.drivers_assigned?.length > 0
                       ? selBus.drivers_assigned.map((routeId) => {
-                          const driver = staffData?.staffs.data.find(
+                          const driver = staffData?.staffs?.data.find(
                             (r) =>
                               r.user_type.type_id.role === "driver" &&
-                              r._id === routeId
+                              r._id === routeId,
                           );
                           return (
                             <Badge
@@ -268,7 +302,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
               <Dialog open={isDialogueOpen} onOpenChange={setIsDialogueOpen}>
                 <DialogTrigger asChild>
                   <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                    <Plus className="h-4 w-4" />
+                    <Edit className="h-4 w-4" />
                     Update Bus
                   </Button>
                 </DialogTrigger>
@@ -277,30 +311,56 @@ export function BusDetails({ busId }: BusDetailsProps) {
                     <DialogTitle>Edit Bus System</DialogTitle>
                   </DialogHeader>
                   <div className="space-y-4 py-4">
-                    <div>
-                      <Label>Bus Image</Label>{" "}
-                      <div className="w-20 h-20 mt-2 rounded-lg overflow-hidden border">
-                        <Avatar className="h-20 w-20">
-                          <AvatarImage
-                            className="object-cover h-20 w-20"
-                            src={
-                              imageUrl ||
-                              "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png"
-                            }
-                            alt="profile_img"
+                    <div className="space-y-3">
+                      <Label>Bus Images (Multiple)</Label>
+                      <div className="flex flex-wrap gap-3 mt-2">
+                        {Array.isArray(imageUrl) &&
+                          imageUrl.map((url, index) => (
+                            <div
+                              key={index}
+                              className="relative w-20 h-20 rounded-lg border overflow-hidden group"
+                            >
+                              <img
+                                src={url}
+                                className="object-cover w-full h-full"
+                                alt={`bus-preview-${index}`}
+                              />
+                              {/* Remove button to clear specific image */}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const updatedUrls = imageUrl.filter(
+                                    (_, i) => i !== index,
+                                  );
+                                  const updatedFiles = (
+                                    watch("image") || []
+                                  ).filter((_, i) => i !== index);
+                                  setValue("imageUrl", updatedUrls);
+                                  setValue("image", updatedFiles);
+                                }}
+                                className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                              >
+                                <X className="h-3 w-3" />
+                              </button>
+                            </div>
+                          ))}
+
+                        {/* The "Add More" box if no images yet or to keep the input visible */}
+                        <label className="w-20 h-20 flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                          <Plus className="h-6 w-6 text-muted-foreground" />
+                          <input
+                            type="file"
+                            multiple
+                            className="hidden"
+                            accept="image/*"
+                            onChange={handleFileChange}
                           />
-                          <AvatarFallback className="">
-                            Bus Image
-                          </AvatarFallback>
-                        </Avatar>
+                        </label>
                       </div>
-                      <Input
-                        type="file"
-                        className="mt-2"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                      />
                     </div>
+
+                    {/* End Image */}
+
                     <div className="grid gap-4 grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="name">Enter BUS CODE</Label>
@@ -338,7 +398,8 @@ export function BusDetails({ busId }: BusDetailsProps) {
                           <SelectContent>
                             {tripRoutes?.trip_route.data
                               .filter(
-                                (d) => !watch("routes_assigned").includes(d._id)
+                                (d) =>
+                                  !watch("routes_assigned").includes(d._id),
                               ) // Hide already selected
                               .map((route) => (
                                 <SelectItem key={route._id} value={route._id}>
@@ -354,7 +415,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                             .filter((id) => id !== "")
                             .map((driverId) => {
                               const route = tripRoutes?.trip_route.data.find(
-                                (d: RouteData) => d._id === driverId
+                                (d: RouteData) => d._id === driverId,
                               );
                               return (
                                 <Badge
@@ -369,7 +430,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                                       const current = watch("routes_assigned");
                                       setValue(
                                         "routes_assigned",
-                                        current.filter((id) => id !== driverId)
+                                        current.filter((id) => id !== driverId),
                                       );
                                     }}
                                     className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
@@ -401,7 +462,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                               .filter(
                                 (d) =>
                                   d.user_type.type_id.role === "driver" &&
-                                  !watch("drivers_assigned").includes(d._id)
+                                  !watch("drivers_assigned").includes(d._id),
                               )
                               .map((driver) => (
                                 <SelectItem key={driver._id} value={driver._id}>
@@ -417,7 +478,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                             .filter((id) => id !== "")
                             .map((driverId) => {
                               const driver = staffData?.staffs.data.find(
-                                (d: StaffData) => d._id === driverId
+                                (d: StaffData) => d._id === driverId,
                               );
                               return (
                                 <Badge
@@ -432,7 +493,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                                       const current = watch("drivers_assigned");
                                       setValue(
                                         "drivers_assigned",
-                                        current.filter((id) => id !== driverId)
+                                        current.filter((id) => id !== driverId),
                                       );
                                     }}
                                     className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
@@ -608,7 +669,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                   {selBus?.routes_assigned?.length > 0
                     ? selBus?.routes_assigned.map((routeId) => {
                         const route = tripRoutes?.trip_route.data.find(
-                          (r) => r._id === routeId
+                          (r) => r._id === routeId,
                         );
                         return (
                           <Badge
@@ -636,7 +697,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                       const driver = staffData?.staffs.data.find(
                         (r) =>
                           r.user_type.type_id.role === "driver" &&
-                          r._id === routeId
+                          r._id === routeId,
                       );
                       return (
                         <Badge
@@ -672,16 +733,49 @@ export function BusDetails({ busId }: BusDetailsProps) {
               </span>
             </p>
             <div className="grid grid-cols-2 gap-3">
-              {bus.images.map((image, index) => (
+              {selBus?.bus_photos.map((image, index) => (
                 <img
                   key={index}
                   src={image || "/placeholder.svg"}
                   alt={`Bus image ${index + 1}`}
+                  onClick={() => setSelectedPreviewImage(image)}
                   className="w-full h-24 rounded-lg object-cover cursor-pointer hover:opacity-80 transition-opacity"
                 />
               ))}
             </div>
           </div>
+
+          {/* Image Viewer */}
+          <Dialog
+            open={!!selectedPreviewImage}
+            onOpenChange={() => setSelectedPreviewImage(null)}
+          >
+            {/* The Portal moves the modal to the bottom of <body>, escaping the Card's layout */}
+            <DialogPortal>
+              {/* Overlay with a very high z-index */}
+              <DialogOverlay className="z-9999 bg-black/90 backdrop-blur-sm" />
+
+              <DialogContent className="z-10000 max-w-5xl border-none bg-transparent p-0 shadow-none outline-none">
+                <DialogTitle className="text-white">Bus Image</DialogTitle>
+                <div className="relative w-full h-full flex items-center justify-center p-4">
+                  <img
+                    src={selectedPreviewImage || "/placeholder.svg"}
+                    alt="Enlarged bus view"
+                    className="max-h-[90vh] max-w-full rounded-lg object-contain shadow-2xl"
+                  />
+
+                  {/* Improved Close Button for better visibility on dark backgrounds */}
+                  <button
+                    onClick={() => setSelectedPreviewImage(null)}
+                    className="absolute top-0 -right-12 text-white/70 hover:text-white transition-colors"
+                    aria-label="Close"
+                  >
+                    <X className="h-10 w-10" />
+                  </button>
+                </div>
+              </DialogContent>
+            </DialogPortal>
+          </Dialog>
         </CardContent>
       </Card>
 

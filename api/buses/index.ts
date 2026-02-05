@@ -16,6 +16,11 @@ export interface BusStatusType {
   bus_id: string;
 }
 
+export interface MaintainancePayload {
+  is_maintenance: boolean;
+  bus_id: string;
+}
+
 export const getAllBuses = async (): Promise<BusesResponse> => {
   try {
     const res = await api.get("/api/users/admin/bus/get");
@@ -133,8 +138,16 @@ export const useModifyBuses = () => {
       formData.append("name_label", data.name_label);
       formData.append("plate_number", data.plate_number);
       formData.append("capacity", `${data.capacity}`);
-      formData.append("operation_schedule[from]", data.operation_schedule.from);
-      formData.append("operation_schedule[to]", data.operation_schedule.to);
+      formData.append(
+        "operation_schedule",
+        JSON.stringify({
+          from: data.operation_schedule.from,
+          to: data.operation_schedule.to,
+        }),
+      );
+
+      // formData.append("operation_schedule[from]", data.operation_schedule.from);
+      // formData.append("operation_schedule[to]", data.operation_schedule.to);
 
       // Convert boolean to string "true" or "false"
       formData.append("status", String(data.status));
@@ -170,12 +183,33 @@ export const useModifyBuses = () => {
   });
 };
 
-
 export const useBusStatus = () => {
   return useMutation({
     mutationFn: async (data: BusStatusType) => {
+      const res = await api.patch(`/api/users/admin/bus/change/status`, data);
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["buses"] });
+      toast.success("Updated Successfully");
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const useBusMaintenanceStatus = () => {
+  return useMutation({
+    mutationFn: async (data: MaintainancePayload) => {
       const res = await api.patch(
-        `/api/users/admin/bus/change/status`,
+        `/api/users/admin/bus/change/maintenance`,
         data,
       );
       return res.data;

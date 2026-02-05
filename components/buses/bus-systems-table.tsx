@@ -49,6 +49,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import {
   BusStatusType,
   getAllBuses,
+  MaintainancePayload,
+  useBusMaintenanceStatus,
   useBusStatus,
   useCreateBus,
   useDeleteBus,
@@ -69,7 +71,7 @@ const tabs: { id: BusTab; label: string }[] = [
   { id: "all", label: "All Buses" },
   { id: "active", label: "Active" },
   { id: "inactive", label: "Inactive" },
-  { id: "maintenance", label: "In Maintenance" },
+  { id: "maintenance", label: "Under Maintenance" },
 ];
 
 export function BusSystemsTable() {
@@ -105,10 +107,23 @@ export function BusSystemsTable() {
   const handleWatch = watch();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setValue("image", file); // File for upload
-      setValue("imageUrl", URL.createObjectURL(file)); // Preview URL for display
+    const selectedFiles = e.target.files;
+    if (selectedFiles && selectedFiles.length > 0) {
+      const newFiles = Array.from(selectedFiles);
+
+      // 1. Get existing files/urls from form state to append to them
+      const existingFiles = watch("image") || [];
+      const existingUrls = watch("imageUrl") || [];
+
+      // 2. Create new preview URLs
+      const newUrls = newFiles.map((file) => URL.createObjectURL(file));
+
+      // 3. Update State (Appending new to old)
+      setValue("image", [...existingFiles, ...newFiles]);
+      setValue("imageUrl", [
+        ...(Array.isArray(existingUrls) ? existingUrls : [existingUrls]),
+        ...newUrls,
+      ]);
     }
   };
 
@@ -265,7 +280,7 @@ export function BusSystemsTable() {
     } else if (activeTab === "inactive") {
       filtered = filtered.filter((s) => !s.status);
     } else if (activeTab === "maintenance") {
-      filtered = filtered.filter((s) => s.status);
+      filtered = filtered.filter((s) => s.is_maintenance);
     }
 
     // Role Logic
@@ -291,19 +306,19 @@ export function BusSystemsTable() {
   }, [searchQuery, activeTab]);
 
   const deleteBusMitation = useDeleteBus();
+  const maintainBusMutation = useBusMaintenanceStatus();
 
   const handleDelBus = (busId: string) => {
     deleteBusMitation.mutate(busId, {
       onSuccess: () => refetch(),
     });
   };
-    const handleMaintenance = (busId: string) => {
-      console.log("Bus", busId);
-      
-      // deleteBusMitation.mutate(busId, {
-      //   onSuccess: () => refetch(),
-      // });
-    };
+
+  const handleMaintenance = (data: MaintainancePayload) => {
+    maintainBusMutation.mutate(data, {
+      onSuccess: () => refetch(),
+    });
+  };
 
   // Table Loader
   const TableRowSkeleton = () => (
@@ -435,7 +450,7 @@ export function BusSystemsTable() {
                   </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
-                  <div>
+                  {/* <div>
                     <Label>
                       Bus Image <span className="text-destructive">*</span>
                     </Label>
@@ -458,7 +473,59 @@ export function BusSystemsTable() {
                       accept="image/*"
                       onChange={handleFileChange}
                     />
+                  </div> */}
+                  {/* Add New Bus Images */}
+                  <div className="space-y-3">
+                    <Label>Bus Images (Multiple)</Label>
+
+                    <div className="flex flex-wrap gap-3 mt-2">
+                      {Array.isArray(imageUrl) &&
+                        imageUrl.map((url, index) => (
+                          <div
+                            key={index}
+                            className="relative w-20 h-20 rounded-lg border overflow-hidden group"
+                          >
+                            <img
+                              src={url}
+                              className="object-cover w-full h-full"
+                              alt={`bus-preview-${index}`}
+                            />
+                            {/* Remove button to clear specific image */}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const updatedUrls = imageUrl.filter(
+                                  (_, i) => i !== index,
+                                );
+                                const updatedFiles = (
+                                  watch("image") || []
+                                ).filter((_, i) => i !== index);
+                                setValue("imageUrl", updatedUrls);
+                                setValue("image", updatedFiles);
+                              }}
+                              className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                            >
+                              <X className="h-3 w-3" />
+                            </button>
+                          </div>
+                        ))}
+
+                      {/* The "Add More" box if no images yet or to keep the input visible */}
+                      <label className="w-20 h-20 flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted transition-colors">
+                        <Plus className="h-6 w-6 text-muted-foreground" />
+                        <input
+                          type="file"
+                          multiple
+                          className="hidden"
+                          accept="image/*"
+                          onChange={handleFileChange}
+                        />
+                      </label>
+                    </div>
                   </div>
+
+                  {/* End Bus Images */}
+
                   <div className="grid gap-4 grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="name">
@@ -503,7 +570,7 @@ export function BusSystemsTable() {
                           {tripRoutes?.trip_route.data
                             .filter(
                               (d) => !watch("routes_assigned").includes(d._id),
-                            ) // Hide already selected
+                            )
                             .map((route) => (
                               <SelectItem key={route._id} value={route._id}>
                                 {route.code}
@@ -797,6 +864,9 @@ export function BusSystemsTable() {
                   Driver(s) Assigned
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Maintenance
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Status
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
@@ -817,7 +887,7 @@ export function BusSystemsTable() {
                   >
                     <td className="p-4">
                       <img
-                        src={bus.bus_photo || "/placeholder.svg"}
+                        src={bus.bus_photos[0] || "/placeholder.svg"}
                         alt={bus.name_label}
                         className="w-16 h-10 rounded object-cover"
                       />
@@ -833,13 +903,14 @@ export function BusSystemsTable() {
                               const route = tripRoutes?.trip_route.data.find(
                                 (r) => r._id === routeId,
                               );
+
                               return (
                                 <Badge
                                   key={routeId}
                                   variant="outline"
                                   className="text-[10px] px-1"
                                 >
-                                  {route ? route.code : routeId}
+                                  {route ? route.code : "Unknown Route"}
                                 </Badge>
                               );
                             })
@@ -872,6 +943,19 @@ export function BusSystemsTable() {
                             })
                           : "No Drivers Assigned"}
                       </div>
+                    </td>
+                    <td className="p-4">
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          bus.is_maintenance
+                            ? "border-yellow-500 text-yellow-600 bg-yellow-50"
+                            : "border-green-500 text-green-600 bg-green-50",
+                        )}
+                      >
+                        {bus.is_maintenance ? "Maintenance" : "Okay"}
+                      </Badge>
                     </td>
                     <td className="p-4">
                       <Badge
@@ -920,7 +1004,7 @@ export function BusSystemsTable() {
 
                               setBusId(bus._id);
                               setEditMode(true);
-                              setValue("imageUrl", bus.bus_photo);
+                              setValue("imageUrl", bus.bus_photos);
                               setValue("bus_id", bus._id);
                               setValue("id_code", bus.id_code);
                               setValue("name_label", bus.name_label);
@@ -979,11 +1063,25 @@ export function BusSystemsTable() {
                               : "Activate"}
                           </DropdownMenuItem>
                           <DropdownMenuItem
-                            onClick={() => handleMaintenance(bus._id)}
-                            className="text-orange-600 focus:text-orange-700 cursor-pointer"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleMaintenance({
+                                is_maintenance: !bus.is_maintenance,
+                                bus_id: bus._id,
+                              });
+                            }}
+                            className={` ${bus.is_maintenance ? "text-green-600 focus:text-green-700" : "text-orange-600 focus:text-orange-700"}  cursor-pointer`}
+                            disabled={maintainBusMutation.isPending}
                           >
-                            <Wrench className="mr-2 h-4 w-4" />
-                            Move to Maintenance
+                            {maintainBusMutation.isPending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <Wrench className="mr-2 h-4 w-4" />
+                            )}
+
+                            {bus.is_maintenance
+                              ? "Back to Service"
+                              : "Move to Maintenance"}
                           </DropdownMenuItem>
                           <DropdownMenuItem
                             onClick={(e) => {

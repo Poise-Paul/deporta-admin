@@ -79,8 +79,8 @@ export type AddBusStopPayload = {
 };
 
 export type AddBusPayload = {
-  image?: File | null;
-  imageUrl?: string | undefined;
+  image?: File[] | null;
+  imageUrl?: string[] | string | undefined;
   id_code: string;
   name_label: string;
   routes_assigned: string[];
@@ -99,8 +99,8 @@ export type AddBusPayload = {
 };
 
 export type EditBusPayload = {
-  image?: File | null;
-  imageUrl?: string | undefined;
+  image?: File[] | null;
+  imageUrl?: string[] | string | undefined;
   bus_id: string;
   id_code: string;
   name_label: string;
@@ -239,6 +239,14 @@ export type StaffDashboardStats = {
   staffs: DashboardStats[];
 };
 
+export type OnsiteDriverDataResponse = {
+  status: boolean;
+  staffs: {
+    data: DriverData[];
+    pagination: Pagination;
+  };
+};
+
 export type CustomerDashboardStats = {
   status: boolean;
   customers: DashboardStats[];
@@ -348,27 +356,28 @@ export type Driver = {
 };
 
 export type Bus = {
+  operation_schedule: {
+    from: string;
+    to: string;
+  };
   _id: string;
   id_code: string;
   name_label: string;
   routes_assigned: string[];
   plate_number: string;
   capacity: number;
-  bus_photo: string;
-  operation_schedule: {
-    from: string;
-    to: string;
-  };
+  bus_photos: string[];
   drivers_assigned: string[];
   added_by: NormalStaffData;
   status: string;
   fuel_type: string;
   tracker_id: string;
   mileage: string;
-  outsourcing: boolean;
+  outsourcing: true;
   createdAt: string;
   updatedAt: string;
   __v: number;
+  is_maintenance: boolean;
 };
 
 export type BusesResponse = {

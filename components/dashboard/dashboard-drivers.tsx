@@ -1,35 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { MoreVertical, Truck } from "lucide-react";
 import Link from "next/link";
 import { OnSiteFilter } from "./onsite-filters";
 import { useState } from "react";
-
-const drivers = [
-  {
-    id: 1,
-    name: "Korede Agbaje",
-    email: "davidkolawole@gmail.com",
-    joinedDate: "14 March, 2025",
-    avatar: "/african-driver-man.jpg",
-  },
-  {
-    id: 2,
-    name: "Davies Frank",
-    email: "daviesfrank@gmail.com",
-    joinedDate: "18 March, 2025",
-    avatar: "/man-driver-professional.jpg",
-  },
-  {
-    id: 3,
-    name: "Collins Davies",
-    email: "collinsdavies@gmail.com",
-    joinedDate: "20 April, 2025",
-    avatar: "/young-man-casual-portrait.png",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getOnsiteData } from "@/api/user";
 
 // Onsite Buses
 const buses = [
@@ -51,6 +28,19 @@ const buses = [
 
 export function DashboardDrivers() {
   const [activeFilter, setActiveFilter] = useState("drivers");
+
+  // get the current user
+  const {
+    data,
+    error,
+    refetch: refetchStaffs,
+    isRefetching,
+    isLoading: staffLoader,
+  } = useQuery({
+    queryKey: ["staffs"],
+    retry: false,
+    queryFn: () => getOnsiteData(),
+  });
 
   return (
     <Card className="bg-card border border-border h-full">
@@ -86,25 +76,25 @@ export function DashboardDrivers() {
         ))} */}
         {activeFilter === "drivers"
           ? // Render Drivers
-            drivers.map((driver) => (
+            data?.staffs.data.map((driver) => (
               <div
-                key={driver.id}
+                key={driver._id}
                 className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
               >
                 <Avatar className="h-10 w-10">
                   <AvatarImage
-                    src={driver.avatar || "/placeholder.svg"}
-                    alt={driver.name}
+                    src={driver.profile_image || "/placeholder.svg"}
+                    alt={driver.first_name}
                   />
-                  <AvatarFallback>{driver.name.charAt(0)}</AvatarFallback>
+                  <AvatarFallback>{driver.first_name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-sm">{driver.name}</p>
+                  <p className="font-medium text-sm">{driver.first_name}</p>
                   <p className="text-xs text-muted-foreground truncate">
                     {driver.email}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Joined: {driver.joinedDate}
+                    Joined: {driver.createdAt}
                   </p>
                 </div>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
