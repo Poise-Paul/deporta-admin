@@ -32,6 +32,14 @@ export const getAllBusStops = async (): Promise<BusStopData> => {
 export const useCreateBusStop = () => {
   return useMutation({
     mutationFn: async (data: AddBusStopPayload) => {
+      console.log("Added Bus Stop", {
+        routes: data.routes,
+        location: data.location,
+        area: data.area,
+        state: data.state,
+        country: data.country,
+      });
+
       const res = await api.post("/api/users/admin/bus-stop/create", {
         routes: data.routes,
         location: data.location,

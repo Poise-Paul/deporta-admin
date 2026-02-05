@@ -138,9 +138,18 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
                 <div className="space-y-2">
                   <Label htmlFor="location">Enter Location</Label>
                   <Input
-                    id="location"
-                    {...register("location")}
-                    placeholder="Enter Location"
+                    id="edit-location"
+                    placeholder="e.g. Lekki Phase 1"
+                    // Bind specifically to the name string property
+                    value={watch("location.value") ?? ""}
+                    onChange={(e) => {
+                      // Update the object manually to satisfy the EntryPoint type
+                      setValue("location", {
+                        value: e.target.value,
+                        longitude: 0,
+                        latitude: 0,
+                      });
+                    }}
                   />
                 </div>
                 <div className="space-y-2">
@@ -173,6 +182,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
                   <Label htmlFor="state">Country</Label>
                   <Input
                     id="country"
+                    disabled
                     {...register("country")}
                     defaultValue={"Nigeria"}
                     placeholder="Enter country"
@@ -222,7 +232,9 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
                 <MapPin className="h-10 w-10" />
               </div>
               <h2 className="text-xl font-bold px-4">{selBusStop?.routes}</h2>
-              <h2 className="text-xl font-bold px-4">{selBusStop?.location}</h2>
+              <h2 className="text-xl font-bold px-4">
+                {selBusStop?.location.value}
+              </h2>
               <p className="text-muted-foreground text-sm mb-4">
                 {selBusStop?.area}
               </p>
@@ -231,7 +243,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
                 className={cn(
                   isActive
                     ? "border-green-500 text-green-600 bg-green-50"
-                    : "border-orange-500 text-orange-600 bg-orange-50"
+                    : "border-orange-500 text-orange-600 bg-orange-50",
                 )}
               >
                 {isActive ? "Active Station" : "In-active Station"}
@@ -267,7 +279,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
               />
               <InfoItem
                 label="Address"
-                value={selBusStop.location}
+                value={selBusStop.location.value}
                 icon={<MapPin />}
               />
               <InfoItem

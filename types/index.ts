@@ -51,7 +51,7 @@ export type AddStaffPayload = {
 };
 
 export type AddPickupStationPayload = {
-  address: string;
+  address: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -129,7 +129,7 @@ export type EditBusPayload = {
 
 export type EditPickupStationPayload = {
   pickup_station_id: string;
-  address: string;
+  address: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -160,7 +160,7 @@ export type EditTripRoute = {
 
 export type EditDropOffStationPayload = {
   drop_off_location_id: string;
-  address: string;
+  address: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -232,6 +232,17 @@ export enum ActiveType {
 export enum FuelType {
   Petrol = "petrol",
   Diesel = "diesel",
+}
+
+export enum PriorityType {
+  Normal = "normal",
+  High = "high",
+  Urgent = "urgent",
+}
+
+export enum MaintenanceStatusType {
+  Pending = "pending",
+  Completed = "completed",
 }
 
 export type StatusPayload = {
@@ -317,7 +328,7 @@ export type StaffListResponse = {
 };
 
 export interface BasicLocationData {
-  address: string;
+  address: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -498,6 +509,39 @@ export type EntryPoint = {
   value: string;
   longitude: number;
   latitude: number;
+};
+
+export type MaintenanceReport = {
+  title: string;
+  description: string;
+  technician_notes: string;
+};
+
+export type MaintenancePayload = {
+  bus_id: string;
+  priority: PriorityType;
+  status: MaintenanceStatusType;
+  report: MaintenanceReport;
+};
+
+export type MaintenanceResponse = {
+  status: boolean;
+  maintenance_report: {
+    bus_id: string;
+    added_by: string;
+    report: {
+      title: string;
+      description: string;
+      technician_notes: string;
+    };
+    priority: string;
+    status: string;
+    _id: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: 0;
+  };
+  message: string;
 };
 
 export type WeekdayType = {

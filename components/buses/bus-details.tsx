@@ -34,13 +34,21 @@ import {
   AddBusPayload,
   EditBusPayload,
   FuelType,
+  MaintenancePayload,
+  MaintenanceStatusType,
+  PriorityType,
   RouteData,
   StaffData,
 } from "@/types";
-import { useModifyBuses } from "@/api/buses";
+import {
+  MaintainancePayload,
+  useCreateReport,
+  useModifyBuses,
+} from "@/api/buses";
 import { getRoutes } from "@/api/routes";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { updateSelBus } from "@/lib/store/slices/bus-slice";
+import { Textarea } from "../ui/textarea";
 
 interface BusDetailsProps {
   busId: string;
@@ -50,6 +58,8 @@ export function BusDetails({ busId }: BusDetailsProps) {
   const { selBus } = useSelector((state: RootState) => state.bus);
 
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
+
+  const [isMaintenanceOpen, setIsMaintenanceOpen] = useState(false);
 
   const [selectedPreviewImage, setSelectedPreviewImage] = useState<
     string | null
@@ -253,6 +263,54 @@ export function BusDetails({ busId }: BusDetailsProps) {
       "/shuttle-bus.png",
       "/transport-bus-black.jpg",
     ],
+  };
+
+  const mutationReport = useCreateReport();
+
+  const {
+    register: registerMaintenance,
+    setValue: setValueMaintenance,
+    watch: watchMaintenance,
+    reset: resetMaintenance,
+  } = useForm<MaintenancePayload>({
+    // Use 'values' instead of 'defaultValues' to keep the bus_id in sync
+    values: {
+      bus_id: selBus?._id || "",
+      priority: PriorityType.Normal,
+      status: MaintenanceStatusType.Pending,
+      report: {
+        title: "",
+        description: "",
+        technician_notes: "",
+      },
+    },
+  });
+
+  const handleWatchMaintenance = watchMaintenance();
+
+  const {
+    report,
+    bus_id,
+    priority,
+    status: maintenanceStatus,
+  } = handleWatchMaintenance;
+
+  const handleMutationReport = () => {
+    const currentData = watchMaintenance();
+
+    // Basic validation
+    if (!currentData.bus_id) {
+      toast.error("No bus selected for report");
+      return;
+    }
+
+    mutationReport.mutate(currentData, {
+      onSuccess: () => {
+        resetMaintenance();
+        setIsMaintenanceOpen(false);
+        toast.success("Maintenance report submitted");
+      },
+    });
   };
 
   return (
@@ -658,6 +716,187 @@ export function BusDetails({ busId }: BusDetailsProps) {
                 </DialogContent>
               </Dialog>
             </div>
+
+            {/* Add Maintenance */}
+
+            <Dialog
+              open={isMaintenanceOpen}
+              onOpenChange={setIsMaintenanceOpen}
+            >
+              <DialogTrigger asChild>
+                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                  <Plus className="h-4 w-4" />
+                  Create New Report
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-2xl">
+                <div className="space-y-4 py-4">
+                  <div className="border-b pb-2">
+                    <h3 className="text-lg font-medium">
+                      Bus Maintenance Report
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      Record repair details and costs for this vehicle.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 grid-cols-2">
+                    <div className="space-y-2">
+                      <Label>
+                        Service Type <span className="text-destructive">*</span>
+                      </Label>
+                      <Select
+                        onValueChange={(value) =>
+                          setValueMaintenance("report.title", value)
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select type of service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Routine Checkup">
+                            Routine Checkup
+                          </SelectItem>
+                          <SelectItem value="Engine Maintenance">
+                            Engine Maintenance
+                          </SelectItem>
+                          <SelectItem value="Tire Replacement">
+                            Tire Replacement
+                          </SelectItem>
+                          <SelectItem value="Brake Repair">
+                            Brake Repair
+                          </SelectItem>
+                          <SelectItem value="Electrical Fix">
+                            Electrical Fix
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>
+                        Priority <span className="text-destructive">*</span>
+                      </Label>
+                      <Select
+                        defaultValue={PriorityType.Normal}
+                        onValueChange={(value) =>
+                          // Cast the string to the PriorityType Enum
+                          setValueMaintenance("priority", value as PriorityType)
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Set Priority" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value={PriorityType.Normal}>
+                            Normal
+                          </SelectItem>
+                          <SelectItem value={PriorityType.High}>
+                            High
+                          </SelectItem>
+                          <SelectItem value={PriorityType.Urgent}>
+                            Urgent
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>
+                      Maintenance Description{" "}
+                      <span className="text-destructive">*</span>
+                    </Label>
+                    <Textarea
+                      {...registerMaintenance("report.description")}
+                      placeholder="What exactly is being fixed?"
+                      className="min-h-20"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Total Cost (₦)</Label>
+                      <Input
+                        type="number"
+                        placeholder="0.00"
+                        onChange={(e) => {
+                          const currentNotes =
+                            watchMaintenance("report.technician_notes") || "";
+                          setValueMaintenance(
+                            "report.technician_notes",
+                            `Cost: ₦${e.target.value} | ${currentNotes}`,
+                          );
+                        }}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Workshop / Technician</Label>
+                      <Input
+                        placeholder="e.g. Lekki Auto Center"
+                        onChange={(e) => {
+                          const currentNotes =
+                            watchMaintenance("report.technician_notes") || "";
+                          setValueMaintenance(
+                            "report.technician_notes",
+                            `${currentNotes} | Workshop: ${e.target.value}`,
+                          );
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 items-center">
+                    <div className="space-y-2">
+                      <Label>Status</Label>
+                      <RadioGroup
+                        defaultValue={MaintenanceStatusType.Pending}
+                        onValueChange={(val) =>
+                          // Cast the string to the Enum type
+                          setValueMaintenance(
+                            "status",
+                            val as MaintenanceStatusType,
+                          )
+                        }
+                        className="flex gap-4 mt-2"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem
+                            value={MaintenanceStatusType.Pending}
+                            id="m1"
+                          />
+                          <Label htmlFor="m1" className="text-xs">
+                            Pending
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem
+                            value={MaintenanceStatusType.Completed}
+                            id="m2"
+                          />
+                          <Label htmlFor="m2" className="text-xs">
+                            Completed
+                          </Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
+                  </div>
+
+                  <Button
+                    disabled={mutationReport.isPending}
+                    onClick={handleMutationReport}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4"
+                  >
+                    {mutationReport.isPending ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <>Submit Maintenance Report</>
+                    )}
+                  </Button>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Bus Details Grid */}

@@ -37,7 +37,7 @@ export function DashboardDrivers() {
     isRefetching,
     isLoading: staffLoader,
   } = useQuery({
-    queryKey: ["staffs"],
+    queryKey: ["on-site-drivers"],
     retry: false,
     queryFn: () => getOnsiteData(),
   });
@@ -48,35 +48,9 @@ export function DashboardDrivers() {
         <OnSiteFilter value={activeFilter} onValueChange={setActiveFilter} />
       </CardHeader>
       <CardContent className="space-y-4">
-        {/* {drivers.map((driver) => (
-          <div
-            key={driver.id}
-            className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
-          >
-            <Avatar className="h-10 w-10">
-              <AvatarImage
-                src={driver.avatar || "/placeholder.svg"}
-                alt={driver.name}
-              />
-              <AvatarFallback>{driver.name.charAt(0)}</AvatarFallback>
-            </Avatar>
-            <div className="flex-1 min-w-0">
-              <p className="font-medium text-sm">{driver.name}</p>
-              <p className="text-xs text-muted-foreground truncate">
-                {driver.email}
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Joined: {driver.joinedDate}
-              </p>
-            </div>
-            <Button variant="ghost" size="icon" className="h-8 w-8">
-              <MoreVertical className="h-4 w-4" />
-            </Button>
-          </div>
-        ))} */}
         {activeFilter === "drivers"
-          ? // Render Drivers
-            data?.staffs.data.map((driver) => (
+          ? // Render Drivers (Limited to first 3)
+            data?.staffs.data.slice(0, 3).map((driver) => (
               <div
                 key={driver._id}
                 className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
@@ -94,7 +68,7 @@ export function DashboardDrivers() {
                     {driver.email}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Joined: {driver.createdAt}
+                    Joined: {new Date(driver.createdAt).toLocaleDateString()}
                   </p>
                 </div>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -102,8 +76,8 @@ export function DashboardDrivers() {
                 </Button>
               </div>
             ))
-          : // Render Buses
-            buses.map((bus) => (
+          : // Render Buses (Limited to first 3)
+            buses.slice(0, 3).map((bus) => (
               <div
                 key={bus.id}
                 className="flex items-center gap-3 p-3 rounded-lg bg-orange-500/5 border border-orange-500/10"

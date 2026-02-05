@@ -1084,7 +1084,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://7ae75e4c4a22.ngrok-free.app",
+    baseURL: "https://deporta-development.onrender.com",
     timeout: 15000,
     headers: {
         "Content-Type": "application/json",
@@ -1696,7 +1696,7 @@ function StaffManagementTable() {
             "StaffManagementTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getStaffList"])()
         }["StaffManagementTable.useQuery"]
     });
-    const { register, handleSubmit, watch, formState: { errors } } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])();
     const [selectedRole, setSelectedRole] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [holdBtn, setHoldBtn] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
     // Role Integration
@@ -1769,7 +1769,7 @@ function StaffManagementTable() {
             createAdminMutation.mutate({
                 first_name,
                 last_name,
-                phone_number,
+                phone_number: `+234 ${phone_number}`,
                 email,
                 gender,
                 otp: otp ? otp : ""
@@ -1787,10 +1787,18 @@ function StaffManagementTable() {
                 }
             });
         } else {
+            console.log("Staff Create", {
+                first_name,
+                last_name,
+                phone_number: `+234 ${phone_number}`,
+                email,
+                gender,
+                role: selectedRole === "staff_admin" ? "admin" : selectedRole
+            });
             createStaffMutation.mutate({
                 first_name,
                 last_name,
-                phone_number,
+                phone_number: `+234 ${phone_number}`,
                 email,
                 gender,
                 role: selectedRole === "staff_admin" ? "admin" : selectedRole
@@ -1801,6 +1809,8 @@ function StaffManagementTable() {
                             "staffs"
                         ]
                     });
+                    reset();
+                    refetchStaffs();
                     setIsAddDialogOpen(false);
                 },
                 onSettled: ()=>{
@@ -1846,60 +1856,18 @@ function StaffManagementTable() {
                                 className: "h-8 w-8 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                lineNumber: 234,
+                                lineNumber: 246,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-4 w-32"
                             }, void 0, false, {
                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                lineNumber: 235,
+                                lineNumber: 247,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 233,
-                        columnNumber: 9
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/staff/staff-management-table.tsx",
-                    lineNumber: 232,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                    className: "p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-20"
-                    }, void 0, false, {
-                        fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 239,
-                        columnNumber: 9
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/staff/staff-management-table.tsx",
-                    lineNumber: 238,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                    className: "p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-40"
-                    }, void 0, false, {
-                        fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 242,
-                        columnNumber: 9
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/staff/staff-management-table.tsx",
-                    lineNumber: 241,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                    className: "p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-24"
-                    }, void 0, false, {
                         fileName: "[project]/components/staff/staff-management-table.tsx",
                         lineNumber: 245,
                         columnNumber: 9
@@ -1912,21 +1880,7 @@ function StaffManagementTable() {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                     className: "p-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-4 w-28"
-                    }, void 0, false, {
-                        fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 248,
-                        columnNumber: 9
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/staff/staff-management-table.tsx",
-                    lineNumber: 247,
-                    columnNumber: 7
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                    className: "p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-5 w-16 rounded-full"
+                        className: "h-4 w-20"
                     }, void 0, false, {
                         fileName: "[project]/components/staff/staff-management-table.tsx",
                         lineNumber: 251,
@@ -1940,7 +1894,7 @@ function StaffManagementTable() {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                     className: "p-4",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
-                        className: "h-8 w-8 rounded-md"
+                        className: "h-4 w-40"
                     }, void 0, false, {
                         fileName: "[project]/components/staff/staff-management-table.tsx",
                         lineNumber: 254,
@@ -1950,11 +1904,67 @@ function StaffManagementTable() {
                     fileName: "[project]/components/staff/staff-management-table.tsx",
                     lineNumber: 253,
                     columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                    className: "p-4",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
+                        className: "h-4 w-24"
+                    }, void 0, false, {
+                        fileName: "[project]/components/staff/staff-management-table.tsx",
+                        lineNumber: 257,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/staff/staff-management-table.tsx",
+                    lineNumber: 256,
+                    columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                    className: "p-4",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
+                        className: "h-4 w-28"
+                    }, void 0, false, {
+                        fileName: "[project]/components/staff/staff-management-table.tsx",
+                        lineNumber: 260,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/staff/staff-management-table.tsx",
+                    lineNumber: 259,
+                    columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                    className: "p-4",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
+                        className: "h-5 w-16 rounded-full"
+                    }, void 0, false, {
+                        fileName: "[project]/components/staff/staff-management-table.tsx",
+                        lineNumber: 263,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/staff/staff-management-table.tsx",
+                    lineNumber: 262,
+                    columnNumber: 7
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                    className: "p-4",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
+                        className: "h-8 w-8 rounded-md"
+                    }, void 0, false, {
+                        fileName: "[project]/components/staff/staff-management-table.tsx",
+                        lineNumber: 266,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/staff/staff-management-table.tsx",
+                    lineNumber: 265,
+                    columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/staff/staff-management-table.tsx",
-            lineNumber: 231,
+            lineNumber: 243,
             columnNumber: 5
         }, this);
     const updateMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$dashboard$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStaffStatus"])();
@@ -1980,7 +1990,7 @@ function StaffManagementTable() {
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                    lineNumber: 275,
+                                    lineNumber: 287,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1990,7 +2000,7 @@ function StaffManagementTable() {
                                     className: "pl-9 w-64 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                    lineNumber: 276,
+                                    lineNumber: 288,
                                     columnNumber: 13
                                 }, this),
                                 searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2002,18 +2012,18 @@ function StaffManagementTable() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                        lineNumber: 289,
+                                        lineNumber: 301,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                    lineNumber: 283,
+                                    lineNumber: 295,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                            lineNumber: 274,
+                            lineNumber: 286,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2029,12 +2039,12 @@ function StaffManagementTable() {
                                             children: tab.label
                                         }, tab.id, false, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 298,
+                                            lineNumber: 310,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                    lineNumber: 296,
+                                    lineNumber: 308,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -2049,17 +2059,17 @@ function StaffManagementTable() {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 324,
+                                                    lineNumber: 336,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                lineNumber: 316,
+                                                lineNumber: 328,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 327,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2071,12 +2081,12 @@ function StaffManagementTable() {
                                                     children: "All Roles"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 328,
+                                                    lineNumber: 340,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 331,
+                                                    lineNumber: 343,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2084,7 +2094,7 @@ function StaffManagementTable() {
                                                     children: "Admins"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 332,
+                                                    lineNumber: 344,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2092,7 +2102,7 @@ function StaffManagementTable() {
                                                     children: "Driver"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 335,
+                                                    lineNumber: 347,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2100,7 +2110,7 @@ function StaffManagementTable() {
                                                     children: "Customer-Rep"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 338,
+                                                    lineNumber: 350,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2108,7 +2118,7 @@ function StaffManagementTable() {
                                                     children: "Support"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 341,
+                                                    lineNumber: 353,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2116,19 +2126,19 @@ function StaffManagementTable() {
                                                     children: "Maintenance"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 356,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 327,
+                                            lineNumber: 339,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2144,19 +2154,19 @@ function StaffManagementTable() {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                        lineNumber: 353,
+                                                        lineNumber: 365,
                                                         columnNumber: 19
                                                     }, this),
                                                     "Add Staff"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                lineNumber: 352,
+                                                lineNumber: 364,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 351,
+                                            lineNumber: 363,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2170,12 +2180,12 @@ function StaffManagementTable() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                        lineNumber: 359,
+                                                        lineNumber: 371,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 370,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2189,7 +2199,7 @@ function StaffManagementTable() {
                                                                     children: "First Name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 365,
+                                                                    lineNumber: 377,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2198,13 +2208,13 @@ function StaffManagementTable() {
                                                                     placeholder: "Enter first name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 366,
+                                                                    lineNumber: 378,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 364,
+                                                            lineNumber: 376,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2215,7 +2225,7 @@ function StaffManagementTable() {
                                                                     children: "Last Name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 373,
+                                                                    lineNumber: 385,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2224,13 +2234,13 @@ function StaffManagementTable() {
                                                                     placeholder: "Enter first name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 374,
+                                                                    lineNumber: 386,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 372,
+                                                            lineNumber: 384,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2241,7 +2251,7 @@ function StaffManagementTable() {
                                                                     children: "Email Address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 381,
+                                                                    lineNumber: 393,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2251,13 +2261,13 @@ function StaffManagementTable() {
                                                                     placeholder: "Enter email address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 382,
+                                                                    lineNumber: 394,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 380,
+                                                            lineNumber: 392,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2268,22 +2278,42 @@ function StaffManagementTable() {
                                                                     children: "Phone Number"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 390,
+                                                                    lineNumber: 402,
                                                                     columnNumber: 21
                                                                 }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                    ...register("phone_number"),
-                                                                    id: "phone",
-                                                                    placeholder: "Enter phone number"
-                                                                }, void 0, false, {
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "relative flex items-center",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "absolute left-3 text-sm text-muted-foreground font-medium border-r pr-2",
+                                                                            children: "+234"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/staff/staff-management-table.tsx",
+                                                                            lineNumber: 405,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            ...register("phone_number"),
+                                                                            id: "phone",
+                                                                            type: "tel",
+                                                                            maxLength: 10,
+                                                                            placeholder: "803 000 0000",
+                                                                            className: "pl-16"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/staff/staff-management-table.tsx",
+                                                                            lineNumber: 408,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 391,
+                                                                    lineNumber: 403,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 389,
+                                                            lineNumber: 401,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2293,7 +2323,7 @@ function StaffManagementTable() {
                                                                     children: "Gender"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 398,
+                                                                    lineNumber: 419,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2310,7 +2340,7 @@ function StaffManagementTable() {
                                                                                     ...register("gender")
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 402,
+                                                                                    lineNumber: 423,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
@@ -2319,13 +2349,13 @@ function StaffManagementTable() {
                                                                                     children: "Male"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 409,
+                                                                                    lineNumber: 430,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                            lineNumber: 401,
+                                                                            lineNumber: 422,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2339,7 +2369,7 @@ function StaffManagementTable() {
                                                                                     ...register("gender")
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 419,
+                                                                                    lineNumber: 440,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
@@ -2348,19 +2378,19 @@ function StaffManagementTable() {
                                                                                     children: "Female"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 426,
+                                                                                    lineNumber: 447,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                            lineNumber: 418,
+                                                                            lineNumber: 439,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 399,
+                                                                    lineNumber: 420,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 errors.gender && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2368,13 +2398,13 @@ function StaffManagementTable() {
                                                                     children: errors.gender.message
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 436,
+                                                                    lineNumber: 457,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 397,
+                                                            lineNumber: 418,
                                                             columnNumber: 19
                                                         }, this),
                                                         selectedRole === "admin" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2385,7 +2415,7 @@ function StaffManagementTable() {
                                                                     children: "OTP Code"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 443,
+                                                                    lineNumber: 464,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2394,13 +2424,13 @@ function StaffManagementTable() {
                                                                     placeholder: "Enter OTP Code"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 444,
+                                                                    lineNumber: 465,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 442,
+                                                            lineNumber: 463,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2411,7 +2441,7 @@ function StaffManagementTable() {
                                                                     children: "Role"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 453,
+                                                                    lineNumber: 474,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2422,12 +2452,12 @@ function StaffManagementTable() {
                                                                                 placeholder: "Select role"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                lineNumber: 456,
+                                                                                lineNumber: 477,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                            lineNumber: 455,
+                                                                            lineNumber: 476,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2437,7 +2467,7 @@ function StaffManagementTable() {
                                                                                     children: "Super Admin Staff"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 459,
+                                                                                    lineNumber: 480,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2445,7 +2475,7 @@ function StaffManagementTable() {
                                                                                     children: "Support Staff"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 460,
+                                                                                    lineNumber: 481,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2453,7 +2483,7 @@ function StaffManagementTable() {
                                                                                     children: "Staff Admin"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 461,
+                                                                                    lineNumber: 482,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2461,7 +2491,7 @@ function StaffManagementTable() {
                                                                                     children: "Driver"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 462,
+                                                                                    lineNumber: 483,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2469,7 +2499,7 @@ function StaffManagementTable() {
                                                                                     children: "Customer Rep Staff"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 463,
+                                                                                    lineNumber: 484,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2477,7 +2507,7 @@ function StaffManagementTable() {
                                                                                     children: "Developer"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 466,
+                                                                                    lineNumber: 487,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2485,25 +2515,25 @@ function StaffManagementTable() {
                                                                                     children: "Maintenance Staff"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                    lineNumber: 467,
+                                                                                    lineNumber: 488,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                            lineNumber: 458,
+                                                                            lineNumber: 479,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                    lineNumber: 454,
+                                                                    lineNumber: 475,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 452,
+                                                            lineNumber: 473,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2514,47 +2544,47 @@ function StaffManagementTable() {
                                                                 className: "mr-2 h-4 w-4 animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                lineNumber: 481,
+                                                                lineNumber: 502,
                                                                 columnNumber: 23
                                                             }, this) : "Add Staff"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 473,
+                                                            lineNumber: 494,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 363,
+                                                    lineNumber: 375,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 357,
+                                            lineNumber: 369,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                    lineNumber: 350,
+                                    lineNumber: 362,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                            lineNumber: 295,
+                            lineNumber: 307,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                    lineNumber: 272,
+                    lineNumber: 284,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                lineNumber: 271,
+                lineNumber: 283,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2567,12 +2597,12 @@ function StaffManagementTable() {
                             children: "All Staffs"
                         }, void 0, false, {
                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                            lineNumber: 495,
+                            lineNumber: 516,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 494,
+                        lineNumber: 515,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2582,7 +2612,7 @@ function StaffManagementTable() {
                                 className: "absolute top-0 left-0 right-0 h-0.5 bg-primary animate-pulse z-10"
                             }, void 0, false, {
                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                lineNumber: 500,
+                                lineNumber: 521,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
@@ -2597,7 +2627,7 @@ function StaffManagementTable() {
                                                     children: "Name"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 505,
+                                                    lineNumber: 526,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2605,7 +2635,7 @@ function StaffManagementTable() {
                                                     children: "Role"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 508,
+                                                    lineNumber: 529,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2613,7 +2643,7 @@ function StaffManagementTable() {
                                                     children: "Email Address"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 511,
+                                                    lineNumber: 532,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2621,7 +2651,7 @@ function StaffManagementTable() {
                                                     children: "Phone"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 514,
+                                                    lineNumber: 535,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2629,7 +2659,7 @@ function StaffManagementTable() {
                                                     children: "Date Joined"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 517,
+                                                    lineNumber: 538,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2637,25 +2667,25 @@ function StaffManagementTable() {
                                                     children: "Status"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 520,
+                                                    lineNumber: 541,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                     className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 523,
+                                                    lineNumber: 544,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 504,
+                                            lineNumber: 525,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                        lineNumber: 503,
+                                        lineNumber: 524,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2665,7 +2695,7 @@ function StaffManagementTable() {
                                                     ...Array(5)
                                                 ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                        lineNumber: 530,
+                                                        lineNumber: 551,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false) : paginatedData?.map((staff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2684,20 +2714,20 @@ function StaffManagementTable() {
                                                                                 alt: staff.first_name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                lineNumber: 542,
+                                                                                lineNumber: 563,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                 children: staff.first_name.charAt(0)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                lineNumber: 546,
+                                                                                lineNumber: 567,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                        lineNumber: 541,
+                                                                        lineNumber: 562,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2709,18 +2739,18 @@ function StaffManagementTable() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                        lineNumber: 550,
+                                                                        lineNumber: 571,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                lineNumber: 540,
+                                                                lineNumber: 561,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 539,
+                                                            lineNumber: 560,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2728,7 +2758,7 @@ function StaffManagementTable() {
                                                             children: staff.user_type.type_id.role
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 555,
+                                                            lineNumber: 576,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2736,7 +2766,7 @@ function StaffManagementTable() {
                                                             children: staff.email
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 558,
+                                                            lineNumber: 579,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2744,7 +2774,7 @@ function StaffManagementTable() {
                                                             children: staff.phone_number
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 561,
+                                                            lineNumber: 582,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2752,7 +2782,7 @@ function StaffManagementTable() {
                                                             children: new Date(staff.createdAt).toDateString()
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 564,
+                                                            lineNumber: 585,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2763,12 +2793,12 @@ function StaffManagementTable() {
                                                                 children: staff.status === "active" ? "Active" : "In-active"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                lineNumber: 568,
+                                                                lineNumber: 589,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 567,
+                                                            lineNumber: 588,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2785,17 +2815,17 @@ function StaffManagementTable() {
                                                                                 className: "h-4 w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                lineNumber: 588,
+                                                                                lineNumber: 609,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                            lineNumber: 583,
+                                                                            lineNumber: 604,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                        lineNumber: 582,
+                                                                        lineNumber: 603,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2811,14 +2841,14 @@ function StaffManagementTable() {
                                                                                         className: "h-4 w-4 mr-2"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                        lineNumber: 598,
+                                                                                        lineNumber: 619,
                                                                                         columnNumber: 29
                                                                                     }, this),
                                                                                     "View"
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                lineNumber: 592,
+                                                                                lineNumber: 613,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2835,7 +2865,7 @@ function StaffManagementTable() {
                                                                                         className: "h-4 w-4 mr-2 animate-spin"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                        lineNumber: 619,
+                                                                                        lineNumber: 640,
                                                                                         columnNumber: 31
                                                                                     }, this),
                                                                                     staff.status === "active" ? "De-activate" : "Activate",
@@ -2843,30 +2873,30 @@ function StaffManagementTable() {
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                                lineNumber: 601,
+                                                                                lineNumber: 622,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                        lineNumber: 591,
+                                                                        lineNumber: 612,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                                lineNumber: 581,
+                                                                lineNumber: 602,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                            lineNumber: 580,
+                                                            lineNumber: 601,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, staff._id, true, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 535,
+                                                    lineNumber: 556,
                                                     columnNumber: 19
                                                 }, this)),
                                             !staffLoader && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2876,30 +2906,30 @@ function StaffManagementTable() {
                                                     children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                    lineNumber: 633,
+                                                    lineNumber: 654,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                lineNumber: 632,
+                                                lineNumber: 653,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                        lineNumber: 526,
+                                        lineNumber: 547,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                lineNumber: 502,
+                                lineNumber: 523,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 498,
+                        lineNumber: 519,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2919,7 +2949,7 @@ function StaffManagementTable() {
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                lineNumber: 661,
+                                                lineNumber: 682,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2927,7 +2957,7 @@ function StaffManagementTable() {
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                lineNumber: 662,
+                                                lineNumber: 683,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2935,20 +2965,20 @@ function StaffManagementTable() {
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                                lineNumber: 663,
+                                                lineNumber: 684,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                        lineNumber: 656,
+                                        lineNumber: 677,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                lineNumber: 654,
+                                lineNumber: 675,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2963,7 +2993,7 @@ function StaffManagementTable() {
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                        lineNumber: 671,
+                                        lineNumber: 692,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -2979,7 +3009,7 @@ function StaffManagementTable() {
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/staff/staff-management-table.tsx",
-                                            lineNumber: 685,
+                                            lineNumber: 706,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -2992,40 +3022,40 @@ function StaffManagementTable() {
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                                        lineNumber: 703,
+                                        lineNumber: 724,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                                lineNumber: 669,
+                                lineNumber: 690,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/staff/staff-management-table.tsx",
-                        lineNumber: 652,
+                        lineNumber: 673,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                lineNumber: 493,
+                lineNumber: 514,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/staff/staff-management-table.tsx",
-                lineNumber: 715,
+                lineNumber: 736,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/staff/staff-management-table.tsx",
-        lineNumber: 270,
+        lineNumber: 282,
         columnNumber: 5
     }, this);
 }
-_s(StaffManagementTable, "pcYua/bcOtO2Vsd2PnuIkcGaIBc=", false, function() {
+_s(StaffManagementTable, "mb0Od4rjB0BYfgxQYUOQJGzL2Bg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"],

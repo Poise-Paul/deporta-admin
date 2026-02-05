@@ -3081,7 +3081,7 @@ function DashboardDrivers() {
     // get the current user
     const { data, error, refetch: refetchStaffs, isRefetching, isLoading: staffLoader } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
-            "staffs"
+            "on-site-drivers"
         ],
         retry: false,
         queryFn: {
@@ -3109,7 +3109,7 @@ function DashboardDrivers() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                 className: "space-y-4",
                 children: [
-                    activeFilter === "drivers" ? data?.staffs.data.map((driver)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    activeFilter === "drivers" ? data?.staffs.data.slice(0, 3).map((driver)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Avatar"], {
@@ -3120,20 +3120,20 @@ function DashboardDrivers() {
                                             alt: driver.first_name
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 85,
+                                            lineNumber: 59,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                             children: driver.first_name.charAt(0)
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 89,
+                                            lineNumber: 63,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                    lineNumber: 84,
+                                    lineNumber: 58,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3144,7 +3144,7 @@ function DashboardDrivers() {
                                             children: driver.first_name
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 92,
+                                            lineNumber: 66,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3152,24 +3152,24 @@ function DashboardDrivers() {
                                             children: driver.email
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 67,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-xs text-muted-foreground",
                                             children: [
                                                 "Joined: ",
-                                                driver.createdAt
+                                                new Date(driver.createdAt).toLocaleDateString()
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 70,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 65,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3180,20 +3180,20 @@ function DashboardDrivers() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 75,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 74,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, driver._id, true, {
                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                            lineNumber: 80,
+                            lineNumber: 54,
                             columnNumber: 15
-                        }, this)) : buses.map((bus)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        }, this)) : buses.slice(0, 3).map((bus)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex items-center gap-3 p-3 rounded-lg bg-orange-500/5 border border-orange-500/10",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3202,12 +3202,12 @@ function DashboardDrivers() {
                                         className: "h-5 w-5 text-orange-600"
                                     }, void 0, false, {
                                         fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                        lineNumber: 112,
+                                        lineNumber: 86,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                    lineNumber: 111,
+                                    lineNumber: 85,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3218,7 +3218,7 @@ function DashboardDrivers() {
                                             children: bus.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 115,
+                                            lineNumber: 89,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3226,13 +3226,13 @@ function DashboardDrivers() {
                                             children: bus.plate
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                            lineNumber: 116,
+                                            lineNumber: 90,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                    lineNumber: 114,
+                                    lineNumber: 88,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3243,18 +3243,18 @@ function DashboardDrivers() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 95,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                                    lineNumber: 120,
+                                    lineNumber: 94,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, bus.id, true, {
                             fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                            lineNumber: 107,
+                            lineNumber: 81,
                             columnNumber: 15
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -3266,7 +3266,7 @@ function DashboardDrivers() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/dashboard/dashboard-drivers.tsx",
-                        lineNumber: 126,
+                        lineNumber: 100,
                         columnNumber: 9
                     }, this)
                 ]

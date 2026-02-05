@@ -43,14 +43,19 @@ import { AddPickupStationPayload } from "@/types";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { useDeleteDropOffStation, useModifyDropOffStation } from "@/api/drop-off-locations";
+import {
+  useDeleteDropOffStation,
+  useModifyDropOffStation,
+} from "@/api/drop-off-locations";
 
 interface StationDetailProps {
   onBack: () => void;
 }
 
 export function DropOffStationDetail({ onBack }: StationDetailProps) {
-  const { selStation } = useSelector((state: RootState) => state.dropOffStation);
+  const { selStation } = useSelector(
+    (state: RootState) => state.dropOffStation,
+  );
   const isActive = selStation?.status === "active";
 
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
@@ -68,7 +73,10 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
 
   const { register, setValue, watch } = useForm<AddPickupStationPayload>({
     defaultValues: {
-      address: selStation?.address,
+      address:
+        typeof selStation?.address === "object"
+          ? selStation.address
+          : { value: selStation?.address || "", longitude: 0, latitude: 0 },
       area: selStation?.area,
       state: selStation?.state,
       country: selStation?.country,
@@ -94,7 +102,7 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
       },
       {
         onSettled: () => setIsAddDialogOpen(false),
-      }
+      },
     );
   };
 
@@ -121,15 +129,24 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle>Edit Pickup Station</DialogTitle>
+                <DialogTitle>Edit Drop-Off Location</DialogTitle>
               </DialogHeader>
               <div className="space-y-4 py-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Pickup Address</Label>
+                  <Label htmlFor="name">Drop-Off Address</Label>
                   <Input
-                    id="name"
-                    {...register("address")}
-                    placeholder="Enter pickup station address"
+                    id="edit-dropoff-address"
+                    placeholder="Enter drop-off address"
+                    // Only show the 'value' string in the input field
+                    value={watch("address.value") ?? ""}
+                    onChange={(e) => {
+                      // Manually update the object to keep coordinates at 0
+                      setValue("address", {
+                        value: e.target.value,
+                        longitude: 0,
+                        latitude: 0,
+                      });
+                    }}
                   />
                 </div>
                 <div className="space-y-2">
@@ -162,6 +179,7 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
                   <Label htmlFor="state">Country</Label>
                   <Input
                     id="country"
+                    disabled
                     {...register("country")}
                     defaultValue={"Nigeria"}
                     placeholder="Enter country"
@@ -210,7 +228,9 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
               <div className="h-20 w-20 bg-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-secondary">
                 <MapPin className="h-10 w-10" />
               </div>
-              <h2 className="text-xl font-bold px-4">{selStation?.address}</h2>
+              <h2 className="text-xl font-bold px-4">
+                {selStation?.address.value}
+              </h2>
               <p className="text-muted-foreground text-sm mb-4">
                 {selStation?.area}
               </p>
@@ -219,7 +239,7 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
                 className={cn(
                   isActive
                     ? "border-green-500 text-green-600 bg-green-50"
-                    : "border-orange-500 text-orange-600 bg-orange-50"
+                    : "border-orange-500 text-orange-600 bg-orange-50",
                 )}
               >
                 {isActive ? "Active Station" : "In-active Station"}
@@ -245,12 +265,14 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
 
           <Card className="lg:col-span-2 border-border">
             <CardHeader>
-              <CardTitle className="text-lg">Drop-Off Station Details</CardTitle>
+              <CardTitle className="text-lg">
+                Drop-Off Station Details
+              </CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InfoItem
                 label="Address"
-                value={selStation.address}
+                value={selStation.address.value}
                 icon={<MapPin />}
               />
               <InfoItem

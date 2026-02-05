@@ -594,7 +594,11 @@ __turbopack_context__.s([
     "ActiveType",
     ()=>ActiveType,
     "FuelType",
-    ()=>FuelType
+    ()=>FuelType,
+    "MaintenanceStatusType",
+    ()=>MaintenanceStatusType,
+    "PriorityType",
+    ()=>PriorityType
 ]);
 var ActiveType = /*#__PURE__*/ function(ActiveType) {
     ActiveType["Active"] = "active";
@@ -605,6 +609,17 @@ var FuelType = /*#__PURE__*/ function(FuelType) {
     FuelType["Petrol"] = "petrol";
     FuelType["Diesel"] = "diesel";
     return FuelType;
+}({});
+var PriorityType = /*#__PURE__*/ function(PriorityType) {
+    PriorityType["Normal"] = "normal";
+    PriorityType["High"] = "high";
+    PriorityType["Urgent"] = "urgent";
+    return PriorityType;
+}({});
+var MaintenanceStatusType = /*#__PURE__*/ function(MaintenanceStatusType) {
+    MaintenanceStatusType["Pending"] = "pending";
+    MaintenanceStatusType["Completed"] = "completed";
+    return MaintenanceStatusType;
 }({});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);

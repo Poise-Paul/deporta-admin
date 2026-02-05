@@ -4,6 +4,8 @@ import {
   BusesResponse,
   EditBusPayload,
   ErrorrResponse,
+  MaintenancePayload,
+  MaintenanceResponse,
   Response,
 } from "@/types";
 import { api } from "../axios";
@@ -219,6 +221,28 @@ export const useBusMaintenanceStatus = () => {
     onError: (error, variables) => {
       if (axios.isAxiosError(error)) {
         const err = error.response?.data as ErrorrResponse;
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const useCreateReport = () => {
+  return useMutation({
+    mutationFn: async (data: MaintenancePayload) => {
+      const res = await api.post("/api/users/admin/maintenance-report/create",data);
+      return res.data;
+    },
+    onSuccess: (data: MaintenanceResponse) => {
+      toast.success(`${data.message}`);
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
+
         toast.error(`${err?.error.message}`);
       } else {
         console.error("❌ Unexpected error:", error);

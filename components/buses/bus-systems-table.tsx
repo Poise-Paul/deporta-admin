@@ -53,6 +53,7 @@ import {
   useBusMaintenanceStatus,
   useBusStatus,
   useCreateBus,
+  useCreateReport,
   useDeleteBus,
   useModifyBuses,
 } from "@/api/buses";
@@ -64,6 +65,7 @@ import { Toaster } from "react-hot-toast";
 import { updateSelBus } from "@/lib/store/slices/bus-slice";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
+import { Textarea } from "../ui/textarea";
 
 type BusTab = "all" | "active" | "maintenance" | "inactive";
 

@@ -235,28 +235,14 @@ export function RoutesTable({
   } = handleUpdateWatch;
 
   const handleAddTripRoute = () => {
-    addTripRoute.mutate(
-      {
-        rate,
-        rate_per_km,
-        code,
-        flat_rate,
-        destination,
-        starting_point,
-        route_distance,
-        number_of_stops,
-        country,
-        state,
-        routine,
+    const formData = watch();
+    addTripRoute.mutate(formData, {
+      onSuccess: () => {
+        reset();
+        refetch();
       },
-      {
-        onSuccess: () => {
-          reset();
-          refetch();
-        },
-        onSettled: () => setIsAddDialogOpen(false),
-      },
-    );
+      onSettled: () => setIsAddDialogOpen(false),
+    });
   };
 
   const handleModifyPickupStation = () => {
@@ -483,412 +469,425 @@ export function RoutesTable({
                   {addButtonText}
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-2xl">
+              <DialogContent className="sm:max-w-2xl h-[90vh] flex flex-col p-">
                 <DialogHeader>
                   <DialogTitle>Add New {title.slice(0, -1)}</DialogTitle>
                 </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <div className="grid gap-4 grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="rate">Rate</Label>
-                      <div className="flex rounded-md shadow-sm">
-                        {/* Naira Symbol Add-on */}
-                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
-                          ₦
-                        </span>
+                <div className="flex-1 overflow-y-auto p-6 pt-2">
+                  <div className="space-y-4 py-4">
+                    <div className="grid gap-4 grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="rate">Rate</Label>
+                        <div className="flex rounded-md shadow-sm">
+                          {/* Naira Symbol Add-on */}
+                          <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                            ₦
+                          </span>
 
-                        <Input
-                          id="rate"
-                          type="number"
-                          {...register("rate")}
-                          placeholder="Enter rate amount"
-                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="flat_rate">Flat Rate</Label>
-                      <div className="flex rounded-md shadow-sm">
-                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
-                          ₦
-                        </span>
-                        <Input
-                          id="flat_rate"
-                          type="number"
-                          {...register("flat_rate")}
-                          placeholder="0.00"
-                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="rate_per_km">Rate Per KM</Label>
-                      <div className="flex rounded-md shadow-sm">
-                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
-                          ₦
-                        </span>
-                        <Input
-                          id="rate_per_km"
-                          type="number"
-                          {...register("rate_per_km")}
-                          placeholder="0.00"
-                          className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="code">Code</Label>
-                      <Input
-                        id="code"
-                        {...register("code")}
-                        placeholder="Enter Code"
-                      />
-                    </div>
-                  </div>
-
-                  {/* <div className="space-y-2">
-                    <Label htmlFor="starting_point">Staring Point</Label>
-                    <Input
-                      id="starting_point"
-                      {...register("starting_point")}
-                      placeholder="Enter Starting Point"
-                    />
-                  </div> */}
-                  <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
-                    <Label className="text-primary font-bold">
-                      Starting Point
-                    </Label>
-
-                    <Select
-                      onValueChange={(id) => {
-                        const stop = busStops?.bus_stop.data.find(
-                          (s) => s._id === id,
-                        );
-                        if (stop) {
-                          setValue("starting_point", {
-                            value: stop.location.value.toLowerCase(),
-                            latitude: stop.location.latitude,
-                            longitude: stop.location.longitude,
-                          });
-                        }
-                      }}
-                    >
-                      <SelectTrigger className="bg-background">
-                        <SelectValue
-                          placeholder={
-                            watch("starting_point.value") ||
-                            "Select Starting Point"
-                          }
-                        />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {pickupStations?.pickup_station.data.map((stop) => (
-                          <SelectItem key={stop._id} value={stop._id}>
-                            {stop.address}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
-                    <Label className="text-primary font-bold">
-                      Destination
-                    </Label>
-
-                    <Select
-                      onValueChange={(id) => {
-                        const stop = busStops?.bus_stop.data.find(
-                          (s) => s._id === id,
-                        );
-                        if (stop) {
-                          setValue("destination", {
-                            value: stop.location.value.toLowerCase(),
-                            latitude: stop.location.latitude,
-                            longitude: stop.location.longitude,
-                          });
-                        }
-                      }}
-                    >
-                      <SelectTrigger className="bg-background">
-                        <SelectValue
-                          placeholder={
-                            watch("destination.value") || "Select Destination"
-                          }
-                        />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {dropOffStations?.drop_off_station.data.map((stop) => (
-                          <SelectItem key={stop._id} value={stop._id}>
-                            {stop.address}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Weekly SAcheduler */}
-                  <div className="space-y-4 border-t pt-4">
-                    <Label className="text-lg font-bold">
-                      Weekly Operating Schedule
-                    </Label>
-
-                    {(
-                      [
-                        "monday",
-                        "tuesday",
-                        "wednesday",
-                        "thursday",
-                        "friday",
-                        "saturday",
-                        "sunday",
-                      ] as const
-                    ).map((day) => (
-                      <div
-                        key={day}
-                        className="p-3 border rounded-md bg-muted/10 space-y-3"
-                      >
-                        <div className="flex items-center justify-between">
-                          <Label className="capitalize font-semibold">
-                            {day}
-                          </Label>
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs text-muted-foreground">
-                              Active
-                            </span>
-                            <Switch
-                              checked={watch(`routine.${day}.active`)}
-                              onCheckedChange={(val) =>
-                                setValue(`routine.${day}.active`, val)
-                              }
-                            />
-                          </div>
+                          <Input
+                            id="rate"
+                            type="number"
+                            {...register("rate")}
+                            placeholder="Enter rate amount"
+                            className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                          />
                         </div>
-
-                        {watch(`routine.${day}.active`) && (
-                          <div className="space-y-2">
-                            {watch(`routine.${day}.value`)?.map(
-                              (slot, index) => (
-                                <div
-                                  key={index}
-                                  className="grid grid-cols-3 gap-2 items-end bg-background p-2 rounded border"
-                                >
-                                  <div>
-                                    <Label className="text-[10px]">
-                                      Departure (From)
-                                    </Label>
-                                    <Input
-                                      type="time"
-                                      value={slot.from}
-                                      onChange={(e) => {
-                                        const current = [
-                                          ...watch(`routine.${day}.value`),
-                                        ];
-                                        current[index].from = e.target.value;
-                                        setValue(
-                                          `routine.${day}.value`,
-                                          current,
-                                        );
-                                      }}
-                                    />
-                                  </div>
-                                  <div>
-                                    <Label className="text-[10px]">
-                                      Arrival (To)
-                                    </Label>
-                                    <Input
-                                      type="time"
-                                      value={slot.too}
-                                      onChange={(e) => {
-                                        const current = [
-                                          ...watch(`routine.${day}.value`),
-                                        ];
-                                        current[index].too = e.target.value;
-                                        setValue(
-                                          `routine.${day}.value`,
-                                          current,
-                                        );
-                                      }}
-                                    />
-                                  </div>
-                                  <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="text-destructive"
-                                    onClick={() => {
-                                      const current = watch(
-                                        `routine.${day}.value`,
-                                      ).filter((_, i) => i !== index);
-                                      setValue(`routine.${day}.value`, current);
-                                    }}
-                                  >
-                                    <X size={14} />
-                                  </Button>
-                                </div>
-                              ),
-                            )}
-
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="w-full text-xs"
-                              onClick={() => {
-                                const current =
-                                  watch(`routine.${day}.value`) || [];
-                                setValue(`routine.${day}.value`, [
-                                  ...current,
-                                  {
-                                    from: "08:00",
-                                    too: "10:00",
-                                    status: "scheduled",
-                                  },
-                                ]);
-                              }}
-                            >
-                              <Plus size={12} className="mr-1" /> Add Time Slot
-                            </Button>
-                          </div>
-                        )}
                       </div>
-                    ))}
-                  </div>
-
-                  {/* End Weekly Schedule */}
-
-                  <div className="space-y-2">
-                    <Label htmlFor="route_distance">Route Distance</Label>
-                    <div className="flex rounded-md shadow-sm">
-                      <Input
-                        id="route_distance"
-                        type="number"
-                        {...register("route_distance")}
-                        placeholder="0"
-                        className="rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
-                      />
-                      {/* KM Unit Suffix */}
-                      <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
-                        KM
-                      </span>
+                      <div className="space-y-2">
+                        <Label htmlFor="flat_rate">Flat Rate</Label>
+                        <div className="flex rounded-md shadow-sm">
+                          <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                            ₦
+                          </span>
+                          <Input
+                            id="flat_rate"
+                            type="number"
+                            {...register("flat_rate")}
+                            placeholder="0.00"
+                            className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                          />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  {busStops && (
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">
-                        Select Bus-Stops Along this Route
-                      </label>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="rate_per_km">Rate Per KM</Label>
+                        <div className="flex rounded-md shadow-sm">
+                          <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                            ₦
+                          </span>
+                          <Input
+                            id="rate_per_km"
+                            type="number"
+                            {...register("rate_per_km")}
+                            placeholder="0.00"
+                            className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="code">Code</Label>
+                        <Input
+                          id="code"
+                          {...register("code")}
+                          placeholder="Enter Code"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                      <Label className="text-primary font-bold">
+                        Starting Point
+                      </Label>
+
                       <Select
-                        value="" // Keep placeholder visible
                         onValueChange={(id) => {
-                          // 1. Find the full stop object from your data source
-                          const selectedStop = busStops?.bus_stop.data.find(
-                            (s) => s._id === id,
-                          );
-
-                          if (selectedStop) {
-                            const currentStops = watch("number_of_stops") || [];
-
-                            // 2. Create the EntryPoint object
-                            const newEntry: EntryPoint = {
-                              value: selectedStop.location.value.toLowerCase(),
-                              longitude: selectedStop.location.longitude,
-                              latitude: selectedStop.location.latitude,
-                            };
-
-                            // 3. Check for duplicates based on coordinates or value
-                            const isDuplicate = currentStops.some(
-                              (s) => s.value === newEntry.value,
+                          // Search in the same data source you used for the list!
+                          const station =
+                            pickupStations?.pickup_station.data.find(
+                              (s) => s._id === id,
                             );
 
-                            if (!isDuplicate) {
-                              setValue("number_of_stops", [
-                                ...currentStops,
-                                newEntry,
-                              ]);
-                            }
+                          if (station) {
+                            setValue("starting_point", {
+                              // Use 'address' because that's what your map uses below
+                              value: station.address.value.toLowerCase(),
+                              latitude: Number(station.address.latitude),
+                              longitude: Number(station.address.longitude),
+                            });
                           }
                         }}
                       >
-                        <SelectTrigger className="w-full bg-transparent border-border">
-                          <SelectValue placeholder="Add bus-stops..." />
+                        <SelectTrigger className="bg-background">
+                          <SelectValue
+                            placeholder={
+                              watch("starting_point.value") ||
+                              "Select Starting Point"
+                            }
+                          />
                         </SelectTrigger>
                         <SelectContent>
-                          {busStops?.bus_stop.data
-                            .filter(
-                              (stop) =>
-                                // Filter out if the location value already exists in the number_of_stops array
-                                !watch("number_of_stops")?.some(
-                                  (s) =>
-                                    s.value === stop.location.value.toLowerCase(),
-                                ),
-                            )
-                            .map((stop) => (
-                              <SelectItem key={stop._id} value={stop._id}>
-                                {stop.location.value}
-                              </SelectItem>
-                            ))}
+                          {pickupStations?.pickup_station.data.map((stop) => (
+                            <SelectItem key={stop._id} value={stop._id}>
+                              {stop.address.value}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
+                    </div>
 
-                      {/* 2. Display Selected Bus-Stops as Badges */}
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {watch("number_of_stops").map((stopValue, key) => (
-                          <Badge
-                            key={key}
-                            variant="secondary"
-                            className="flex items-center gap-1 pl-2 pr-1 py-1"
-                          >
-                            <span className="capitalize">
-                              {stopValue.value}
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const current = watch("number_of_stops");
-                                setValue(
-                                  "number_of_stops",
-                                  current.filter((s) => s !== stopValue),
-                                );
-                              }}
-                              className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
-                            >
-                              <X size={14} />
-                            </button>
-                          </Badge>
-                        ))}
+                    <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                      <Label className="text-primary font-bold">
+                        Destination
+                      </Label>
+
+                      <Select
+                        onValueChange={(id) => {
+                          // Search in the same data source you used for the list!
+                          const station =
+                            pickupStations?.pickup_station.data.find(
+                              (s) => s._id === id,
+                            );
+
+                          if (station) {
+                            setValue("destination", {
+                              // Use 'address' because that's what your map uses below
+                              value: station.address.value.toLowerCase(),
+                              latitude: Number(station.address.latitude),
+                              longitude: Number(station.address.longitude),
+                            });
+                          }
+                        }}
+                      >
+                        <SelectTrigger className="bg-background">
+                          <SelectValue
+                            placeholder={
+                              watch("destination.value") || "Select Destination"
+                            }
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {dropOffStations?.drop_off_station.data.map(
+                            (stop) => (
+                              <SelectItem key={stop._id} value={stop._id}>
+                                {stop.address.value}
+                              </SelectItem>
+                            ),
+                          )}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* Weekly SAcheduler */}
+                    <div className="space-y-4 border-t pt-4">
+                      <Label className="text-lg font-bold">
+                        Weekly Operating Schedule
+                      </Label>
+
+                      {(
+                        [
+                          "monday",
+                          "tuesday",
+                          "wednesday",
+                          "thursday",
+                          "friday",
+                          "saturday",
+                          "sunday",
+                        ] as const
+                      ).map((day) => (
+                        <div
+                          key={day}
+                          className="p-3 border rounded-md bg-muted/10 space-y-3"
+                        >
+                          <div className="flex items-center justify-between">
+                            <Label className="capitalize font-semibold">
+                              {day}
+                            </Label>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs text-muted-foreground">
+                                Active
+                              </span>
+                              <Switch
+                                checked={watch(`routine.${day}.active`)}
+                                onCheckedChange={(val) =>
+                                  setValue(`routine.${day}.active`, val)
+                                }
+                              />
+                            </div>
+                          </div>
+
+                          {watch(`routine.${day}.active`) && (
+                            <div className="space-y-2">
+                              {watch(`routine.${day}.value`)?.map(
+                                (slot, index) => (
+                                  <div
+                                    key={index}
+                                    className="grid grid-cols-3 gap-2 items-end bg-background p-2 rounded border"
+                                  >
+                                    <div>
+                                      <Label className="text-[10px]">
+                                        Departure (From)
+                                      </Label>
+                                      <Input
+                                        type="time"
+                                        value={slot.from}
+                                        onChange={(e) => {
+                                          const current = [
+                                            ...watch(`routine.${day}.value`),
+                                          ];
+                                          current[index].from = e.target.value;
+                                          setValue(
+                                            `routine.${day}.value`,
+                                            current,
+                                          );
+                                        }}
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label className="text-[10px]">
+                                        Arrival (To)
+                                      </Label>
+                                      <Input
+                                        type="time"
+                                        value={slot.too}
+                                        onChange={(e) => {
+                                          const current = [
+                                            ...watch(`routine.${day}.value`),
+                                          ];
+                                          current[index].too = e.target.value;
+                                          setValue(
+                                            `routine.${day}.value`,
+                                            current,
+                                          );
+                                        }}
+                                      />
+                                    </div>
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="text-destructive"
+                                      onClick={() => {
+                                        const current = watch(
+                                          `routine.${day}.value`,
+                                        ).filter((_, i) => i !== index);
+                                        setValue(
+                                          `routine.${day}.value`,
+                                          current,
+                                        );
+                                      }}
+                                    >
+                                      <X size={14} />
+                                    </Button>
+                                  </div>
+                                ),
+                              )}
+
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="w-full text-xs"
+                                onClick={() => {
+                                  const current =
+                                    watch(`routine.${day}.value`) || [];
+                                  setValue(`routine.${day}.value`, [
+                                    ...current,
+                                    {
+                                      from: "08:00",
+                                      too: "10:00",
+                                      status: "scheduled",
+                                    },
+                                  ]);
+                                }}
+                              >
+                                <Plus size={12} className="mr-1" /> Add Time
+                                Slot
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* End Weekly Schedule */}
+
+                    <div className="space-y-2">
+                      <Label htmlFor="route_distance">Route Distance</Label>
+                      <div className="flex rounded-md shadow-sm">
+                        <Input
+                          id="route_distance"
+                          type="number"
+                          {...register("route_distance")}
+                          placeholder="0"
+                          className="rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                        {/* KM Unit Suffix */}
+                        <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
+                          KM
+                        </span>
                       </div>
                     </div>
-                  )}
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">State</label>
-                    <Select
-                      value={selectedState}
-                      onValueChange={(value) => setValue("state", value)}
-                    >
-                      <SelectTrigger className="w-full bg-transparent border-border">
-                        <SelectValue placeholder="Select a State" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {NIGERIA_STATES.map((state) => (
-                          <SelectItem key={state} value={state.toLowerCase()}>
-                            {state}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    {busStops && (
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">
+                          Select Bus-Stops Along this Route
+                        </label>
+                        <Select
+                          value="" // Keep placeholder visible
+                          onValueChange={(id) => {
+                            // 1. Find the full stop object from your data source
+                            const selectedStop = busStops?.bus_stop.data.find(
+                              (s) => s._id === id,
+                            );
+
+                            if (selectedStop) {
+                              const currentStops =
+                                watch("number_of_stops") || [];
+
+                              // 2. Create the EntryPoint object
+                              const newEntry: EntryPoint = {
+                                value:
+                                  selectedStop.location.value.toLowerCase(),
+                                longitude: selectedStop.location.longitude,
+                                latitude: selectedStop.location.latitude,
+                              };
+
+                              // 3. Check for duplicates based on coordinates or value
+                              const isDuplicate = currentStops.some(
+                                (s) => s.value === newEntry.value,
+                              );
+
+                              if (!isDuplicate) {
+                                setValue("number_of_stops", [
+                                  ...currentStops,
+                                  newEntry,
+                                ]);
+                              }
+                            }
+                          }}
+                        >
+                          <SelectTrigger className="w-full bg-transparent border-border">
+                            <SelectValue placeholder="Add bus-stops..." />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {busStops?.bus_stop.data
+                              .filter(
+                                (stop) =>
+                                  // Filter out if the location value already exists in the number_of_stops array
+                                  !watch("number_of_stops")?.some(
+                                    (s) =>
+                                      s.value ===
+                                      stop.location.value.toLowerCase(),
+                                  ),
+                              )
+                              .map((stop) => (
+                                <SelectItem key={stop._id} value={stop._id}>
+                                  {stop.location.value}
+                                </SelectItem>
+                              ))}
+                          </SelectContent>
+                        </Select>
+
+                        {/* 2. Display Selected Bus-Stops as Badges */}
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          {watch("number_of_stops").map((stopValue, key) => (
+                            <Badge
+                              key={key}
+                              variant="secondary"
+                              className="flex items-center gap-1 pl-2 pr-1 py-1"
+                            >
+                              <span className="capitalize">
+                                {stopValue.value}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const current = watch("number_of_stops");
+                                  setValue(
+                                    "number_of_stops",
+                                    current.filter((s) => s !== stopValue),
+                                  );
+                                }}
+                                className="hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors"
+                              >
+                                <X size={14} />
+                              </button>
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">State</label>
+                      <Select
+                        value={selectedState}
+                        onValueChange={(value) => setValue("state", value)}
+                      >
+                        <SelectTrigger className="w-full bg-transparent border-border">
+                          <SelectValue placeholder="Select a State" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {NIGERIA_STATES.map((state) => (
+                            <SelectItem key={state} value={state.toLowerCase()}>
+                              {state}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="state">Country</Label>
+                      <Input
+                        id="country"
+                        {...register("country")}
+                        disabled
+                        defaultValue={"Nigeria"}
+                        placeholder="Enter country"
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Country</Label>
-                    <Input
-                      id="country"
-                      {...register("country")}
-                      disabled
-                      defaultValue={"Nigeria"}
-                      placeholder="Enter country"
-                    />
-                  </div>
+                </div>
+                <div className="pt-4 border-t">
                   <Button
                     disabled={addTripRoute.isPending || holdBtn}
                     onClick={handleAddTripRoute}

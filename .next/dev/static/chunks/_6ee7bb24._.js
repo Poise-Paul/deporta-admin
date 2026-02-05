@@ -863,7 +863,8 @@ const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axio
     baseURL: "https://deporta-development.onrender.com",
     timeout: 15000,
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": true
     }
 });
 // Interceptor to inject the Bearer token automatically
@@ -906,6 +907,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 __turbopack_context__.s([
     "getAllBusStops",
     ()=>getAllBusStops,
+    "useBusStopStatus",
+    ()=>useBusStopStatus,
     "useCreateBusStop",
     ()=>useCreateBusStop,
     "useDeleteBusStop",
@@ -920,7 +923,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$bus$2d$stop$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/bus-stop-slice.ts [app-client] (ecmascript)");
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature();
 ;
 ;
 ;
@@ -942,6 +945,13 @@ const useCreateBusStop = ()=>{
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
         mutationFn: {
             "useCreateBusStop.useMutation": async (data)=>{
+                console.log("Added Bus Stop", {
+                    routes: data.routes,
+                    location: data.location,
+                    area: data.area,
+                    state: data.state,
+                    country: data.country
+                });
                 const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/bus-stop/create", {
                     routes: data.routes,
                     location: data.location,
@@ -1061,6 +1071,43 @@ const useDeleteBusStop = ()=>{
     });
 };
 _s2(useDeleteBusStop, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useBusStopStatus = ()=>{
+    _s3();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useBusStopStatus.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/bus-stop/change/status`, data);
+                return res.data;
+            }
+        }["useBusStopStatus.useMutation"],
+        onSuccess: {
+            "useBusStopStatus.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "busStops"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Updated Successfully");
+                return data;
+            }
+        }["useBusStopStatus.useMutation"],
+        onError: {
+            "useBusStopStatus.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useBusStopStatus.useMutation"]
+    });
+};
+_s3(useBusStopStatus, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
     ];
@@ -1291,9 +1338,18 @@ function BusStopDetail({ onBack }) {
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                id: "location",
-                                                                ...register("location"),
-                                                                placeholder: "Enter Location"
+                                                                id: "edit-location",
+                                                                placeholder: "e.g. Lekki Phase 1",
+                                                                // Bind specifically to the name string property
+                                                                value: watch("location.value") ?? "",
+                                                                onChange: (e)=>{
+                                                                    // Update the object manually to satisfy the EntryPoint type
+                                                                    setValue("location", {
+                                                                        value: e.target.value,
+                                                                        longitude: 0,
+                                                                        latitude: 0
+                                                                    });
+                                                                }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
                                                                 lineNumber: 140,
@@ -1313,7 +1369,7 @@ function BusStopDetail({ onBack }) {
                                                                 children: "Enter Area"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                lineNumber: 147,
+                                                                lineNumber: 156,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1322,13 +1378,13 @@ function BusStopDetail({ onBack }) {
                                                                 placeholder: "Enter area"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                lineNumber: 148,
+                                                                lineNumber: 157,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                        lineNumber: 146,
+                                                        lineNumber: 155,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1339,7 +1395,7 @@ function BusStopDetail({ onBack }) {
                                                                 children: "State"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                lineNumber: 155,
+                                                                lineNumber: 164,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1352,12 +1408,12 @@ function BusStopDetail({ onBack }) {
                                                                             placeholder: "Select a State"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                            lineNumber: 161,
+                                                                            lineNumber: 170,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                        lineNumber: 160,
+                                                                        lineNumber: 169,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1366,24 +1422,24 @@ function BusStopDetail({ onBack }) {
                                                                                 children: state
                                                                             }, state, false, {
                                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                                lineNumber: 165,
+                                                                                lineNumber: 174,
                                                                                 columnNumber: 25
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                        lineNumber: 163,
+                                                                        lineNumber: 172,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                lineNumber: 156,
+                                                                lineNumber: 165,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 163,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1394,23 +1450,24 @@ function BusStopDetail({ onBack }) {
                                                                 children: "Country"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                lineNumber: 173,
+                                                                lineNumber: 182,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                 id: "country",
+                                                                disabled: true,
                                                                 ...register("country"),
                                                                 defaultValue: "Nigeria",
                                                                 placeholder: "Enter country"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                                lineNumber: 174,
+                                                                lineNumber: 183,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                        lineNumber: 172,
+                                                        lineNumber: 181,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1421,14 +1478,14 @@ function BusStopDetail({ onBack }) {
                                                             className: "h-4 w-4 animate-spin"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                            lineNumber: 191,
+                                                            lineNumber: 201,
                                                             columnNumber: 21
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                             children: "Update Bus-Stop"
                                                         }, void 0, false)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                        lineNumber: 181,
+                                                        lineNumber: 191,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
@@ -1460,20 +1517,20 @@ function BusStopDetail({ onBack }) {
                                         className: "animate-spin h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 208,
+                                        lineNumber: 218,
                                         columnNumber: 15
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
                                         className: "h-4 w-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 210,
+                                        lineNumber: 220,
                                         columnNumber: 15
                                     }, this),
                                     "Delete Bus-Stop"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                lineNumber: 199,
+                                lineNumber: 209,
                                 columnNumber: 11
                             }, this)
                         ]
@@ -1503,12 +1560,12 @@ function BusStopDetail({ onBack }) {
                                             className: "h-10 w-10"
                                         }, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 222,
+                                            lineNumber: 232,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 221,
+                                        lineNumber: 231,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1516,15 +1573,15 @@ function BusStopDetail({ onBack }) {
                                         children: selBusStop?.routes
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 224,
+                                        lineNumber: 234,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                         className: "text-xl font-bold px-4",
-                                        children: selBusStop?.location
+                                        children: selBusStop?.location.value
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 225,
+                                        lineNumber: 235,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1532,7 +1589,7 @@ function BusStopDetail({ onBack }) {
                                         children: selBusStop?.area
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 226,
+                                        lineNumber: 238,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1541,20 +1598,20 @@ function BusStopDetail({ onBack }) {
                                         children: isActive ? "Active Station" : "In-active Station"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 229,
+                                        lineNumber: 241,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                lineNumber: 220,
+                                lineNumber: 230,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {
                                 className: "my-6"
                             }, void 0, false, {
                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                lineNumber: 240,
+                                lineNumber: 252,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1567,7 +1624,7 @@ function BusStopDetail({ onBack }) {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                lineNumber: 243,
+                                                lineNumber: 255,
                                                 columnNumber: 17
                                             }, this),
                                             " ",
@@ -1579,13 +1636,13 @@ function BusStopDetail({ onBack }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                lineNumber: 244,
+                                                lineNumber: 256,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 254,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1595,7 +1652,7 @@ function BusStopDetail({ onBack }) {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                lineNumber: 249,
+                                                lineNumber: 261,
                                                 columnNumber: 17
                                             }, this),
                                             " ",
@@ -1608,25 +1665,25 @@ function BusStopDetail({ onBack }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                                lineNumber: 250,
+                                                lineNumber: 262,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 248,
+                                        lineNumber: 260,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                lineNumber: 241,
+                                lineNumber: 253,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                        lineNumber: 219,
+                        lineNumber: 229,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1638,12 +1695,12 @@ function BusStopDetail({ onBack }) {
                                     children: "Bus Stop Details"
                                 }, void 0, false, {
                                     fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                    lineNumber: 260,
+                                    lineNumber: 272,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                lineNumber: 259,
+                                lineNumber: 271,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1654,25 +1711,25 @@ function BusStopDetail({ onBack }) {
                                         value: `${selBusStop.routes}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$route$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Route$3e$__["Route"], {}, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 266,
+                                            lineNumber: 278,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 263,
+                                        lineNumber: 275,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
                                         label: "Address",
-                                        value: selBusStop.location,
+                                        value: selBusStop.location.value,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {}, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 271,
+                                            lineNumber: 283,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 268,
+                                        lineNumber: 280,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -1680,12 +1737,12 @@ function BusStopDetail({ onBack }) {
                                         value: selBusStop.area,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {}, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 276,
+                                            lineNumber: 288,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 273,
+                                        lineNumber: 285,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -1693,12 +1750,12 @@ function BusStopDetail({ onBack }) {
                                         value: selBusStop.state,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Globe$3e$__["Globe"], {}, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 281,
+                                            lineNumber: 293,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 278,
+                                        lineNumber: 290,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -1706,12 +1763,12 @@ function BusStopDetail({ onBack }) {
                                         value: selBusStop.country,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Globe$3e$__["Globe"], {}, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 286,
+                                            lineNumber: 298,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 283,
+                                        lineNumber: 295,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -1719,35 +1776,35 @@ function BusStopDetail({ onBack }) {
                                         value: new Date(selBusStop.createdAt).toDateString(),
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {}, void 0, false, {
                                             fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                            lineNumber: 291,
+                                            lineNumber: 303,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                        lineNumber: 288,
+                                        lineNumber: 300,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                                lineNumber: 262,
+                                lineNumber: 274,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                        lineNumber: 258,
+                        lineNumber: 270,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                lineNumber: 218,
+                lineNumber: 228,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                lineNumber: 297,
+                lineNumber: 309,
                 columnNumber: 7
             }, this)
         ]
@@ -1776,7 +1833,7 @@ function InfoItem({ label, value, icon }) {
                 children: icon
             }, void 0, false, {
                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                lineNumber: 313,
+                lineNumber: 325,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1786,7 +1843,7 @@ function InfoItem({ label, value, icon }) {
                         children: label
                     }, void 0, false, {
                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                        lineNumber: 317,
+                        lineNumber: 329,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1794,19 +1851,19 @@ function InfoItem({ label, value, icon }) {
                         children: value
                     }, void 0, false, {
                         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                        lineNumber: 320,
+                        lineNumber: 332,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-                lineNumber: 316,
+                lineNumber: 328,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/bus-stops/bus-stop-details.tsx",
-        lineNumber: 312,
+        lineNumber: 324,
         columnNumber: 5
     }, this);
 }

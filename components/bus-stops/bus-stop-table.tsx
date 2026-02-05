@@ -129,7 +129,7 @@ export function BusStopTable({
   });
 
   const { register, reset, setValue, watch } = useForm<AddBusStopPayload>({
-    values: {
+    defaultValues: {
       routes: 0,
       location: { value: "", longitude: 0, latitude: 0 },
       area: "",
@@ -142,8 +142,9 @@ export function BusStopTable({
     register: updateRegister,
     setValue: updateValue,
     watch: updateWatch,
+    reset: updateReset,
   } = useForm<AddBusStopPayload>({
-    values: {
+    defaultValues: {
       routes: bustopId?.routes || 0,
       location:
         typeof bustopId?.location === "object"
@@ -173,22 +174,14 @@ export function BusStopTable({
   } = handleUpdateWatch;
 
   const handleAddBusStop = () => {
-    busStopMutation.mutate(
-      {
-        routes,
-        location,
-        area,
-        country,
-        state,
+    const formData = watch();
+    busStopMutation.mutate(formData, {
+      onSuccess: () => {
+        reset();
+        refetch();
       },
-      {
-        onSuccess: () => {
-          reset();
-          refetch();
-        },
-        onSettled: () => setIsAddDialogOpen(false),
-      },
-    );
+      onSettled: () => setIsAddDialogOpen(false),
+    });
   };
 
   const handleModifyBusStop = () => {
@@ -239,6 +232,22 @@ export function BusStopTable({
   useEffect(() => {
     refetch();
   }, [busStops]);
+
+  // This watches for when you click "Edit" and updates the form fields
+  useEffect(() => {
+    if (bustopId) {
+      updateReset({
+        routes: bustopId.routes,
+        area: bustopId.area,
+        country: bustopId.country,
+        state: bustopId.state === "Lagos State" ? "lagos" : bustopId.state,
+        location:
+          typeof bustopId.location === "object"
+            ? bustopId.location
+            : { value: bustopId.location || "", longitude: 0, latitude: 0 },
+      });
+    }
+  }, [bustopId, updateReset]);
 
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -386,14 +395,12 @@ export function BusStopTable({
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="area">Enter Location</Label>{" "}
+                    <Label>Enter Drop-Off Address</Label>
                     <Input
-                      id="add-location"
-                      placeholder="Enter location name (e.g., Ajah)"
-                      // Use 'watch' from the first useForm instance
-                      value={watch("location.value")}
+                      id="add-bus-stop-location" // Make this unique
+                      placeholder="e.g. Lekki Phase 1"
+                      value={watch("location.value") ?? ""}
                       onChange={(e) => {
-                        // Use 'setValue' from the first useForm instance
                         setValue("location", {
                           value: e.target.value,
                           longitude: 0,

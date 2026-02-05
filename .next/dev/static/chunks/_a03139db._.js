@@ -1125,6 +1125,13 @@ const useCreateBusStop = ()=>{
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
         mutationFn: {
             "useCreateBusStop.useMutation": async (data)=>{
+                console.log("Added Bus Stop", {
+                    routes: data.routes,
+                    location: data.location,
+                    area: data.area,
+                    state: data.state,
+                    country: data.country
+                });
                 const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/bus-stop/create", {
                     routes: data.routes,
                     location: data.location,
@@ -2143,7 +2150,7 @@ function RouteDetails({ onBack }) {
                                                                     const stop = busStops?.bus_stop.data.find((s)=>s._id === id);
                                                                     if (stop) {
                                                                         setValue("starting_point", {
-                                                                            value: stop.location.toLowerCase(),
+                                                                            value: stop.location.value.toLowerCase(),
                                                                             latitude: 0,
                                                                             longitude: 0
                                                                         });
@@ -2167,7 +2174,7 @@ function RouteDetails({ onBack }) {
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                         children: pickupStations?.pickup_station.data.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: stop._id,
-                                                                                children: stop.address
+                                                                                children: stop.address.value
                                                                             }, stop._id, false, {
                                                                                 fileName: "[project]/components/shared/route-details.tsx",
                                                                                 lineNumber: 306,
@@ -2274,7 +2281,7 @@ function RouteDetails({ onBack }) {
                                                                     const stop = busStops?.bus_stop.data.find((s)=>s._id === id);
                                                                     if (stop) {
                                                                         setValue("destination", {
-                                                                            value: stop.location.toLowerCase(),
+                                                                            value: stop.location.value.toLowerCase(),
                                                                             latitude: 0,
                                                                             longitude: 0
                                                                         });
@@ -2298,7 +2305,7 @@ function RouteDetails({ onBack }) {
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                         children: dropOffStations?.drop_off_station.data.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: stop._id,
-                                                                                children: stop.address
+                                                                                children: stop.address.value
                                                                             }, stop._id, false, {
                                                                                 fileName: "[project]/components/shared/route-details.tsx",
                                                                                 lineNumber: 394,
@@ -2453,9 +2460,9 @@ function RouteDetails({ onBack }) {
                                                                         const currentStops = watch("number_of_stops") || [];
                                                                         // 2. Build the EntryPoint object with test coordinates
                                                                         const newEntry = {
-                                                                            value: selectedStop.location.toLowerCase(),
-                                                                            longitude: 0,
-                                                                            latitude: 0
+                                                                            value: selectedStop.location.value.toLowerCase(),
+                                                                            longitude: selectedStop.location.longitude,
+                                                                            latitude: selectedStop.location.latitude
                                                                         };
                                                                         // 3. Check for duplicates using the .value property
                                                                         const isDuplicate = currentStops.some((stop)=>stop.value === newEntry.value);
@@ -2484,9 +2491,9 @@ function RouteDetails({ onBack }) {
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                         children: busStops?.bus_stop.data.filter((stop)=>// 4. Update filter to check inside the array of objects
-                                                                            !watch("number_of_stops")?.some((selected)=>selected.value === stop.location.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                            !watch("number_of_stops")?.some((selected)=>selected.value === stop.location.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: stop._id,
-                                                                                children: stop.location
+                                                                                children: stop.location.value
                                                                             }, stop._id, false, {
                                                                                 fileName: "[project]/components/shared/route-details.tsx",
                                                                                 lineNumber: 510,

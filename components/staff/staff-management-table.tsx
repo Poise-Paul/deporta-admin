@@ -82,6 +82,7 @@ export function StaffManagementTable() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<AddStaffPayload>();
 
@@ -163,7 +164,7 @@ export function StaffManagementTable() {
         {
           first_name,
           last_name,
-          phone_number,
+          phone_number: `+234 ${phone_number}`,
           email,
           gender,
           otp: otp ? otp : "",
@@ -179,11 +180,20 @@ export function StaffManagementTable() {
         },
       );
     } else {
+      console.log("Staff Create", {
+        first_name,
+        last_name,
+        phone_number: `+234 ${phone_number}`,
+        email,
+        gender,
+        role: selectedRole === "staff_admin" ? "admin" : selectedRole,
+      });
+
       createStaffMutation.mutate(
         {
           first_name,
           last_name,
-          phone_number,
+          phone_number: `+234 ${phone_number}`,
           email,
           gender,
           role: selectedRole === "staff_admin" ? "admin" : selectedRole,
@@ -191,6 +201,8 @@ export function StaffManagementTable() {
         {
           onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["staffs"] });
+            reset()
+            refetchStaffs()
             setIsAddDialogOpen(false);
           },
           onSettled: () => {
@@ -388,11 +400,20 @@ export function StaffManagementTable() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      {...register("phone_number")}
-                      id="phone"
-                      placeholder="Enter phone number"
-                    />
+                    <div className="relative flex items-center">
+                      {/* Fixed Country Code Prefix */}
+                      <span className="absolute left-3 text-sm text-muted-foreground font-medium border-r pr-2">
+                        +234
+                      </span>
+                      <Input
+                        {...register("phone_number")}
+                        id="phone"
+                        type="tel"
+                        maxLength={10}
+                        placeholder="803 000 0000"
+                        className="pl-16" // Add padding to make room for the prefix
+                      />
+                    </div>
                   </div>
                   <div className="space-y-3">
                     <Label>Gender</Label>

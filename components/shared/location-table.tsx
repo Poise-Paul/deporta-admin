@@ -119,7 +119,7 @@ export function LocationTable({
   const { register, reset, setValue, watch } = useForm<AddPickupStationPayload>(
     {
       values: {
-        address: "",
+        address: { value: "", longitude: 0, latitude: 0 },
         area: "",
         country: "Nigeria",
         state: "lagos",
@@ -133,7 +133,10 @@ export function LocationTable({
     watch: updateWatch,
   } = useForm<AddPickupStationPayload>({
     values: {
-      address: pickupId?.address || "",
+      address:
+        typeof pickupId?.address === "object"
+          ? pickupId.address
+          : { value: pickupId?.address || "", longitude: 0, latitude: 0 },
       area: pickupId?.area || "",
       country: pickupId?.country || "Nigeria",
       state:
@@ -228,7 +231,7 @@ export function LocationTable({
     let filtered = allStations.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
-        station.address?.toLowerCase().includes(searchStr) ||
+        station.address?.value.toLowerCase().includes(searchStr) ||
         station.area?.toLowerCase().includes(searchStr) ||
         station.state?.toLowerCase().includes(searchStr)
       );
@@ -355,10 +358,17 @@ export function LocationTable({
                   <div className="space-y-2">
                     <Label htmlFor="name">Pickup Address</Label>
                     <Input
-                      id="name"
-                      multiple
-                      {...register("address")}
+                      id="address"
                       placeholder="Enter pickup station address"
+                      // Bind to the value string inside the EntryPoint object
+                      value={watch("address.value")}
+                      onChange={(e) => {
+                        setValue("address", {
+                          value: e.target.value,
+                          longitude: 0,
+                          latitude: 0,
+                        });
+                      }}
                     />
                   </div>
                   <div className="space-y-2">
@@ -466,7 +476,7 @@ export function LocationTable({
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
                     <td className="p-4 font-medium text-sm">
-                      {station.address}
+                      {station.address.value}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
                       {station.area}
@@ -618,9 +628,16 @@ export function LocationTable({
               <div className="space-y-2">
                 <Label htmlFor="name">Pickup Address</Label>
                 <Input
-                  id="name"
-                  {...updateRegister("address")}
+                  id="update-address"
                   placeholder="Enter pickup station address"
+                  value={updateWatch("address.value")}
+                  onChange={(e) => {
+                    updateValue("address", {
+                      value: e.target.value,
+                      longitude: 0,
+                      latitude: 0,
+                    });
+                  }}
                 />
               </div>
               <div className="space-y-2">

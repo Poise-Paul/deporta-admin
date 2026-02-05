@@ -304,7 +304,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                     <SelectContent>
                       {pickupStations?.pickup_station.data.map((stop) => (
                         <SelectItem key={stop._id} value={stop._id}>
-                          {stop.address}
+                          {stop.address.value}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -392,7 +392,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                     <SelectContent>
                       {dropOffStations?.drop_off_station.data.map((stop) => (
                         <SelectItem key={stop._id} value={stop._id}>
-                          {stop.address}
+                          {stop.address.value}
                         </SelectItem>
                       ))}
                     </SelectContent>

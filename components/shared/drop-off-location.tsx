@@ -118,7 +118,7 @@ export function DropOffStation({
   const { register, setValue, watch, reset } = useForm<AddPickupStationPayload>(
     {
       values: {
-        address: "",
+        address: { value: "", longitude: 0, latitude: 0 },
         area: "",
         country: "Nigeria",
         state: "lagos",
@@ -132,7 +132,10 @@ export function DropOffStation({
     watch: updateWatch,
   } = useForm<AddPickupStationPayload>({
     values: {
-      address: dropOffId?.address || "",
+      address:
+        typeof dropOffId?.address === "object"
+          ? dropOffId.address
+          : { value: dropOffId?.address || "", longitude: 0, latitude: 0 },
       area: dropOffId?.area || "",
       country: dropOffId?.country || "Nigeria",
       state:
@@ -227,7 +230,7 @@ export function DropOffStation({
     let filtered = allStations.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
-        station.address?.toLowerCase().includes(searchStr) ||
+        station.address?.value.toLowerCase().includes(searchStr) ||
         station.area?.toLowerCase().includes(searchStr) ||
         station.state?.toLowerCase().includes(searchStr) ||
         station.country?.toLowerCase().includes(searchStr)
@@ -356,9 +359,18 @@ export function DropOffStation({
                   <div className="space-y-2">
                     <Label htmlFor="name">Drop-Off Location</Label>
                     <Input
-                      id="name"
-                      {...register("address")}
-                      placeholder="Enter pickup station address"
+                      id="address"
+                      placeholder="Enter drop-off location address"
+                      // Bind specifically to the string property inside the object
+                      value={watch("address.value")}
+                      onChange={(e) => {
+                        // Construct the full EntryPoint object
+                        setValue("address", {
+                          value: e.target.value,
+                          longitude: 0,
+                          latitude: 0,
+                        });
+                      }}
                     />
                   </div>
                   <div className="space-y-2">
@@ -466,7 +478,7 @@ export function DropOffStation({
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
                     <td className="p-4 font-medium text-sm">
-                      {station.address}
+                      {station.address.value}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
                       {station.area}
@@ -620,8 +632,16 @@ export function DropOffStation({
                 <Label htmlFor="name">Drop-Off Location Address</Label>
                 <Input
                   id="name"
-                  {...updateRegister("address")}
                   placeholder="Enter drop-off location address"
+                  // Add '?? ""' to ensure it's never undefined
+                  value={updateWatch("address.value") ?? ""}
+                  onChange={(e) => {
+                    updateValue("address", {
+                      value: e.target.value,
+                      longitude: 0,
+                      latitude: 0,
+                    });
+                  }}
                 />
               </div>
               <div className="space-y-2">
