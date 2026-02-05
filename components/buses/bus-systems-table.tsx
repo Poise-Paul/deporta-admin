@@ -89,8 +89,8 @@ export function BusSystemsTable() {
       bus_id: "",
       id_code: "",
       name_label: "",
-      routes_assigned: [""],
-      drivers_assigned: [""],
+      routes_assigned: [],
+      drivers_assigned: [],
       plate_number: "",
       capacity: "",
       operation_schedule: {
@@ -160,7 +160,6 @@ export function BusSystemsTable() {
       plate_number &&
       capacity &&
       operation_schedule &&
-      status &&
       fuel_type &&
       tracker_id &&
       mileage

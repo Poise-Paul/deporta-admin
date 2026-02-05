@@ -1,5 +1,6 @@
 import {
   AddBusPayload,
+  BusEditResponse,
   BusesResponse,
   EditBusPayload,
   ErrorrResponse,
@@ -36,27 +37,30 @@ export const useCreateBus = () => {
     mutationFn: async (data: AddBusPayload) => {
       const formData = new FormData();
 
-      // 1. Handle the Image
-      if (data.image instanceof File) {
-        formData.append("image", data.image);
+      if (data.image) {
+        data.image.forEach((file) => {
+          formData.append("image", file);
+        });
       }
 
-      data.routes_assigned.forEach((route) => {
-        if (route) formData.append("routes_assigned[]", route);
-      });
-
-      data.drivers_assigned.forEach((driver) => {
-        if (driver) formData.append("drivers_assigned[]", driver);
-      });
+      formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
+      formData.append(
+        "drivers_assigned",
+        JSON.stringify(data.drivers_assigned),
+      );
 
       // 3. Handle Primitive Fields
       formData.append("id_code", data.id_code);
       formData.append("name_label", data.name_label);
       formData.append("plate_number", data.plate_number);
       formData.append("capacity", data.capacity);
-      formData.append("operation_schedule[from]", data.operation_schedule.from);
-      formData.append("operation_schedule[to]", data.operation_schedule.to);
-
+      formData.append(
+        "operation_schedule",
+        JSON.stringify({
+          from: data.operation_schedule.from,
+          to: data.operation_schedule.to,
+        }),
+      );
       // Convert boolean to string "true" or "false"
       formData.append("status", String(data.status));
 
@@ -119,18 +123,18 @@ export const useModifyBuses = () => {
     mutationFn: async (data: EditBusPayload) => {
       const formData = new FormData();
 
-      // 1. Handle the Image
-      if (data.image instanceof File) {
-        formData.append("image", data.image);
+      if (data.image) {
+        data.image.forEach((file) => {
+          formData.append("image", file);
+          // or "image[]" depending on backend
+        });
       }
 
-      data.routes_assigned.forEach((route) => {
-        if (route) formData.append("routes_assigned[]", route);
-      });
-
-      data.drivers_assigned.forEach((driver) => {
-        if (driver) formData.append("drivers_assigned[]", driver);
-      });
+      formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
+      formData.append(
+        "drivers_assigned",
+        JSON.stringify(data.drivers_assigned),
+      );
 
       // 3. Handle Primitive Fields
       formData.append("bus_id", data.bus_id);
@@ -145,11 +149,6 @@ export const useModifyBuses = () => {
           to: data.operation_schedule.to,
         }),
       );
-
-      // formData.append("operation_schedule[from]", data.operation_schedule.from);
-      // formData.append("operation_schedule[to]", data.operation_schedule.to);
-
-      // Convert boolean to string "true" or "false"
       formData.append("status", String(data.status));
 
       formData.append("fuel_type", data.fuel_type);
@@ -164,10 +163,8 @@ export const useModifyBuses = () => {
 
       return res.data;
     },
-    onSuccess: (data: any) => {
+    onSuccess: (data: BusEditResponse) => {
       toast.success(`${data.message}`);
-      console.log("Bus Edit Data>><M<", data);
-
       //   store.dispatch(updateBusDetails())
       queryClient.invalidateQueries({ queryKey: ["allBuses"] });
       return data;

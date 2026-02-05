@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Edit, Loader2, Plus, Upload, X } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { getStaffList } from "@/api/user";
 import { useQuery } from "@tanstack/react-query";
@@ -40,6 +40,7 @@ import {
 import { useModifyBuses } from "@/api/buses";
 import { getRoutes } from "@/api/routes";
 import { Toaster } from "react-hot-toast";
+import { updateSelBus } from "@/lib/store/slices/bus-slice";
 
 interface BusDetailsProps {
   busId: string;
@@ -61,6 +62,12 @@ export function BusDetails({ busId }: BusDetailsProps) {
     queryFn: () => getStaffList(),
   });
 
+  const formatDateForInput = (dateString?: string) => {
+    if (!dateString) return "";
+    // Converts "2023-10-25T14:30:00.000Z" to "2023-10-25T14:30"
+    return new Date(dateString).toISOString().slice(0, 16);
+  };
+
   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
     defaultValues: {
       imageUrl: selBus?.bus_photos,
@@ -72,8 +79,8 @@ export function BusDetails({ busId }: BusDetailsProps) {
       plate_number: selBus?.plate_number,
       capacity: selBus?.capacity,
       operation_schedule: {
-        from: selBus?.operation_schedule.from,
-        to: selBus?.operation_schedule.to,
+        from: formatDateForInput(selBus?.operation_schedule?.from),
+        to: formatDateForInput(selBus?.operation_schedule?.to),
       },
       status: selBus?.status ? true : false,
       fuel_type: selBus?.fuel_type as FuelType,
@@ -83,6 +90,22 @@ export function BusDetails({ busId }: BusDetailsProps) {
   });
 
   const modifyBusMutation = useModifyBuses();
+
+  useEffect(() => {
+    if (selBus) {
+      reset({
+        ...selBus,
+        bus_id: selBus._id,
+        imageUrl: selBus.bus_photos,
+        operation_schedule: {
+          from: formatDateForInput(selBus.operation_schedule?.from),
+          to: formatDateForInput(selBus.operation_schedule?.to),
+        },
+        fuel_type: selBus.fuel_type as FuelType,
+        status: !!selBus.status,
+      } as EditBusPayload);
+    }
+  }, [selBus, reset]);
 
   const {
     data: tripRoutes,
@@ -109,8 +132,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
     mileage,
   } = handleWatch;
 
+  const dispatch = useDispatch();
+
   const handleModifyBus = () => {
-    console.log("Modify Bus Data", {
+    console.log("Bus Data", {
       image,
       id_code,
       bus_id: selBus?._id || "",
@@ -125,7 +150,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
       tracker_id,
       mileage,
     });
-    
+
     modifyBusMutation.mutate(
       {
         image,
@@ -143,7 +168,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
         mileage,
       },
       {
-        onSettled: () => setIsDialogueOpen(false),
+        onSettled: (data) => {
+          dispatch(updateSelBus(data?.buses));
+          setIsDialogueOpen(false);
+        },
       },
     );
   };
@@ -182,7 +210,6 @@ export function BusDetails({ busId }: BusDetailsProps) {
       plate_number &&
       capacity &&
       operation_schedule &&
-      status &&
       fuel_type &&
       tracker_id &&
       mileage

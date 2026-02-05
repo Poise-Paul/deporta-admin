@@ -16215,3 +16215,928 @@ Import traces:
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
 [118:21:50.775] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263221537}
+[118:25:42.940] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263453724}
+[118:25:45.110] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/users color: rgb(120, 120, 120) color: inherit {"dp":"/users","o":"http://localhost:3000/users","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263455893}
+[118:25:46.618] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263457393}
+[118:25:48.775] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263459557}
+[118:26:49.631] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263520413}
+[118:26:55.242] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263526022}
+[118:29:49.984] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263700766}
+[118:29:54.909] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263705682}
+[118:30:29.236] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770263740014}
+[118:30:30.641] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:30:30.641] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:32:11.779] Browser LOG     Modify Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":33,"drivers_assigned":["69663ca422d08383db588b64","697b59ec53213bcdc9f24986","697b437f0d136295bc737f7b"],"fuel_type":"petrol","id_code":"SSHHD3","image":[{},{},{}],"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-08T04:57","to":"2026-11-05T04:57"},"plate_number":"334344SSD","routes_assigned":["6983fee69396b3962c835ace"],"status":true,"tracker_id":"EDHGHE43"}
+[118:32:13.796] Browser LOG     Bus Edit Data>><M< {"buses":{"__v":1,"_id":"697ca338b3bd65973638acf7","added_by":"6961a99fcb40bd375767fc09","bus_photos":["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769775927/GBsR5ALgHo.webp"],"capacity":33,"createdAt":"2026-01-30T12:25:28.412Z","drivers_assigned":[],"fuel_type":"petrol","id_code":"SSHHD3","is_maintenance":true,"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-08T03:57:00.000Z","to":"2026-11-05T03:57:00.000Z"},"outsourcing":true,"plate_number":"334344SSD","routes_assigned":[],"status":"active","tracker_id":"EDHGHE43","updatedAt":"2026-02-05T03:57:24.140Z"},"message":"bus edited successfully","status":true}
+[118:32:54.184] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:32:54.184] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:34:21.784] Server  LOG      ✓ Compiled in 42ms
+[118:34:48.768] Server  LOG      ✓ Compiled in 33ms
+[118:35:10.736] Server  LOG      ✓ Compiled in 35ms
+[118:35:10.838] Browser ERROR   ./components/buses/bus-details.tsx:132:11
+Parsing ecmascript source code failed
+  130 |         onSettled: () => {
+  131 |           
+> 132 |         } setIsDialogueOpen(false),
+      |           ^^^^^^^^^^^^^^^^^
+  133 |       },
+  134 |     );
+  135 |   };
+
+Expected ',', got 'setIsDialogueOpen'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:35:17.039] Server  LOG      ✓ Compiled in 31ms
+[118:35:56.642] Server  LOG      ✓ Compiled in 36ms
+[118:35:56.745] Browser ERROR   ./components/buses/bus-details.tsx:133:9
+Parsing ecmascript source code failed
+  131 |           setIsDialogueOpen(false);
+  132 |           do
+> 133 |         },
+      |         ^
+  134 |       },
+  135 |     );
+  136 |   };
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:36:11.946] Server  LOG      ✓ Compiled in 40ms
+[118:36:18.723] Server  LOG      ✓ Compiled in 30ms
+[118:36:20.105] Server  LOG      ✓ Compiled in 31ms
+[118:36:37.896] Server  LOG      ✓ Compiled in 32ms
+[118:36:39.752] Server  LOG      ✓ Compiled in 29ms
+[118:36:44.582] Server  LOG      ✓ Compiled in 32ms
+[118:36:47.010] Server  LOG      ✓ Compiled in 29ms
+[118:36:49.315] Server  LOG      ✓ Compiled in 46ms
+[118:37:34.532] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264165311}
+[118:37:40.509] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264171291}
+[118:37:43.075] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264173847}
+[118:37:45.840] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264176616}
+[118:37:48.696] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:37:48.696] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:37:51.515] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:37:51.515] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:37:57.329] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:37:57.329] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:38:29.041] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:39:26.092] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:39:26.273] Server  LOG      ✓ Compiled in 30ms
+[118:39:26.350] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:39:26.356] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:39:26.356] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSHHD3 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSHHD3","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264276985}
+[118:39:26.426] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:39:26.562] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:39:28.323] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:39:28.405] Server  LOG      ✓ Compiled in 28ms
+[118:39:28.457] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:39:28.506] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:39:28.645] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:39:36.978] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:39:37.053] Server  LOG      ✓ Compiled in 29ms
+[118:39:37.088] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:39:37.146] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:39:37.283] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:39:40.305] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:39:40.390] Server  LOG      ✓ Compiled in 36ms
+[118:39:40.417] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:39:40.474] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:39:40.609] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:39:59.196] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:39:59.334] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:40:02.825] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:40:02.869] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:40:03.030] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:40:03.030] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:40:03.030] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[118:40:03.030] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264313819}
+[118:40:08.755] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSDFGF455D color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSDFGF455D","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264319537}
+[118:40:11.217] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:40:11.217] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:40:19.226] Browser LOG     Data {"buses":{"__v":1,"_id":"697ca338b3bd65973638acf7","added_by":"6961a99fcb40bd375767fc09","bus_photos":["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769775927/GBsR5ALgHo.webp"],"capacity":33,"createdAt":"2026-01-30T12:25:28.412Z","drivers_assigned":[],"fuel_type":"diesel","id_code":"SSDFGF455D","is_maintenance":true,"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T07:03:00.000Z","to":"2026-11-05T04:03:00.000Z"},"outsourcing":true,"plate_number":"334344SSD","routes_assigned":[],"status":"active","tracker_id":"EDHGHE43","updatedAt":"2026-02-05T04:03:39.363Z"},"message":"bus edited successfully","status":true}
+[118:40:19.226] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:41:13.902] Server  LOG      ✓ Compiled in 48ms
+[118:41:14.008] Browser ERROR   ./types/index.ts:261:1
+Parsing ecmascript source code failed
+  259 | export 
+  260 |
+> 261 | export type StaffData = {
+      | ^^^^^^
+  262 |   _id: string;
+  263 |   first_name: string;
+  264 |   last_name: string;
+
+Expected '{', got 'export'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:41:16.935] Browser ERROR   ./types/index.ts:261:1
+Parsing ecmascript source code failed
+  259 | export type 
+  260 |
+> 261 | export type StaffData = {
+      | ^^^^^^
+  262 |   _id: string;
+  263 |   first_name: string;
+  264 |   last_name: string;
+
+Expected '{', got 'export'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:41:20.896] Server  LOG      ✓ Compiled in 31ms
+[118:41:20.998] Browser ERROR   ./types/index.ts:259:13
+Parsing ecmascript source code failed
+  257 | }
+  258 |
+> 259 | export type BusEdit
+      |             ^^^^^^^
+  260 |
+  261 | export type StaffData = {
+  262 |   _id: string;
+
+Expected '{', got 'BusEdit'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:41:25.065] Server  LOG      ✓ Compiled in 31ms
+[118:41:25.168] Browser ERROR   ./types/index.ts:259:13
+Parsing ecmascript source code failed
+  257 | }
+  258 |
+> 259 | export type BusEditResponse {
+      |             ^^^^^^^^^^^^^^^
+  260 |   
+  261 | }
+  262 |
+
+Expected '{', got 'BusEditResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[118:41:26.905] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:41:26.954] Server  LOG      ✓ Compiled in 30ms
+[118:41:27.106] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:41:27.292] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:42:29.798] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:42:30.094] Server  LOG      ✓ Compiled in 33ms
+[118:42:30.174] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:42:30.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:42:30.507] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:42:33.108] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[118:42:33.217] Server  LOG      ✓ Compiled in 29ms
+[118:42:33.258] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[118:42:33.568] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:42:33.811] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:42:38.288] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:42:38.426] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'from')
+[118:42:41.580] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[118:42:41.757] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[118:42:41.757] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[118:42:41.757] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[118:42:41.757] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264472528}
+[118:42:41.757] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[118:42:47.271] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSDFGF455D color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSDFGF455D","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264478053}
+[118:42:49.826] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:42:49.826] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:43:27.330] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:43:27.330] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:44:01.832] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264552604}
+[118:44:49.006] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSDFGF455D color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSDFGF455D","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770264599783}
+[118:44:51.505] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:44:51.505] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:45:41.517] Server  LOG      ✓ Compiled in 49ms
+[118:45:43.068] Server  LOG      ✓ Compiled in 30ms
+[118:45:44.408] Server  LOG      ✓ Compiled in 34ms
+[118:45:45.737] Server  LOG      ✓ Compiled in 30ms
+[118:45:48.182] Server  LOG      ✓ Compiled in 30ms
+[118:45:54.932] Server  LOG      ✓ Compiled in 30ms
+[118:45:55.036] Browser ERROR   ./components/buses/bus-details.tsx:118:15
+Parsing ecmascript source code failed
+  116 | console.log("Bus Data", image,
+  117 |         id_code,
+> 118 |         bus_id: selBus?._id || "",
+      |               ^
+  119 |         routes_assigned,
+  120 |         drivers_assigned,
+  121 |         name_label,
+
+Expected ',', got ':'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:46:09.560] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":[],"fuel_type":"diesel","id_code":"SSDFGF455D","mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-07T04:08:00.000Z","to":"2026-02-20T04:08:00.000Z"},"plate_number":"334344SSD","routes_assigned":[],"status":true,"tracker_id":"EDHGHE43"}
+[118:46:21.544] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:46:21.544] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:46:35.481] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":["697b59ec53213bcdc9f24986","6974fa28c4781ee8264498ba"],"fuel_type":"diesel","id_code":"SSDFGF455D","mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T08:11","to":"2026-02-05T09:11"},"plate_number":"334344SSD","routes_assigned":["6983fee69396b3962c835ace"],"status":true,"tracker_id":"EDHGHE43"}
+[118:47:40.145] Server  LOG      ✓ Compiled in 55ms
+[118:47:42.250] Server  LOG      ✓ Compiled in 29ms
+[118:49:12.701] Server  LOG      ✓ Compiled in 34ms
+[118:49:14.041] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://7ae75e4c4a22.ngrok-free.app","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjYyMDI3LCJleHAiOjE3NzA4NjY4Mjd9.ORLpa2Jo1q1heoDNLKQc1720xYqUuk1D0B7NpPRDUc0","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17212:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1757:21)"}
+[118:49:14.645] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://7ae75e4c4a22.ngrok-free.app","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjYyMDI3LCJleHAiOjE3NzA4NjY4Mjd9.ORLpa2Jo1q1heoDNLKQc1720xYqUuk1D0B7NpPRDUc0","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17212:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1572:21)"}
+[118:54:03.339] Server  LOG      ✓ Compiled in 50ms
+[118:54:21.306] Server  LOG      ✓ Compiled in 41ms
+[118:54:21.412] Browser ERROR   ./components/buses/bus-details.tsx:82:11
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |           ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.412] Browser ERROR   ./components/buses/bus-details.tsx:82:38
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                                      ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `reset` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.413] Browser ERROR   ./components/buses/bus-details.tsx:82:21
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                     ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.413] Browser ERROR   ./components/buses/bus-details.tsx:82:31
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                               ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.584] Browser ERROR   ./components/buses/bus-details.tsx:82:11
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |           ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.584] Browser ERROR   ./components/buses/bus-details.tsx:82:38
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                                      ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `reset` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.584] Browser ERROR   ./components/buses/bus-details.tsx:82:21
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                     ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:21.584] Browser ERROR   ./components/buses/bus-details.tsx:82:31
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                               ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:33.423] Server  LOG      ✓ Compiled in 34ms
+[118:54:33.526] Browser ERROR   ./components/buses/bus-details.tsx:79:11
+Ecmascript file had an error
+  77 |   });
+  78 |
+> 79 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |           ^^^^^^^^
+  80 |     defaultValues: {
+  81 |       imageUrl: selBus?.bus_photos,
+  82 |       bus_id: selBus?._id,
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:33.526] Browser ERROR   ./components/buses/bus-details.tsx:79:38
+Ecmascript file had an error
+  77 |   });
+  78 |
+> 79 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                                      ^^^^^
+  80 |     defaultValues: {
+  81 |       imageUrl: selBus?.bus_photos,
+  82 |       bus_id: selBus?._id,
+
+the name `reset` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:33.526] Browser ERROR   ./components/buses/bus-details.tsx:79:21
+Ecmascript file had an error
+  77 |   });
+  78 |
+> 79 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                     ^^^^^^^^
+  80 |     defaultValues: {
+  81 |       imageUrl: selBus?.bus_photos,
+  82 |       bus_id: selBus?._id,
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:33.526] Browser ERROR   ./components/buses/bus-details.tsx:79:31
+Ecmascript file had an error
+  77 |   });
+  78 |
+> 79 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                               ^^^^^
+  80 |     defaultValues: {
+  81 |       imageUrl: selBus?.bus_photos,
+  82 |       bus_id: selBus?._id,
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:37.741] Server  LOG      ✓ Compiled in 34ms
+[118:54:37.845] Browser ERROR   ./components/buses/bus-details.tsx:82:11
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |           ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:37.845] Browser ERROR   ./components/buses/bus-details.tsx:82:38
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                                      ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `reset` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:37.845] Browser ERROR   ./components/buses/bus-details.tsx:82:21
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                     ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:37.845] Browser ERROR   ./components/buses/bus-details.tsx:82:31
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                               ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:57.829] Server  LOG      ✓ Compiled in 38ms
+[118:54:57.932] Browser ERROR   ./components/buses/bus-details.tsx:82:11
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |           ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `register` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:57.932] Browser ERROR   ./components/buses/bus-details.tsx:82:38
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                                      ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `reset` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:57.932] Browser ERROR   ./components/buses/bus-details.tsx:82:21
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                     ^^^^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `setValue` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:54:57.932] Browser ERROR   ./components/buses/bus-details.tsx:82:31
+Ecmascript file had an error
+  80 |   });
+  81 |
+> 82 |   const { register, setValue, watch, reset } = useForm<EditBusPayload>({
+     |                               ^^^^^
+  83 |     defaultValues: {
+  84 |       imageUrl: selBus?.bus_photos,
+  85 |       bus_id: selBus?._id,
+
+the name `watch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-details.tsx
+    ./app/(dashboard)/app-menu/buses/[id]/page.tsx
+[118:55:18.676] Server  LOG      ✓ Compiled in 36ms
+[118:56:26.756] Server  LOG      ✓ Compiled in 37ms
+[118:59:06.723] Server  LOG      ✓ Compiled in 59ms
+[118:59:10.665] Server  LOG      ✓ Compiled in 44ms
+[118:59:12.189] Server  LOG      ✓ Compiled in 33ms
+[118:59:15.121] Server  LOG      ✓ Compiled in 31ms
+[118:59:17.044] Server  LOG      ✓ Compiled in 33ms
+[118:59:18.899] Server  LOG      ✓ Compiled in 33ms
+[118:59:20.890] Server  LOG      ✓ Compiled in 29ms
+[118:59:28.411] Server  LOG      ✓ Compiled in 30ms
+[118:59:37.792] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:59:37.792] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:59:47.171] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[118:59:47.171] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:00:07.333] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770265518112}
+[119:00:11.517] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSDFGF455D color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSDFGF455D","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770265522296}
+[119:00:12.535] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:00:12.535] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:00:54.905] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":["697b4fc50d136295bc738097","6974fa28c4781ee8264498ba"],"fuel_type":"diesel","id_code":"SSDFGF455D","image":[{},{},{}],"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T07:11","to":"2026-02-05T08:11"},"plate_number":"334344SSD","routes_assigned":["6983fee69396b3962c835ace"],"status":true,"tracker_id":"EDHGHE43"}
+[119:04:07.909] Server  LOG      ✓ Compiled in 45ms
+[119:04:11.126] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:04:11.126] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:05:01.233] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":["697b4fc50d136295bc738097","697b485e0d136295bc737fea"],"fuel_type":"diesel","id_code":"SSDFGF455D","image":[{},{},{}],"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T06:11","to":"2026-02-05T07:11"},"plate_number":"334344SSD","routes_assigned":["69840650938eb1ebbfb6a233"],"status":true,"tracker_id":"EDHGHE43"}
+[119:05:18.575] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770265829354}
+[119:05:40.061] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:05:40.061] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:05:55.484] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/SSDFGF455D color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/SSDFGF455D","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770265866265}
+[119:06:04.032] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:06:04.032] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:06:17.219] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":["697b4fc50d136295bc738097","697b485e0d136295bc737fea"],"fuel_type":"diesel","id_code":"SSDFGF455D","image":[{},{}],"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T05:11","to":"2026-02-05T06:11"},"plate_number":"334344SSD","routes_assigned":["69840650938eb1ebbfb6a233"],"status":true,"tracker_id":"EDHGHE43"}
+[119:06:43.430] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:06:43.430] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:07:03.689] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:07:03.689] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:07:18.141] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":["697b4fc50d136295bc738097","697b485e0d136295bc737fea"],"fuel_type":"diesel","id_code":"SSDFGF455D","image":[{},{},{}],"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T04:11","to":"2026-02-05T05:11"},"plate_number":"334344SSD","routes_assigned":["69840650938eb1ebbfb6a233"],"status":true,"tracker_id":"EDHGHE43"}
+[119:11:34.440] Server  LOG      ✓ Compiled in 71ms
+[119:11:35.856] Server  LOG      ✓ Compiled in 33ms
+[119:11:36.118] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://7ae75e4c4a22.ngrok-free.app","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjYyMDI3LCJleHAiOjE3NzA4NjY4Mjd9.ORLpa2Jo1q1heoDNLKQc1720xYqUuk1D0B7NpPRDUc0","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17212:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1572:21)"}
+[119:11:36.725] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://7ae75e4c4a22.ngrok-free.app","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjYyMDI3LCJleHAiOjE3NzA4NjY4Mjd9.ORLpa2Jo1q1heoDNLKQc1720xYqUuk1D0B7NpPRDUc0","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17212:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1757:21)"}
+[119:11:38.294] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://7ae75e4c4a22.ngrok-free.app","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjYyMDI3LCJleHAiOjE3NzA4NjY4Mjd9.ORLpa2Jo1q1heoDNLKQc1720xYqUuk1D0B7NpPRDUc0","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17212:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1572:21)"}
+[119:11:41.708] Browser ERROR   Fetch User Error: {"code":"ERR_NETWORK","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://7ae75e4c4a22.ngrok-free.app","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcwMjYyMDI3LCJleHAiOjE3NzA4NjY4Mjd9.ORLpa2Jo1q1heoDNLKQc1720xYqUuk1D0B7NpPRDUc0","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Network Error","name":"AxiosError","stack":"AxiosError: Network Error\n    at XMLHttpRequest.handleError (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17212:25)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1572:21)"}
+[119:11:57.588] Server  LOG      ✓ Compiled in 32ms
+[119:12:49.879] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:12:49.879] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:14:23.943] Server  LOG      ✓ Compiled in 61ms
+[119:14:41.447] Server  LOG      ✓ Compiled in 34ms
+[119:20:26.141] Server  LOG      ✓ Compiled in 35ms
+[119:20:26.245] Browser ERROR   ./api/buses/index.ts:155:19
+Parsing ecmascript source code failed
+  153 |       formData.append("mileage", data.mileage);
+  154 |
+> 155 |       const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
+      |                   ^^^^^
+  156 |         headers: {
+  157 |           "Content-Type": "multipart/form-data",
+  158 |         },
+
+await isn't allowed in non-async function
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:20:41.543] Server  LOG      ✓ Compiled in 31ms
+[119:20:41.645] Browser ERROR   ./api/buses/index.ts:155:19
+Parsing ecmascript source code failed
+  153 |       formData.append("mileage", data.mileage);
+  154 |
+> 155 |       const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
+      |                   ^^^^^
+  156 |         headers: {
+  157 |           "Content-Type": "multipart/form-data",
+  158 |         },
+
+await isn't allowed in non-async function
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:20:44.210] Browser ERROR   ./api/buses/index.ts:156:19
+Parsing ecmascript source code failed
+  154 |       formData.append("mileage", data.mileage);
+  155 |
+> 156 |       const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
+      |                   ^^^^^
+  157 |         headers: {
+  158 |           "Content-Type": "multipart/form-data",
+  159 |         },
+
+await isn't allowed in non-async function
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:20:46.492] Server  LOG      ✓ Compiled in 39ms
+[119:20:46.595] Browser ERROR   ./api/buses/index.ts:132:7
+Parsing ecmascript source code failed
+  130 |       }
+  131 |
+> 132 |       formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
+      |       ^^^^^^^^
+  133 |       formData.append(
+  134 |         "drivers_assigned",
+  135 |         JSON.stringify(data.drivers_assigned),
+
+Expected ',', got 'formData'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:20:48.658] Server  LOG      ✓ Compiled in 30ms
+[119:20:48.761] Browser ERROR   ./api/buses/index.ts:156:19
+Parsing ecmascript source code failed
+  154 |       formData.append("mileage", data.mileage);
+  155 |
+> 156 |       const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
+      |                   ^^^^^
+  157 |         headers: {
+  158 |           "Content-Type": "multipart/form-data",
+  159 |         },
+
+await isn't allowed in non-async function
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:20:50.782] Server  LOG      ✓ Compiled in 29ms
+[119:20:50.884] Browser ERROR   ./api/buses/index.ts:132:7
+Parsing ecmascript source code failed
+  130 |      }
+  131 |
+> 132 |       formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
+      |       ^^^^^^^^
+  133 |       formData.append(
+  134 |         "drivers_assigned",
+  135 |         JSON.stringify(data.drivers_assigned),
+
+Expected ',', got 'formData'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:20:57.504] Browser ERROR   ./api/buses/index.ts:133:7
+Parsing ecmascript source code failed
+  131 |      }
+  132 |
+> 133 |       formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
+      |       ^^^^^^^^
+  134 |       formData.append(
+  135 |         "drivers_assigned",
+  136 |         JSON.stringify(data.drivers_assigned),
+
+Expected ',', got 'formData'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[119:21:35.467] Browser LOG     Bus Data {"bus_id":"697ca338b3bd65973638acf7","capacity":38,"drivers_assigned":["697b4fc50d136295bc738097","697b485e0d136295bc737fea"],"fuel_type":"diesel","id_code":"SSDFGF455D","image":[{},{},{},{}],"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T03:11","to":"2026-02-05T04:11"},"plate_number":"334344SSD","routes_assigned":["69840650938eb1ebbfb6a233"],"status":true,"tracker_id":"EDHGHE43"}
+[119:21:56.794] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:21:56.794] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:21:59.825] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:21:59.825] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:02.561] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:02.561] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:08.024] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:08.024] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:11.563] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266842345}
+[119:22:21.916] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:22:23.317] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:22:26.343] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:22:26.416] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:22:26.575] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[119:22:26.575] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[119:22:26.575] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[119:22:26.575] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266857367}
+[119:22:30.202] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:30.202] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:22:34.206] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:23:04.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:23:04.466] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[119:23:04.466] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[119:23:04.467] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[119:23:04.467] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266895240}
+[119:23:04.467] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[119:23:09.347] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266900130}
+[119:23:11.120] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266901895}
+[119:23:13.131] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:23:16.420] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:23:16.420] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:23:25.789] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:23:29.305] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:23:31.883] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:23:31.883] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:23:38.751] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:23:38.751] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:24:14.632] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:24:14.632] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:24:24.756] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266975540}
+[119:24:27.350] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266978135}
+[119:24:33.120] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770266983895}
+[119:24:36.901] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:24:36.901] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:24:44.954] Server  LOG      ✓ Compiled in 42ms
+[119:25:01.260] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770267012043}
+[119:26:14.765] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770267085540}
+[119:26:19.643] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:26:55.154] Server  LOG      ✓ Compiled in 35ms
+[119:27:01.006] Server  LOG      ✓ Compiled in 32ms
+[119:27:03.497] Server  LOG      ✓ Compiled in 37ms
+[119:27:06.387] Server  LOG      ✓ Compiled in 33ms
+[119:27:09.711] Server  LOG      ✓ Compiled in 39ms
+[119:27:22.334] Browser LOG     Bus Data<<<<>> {"__v":4,"_id":"697ca338b3bd65973638acf7","added_by":{"__v":0,"_id":"6961a99fcb40bd375767fc09","createdAt":"2026-01-10T01:21:35.315Z","date_of_birth":"2007-06-22T00:00:00.000Z","deactivate":false,"email":"vilik51653@atinjo.com","first_name":"Poise","last_name":"Davidson","otp":{"date":"2026-02-05T04:49:02.014Z"},"phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1768252672/18494999-440c-4fa5-ba76-c8b568bf7691.jpg","secret":"KFKS6WB4KVBVUZLOOZATK5CYGVZTU3KV","status":"active","updatedAt":"2026-01-12T21:29:37.830Z","user_type":{"type_id":"6961a99fcb40bd375767fc07","value":"admin"},"verify_email":false},"bus_photos":["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769775927/GBsR5ALgHo.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770266812/AahmOccaIv.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770266811/XmauqMkXgB.avif","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770266812/26FZ26VGqD.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770266813/lvzikvrx0o.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770266958/CyaIbGaQ6M.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770266958/EuZeBxfd7p.png"],"capacity":34,"createdAt":"2026-01-30T12:25:28.412Z","drivers_assigned":["697b4fc50d136295bc738097","697b485e0d136295bc737fea","697b437f0d136295bc737f7b"],"fuel_type":"diesel","id_code":"SSDFGF455D","is_maintenance":false,"mileage":"75000","name_label":"Island Runner","operation_schedule":{"from":"2026-02-05T01:11:00.000Z","to":"2026-02-05T02:11:00.000Z"},"outsourcing":true,"plate_number":"334344SSD","routes_assigned":["69840650938eb1ebbfb6a233"],"status":"active","tracker_id":"EDHGHE43","updatedAt":"2026-02-05T04:49:19.163Z"}
+[119:27:22.334] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:27:22.334] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:27:28.235] Browser LOG     Bus Data<<<<>> {"__v":0,"_id":"697c877d1e0e89cc4a84fc75","added_by":{"__v":0,"_id":"696f70df8f761f3cd0e73d76","createdAt":"2026-01-20T12:11:11.570Z","date_of_birth":"2026-01-20T12:11:11.565Z","deactivate":false,"email":"deportaofficial@gmail.com","first_name":"Deporta","last_name":"Admin","otp":{"date":"2026-02-05T04:49:02.014Z"},"phone_number":"+234 7059785678","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1765435664/pngegg_42_yonwe9.png","secret":"G4ZT6VKXMJAVUTCUJ5JSUNCJNUUCI43S","status":"active","updatedAt":"2026-01-20T12:11:11.570Z","user_type":{"type_id":"696f70df8f761f3cd0e73d74","value":"admin"},"verify_email":false},"bus_photo":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769768828/215f770d-7843-42b5-babe-60d49303f44f.png","bus_photos":[],"capacity":3,"createdAt":"2026-01-30T10:27:09.069Z","drivers_assigned":["697b4fc50d136295bc738097","697b59ec53213bcdc9f24986"],"fuel_type":"diesel","id_code":"56464","is_maintenance":false,"mileage":"34r","name_label":"fr","operation_schedule":"2026-01-10T01:28:00.000Z","outsourcing":false,"plate_number":"fd","routes_assigned":["697b48a40d136295bc737fec"],"status":"active","tracker_id":"43t","updatedAt":"2026-01-30T10:27:09.069Z"}
+[119:27:28.235] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:33:10.637] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:33:10.711] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:33:10.879] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[119:33:10.879] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[119:33:10.879] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[119:33:10.879] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770267501670}
+[119:33:18.802] Browser LOG     Bus Data<<<<>> {"__v":1,"_id":"697c877d1e0e89cc4a84fc75","added_by":{"__v":0,"_id":"696f70df8f761f3cd0e73d76","createdAt":"2026-01-20T12:11:11.570Z","date_of_birth":"2026-01-20T12:11:11.565Z","deactivate":false,"email":"deportaofficial@gmail.com","first_name":"Deporta","last_name":"Admin","otp":{"date":"2026-02-05T04:51:58.327Z"},"phone_number":"+234 7059785678","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1765435664/pngegg_42_yonwe9.png","secret":"G4ZT6VKXMJAVUTCUJ5JSUNCJNUUCI43S","status":"active","updatedAt":"2026-01-20T12:11:11.570Z","user_type":{"type_id":"696f70df8f761f3cd0e73d74","value":"admin"},"verify_email":false},"bus_photo":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769768828/215f770d-7843-42b5-babe-60d49303f44f.png","bus_photos":["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770267471/6TrTn2mKzn.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770267471/GJxC2MAT2s.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770267470/qEA7srGgKy.png"],"capacity":39,"createdAt":"2026-01-30T10:27:09.069Z","drivers_assigned":["697b4fc50d136295bc738097","697b59ec53213bcdc9f24986"],"fuel_type":"diesel","id_code":"56464885","is_maintenance":false,"mileage":"75000","name_label":"G-Wagon","operation_schedule":{"from":"2025-12-20T00:00:00.000Z","to":"2025-12-28T00:00:00.000Z"},"outsourcing":false,"plate_number":"44555SSDF","routes_assigned":["697b48a40d136295bc737fec"],"status":"active","tracker_id":"SSDDGGFG","updatedAt":"2026-02-05T04:57:52.983Z"}
+[119:33:18.802] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:33:18.802] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:33:48.354] Browser LOG     Bus Data<<<<>> {"__v":1,"_id":"697b47b80d136295bc737fd4","added_by":{"__v":0,"_id":"696f70df8f761f3cd0e73d76","createdAt":"2026-01-20T12:11:11.570Z","date_of_birth":"2026-01-20T12:11:11.565Z","deactivate":false,"email":"deportaofficial@gmail.com","first_name":"Deporta","last_name":"Admin","otp":{"date":"2026-02-05T04:51:58.327Z"},"phone_number":"+234 7059785678","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1765435664/pngegg_42_yonwe9.png","secret":"G4ZT6VKXMJAVUTCUJ5JSUNCJNUUCI43S","status":"active","updatedAt":"2026-01-20T12:11:11.570Z","user_type":{"type_id":"696f70df8f761f3cd0e73d74","value":"admin"},"verify_email":false},"bus_photo":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769686968/d8767c23-aefc-4cb9-baa6-efd7bdc7bffa.png","bus_photos":[],"capacity":13,"createdAt":"2026-01-29T11:42:48.907Z","drivers_assigned":["697b437f0d136295bc737f7b"],"fuel_type":"petrol","id_code":"DEPORTA-HIACE-2023","is_maintenance":false,"mileage":"1000","name_label":"Toyota Hiace 2023","operation_schedule":"2026-02-01T09:00:00.000Z","outsourcing":false,"plate_number":"SMK-123DE","routes_assigned":["696f1093ad2ba365630c67bb"],"status":"active","tracker_id":"DEPORT0010","updatedAt":"2026-01-29T11:43:10.468Z"}
+[119:33:48.354] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:33:54.112] Browser LOG     Bus Data<<<<>> {"__v":1,"_id":"697b47b80d136295bc737fd4","added_by":{"__v":0,"_id":"696f70df8f761f3cd0e73d76","createdAt":"2026-01-20T12:11:11.570Z","date_of_birth":"2026-01-20T12:11:11.565Z","deactivate":false,"email":"deportaofficial@gmail.com","first_name":"Deporta","last_name":"Admin","otp":{"date":"2026-02-05T04:51:58.327Z"},"phone_number":"+234 7059785678","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1765435664/pngegg_42_yonwe9.png","secret":"G4ZT6VKXMJAVUTCUJ5JSUNCJNUUCI43S","status":"active","updatedAt":"2026-01-20T12:11:11.570Z","user_type":{"type_id":"696f70df8f761f3cd0e73d74","value":"admin"},"verify_email":false},"bus_photo":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769686968/d8767c23-aefc-4cb9-baa6-efd7bdc7bffa.png","bus_photos":[],"capacity":13,"createdAt":"2026-01-29T11:42:48.907Z","drivers_assigned":["697b437f0d136295bc737f7b"],"fuel_type":"petrol","id_code":"DEPORTA-HIACE-2023","is_maintenance":false,"mileage":"1000","name_label":"Toyota Hiace 2023","operation_schedule":"2026-02-01T09:00:00.000Z","outsourcing":false,"plate_number":"SMK-123DE","routes_assigned":["696f1093ad2ba365630c67bb"],"status":"active","tracker_id":"DEPORT0010","updatedAt":"2026-01-29T11:43:10.468Z"}
+[119:33:54.112] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'slice')
+[119:38:52.633] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:38:52.794] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[119:38:52.794] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[119:38:52.794] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[119:38:52.794] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770267843588}
+[119:38:59.471] Browser LOG     Bus Data<<<<>> {"__v":2,"_id":"697b47b80d136295bc737fd4","added_by":{"__v":0,"_id":"696f70df8f761f3cd0e73d76","createdAt":"2026-01-20T12:11:11.570Z","date_of_birth":"2026-01-20T12:11:11.565Z","deactivate":false,"email":"deportaofficial@gmail.com","first_name":"Deporta","last_name":"Admin","otp":{"date":"2026-02-05T04:51:58.327Z"},"phone_number":"+234 7059785678","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1765435664/pngegg_42_yonwe9.png","secret":"G4ZT6VKXMJAVUTCUJ5JSUNCJNUUCI43S","status":"active","updatedAt":"2026-01-20T12:11:11.570Z","user_type":{"type_id":"696f70df8f761f3cd0e73d74","value":"admin"},"verify_email":false},"bus_photo":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769686968/d8767c23-aefc-4cb9-baa6-efd7bdc7bffa.png","bus_photos":["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1770267814/-biFXAMFy8.png"],"capacity":39,"createdAt":"2026-01-29T11:42:48.907Z","drivers_assigned":["697b4fc50d136295bc738097","697b59ec53213bcdc9f24986"],"fuel_type":"diesel","id_code":"AJAH009","is_maintenance":false,"mileage":"75000","name_label":"Lexus Collina","operation_schedule":{"from":"2025-12-10T00:00:00.000Z","to":"2025-12-18T00:00:00.000Z"},"outsourcing":false,"plate_number":"44555SSDF","routes_assigned":["697b48a40d136295bc737fec"],"status":"active","tracker_id":"SSDDGGFG","updatedAt":"2026-02-05T05:03:36.971Z"}
+[119:38:59.471] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:38:59.471] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:39:12.295] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:39:12.296] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:40:07.131] Browser LOG     Bus Data 045 {}
+[119:40:47.723] Server  LOG      ✓ Compiled in 47ms
+[119:40:49.769] Server  LOG      ✓ Compiled in 33ms
+[119:41:10.432] Server  LOG      ✓ Compiled in 35ms
+[119:41:37.722] Server  LOG      ✓ Compiled in 33ms
+[119:41:45.849] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:41:45.849] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:42:48.041] Browser LOG     Bus Data 045 {}
+[119:43:29.601] Server  LOG      ✓ Compiled in 35ms
+[119:44:24.270] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:44:24.270] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:51:30.791] Server  LOG      ✓ Compiled in 58ms
+[119:52:17.010] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[119:52:17.086] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[119:52:17.250] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[119:52:17.250] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[119:52:17.250] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[119:52:17.250] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770268648044}
+[119:52:21.888] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:52:21.888] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:54:02.053] Browser LOG     Bus Data 045 {}
+[119:54:13.843] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:54:13.843] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:55:05.377] Browser LOG     Bus Data 045 {}
+[119:55:28.900] Server  LOG      ✓ Compiled in 50ms
+[119:56:14.638] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:56:14.638] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:56:26.250] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:56:26.250] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[119:57:04.648] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770268935436}

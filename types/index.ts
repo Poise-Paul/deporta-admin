@@ -256,6 +256,12 @@ export interface StatusResponse extends Response {
   staffs: TypeId;
 }
 
+export type BusEditResponse = {
+  message: string;
+  status: boolean;
+  buses: Bus;
+};
+
 export type StaffData = {
   _id: string;
   first_name: string;

@@ -1032,10 +1032,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://7ae75e4c4a22.ngrok-free.app",
     timeout: 15000,
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": true
     }
 });
 // Interceptor to inject the Bearer token automatically
@@ -1274,6 +1275,8 @@ __turbopack_context__.s([
     ()=>getAllDrivers,
     "getCustomerList",
     ()=>getCustomerList,
+    "getOnsiteData",
+    ()=>getOnsiteData,
     "getOnsiteDrivers",
     ()=>getOnsiteDrivers,
     "getStaffList",
@@ -1348,6 +1351,19 @@ const getAllDrivers = async ()=>{
 const getOnsiteDrivers = async ()=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/onsite-drivers/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getOnsiteData = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/drivers/onsite");
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);
