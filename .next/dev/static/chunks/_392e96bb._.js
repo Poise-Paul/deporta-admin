@@ -1072,6 +1072,265 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
+"[project]/api/axios.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "api",
+    ()=>api
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
+;
+;
+const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
+    baseURL: "https://deporta-development.onrender.com",
+    timeout: 15000,
+    headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": true
+    }
+});
+// Interceptor to inject the Bearer token automatically
+api.interceptors.request.use(async (config)=>{
+    const state = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].getState();
+    const token = state.auth.token;
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/api/queryClient.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "queryClient",
+    ()=>queryClient
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$queryClient$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/query-core/build/modern/queryClient.js [app-client] (ecmascript)");
+;
+const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$queryClient$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["QueryClient"]({
+    defaultOptions: {
+        queries: {
+            retry: 2,
+            staleTime: 1000 * 60 * 5
+        }
+    }
+});
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/api/pick-up-stations/index.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "getPickupStations",
+    ()=>getPickupStations,
+    "useCreatePickupStation",
+    ()=>useCreatePickupStation,
+    "useDeletePickupStation",
+    ()=>useDeletePickupStation,
+    "useModifyPickupStation",
+    ()=>useModifyPickupStation,
+    "usePickupStatus",
+    ()=>usePickupStatus
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/axios.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useMutation.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$pickup$2d$station$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/pickup-station-slice.ts [app-client] (ecmascript)");
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature();
+;
+;
+;
+;
+;
+;
+;
+const getPickupStations = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/pickup-station/get");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const useCreatePickupStation = ()=>{
+    _s();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useCreatePickupStation.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/pickup-station/create", {
+                    address: data.address,
+                    area: data.area,
+                    state: data.state,
+                    country: data.country
+                });
+                return res.data;
+            }
+        }["useCreatePickupStation.useMutation"],
+        onSuccess: {
+            "useCreatePickupStation.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "pickupStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useCreatePickupStation.useMutation"],
+        onError: {
+            "useCreatePickupStation.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useCreatePickupStation.useMutation"]
+    });
+};
+_s(useCreatePickupStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useModifyPickupStation = ()=>{
+    _s1();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useModifyPickupStation.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/api/users/admin/pickup-station/edit", {
+                    pickup_station_id: data.pickup_station_id,
+                    address: data.address,
+                    area: data.area,
+                    state: data.state,
+                    country: data.country
+                });
+                return res.data;
+            }
+        }["useModifyPickupStation.useMutation"],
+        onSuccess: {
+            "useModifyPickupStation.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "pickupStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$pickup$2d$station$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updatePickupDetails"])(data.pickup_station));
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useModifyPickupStation.useMutation"],
+        onError: {
+            "useModifyPickupStation.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useModifyPickupStation.useMutation"]
+    });
+};
+_s1(useModifyPickupStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useDeletePickupStation = ()=>{
+    _s2();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useDeletePickupStation.useMutation": async (stationId)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].delete(`/api/users/admin/pickup-station/delete/${stationId}`);
+                return res.data;
+            }
+        }["useDeletePickupStation.useMutation"],
+        onSuccess: {
+            "useDeletePickupStation.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "pickupStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useDeletePickupStation.useMutation"],
+        onError: {
+            "useDeletePickupStation.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useDeletePickupStation.useMutation"]
+    });
+};
+_s2(useDeletePickupStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const usePickupStatus = ()=>{
+    _s3();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "usePickupStatus.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/pickup-station/change/status`, data);
+                return res.data;
+            }
+        }["usePickupStatus.useMutation"],
+        onSuccess: {
+            "usePickupStatus.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "pickupStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Updated Successfully");
+                return data;
+            }
+        }["usePickupStatus.useMutation"],
+        onError: {
+            "usePickupStatus.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["usePickupStatus.useMutation"]
+    });
+};
+_s3(usePickupStatus, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
 "[project]/constants/nigeria-states.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -1152,54 +1411,181 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[project]/api/axios.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/api/routes/index.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
-    "api",
-    ()=>api
+    "getRoutes",
+    ()=>getRoutes,
+    "useCreateTripRoute",
+    ()=>useCreateTripRoute,
+    "useDeleteRoute",
+    ()=>useDeleteRoute,
+    "useModifyRoutes",
+    ()=>useModifyRoutes
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/axios.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useMutation.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/route-slice.ts [app-client] (ecmascript)");
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature();
 ;
 ;
-const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
-    timeout: 15000,
-    headers: {
-        "Content-Type": "application/json",
-        "ngrok-skip-browser-warning": true
+;
+;
+;
+;
+;
+const getRoutes = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/get");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
     }
+};
+const useModifyRoutes = ()=>{
+    _s();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useModifyRoutes.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/api/users/admin/trip-route/edit", {
+                    trip_route_id: data.trip_route_id,
+                    rate: data.rate,
+                    flat_rate: data.flat_rate,
+                    rate_per_km: data.rate_per_km,
+                    code: data.code,
+                    destination: data.destination,
+                    starting_point: data.starting_point,
+                    state: data.state,
+                    country: data.country,
+                    route_distance: data.route_distance,
+                    number_of_stops: data.number_of_stops
+                });
+                return res.data;
+            }
+        }["useModifyRoutes.useMutation"],
+        onSuccess: {
+            "useModifyRoutes.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "routes"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateRouteDetails"])(data.trip_route));
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useModifyRoutes.useMutation"],
+        onError: {
+            "useModifyRoutes.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useModifyRoutes.useMutation"]
+    });
+};
+_s(useModifyRoutes, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
 });
-// Interceptor to inject the Bearer token automatically
-api.interceptors.request.use(async (config)=>{
-    const state = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].getState();
-    const token = state.auth.token;
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
+const useCreateTripRoute = ()=>{
+    _s1();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useCreateTripRoute.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/trip-route/create", {
+                    rate: data.rate,
+                    flat_rate: data.flat_rate,
+                    rate_per_km: data.rate_per_km,
+                    code: data.code,
+                    destination: data.destination,
+                    starting_point: data.starting_point,
+                    route_distance: data.route_distance,
+                    number_of_stops: data.number_of_stops,
+                    state: data.state,
+                    country: data.country,
+                    routine: data.routine
+                });
+                return res.data;
+            }
+        }["useCreateTripRoute.useMutation"],
+        onSuccess: {
+            "useCreateTripRoute.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "routes"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useCreateTripRoute.useMutation"],
+        onError: {
+            "useCreateTripRoute.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useCreateTripRoute.useMutation"]
+    });
+};
+_s1(useCreateTripRoute, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
 });
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
-}),
-"[project]/api/queryClient.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s([
-    "queryClient",
-    ()=>queryClient
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$queryClient$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/query-core/build/modern/queryClient.js [app-client] (ecmascript)");
-;
-const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$queryClient$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["QueryClient"]({
-    defaultOptions: {
-        queries: {
-            retry: 2,
-            staleTime: 1000 * 60 * 5
-        }
-    }
+const useDeleteRoute = ()=>{
+    _s2();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useDeleteRoute.useMutation": async (stationId)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].delete(`/api/users/admin/trip-route/delete/${stationId}`);
+                return res.data;
+            }
+        }["useDeleteRoute.useMutation"],
+        onSuccess: {
+            "useDeleteRoute.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "routes"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useDeleteRoute.useMutation"],
+        onError: {
+            "useDeleteRoute.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useDeleteRoute.useMutation"]
+    });
+};
+_s2(useDeleteRoute, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
 });
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -1413,12 +1799,259 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[project]/components/bus-stops/bus-stop-table.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/api/drop-off-locations/index.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
-    "BusStopTable",
-    ()=>BusStopTable
+    "getDropOffStations",
+    ()=>getDropOffStations,
+    "useCreateDropOffStation",
+    ()=>useCreateDropOffStation,
+    "useDeleteDropOffStation",
+    ()=>useDeleteDropOffStation,
+    "useDropOffStatus",
+    ()=>useDropOffStatus,
+    "useModifyDropOffStation",
+    ()=>useModifyDropOffStation
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/axios.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useMutation.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$drop$2d$off$2d$station$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/drop-off-station-slice.ts [app-client] (ecmascript)");
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature();
+;
+;
+;
+;
+;
+;
+;
+const getDropOffStations = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/drop-off-station/get");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const useCreateDropOffStation = ()=>{
+    _s();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useCreateDropOffStation.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/drop-off-station/create", {
+                    address: data.address,
+                    area: data.area,
+                    state: data.state,
+                    country: data.country
+                });
+                return res.data;
+            }
+        }["useCreateDropOffStation.useMutation"],
+        onSuccess: {
+            "useCreateDropOffStation.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "dropOffStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useCreateDropOffStation.useMutation"],
+        onError: {
+            "useCreateDropOffStation.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useCreateDropOffStation.useMutation"]
+    });
+};
+_s(useCreateDropOffStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useDeleteDropOffStation = ()=>{
+    _s1();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useDeleteDropOffStation.useMutation": async (stationId)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].delete(`/api/users/admin/drop-off-station/delete/${stationId}`);
+                return res.data;
+            }
+        }["useDeleteDropOffStation.useMutation"],
+        onSuccess: {
+            "useDeleteDropOffStation.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "dropOffStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useDeleteDropOffStation.useMutation"],
+        onError: {
+            "useDeleteDropOffStation.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useDeleteDropOffStation.useMutation"]
+    });
+};
+_s1(useDeleteDropOffStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useModifyDropOffStation = ()=>{
+    _s2();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useModifyDropOffStation.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/api/users/admin/drop-off-station/edit", {
+                    drop_off_station_id: data.drop_off_location_id,
+                    address: data.address,
+                    area: data.area,
+                    state: data.state,
+                    country: data.country
+                });
+                return res.data;
+            }
+        }["useModifyDropOffStation.useMutation"],
+        onSuccess: {
+            "useModifyDropOffStation.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "dropOffStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$drop$2d$off$2d$station$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateDropOffDetails"])(data.drop_off_station));
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+                return data;
+            }
+        }["useModifyDropOffStation.useMutation"],
+        onError: {
+            "useModifyDropOffStation.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    console.log("User Erro", error);
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useModifyDropOffStation.useMutation"]
+    });
+};
+_s2(useModifyDropOffStation, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+const useDropOffStatus = ()=>{
+    _s3();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useDropOffStatus.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/drop-off-station/change/status`, data);
+                return res.data;
+            }
+        }["useDropOffStatus.useMutation"],
+        onSuccess: {
+            "useDropOffStatus.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "dropOffStations"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Updated Successfully");
+                return data;
+            }
+        }["useDropOffStatus.useMutation"],
+        onError: {
+            "useDropOffStatus.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useDropOffStatus.useMutation"]
+    });
+};
+_s3(useDropOffStatus, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/ui/switch.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Switch",
+    ()=>Switch
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-switch/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+function Switch({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
+        "data-slot": "switch",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50', className),
+        ...props,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$switch$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Thumb"], {
+            "data-slot": "switch-thumb",
+            className: 'bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0'
+        }, void 0, false, {
+            fileName: "[project]/components/ui/switch.tsx",
+            lineNumber: 21,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/components/ui/switch.tsx",
+        lineNumber: 13,
+        columnNumber: 5
+    }, this);
+}
+_c = Switch;
+;
+var _c;
+__turbopack_context__.k.register(_c, "Switch");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/shared/routes-table.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "RoutesTable",
+    ()=>RoutesTable
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -1437,10 +2070,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user-x.js [app-client] (ecmascript) <export default as UserX>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user-check.js [app-client] (ecmascript) <export default as UserCheck>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/select.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$pick$2d$up$2d$stations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/pick-up-stations/index.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$nigeria$2d$states$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/constants/nigeria-states.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hook-form/dist/index.esm.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
@@ -1448,11 +2080,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/skeleton.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-redux/dist/react-redux.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/routes/index.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/bus-stops/index.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$bus$2d$stop$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/bus-stop-slice.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/route-slice.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/drop-off-locations/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/switch.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
+;
+;
+;
 ;
 ;
 ;
@@ -1487,57 +2126,134 @@ const tabs = [
         label: "In-Active"
     }
 ];
-function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
+function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
     _s();
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [isAddDialogOpen, setIsAddDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isEditDialogOpen, setIsEditDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [bustopId, setBusStopId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])();
-    const [holdBustopBtn, setHoldBustopBtn] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
-    const [holdEditBustopBtn, setHoldEditBustopBtn] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
-    const busStopMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCreateBusStop"])();
-    const modifyBusStop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModifyBusStop"])();
-    const deleteMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDeleteBusStop"])();
-    const { data: busStops, refetch, isLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+    const [routeId, setRouteId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])();
+    const [holdBtn, setHoldBtn] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [holdEditPickupBtn, setHoldEditPickupBtn] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const addTripRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCreateTripRoute"])();
+    const modifyTripRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModifyRoutes"])();
+    const deleteMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDeleteRoute"])();
+    const { data: tripRoutes, refetch, isLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "routes"
+        ],
+        queryFn: {
+            "RoutesTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRoutes"])()
+        }["RoutesTable.useQuery"]
+    });
+    const { data: busStops } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
             "busStops"
         ],
         queryFn: {
-            "BusStopTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAllBusStops"])()
-        }["BusStopTable.useQuery"]
+            "RoutesTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAllBusStops"])()
+        }["RoutesTable.useQuery"]
     });
+    const initialDay = {
+        active: false,
+        value: []
+    };
+    const defaultRoutine = {
+        monday: initialDay,
+        tuesday: initialDay,
+        wednesday: initialDay,
+        thursday: initialDay,
+        friday: initialDay,
+        saturday: initialDay,
+        sunday: initialDay
+    };
     const { register, reset, setValue, watch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])({
         values: {
-            routes: 0,
-            location: "",
-            area: "",
+            rate: 0,
+            flat_rate: 0,
+            rate_per_km: 0,
+            code: "",
+            destination: {
+                value: "",
+                longitude: 0,
+                latitude: 0
+            },
+            starting_point: {
+                value: "",
+                longitude: 0,
+                latitude: 0
+            },
+            route_distance: "",
+            number_of_stops: [],
+            country: "Nigeria",
             state: "lagos",
-            country: "Nigeria"
+            routine: {
+                monday: {
+                    ...initialDay
+                },
+                tuesday: {
+                    ...initialDay
+                },
+                wednesday: {
+                    ...initialDay
+                },
+                thursday: {
+                    ...initialDay
+                },
+                friday: {
+                    ...initialDay
+                },
+                saturday: {
+                    ...initialDay
+                },
+                sunday: {
+                    ...initialDay
+                }
+            }
         }
     });
     const { register: updateRegister, setValue: updateValue, watch: updateWatch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])({
         values: {
-            routes: bustopId?.routes || 0,
-            location: bustopId?.location || "",
-            area: bustopId?.area || "",
-            state: bustopId?.state === "Lagos State" ? "lagos" : bustopId?.state || "",
-            country: bustopId?.country || "Nigeria"
+            rate: Number(routeId?.rate),
+            flat_rate: Number(routeId?.flat_rate),
+            rate_per_km: Number(routeId?.rate_per_km),
+            code: `${routeId?.code}`,
+            routine: routeId?.routine ?? defaultRoutine,
+            destination: typeof routeId?.destination === "object" ? routeId.destination : {
+                value: routeId?.destination || "",
+                longitude: 0,
+                latitude: 0
+            },
+            starting_point: typeof routeId?.starting_point === "object" ? routeId.starting_point : {
+                value: routeId?.starting_point || "",
+                longitude: 0,
+                latitude: 0
+            },
+            route_distance: `${routeId?.route_distance}`,
+            number_of_stops: Array.isArray(routeId?.number_of_stops) ? routeId.number_of_stops.flat() : [],
+            country: routeId?.country || "Nigeria",
+            state: routeId?.state === "Lagos State" || routeId?.state === "Lagos" ? "lagos" : routeId?.state || ""
         }
     });
     const selectedState = watch("state");
     const selectedUpdateState = updateWatch("state");
     const handleWatch = watch();
     const handleUpdateWatch = updateWatch();
-    const { routes, location, area, country, state } = handleWatch;
-    const { routes: updateRoutes, location: updateLocation, area: updateArea, country: updateCountry, state: updateState } = handleUpdateWatch;
-    const handleAddBusStop = ()=>{
-        busStopMutation.mutate({
-            routes,
-            location,
-            area,
+    const { rate, rate_per_km, code, flat_rate, destination, starting_point, route_distance, number_of_stops, country, state } = handleWatch;
+    const { rate: updateRate, flat_rate: updateFlatRate, rate_per_km: updateRatePerKm, code: updateCode, starting_point: updateStartingPoint, route_distance: updateRouteDistance, number_of_stops: updateNumberOfStops, destination: updateDestination, country: updateCountry, state: updateState, routine } = handleUpdateWatch;
+    const handleAddTripRoute = ()=>{
+        addTripRoute.mutate({
+            rate,
+            rate_per_km,
+            code,
+            flat_rate,
+            destination,
+            starting_point,
+            route_distance,
+            number_of_stops,
             country,
-            state
+            state,
+            routine
         }, {
             onSuccess: ()=>{
                 reset();
@@ -1546,83 +2262,99 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
             onSettled: ()=>setIsAddDialogOpen(false)
         });
     };
-    const handleModifyBusStop = ()=>{
-        modifyBusStop.mutate({
-            bus_stop_id: bustopId?.bus_stop_id || "",
-            routes: updateRoutes,
-            location: updateLocation,
-            area: updateArea,
+    const handleModifyPickupStation = ()=>{
+        modifyTripRoute.mutate({
+            trip_route_id: routeId?.trip_route_id || "",
+            rate: updateRate,
+            rate_per_km: updateRatePerKm,
+            code: updateCode,
+            flat_rate: updateFlatRate,
+            destination: updateDestination,
+            starting_point: updateStartingPoint,
+            route_distance: updateRouteDistance,
+            number_of_stops: updateNumberOfStops,
             country: updateCountry,
-            state: updateState
+            state: updateState,
+            routine
         }, {
             onSuccess: ()=>refetch(),
             onSettled: ()=>setIsEditDialogOpen(false)
         });
     };
-    const handleDeleteBustop = (stationId)=>{
+    const handleDeleteRoute = (stationId)=>{
         deleteMutation.mutate(stationId, {
             onSuccess: ()=>refetch()
         });
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "BusStopTable.useEffect": ()=>{
-            if (location && routes && area && state && country) {
-                setHoldBustopBtn(false);
+        "RoutesTable.useEffect": ()=>{
+            if (rate && rate_per_km && code && flat_rate && destination && starting_point && route_distance && number_of_stops && country && state) {
+                setHoldBtn(false);
             } else {
-                setHoldBustopBtn(true);
+                setHoldBtn(true);
             }
         }
-    }["BusStopTable.useEffect"], [
-        location,
-        routes,
-        area,
-        state,
-        country
+    }["RoutesTable.useEffect"], [
+        rate,
+        rate_per_km,
+        code,
+        flat_rate,
+        destination,
+        starting_point,
+        route_distance,
+        number_of_stops,
+        country,
+        state
     ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "BusStopTable.useEffect": ()=>{
-            if (updateLocation && updateRoutes && updateArea && updateState && updateCountry) {
-                setHoldEditBustopBtn(false);
+        "RoutesTable.useEffect": ()=>{
+            if (updateRate && updateFlatRate && updateRatePerKm && updateCode && updateStartingPoint && updateRouteDistance && updateNumberOfStops && updateDestination && updateCountry && updateState) {
+                setHoldEditPickupBtn(false);
             } else {
-                setHoldEditBustopBtn(true);
+                setHoldEditPickupBtn(true);
             }
         }
-    }["BusStopTable.useEffect"], [
-        updateLocation,
-        updateRoutes,
-        updateArea,
-        updateState,
-        updateCountry
+    }["RoutesTable.useEffect"], [
+        updateRate,
+        updateFlatRate,
+        updateRatePerKm,
+        updateCode,
+        updateStartingPoint,
+        updateRouteDistance,
+        updateNumberOfStops,
+        updateDestination,
+        updateCountry,
+        updateState
     ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "BusStopTable.useEffect": ()=>{
+        "RoutesTable.useEffect": ()=>{
             refetch();
         }
-    }["BusStopTable.useEffect"], [
-        busStops
+    }["RoutesTable.useEffect"], [
+        tripRoutes
     ]);
     // Pagination
     const [currentPage, setCurrentPage] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(1);
     const [itemsPerPage, setItemsPerPage] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(10);
     const { paginatedData, totalPages } = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useMemo({
-        "BusStopTable.useMemo": ()=>{
-            const allBustops = busStops?.bus_stop.data || [];
+        "RoutesTable.useMemo": ()=>{
+            const allRoutes = tripRoutes?.trip_route.data || [];
             // 1. Filter by Search Query (Checking multiple fields)
-            let filtered = allBustops.filter({
-                "BusStopTable.useMemo.filtered": (station)=>{
+            let filtered = allRoutes.filter({
+                "RoutesTable.useMemo.filtered": (station)=>{
                     const searchStr = searchQuery.toLowerCase();
-                    return station.location?.toLowerCase().includes(searchStr) || station.area?.toLowerCase().includes(searchStr) || station.state?.toLowerCase().includes(searchStr);
+                    return station.starting_point?.value.toLowerCase().includes(searchStr) || station.destination?.value.toLowerCase().includes(searchStr) || station.code?.toLowerCase().includes(searchStr);
                 }
-            }["BusStopTable.useMemo.filtered"]);
+            }["RoutesTable.useMemo.filtered"]);
             // 2. Filter by Tab Status
             if (activeTab === "active") {
                 filtered = filtered.filter({
-                    "BusStopTable.useMemo": (s)=>s.status === "active"
-                }["BusStopTable.useMemo"]);
+                    "RoutesTable.useMemo": (s)=>s.status === "active"
+                }["RoutesTable.useMemo"]);
             } else if (activeTab === "inactive") {
                 filtered = filtered.filter({
-                    "BusStopTable.useMemo": (s)=>s.status === "in-active"
-                }["BusStopTable.useMemo"]);
+                    "RoutesTable.useMemo": (s)=>s.status === "in-active"
+                }["RoutesTable.useMemo"]);
             }
             // 3. Calculate Total Pages based on the filtered/searched list
             const total = Math.ceil(filtered.length / itemsPerPage) || 1;
@@ -1634,18 +2366,18 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                 totalPages: total
             };
         }
-    }["BusStopTable.useMemo"], [
-        busStops,
+    }["RoutesTable.useMemo"], [
+        tripRoutes,
         activeTab,
         currentPage,
         itemsPerPage,
         searchQuery
     ]);
     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useEffect({
-        "BusStopTable.useEffect": ()=>{
+        "RoutesTable.useEffect": ()=>{
             setCurrentPage(1);
         }
-    }["BusStopTable.useEffect"], [
+    }["RoutesTable.useEffect"], [
         activeTab,
         searchQuery
     ]);
@@ -1660,26 +2392,26 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-8 w-8 rounded-full"
                             }, void 0, false, {
-                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 281,
+                                fileName: "[project]/components/shared/routes-table.tsx",
+                                lineNumber: 397,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-4 w-32"
                             }, void 0, false, {
-                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 282,
+                                fileName: "[project]/components/shared/routes-table.tsx",
+                                lineNumber: 398,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 280,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 396,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 279,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 395,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1687,13 +2419,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                         className: "h-4 w-20"
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 286,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 402,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 285,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 401,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1701,13 +2433,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                         className: "h-4 w-40"
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 289,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 405,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 288,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 404,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1715,13 +2447,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                         className: "h-4 w-24"
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 292,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 408,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 291,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 407,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1729,13 +2461,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                         className: "h-4 w-28"
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 295,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 411,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 294,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 410,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1743,13 +2475,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                         className: "h-5 w-16 rounded-full"
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 298,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 414,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 297,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 413,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1757,31 +2489,39 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                         className: "h-8 w-8 rounded-md"
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 301,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 417,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 300,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 416,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-            lineNumber: 278,
+            fileName: "[project]/components/shared/routes-table.tsx",
+            lineNumber: 394,
             columnNumber: 5
         }, this);
+    const { data: pickupStations } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "pickupStations"
+        ],
+        queryFn: {
+            "RoutesTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$pick$2d$up$2d$stations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getPickupStations"])()
+        }["RoutesTable.useQuery"]
+    });
+    const { data: dropOffStations } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "dropOffStations"
+        ],
+        queryFn: {
+            "RoutesTable.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDropOffStations"])()
+        }["RoutesTable.useQuery"]
+    });
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"])();
-    const updateMutation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useBusStopStatus"])();
-    const handleBustopStatus = (data)=>{
-        updateMutation.mutate(data, {
-            onSuccess: ()=>{
-                refetch();
-            }
-        });
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
         className: "bg-card border border-border",
         children: [
@@ -1796,8 +2536,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 324,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 440,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1806,8 +2546,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                     onChange: (e)=>setSearchQuery(e.target.value),
                                     className: "pl-9 pr-2 w-72 bg-transparent"
                                 }, void 0, false, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 325,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 441,
                                     columnNumber: 13
                                 }, this),
                                 searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1818,19 +2558,19 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 338,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 454,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 332,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 448,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
-                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                            lineNumber: 323,
+                            fileName: "[project]/components/shared/routes-table.tsx",
+                            lineNumber: 439,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1845,13 +2585,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(activeTab === tab.id ? "bg-secondary text-secondary-foreground hover:bg-secondary/90" : "bg-transparent border-border text-muted-foreground hover:bg-muted"),
                                             children: tab.id === "all" ? `All ${title}` : tab.label
                                         }, tab.id, false, {
-                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 347,
+                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                            lineNumber: 463,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 345,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 461,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1866,24 +2606,24 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 366,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 482,
                                                         columnNumber: 19
                                                     }, this),
                                                     addButtonText
                                                 ]
                                             }, void 0, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 365,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 481,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
-                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 364,
+                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                            lineNumber: 480,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
-                                            className: "sm:max-w-md",
+                                            className: "sm:max-w-2xl",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
@@ -1892,95 +2632,694 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             title.slice(0, -1)
                                                         ]
                                                     }, void 0, true, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 372,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 488,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
-                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                    lineNumber: 371,
+                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                    lineNumber: 487,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "space-y-4 py-4",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "space-y-2",
+                                                            className: "grid gap-4 grid-cols-2",
                                                             children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                    htmlFor: "name",
-                                                                    children: "Enter Number of Routes"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 376,
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                            htmlFor: "rate",
+                                                                            children: "Rate"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 493,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex rounded-md shadow-sm",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium",
+                                                                                    children: "₦"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 496,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                                    id: "rate",
+                                                                                    type: "number",
+                                                                                    ...register("rate"),
+                                                                                    placeholder: "Enter rate amount",
+                                                                                    className: "rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 500,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 494,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 492,
                                                                     columnNumber: 21
                                                                 }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                    id: "name",
-                                                                    ...register("routes"),
-                                                                    placeholder: "Enter number of routes"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 377,
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                            htmlFor: "flat_rate",
+                                                                            children: "Flat Rate"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 510,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex rounded-md shadow-sm",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium",
+                                                                                    children: "₦"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 512,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                                    id: "flat_rate",
+                                                                                    type: "number",
+                                                                                    ...register("flat_rate"),
+                                                                                    placeholder: "0.00",
+                                                                                    className: "rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 515,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 511,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 509,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 375,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 491,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "grid grid-cols-2 gap-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                            htmlFor: "rate_per_km",
+                                                                            children: "Rate Per KM"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 528,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex rounded-md shadow-sm",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium",
+                                                                                    children: "₦"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 530,
+                                                                                    columnNumber: 25
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                                    id: "rate_per_km",
+                                                                                    type: "number",
+                                                                                    ...register("rate_per_km"),
+                                                                                    placeholder: "0.00",
+                                                                                    className: "rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 533,
+                                                                                    columnNumber: 25
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 529,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 527,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "space-y-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                            htmlFor: "code",
+                                                                            children: "Code"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 543,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            id: "code",
+                                                                            ...register("code"),
+                                                                            placeholder: "Enter Code"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 544,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 542,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 526,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-3 p-3 border rounded-lg bg-muted/20",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    className: "text-primary font-bold",
+                                                                    children: "Starting Point"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 561,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                                    onValueChange: (id)=>{
+                                                                        const stop = busStops?.bus_stop.data.find((s)=>s._id === id);
+                                                                        if (stop) {
+                                                                            setValue("starting_point", {
+                                                                                value: stop.location.value.toLowerCase(),
+                                                                                latitude: stop.location.latitude,
+                                                                                longitude: stop.location.longitude
+                                                                            });
+                                                                        }
+                                                                    },
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                            className: "bg-background",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                                placeholder: watch("starting_point.value") || "Select Starting Point"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                lineNumber: 580,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 579,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                            children: pickupStations?.pickup_station.data.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    value: stop._id,
+                                                                                    children: stop.address
+                                                                                }, stop._id, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 589,
+                                                                                    columnNumber: 27
+                                                                                }, this))
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 587,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 565,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 560,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-3 p-3 border rounded-lg bg-muted/20",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    className: "text-primary font-bold",
+                                                                    children: "Destination"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 598,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                                    onValueChange: (id)=>{
+                                                                        const stop = busStops?.bus_stop.data.find((s)=>s._id === id);
+                                                                        if (stop) {
+                                                                            setValue("destination", {
+                                                                                value: stop.location.value.toLowerCase(),
+                                                                                latitude: stop.location.latitude,
+                                                                                longitude: stop.location.longitude
+                                                                            });
+                                                                        }
+                                                                    },
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                            className: "bg-background",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                                placeholder: watch("destination.value") || "Select Destination"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                lineNumber: 617,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 616,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                            children: dropOffStations?.drop_off_station.data.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    value: stop._id,
+                                                                                    children: stop.address
+                                                                                }, stop._id, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 625,
+                                                                                    columnNumber: 27
+                                                                                }, this))
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 623,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 602,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 597,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-4 border-t pt-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    className: "text-lg font-bold",
+                                                                    children: "Weekly Operating Schedule"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 635,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                [
+                                                                    "monday",
+                                                                    "tuesday",
+                                                                    "wednesday",
+                                                                    "thursday",
+                                                                    "friday",
+                                                                    "saturday",
+                                                                    "sunday"
+                                                                ].map((day)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "p-3 border rounded-md bg-muted/10 space-y-3",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                className: "flex items-center justify-between",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                        className: "capitalize font-semibold",
+                                                                                        children: day
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                        lineNumber: 655,
+                                                                                        columnNumber: 27
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                        className: "flex items-center gap-2",
+                                                                                        children: [
+                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                                className: "text-xs text-muted-foreground",
+                                                                                                children: "Active"
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                lineNumber: 659,
+                                                                                                columnNumber: 29
+                                                                                            }, this),
+                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
+                                                                                                checked: watch(`routine.${day}.active`),
+                                                                                                onCheckedChange: (val)=>setValue(`routine.${day}.active`, val)
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                lineNumber: 662,
+                                                                                                columnNumber: 29
+                                                                                            }, this)
+                                                                                        ]
+                                                                                    }, void 0, true, {
+                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                        lineNumber: 658,
+                                                                                        columnNumber: 27
+                                                                                    }, this)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                lineNumber: 654,
+                                                                                columnNumber: 25
+                                                                            }, this),
+                                                                            watch(`routine.${day}.active`) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                className: "space-y-2",
+                                                                                children: [
+                                                                                    watch(`routine.${day}.value`)?.map((slot, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                            className: "grid grid-cols-3 gap-2 items-end bg-background p-2 rounded border",
+                                                                                            children: [
+                                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                                    children: [
+                                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                                            className: "text-[10px]",
+                                                                                                            children: "Departure (From)"
+                                                                                                        }, void 0, false, {
+                                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                            lineNumber: 680,
+                                                                                                            columnNumber: 37
+                                                                                                        }, this),
+                                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                                                            type: "time",
+                                                                                                            value: slot.from,
+                                                                                                            onChange: (e)=>{
+                                                                                                                const current = [
+                                                                                                                    ...watch(`routine.${day}.value`)
+                                                                                                                ];
+                                                                                                                current[index].from = e.target.value;
+                                                                                                                setValue(`routine.${day}.value`, current);
+                                                                                                            }
+                                                                                                        }, void 0, false, {
+                                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                            lineNumber: 683,
+                                                                                                            columnNumber: 37
+                                                                                                        }, this)
+                                                                                                    ]
+                                                                                                }, void 0, true, {
+                                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                    lineNumber: 679,
+                                                                                                    columnNumber: 35
+                                                                                                }, this),
+                                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                                    children: [
+                                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                                            className: "text-[10px]",
+                                                                                                            children: "Arrival (To)"
+                                                                                                        }, void 0, false, {
+                                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                            lineNumber: 699,
+                                                                                                            columnNumber: 37
+                                                                                                        }, this),
+                                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                                                            type: "time",
+                                                                                                            value: slot.too,
+                                                                                                            onChange: (e)=>{
+                                                                                                                const current = [
+                                                                                                                    ...watch(`routine.${day}.value`)
+                                                                                                                ];
+                                                                                                                current[index].too = e.target.value;
+                                                                                                                setValue(`routine.${day}.value`, current);
+                                                                                                            }
+                                                                                                        }, void 0, false, {
+                                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                            lineNumber: 702,
+                                                                                                            columnNumber: 37
+                                                                                                        }, this)
+                                                                                                    ]
+                                                                                                }, void 0, true, {
+                                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                    lineNumber: 698,
+                                                                                                    columnNumber: 35
+                                                                                                }, this),
+                                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                                    variant: "ghost",
+                                                                                                    size: "icon",
+                                                                                                    className: "text-destructive",
+                                                                                                    onClick: ()=>{
+                                                                                                        const current = watch(`routine.${day}.value`).filter((_, i)=>i !== index);
+                                                                                                        setValue(`routine.${day}.value`, current);
+                                                                                                    },
+                                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                                                                                        size: 14
+                                                                                                    }, void 0, false, {
+                                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                        lineNumber: 728,
+                                                                                                        columnNumber: 37
+                                                                                                    }, this)
+                                                                                                }, void 0, false, {
+                                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                    lineNumber: 717,
+                                                                                                    columnNumber: 35
+                                                                                                }, this)
+                                                                                            ]
+                                                                                        }, index, true, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 675,
+                                                                                            columnNumber: 33
+                                                                                        }, this)),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                        variant: "outline",
+                                                                                        size: "sm",
+                                                                                        className: "w-full text-xs",
+                                                                                        onClick: ()=>{
+                                                                                            const current = watch(`routine.${day}.value`) || [];
+                                                                                            setValue(`routine.${day}.value`, [
+                                                                                                ...current,
+                                                                                                {
+                                                                                                    from: "08:00",
+                                                                                                    too: "10:00",
+                                                                                                    status: "scheduled"
+                                                                                                }
+                                                                                            ]);
+                                                                                        },
+                                                                                        children: [
+                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
+                                                                                                size: 12,
+                                                                                                className: "mr-1"
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                lineNumber: 751,
+                                                                                                columnNumber: 31
+                                                                                            }, this),
+                                                                                            " Add Time Slot"
+                                                                                        ]
+                                                                                    }, void 0, true, {
+                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                        lineNumber: 734,
+                                                                                        columnNumber: 29
+                                                                                    }, this)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                lineNumber: 672,
+                                                                                columnNumber: 27
+                                                                            }, this)
+                                                                        ]
+                                                                    }, day, true, {
+                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                        lineNumber: 650,
+                                                                        columnNumber: 23
+                                                                    }, this))
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 634,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "space-y-2",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                    htmlFor: "area",
-                                                                    children: "Enter Location"
+                                                                    htmlFor: "route_distance",
+                                                                    children: "Route Distance"
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 384,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 762,
                                                                     columnNumber: 21
                                                                 }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                    id: "location",
-                                                                    ...register("location"),
-                                                                    placeholder: "Enter Location"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 385,
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex rounded-md shadow-sm",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                            id: "route_distance",
+                                                                            type: "number",
+                                                                            ...register("route_distance"),
+                                                                            placeholder: "0",
+                                                                            className: "rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 764,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold",
+                                                                            children: "KM"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 772,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 763,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 383,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 761,
                                                             columnNumber: 19
                                                         }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        busStops && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "space-y-2",
                                                             children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                    htmlFor: "area",
-                                                                    children: "Enter Bus-Stop Area"
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                                    className: "text-sm font-medium",
+                                                                    children: "Select Bus-Stops Along this Route"
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 392,
-                                                                    columnNumber: 21
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 779,
+                                                                    columnNumber: 23
                                                                 }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                    id: "area",
-                                                                    ...register("area"),
-                                                                    placeholder: "Enter Area"
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                                    value: "",
+                                                                    onValueChange: (id)=>{
+                                                                        // 1. Find the full stop object from your data source
+                                                                        const selectedStop = busStops?.bus_stop.data.find((s)=>s._id === id);
+                                                                        if (selectedStop) {
+                                                                            const currentStops = watch("number_of_stops") || [];
+                                                                            // 2. Create the EntryPoint object
+                                                                            const newEntry = {
+                                                                                value: selectedStop.location.value.toLowerCase(),
+                                                                                longitude: selectedStop.location.longitude,
+                                                                                latitude: selectedStop.location.latitude
+                                                                            };
+                                                                            // 3. Check for duplicates based on coordinates or value
+                                                                            const isDuplicate = currentStops.some((s)=>s.value === newEntry.value);
+                                                                            if (!isDuplicate) {
+                                                                                setValue("number_of_stops", [
+                                                                                    ...currentStops,
+                                                                                    newEntry
+                                                                                ]);
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                            className: "w-full bg-transparent border-border",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                                placeholder: "Add bus-stops..."
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                lineNumber: 815,
+                                                                                columnNumber: 27
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 814,
+                                                                            columnNumber: 25
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                            children: busStops?.bus_stop.data.filter((stop)=>// Filter out if the location value already exists in the number_of_stops array
+                                                                                !watch("number_of_stops")?.some((s)=>s.value === stop.location.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    value: stop._id,
+                                                                                    children: stop.location.value
+                                                                                }, stop._id, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 828,
+                                                                                    columnNumber: 31
+                                                                                }, this))
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 817,
+                                                                            columnNumber: 25
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 782,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex flex-wrap gap-2 mt-3",
+                                                                    children: watch("number_of_stops").map((stopValue, key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                            variant: "secondary",
+                                                                            className: "flex items-center gap-1 pl-2 pr-1 py-1",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "capitalize",
+                                                                                    children: stopValue.value
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 843,
+                                                                                    columnNumber: 29
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                                    type: "button",
+                                                                                    onClick: ()=>{
+                                                                                        const current = watch("number_of_stops");
+                                                                                        setValue("number_of_stops", current.filter((s)=>s !== stopValue));
+                                                                                    },
+                                                                                    className: "hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors",
+                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                                                                        size: 14
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                        lineNumber: 857,
+                                                                                        columnNumber: 31
+                                                                                    }, this)
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 846,
+                                                                                    columnNumber: 29
+                                                                                }, this)
+                                                                            ]
+                                                                        }, key, true, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 838,
+                                                                            columnNumber: 27
+                                                                        }, this))
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 393,
-                                                                    columnNumber: 21
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 836,
+                                                                    columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 391,
-                                                            columnNumber: 19
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 778,
+                                                            columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "space-y-2",
@@ -1989,8 +3328,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     className: "text-sm font-medium",
                                                                     children: "State"
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 400,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 865,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2002,13 +3341,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
                                                                                 placeholder: "Select a State"
                                                                             }, void 0, false, {
-                                                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                lineNumber: 406,
+                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                lineNumber: 871,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 405,
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 870,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2016,25 +3355,25 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     value: state.toLowerCase(),
                                                                                     children: state
                                                                                 }, state, false, {
-                                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 410,
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 875,
                                                                                     columnNumber: 27
                                                                                 }, this))
                                                                         }, void 0, false, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 408,
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 873,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 401,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 866,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 399,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 864,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2044,36 +3383,36 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     htmlFor: "state",
                                                                     children: "Country"
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 418,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 883,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                     id: "country",
                                                                     ...register("country"),
-                                                                    defaultValue: "Nigeria",
                                                                     disabled: true,
+                                                                    defaultValue: "Nigeria",
                                                                     placeholder: "Enter country"
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 419,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 884,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 417,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 882,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                            disabled: busStopMutation.isPending || holdBustopBtn,
-                                                            onClick: handleAddBusStop,
-                                                            className: `w-full bg-primary ${busStopMutation.isPending || holdBustopBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`,
-                                                            children: busStopMutation.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                            disabled: addTripRoute.isPending || holdBtn,
+                                                            onClick: handleAddTripRoute,
+                                                            className: `w-full bg-primary ${addTripRoute.isPending || holdBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`,
+                                                            children: addTripRoute.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                                 className: "h-4 w-4 animate-spin"
                                                             }, void 0, false, {
-                                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                lineNumber: 437,
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 900,
                                                                 columnNumber: 23
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                 children: [
@@ -2082,43 +3421,43 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                 ]
                                                             }, void 0, true)
                                                         }, void 0, false, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 427,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 892,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
-                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                    lineNumber: 374,
+                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                    lineNumber: 490,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
-                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 370,
+                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                            lineNumber: 486,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 363,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 479,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
-                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                            lineNumber: 344,
+                            fileName: "[project]/components/shared/routes-table.tsx",
+                            lineNumber: 460,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                    lineNumber: 321,
+                    fileName: "[project]/components/shared/routes-table.tsx",
+                    lineNumber: 437,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
-                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                lineNumber: 320,
+                fileName: "[project]/components/shared/routes-table.tsx",
+                lineNumber: 436,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2130,13 +3469,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                             className: "text-base font-semibold",
                             children: tableTitle
                         }, void 0, false, {
-                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                            lineNumber: 451,
+                            fileName: "[project]/components/shared/routes-table.tsx",
+                            lineNumber: 914,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 450,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 913,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2150,76 +3489,76 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
-                                                children: "Location"
+                                                children: "Starting Point"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 460,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 923,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
-                                                children: "Area"
+                                                children: "Destination"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 463,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 926,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
-                                                children: "Routes"
+                                                children: "Code"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 466,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 929,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
                                                 children: "State / Country"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 469,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 932,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
                                                 children: "Added By"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 472,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 935,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
                                                 children: "Date Added"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 476,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 938,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
                                                 children: "Status"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 479,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 941,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 482,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 944,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 459,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 922,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 458,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 921,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2228,8 +3567,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             children: [
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
-                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                    lineNumber: 489,
+                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                    lineNumber: 951,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : paginatedData && paginatedData.map((station)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2237,26 +3576,26 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         className: "p-4 font-medium text-sm",
-                                                        children: station.location
+                                                        children: station.starting_point.value
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 499,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 961,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         className: "p-4 text-sm text-muted-foreground",
-                                                        children: station.area
+                                                        children: station.destination.value
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 502,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 964,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                        className: "p-4 text-sm text-muted-foreground",
-                                                        children: station.routes
+                                                        className: "p-4 text-sm capitalize text-muted-foreground",
+                                                        children: station.code
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 505,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 967,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2267,8 +3606,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             station.country
                                                         ]
                                                     }, void 0, true, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 508,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 970,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2279,16 +3618,16 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             station.added_by.last_name
                                                         ]
                                                     }, void 0, true, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 511,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 973,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         className: "p-4 text-sm text-muted-foreground",
                                                         children: new Date(station.createdAt).toDateString()
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 514,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 976,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2298,13 +3637,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("font-normal", station.status === "active" ? "border-green-500 text-green-600 bg-green-50" : "border-orange-500 text-orange-600 bg-orange-50"),
                                                             children: station.status === "active" ? "Active" : "In-active"
                                                         }, void 0, false, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 518,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 980,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 517,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 979,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2320,18 +3659,18 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ellipsis$2d$vertical$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MoreVertical$3e$__["MoreVertical"], {
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 538,
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 1000,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
-                                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                        lineNumber: 533,
+                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                        lineNumber: 995,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 532,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 994,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2339,33 +3678,39 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
                                                                             onClick: ()=>{
-                                                                                dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$bus$2d$stop$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateSelBusStop"])(station));
-                                                                                router.push(`/app-menu/bus-stops/${station._id}`);
+                                                                                dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateSelRoute"])(station));
+                                                                                router.push(`/app-menu/routes/${station._id}`);
                                                                             },
                                                                             children: [
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"], {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
-                                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 548,
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 1010,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "View"
                                                                             ]
                                                                         }, void 0, true, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 542,
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 1004,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
                                                                             onClick: ()=>{
-                                                                                setBusStopId({
-                                                                                    bus_stop_id: station._id,
-                                                                                    routes: station.routes,
-                                                                                    area: station.area,
+                                                                                setRouteId({
+                                                                                    trip_route_id: station._id,
+                                                                                    rate: station.rate,
+                                                                                    flat_rate: station.flat_rate,
+                                                                                    rate_per_km: station.rate_per_km,
+                                                                                    code: station.code,
+                                                                                    destination: station.destination,
+                                                                                    starting_point: station.starting_point,
                                                                                     state: station.state,
                                                                                     country: station.country,
-                                                                                    location: station.location
+                                                                                    route_distance: station.route_distance,
+                                                                                    number_of_stops: station.number_of_stops,
+                                                                                    routine: station.routine
                                                                                 });
                                                                                 setIsEditDialogOpen(true);
                                                                             },
@@ -2373,61 +3718,22 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__["Edit"], {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
-                                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 564,
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 1033,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "Edit"
                                                                             ]
                                                                         }, void 0, true, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 551,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
-                                                                            onClick: (e)=>{
-                                                                                e.preventDefault();
-                                                                                handleBustopStatus({
-                                                                                    bus_stop_id: station._id,
-                                                                                    status: station.status === "active" ? "in-active" : "active"
-                                                                                });
-                                                                            },
-                                                                            className: station.status === "active" ? "text-destructive" : "text-success",
-                                                                            children: [
-                                                                                updateMutation.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
-                                                                                    className: "mr-2 h-4 w-4 animate-spin"
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                    lineNumber: 585,
-                                                                                    columnNumber: 31
-                                                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                                                                    children: station.status === "active" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__["UserX"], {
-                                                                                        className: "mr-2 text-destructive h-4 w-4"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 589,
-                                                                                        columnNumber: 35
-                                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"], {
-                                                                                        className: "mr-2 text-success h-4 w-4"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 591,
-                                                                                        columnNumber: 35
-                                                                                    }, this)
-                                                                                }, void 0, false),
-                                                                                station.status === "active" ? "De-activate" : "Activate"
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 567,
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 1013,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
                                                                             onClick: (e)=>{
                                                                                 // 1. Prevent the dropdown from closing
                                                                                 e.preventDefault();
-                                                                                // 2. Trigger your delete logic
-                                                                                handleDeleteBustop(station._id);
+                                                                                handleDeleteRoute(station._id);
                                                                             },
                                                                             className: "text-destructive",
                                                                             disabled: deleteMutation.isPending,
@@ -2436,8 +3742,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                                                         className: "h-4 w-4 mr-2 animate-spin"
                                                                                     }, void 0, false, {
-                                                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 613,
+                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                        lineNumber: 1048,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Deleting..."
@@ -2447,39 +3753,39 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
                                                                                         className: "h-4 w-4 mr-2 text-destructive"
                                                                                     }, void 0, false, {
-                                                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                                        lineNumber: 618,
+                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                        lineNumber: 1053,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Delete"
                                                                                 ]
                                                                             }, void 0, true)
                                                                         }, void 0, false, {
-                                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                            lineNumber: 600,
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 1036,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 541,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 1003,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
-                                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                            lineNumber: 531,
+                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                            lineNumber: 993,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 530,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 992,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, station._id, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 495,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 957,
                                                 columnNumber: 19
                                             }, this)),
                                         !isLoading && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2488,30 +3794,30 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 className: "p-8 text-center text-muted-foreground",
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 632,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1067,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
-                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 631,
+                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                            lineNumber: 1066,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
-                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                    lineNumber: 485,
+                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                    lineNumber: 947,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
-                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                            lineNumber: 457,
+                            fileName: "[project]/components/shared/routes-table.tsx",
+                            lineNumber: 920,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 456,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 919,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2521,12 +3827,12 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
                                 asChild: true
                             }, void 0, false, {
-                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 648,
+                                fileName: "[project]/components/shared/routes-table.tsx",
+                                lineNumber: 1083,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
-                                className: "sm:max-w-md",
+                                className: "sm:max-w-2xl",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
@@ -2535,95 +3841,337 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 title.slice(0, -1)
                                             ]
                                         }, void 0, true, {
-                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 651,
+                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                            lineNumber: 1086,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 650,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 1085,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "space-y-4 py-4",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "space-y-2",
+                                                className: "grid grid-cols-2 gap-4",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                        htmlFor: "name",
-                                                        children: "Routes"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 655,
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                htmlFor: "name",
+                                                                children: "Rate"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1091,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                id: "name",
+                                                                ...updateRegister("rate"),
+                                                                placeholder: "Enter rate"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1092,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1090,
                                                         columnNumber: 17
                                                     }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                        id: "routes",
-                                                        ...updateRegister("routes"),
-                                                        placeholder: "Enter routes"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 656,
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                htmlFor: "flat_rate",
+                                                                children: "Flat Rate"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1099,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                id: "flat_rate",
+                                                                ...updateRegister("flat_rate"),
+                                                                placeholder: "Enter Flat Rate"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1100,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1098,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 654,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1089,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "grid grid-cols-2 gap-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                htmlFor: "rate_per_km",
+                                                                children: "Rate Per KM"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1109,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                id: "rate_per_km",
+                                                                ...updateRegister("rate_per_km"),
+                                                                placeholder: "Enter Rate Per Km"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1110,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1108,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                htmlFor: "code",
+                                                                children: "Code"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1117,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                id: "code",
+                                                                ...updateRegister("code"),
+                                                                placeholder: "Enter code"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1118,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1116,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1107,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "space-y-2",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                        htmlFor: "area",
-                                                        children: "Enter Location"
+                                                        htmlFor: "starting_point",
+                                                        children: "Starting Point"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 663,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1127,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                        id: "location",
-                                                        ...updateRegister("location"),
-                                                        placeholder: "Enter Location"
+                                                        id: "starting_point",
+                                                        ...updateRegister("starting_point"),
+                                                        placeholder: "Enter Starting Point"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 664,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1128,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 662,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1126,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "space-y-2",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                        htmlFor: "area",
-                                                        children: "Area"
+                                                        htmlFor: "destination",
+                                                        children: "Destination"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 671,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1135,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                        id: "area",
-                                                        ...updateRegister("area"),
-                                                        placeholder: "Enter area"
+                                                        id: "destination",
+                                                        ...updateRegister("destination"),
+                                                        placeholder: "Enter Destination"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 672,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1136,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 670,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1134,
                                                 columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                        htmlFor: "route_distance",
+                                                        children: "Route Distance"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1144,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                        id: "route_distance",
+                                                        ...updateRegister("route_distance"),
+                                                        placeholder: "Enter Route Distance"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1145,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1143,
+                                                columnNumber: 15
+                                            }, this),
+                                            busStops && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "text-sm font-medium",
+                                                        children: "Select Bus-Stops Along this Route"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1153,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                        value: "",
+                                                        onValueChange: (id)=>{
+                                                            // 1. Find the full stop object from the data list using the ID
+                                                            const selectedStop = busStops?.bus_stop.data.find((s)=>s._id === id);
+                                                            if (selectedStop) {
+                                                                const currentStops = updateWatch("number_of_stops") || [];
+                                                                // 2. Create the EntryPoint object with mock coordinates
+                                                                const newEntry = {
+                                                                    value: selectedStop.location.value.toLowerCase(),
+                                                                    longitude: selectedStop.location.longitude,
+                                                                    latitude: selectedStop.location.latitude
+                                                                };
+                                                                // 3. Check if this value already exists in our array of objects
+                                                                const isDuplicate = currentStops.some((stop)=>stop.value === newEntry.value);
+                                                                if (!isDuplicate) {
+                                                                    updateValue("number_of_stops", [
+                                                                        ...currentStops,
+                                                                        newEntry
+                                                                    ]);
+                                                                }
+                                                            }
+                                                        },
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                                className: "w-full bg-transparent border-border",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                    placeholder: "Add bus-stops..."
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 1190,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1189,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                                children: busStops?.bus_stop.data.filter((stop)=>// 4. Update filter to check the 'value' property inside the objects
+                                                                    !updateWatch("number_of_stops")?.some((selected)=>selected.value === stop.location.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                        value: stop._id,
+                                                                        children: stop.location.value
+                                                                    }, stop._id, false, {
+                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                        lineNumber: 1204,
+                                                                        columnNumber: 27
+                                                                    }, this))
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1192,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1156,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex flex-wrap gap-2 mt-3",
+                                                        children: updateWatch("number_of_stops")?.flat().map((stopValue, key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                variant: "secondary",
+                                                                className: "flex items-center gap-1 pl-2 pr-1 py-1",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "capitalize",
+                                                                        children: stopValue.value
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                        lineNumber: 1221,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                        type: "button",
+                                                                        onClick: ()=>{
+                                                                            const current = updateWatch("number_of_stops").flat();
+                                                                            updateValue("number_of_stops", current.filter((s)=>s !== stopValue));
+                                                                        },
+                                                                        className: "hover:bg-destructive hover:text-white rounded-full p-0.5 transition-colors",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                                                            size: 14
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                            lineNumber: 1234,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                        lineNumber: 1222,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, key, true, {
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1216,
+                                                                columnNumber: 25
+                                                            }, this))
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1212,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1152,
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "space-y-2",
@@ -2632,8 +4180,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         className: "text-sm font-medium",
                                                         children: "State"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 679,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1242,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2645,13 +4193,13 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
                                                                     placeholder: "Select a State"
                                                                 }, void 0, false, {
-                                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                    lineNumber: 685,
+                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                    lineNumber: 1248,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
-                                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                lineNumber: 684,
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1247,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2659,25 +4207,25 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         value: state.toLowerCase(),
                                                                         children: state
                                                                     }, state, false, {
-                                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                        lineNumber: 689,
+                                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                                        lineNumber: 1252,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
-                                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                                lineNumber: 687,
+                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                lineNumber: 1250,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 680,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1243,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 678,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1241,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2687,8 +4235,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         htmlFor: "state",
                                                         children: "Country"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 697,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1260,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2698,25 +4246,25 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         defaultValue: "Nigeria",
                                                         placeholder: "Enter country"
                                                     }, void 0, false, {
-                                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                        lineNumber: 698,
+                                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                                        lineNumber: 1261,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 696,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1259,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                disabled: modifyBusStop.isPending || holdEditBustopBtn,
-                                                onClick: handleModifyBusStop,
-                                                className: `w-full bg-primary ${modifyBusStop.isPending || holdEditBustopBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`,
-                                                children: modifyBusStop.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                disabled: modifyTripRoute.isPending || holdEditPickupBtn,
+                                                onClick: handleModifyPickupStation,
+                                                className: `w-full bg-primary ${modifyTripRoute.isPending || holdEditPickupBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`,
+                                                children: modifyTripRoute.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                     className: "h-4 w-4 animate-spin"
                                                 }, void 0, false, {
-                                                    fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                    lineNumber: 716,
+                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                    lineNumber: 1279,
                                                     columnNumber: 19
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                     children: [
@@ -2725,26 +4273,26 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                     ]
                                                 }, void 0, true)
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 706,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1269,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 653,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 1088,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
-                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 649,
+                                fileName: "[project]/components/shared/routes-table.tsx",
+                                lineNumber: 1084,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 647,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 1082,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2763,37 +4311,37 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 value: 5,
                                                 children: "5"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 737,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1300,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: 10,
                                                 children: "10"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 738,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1301,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: 20,
                                                 children: "20"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                                lineNumber: 739,
+                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                lineNumber: 1302,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 732,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 1295,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
-                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 730,
+                                fileName: "[project]/components/shared/routes-table.tsx",
+                                lineNumber: 1293,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2807,8 +4355,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         onClick: ()=>setCurrentPage((prev)=>prev - 1),
                                         children: "<"
                                     }, void 0, false, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 747,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 1310,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -2823,8 +4371,8 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             onClick: ()=>setCurrentPage(pageNumber),
                                             children: pageNumber
                                         }, pageNumber, false, {
-                                            fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                            lineNumber: 761,
+                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                            lineNumber: 1324,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -2836,60 +4384,62 @@ function BusStopTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         onClick: ()=>setCurrentPage((prev)=>prev + 1),
                                         children: ">"
                                     }, void 0, false, {
-                                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                        lineNumber: 779,
+                                        fileName: "[project]/components/shared/routes-table.tsx",
+                                        lineNumber: 1342,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
-                                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                                lineNumber: 745,
+                                fileName: "[project]/components/shared/routes-table.tsx",
+                                lineNumber: 1308,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                        lineNumber: 728,
+                        fileName: "[project]/components/shared/routes-table.tsx",
+                        lineNumber: 1291,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                lineNumber: 449,
+                fileName: "[project]/components/shared/routes-table.tsx",
+                lineNumber: 912,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
-                fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-                lineNumber: 791,
+                fileName: "[project]/components/shared/routes-table.tsx",
+                lineNumber: 1354,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "[project]/components/bus-stops/bus-stop-table.tsx",
-        lineNumber: 319,
+        fileName: "[project]/components/shared/routes-table.tsx",
+        lineNumber: 435,
         columnNumber: 5
     }, this);
 }
-_s(BusStopTable, "eivjRHXv6KVMZIJlTNgyhElnV88=", false, function() {
+_s(RoutesTable, "y03H4Gog30Zy/ysS0ncd7hpFqEI=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCreateBusStop"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModifyBusStop"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDeleteBusStop"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCreateTripRoute"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModifyRoutes"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDeleteRoute"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useBusStopStatus"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"]
     ];
 });
-_c = BusStopTable;
+_c = RoutesTable;
 var _c;
-__turbopack_context__.k.register(_c, "BusStopTable");
+__turbopack_context__.k.register(_c, "RoutesTable");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
 ]);
 
-//# sourceMappingURL=_65b34d82._.js.map
+//# sourceMappingURL=_392e96bb._.js.map

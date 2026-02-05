@@ -130,6 +130,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     number_of_stops,
     country,
     state,
+    routine,
   } = handleWatch;
 
   const handleModifyRoute = () => {
@@ -147,6 +148,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
         country,
         route_distance,
         number_of_stops,
+        routine,
       },
       {
         onSettled: () => setIsAddDialogOpen(false),
@@ -289,7 +291,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                       );
                       if (stop) {
                         setValue("starting_point", {
-                          value: stop.location.toLowerCase(),
+                          value: stop.location.value.toLowerCase(),
                           latitude: 0,
                           longitude: 0,
                         });
@@ -373,7 +375,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                       );
                       if (stop) {
                         setValue("destination", {
-                          value: stop.location.toLowerCase(),
+                          value: stop.location.value.toLowerCase(),
                           latitude: 0, // Mock 0 if not present
                           longitude: 0, // Mock 0 if not present
                         });
@@ -471,9 +473,9 @@ export function RouteDetails({ onBack }: StationDetailProps) {
 
                           // 2. Build the EntryPoint object with test coordinates
                           const newEntry: EntryPoint = {
-                            value: selectedStop.location.toLowerCase(),
-                            longitude: 0, // Test longitude
-                            latitude: 0, // Test latitude
+                            value: selectedStop.location.value.toLowerCase(),
+                            longitude: selectedStop.location.longitude, // Test longitude
+                            latitude: selectedStop.location.latitude, // Test latitude
                           };
 
                           // 3. Check for duplicates using the .value property
@@ -501,12 +503,12 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                               !watch("number_of_stops")?.some(
                                 (selected: EntryPoint) =>
                                   selected.value ===
-                                  stop.location.toLowerCase(),
+                                  stop.location.value.toLowerCase(),
                               ),
                           )
                           .map((stop) => (
                             <SelectItem key={stop._id} value={stop._id}>
-                              {stop.location}
+                              {stop.location.value}
                             </SelectItem>
                           ))}
                       </SelectContent>

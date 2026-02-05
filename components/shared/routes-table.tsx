@@ -51,6 +51,7 @@ import {
   EditPickupStationPayload,
   EditTripRoute,
   EntryPoint,
+  WeekdayType,
 } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
@@ -67,6 +68,7 @@ import {
 import { getAllBusStops, useDeleteBusStop } from "@/api/bus-stops";
 import { updateSelRoute } from "@/lib/store/slices/route-slice";
 import { getDropOffStations } from "@/api/drop-off-locations";
+import { Switch } from "../ui/switch";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -129,6 +131,21 @@ export function RoutesTable({
     queryFn: () => getAllBusStops(),
   });
 
+  const initialDay: WeekdayType = {
+    active: false,
+    value: [],
+  };
+
+  const defaultRoutine = {
+    monday: initialDay,
+    tuesday: initialDay,
+    wednesday: initialDay,
+    thursday: initialDay,
+    friday: initialDay,
+    saturday: initialDay,
+    sunday: initialDay,
+  };
+
   const { register, reset, setValue, watch } = useForm<AddTripRoute>({
     values: {
       rate: 0,
@@ -141,6 +158,15 @@ export function RoutesTable({
       number_of_stops: [],
       country: "Nigeria",
       state: "lagos",
+      routine: {
+        monday: { ...initialDay },
+        tuesday: { ...initialDay },
+        wednesday: { ...initialDay },
+        thursday: { ...initialDay },
+        friday: { ...initialDay },
+        saturday: { ...initialDay },
+        sunday: { ...initialDay },
+      },
     },
   });
 
@@ -154,6 +180,8 @@ export function RoutesTable({
       flat_rate: Number(routeId?.flat_rate),
       rate_per_km: Number(routeId?.rate_per_km),
       code: `${routeId?.code}`,
+      routine: routeId?.routine ?? defaultRoutine,
+
       destination:
         typeof routeId?.destination === "object"
           ? routeId.destination
@@ -168,7 +196,7 @@ export function RoutesTable({
         : [],
       country: routeId?.country || "Nigeria",
       state:
-        routeId?.state === "Lagos State" || "Lagos"
+        routeId?.state === "Lagos State" || routeId?.state === "Lagos"
           ? "lagos"
           : routeId?.state || "",
     },
@@ -203,6 +231,7 @@ export function RoutesTable({
     destination: updateDestination,
     country: updateCountry,
     state: updateState,
+    routine,
   } = handleUpdateWatch;
 
   const handleAddTripRoute = () => {
@@ -218,6 +247,7 @@ export function RoutesTable({
         number_of_stops,
         country,
         state,
+        routine,
       },
       {
         onSuccess: () => {
@@ -243,6 +273,7 @@ export function RoutesTable({
         number_of_stops: updateNumberOfStops,
         country: updateCountry,
         state: updateState,
+        routine,
       },
       {
         onSuccess: () => refetch(),
@@ -538,9 +569,9 @@ export function RoutesTable({
                         );
                         if (stop) {
                           setValue("starting_point", {
-                            value: stop.location.toLowerCase(),
-                            latitude: 0,
-                            longitude: 0,
+                            value: stop.location.value.toLowerCase(),
+                            latitude: stop.location.latitude,
+                            longitude: stop.location.longitude,
                           });
                         }
                       }}
@@ -561,54 +592,7 @@ export function RoutesTable({
                         ))}
                       </SelectContent>
                     </Select>
-
-                    {/* Hide Lat & Long */}
-                    {/* <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-1">
-                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
-                          Start Latitude
-                        </span>
-                        <Input
-                          type="number"
-                          step="any"
-                          className="h-8 text-xs"
-                          value={watch("starting_point.latitude")}
-                          onChange={(e) =>
-                            setValue(
-                              "starting_point.latitude",
-                              parseFloat(e.target.value) || 0,
-                            )
-                          }
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
-                          Start Longitude
-                        </span>
-                        <Input
-                          type="number"
-                          step="any"
-                          className="h-8 text-xs"
-                          value={watch("starting_point.longitude")}
-                          onChange={(e) =>
-                            setValue(
-                              "starting_point.longitude",
-                              parseFloat(e.target.value) || 0,
-                            )
-                          }
-                        />
-                      </div>
-                    </div> */}
                   </div>
-
-                  {/* <div className="space-y-2">
-                    <Label htmlFor="destination">Enter Destination</Label>
-                    <Input
-                      id="destination"
-                      {...register("destination")}
-                      placeholder="Enter Destination"
-                    />
-                  </div> */}
 
                   <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
                     <Label className="text-primary font-bold">
@@ -622,9 +606,9 @@ export function RoutesTable({
                         );
                         if (stop) {
                           setValue("destination", {
-                            value: stop.location.toLowerCase(),
-                            latitude: 0,
-                            longitude: 0,
+                            value: stop.location.value.toLowerCase(),
+                            latitude: stop.location.latitude,
+                            longitude: stop.location.longitude,
                           });
                         }
                       }}
@@ -644,45 +628,135 @@ export function RoutesTable({
                         ))}
                       </SelectContent>
                     </Select>
-
-                    {/* Hide Long /. Lat */}
-                    {/* <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-1">
-                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
-                          Dest. Latitude
-                        </span>
-                        <Input
-                          type="number"
-                          step="any"
-                          className="h-8 text-xs"
-                          value={watch("destination.latitude")}
-                          onChange={(e) =>
-                            setValue(
-                              "destination.latitude",
-                              parseFloat(e.target.value) || 0,
-                            )
-                          }
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <span className="text-[10px] text-muted-foreground uppercase font-bold">
-                          Dest. Longitude
-                        </span>
-                        <Input
-                          type="number"
-                          step="any"
-                          className="h-8 text-xs"
-                          value={watch("destination.longitude")}
-                          onChange={(e) =>
-                            setValue(
-                              "destination.longitude",
-                              parseFloat(e.target.value) || 0,
-                            )
-                          }
-                        />
-                      </div>
-                    </div> */}
                   </div>
+
+                  {/* Weekly SAcheduler */}
+                  <div className="space-y-4 border-t pt-4">
+                    <Label className="text-lg font-bold">
+                      Weekly Operating Schedule
+                    </Label>
+
+                    {(
+                      [
+                        "monday",
+                        "tuesday",
+                        "wednesday",
+                        "thursday",
+                        "friday",
+                        "saturday",
+                        "sunday",
+                      ] as const
+                    ).map((day) => (
+                      <div
+                        key={day}
+                        className="p-3 border rounded-md bg-muted/10 space-y-3"
+                      >
+                        <div className="flex items-center justify-between">
+                          <Label className="capitalize font-semibold">
+                            {day}
+                          </Label>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs text-muted-foreground">
+                              Active
+                            </span>
+                            <Switch
+                              checked={watch(`routine.${day}.active`)}
+                              onCheckedChange={(val) =>
+                                setValue(`routine.${day}.active`, val)
+                              }
+                            />
+                          </div>
+                        </div>
+
+                        {watch(`routine.${day}.active`) && (
+                          <div className="space-y-2">
+                            {watch(`routine.${day}.value`)?.map(
+                              (slot, index) => (
+                                <div
+                                  key={index}
+                                  className="grid grid-cols-3 gap-2 items-end bg-background p-2 rounded border"
+                                >
+                                  <div>
+                                    <Label className="text-[10px]">
+                                      Departure (From)
+                                    </Label>
+                                    <Input
+                                      type="time"
+                                      value={slot.from}
+                                      onChange={(e) => {
+                                        const current = [
+                                          ...watch(`routine.${day}.value`),
+                                        ];
+                                        current[index].from = e.target.value;
+                                        setValue(
+                                          `routine.${day}.value`,
+                                          current,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <div>
+                                    <Label className="text-[10px]">
+                                      Arrival (To)
+                                    </Label>
+                                    <Input
+                                      type="time"
+                                      value={slot.too}
+                                      onChange={(e) => {
+                                        const current = [
+                                          ...watch(`routine.${day}.value`),
+                                        ];
+                                        current[index].too = e.target.value;
+                                        setValue(
+                                          `routine.${day}.value`,
+                                          current,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="text-destructive"
+                                    onClick={() => {
+                                      const current = watch(
+                                        `routine.${day}.value`,
+                                      ).filter((_, i) => i !== index);
+                                      setValue(`routine.${day}.value`, current);
+                                    }}
+                                  >
+                                    <X size={14} />
+                                  </Button>
+                                </div>
+                              ),
+                            )}
+
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full text-xs"
+                              onClick={() => {
+                                const current =
+                                  watch(`routine.${day}.value`) || [];
+                                setValue(`routine.${day}.value`, [
+                                  ...current,
+                                  {
+                                    from: "08:00",
+                                    too: "10:00",
+                                    status: "scheduled",
+                                  },
+                                ]);
+                              }}
+                            >
+                              <Plus size={12} className="mr-1" /> Add Time Slot
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* End Weekly Schedule */}
 
                   <div className="space-y-2">
                     <Label htmlFor="route_distance">Route Distance</Label>
@@ -718,9 +792,9 @@ export function RoutesTable({
 
                             // 2. Create the EntryPoint object
                             const newEntry: EntryPoint = {
-                              value: selectedStop.location.toLowerCase(),
-                              longitude: 0,
-                              latitude: 0,
+                              value: selectedStop.location.value.toLowerCase(),
+                              longitude: selectedStop.location.longitude,
+                              latitude: selectedStop.location.latitude,
                             };
 
                             // 3. Check for duplicates based on coordinates or value
@@ -747,12 +821,12 @@ export function RoutesTable({
                                 // Filter out if the location value already exists in the number_of_stops array
                                 !watch("number_of_stops")?.some(
                                   (s) =>
-                                    s.value === stop.location.toLowerCase(),
+                                    s.value === stop.location.value.toLowerCase(),
                                 ),
                             )
                             .map((stop) => (
                               <SelectItem key={stop._id} value={stop._id}>
-                                {stop.location}
+                                {stop.location.value}
                               </SelectItem>
                             ))}
                         </SelectContent>
@@ -950,6 +1024,7 @@ export function RoutesTable({
                                 country: station.country,
                                 route_distance: station.route_distance,
                                 number_of_stops: station.number_of_stops,
+                                routine: station.routine,
                               });
 
                               setIsEditDialogOpen(true);
@@ -1092,9 +1167,9 @@ export function RoutesTable({
 
                         // 2. Create the EntryPoint object with mock coordinates
                         const newEntry: EntryPoint = {
-                          value: selectedStop.location.toLowerCase(),
-                          longitude: 0, // Mock coordinate
-                          latitude: 0, // Mock coordinate
+                          value: selectedStop.location.value.toLowerCase(),
+                          longitude: selectedStop.location.longitude,
+                          latitude: selectedStop.location.latitude,
                         };
 
                         // 3. Check if this value already exists in our array of objects
@@ -1121,12 +1196,13 @@ export function RoutesTable({
                             // 4. Update filter to check the 'value' property inside the objects
                             !updateWatch("number_of_stops")?.some(
                               (selected: EntryPoint) =>
-                                selected.value === stop.location.toLowerCase(),
+                                selected.value ===
+                                stop.location.value.toLowerCase(),
                             ),
                         )
                         .map((stop) => (
                           <SelectItem key={stop._id} value={stop._id}>
-                            {stop.location}
+                            {stop.location.value}
                           </SelectItem>
                         ))}
                     </SelectContent>

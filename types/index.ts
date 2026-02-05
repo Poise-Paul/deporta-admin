@@ -79,11 +79,9 @@ export type AddTripRoute = {
   number_of_stops: EntryPoint[];
 };
 
-
-
 export type AddBusStopPayload = {
   routes: number;
-  location: string;
+  location: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -149,6 +147,15 @@ export type EditTripRoute = {
   country: string;
   route_distance: string;
   number_of_stops: EntryPoint[];
+  routine: {
+    monday: WeekdayType;
+    tuesday: WeekdayType;
+    wednesday: WeekdayType;
+    thursday: WeekdayType;
+    friday: WeekdayType;
+    saturday: WeekdayType;
+    sunday: WeekdayType;
+  };
 };
 
 export type EditDropOffStationPayload = {
@@ -162,7 +169,7 @@ export type EditDropOffStationPayload = {
 export type EditBusStopPayload = {
   bus_stop_id: string;
   routes: number;
-  location: string;
+  location: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -424,29 +431,12 @@ export interface BusStopResponse extends Response {
 }
 
 export type BusStopDataDetails = {
+  location: EntryPoint;
   _id: string;
-  location: string;
   area: string;
   state: string;
   country: string;
-  added_by: {
-    user_type: {
-      value: string;
-      type_id: string;
-    };
-    _id: string;
-    first_name: string;
-    last_name: string;
-    phone_number: string;
-    profile_image: string;
-    email: string;
-    date_of_birth: string;
-    verify_email: false;
-    deactivate: false;
-    createdAt: string;
-    updatedAt: string;
-    __v: 0;
-  };
+  added_by: NormalStaffData;
   routes: number;
   status: string;
   createdAt: string;
@@ -512,13 +502,11 @@ export type EntryPoint = {
 
 export type WeekdayType = {
   active: boolean;
-  value: [
-    {
-      from: string;
-      too: string;
-      status: string;
-    },
-  ];
+  value: {
+    from: string;
+    too: string;
+    status: string;
+  }[];
 };
 
 export type RouteData = {

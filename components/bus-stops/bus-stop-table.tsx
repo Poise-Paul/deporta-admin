@@ -131,7 +131,7 @@ export function BusStopTable({
   const { register, reset, setValue, watch } = useForm<AddBusStopPayload>({
     values: {
       routes: 0,
-      location: "",
+      location: { value: "", longitude: 0, latitude: 0 },
       area: "",
       state: "lagos",
       country: "Nigeria",
@@ -145,7 +145,10 @@ export function BusStopTable({
   } = useForm<AddBusStopPayload>({
     values: {
       routes: bustopId?.routes || 0,
-      location: bustopId?.location || "",
+      location:
+        typeof bustopId?.location === "object"
+          ? bustopId.location
+          : { value: bustopId?.location || "", longitude: 0, latitude: 0 },
       area: bustopId?.area || "",
       state:
         bustopId?.state === "Lagos State" ? "lagos" : bustopId?.state || "",
@@ -158,7 +161,8 @@ export function BusStopTable({
   const handleWatch = watch();
   const handleUpdateWatch = updateWatch();
 
-  const { routes, location, area, country, state } = handleWatch;
+  const { routes, area, country, state } = handleWatch;
+  const { location } = updateWatch();
 
   const {
     routes: updateRoutes,
@@ -247,7 +251,7 @@ export function BusStopTable({
     let filtered = allBustops.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
-        station.location?.toLowerCase().includes(searchStr) ||
+        station.location?.value.toLowerCase().includes(searchStr) ||
         station.area?.toLowerCase().includes(searchStr) ||
         station.state?.toLowerCase().includes(searchStr)
       );
@@ -315,6 +319,7 @@ export function BusStopTable({
       },
     });
   };
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -381,11 +386,20 @@ export function BusStopTable({
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="area">Enter Location</Label>
+                    <Label htmlFor="area">Enter Location</Label>{" "}
                     <Input
-                      id="location"
-                      {...register("location")}
-                      placeholder="Enter Location"
+                      id="add-location"
+                      placeholder="Enter location name (e.g., Ajah)"
+                      // Use 'watch' from the first useForm instance
+                      value={watch("location.value")}
+                      onChange={(e) => {
+                        // Use 'setValue' from the first useForm instance
+                        setValue("location", {
+                          value: e.target.value,
+                          longitude: 0,
+                          latitude: 0,
+                        });
+                      }}
                     />
                   </div>
                   <div className="space-y-2">
@@ -497,7 +511,7 @@ export function BusStopTable({
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
                     <td className="p-4 font-medium text-sm">
-                      {station.location}
+                      {station.location.value}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
                       {station.area}
@@ -663,8 +677,17 @@ export function BusStopTable({
                 <Label htmlFor="area">Enter Location</Label>
                 <Input
                   id="location"
-                  {...updateRegister("location")}
-                  placeholder="Enter Location"
+                  placeholder="e.g. Lekki Phase 1"
+                  // We watch the nested 'value' string
+                  value={updateWatch("location.value")}
+                  onChange={(e) => {
+                    // We manually update the whole object to satisfy the EntryPoint type
+                    updateValue("location", {
+                      value: e.target.value,
+                      longitude: 0,
+                      latitude: 0,
+                    });
+                  }}
                 />
               </div>
               <div className="space-y-2">

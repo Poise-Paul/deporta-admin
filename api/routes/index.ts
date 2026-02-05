@@ -75,6 +75,7 @@ export const useCreateTripRoute = () => {
         number_of_stops: data.number_of_stops,
         state: data.state,
         country: data.country,
+        routine:data.routine
       });
       return res.data;
     },
