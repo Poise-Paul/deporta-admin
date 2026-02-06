@@ -1165,6 +1165,8 @@ const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
 __turbopack_context__.s([
     "getAllBuses",
     ()=>getAllBuses,
+    "getMaintenanceReports",
+    ()=>getMaintenanceReports,
     "useBusMaintenanceStatus",
     ()=>useBusMaintenanceStatus,
     "useBusStatus",
@@ -1397,6 +1399,15 @@ const useCreateReport = ()=>{
             }
         }
     });
+};
+const getMaintenanceReports = async (currentPage, perPage)=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/maintenance-report/get?limit=${perPage}&page=${currentPage}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/components/ui/skeleton.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

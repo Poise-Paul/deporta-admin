@@ -19,9 +19,11 @@ const pageTitles: Record<string, string> = {
   "/logistics/driver-outsourcing": "Driver Outsourcing",
   "/logistics/vehicle-rentals": "Vehicle Rentals",
   "/cms": "CMS",
+  "/co-operate/accounts": "Co-Operate Accounts",
+  "/co-operate/bookings": "Co-Operate Bookings",
   "/support": "Support Tools",
   "/settings": "Settings",
-}
+};
 
 export function AdminHeader() {
   const pathname = usePathname()

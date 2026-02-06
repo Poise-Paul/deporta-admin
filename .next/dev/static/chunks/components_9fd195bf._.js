@@ -1108,9 +1108,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ellipsis$2d$vertical$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MoreVertical$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.js [app-client] (ecmascript) <export default as MoreVertical>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-client] (ecmascript) <export default as Eye>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useQuery.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -1209,6 +1211,16 @@ function VehicleRentalsTable() {
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [isCreateDialogOpen, setIsCreateDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const { data, isLoading, isRefetching, refetch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "outsourceDrivers",
+            currentPage
+        ],
+        retry: false,
+        queryFn: {
+            "VehicleRentalsTable.useQuery": ()=>getOutsouceDrivers(currentPage, itemsPerPage)
+        }["VehicleRentalsTable.useQuery"]
+    });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
         className: "bg-card border border-border",
         children: [
@@ -1224,7 +1236,7 @@ function VehicleRentalsTable() {
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 103,
+                                    lineNumber: 127,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1234,13 +1246,13 @@ function VehicleRentalsTable() {
                                     className: "pl-9 w-72 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 128,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                            lineNumber: 102,
+                            lineNumber: 126,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1256,12 +1268,12 @@ function VehicleRentalsTable() {
                                             children: tab.label
                                         }, tab.id, false, {
                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                            lineNumber: 116,
+                                            lineNumber: 140,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 114,
+                                    lineNumber: 138,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1272,12 +1284,12 @@ function VehicleRentalsTable() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 157,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 132,
+                                    lineNumber: 156,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1293,19 +1305,19 @@ function VehicleRentalsTable() {
                                                         className: "h-4 w-4 mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 139,
+                                                        lineNumber: 166,
                                                         columnNumber: 19
                                                     }, this),
                                                     "Create Booking"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 138,
+                                                lineNumber: 165,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 164,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -1318,7 +1330,7 @@ function VehicleRentalsTable() {
                                                             children: "Create new booking"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 145,
+                                                            lineNumber: 172,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1326,13 +1338,13 @@ function VehicleRentalsTable() {
                                                             children: "Enter details for the new vehicle rental"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 146,
+                                                            lineNumber: 175,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 171,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1345,7 +1357,7 @@ function VehicleRentalsTable() {
                                                                     children: "Select BUS To Rent"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 151,
+                                                                    lineNumber: 182,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1363,30 +1375,30 @@ function VehicleRentalsTable() {
                                                                                             className: "w-10 h-6 rounded object-cover"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 156,
+                                                                                            lineNumber: 187,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                             children: "DEP-02-AJAH"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 157,
+                                                                                            lineNumber: 192,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 155,
+                                                                                    lineNumber: 186,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                lineNumber: 154,
+                                                                                lineNumber: 185,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 153,
+                                                                            lineNumber: 184,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1396,7 +1408,7 @@ function VehicleRentalsTable() {
                                                                                     children: "DEP-02-AJAH"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 162,
+                                                                                    lineNumber: 197,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1404,7 +1416,7 @@ function VehicleRentalsTable() {
                                                                                     children: "DEP-04-OSHODI"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 163,
+                                                                                    lineNumber: 198,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1412,25 +1424,25 @@ function VehicleRentalsTable() {
                                                                                     children: "DEP-05-FESTAC"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 164,
+                                                                                    lineNumber: 199,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 161,
+                                                                            lineNumber: 196,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 152,
+                                                                    lineNumber: 183,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 150,
+                                                            lineNumber: 181,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1441,7 +1453,7 @@ function VehicleRentalsTable() {
                                                                     children: "Client and Contact Information*"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 171,
+                                                                    lineNumber: 206,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1455,7 +1467,7 @@ function VehicleRentalsTable() {
                                                                                     children: "Client /Company Name"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 174,
+                                                                                    lineNumber: 211,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1463,13 +1475,13 @@ function VehicleRentalsTable() {
                                                                                     placeholder: "Enter Client Name"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 175,
+                                                                                    lineNumber: 212,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 173,
+                                                                            lineNumber: 210,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1480,7 +1492,7 @@ function VehicleRentalsTable() {
                                                                                     children: "Contact Person Name"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 178,
+                                                                                    lineNumber: 218,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1488,25 +1500,25 @@ function VehicleRentalsTable() {
                                                                                     placeholder: "Enter Contact Person"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 179,
+                                                                                    lineNumber: 221,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 177,
+                                                                            lineNumber: 217,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 172,
+                                                                    lineNumber: 209,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 170,
+                                                            lineNumber: 205,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1520,7 +1532,7 @@ function VehicleRentalsTable() {
                                                                             children: "Contact Phone Number"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 187,
+                                                                            lineNumber: 232,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1528,13 +1540,13 @@ function VehicleRentalsTable() {
                                                                             placeholder: "Enter Contact Phone"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 188,
+                                                                            lineNumber: 233,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 186,
+                                                                    lineNumber: 231,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1545,7 +1557,7 @@ function VehicleRentalsTable() {
                                                                             children: "Contact Email Address"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 191,
+                                                                            lineNumber: 236,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1554,19 +1566,19 @@ function VehicleRentalsTable() {
                                                                             placeholder: "Enter Contact Email"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 192,
+                                                                            lineNumber: 237,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 190,
+                                                                    lineNumber: 235,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 185,
+                                                            lineNumber: 230,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1580,7 +1592,7 @@ function VehicleRentalsTable() {
                                                                             children: "Rental Charge By (₦)"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 199,
+                                                                            lineNumber: 248,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1590,12 +1602,12 @@ function VehicleRentalsTable() {
                                                                                         placeholder: "Daily"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                        lineNumber: 202,
+                                                                                        lineNumber: 251,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 201,
+                                                                                    lineNumber: 250,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1605,7 +1617,7 @@ function VehicleRentalsTable() {
                                                                                             children: "Daily"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 205,
+                                                                                            lineNumber: 254,
                                                                                             columnNumber: 27
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1613,7 +1625,7 @@ function VehicleRentalsTable() {
                                                                                             children: "Weekly"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 206,
+                                                                                            lineNumber: 255,
                                                                                             columnNumber: 27
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1621,25 +1633,25 @@ function VehicleRentalsTable() {
                                                                                             children: "Monthly"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 207,
+                                                                                            lineNumber: 256,
                                                                                             columnNumber: 27
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 204,
+                                                                                    lineNumber: 253,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 200,
+                                                                            lineNumber: 249,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 198,
+                                                                    lineNumber: 247,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1650,7 +1662,7 @@ function VehicleRentalsTable() {
                                                                             children: "Rental Charge Rate (₦)"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 212,
+                                                                            lineNumber: 261,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1658,19 +1670,19 @@ function VehicleRentalsTable() {
                                                                             placeholder: "E.g ₦50,000"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 213,
+                                                                            lineNumber: 262,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 211,
+                                                                    lineNumber: 260,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 197,
+                                                            lineNumber: 246,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1684,7 +1696,7 @@ function VehicleRentalsTable() {
                                                                             children: "Contract Start"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 220,
+                                                                            lineNumber: 269,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1693,13 +1705,13 @@ function VehicleRentalsTable() {
                                                                             placeholder: "DD/MM/YYY"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 221,
+                                                                            lineNumber: 270,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 219,
+                                                                    lineNumber: 268,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1710,7 +1722,7 @@ function VehicleRentalsTable() {
                                                                             children: "Contract End"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 224,
+                                                                            lineNumber: 277,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1719,19 +1731,19 @@ function VehicleRentalsTable() {
                                                                             placeholder: "DD/MM/YYY"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 225,
+                                                                            lineNumber: 278,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 223,
+                                                                    lineNumber: 276,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 218,
+                                                            lineNumber: 267,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1744,7 +1756,7 @@ function VehicleRentalsTable() {
                                                                             children: "Charges Applied on Overdue Rentals"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 232,
+                                                                            lineNumber: 285,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RadioGroup"], {
@@ -1759,7 +1771,7 @@ function VehicleRentalsTable() {
                                                                                             id: "yes"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 235,
+                                                                                            lineNumber: 288,
                                                                                             columnNumber: 27
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
@@ -1768,13 +1780,13 @@ function VehicleRentalsTable() {
                                                                                             children: "Yes"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 236,
+                                                                                            lineNumber: 289,
                                                                                             columnNumber: 27
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 234,
+                                                                                    lineNumber: 287,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1785,7 +1797,7 @@ function VehicleRentalsTable() {
                                                                                             id: "no"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 241,
+                                                                                            lineNumber: 294,
                                                                                             columnNumber: 27
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
@@ -1794,25 +1806,25 @@ function VehicleRentalsTable() {
                                                                                             children: "No"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 242,
+                                                                                            lineNumber: 295,
                                                                                             columnNumber: 27
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 240,
+                                                                                    lineNumber: 293,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 233,
+                                                                            lineNumber: 286,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 231,
+                                                                    lineNumber: 284,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1826,7 +1838,7 @@ function VehicleRentalsTable() {
                                                                                     children: "Charges Applied Duration"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 251,
+                                                                                    lineNumber: 304,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1836,12 +1848,12 @@ function VehicleRentalsTable() {
                                                                                                 placeholder: "Daily"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                                lineNumber: 254,
+                                                                                                lineNumber: 309,
                                                                                                 columnNumber: 29
                                                                                             }, this)
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 253,
+                                                                                            lineNumber: 308,
                                                                                             columnNumber: 27
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1851,7 +1863,7 @@ function VehicleRentalsTable() {
                                                                                                     children: "Daily"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                                    lineNumber: 257,
+                                                                                                    lineNumber: 312,
                                                                                                     columnNumber: 29
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1859,25 +1871,25 @@ function VehicleRentalsTable() {
                                                                                                     children: "Weekly"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                                    lineNumber: 258,
+                                                                                                    lineNumber: 313,
                                                                                                     columnNumber: 29
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                            lineNumber: 256,
+                                                                                            lineNumber: 311,
                                                                                             columnNumber: 27
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 252,
+                                                                                    lineNumber: 307,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 250,
+                                                                            lineNumber: 303,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1888,7 +1900,7 @@ function VehicleRentalsTable() {
                                                                                     children: "Charges Applied Fee (₦)"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 263,
+                                                                                    lineNumber: 318,
                                                                                     columnNumber: 25
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1896,25 +1908,25 @@ function VehicleRentalsTable() {
                                                                                     placeholder: "E.g ₦50,000"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                    lineNumber: 264,
+                                                                                    lineNumber: 321,
                                                                                     columnNumber: 25
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                            lineNumber: 262,
+                                                                            lineNumber: 317,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 249,
+                                                                    lineNumber: 302,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 230,
+                                                            lineNumber: 283,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1922,42 +1934,42 @@ function VehicleRentalsTable() {
                                                             children: "Create Booking"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                            lineNumber: 269,
+                                                            lineNumber: 326,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 148,
+                                                    lineNumber: 179,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 170,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 136,
+                                    lineNumber: 160,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                            lineNumber: 113,
+                            lineNumber: 137,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                    lineNumber: 100,
+                    lineNumber: 124,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                lineNumber: 99,
+                lineNumber: 123,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1970,12 +1982,12 @@ function VehicleRentalsTable() {
                             children: "All Buses"
                         }, void 0, false, {
                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                            lineNumber: 281,
+                            lineNumber: 338,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                        lineNumber: 280,
+                        lineNumber: 337,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1992,7 +2004,7 @@ function VehicleRentalsTable() {
                                                 children: "Bus Image"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 288,
+                                                lineNumber: 345,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2000,7 +2012,7 @@ function VehicleRentalsTable() {
                                                 children: "Bus ID / Code"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 289,
+                                                lineNumber: 348,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2008,7 +2020,7 @@ function VehicleRentalsTable() {
                                                 children: "Vehicle Type / Model"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 290,
+                                                lineNumber: 351,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2016,7 +2028,7 @@ function VehicleRentalsTable() {
                                                 children: "Client Company"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 291,
+                                                lineNumber: 354,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2025,7 +2037,7 @@ function VehicleRentalsTable() {
                                                     "Rental Rate",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 294,
+                                                        lineNumber: 359,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2033,13 +2045,13 @@ function VehicleRentalsTable() {
                                                         children: "(Daily)*"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 295,
+                                                        lineNumber: 360,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 292,
+                                                lineNumber: 357,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2047,7 +2059,7 @@ function VehicleRentalsTable() {
                                                 children: "Rent Duration"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 297,
+                                                lineNumber: 362,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2055,7 +2067,7 @@ function VehicleRentalsTable() {
                                                 children: "Payment Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 298,
+                                                lineNumber: 365,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2063,25 +2075,25 @@ function VehicleRentalsTable() {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 299,
+                                                lineNumber: 368,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 300,
+                                                lineNumber: 371,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                        lineNumber: 287,
+                                        lineNumber: 344,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 286,
+                                    lineNumber: 343,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2096,12 +2108,12 @@ function VehicleRentalsTable() {
                                                         className: "w-16 h-10 rounded object-cover"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 307,
+                                                        lineNumber: 381,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 306,
+                                                    lineNumber: 380,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2109,7 +2121,7 @@ function VehicleRentalsTable() {
                                                     children: rental.busId
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 313,
+                                                    lineNumber: 387,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2117,7 +2129,7 @@ function VehicleRentalsTable() {
                                                     children: rental.vehicleType
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 314,
+                                                    lineNumber: 390,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2125,7 +2137,7 @@ function VehicleRentalsTable() {
                                                     children: rental.client
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 315,
+                                                    lineNumber: 391,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2133,7 +2145,7 @@ function VehicleRentalsTable() {
                                                     children: rental.rentalRate
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 316,
+                                                    lineNumber: 394,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2141,7 +2153,7 @@ function VehicleRentalsTable() {
                                                     children: rental.duration
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 317,
+                                                    lineNumber: 397,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2157,12 +2169,12 @@ function VehicleRentalsTable() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 319,
+                                                        lineNumber: 401,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 318,
+                                                    lineNumber: 400,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2176,12 +2188,12 @@ function VehicleRentalsTable() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 337,
+                                                        lineNumber: 421,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 336,
+                                                    lineNumber: 420,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2198,17 +2210,17 @@ function VehicleRentalsTable() {
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                        lineNumber: 354,
+                                                                        lineNumber: 438,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                    lineNumber: 353,
+                                                                    lineNumber: 437,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                lineNumber: 352,
+                                                                lineNumber: 436,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2220,21 +2232,21 @@ function VehicleRentalsTable() {
                                                                                 className: "h-4 w-4 mr-2"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                                lineNumber: 359,
+                                                                                lineNumber: 443,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             "View Details"
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                        lineNumber: 358,
+                                                                        lineNumber: 442,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
                                                                         children: "Edit Rental"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                        lineNumber: 362,
+                                                                        lineNumber: 446,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2242,46 +2254,46 @@ function VehicleRentalsTable() {
                                                                         children: "End Rental"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                        lineNumber: 363,
+                                                                        lineNumber: 447,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                                lineNumber: 357,
+                                                                lineNumber: 441,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                        lineNumber: 351,
+                                                        lineNumber: 435,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                    lineNumber: 350,
+                                                    lineNumber: 434,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, rental.id, true, {
                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                            lineNumber: 305,
+                                            lineNumber: 376,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                    lineNumber: 303,
+                                    lineNumber: 374,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                            lineNumber: 285,
+                            lineNumber: 342,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                        lineNumber: 284,
+                        lineNumber: 341,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2297,18 +2309,18 @@ function VehicleRentalsTable() {
                                             children: "of 8"
                                         }, void 0, false, {
                                             fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                            lineNumber: 378,
+                                            lineNumber: 464,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                        lineNumber: 377,
+                                        lineNumber: 463,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                lineNumber: 375,
+                                lineNumber: 461,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2319,7 +2331,7 @@ function VehicleRentalsTable() {
                                         children: "1 - Page"
                                     }, void 0, false, {
                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                        lineNumber: 382,
+                                        lineNumber: 468,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2333,7 +2345,7 @@ function VehicleRentalsTable() {
                                                 children: "<"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 384,
+                                                lineNumber: 470,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2343,7 +2355,7 @@ function VehicleRentalsTable() {
                                                 children: "1"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 387,
+                                                lineNumber: 473,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2353,7 +2365,7 @@ function VehicleRentalsTable() {
                                                 children: "2"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 394,
+                                                lineNumber: 480,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2363,41 +2375,45 @@ function VehicleRentalsTable() {
                                                 children: ">"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                                lineNumber: 397,
+                                                lineNumber: 483,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                        lineNumber: 383,
+                                        lineNumber: 469,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                                lineNumber: 381,
+                                lineNumber: 467,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                        lineNumber: 374,
+                        lineNumber: 460,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-                lineNumber: 279,
+                lineNumber: 336,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
-        lineNumber: 98,
+        lineNumber: 122,
         columnNumber: 5
     }, this);
 }
-_s(VehicleRentalsTable, "6V7BG+E75BBtRxFp2qJhYzLCFpM=");
+_s(VehicleRentalsTable, "6si4C/Q/YeroD8lMpe/LYksfDzA=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"]
+    ];
+});
 _c = VehicleRentalsTable;
 var _c;
 __turbopack_context__.k.register(_c, "VehicleRentalsTable");

@@ -276,6 +276,22 @@ export type OnsiteDriverDataResponse = {
   };
 };
 
+export type OutsourceDriverDataResponse = {
+  status: boolean;
+  staffs: {
+    data: DriverData[];
+    pagination: Pagination;
+  };
+};
+
+export type OutsourceBusDataResponse = {
+  status: boolean;
+  buses: {
+    data: Bus[];
+    pagination: Pagination;
+  };
+};
+
 export type CustomerDashboardStats = {
   status: boolean;
   customers: DashboardStats[];

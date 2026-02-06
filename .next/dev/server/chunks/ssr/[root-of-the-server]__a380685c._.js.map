@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///Users/makanga/Documents/Projects/Websites/Deporta/deporta-admin-portal/app/%28dashboard%29/co-operate/bookings/page.tsx"],"sourcesContent":["import React from \"react\";\n\ntype Props = {};\n\nconst page = (props: Props) => {\n  return <div>Co-Operate Bookings</div>;\n};\n\nexport default page;\n"],"names":[],"mappings":";;;;;;AAIA,MAAM,OAAO,CAAC;IACZ,qBAAO,8OAAC;kBAAI;;;;;;AACd;uCAEe"}}]
+}

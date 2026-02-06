@@ -1,98 +1,85 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Search, Filter, Plus, MoreVertical, Eye } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useMemo, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Search, Filter, Plus, MoreVertical, Eye, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
+import { getOutsouceBuses } from "@/api/outsourcing-driver";
+import { Badge } from "../ui/badge";
 
-type RentalTab = "all" | "active" | "inactive"
+type RentalTab = "all" | "active" | "inactive";
 
 const tabs: { id: RentalTab; label: string }[] = [
   { id: "all", label: "All Rentals" },
-  { id: "active", label: "Active Contracts" },
-  { id: "inactive", label: "In-Active Contracts" },
-]
-
-const rentals = [
-  {
-    id: 1,
-    busId: "DEP-02-AJAH",
-    vehicleType: "18-Seater Bus",
-    client: "Apex Logistics Ltd.",
-    rentalRate: "₦55,000",
-    duration: "4 Weeks",
-    paymentStatus: "paid" as const,
-    status: "rented" as const,
-    image: "/transport-bus-black.jpg",
-  },
-  {
-    id: 2,
-    busId: "DEP-04-OSHODI",
-    vehicleType: "20-Seater Bus",
-    client: "Lekki Tours",
-    rentalRate: "₦70,000",
-    duration: "3 weeks",
-    paymentStatus: "pending" as const,
-    status: "due" as const,
-    image: "/passenger-bus.jpg",
-  },
-  {
-    id: 3,
-    busId: "DEPO-04-EFRD",
-    vehicleType: "30-Seater Bus",
-    client: "GIG Motors",
-    rentalRate: "₦185,000",
-    duration: "8 Weeks",
-    paymentStatus: "overdue" as const,
-    status: "rented" as const,
-    image: "/shuttle-bus.png",
-  },
-  {
-    id: 4,
-    busId: "DEP-085-EFTS",
-    vehicleType: "12-Seater Bus",
-    client: "CAC Nigeria",
-    rentalRate: "₦80,000",
-    duration: "5 Weeks",
-    paymentStatus: "paid" as const,
-    status: "available" as const,
-    image: "/transport-bus-black.jpg",
-  },
-  {
-    id: 5,
-    busId: "DEP-BUS-0958",
-    vehicleType: "18-Seater Bus",
-    client: "Local Church Group",
-    rentalRate: "₦90,000",
-    duration: "4 Days",
-    paymentStatus: "na" as const,
-    status: "available" as const,
-    image: "/passenger-bus.jpg",
-  },
-  {
-    id: 6,
-    busId: "DEP-09-OBALENDE",
-    vehicleType: "22-Seater Bus",
-    client: "Zenith Corp.",
-    rentalRate: "₦85,000",
-    duration: "3 Days",
-    paymentStatus: "deposit" as const,
-    status: "rented" as const,
-    image: "/shuttle-bus.png",
-  },
-]
+  { id: "active", label: "Active Rentals" },
+  { id: "inactive", label: "In-Active Rentals" },
+];
 
 export function VehicleRentalsTable() {
-  const [activeTab, setActiveTab] = useState<RentalTab>("all")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState<RentalTab>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const { data, isLoading, isRefetching, refetch } = useQuery({
+    queryKey: ["outsourceBuses", currentPage],
+    retry: false,
+    queryFn: () => getOutsouceBuses(currentPage, itemsPerPage),
+  });
+
+  // Assuming your API returns a structure like the Maintenance one:
+  const pagination = data?.buses.pagination;
+  const totalPages = pagination?.totalPages || 1;
+
+  const filteredData = useMemo(() => {
+    if (!data?.buses?.data) return [];
+
+    return data.buses.data.filter((item) => {
+      // 1. Filter by Status Tab
+      const matchesStatus =
+        activeTab === "all" ||
+        (activeTab === "active" && item.status === "active") ||
+        (activeTab === "inactive" &&
+          (item.status === "in-active" || !item.status));
+
+      // 2. Filter by Search Query
+      // We check name, email, or any other relevant field
+      const searchLower = searchQuery.toLowerCase();
+      const matchesSearch =
+        item.id_code?.toLowerCase().includes(searchLower) ||
+        item.name_label?.toLowerCase().includes(searchLower) ||
+        item.added_by.first_name?.toLowerCase().includes(searchLower);
+
+      return matchesStatus && matchesSearch;
+    });
+  }, [data, activeTab, searchQuery]);
 
   return (
     <Card className="bg-card border border-border">
@@ -107,6 +94,16 @@ export function VehicleRentalsTable() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 w-72 bg-transparent"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+                type="button"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
 
           {/* Tabs and Actions */}
@@ -129,21 +126,28 @@ export function VehicleRentalsTable() {
               ))}
             </div>
 
-            <Button variant="outline" size="icon" className="bg-transparent">
+            <Button disabled variant="outline" size="icon" className="bg-transparent">
               <Filter className="h-4 w-4" />
             </Button>
 
-            <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+            <Dialog
+              open={isCreateDialogOpen}
+              onOpenChange={setIsCreateDialogOpen}
+            >
               <DialogTrigger asChild>
-                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                <Button disabled className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
                   <Plus className="h-4 w-4 mr-2" />
                   Create Booking
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-lg">
                 <DialogHeader>
-                  <DialogTitle className="text-xl">Create new booking</DialogTitle>
-                  <p className="text-sm text-muted-foreground">Enter details for the new vehicle rental</p>
+                  <DialogTitle className="text-xl">
+                    Create new booking
+                  </DialogTitle>
+                  <p className="text-sm text-muted-foreground">
+                    Enter details for the new vehicle rental
+                  </p>
                 </DialogHeader>
                 <div className="space-y-4 py-4 max-h-[70vh] overflow-y-auto">
                   {/* Bus Selection */}
@@ -153,7 +157,11 @@ export function VehicleRentalsTable() {
                       <SelectTrigger className="h-12">
                         <SelectValue placeholder="Select bus">
                           <div className="flex items-center gap-3">
-                            <img src="/transport-bus-black.jpg" alt="Bus" className="w-10 h-6 rounded object-cover" />
+                            <img
+                              src="/transport-bus-black.jpg"
+                              alt="Bus"
+                              className="w-10 h-6 rounded object-cover"
+                            />
                             <span>DEP-02-AJAH</span>
                           </div>
                         </SelectValue>
@@ -168,15 +176,25 @@ export function VehicleRentalsTable() {
 
                   {/* Client Info */}
                   <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">Client and Contact Information*</Label>
+                    <Label className="text-xs text-muted-foreground">
+                      Client and Contact Information*
+                    </Label>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="clientName">Client /Company Name</Label>
-                        <Input id="clientName" placeholder="Enter Client Name" />
+                        <Input
+                          id="clientName"
+                          placeholder="Enter Client Name"
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="contactPerson">Contact Person Name</Label>
-                        <Input id="contactPerson" placeholder="Enter Contact Person" />
+                        <Label htmlFor="contactPerson">
+                          Contact Person Name
+                        </Label>
+                        <Input
+                          id="contactPerson"
+                          placeholder="Enter Contact Person"
+                        />
                       </div>
                     </div>
                   </div>
@@ -189,7 +207,11 @@ export function VehicleRentalsTable() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Contact Email Address</Label>
-                      <Input id="email" type="email" placeholder="Enter Contact Email" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter Contact Email"
+                      />
                     </div>
                   </div>
 
@@ -218,7 +240,11 @@ export function VehicleRentalsTable() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="startDate">Contract Start</Label>
-                      <Input id="startDate" type="date" placeholder="DD/MM/YYY" />
+                      <Input
+                        id="startDate"
+                        type="date"
+                        placeholder="DD/MM/YYY"
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="endDate">Contract End</Label>
@@ -248,7 +274,9 @@ export function VehicleRentalsTable() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="chargeDuration">Charges Applied Duration</Label>
+                        <Label htmlFor="chargeDuration">
+                          Charges Applied Duration
+                        </Label>
                         <Select>
                           <SelectTrigger>
                             <SelectValue placeholder="Daily" />
@@ -260,7 +288,9 @@ export function VehicleRentalsTable() {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="chargeFee">Charges Applied Fee (₦)</Label>
+                        <Label htmlFor="chargeFee">
+                          Charges Applied Fee (₦)
+                        </Label>
                         <Input id="chargeFee" placeholder="E.g ₦50,000" />
                       </div>
                     </div>
@@ -285,67 +315,95 @@ export function VehicleRentalsTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Bus Image</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Bus ID / Code</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Vehicle Type / Model</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Client Company</th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Rental Rate
-                  <br />
-                  <span className="text-xs font-normal">(Daily)*</span>
+                  Bus Image
                 </th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Rent Duration</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Payment Status</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Status</th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Bus ID / Code
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Vehicle Type / Model
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Mileage
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Tracker Id
+                  <br />
+                  <span className="text-xs font-normal">(Bus)*</span>
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Last Updated
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Driver(s) assigned
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Status
+                </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
               </tr>
             </thead>
             <tbody>
-              {rentals.map((rental) => (
-                <tr key={rental.id} className="border-b border-border last:border-0 hover:bg-muted/50">
+              {filteredData.map((rental) => (
+                <tr
+                  key={rental._id}
+                  className="border-b border-border last:border-0 hover:bg-muted/50"
+                >
                   <td className="p-4">
                     <img
-                      src={rental.image || "/placeholder.svg"}
-                      alt={rental.vehicleType}
+                      src={rental.bus_photos[0] || "/placeholder.svg"}
+                      alt={rental.id_code}
                       className="w-16 h-10 rounded object-cover"
                     />
                   </td>
-                  <td className="p-4 font-medium text-sm text-secondary">{rental.busId}</td>
-                  <td className="p-4 text-sm">{rental.vehicleType}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{rental.client}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{rental.rentalRate}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{rental.duration}</td>
+                  <td className="p-4 font-medium text-sm text-secondary">
+                    {rental.id_code}
+                  </td>
+                  <td className="p-4 text-sm">{rental.name_label}</td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {rental.mileage}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {rental.tracker_id}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {new Date(rental.createdAt).toLocaleString()}
+                  </td>
                   <td className="p-4">
-                    <span
+                    {/* <span
                       className={cn(
                         "text-sm font-medium",
-                        rental.paymentStatus === "paid" && "text-green-600",
-                        rental.paymentStatus === "pending" && "text-orange-600",
-                        rental.paymentStatus === "overdue" && "text-red-600",
-                        rental.paymentStatus === "deposit" && "text-muted-foreground",
-                        rental.paymentStatus === "na" && "text-muted-foreground",
+                        rental.status === "paid" && "text-green-600",
+                        rental.status === "pending" && "text-orange-600",
                       )}
-                    >
-                      {rental.paymentStatus === "paid" && "Paid (Full)"}
-                      {rental.paymentStatus === "pending" && "Pending"}
-                      {rental.paymentStatus === "overdue" && "Overdue"}
-                      {rental.paymentStatus === "deposit" && "Paid (Deposit)"}
-                      {rental.paymentStatus === "na" && "N/A"}
+                    ></span> */}
+                    <span className="flex flex-wrap gap-1">
+                      {rental.drivers_assigned.map((driver) => {
+                        return (
+                          <Badge
+                            key={driver._id}
+                            variant="outline"
+                            className="text-[10px] px-1"
+                          >
+                            {driver.first_name} {driver.last_name}
+                          </Badge>
+                        );
+                      })}
                     </span>
                   </td>
                   <td className="p-4">
-                    <span
+                    <Badge
+                      variant="outline"
                       className={cn(
-                        "text-sm font-medium",
-                        rental.status === "rented" && "text-foreground",
-                        rental.status === "due" && "text-red-600",
-                        rental.status === "available" && "text-foreground",
+                        "font-normal",
+                        rental.status === "active"
+                          ? "border-green-500 text-green-600 bg-green-50"
+                          : "border-yellow-500 text-yellow-600 bg-yellow-50",
                       )}
                     >
-                      {rental.status === "rented" && "Rented Out"}
-                      {rental.status === "due" && "Due Today"}
-                      {rental.status === "available" && "Available"}
-                    </span>
+                      {rental.status === "active" ? "Active" : "In Active"}
+                    </Badge>
                   </td>
                   <td className="p-4">
                     <DropdownMenu>
@@ -360,12 +418,26 @@ export function VehicleRentalsTable() {
                           View Details
                         </DropdownMenuItem>
                         <DropdownMenuItem>Edit Rental</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">End Rental</DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">
+                          End Rental
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </td>
                 </tr>
               ))}
+              {!isLoading && filteredData.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="p-8 text-center text-muted-foreground"
+                  >
+                    {`No results found ${
+                      searchQuery && `for "${searchQuery}"`
+                    }`}
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -402,5 +474,5 @@ export function VehicleRentalsTable() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

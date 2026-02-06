@@ -73,8 +73,8 @@ const navItems: NavItem[] = [
     title: "Co-Operate Mngt.",
     icon: Building2,
     children: [
-      { title: "Driver Outsourcing", href: "/logistics/driver-outsourcing" },
-      { title: "Vehicle Rentals", href: "/logistics/vehicle-rentals" },
+      { title: "Co-operate Accounts", href: "/co-operate/accounts" },
+      { title: "Co-Operate Bookings", href: "/co-operate/bookings" },
     ],
   },
   {

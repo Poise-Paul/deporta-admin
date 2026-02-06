@@ -192,9 +192,13 @@ export const getAllStaffs = async (): Promise<StaffDashboardStats> => {
   }
 };
 
-export const getDriversList = async (): Promise<DriversDataResponse> => {
+export const getDriversList = async (
+  currentPage?: number,
+  perPage?: number,
+  searchTerm?: string,
+): Promise<DriversDataResponse> => {
   try {
-    const res = await api.get("/api/users/admin/drivers");
+    const res = await api.get(`/api/users/admin/drivers?limit=${perPage}`);
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);
