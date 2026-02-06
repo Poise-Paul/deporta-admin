@@ -194,7 +194,7 @@ export const getAllStaffs = async (): Promise<StaffDashboardStats> => {
 
 export const getDriversList = async (
   currentPage?: number,
-  perPage?: number,
+  perPage: number = 10,
   searchTerm?: string,
 ): Promise<DriversDataResponse> => {
   try {

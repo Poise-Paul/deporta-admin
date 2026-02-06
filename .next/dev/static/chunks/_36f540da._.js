@@ -1128,7 +1128,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/axios.ts [app-client] (ecmascript)");
 ;
-const getOutsouceDrivers = async (currentPage, perPage)=>{
+const getOutsouceDrivers = async (currentPage = 1, perPage = 10)=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/drivers?outsourcing=true&limit=${perPage}&page=${currentPage}`);
         return res.data;
@@ -1141,7 +1141,7 @@ const getOutsouceDrivers = async (currentPage, perPage)=>{
         };
     }
 };
-const getOutsouceBuses = async (currentPage, perPage)=>{
+const getOutsouceBuses = async (currentPage = 1, perPage = 10)=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/bus/get?outsourcing=true&limit=${perPage}&page=${currentPage}`);
         return res.data;

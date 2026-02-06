@@ -2,8 +2,8 @@ import { OutsourceBusDataResponse, OutsourceDriverDataResponse } from "@/types";
 import { api } from "../axios";
 
 export const getOutsouceDrivers = async (
-  currentPage: number,
-  perPage: number,
+  currentPage: number = 1,
+  perPage: number = 10,
 ): Promise<OutsourceDriverDataResponse> => {
   try {
     const res = await api.get(
@@ -18,8 +18,8 @@ export const getOutsouceDrivers = async (
 };
 
 export const getOutsouceBuses = async (
-  currentPage: number,
-  perPage: number,
+  currentPage: number = 1,
+  perPage: number = 10,
 ): Promise<OutsourceBusDataResponse> => {
   try {
     const res = await api.get(
