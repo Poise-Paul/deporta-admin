@@ -33765,3 +33765,153 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [141:07:02.151] Server  LOG      ✓ Compiled in 40ms
 [141:07:04.945] Server  LOG      ✓ Compiled in 38ms
 [141:07:14.564] Server  LOG      ✓ Compiled in 51ms
+[141:10:47.470] Server  LOG      ✓ Compiled in 91ms
+[141:11:22.523] Server  LOG      ✓ Compiled in 40ms
+[141:11:23.628] Server  LOG      ✓ Compiled in 42ms
+[141:11:31.658] Server  LOG      ✓ Compiled in 46ms
+[141:11:31.763] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:485:5
+Parsing ecmascript source code failed
+  483 |       {/* Vehicle Rental Sheet */}
+  484 |       <VehicleDetailSheet
+> 485 |     </Card>
+      |     ^
+  486 |   );
+  487 | }
+  488 |
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[141:11:31.763] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:485:6
+Parsing ecmascript source code failed
+  483 |       {/* Vehicle Rental Sheet */}
+  484 |       <VehicleDetailSheet
+> 485 |     </Card>
+      |      ^^^^^^
+  486 |   );
+  487 | }
+  488 |
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[141:11:33.958] Browser ERROR   uncaughtError: ReferenceError: VehicleDetailSheet is not defined
+[141:11:39.808] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[141:11:39.922] Server  LOG      ✓ Compiled in 52ms
+[141:11:40.019] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[141:11:40.023] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345410751}
+[141:11:40.090] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[141:11:40.235] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[141:11:40.235] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[141:11:40.235] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/vehicle-rentals","route":"/logistics/vehicle-rentals"}
+[141:11:40.235] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345411074}
+[141:12:26.541] Server  LOG      ✓ Compiled in 37ms
+[141:12:29.002] Server  LOG      ✓ Compiled in 39ms
+[141:12:37.244] Server  LOG      ✓ Compiled in 48ms
+[141:12:37.347] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:485:38
+Parsing ecmascript source code failed
+  483 |       </CardContent>
+  484 |       {/* Vehicle Rental Sheet */}
+> 485 |       <VehicleDetailSheet isOpen={} />
+      |                                      ^
+  486 |     </Card>
+  487 |   );
+  488 | }
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[141:13:11.302] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:487:38
+Parsing ecmascript source code failed
+  485 |       </CardContent>
+  486 |       {/* Vehicle Rental Sheet */}
+> 487 |       <VehicleDetailSheet isOpen={} />
+      |                                      ^
+  488 |     </Card>
+  489 |   );
+  490 | }
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[141:13:26.742] Server  LOG      ✓ Compiled in 42ms
+[141:13:26.845] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:426:53
+Parsing ecmascript source code failed
+  424 |                       </DropdownMenuTrigger>
+  425 |                       <DropdownMenuContent align="end">
+> 426 |                         <DropdownMenuItem onClick={}>
+      |                                                     ^
+  427 |                           <Eye className="h-4 w-4 mr-2" />
+  428 |                           View Details
+  429 |                         </DropdownMenuItem>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[141:13:34.293] Server  LOG      ✓ Compiled in 41ms
+[141:14:17.175] Server  LOG      ✓ Compiled in 49ms
+[141:14:23.954] Server  LOG      ✓ Compiled in 42ms
+[141:14:32.751] Server  LOG      ✓ Compiled in 48ms
+[141:14:32.822] Server  LOG      ✓ Compiled in 40ms
+[141:14:37.235] Server  LOG      ✓ Compiled in 43ms
+[141:14:40.709] Server  LOG      ✓ Compiled in 38ms
+[141:15:09.963] Server  LOG      ✓ Compiled in 37ms
+[141:15:10.044] Browser ERROR   uncaughtError: ReferenceError: selectedReport is not defined
+[141:15:10.942] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[141:15:11.098] Server  LOG      ✓ Compiled in 37ms
+[141:15:11.228] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[141:15:11.232] Browser ERROR   uncaughtError: ReferenceError: selectedReport is not defined
+[141:15:11.232] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345621887}
+[141:15:11.321] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[141:15:11.455] Browser ERROR   uncaughtError: ReferenceError: selectedReport is not defined
+[141:15:15.573] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[141:15:15.656] Server  LOG      ✓ Compiled in 37ms
+[141:15:15.723] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[141:15:15.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[141:15:15.928] Browser ERROR   uncaughtError: ReferenceError: selectedReport is not defined
+[141:15:19.330] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[141:15:19.475] Server  LOG      ✓ Compiled in 38ms
+[141:15:19.513] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[141:15:19.570] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[141:15:19.697] Browser ERROR   uncaughtError: ReferenceError: selectedReport is not defined
+[141:15:24.661] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[141:15:24.758] Server  LOG      ✓ Compiled in 36ms
+[141:15:24.788] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[141:15:24.861] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[141:15:25.007] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[141:15:25.007] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[141:15:25.007] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/vehicle-rentals","route":"/logistics/vehicle-rentals"}
+[141:15:25.007] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345635847}
+[141:15:29.000] Server  LOG      ✓ Compiled in 38ms
+[141:15:31.776] Server  LOG      ✓ Compiled in 38ms
+[141:16:10.738] Server  LOG      ✓ Compiled in 36ms
+[141:16:12.523] Server  LOG      ✓ Compiled in 38ms
+[141:16:15.708] Server  LOG      ✓ Compiled in 38ms
+[141:16:19.401] Server  LOG      ✓ Compiled in 38ms
+[141:16:22.583] Server  LOG      ✓ Compiled in 37ms
+[141:16:25.361] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[141:16:25.361] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[141:16:40.566] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[141:16:40.566] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[141:17:40.287] Server  LOG      ✓ Compiled in 105ms
+[141:17:46.811] Server  LOG      ✓ Compiled in 60ms
+[141:18:39.749] Server  LOG      ✓ Compiled in 45ms
+[141:18:52.433] Server  LOG      ✓ Compiled in 44ms
+[141:19:28.411] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345879247}
+[141:19:32.595] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/co-operate/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/bookings","o":"http://localhost:3000/co-operate/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345883436}
+[141:19:33.864] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1770345884691}

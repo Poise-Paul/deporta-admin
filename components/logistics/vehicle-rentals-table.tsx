@@ -31,6 +31,8 @@ import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { getOutsouceBuses } from "@/api/outsourcing-driver";
 import { Badge } from "../ui/badge";
+import { VehicleDetailSheet } from "./rental-sheet";
+import { Bus } from "@/types";
 
 type RentalTab = "all" | "active" | "inactive";
 
@@ -44,6 +46,10 @@ export function VehicleRentalsTable() {
   const [activeTab, setActiveTab] = useState<RentalTab>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+
+  const [selectedBus, setSelectedBus] = useState<Bus | null>(null);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -126,7 +132,12 @@ export function VehicleRentalsTable() {
               ))}
             </div>
 
-            <Button disabled variant="outline" size="icon" className="bg-transparent">
+            <Button
+              disabled
+              variant="outline"
+              size="icon"
+              className="bg-transparent"
+            >
               <Filter className="h-4 w-4" />
             </Button>
 
@@ -135,7 +146,10 @@ export function VehicleRentalsTable() {
               onOpenChange={setIsCreateDialogOpen}
             >
               <DialogTrigger asChild>
-                <Button disabled className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                <Button
+                  disabled
+                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+                >
                   <Plus className="h-4 w-4 mr-2" />
                   Create Booking
                 </Button>
@@ -305,7 +319,6 @@ export function VehicleRentalsTable() {
           </div>
         </div>
       </CardHeader>
-
       <CardContent className="p-0">
         <div className="px-6 py-3 border-b border-border">
           <CardTitle className="text-base font-semibold">All Buses</CardTitle>
@@ -413,7 +426,9 @@ export function VehicleRentalsTable() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => setSelectedBus(rental)}
+                        >
                           <Eye className="h-4 w-4 mr-2" />
                           View Details
                         </DropdownMenuItem>
@@ -473,6 +488,12 @@ export function VehicleRentalsTable() {
           </div>
         </div>
       </CardContent>
+      {/* Vehicle Rental Sheet */}
+      <VehicleDetailSheet
+        bus={selectedBus}
+        isOpen={!!selectedBus}
+        onOpenChange={() => setSelectedBus(null)}
+      />
     </Card>
   );
 }
