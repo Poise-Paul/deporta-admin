@@ -2,6 +2,7 @@ import {
   AddPickupStationPayload,
   DropOffDetails,
   DropOffLocationResponse,
+  DropOffStation,
   EditDropOffStationPayload,
   ErrorrResponse,
   Response,
@@ -86,7 +87,7 @@ export const useDeleteDropOffStation = () => {
 
 export const useModifyDropOffStation = () => {
   return useMutation({
-    mutationFn: async (data: EditDropOffStationPayload) => {
+    mutationFn: async (data: DropOffStation) => {
       const res = await api.patch("/api/users/admin/drop-off-station/edit", {
         drop_off_station_id: data.drop_off_location_id,
         address: data.address,

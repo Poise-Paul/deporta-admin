@@ -1,8 +1,8 @@
-import { PickupStationDetail } from "@/types";
+import { DropOffStationData, PickupStationDetail } from "@/types";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface DropOffStationState {
-  selStation: PickupStationDetail | null;
+  selStation: DropOffStationData | null;
 }
 
 const initialState: DropOffStationState = {

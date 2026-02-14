@@ -45,7 +45,10 @@ import {
 } from "@/components/ui/select";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload, EditDropOffStationPayload } from "@/types";
+import {
+  AddPickupStationPayload,
+  DropOffStation as DropOffStationType,
+} from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
@@ -61,6 +64,11 @@ import {
   useModifyDropOffStation,
 } from "@/api/drop-off-locations";
 import { updateSelDropOffStation } from "@/lib/store/slices/drop-off-station-slice";
+import GooglePlacesAutocompleteImpropved from "./GooglePlacesAutocompleteImproved";
+import {
+  AddDropOffStationDialog,
+  EditDropOffStationDialog,
+} from "./DropOffStationDialogue";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -100,16 +108,21 @@ export function DropOffStation({
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
-  const [dropOffId, setDropOffId] = useState<EditDropOffStationPayload>();
+  const [dropOffId, setDropOffId] = useState<DropOffStationType | null>();
   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
   const [updateHoldDropOffBtn, setUpdateHoldDropOffBtn] = useState(true);
   const dropOffStationMutation = useCreateDropOffStation();
+
+  const [area, setArea] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const deleteMutation = useDeleteDropOffStation();
 
   const {
     data: dropOffStations,
     refetch,
-    isLoading,
+    isLoading: dropOffLoader,
   } = useQuery({
     queryKey: ["dropOffStations"],
     queryFn: () => getDropOffStations(),
@@ -118,7 +131,7 @@ export function DropOffStation({
   const { register, setValue, watch, reset } = useForm<AddPickupStationPayload>(
     {
       values: {
-        address: { value: "", longitude: 0, latitude: 0 },
+        address: { value: "", coordinates: [0, 0] },
         area: "",
         country: "Nigeria",
         state: "lagos",
@@ -135,7 +148,7 @@ export function DropOffStation({
       address:
         typeof dropOffId?.address === "object"
           ? dropOffId.address
-          : { value: dropOffId?.address || "", longitude: 0, latitude: 0 },
+          : { value: dropOffId?.address || "", coordinates: [0, 0] },
       area: dropOffId?.area || "",
       country: dropOffId?.country || "Nigeria",
       state:
@@ -143,36 +156,18 @@ export function DropOffStation({
     },
   });
 
-  const selectedState = watch("state");
+  // const selectedState = watch("state");
   const selectedUpdateState = updateWatch("state");
   const handleWatch = watch();
   const handleUpdateWatch = updateWatch();
 
-  const { address, area, country, state } = handleWatch;
+  const { address, country, state } = handleWatch;
   const {
     address: updateAddress,
     area: updateArea,
     state: updateState,
     country: updateCountry,
   } = handleUpdateWatch;
-
-  const handleAddDropOffStation = () => {
-    dropOffStationMutation.mutate(
-      {
-        address,
-        area,
-        country,
-        state,
-      },
-      {
-        onSuccess: () => {
-          reset();
-          refetch();
-        },
-        onSettled: () => setIsAddDialogOpen(false),
-      },
-    );
-  };
 
   const handleDeleteStation = (stationId: string) => {
     deleteMutation.mutate(stationId, {
@@ -202,22 +197,6 @@ export function DropOffStation({
   }, [dropOffStations]);
 
   const modifyStationMutation = useModifyDropOffStation();
-
-  const handleModifyDropOffStation = (stationId: string) => {
-    modifyStationMutation.mutate(
-      {
-        drop_off_location_id: stationId,
-        address: updateAddress,
-        area: updateArea,
-        state: updateState,
-        country: updateCountry,
-      },
-      {
-        onSuccess: () => refetch(),
-        onSettled: () => setIsEditDialogOpen(false),
-      },
-    );
-  };
 
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -299,6 +278,71 @@ export function DropOffStation({
     });
   };
 
+  // Drop Off Map
+
+  const [locationValue, setLocationValue] = useState("");
+  const [coordinates, setCoordinates] = useState({
+    latitude: 0,
+    longitude: 0,
+  });
+
+  const GOOGLE_MAPS_API_KEY = "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs";
+
+  const handlePlaceSelect = (place: {
+    address: string;
+    latitude: number;
+    longitude: number;
+    placeId: string;
+    area?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+  }) => {
+    setLocationValue(place.address);
+    setCoordinates({
+      latitude: place.latitude,
+      longitude: place.longitude,
+    });
+
+    // Auto-populate area - priority: area > city > first part of address
+    const extractedArea = place.area || place.city || "";
+    setArea(extractedArea);
+
+    // Auto-populate state
+    if (place.state) {
+      // Remove " State" suffix if present (e.g., "Lagos State" → "Lagos")
+      const stateName = place.state.replace(/\s+State$/i, "").trim();
+
+      // Find matching state in NIGERIA_STATES (case-insensitive)
+      const matchedState = NIGERIA_STATES.find(
+        (state) => state.toLowerCase() === stateName.toLowerCase(),
+      );
+
+      if (matchedState) {
+        setSelectedState(matchedState.toLowerCase());
+      } else {
+        // If exact match not found, try partial match
+        const partialMatch = NIGERIA_STATES.find(
+          (state) =>
+            stateName.toLowerCase().includes(state.toLowerCase()) ||
+            state.toLowerCase().includes(stateName.toLowerCase()),
+        );
+        if (partialMatch) {
+          setSelectedState(partialMatch.toLowerCase());
+        }
+      }
+    }
+
+    console.log("Place details:", {
+      address: place.address,
+      area: place.area,
+      city: place.city,
+      state: place.state,
+      country: place.country,
+    });
+  };
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -344,89 +388,21 @@ export function DropOffStation({
               ))}
             </div>
 
-            <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                  <Plus className="h-4 w-4" />
-                  {addButtonText}
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Add New {title.slice(0, -1)}</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Drop-Off Location</Label>
-                    <Input
-                      id="address"
-                      placeholder="Enter drop-off location address"
-                      // Bind specifically to the string property inside the object
-                      value={watch("address.value")}
-                      onChange={(e) => {
-                        // Construct the full EntryPoint object
-                        setValue("address", {
-                          value: e.target.value,
-                          longitude: 0,
-                          latitude: 0,
-                        });
-                      }}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="area">Area</Label>
-                    <Input
-                      id="area"
-                      {...register("area")}
-                      placeholder="Enter area"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">State</label>
-                    <Select
-                      value={selectedState}
-                      onValueChange={(value) => setValue("state", value)}
-                    >
-                      <SelectTrigger className="w-full bg-transparent border-border">
-                        <SelectValue placeholder="Select a State" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {NIGERIA_STATES.map((state) => (
-                          <SelectItem key={state} value={state.toLowerCase()}>
-                            {state}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Country</Label>
-                    <Input
-                      id="country"
-                      {...register("country")}
-                      disabled
-                      defaultValue={"Nigeria"}
-                      placeholder="Enter country"
-                    />
-                  </div>
-                  <Button
-                    disabled={dropOffStationMutation.isPending || holdPickupBtn}
-                    onClick={handleAddDropOffStation}
-                    className={`w-full bg-primary ${
-                      dropOffStationMutation.isPending || holdPickupBtn
-                        ? "opacity-30"
-                        : ""
-                    } hover:bg-primary/90 text-primary-foreground`}
-                  >
-                    {dropOffStationMutation.isPending ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>Add {title.slice(0, -1)}</>
-                    )}
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <AddDropOffStationDialog
+              type="drop-off"
+              onSubmit={(data) => {
+                dropOffStationMutation.mutate(data, {
+                  onSuccess: () => {
+                    reset();
+                    refetch();
+                    setIsAddDialogOpen(false);
+                  },
+                });
+              }}
+              setIsAddDialogOpen={setIsAddDialogOpen}
+              isAddDialogOpen={isAddDialogOpen}
+              isLoading={dropOffStationMutation.isPending}
+            />
           </div>
         </div>
       </CardHeader>
@@ -464,7 +440,7 @@ export function DropOffStation({
               </tr>
             </thead>
             <tbody>
-              {isLoading ? (
+              {dropOffLoader ? (
                 <>
                   {[...Array(5)].map((_, i) => (
                     <TableRowSkeleton key={i} />
@@ -566,11 +542,16 @@ export function DropOffStation({
                               // e.preventDefault();
                               setDropOffId({
                                 drop_off_location_id: station._id,
+                                address: {
+                                  value: station.address.value,
+                                  coordinates:
+                                    station.address.location.coordinates,
+                                },
                                 area: station.area,
                                 state: station.state,
                                 country: station.country,
-                                address: station.address,
                               });
+
                               setIsEditDialogOpen(true);
                             }}
                           >
@@ -604,7 +585,7 @@ export function DropOffStation({
                 ))
               )}
 
-              {!isLoading && paginatedData.length === 0 && (
+              {!dropOffLoader && paginatedData.length === 0 && (
                 <tr>
                   <td
                     colSpan={7}
@@ -619,93 +600,6 @@ export function DropOffStation({
             </tbody>
           </table>
         </div>
-
-        {/* Edit Modals */}
-        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogTrigger asChild></DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Drop-Off Location Address</Label>
-                <Input
-                  id="name"
-                  placeholder="Enter drop-off location address"
-                  // Add '?? ""' to ensure it's never undefined
-                  value={updateWatch("address.value") ?? ""}
-                  onChange={(e) => {
-                    updateValue("address", {
-                      value: e.target.value,
-                      longitude: 0,
-                      latitude: 0,
-                    });
-                  }}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="area">Area</Label>
-                <Input
-                  id="area"
-                  {...updateRegister("area")}
-                  placeholder="Enter area"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">State</label>
-                <Select
-                  value={selectedUpdateState}
-                  onValueChange={(value) => updateValue("state", value)}
-                >
-                  <SelectTrigger className="w-full bg-transparent border-border">
-                    <SelectValue placeholder="Select a State" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {NIGERIA_STATES.map((state) => (
-                      <SelectItem key={state} value={state.toLowerCase()}>
-                        {state}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="state">Country</Label>
-                <Input
-                  id="country"
-                  disabled
-                  {...updateRegister("country")}
-                  defaultValue={"Nigeria"}
-                  placeholder="Enter country"
-                />
-              </div>
-              <Button
-                disabled={
-                  modifyStationMutation.isPending || updateHoldDropOffBtn
-                }
-                onClick={() =>
-                  handleModifyDropOffStation(
-                    dropOffId?.drop_off_location_id || "",
-                  )
-                }
-                className={`w-full bg-primary ${
-                  modifyStationMutation.isPending || updateHoldDropOffBtn
-                    ? "opacity-30"
-                    : ""
-                } hover:bg-primary/90 text-primary-foreground`}
-              >
-                {modifyStationMutation.isPending ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <>Edit {title.slice(0, -1)}</>
-                )}
-              </Button>
-            </div>
-          </DialogContent>
-        </Dialog>
-
-        {/* End Modals */}
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
@@ -772,6 +666,24 @@ export function DropOffStation({
         </div>
       </CardContent>
       <Toaster />
+
+      {/* Edit Drop Off Modals */}
+      {dropOffId && (
+        <EditDropOffStationDialog
+          data={dropOffId}
+          isOpen={isEditDialogOpen}
+          onOpenChange={setIsEditDialogOpen}
+          onSubmit={(data) => {
+            modifyStationMutation.mutate(data, {
+              onSuccess: () => {
+                refetch();
+                setIsEditDialogOpen(false);
+              },
+            });
+          }}
+          isLoading={modifyStationMutation.isPending}
+        />
+      )}
     </Card>
   );
 }

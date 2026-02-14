@@ -1,8 +1,8 @@
-import { PickupStation, PickupStationDetail, StaffData } from "@/types";
+import { PickupStation, PickupStationData, PickupStationDetail, StaffData } from "@/types";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface PickupStationState {
-  selStation: PickupStationDetail | null;
+  selStation: PickupStationData | null;
 }
 
 const initialState: PickupStationState = {

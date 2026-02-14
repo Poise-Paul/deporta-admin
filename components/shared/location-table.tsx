@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { usePlacesWidget } from "react-google-autocomplete";
 import {
   Dialog,
   DialogContent,
@@ -52,13 +53,18 @@ import {
 } from "@/api/pick-up-stations";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
-import { AddPickupStationPayload, EditPickupStationPayload } from "@/types";
+import { AddPickupStationPayload, PickUpStation } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
+import "../../app/globals.css";
+import {
+  AddDropOffStationDialog as AddPickupStation,
+  EditDropOffStationDialog as EditPickupStation,
+} from "./DropOffStationDialogue";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -97,7 +103,7 @@ export function LocationTable({
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
-  const [pickupId, setPickupId] = useState<EditPickupStationPayload>();
+  const [pickupId, setPickupId] = useState<PickUpStation>();
 
   const [holdPickupBtn, setHoldPickupBtn] = useState(true);
   const [holdEditPickupBtn, setHoldEditPickupBtn] = useState(true);
@@ -119,7 +125,7 @@ export function LocationTable({
   const { register, reset, setValue, watch } = useForm<AddPickupStationPayload>(
     {
       values: {
-        address: { value: "", longitude: 0, latitude: 0 },
+        address: { value: "", coordinates: [0, 0] },
         area: "",
         country: "Nigeria",
         state: "lagos",
@@ -133,10 +139,13 @@ export function LocationTable({
     watch: updateWatch,
   } = useForm<AddPickupStationPayload>({
     values: {
-      address:
-        typeof pickupId?.address === "object"
-          ? pickupId.address
-          : { value: pickupId?.address || "", longitude: 0, latitude: 0 },
+      address: {
+        value: pickupId?.address.value || "",
+        coordinates: [
+          pickupId?.address.coordinates[0] || 0,
+          pickupId?.address.coordinates[1] || 0,
+        ],
+      },
       area: pickupId?.area || "",
       country: pickupId?.country || "Nigeria",
       state:
@@ -175,23 +184,6 @@ export function LocationTable({
       },
     );
   };
-
-  const handleModifyPickupStation = () => {
-    modifyPickupStation.mutate(
-      {
-        pickup_station_id: pickupId?.pickup_station_id || "",
-        address: updateAddress,
-        area: updateArea,
-        country: updateCountry,
-        state: updateState,
-      },
-      {
-        onSuccess: () => refetch(),
-        onSettled: () => setIsEditDialogOpen(false),
-      },
-    );
-  };
-
   const handleDeleteStation = (stationId: string) => {
     deleteMutation.mutate(stationId, {
       onSuccess: () => refetch(),
@@ -298,6 +290,7 @@ export function LocationTable({
 
   const router = useRouter();
   const dispatch = useDispatch();
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -343,88 +336,23 @@ export function LocationTable({
               ))}
             </div>
 
-            <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                  <Plus className="h-4 w-4" />
-                  {addButtonText}
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Add New {title.slice(0, -1)}</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Pickup Address</Label>
-                    <Input
-                      id="address"
-                      placeholder="Enter pickup station address"
-                      // Bind to the value string inside the EntryPoint object
-                      value={watch("address.value")}
-                      onChange={(e) => {
-                        setValue("address", {
-                          value: e.target.value,
-                          longitude: 0,
-                          latitude: 0,
-                        });
-                      }}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="area">Area</Label>
-                    <Input
-                      id="area"
-                      {...register("area")}
-                      placeholder="Enter area"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">State</label>
-                    <Select
-                      value={selectedState}
-                      onValueChange={(value) => setValue("state", value)}
-                    >
-                      <SelectTrigger className="w-full bg-transparent border-border">
-                        <SelectValue placeholder="Select a State" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {NIGERIA_STATES.map((state) => (
-                          <SelectItem key={state} value={state.toLowerCase()}>
-                            {state}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Country</Label>
-                    <Input
-                      disabled
-                      id="country"
-                      {...register("country")}
-                      defaultValue={"Nigeria"}
-                      placeholder="Enter country"
-                    />
-                  </div>
-                  <Button
-                    disabled={pickupStationMutation.isPending || holdPickupBtn}
-                    onClick={handleAddPickupStation}
-                    className={`w-full bg-primary ${
-                      pickupStationMutation.isPending || holdPickupBtn
-                        ? "opacity-30"
-                        : ""
-                    } hover:bg-primary/90 text-primary-foreground`}
-                  >
-                    {pickupStationMutation.isPending ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>Add {title.slice(0, -1)}</>
-                    )}
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
+            {/* Add Pickup Station Ignore naming */}
+            <AddPickupStation
+              type="pickup"
+              title="Pickup Station"
+              onSubmit={(data) => {
+                pickupStationMutation.mutate(data, {
+                  onSuccess: () => {
+                    reset();
+                    refetch();
+                    setIsAddDialogOpen(false);
+                  },
+                });
+              }}
+              setIsAddDialogOpen={setIsAddDialogOpen}
+              isAddDialogOpen={isAddDialogOpen}
+              isLoading={pickupStationMutation.isPending}
+            />
           </div>
         </div>
       </CardHeader>
@@ -533,7 +461,11 @@ export function LocationTable({
                                 area: station.area,
                                 state: station.state,
                                 country: station.country,
-                                address: station.address,
+                                address: {
+                                  value: station.address.value,
+                                  coordinates:
+                                    station.address.location.coordinates,
+                                },
                               });
                               setIsEditDialogOpen(true);
                             }}
@@ -617,85 +549,6 @@ export function LocationTable({
           </table>
         </div>
 
-        {/* Edit Pickup Address Modal */}
-        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogTrigger asChild></DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Pickup Address</Label>
-                <Input
-                  id="update-address"
-                  placeholder="Enter pickup station address"
-                  value={updateWatch("address.value")}
-                  onChange={(e) => {
-                    updateValue("address", {
-                      value: e.target.value,
-                      longitude: 0,
-                      latitude: 0,
-                    });
-                  }}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="area">Area</Label>
-                <Input
-                  id="area"
-                  {...updateRegister("area")}
-                  placeholder="Enter area"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">State</label>
-                <Select
-                  value={selectedUpdateState}
-                  onValueChange={(value) => updateValue("state", value)}
-                >
-                  <SelectTrigger className="w-full bg-transparent border-border">
-                    <SelectValue placeholder="Select a State" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {NIGERIA_STATES.map((state) => (
-                      <SelectItem key={state} value={state.toLowerCase()}>
-                        {state}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="state">Country</Label>
-                <Input
-                  id="country"
-                  {...updateRegister("country")}
-                  defaultValue={"Nigeria"}
-                  disabled
-                  placeholder="Enter country"
-                />
-              </div>
-              <Button
-                disabled={modifyPickupStation.isPending || holdEditPickupBtn}
-                onClick={handleModifyPickupStation}
-                className={`w-full bg-primary ${
-                  modifyPickupStation.isPending || holdEditPickupBtn
-                    ? "opacity-30"
-                    : ""
-                } hover:bg-primary/90 text-primary-foreground`}
-              >
-                {modifyPickupStation.isPending ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <>Edit {title.slice(0, -1)}</>
-                )}
-              </Button>
-            </div>
-          </DialogContent>
-        </Dialog>
-        {/* End Pickup Address Edit Modal */}
-
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
           {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -760,6 +613,34 @@ export function LocationTable({
         </div>
       </CardContent>
       <Toaster />
+
+      {/* Edit Pickup Station */}
+      {pickupId && (
+        <EditPickupStation
+          data={{
+            pickup_station_id: pickupId.pickup_station_id,
+            address: {
+              value: pickupId.address.value,
+              coordinates: pickupId.address.coordinates,
+            },
+            state: pickupId.state,
+            area: pickupId.area,
+            country: pickupId.country,
+          }}
+          isOpen={isEditDialogOpen}
+          onOpenChange={setIsEditDialogOpen}
+          type="pickup"
+          onSubmit={(data) => {
+            modifyPickupStation.mutate(data, {
+              onSuccess: () => {
+                refetch();
+                setIsEditDialogOpen(false);
+              },
+            });
+          }}
+          isLoading={modifyPickupStation.isPending}
+        />
+      )}
     </Card>
   );
 }

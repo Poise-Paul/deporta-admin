@@ -107,7 +107,7 @@ export function RoutesTable({
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
-  const [routeId, setRouteId] = useState<EditTripRoute>();
+  const [routeId, setRouteId] = useState<EditTripRoute | null>(null);
 
   const [holdBtn, setHoldBtn] = useState(true);
   const [holdEditPickupBtn, setHoldEditPickupBtn] = useState(true);
@@ -171,8 +171,8 @@ export function RoutesTable({
       flat_rate: 0,
       rate_per_km: 0,
       code: "",
-      destination: { value: "", longitude: 0, latitude: 0 },
-      starting_point: { value: "", longitude: 0, latitude: 0 },
+      destination: { value: "", coordinates: [0, 0] },
+      starting_point: { value: "", coordinates: [0, 0] },
       route_distance: "",
       number_of_stops: [],
       country: "Nigeria",
@@ -201,14 +201,14 @@ export function RoutesTable({
       code: `${routeId?.code}`,
       routine: routeId?.routine ?? defaultRoutine,
 
-      destination:
-        typeof routeId?.destination === "object"
-          ? routeId.destination
-          : { value: routeId?.destination || "", longitude: 0, latitude: 0 },
-      starting_point:
-        typeof routeId?.starting_point === "object"
-          ? routeId.starting_point
-          : { value: routeId?.starting_point || "", longitude: 0, latitude: 0 },
+      destination: {
+        value: routeId?.destination.value || "",
+        coordinates: routeId?.destination.coordinates || [0, 0],
+      },
+      starting_point: {
+        value: routeId?.starting_point.value || "",
+        coordinates: routeId?.starting_point.coordinates || [0, 0],
+      },
       route_distance: `${routeId?.route_distance}`,
       number_of_stops: Array.isArray(routeId?.number_of_stops)
         ? routeId.number_of_stops.flat()
@@ -280,6 +280,24 @@ export function RoutesTable({
   };
 
   const handleModifyPickupStation = () => {
+    const formData = watch();
+    const updatedRoutine = { ...formData.routine };
+
+    // 🔑 Cast 'day' as a key of the routine object
+    (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
+      (day) => {
+        if (updatedRoutine[day].active) {
+          updatedRoutine[day].value = updatedRoutine[day].value.map(
+            (slot: any) => ({
+              ...slot,
+              from: convertToISO(slot.from),
+              too: convertToISO(slot.too),
+            }),
+          );
+        }
+      },
+    );
+
     modifyTripRoute.mutate(
       {
         trip_route_id: routeId?.trip_route_id || "",
@@ -293,7 +311,7 @@ export function RoutesTable({
         number_of_stops: updateNumberOfStops,
         country: updateCountry,
         state: updateState,
-        routine,
+        routine: updatedRoutine,
       },
       {
         onSuccess: () => refetch(),
@@ -451,6 +469,76 @@ export function RoutesTable({
 
   const router = useRouter();
   const dispatch = useDispatch();
+
+  // Calculate Distance
+
+  const calculateDistance = (origin: string, destination: string) => {
+    // 🔑 More robust check for the specific library needed
+    if (
+      typeof window === "undefined" ||
+      !window.google?.maps?.DistanceMatrixService
+    ) {
+      console.log("Google Maps library not yet loaded");
+      return;
+    }
+
+    const service = new google.maps.DistanceMatrixService();
+
+    service.getDistanceMatrix(
+      {
+        origins: [origin],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+      },
+      (response, status) => {
+        if (
+          status === "OK" &&
+          response &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+        ) {
+          const distanceInMeters = response.rows[0].elements[0].distance.value;
+          const distanceInKm = (distanceInMeters / 1000).toFixed(2);
+
+          // 🔑 Use setValue, not watch, to update the form state
+          setValue("route_distance", distanceInKm);
+        }
+      },
+    );
+  };
+  useEffect(() => {
+    if (starting_point?.value && destination?.value) {
+      // 🔑 Ensure we don't call Google if it's not ready
+      if (typeof window !== "undefined" && window.google) {
+        const delayDebounceFn = setTimeout(() => {
+          calculateDistance(starting_point.value, destination.value);
+        }, 1000);
+
+        return () => clearTimeout(delayDebounceFn);
+      }
+    }
+  }, [starting_point, destination]);
+
+  // Weekly Extractor
+  const formatISOToTime = (isoString: string) => {
+    if (!isoString || isoString.length < 5) return isoString || "";
+    // If it's already HH:mm, return it. If it's ISO, format it.
+    if (!isoString.includes("T")) return isoString;
+
+    const date = new Date(isoString);
+    const hours = date.getUTCHours().toString().padStart(2, "0");
+    const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
+  };
+
+  // Converts "08:00" -> "2026-02-14T08:00:00.000Z"
+  const convertToISO = (timeString: string) => {
+    if (!timeString) return "";
+    const [hours, minutes] = timeString.split(":");
+    const date = new Date(); // Uses today's date
+    date.setUTCHours(parseInt(hours), parseInt(minutes), 0, 0);
+    return date.toISOString();
+  };
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -587,17 +675,16 @@ export function RoutesTable({
                             setValue("starting_point", {
                               // Use 'address' because that's what your map uses below
                               value: station.address.value.toLowerCase(),
-                              latitude: Number(station.address.latitude),
-                              longitude: Number(station.address.longitude),
+                              coordinates: station.address.location.coordinates,
                             });
                           }
                         }}
                       >
-                        <SelectTrigger className="bg-background">
+                        <SelectTrigger className="bg-background w-full">
                           <SelectValue
                             placeholder={
                               watch("starting_point.value") ||
-                              "Select Starting Point"
+                              "Select Pickup Location"
                             }
                           />
                         </SelectTrigger>
@@ -627,16 +714,16 @@ export function RoutesTable({
                           if (station) {
                             setValue("destination", {
                               value: station.address.value.toLowerCase(),
-                              latitude: Number(station.address.latitude),
-                              longitude: Number(station.address.longitude),
+                              coordinates: station.address.location.coordinates,
                             });
                           }
                         }}
                       >
-                        <SelectTrigger className="bg-background">
+                        <SelectTrigger className="bg-background w-full">
                           <SelectValue
                             placeholder={
-                              watch("destination.value") || "Select Destination"
+                              watch("destination.value") ||
+                              "Select Drop Off Location"
                             }
                           />
                         </SelectTrigger>
@@ -778,10 +865,10 @@ export function RoutesTable({
                       <div className="flex rounded-md shadow-sm">
                         <Input
                           id="route_distance"
-                          type="number"
                           {...register("route_distance")}
-                          placeholder="0"
-                          className="rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                          placeholder="Calculating distance..."
+                          readOnly
+                          className="bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
                         />
                         {/* KM Unit Suffix */}
                         <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
@@ -810,8 +897,8 @@ export function RoutesTable({
                               const newEntry: EntryPoint = {
                                 value:
                                   selectedStop.location.value.toLowerCase(),
-                                longitude: selectedStop.location.longitude,
-                                latitude: selectedStop.location.latitude,
+                                coordinates:
+                                  selectedStop.location.location.coordinates,
                               };
 
                               // 3. Check for duplicates based on coordinates or value
@@ -1039,12 +1126,27 @@ export function RoutesTable({
                                 flat_rate: station.flat_rate,
                                 rate_per_km: station.rate_per_km,
                                 code: station.code,
-                                destination: station.destination,
-                                starting_point: station.starting_point,
+                                destination: {
+                                  value: station.destination.value,
+                                  // 🔑 Extract coordinates from the nested location object
+                                  coordinates:
+                                    station.destination.location.coordinates,
+                                },
+                                starting_point: {
+                                  value: station.starting_point.value,
+                                  coordinates:
+                                    station.starting_point.location.coordinates,
+                                },
                                 state: station.state,
                                 country: station.country,
                                 route_distance: station.route_distance,
-                                number_of_stops: station.number_of_stops,
+                                // 🔑 Flatten the bus stops array to remove the 'location' wrapper
+                                number_of_stops: station.number_of_stops.map(
+                                  (stop: any) => ({
+                                    value: stop.value,
+                                    coordinates: stop.location.coordinates,
+                                  }),
+                                ),
                                 routine: station.routine,
                               });
 
@@ -1102,138 +1204,299 @@ export function RoutesTable({
         {/* Edit Trip Route Modal */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
           <DialogTrigger asChild></DialogTrigger>
-          <DialogContent className="sm:max-w-2xl">
-            <DialogHeader>
+          {/* Added h-[90vh] and flex-col to match Add Route layout */}
+          <DialogContent className="sm:max-w-2xl h-[90vh] flex flex-col p-0">
+            <DialogHeader className="p-6 pb-0">
               <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
             </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Rate</Label>
+
+            {/* Scrollable Container */}
+            <div className="flex-1 overflow-y-auto p-6 pt-2">
+              <div className="space-y-4 py-4">
+                {/* Rate & Flat Rate with Naira Styling */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="edit_rate">Rate</Label>
+                    <div className="flex rounded-md shadow-sm">
+                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                        ₦
+                      </span>
+                      <Input
+                        id="edit_rate"
+                        type="number"
+                        {...updateRegister("rate")}
+                        className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        placeholder="Enter rate"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="edit_flat_rate">Flat Rate</Label>
+                    <div className="flex rounded-md shadow-sm">
+                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                        ₦
+                      </span>
+                      <Input
+                        id="edit_flat_rate"
+                        type="number"
+                        {...updateRegister("flat_rate")}
+                        className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        placeholder="Enter Flat Rate"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Rate Per KM & Code */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="edit_rate_per_km">Rate Per KM</Label>
+                    <div className="flex rounded-md shadow-sm">
+                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                        ₦
+                      </span>
+                      <Input
+                        id="edit_rate_per_km"
+                        type="number"
+                        {...updateRegister("rate_per_km")}
+                        className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                        placeholder="Enter Rate Per Km"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="edit_code">Code</Label>
+                    <Input
+                      id="edit_code"
+                      {...updateRegister("code")}
+                      placeholder="Enter code"
+                    />
+                  </div>
+                </div>
+
+                {/* Starting Point & Destination (Matches Add Modal Logic) */}
+                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">
+                    Starting Point
+                  </Label>
                   <Input
-                    id="name"
-                    {...updateRegister("rate")}
-                    placeholder="Enter rate"
+                    id="starting_point"
+                    {...updateRegister("starting_point.value")}
+                    readOnly
+                    className="bg-background"
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="flat_rate">Flat Rate</Label>
+
+                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">Destination</Label>
                   <Input
-                    id="flat_rate"
-                    {...updateRegister("flat_rate")}
-                    placeholder="Enter Flat Rate"
+                    id="destination"
+                    {...updateRegister("destination.value")}
+                    readOnly
+                    className="bg-background"
                   />
                 </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="rate_per_km">Rate Per KM</Label>
-                  <Input
-                    id="rate_per_km"
-                    {...updateRegister("rate_per_km")}
-                    placeholder="Enter Rate Per Km"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="code">Code</Label>
-                  <Input
-                    id="code"
-                    {...updateRegister("code")}
-                    placeholder="Enter code"
-                  />
-                </div>
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="starting_point">Starting Point</Label>
-                <Input
-                  id="starting_point"
-                  {...updateRegister("starting_point")}
-                  placeholder="Enter Starting Point"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="destination">Destination</Label>
-                <Input
-                  id="destination"
-                  {...updateRegister("destination")}
-                  placeholder="Enter Destination"
-                />
-              </div>
+                {/* --- NEW: Weekly Operating Schedule (Missing from your Edit version) --- */}
+                <div className="space-y-4 border-t pt-4">
+                  <Label className="text-lg font-bold">
+                    Weekly Operating Schedule
+                  </Label>
+                  {days.map((day) => (
+                    <div
+                      key={day}
+                      className="p-3 border rounded-md bg-muted/10 space-y-3"
+                    >
+                      <div className="flex items-center justify-between">
+                        <Label className="capitalize font-semibold">
+                          {day}
+                        </Label>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-muted-foreground">
+                            Active
+                          </span>
+                          <Switch
+                            checked={updateWatch(`routine.${day}.active`)}
+                            onCheckedChange={(val) =>
+                              updateValue(`routine.${day}.active`, val)
+                            }
+                          />
+                        </div>
+                      </div>
+                      {updateWatch(`routine.${day}.active`) && (
+                        <div className="space-y-2">
+                          {updateWatch(`routine.${day}.value`)?.map(
+                            (slot, index) => (
+                              <div
+                                key={index}
+                                className="grid grid-cols-3 gap-2 items-end bg-background p-2 rounded border"
+                              >
+                                <div>
+                                  <Label className="text-[10px]">
+                                    Departure (From)
+                                  </Label>
+                                  <Input
+                                    type="time"
+                                    value={formatISOToTime(slot.from)}
+                                    // value={slot.from}
+                                    onChange={(e) => {
+                                      const newTime = e.target.value; // e.g., "09:30"
 
-              <div className="space-y-2">
-                <Label htmlFor="route_distance">Route Distance</Label>
-                <Input
-                  id="route_distance"
-                  {...updateRegister("route_distance")}
-                  placeholder="Enter Route Distance"
-                />
-              </div>
-              {busStops && (
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">
-                    Select Bus-Stops Along this Route
-                  </label>
-                  <Select
-                    value="" // Keep placeholder visible
-                    onValueChange={(id) => {
-                      // 1. Find the full stop object from the data list using the ID
-                      const selectedStop = busStops?.bus_stop.data.find(
-                        (s) => s._id === id,
-                      );
+                                      // 2. State Update: Convert HH:mm back to ISO before saving
+                                      const isoValue = convertToISO(newTime);
 
-                      if (selectedStop) {
-                        const currentStops =
-                          updateWatch("number_of_stops") || [];
+                                      const current = [
+                                        ...updateWatch(`routine.${day}.value`),
+                                      ];
+                                      current[index].from = isoValue;
 
-                        // 2. Create the EntryPoint object with mock coordinates
-                        const newEntry: EntryPoint = {
-                          value: selectedStop.location.value.toLowerCase(),
-                          longitude: selectedStop.location.longitude,
-                          latitude: selectedStop.location.latitude,
-                        };
+                                      updateValue(
+                                        `routine.${day}.value`,
+                                        current,
+                                      );
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <Label className="text-[10px]">
+                                    Arrival (Too)
+                                  </Label>
+                                  <Input
+                                    type="time"
+                                    value={formatISOToTime(slot.too)}
+                                    onChange={(e) => {
+                                      const newTime = e.target.value; // e.g., "09:30"
 
-                        // 3. Check if this value already exists in our array of objects
-                        const isDuplicate = currentStops.some(
-                          (stop: EntryPoint) => stop.value === newEntry.value,
-                        );
+                                      // 2. State Update: Convert HH:mm back to ISO before saving
+                                      const isoValue = convertToISO(newTime);
 
-                        if (!isDuplicate) {
-                          updateValue("number_of_stops", [
-                            ...currentStops,
-                            newEntry,
-                          ]);
-                        }
-                      }
-                    }}
-                  >
-                    <SelectTrigger className="w-full bg-transparent border-border">
-                      <SelectValue placeholder="Add bus-stops..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {busStops?.bus_stop.data
-                        .filter(
-                          (stop) =>
-                            // 4. Update filter to check the 'value' property inside the objects
-                            !updateWatch("number_of_stops")?.some(
-                              (selected: EntryPoint) =>
-                                selected.value ===
-                                stop.location.value.toLowerCase(),
+                                      const current = [
+                                        ...updateWatch(`routine.${day}.value`),
+                                      ];
+                                      current[index].too = isoValue;
+
+                                      updateValue(
+                                        `routine.${day}.value`,
+                                        current,
+                                      );
+                                    }}
+                                  />
+                                </div>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  className="text-destructive"
+                                  onClick={() => {
+                                    const current = updateWatch(
+                                      `routine.${day}.value`,
+                                    ).filter((_, i) => i !== index);
+                                    updateValue(
+                                      `routine.${day}.value`,
+                                      current,
+                                    );
+                                  }}
+                                >
+                                  <X size={14} />
+                                </Button>
+                              </div>
                             ),
-                        )
-                        .map((stop) => (
-                          <SelectItem key={stop._id} value={stop._id}>
-                            {stop.location.value}
-                          </SelectItem>
-                        ))}
-                    </SelectContent>
-                  </Select>
+                          )}
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full text-xs"
+                            onClick={() => {
+                              const current =
+                                updateWatch(`routine.${day}.value`) || [];
+                              updateValue(`routine.${day}.value`, [
+                                ...current,
+                                {
+                                  from: "08:00",
+                                  too: "10:00",
+                                  status: "pending",
+                                },
+                              ]);
+                            }}
+                          >
+                            <Plus size={12} className="mr-1" /> Add Time Slot
+                          </Button>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
 
-                  {/* 2. Display Selected Bus-Stops as Badges */}
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {updateWatch("number_of_stops")
-                      ?.flat()
-                      .map((stopValue, key) => (
+                {/* Route Distance with Unit Suffix */}
+                <div className="space-y-2">
+                  <Label htmlFor="edit_route_distance">Route Distance</Label>
+                  <div className="flex rounded-md shadow-sm">
+                    <Input
+                      id="edit_route_distance"
+                      {...updateRegister("route_distance")}
+                      readOnly
+                      className="bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                    />
+                    <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
+                      KM
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bus Stops Logic (Corrected Filter) */}
+                {busStops && (
+                  <div className="space-y-2">
+                    <Label className="text-sm font-medium">
+                      Select Bus-Stops Along this Route
+                    </Label>
+                    <Select
+                      value=""
+                      onValueChange={(id) => {
+                        const selectedStop = busStops?.bus_stop.data.find(
+                          (s) => s._id === id,
+                        );
+                        if (selectedStop) {
+                          const currentStops =
+                            updateWatch("number_of_stops") || [];
+
+                          const newEntry: EntryPoint = {
+                            value: selectedStop.location.value.toLowerCase(),
+                            coordinates:
+                              selectedStop.location.location.coordinates,
+                          };
+                          if (
+                            !currentStops.some(
+                              (s) => s.value === newEntry.value,
+                            )
+                          ) {
+                            updateValue("number_of_stops", [
+                              ...currentStops,
+                              newEntry,
+                            ]);
+                          }
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="w-full bg-transparent border-border">
+                        <SelectValue placeholder="Add bus-stops..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {busStops?.bus_stop.data
+                          .filter(
+                            (stop) =>
+                              !updateWatch("number_of_stops")?.some(
+                                (s) =>
+                                  s.value === stop.location.value.toLowerCase(),
+                              ),
+                          )
+                          .map((stop) => (
+                            <SelectItem key={stop._id} value={stop._id}>
+                              {stop.location.value}
+                            </SelectItem>
+                          ))}
+                      </SelectContent>
+                    </Select>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {updateWatch("number_of_stops")?.map((stopValue, key) => (
                         <Badge
                           key={key}
                           variant="secondary"
@@ -1243,8 +1506,7 @@ export function RoutesTable({
                           <button
                             type="button"
                             onClick={() => {
-                              const current =
-                                updateWatch("number_of_stops").flat();
+                              const current = updateWatch("number_of_stops");
                               updateValue(
                                 "number_of_stops",
                                 current.filter((s) => s !== stopValue),
@@ -1256,50 +1518,52 @@ export function RoutesTable({
                           </button>
                         </Badge>
                       ))}
+                    </div>
                   </div>
+                )}
+
+                {/* State & Country */}
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium">State</Label>
+                  <Select
+                    value={selectedUpdateState}
+                    onValueChange={(value) => updateValue("state", value)}
+                  >
+                    <SelectTrigger className="w-full bg-transparent border-border">
+                      <SelectValue placeholder="Select a State" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {NIGERIA_STATES.map((state) => (
+                        <SelectItem key={state} value={state.toLowerCase()}>
+                          {state}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-              )}
-              <div className="space-y-2">
-                <label className="text-sm font-medium">State</label>
-                <Select
-                  value={selectedUpdateState}
-                  onValueChange={(value) => updateValue("state", value)}
-                >
-                  <SelectTrigger className="w-full bg-transparent border-border">
-                    <SelectValue placeholder="Select a State" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {NIGERIA_STATES.map((state) => (
-                      <SelectItem key={state} value={state.toLowerCase()}>
-                        {state}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="space-y-2">
+                  <Label htmlFor="edit_country">Country</Label>
+                  <Input
+                    id="edit_country"
+                    {...updateRegister("country")}
+                    disabled
+                    defaultValue={"Nigeria"}
+                  />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="state">Country</Label>
-                <Input
-                  id="country"
-                  {...updateRegister("country")}
-                  disabled
-                  defaultValue={"Nigeria"}
-                  placeholder="Enter country"
-                />
-              </div>
+            </div>
+
+            {/* Footer Action Button */}
+            <div className="pt-4 p-6 border-t bg-background">
               <Button
                 disabled={modifyTripRoute.isPending || holdEditPickupBtn}
                 onClick={handleModifyPickupStation}
-                className={`w-full bg-primary ${
-                  modifyTripRoute.isPending || holdEditPickupBtn
-                    ? "opacity-30"
-                    : ""
-                } hover:bg-primary/90 text-primary-foreground`}
+                className={`w-full bg-primary ${modifyTripRoute.isPending || holdEditPickupBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`}
               >
                 {modifyTripRoute.isPending ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <>Edit {title.slice(0, -1)}</>
+                  <>Save Changes</>
                 )}
               </Button>
             </div>

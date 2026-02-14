@@ -4,6 +4,7 @@ import {
   BusStopResponse,
   EditBusStopPayload,
   ErrorrResponse,
+  NewBusStopPayload,
   Response,
 } from "@/types";
 import { api } from "../axios";
@@ -69,7 +70,7 @@ export const useCreateBusStop = () => {
 
 export const useModifyBusStop = () => {
   return useMutation({
-    mutationFn: async (data: EditBusStopPayload) => {
+    mutationFn: async (data: NewBusStopPayload) => {
       const res = await api.patch("/api/users/admin/bus-stop/edit", {
         bus_stop_id: data.bus_stop_id,
         routes: data.routes,

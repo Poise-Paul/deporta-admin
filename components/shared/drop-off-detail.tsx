@@ -47,6 +47,7 @@ import {
   useDeleteDropOffStation,
   useModifyDropOffStation,
 } from "@/api/drop-off-locations";
+import { EditDropOffStationDialog } from "./DropOffStationDialogue";
 
 interface StationDetailProps {
   onBack: () => void;
@@ -73,10 +74,13 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
 
   const { register, setValue, watch } = useForm<AddPickupStationPayload>({
     defaultValues: {
-      address:
-        typeof selStation?.address === "object"
-          ? selStation.address
-          : { value: selStation?.address || "", longitude: 0, latitude: 0 },
+      address: {
+        value: selStation?.address.value || "",
+        coordinates: [
+          selStation?.address?.location.coordinates[0],
+          selStation?.address?.location.coordinates[1],
+        ],
+      },
       area: selStation?.area,
       state: selStation?.state,
       country: selStation?.country,
@@ -121,88 +125,9 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
           <ArrowLeft className="h-4 w-4" /> Back to Drop-Off Locations
         </Button>
         <div className="flex gap-3">
-          <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline">
-                <Edit className="h-4 w-4 mr-2" /> Edit Drop Off Location
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle>Edit Drop-Off Location</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4 py-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Drop-Off Address</Label>
-                  <Input
-                    id="edit-dropoff-address"
-                    placeholder="Enter drop-off address"
-                    // Only show the 'value' string in the input field
-                    value={watch("address.value") ?? ""}
-                    onChange={(e) => {
-                      // Manually update the object to keep coordinates at 0
-                      setValue("address", {
-                        value: e.target.value,
-                        longitude: 0,
-                        latitude: 0,
-                      });
-                    }}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="area">Area</Label>
-                  <Input
-                    id="area"
-                    {...register("area")}
-                    placeholder="Enter area"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">State</label>
-                  <Select
-                    value={selectedState}
-                    onValueChange={(value) => setValue("state", value)}
-                  >
-                    <SelectTrigger className="w-full bg-transparent border-border">
-                      <SelectValue placeholder="Select a State" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {NIGERIA_STATES.map((state) => (
-                        <SelectItem key={state} value={state.toLowerCase()}>
-                          {state}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="state">Country</Label>
-                  <Input
-                    id="country"
-                    disabled
-                    {...register("country")}
-                    defaultValue={"Nigeria"}
-                    placeholder="Enter country"
-                  />
-                </div>
-                <Button
-                  disabled={modifyStationMutation.isPending || holdPickupBtn}
-                  onClick={handleDropOffStation}
-                  className={`w-full bg-primary ${
-                    modifyStationMutation.isPending || holdPickupBtn
-                      ? "opacity-30"
-                      : ""
-                  } hover:bg-primary/90 text-primary-foreground`}
-                >
-                  {modifyStationMutation.isPending ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                  ) : (
-                    <>Update Drop-Off Location</>
-                  )}
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Button onClick={() => setIsAddDialogOpen(true)} variant="outline">
+            <Edit className="h-4 w-4 mr-2" /> Edit Drop Off Location
+          </Button>
           <Button
             variant="destructive"
             onClick={() => {
@@ -298,6 +223,31 @@ export function DropOffStationDetail({ onBack }: StationDetailProps) {
             </CardContent>
           </Card>
         </div>
+      )}
+
+      {selStation && (
+        <EditDropOffStationDialog
+          data={{
+            drop_off_location_id: selStation._id,
+            address: {
+              value: selStation.address.value,
+              coordinates: selStation.address.location.coordinates,
+            },
+            state: selStation.state,
+            area: selStation.area,
+            country: selStation.country,
+          }}
+          isOpen={isAddDialogOpen}
+          onOpenChange={setIsAddDialogOpen}
+          onSubmit={(data) => {
+            modifyStationMutation.mutate(data, {
+              onSuccess: () => {
+                setIsAddDialogOpen(false);
+              },
+            });
+          }}
+          isLoading={modifyStationMutation.isPending}
+        />
       )}
       <Toaster />
     </div>

@@ -158,9 +158,36 @@ export type EditTripRoute = {
   };
 };
 
+export interface DropOffStation {
+  drop_off_location_id?: string;
+  pickup_station_id?: string;
+  address: {
+    value: string;
+    coordinates: [number, number]; // [longitude, latitude]
+  };
+  area: string;
+  state: string;
+  country: string;
+}
+
+export interface PickUpStation {
+  pickup_station_id?: string;
+  drop_off_location_id?: string;
+  address: {
+    value: string;
+    coordinates: [number, number]; // [longitude, latitude]
+  };
+  area: string;
+  state: string;
+  country: string;
+}
+
 export type EditDropOffStationPayload = {
   drop_off_location_id: string;
-  address: EntryPoint;
+  address: {
+    value: string;
+    coordinates: [number, number];
+  };
   area: string;
   state: string;
   country: string;
@@ -376,18 +403,56 @@ export interface DropOffLocationResponse extends Response {
   drop_off_station: PickupStation;
 }
 
+export type PickupStationData = {
+  address: {
+    location: {
+      type: string;
+      coordinates: [number, number];
+    };
+    value: string;
+  };
+  _id: string;
+  area: string;
+  state: string;
+  country: string;
+  added_by: StaffData;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
 export type PickupStationDetails = {
   status: boolean;
   pickup_station: {
-    data: PickupStationDetail[];
+    data: PickupStationData[];
     pagination: Pagination;
   };
+};
+
+export type DropOffStationData = {
+  address: {
+    location: {
+      type: string;
+      coordinates: [number, number];
+    };
+    value: string;
+  };
+  _id: string;
+  area: string;
+  state: string;
+  country: string;
+  added_by: StaffData;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 };
 
 export type DropOffDetails = {
   status: boolean;
   drop_off_station: {
-    data: PickupStationDetail[];
+    data: DropOffStationData[];
     pagination: Pagination;
   };
 };
@@ -469,8 +534,20 @@ export interface BusStopResponse extends Response {
   bus_stop: BusStop;
 }
 
+export type NewBusStopPayload = {
+  bus_stop_id?: string;
+  routes: number;
+  location: {
+    value: string;
+    coordinates: [number, number];
+  };
+  area: string;
+  state: string;
+  country: string;
+};
+
 export type BusStopDataDetails = {
-  location: EntryPoint;
+  location: NewEntryPoint;
   _id: string;
   area: string;
   state: string;
@@ -535,8 +612,7 @@ export type NormalStaffData = {
 
 export type EntryPoint = {
   value: string;
-  longitude: number;
-  latitude: number;
+  coordinates: [number, number];
 };
 
 export type MaintenanceReport = {
@@ -581,9 +657,17 @@ export type WeekdayType = {
   }[];
 };
 
+export type NewEntryPoint = {
+  location: {
+    type: string;
+    coordinates: [number, number];
+  };
+  value: string;
+};
+
 export type RouteData = {
-  starting_point: EntryPoint;
-  destination: EntryPoint;
+  starting_point: NewEntryPoint;
+  destination: NewEntryPoint;
   routine: {
     monday: WeekdayType;
     tuesday: WeekdayType;

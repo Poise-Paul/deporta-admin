@@ -55,6 +55,7 @@ import {
   AddPickupStationPayload,
   EditBusStopPayload,
   EditPickupStationPayload,
+  NewBusStopPayload,
 } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
@@ -71,6 +72,7 @@ import {
   useModifyBusStop,
 } from "@/api/bus-stops";
 import { updateSelBusStop } from "@/lib/store/slices/bus-stop-slice";
+import { AddBusStopDialog, EditBusStopDialog } from "./BusStopDialogue";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -109,7 +111,7 @@ export function BusStopTable({
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
-  const [bustopId, setBusStopId] = useState<EditBusStopPayload>();
+  const [bustopId, setBusStopId] = useState<NewBusStopPayload>();
 
   const [holdBustopBtn, setHoldBustopBtn] = useState(true);
   const [holdEditBustopBtn, setHoldEditBustopBtn] = useState(true);
@@ -128,79 +130,6 @@ export function BusStopTable({
     queryFn: () => getAllBusStops(),
   });
 
-  const { register, reset, setValue, watch } = useForm<AddBusStopPayload>({
-    defaultValues: {
-      routes: 0,
-      location: { value: "", longitude: 0, latitude: 0 },
-      area: "",
-      state: "lagos",
-      country: "Nigeria",
-    },
-  });
-
-  const {
-    register: updateRegister,
-    setValue: updateValue,
-    watch: updateWatch,
-    reset: updateReset,
-  } = useForm<AddBusStopPayload>({
-    defaultValues: {
-      routes: bustopId?.routes || 0,
-      location:
-        typeof bustopId?.location === "object"
-          ? bustopId.location
-          : { value: bustopId?.location || "", longitude: 0, latitude: 0 },
-      area: bustopId?.area || "",
-      state:
-        bustopId?.state === "Lagos State" ? "lagos" : bustopId?.state || "",
-      country: bustopId?.country || "Nigeria",
-    },
-  });
-
-  const selectedState = watch("state");
-  const selectedUpdateState = updateWatch("state");
-  const handleWatch = watch();
-  const handleUpdateWatch = updateWatch();
-
-  const { routes, area, country, state } = handleWatch;
-  const { location } = updateWatch();
-
-  const {
-    routes: updateRoutes,
-    location: updateLocation,
-    area: updateArea,
-    country: updateCountry,
-    state: updateState,
-  } = handleUpdateWatch;
-
-  const handleAddBusStop = () => {
-    const formData = watch();
-    busStopMutation.mutate(formData, {
-      onSuccess: () => {
-        reset();
-        refetch();
-      },
-      onSettled: () => setIsAddDialogOpen(false),
-    });
-  };
-
-  const handleModifyBusStop = () => {
-    modifyBusStop.mutate(
-      {
-        bus_stop_id: bustopId?.bus_stop_id || "",
-        routes: updateRoutes,
-        location: updateLocation,
-        area: updateArea,
-        country: updateCountry,
-        state: updateState,
-      },
-      {
-        onSuccess: () => refetch(),
-        onSettled: () => setIsEditDialogOpen(false),
-      },
-    );
-  };
-
   const handleDeleteBustop = (stationId: string) => {
     deleteMutation.mutate(stationId, {
       onSuccess: () => refetch(),
@@ -208,46 +137,8 @@ export function BusStopTable({
   };
 
   useEffect(() => {
-    if (location && routes && area && state && country) {
-      setHoldBustopBtn(false);
-    } else {
-      setHoldBustopBtn(true);
-    }
-  }, [location, routes, area, state, country]);
-
-  useEffect(() => {
-    if (
-      updateLocation &&
-      updateRoutes &&
-      updateArea &&
-      updateState &&
-      updateCountry
-    ) {
-      setHoldEditBustopBtn(false);
-    } else {
-      setHoldEditBustopBtn(true);
-    }
-  }, [updateLocation, updateRoutes, updateArea, updateState, updateCountry]);
-
-  useEffect(() => {
     refetch();
   }, [busStops]);
-
-  // This watches for when you click "Edit" and updates the form fields
-  useEffect(() => {
-    if (bustopId) {
-      updateReset({
-        routes: bustopId.routes,
-        area: bustopId.area,
-        country: bustopId.country,
-        state: bustopId.state === "Lagos State" ? "lagos" : bustopId.state,
-        location:
-          typeof bustopId.location === "object"
-            ? bustopId.location
-            : { value: bustopId.location || "", longitude: 0, latitude: 0 },
-      });
-    }
-  }, [bustopId, updateReset]);
 
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -374,95 +265,19 @@ export function BusStopTable({
               ))}
             </div>
 
-            <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-                  <Plus className="h-4 w-4" />
-                  {addButtonText}
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Add New {title.slice(0, -1)}</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Enter Number of Routes</Label>
-                    <Input
-                      id="name"
-                      {...register("routes")}
-                      placeholder="Enter number of routes"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Enter Drop-Off Address</Label>
-                    <Input
-                      id="add-bus-stop-location" // Make this unique
-                      placeholder="e.g. Lekki Phase 1"
-                      value={watch("location.value") ?? ""}
-                      onChange={(e) => {
-                        setValue("location", {
-                          value: e.target.value,
-                          longitude: 0,
-                          latitude: 0,
-                        });
-                      }}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="area">Enter Bus-Stop Area</Label>
-                    <Input
-                      id="area"
-                      {...register("area")}
-                      placeholder="Enter Area"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">State</label>
-                    <Select
-                      value={selectedState}
-                      onValueChange={(value) => setValue("state", value)}
-                    >
-                      <SelectTrigger className="w-full bg-transparent border-border">
-                        <SelectValue placeholder="Select a State" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {NIGERIA_STATES.map((state) => (
-                          <SelectItem key={state} value={state.toLowerCase()}>
-                            {state}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="state">Country</Label>
-                    <Input
-                      id="country"
-                      {...register("country")}
-                      defaultValue={"Nigeria"}
-                      disabled
-                      placeholder="Enter country"
-                    />
-                  </div>
-                  <Button
-                    disabled={busStopMutation.isPending || holdBustopBtn}
-                    onClick={handleAddBusStop}
-                    className={`w-full bg-primary ${
-                      busStopMutation.isPending || holdBustopBtn
-                        ? "opacity-30"
-                        : ""
-                    } hover:bg-primary/90 text-primary-foreground`}
-                  >
-                    {busStopMutation.isPending ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>Add {title.slice(0, -1)}</>
-                    )}
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <AddBusStopDialog
+              onSubmit={(data) => {
+                busStopMutation.mutate(data, {
+                  onSuccess: () => {
+                    refetch();
+                    setIsAddDialogOpen(false);
+                  },
+                });
+              }}
+              setIsAddDialogOpen={setIsAddDialogOpen}
+              isAddDialogOpen={isAddDialogOpen}
+              isLoading={busStopMutation.isPending}
+            />
           </div>
         </div>
       </CardHeader>
@@ -577,7 +392,11 @@ export function BusStopTable({
                                 area: station.area,
                                 state: station.state,
                                 country: station.country,
-                                location: station.location,
+                                location: {
+                                  value: station.location.value,
+                                  coordinates:
+                                    station.location.location.coordinates,
+                                },
                               });
                               setIsEditDialogOpen(true);
                             }}
@@ -664,95 +483,6 @@ export function BusStopTable({
           </table>
         </div>
 
-        {/* Edit BussTOP Modal */}
-        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogTrigger asChild></DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Edit {title.slice(0, -1)}</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Routes</Label>
-                <Input
-                  id="routes"
-                  {...updateRegister("routes")}
-                  placeholder="Enter routes"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="area">Enter Location</Label>
-                <Input
-                  id="location"
-                  placeholder="e.g. Lekki Phase 1"
-                  // We watch the nested 'value' string
-                  value={updateWatch("location.value")}
-                  onChange={(e) => {
-                    // We manually update the whole object to satisfy the EntryPoint type
-                    updateValue("location", {
-                      value: e.target.value,
-                      longitude: 0,
-                      latitude: 0,
-                    });
-                  }}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="area">Area</Label>
-                <Input
-                  id="area"
-                  {...updateRegister("area")}
-                  placeholder="Enter area"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">State</label>
-                <Select
-                  value={selectedUpdateState}
-                  onValueChange={(value) => updateValue("state", value)}
-                >
-                  <SelectTrigger className="w-full bg-transparent border-border">
-                    <SelectValue placeholder="Select a State" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {NIGERIA_STATES.map((state) => (
-                      <SelectItem key={state} value={state.toLowerCase()}>
-                        {state}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="state">Country</Label>
-                <Input
-                  id="country"
-                  {...updateRegister("country")}
-                  disabled
-                  defaultValue={"Nigeria"}
-                  placeholder="Enter country"
-                />
-              </div>
-              <Button
-                disabled={modifyBusStop.isPending || holdEditBustopBtn}
-                onClick={handleModifyBusStop}
-                className={`w-full bg-primary ${
-                  modifyBusStop.isPending || holdEditBustopBtn
-                    ? "opacity-30"
-                    : ""
-                } hover:bg-primary/90 text-primary-foreground`}
-              >
-                {modifyBusStop.isPending ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <>Edit {title.slice(0, -1)}</>
-                )}
-              </Button>
-            </div>
-          </DialogContent>
-        </Dialog>
-        {/* End Pickup Address Edit Modal */}
-
         {/* Pagination */}
 
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
@@ -819,6 +549,24 @@ export function BusStopTable({
         </div>
       </CardContent>
       <Toaster />
+
+      {/* Edit Bus Stop */}
+      {bustopId && (
+        <EditBusStopDialog
+          data={bustopId}
+          isOpen={isEditDialogOpen}
+          onOpenChange={setIsEditDialogOpen}
+          onSubmit={(data) => {
+            modifyBusStop.mutate(data, {
+              onSuccess: () => {
+                refetch();
+                setIsEditDialogOpen(false);
+              },
+            });
+          }}
+          isLoading={modifyBusStop.isPending}
+        />
+      )}
     </Card>
   );
 }

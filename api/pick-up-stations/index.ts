@@ -2,6 +2,7 @@ import {
   AddPickupStationPayload,
   EditPickupStationPayload,
   ErrorrResponse,
+  PickUpStation,
   PickupStationDetails,
   PickupStationResponse,
   Response,
@@ -64,7 +65,7 @@ export const useCreatePickupStation = () => {
 
 export const useModifyPickupStation = () => {
   return useMutation({
-    mutationFn: async (data: EditPickupStationPayload) => {
+    mutationFn: async (data: PickUpStation) => {
       const res = await api.patch("/api/users/admin/pickup-station/edit", {
         pickup_station_id: data.pickup_station_id,
         address: data.address,

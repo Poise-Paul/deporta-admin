@@ -5,21 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Label } from "@/components/ui/label";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import {
   MapPin,
   Globe,
@@ -46,6 +32,7 @@ import { AddPickupStationPayload } from "@/types";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { EditDropOffStationDialog } from "./DropOffStationDialogue";
 
 interface StationDetailProps {
   onBack: () => void;
@@ -73,7 +60,10 @@ export function PickupStationDetail({ onBack }: StationDetailProps) {
       address:
         typeof selStation?.address === "object"
           ? selStation.address
-          : { value: selStation?.address || "", longitude: 0, latitude: 0 },
+          : {
+              value: selStation?.address || "",
+              coordinates: [selStation?.address],
+            },
       area: selStation?.area,
       state: selStation?.state,
       country: selStation?.country,
@@ -118,93 +108,10 @@ export function PickupStationDetail({ onBack }: StationDetailProps) {
           <ArrowLeft className="h-4 w-4" /> Back to Stations
         </Button>
         <div className="flex gap-3">
-          <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline">
-                <Edit className="h-4 w-4 mr-2" /> Edit Station
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle>Edit Pickup Station</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4 py-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Pickup Address</Label>
-                  {/* <Input
-                    id="name"
-                    {...register("address")}
-                    placeholder="Enter pickup station address"
-                  /> */}
-                  <Input
-                    id="address"
-                    placeholder="Enter pickup station address"
-                    // Bind to the 'value' property of the EntryPoint object
-                    value={watch("address.value")}
-                    onChange={(e) => {
-                      // Update the object while keeping coordinates at 0
-                      setValue("address", {
-                        value: e.target.value,
-                        longitude: 0,
-                        latitude: 0,
-                      });
-                    }}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="area">Area</Label>
-                  <Input
-                    id="area"
-                    {...register("area")}
-                    placeholder="Enter area"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">State</label>
-                  <Select
-                    value={selectedState}
-                    onValueChange={(value) => setValue("state", value)}
-                  >
-                    <SelectTrigger className="w-full bg-transparent border-border">
-                      <SelectValue placeholder="Select a State" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {NIGERIA_STATES.map((state) => (
-                        <SelectItem key={state} value={state.toLowerCase()}>
-                          {state}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="state">Country</Label>
-                  <Input
-                    id="country"
-                    disabled
-                    {...register("country")}
-                    defaultValue={"Nigeria"}
-                    placeholder="Enter country"
-                  />
-                </div>
-                <Button
-                  disabled={modifyStationMutation.isPending || holdPickupBtn}
-                  onClick={handlePickupStation}
-                  className={`w-full bg-primary ${
-                    modifyStationMutation.isPending || holdPickupBtn
-                      ? "opacity-30"
-                      : ""
-                  } hover:bg-primary/90 text-primary-foreground`}
-                >
-                  {modifyStationMutation.isPending ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                  ) : (
-                    <>Update Pickup Station</>
-                  )}
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Button variant="outline" onClick={() => setIsAddDialogOpen(true)}>
+            <Edit className="h-4 w-4 mr-2" /> Edit Station
+          </Button>
+
           <Button
             variant="destructive"
             onClick={() => {
@@ -298,6 +205,33 @@ export function PickupStationDetail({ onBack }: StationDetailProps) {
             </CardContent>
           </Card>
         </div>
+      )}
+      {/* Edit Pickup Station */}
+      {selStation && (
+        <EditDropOffStationDialog
+          type="pickup"
+          title="Pickup Station"
+          data={{
+            pickup_station_id: selStation._id,
+            address: {
+              value: selStation.address.value,
+              coordinates: selStation.address.location.coordinates,
+            },
+            state: selStation.state,
+            area: selStation.area,
+            country: selStation.country,
+          }}
+          isOpen={isAddDialogOpen}
+          onOpenChange={setIsAddDialogOpen}
+          onSubmit={(data) => {
+            modifyStationMutation.mutate(data, {
+              onSuccess: () => {
+                setIsAddDialogOpen(false);
+              },
+            });
+          }}
+          isLoading={modifyStationMutation.isPending}
+        />
       )}
       <Toaster />
     </div>

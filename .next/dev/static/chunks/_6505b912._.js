@@ -1380,9 +1380,11 @@ const useModifyRoutes = ()=>{
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
         mutationFn: {
             "useModifyRoutes.useMutation": async (data)=>{
+                console.log("Route Data", data);
                 const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/api/users/admin/trip-route/edit", {
                     trip_route_id: data.trip_route_id,
                     rate: data.rate,
+                    routine: data.routine,
                     flat_rate: data.flat_rate,
                     rate_per_km: data.rate_per_km,
                     code: data.code,

@@ -27,9 +27,12 @@ export const getRoutes = async (): Promise<GetAllRoutesData> => {
 export const useModifyRoutes = () => {
   return useMutation({
     mutationFn: async (data: EditTripRoute) => {
+      console.log("Route Data", data);
+
       const res = await api.patch("/api/users/admin/trip-route/edit", {
         trip_route_id: data.trip_route_id,
         rate: data.rate,
+        routine: data.routine,
         flat_rate: data.flat_rate,
         rate_per_km: data.rate_per_km,
         code: data.code,
@@ -75,7 +78,7 @@ export const useCreateTripRoute = () => {
         number_of_stops: data.number_of_stops,
         state: data.state,
         country: data.country,
-        routine:data.routine
+        routine: data.routine,
       });
       return res.data;
     },
@@ -101,7 +104,7 @@ export const useDeleteRoute = () => {
   return useMutation({
     mutationFn: async (stationId: string) => {
       const res = await api.delete(
-        `/api/users/admin/trip-route/delete/${stationId}`
+        `/api/users/admin/trip-route/delete/${stationId}`,
       );
       return res.data;
     },

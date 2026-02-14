@@ -157,3 +157,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.7 0 0);
 }
+
+.pac-container {
+  background-color: #ffffff !important; /* white background */
+  color: #000000 !important;           /* black text */
+  font-size: 0.875rem;                 /* match Tailwind text-sm */
+  border-radius: 0.375rem;             /* rounded-md */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 9999 !important;
+}
+
+.pac-item {
+  padding: 0.5rem 0.75rem;
+}
+
+.pac-item:hover {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
