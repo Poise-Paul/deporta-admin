@@ -1,2 +1,7 @@
 node_modules/
+# Correct way to ignore environment files
+.env
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
