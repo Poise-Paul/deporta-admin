@@ -286,7 +286,7 @@ export function DropOffStation({
     longitude: 0,
   });
 
-  const GOOGLE_MAPS_API_KEY = "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs";
+  const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   const handlePlaceSelect = (place: {
     address: string;

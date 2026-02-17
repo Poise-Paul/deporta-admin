@@ -90,7 +90,7 @@ export function DropOffStationDialog({
   const [area, setArea] = useState("");
   const [coordinates, setCoordinates] = useState<[number, number]>([0, 0]); // [lng, lat]
 
-  const GOOGLE_MAPS_API_KEY = "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs";
+  const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   // Initialize form with existing data when in edit mode
   useEffect(() => {
     if (mode === "edit" && existingData) {
@@ -226,7 +226,7 @@ export function DropOffStationDialog({
         <div className="space-y-4 py-4 overflow-visible">
           {/* Google Places Autocomplete */}
           <GooglePlacesAutocompleteImproved
-            apiKey={GOOGLE_MAPS_API_KEY}
+            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
             value={locationValue}
             onChange={setLocationValue}
             onPlaceSelect={handlePlaceSelect}

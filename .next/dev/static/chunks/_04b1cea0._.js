@@ -1932,6 +1932,7 @@ __turbopack_context__.s([
     "EditDropOffStationDialog",
     ()=>EditDropOffStationDialog
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
@@ -2000,7 +2001,7 @@ function DropOffStationDialog({ mode = "add", existingData, type = "drop-off", i
         0,
         0
     ]); // [lng, lat]
-    const GOOGLE_MAPS_API_KEY = "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs";
+    const GOOGLE_MAPS_API_KEY = ("TURBOPACK compile-time value", "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs");
     // Initialize form with existing data when in edit mode
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "DropOffStationDialog.useEffect": ()=>{
@@ -2123,7 +2124,7 @@ function DropOffStationDialog({ mode = "add", existingData, type = "drop-off", i
                     className: "space-y-4 py-4 overflow-visible",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$shared$2f$GooglePlacesAutocompleteImproved$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            apiKey: GOOGLE_MAPS_API_KEY,
+                            apiKey: ("TURBOPACK compile-time value", "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs") || "",
                             value: locationValue,
                             onChange: setLocationValue,
                             onPlaceSelect: handlePlaceSelect,
@@ -2374,6 +2375,7 @@ __turbopack_context__.s([
     "DropOffStation",
     ()=>DropOffStation
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/card.tsx [app-client] (ecmascript)");
@@ -2720,7 +2722,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
         latitude: 0,
         longitude: 0
     });
-    const GOOGLE_MAPS_API_KEY = "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs";
+    const GOOGLE_MAPS_API_KEY = ("TURBOPACK compile-time value", "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs");
     const handlePlaceSelect = (place)=>{
         setLocationValue(place.address);
         setCoordinates({

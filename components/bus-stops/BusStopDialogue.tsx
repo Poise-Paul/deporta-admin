@@ -93,7 +93,7 @@ export function BusStopDialog({
   const [routes, setRoutes] = useState(0);
   const [coordinates, setCoordinates] = useState<[number, number]>([0, 0]); // [lng, lat]
 
-  const GOOGLE_MAPS_API_KEY = "AIzaSyDiLLd0jxqJazTw8gV9FNyRvmvs6EDNVJs";
+  const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
   // Initialize form with existing data when in edit mode
   useEffect(() => {
     if (mode === "edit" && existingData) {
