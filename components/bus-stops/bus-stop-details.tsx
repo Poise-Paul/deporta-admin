@@ -71,7 +71,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
   const { register, setValue, watch } = useForm<AddBusStopPayload>({
     defaultValues: {
       routes: selBusStop?.routes,
-      location: selBusStop?.location,
+      location: selBusStop?.address,
       area: selBusStop?.area,
       state: selBusStop?.state,
       country: selBusStop?.country,
@@ -147,7 +147,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
               </div>
               <h2 className="text-xl font-bold px-4">{selBusStop?.routes}</h2>
               <h2 className="text-xl font-bold px-4">
-                {selBusStop?.location.value}
+                {selBusStop?.address.value}
               </h2>
               <p className="text-muted-foreground text-sm mb-4">
                 {selBusStop?.area}
@@ -193,7 +193,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
               />
               <InfoItem
                 label="Address"
-                value={selBusStop.location.value}
+                value={selBusStop.address.value}
                 icon={<MapPin />}
               />
               <InfoItem
@@ -227,8 +227,8 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
             bus_stop_id: selBusStop._id,
             routes: selBusStop.routes,
             location: {
-              value: selBusStop.location.value,
-              coordinates: selBusStop.location.location.coordinates,
+              value: selBusStop.address.value,
+              coordinates: selBusStop.address.location.coordinates,
             },
             state: selBusStop.state,
             area: selBusStop.area,

@@ -546,8 +546,38 @@ export type NewBusStopPayload = {
   country: string;
 };
 
+{
+  "status": true,
+  "bus_stop": {
+    "data": [
+      {
+        "address": {
+          "location": {
+            "type": "Point",
+            "coordinates": [
+              -73.935242,
+              40.73061
+            ]
+          },
+          "value": "Main Office"
+        },
+        "_id": "6996fea96f467157dad644bb",
+        "area": "Ajah, Lekki, Lagos",
+        "state": "Lagos",
+        "country": "Nigeria",
+        "routes": 1000,
+        "status": "active",
+        "createdAt": "2026-02-19T12:14:33.810Z",
+        "updatedAt": "2026-02-19T12:14:33.810Z",
+        "__v": 0
+      }
+    ],
+
+  }
+}
+
 export type BusStopDataDetails = {
-  location: NewEntryPoint;
+  address: NewEntryPoint;
   _id: string;
   area: string;
   state: string;

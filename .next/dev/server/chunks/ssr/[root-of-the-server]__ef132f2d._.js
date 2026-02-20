@@ -100,12 +100,12 @@ function BusStopsPage() {
             tableTitle: "All Bus-Stops"
         }, void 0, false, {
             fileName: "[project]/app/(dashboard)/app-menu/bus-stops/page.tsx",
-            lineNumber: 37,
+            lineNumber: 36,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/(dashboard)/app-menu/bus-stops/page.tsx",
-        lineNumber: 36,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }

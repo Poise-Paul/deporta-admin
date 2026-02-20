@@ -151,7 +151,7 @@ export function BusStopTable({
     let filtered = allBustops.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
-        station.location?.value.toLowerCase().includes(searchStr) ||
+        station.address?.value.toLowerCase().includes(searchStr) ||
         station.area?.toLowerCase().includes(searchStr) ||
         station.state?.toLowerCase().includes(searchStr)
       );
@@ -333,7 +333,7 @@ export function BusStopTable({
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
                     <td className="p-4 font-medium text-sm">
-                      {station.location.value}
+                      {station.address.value}
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
                       {station.area}
@@ -393,9 +393,9 @@ export function BusStopTable({
                                 state: station.state,
                                 country: station.country,
                                 location: {
-                                  value: station.location.value,
+                                  value: station.address.value,
                                   coordinates:
-                                    station.location.location.coordinates,
+                                    station.address.location.coordinates,
                                 },
                               });
                               setIsEditDialogOpen(true);

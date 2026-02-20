@@ -769,9 +769,9 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                         const currentStops = watch("number_of_stops") || [];
 
                         const newEntry: EntryPoint = {
-                          value: selectedStop.location.value.toLowerCase(),
+                          value: selectedStop.address.value.toLowerCase(),
                           coordinates:
-                            selectedStop.location.location.coordinates,
+                            selectedStop.address.location.coordinates,
                         };
                         if (
                           !currentStops.some((s) => s.value === newEntry.value)
@@ -793,12 +793,12 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                           (stop) =>
                             !watch("number_of_stops")?.some(
                               (s) =>
-                                s.value === stop.location.value.toLowerCase(),
+                                s.value === stop.address.value.toLowerCase(),
                             ),
                         )
                         .map((stop) => (
                           <SelectItem key={stop._id} value={stop._id}>
-                            {stop.location.value}
+                            {stop.address.value}
                           </SelectItem>
                         ))}
                     </SelectContent>

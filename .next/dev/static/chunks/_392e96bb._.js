@@ -3319,8 +3319,8 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 const currentStops = watch("number_of_stops") || [];
                                                                                 // 2. Create the EntryPoint object
                                                                                 const newEntry = {
-                                                                                    value: selectedStop.location.value.toLowerCase(),
-                                                                                    coordinates: selectedStop.location.location.coordinates
+                                                                                    value: selectedStop.address.value.toLowerCase(),
+                                                                                    coordinates: selectedStop.address.location.coordinates
                                                                                 };
                                                                                 // 3. Check for duplicates based on coordinates or value
                                                                                 const isDuplicate = currentStops.some((s)=>s.value === newEntry.value);
@@ -3349,9 +3349,9 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                                 children: busStops?.bus_stop.data.filter((stop)=>// Filter out if the location value already exists in the number_of_stops array
-                                                                                    !watch("number_of_stops")?.some((s)=>s.value === stop.location.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                                    !watch("number_of_stops")?.some((s)=>s.value === stop.address.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                         value: stop._id,
-                                                                                        children: stop.location.value
+                                                                                        children: stop.address.value
                                                                                     }, stop._id, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
                                                                                         lineNumber: 933,
@@ -4477,8 +4477,8 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                 if (selectedStop) {
                                                                     const currentStops = updateWatch("number_of_stops") || [];
                                                                     const newEntry = {
-                                                                        value: selectedStop.location.value.toLowerCase(),
-                                                                        coordinates: selectedStop.location.location.coordinates
+                                                                        value: selectedStop.address.value.toLowerCase(),
+                                                                        coordinates: selectedStop.address.location.coordinates
                                                                     };
                                                                     if (!currentStops.some((s)=>s.value === newEntry.value)) {
                                                                         updateValue("number_of_stops", [
@@ -4504,9 +4504,9 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                                    children: busStops?.bus_stop.data.filter((stop)=>!updateWatch("number_of_stops")?.some((s)=>s.value === stop.location.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                    children: busStops?.bus_stop.data.filter((stop)=>!updateWatch("number_of_stops")?.some((s)=>s.value === stop.address.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                             value: stop._id,
-                                                                            children: stop.location.value
+                                                                            children: stop.address.value
                                                                         }, stop._id, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
                                                                             lineNumber: 1492,

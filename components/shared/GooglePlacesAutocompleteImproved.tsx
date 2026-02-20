@@ -229,7 +229,7 @@ export default function GooglePlacesAutocompleteEnhanced({
   };
 
   // Get place details
-  const getPlaceDetails = (placeId: string) => {
+  const getPlaceDetails = (placeId: string, selectedDescription?: string) => {
     if (!placesServiceRef.current || !window.google?.maps?.places) return;
 
     setIsLoading(true);
@@ -301,7 +301,7 @@ export default function GooglePlacesAutocompleteEnhanced({
             }
 
             const result: PlaceResult = {
-              address: place.formatted_address || place.name || "",
+              address: selectedDescription || place.name || place.formatted_address || "",
               latitude: place.geometry?.location?.lat() || 0,
               longitude: place.geometry?.location?.lng() || 0,
               placeId,
@@ -419,7 +419,7 @@ export default function GooglePlacesAutocompleteEnhanced({
 
   const handleSelectPrediction = (prediction: Prediction) => {
     onChange?.(prediction.description);
-    getPlaceDetails(prediction.place_id);
+    getPlaceDetails(prediction.place_id, prediction.description);
   };
 
   // Keyboard navigation

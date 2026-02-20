@@ -1,5 +1,4 @@
 import { BusStopTable } from "@/components/bus-stops/bus-stop-table";
-import { LocationTable } from "@/components/shared/location-table"
 
 const busStops = [
   {
