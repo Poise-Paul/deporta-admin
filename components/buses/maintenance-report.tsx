@@ -45,61 +45,6 @@ interface MaintenanceReportProps {
   busId: string;
 }
 
-const reports = [
-  {
-    id: 1,
-    date: "10/08/2025 | 8:30 Am",
-    title: "Engine Warning Light (Oil Pressure)",
-    description:
-      "Driver reported an illuminated red oil pressure warning light during the morning route (Route AJAH-EB) today, 11/20. They pulled over safely. The engine sounds rougher than usual at low RPMs...",
-    staff: {
-      name: "Fashina Simisola",
-      avatar: "/diverse-woman-smiling.png",
-    },
-    status: "pending",
-    priority: "urgent",
-  },
-  {
-    id: 2,
-    date: "10/08/2025 | 8:30 Am",
-    title: "Cabin AC Not Cooling",
-    description:
-      "Driver reported that the main passenger cabin AC unit stopped blowing cold air entirely during the 3 PM route...",
-    staff: {
-      name: "Olayinka Badamosi",
-      avatar: "/african-man-professional.png",
-    },
-    status: "completed",
-    priority: "high",
-  },
-  {
-    id: 3,
-    date: "10/08/2025 | 8:30 Am",
-    title: "Passenger Side Mirror Cracked",
-    description:
-      "Noted during the pre-shift inspection: the passenger-side rearview mirror casing is cracked and the glass is loose. It is currently taped for temporary safety but requires immediate replacement before the next route. Action Required: Replace entire mirror assembly.",
-    staff: {
-      name: "Demisire Oluwatobi",
-      avatar: "/young-man-casual.jpg",
-    },
-    status: "completed",
-    priority: "normal",
-  },
-  {
-    id: 4,
-    date: "10/08/2025 | 8:30 Am",
-    title: "Front Brake Pads Worn",
-    description:
-      "The driver reported a persistent squealing sound during braking, particularly at low speeds. Technician performed an inspection and confirmed that the front brake pads are worn down to 2mm (replacement threshold is 3mm)...",
-    staff: {
-      name: "Olayinka Badamosi",
-      avatar: "/african-man-professional.png",
-    },
-    status: "completed",
-    priority: "low",
-  },
-];
-
 export function MaintenanceReport({ busId }: MaintenanceReportProps) {
   const { selBus } = useSelector((state: RootState) => state.bus);
 
@@ -127,6 +72,20 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
 
   const mutationReport = useCreateReport();
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+
+    const { data, refetch, isLoading } = useQuery({
+      // ✅ Adding parameters to the key ensures refetching on change
+      queryKey: ["maintenanceReports", currentPage, itemsPerPage],
+      queryFn: () => getMaintenanceReports(currentPage, itemsPerPage),
+    });
+
+    // Extract pagination info safely from your MaintenanceReportResponse
+    const pagination = data?.maintenance_report?.pagination;
+    const totalPages = pagination?.totalPages || 1;
+
+
   const handleMutationReport = () => {
     const currentData = watch();
 
@@ -139,6 +98,7 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
     mutationReport.mutate(currentData, {
       onSuccess: () => {
         reset();
+        refetch()
         setIsMaintenanceOpen(false);
       },
     });
@@ -156,18 +116,6 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
     setHoldBtn(!isFormValid);
   }, [handleWatchMaintenance]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-
-  const { data, refetch, isLoading } = useQuery({
-    // ✅ Adding parameters to the key ensures refetching on change
-    queryKey: ["maintenanceReports", currentPage, itemsPerPage],
-    queryFn: () => getMaintenanceReports(currentPage, itemsPerPage),
-  });
-
-  // Extract pagination info safely from your MaintenanceReportResponse
-  const pagination = data?.maintenance_report?.pagination;
-  const totalPages = pagination?.totalPages || 1;
 
   return (
     <Card className="bg-card border border-border">

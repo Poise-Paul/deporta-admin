@@ -49,6 +49,7 @@ import { useForm } from "react-hook-form";
 import {
   AddPickupStationPayload,
   AddTripRoute,
+  BusStopEntryPoint,
   EntryPoint,
   WeekdayType,
 } from "@/types";
@@ -768,8 +769,9 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                       if (selectedStop) {
                         const currentStops = watch("number_of_stops") || [];
 
-                        const newEntry: EntryPoint = {
+                        const newEntry: BusStopEntryPoint = {
                           value: selectedStop.address.value.toLowerCase(),
+                          location_id: selectedStop._id,
                           coordinates:
                             selectedStop.address.location.coordinates,
                         };

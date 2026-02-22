@@ -9,21 +9,11 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import {
   Search,
-  Filter,
-  Plus,
   MoreVertical,
   Eye,
   Loader2,
@@ -35,26 +25,6 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  getPickupStations,
-  useCreatePickupStation,
-  useDeletePickupStation,
-  useModifyPickupStation,
-} from "@/api/pick-up-stations";
-import { NIGERIA_STATES } from "@/constants/nigeria-states";
-import { useForm } from "react-hook-form";
-import {
-  AddBusPayload,
-  AddBusStopPayload,
-  AddPickupStationPayload,
-  EditBusStopPayload,
-  EditPickupStationPayload,
   NewBusStopPayload,
 } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
@@ -62,7 +32,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
 import {
   BusStopPayload,
   getAllBusStops,
@@ -392,7 +361,7 @@ export function BusStopTable({
                                 area: station.area,
                                 state: station.state,
                                 country: station.country,
-                                location: {
+                                address: {
                                   value: station.address.value,
                                   coordinates:
                                     station.address.location.coordinates,

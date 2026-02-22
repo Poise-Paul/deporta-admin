@@ -84,6 +84,7 @@ export function BusSystemsTable() {
 
   const [editMode, setEditMode] = useState(false);
   const [busId, setBusId] = useState("");
+const [deleteBusPhotos, setDeleteBusPhotos] = useState<string[]>([]);
 
   const { register, setValue, watch, reset } = useForm<AddBusPayload>({
     values: {
@@ -148,6 +149,7 @@ export function BusSystemsTable() {
     fuel_type,
     tracker_id,
     mileage,
+    delete_bus_photo,
     bus_id,
   } = handleWatch;
 
@@ -217,6 +219,7 @@ export function BusSystemsTable() {
       {
         image,
         id_code,
+        delete_bus_photo,
         bus_id: busId,
         routes_assigned,
         drivers_assigned,
@@ -498,11 +501,17 @@ export function BusSystemsTable() {
                                 const updatedUrls = imageUrl.filter(
                                   (_, i) => i !== index,
                                 );
+
+                                const deleteUrls = imageUrl.filter(
+                                  (_, i) => i === index,
+                                );
+
                                 const updatedFiles = (
                                   watch("image") || []
                                 ).filter((_, i) => i !== index);
                                 setValue("imageUrl", updatedUrls);
                                 setValue("image", updatedFiles);
+                                setValue("delete_bus_photo", deleteUrls);
                               }}
                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
                             >

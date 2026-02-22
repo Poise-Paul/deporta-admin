@@ -67,6 +67,8 @@ export const useModifyRoutes = () => {
 export const useCreateTripRoute = () => {
   return useMutation({
     mutationFn: async (data: AddTripRoute) => {
+      console.log("Trip Route Details", data);
+
       const res = await api.post("/api/users/admin/trip-route/create", {
         rate: data.rate,
         flat_rate: data.flat_rate,
@@ -90,7 +92,7 @@ export const useCreateTripRoute = () => {
     onError: (error, variables) => {
       if (axios.isAxiosError(error)) {
         const err = error.response?.data as ErrorrResponse;
-        console.log("User Erro", error);
+        console.log("Route ERROR 📍📍", error);
 
         toast.error(`${err?.error.message}`);
       } else {

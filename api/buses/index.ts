@@ -129,7 +129,12 @@ export const useModifyBuses = () => {
       if (data.image) {
         data.image.forEach((file) => {
           formData.append("image", file);
-          // or "image[]" depending on backend
+        });
+      }
+
+      if (data.delete_bus_photo) {
+        data.delete_bus_photo.forEach((string) => {
+          formData.append("delete_bus_photo", string);
         });
       }
 
@@ -157,6 +162,8 @@ export const useModifyBuses = () => {
       formData.append("fuel_type", data.fuel_type);
       formData.append("tracker_id", data.tracker_id);
       formData.append("mileage", data.mileage);
+
+      console.log("Bus Details Update>><>🚌🚐", formData);
 
       const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
         headers: {

@@ -57,13 +57,19 @@ export type AddPickupStationPayload = {
   country: string;
 };
 
+export type BusStopEntryPoint = {
+  value: string;
+  location_id: string;
+  coordinates: [number, number];
+};
+
 export type AddTripRoute = {
   rate: number;
   flat_rate: number;
   rate_per_km: number;
   code: string;
-  destination: EntryPoint;
-  starting_point: EntryPoint;
+  destination: BusStopEntryPoint;
+  starting_point: BusStopEntryPoint;
   routine: {
     monday: WeekdayType;
     tuesday: WeekdayType;
@@ -76,12 +82,12 @@ export type AddTripRoute = {
   state: string;
   country: string;
   route_distance: string;
-  number_of_stops: EntryPoint[];
+  number_of_stops: BusStopEntryPoint[];
 };
 
 export type AddBusStopPayload = {
   routes: number;
-  location: EntryPoint;
+  address: EntryPoint;
   area: string;
   state: string;
   country: string;
@@ -90,6 +96,7 @@ export type AddBusStopPayload = {
 export type AddBusPayload = {
   image?: File[] | null;
   imageUrl?: string[] | string | undefined;
+  delete_bus_photo?: string[];
   id_code: string;
   name_label: string;
   routes_assigned: string[];
@@ -110,6 +117,7 @@ export type AddBusPayload = {
 export type EditBusPayload = {
   image?: File[] | null;
   imageUrl?: string[] | string | undefined;
+  delete_bus_photo?: string[];
   bus_id: string;
   id_code: string;
   name_label: string;
@@ -141,12 +149,12 @@ export type EditTripRoute = {
   flat_rate: number;
   rate_per_km: number;
   code: string;
-  destination: EntryPoint;
-  starting_point: EntryPoint;
+  destination: BusStopEntryPoint;
+  starting_point: BusStopEntryPoint;
   state: string;
   country: string;
   route_distance: string;
-  number_of_stops: EntryPoint[];
+  number_of_stops: BusStopEntryPoint[];
   routine: {
     monday: WeekdayType;
     tuesday: WeekdayType;
@@ -517,7 +525,7 @@ export type BusesResponse = {
 };
 
 export type BusStop = {
-  location: string;
+  address: NewEntryPoint;
   area: string;
   state: string;
   country: string;
@@ -537,7 +545,7 @@ export interface BusStopResponse extends Response {
 export type NewBusStopPayload = {
   bus_stop_id?: string;
   routes: number;
-  location: {
+  address: {
     value: string;
     coordinates: [number, number];
   };
@@ -545,36 +553,6 @@ export type NewBusStopPayload = {
   state: string;
   country: string;
 };
-
-{
-  "status": true,
-  "bus_stop": {
-    "data": [
-      {
-        "address": {
-          "location": {
-            "type": "Point",
-            "coordinates": [
-              -73.935242,
-              40.73061
-            ]
-          },
-          "value": "Main Office"
-        },
-        "_id": "6996fea96f467157dad644bb",
-        "area": "Ajah, Lekki, Lagos",
-        "state": "Lagos",
-        "country": "Nigeria",
-        "routes": 1000,
-        "status": "active",
-        "createdAt": "2026-02-19T12:14:33.810Z",
-        "updatedAt": "2026-02-19T12:14:33.810Z",
-        "__v": 0
-      }
-    ],
-
-  }
-}
 
 export type BusStopDataDetails = {
   address: NewEntryPoint;

@@ -19,10 +19,10 @@ const busStopSlice = createSlice({
     updateBusStopDetails: (state, action) => {
       if (state.selBusStop) {
         state.selBusStop.routes = action.payload.routes;
-        state.selBusStop.location = action.payload.location;
+        state.selBusStop.address = action.payload.address;
         state.selBusStop.area = action.payload.area;
         state.selBusStop.country = action.payload.country;
-         state.selBusStop.state = action.payload.state;
+        state.selBusStop.state = action.payload.state;
         state.selBusStop.status = action.payload.status;
       }
     },

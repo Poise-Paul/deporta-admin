@@ -71,7 +71,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
   const { register, setValue, watch } = useForm<AddBusStopPayload>({
     defaultValues: {
       routes: selBusStop?.routes,
-      location: selBusStop?.address,
+      address: selBusStop?.address,
       area: selBusStop?.area,
       state: selBusStop?.state,
       country: selBusStop?.country,
@@ -83,14 +83,14 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
   const modifyBusStopMutation = useModifyBusStop();
 
   const handleWatch = watch();
-  const { routes, location, area, state, country } = handleWatch;
+  const { routes, address, area, state, country } = handleWatch;
 
   const handleMopdifyBusStop = () => {
     if (!selBusStop) return;
     modifyBusStopMutation.mutate(
       {
         bus_stop_id: selBusStop._id,
-        location,
+        address,
         routes,
         area,
         state,
@@ -109,6 +109,12 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
       setHoldPickupBtn(true);
     }
   }, [routes, location, area, state, country]);
+
+  useEffect(() => {
+  console.log("Bus Stop<<>>🟢🟢", selBusStop);
+  console.log("Bus Stop<<>>🟢🟢", selBusStop?.address);
+  }, [selBusStop])
+  
 
   return (
     <div className="space-y-6">
@@ -147,7 +153,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
               </div>
               <h2 className="text-xl font-bold px-4">{selBusStop?.routes}</h2>
               <h2 className="text-xl font-bold px-4">
-                {selBusStop?.address.value}
+                {selBusStop?.address?.value}
               </h2>
               <p className="text-muted-foreground text-sm mb-4">
                 {selBusStop?.area}
@@ -193,7 +199,7 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
               />
               <InfoItem
                 label="Address"
-                value={selBusStop.address.value}
+                value={selBusStop?.address?.value}
                 icon={<MapPin />}
               />
               <InfoItem
@@ -226,9 +232,9 @@ export function BusStopDetail({ onBack }: StationDetailProps) {
           data={{
             bus_stop_id: selBusStop._id,
             routes: selBusStop.routes,
-            location: {
-              value: selBusStop.address.value,
-              coordinates: selBusStop.address.location.coordinates,
+            address: {
+              value: selBusStop?.address?.value,
+              coordinates: selBusStop?.address?.location?.coordinates,
             },
             state: selBusStop.state,
             area: selBusStop.area,

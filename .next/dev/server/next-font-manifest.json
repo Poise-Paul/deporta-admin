@@ -1,6 +1,18 @@
 {
   "app": {
+    "[project]/app/(dashboard)/app-menu/bus-stops/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
     "[project]/app/(dashboard)/app-menu/bus-stops/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/app/(dashboard)/app-menu/buses/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/app/(dashboard)/app-menu/buses/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
@@ -29,10 +41,6 @@
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
     "[project]/app/login/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
-    ],
-    "[project]/app/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ]

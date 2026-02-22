@@ -48,6 +48,7 @@ import { useForm } from "react-hook-form";
 import {
   AddPickupStationPayload,
   AddTripRoute,
+  BusStopEntryPoint,
   EditPickupStationPayload,
   EditTripRoute,
   EntryPoint,
@@ -171,8 +172,8 @@ export function RoutesTable({
       flat_rate: 0,
       rate_per_km: 0,
       code: "",
-      destination: { value: "", coordinates: [0, 0] },
-      starting_point: { value: "", coordinates: [0, 0] },
+      destination: { value: "", coordinates: [0, 0], location_id: "" },
+      starting_point: { value: "", coordinates: [0, 0], location_id: "" },
       route_distance: "",
       number_of_stops: [],
       country: "Nigeria",
@@ -203,10 +204,12 @@ export function RoutesTable({
 
       destination: {
         value: routeId?.destination.value || "",
+        location_id: routeId?.destination.location_id || "",
         coordinates: routeId?.destination.coordinates || [0, 0],
       },
       starting_point: {
         value: routeId?.starting_point.value || "",
+        location_id: routeId?.starting_point.location_id || "",
         coordinates: routeId?.starting_point.coordinates || [0, 0],
       },
       route_distance: `${routeId?.route_distance}`,
@@ -675,6 +678,7 @@ export function RoutesTable({
                             setValue("starting_point", {
                               // Use 'address' because that's what your map uses below
                               value: station.address.value.toLowerCase(),
+                              location_id: station._id,
                               coordinates: station.address.location.coordinates,
                             });
                           }
@@ -714,6 +718,7 @@ export function RoutesTable({
                           if (station) {
                             setValue("destination", {
                               value: station.address.value.toLowerCase(),
+                              location_id: station._id,
                               coordinates: station.address.location.coordinates,
                             });
                           }
@@ -766,6 +771,7 @@ export function RoutesTable({
                               />
                             </div>
                           </div>
+
                           {watch(`routine.${day}.active`) && (
                             <div className="space-y-2">
                               {watch(`routine.${day}.value`)?.map(
@@ -782,13 +788,39 @@ export function RoutesTable({
                                         type="time"
                                         value={slot.from ?? ""}
                                         onChange={(e) => {
-                                          const current = [
+                                          const newFrom = e.target.value;
+                                          const currentRoutine = [
                                             ...watch(`routine.${day}.value`),
                                           ];
-                                          current[index].from = e.target.value;
+
+                                          // 🔑 1. Check for Duplicates (Excluding the current index being edited)
+                                          const isDuplicate =
+                                            currentRoutine.some(
+                                              (s, i) =>
+                                                i !== index &&
+                                                s.from === newFrom &&
+                                                s.too === slot.too,
+                                            );
+
+                                          if (isDuplicate) {
+                                            toast.error(
+                                              "This exact time slot already exists.",
+                                            );
+                                            return; // Block the update
+                                          }
+
+                                          // 🔑 2. Prevent "From" from being after or equal to "Too"
+                                          if (newFrom >= slot.too) {
+                                            toast.error(
+                                              "Departure must be before arrival.",
+                                            );
+                                            return; // Block the update
+                                          }
+
+                                          currentRoutine[index].from = newFrom;
                                           setValue(
                                             `routine.${day}.value`,
-                                            current,
+                                            currentRoutine,
                                           );
                                         }}
                                       />
@@ -801,13 +833,39 @@ export function RoutesTable({
                                         type="time"
                                         value={slot.too}
                                         onChange={(e) => {
-                                          const current = [
+                                          const newToo = e.target.value;
+                                          const currentRoutine = [
                                             ...watch(`routine.${day}.value`),
                                           ];
-                                          current[index].too = e.target.value;
+
+                                          // 🔑 1. Check for Duplicates
+                                          const isDuplicate =
+                                            currentRoutine.some(
+                                              (s, i) =>
+                                                i !== index &&
+                                                s.from === slot.from &&
+                                                s.too === newToo,
+                                            );
+
+                                          if (isDuplicate) {
+                                            toast.error(
+                                              "This exact time slot already exists.",
+                                            );
+                                            return;
+                                          }
+
+                                          // 🔑 2. Prevent "Too" from being before or equal to "From"
+                                          if (newToo <= slot.from) {
+                                            toast.error(
+                                              "Arrival must be after departure.",
+                                            );
+                                            return;
+                                          }
+
+                                          currentRoutine[index].too = newToo;
                                           setValue(
                                             `routine.${day}.value`,
-                                            current,
+                                            currentRoutine,
                                           );
                                         }}
                                       />
@@ -839,13 +897,46 @@ export function RoutesTable({
                                 onClick={() => {
                                   const current =
                                     watch(`routine.${day}.value`) || [];
+
+                                  // 🔑 1. Determine the dynamic default start time
+                                  let defaultFrom = "08:00";
+                                  if (current.length > 0) {
+                                    const lastSlot =
+                                      current[current.length - 1];
+                                    const [lastHour] = lastSlot.too.split(":");
+                                    // Increment hour by 1 and wrap around if it exceeds 23
+                                    const nextHour =
+                                      (parseInt(lastHour) + 1) % 24;
+                                    defaultFrom = `${nextHour.toString().padStart(2, "0")}:00`;
+                                  }
+
+                                  // 🔑 2. Set arrival to 1 hour after the new departure
+                                  const [newHour] = defaultFrom.split(":");
+                                  const defaultToo = `${((parseInt(newHour) + 1) % 24).toString().padStart(2, "0")}:00`;
+
+                                  const newSlot = {
+                                    from: defaultFrom,
+                                    too: defaultToo,
+                                    status: "pending",
+                                  };
+
+                                  // 🔑 3. Final safety check (should never fail with dynamic times)
+                                  const isDuplicate = current.some(
+                                    (s) =>
+                                      s.from === newSlot.from &&
+                                      s.too === newSlot.too,
+                                  );
+
+                                  if (isDuplicate) {
+                                    toast.error(
+                                      `Please adjust existing slots before adding more for ${day}`,
+                                    );
+                                    return;
+                                  }
+
                                   setValue(`routine.${day}.value`, [
                                     ...current,
-                                    {
-                                      from: "08:00",
-                                      too: "10:00",
-                                      status: "pending",
-                                    },
+                                    newSlot,
                                   ]);
                                 }}
                               >
@@ -894,9 +985,9 @@ export function RoutesTable({
                                 watch("number_of_stops") || [];
 
                               // 2. Create the EntryPoint object
-                              const newEntry: EntryPoint = {
-                                value:
-                                  selectedStop.address.value.toLowerCase(),
+                              const newEntry: BusStopEntryPoint = {
+                                value: selectedStop.address.value.toLowerCase(),
+                                location_id: selectedStop._id,
                                 coordinates:
                                   selectedStop.address.location.coordinates,
                               };
@@ -1066,10 +1157,10 @@ export function RoutesTable({
                     key={station._id}
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
-                    <td className="p-4 font-medium text-sm">
+                    <td className="p-4 capitalize font-medium text-sm">
                       {station.starting_point.value}
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground">
+                    <td className="p-4 capitalize text-sm text-muted-foreground">
                       {station.destination.value}
                     </td>
                     <td className="p-4 text-sm capitalize text-muted-foreground">
@@ -1128,12 +1219,14 @@ export function RoutesTable({
                                 code: station.code,
                                 destination: {
                                   value: station.destination.value,
+                                  location_id: station._id,
                                   // 🔑 Extract coordinates from the nested location object
                                   coordinates:
                                     station.destination.location.coordinates,
                                 },
                                 starting_point: {
                                   value: station.starting_point.value,
+                                  location_id: station._id,
                                   coordinates:
                                     station.starting_point.location.coordinates,
                                 },
@@ -1144,6 +1237,7 @@ export function RoutesTable({
                                 number_of_stops: station.number_of_stops.map(
                                   (stop: any) => ({
                                     value: stop.value,
+                                    location_id: stop.location_id,
                                     coordinates: stop.location.coordinates,
                                   }),
                                 ),
@@ -1275,7 +1369,7 @@ export function RoutesTable({
                 </div>
 
                 {/* Starting Point & Destination (Matches Add Modal Logic) */}
-                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                {/* <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
                   <Label className="text-primary font-bold">
                     Starting Point
                   </Label>
@@ -1285,9 +1379,9 @@ export function RoutesTable({
                     readOnly
                     className="bg-background"
                   />
-                </div>
+                </div> */}
 
-                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                {/* <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
                   <Label className="text-primary font-bold">Destination</Label>
                   <Input
                     id="destination"
@@ -1295,6 +1389,79 @@ export function RoutesTable({
                     readOnly
                     className="bg-background"
                   />
+                </div> */}
+
+                {/* Starting Point (Edit Modal Version) */}
+                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">
+                    Starting Point
+                  </Label>
+                  <Select
+                    onValueChange={(id) => {
+                      const station = pickupStations?.pickup_station.data.find(
+                        (s) => s._id === id,
+                      );
+                      if (station) {
+                        updateValue("starting_point", {
+                          value: station.address.value.toLowerCase(),
+                          location_id: station._id,
+                          coordinates: station.address.location.coordinates,
+                        });
+                      }
+                    }}
+                  >
+                    <SelectTrigger className="bg-background w-full">
+                      <SelectValue
+                        placeholder={
+                          updateWatch("starting_point.value") ||
+                          "Select Pickup Location"
+                        }
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {pickupStations?.pickup_station.data.map((stop) => (
+                        <SelectItem key={stop._id} value={stop._id}>
+                          {stop.address.value}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Destination (Edit Modal Version) */}
+                <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">Destination</Label>
+                  <Select
+                    onValueChange={(id) => {
+                      const station =
+                        dropOffStations?.drop_off_station.data.find(
+                          (s) => s._id === id,
+                        );
+                      if (station) {
+                        updateValue("destination", {
+                          value: station.address.value.toLowerCase(),
+                          location_id: station._id,
+                          coordinates: station.address.location.coordinates,
+                        });
+                      }
+                    }}
+                  >
+                    <SelectTrigger className="bg-background w-full">
+                      <SelectValue
+                        placeholder={
+                          updateWatch("destination.value") ||
+                          "Select Drop Off Location"
+                        }
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {dropOffStations?.drop_off_station.data.map((stop) => (
+                        <SelectItem key={stop._id} value={stop._id}>
+                          {stop.address.value}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* --- NEW: Weekly Operating Schedule (Missing from your Edit version) --- */}
@@ -1338,21 +1505,42 @@ export function RoutesTable({
                                   <Input
                                     type="time"
                                     value={formatISOToTime(slot.from)}
-                                    // value={slot.from}
                                     onChange={(e) => {
-                                      const newTime = e.target.value; // e.g., "09:30"
-
-                                      // 2. State Update: Convert HH:mm back to ISO before saving
-                                      const isoValue = convertToISO(newTime);
-
-                                      const current = [
+                                      const newTime = e.target.value;
+                                      const currentRoutine = [
                                         ...updateWatch(`routine.${day}.value`),
                                       ];
-                                      current[index].from = isoValue;
 
+                                      // 🔑 1. Guard: Check for Duplicates
+                                      const isDuplicate = currentRoutine.some(
+                                        (s, i) =>
+                                          i !== index &&
+                                          formatISOToTime(s.from) === newTime &&
+                                          formatISOToTime(s.too) ===
+                                            formatISOToTime(slot.too),
+                                      );
+                                      if (isDuplicate) {
+                                        toast.error(
+                                          "This exact time slot already exists.",
+                                        );
+                                        return;
+                                      }
+
+                                      // 🔑 2. Guard: Departure must be before Arrival
+                                      if (
+                                        newTime >= formatISOToTime(slot.too)
+                                      ) {
+                                        toast.error(
+                                          "Departure must be before arrival.",
+                                        );
+                                        return;
+                                      }
+
+                                      currentRoutine[index].from =
+                                        convertToISO(newTime);
                                       updateValue(
                                         `routine.${day}.value`,
-                                        current,
+                                        currentRoutine,
                                       );
                                     }}
                                   />
@@ -1365,19 +1553,41 @@ export function RoutesTable({
                                     type="time"
                                     value={formatISOToTime(slot.too)}
                                     onChange={(e) => {
-                                      const newTime = e.target.value; // e.g., "09:30"
-
-                                      // 2. State Update: Convert HH:mm back to ISO before saving
-                                      const isoValue = convertToISO(newTime);
-
-                                      const current = [
+                                      const newTime = e.target.value;
+                                      const currentRoutine = [
                                         ...updateWatch(`routine.${day}.value`),
                                       ];
-                                      current[index].too = isoValue;
 
+                                      // 🔑 1. Guard: Check for Duplicates
+                                      const isDuplicate = currentRoutine.some(
+                                        (s, i) =>
+                                          i !== index &&
+                                          formatISOToTime(s.from) ===
+                                            formatISOToTime(slot.from) &&
+                                          formatISOToTime(s.too) === newTime,
+                                      );
+                                      if (isDuplicate) {
+                                        toast.error(
+                                          "This exact time slot already exists.",
+                                        );
+                                        return;
+                                      }
+
+                                      // 🔑 2. Guard: Arrival must be after Departure
+                                      if (
+                                        newTime <= formatISOToTime(slot.from)
+                                      ) {
+                                        toast.error(
+                                          "Arrival must be after departure.",
+                                        );
+                                        return;
+                                      }
+
+                                      currentRoutine[index].too =
+                                        convertToISO(newTime);
                                       updateValue(
                                         `routine.${day}.value`,
-                                        current,
+                                        currentRoutine,
                                       );
                                     }}
                                   />
@@ -1408,11 +1618,26 @@ export function RoutesTable({
                             onClick={() => {
                               const current =
                                 updateWatch(`routine.${day}.value`) || [];
+                              let defaultFrom = "08:00";
+
+                              if (current.length > 0) {
+                                const lastSlot = current[current.length - 1];
+                                const lastHour = formatISOToTime(
+                                  lastSlot.too,
+                                ).split(":")[0];
+                                const nextHour = (parseInt(lastHour) + 1) % 24;
+                                defaultFrom = `${nextHour.toString().padStart(2, "0")}:00`;
+                              }
+
+                              const nextHourAfterFrom =
+                                (parseInt(defaultFrom.split(":")[0]) + 1) % 24;
+                              const defaultToo = `${nextHourAfterFrom.toString().padStart(2, "0")}:00`;
+
                               updateValue(`routine.${day}.value`, [
                                 ...current,
                                 {
-                                  from: "08:00",
-                                  too: "10:00",
+                                  from: convertToISO(defaultFrom),
+                                  too: convertToISO(defaultToo),
                                   status: "pending",
                                 },
                               ]);
@@ -1425,6 +1650,8 @@ export function RoutesTable({
                     </div>
                   ))}
                 </div>
+
+                {/* End Weekly appointment Schedule */}
 
                 {/* Route Distance with Unit Suffix */}
                 <div className="space-y-2">
@@ -1458,8 +1685,9 @@ export function RoutesTable({
                           const currentStops =
                             updateWatch("number_of_stops") || [];
 
-                          const newEntry: EntryPoint = {
+                          const newEntry: BusStopEntryPoint = {
                             value: selectedStop.address.value.toLowerCase(),
+                            location_id: selectedStop._id,
                             coordinates:
                               selectedStop.address.location.coordinates,
                           };

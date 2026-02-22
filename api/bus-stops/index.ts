@@ -33,17 +33,9 @@ export const getAllBusStops = async (): Promise<BusStopData> => {
 export const useCreateBusStop = () => {
   return useMutation({
     mutationFn: async (data: AddBusStopPayload) => {
-      console.log("Added Bus Stop", {
-        routes: data.routes,
-        location: data.location,
-        area: data.area,
-        state: data.state,
-        country: data.country,
-      });
-
       const res = await api.post("/api/users/admin/bus-stop/create", {
         routes: data.routes,
-        location: data.location,
+        address: data.address,
         area: data.area,
         state: data.state,
         country: data.country,
@@ -71,10 +63,12 @@ export const useCreateBusStop = () => {
 export const useModifyBusStop = () => {
   return useMutation({
     mutationFn: async (data: NewBusStopPayload) => {
+      console.log("Bus-Stop ID >>>", data);
+      
       const res = await api.patch("/api/users/admin/bus-stop/edit", {
         bus_stop_id: data.bus_stop_id,
         routes: data.routes,
-        location: data.location,
+        address: data.address,
         area: data.area,
         state: data.state,
         country: data.country,
@@ -84,7 +78,6 @@ export const useModifyBusStop = () => {
     onSuccess: (data: BusStopResponse) => {
       queryClient.invalidateQueries({ queryKey: ["busStops"] });
       console.log("Bus Stop==", data.bus_stop);
-
       store.dispatch(updateBusStopDetails(data.bus_stop));
       toast.success(`${data.message}`);
       return data;

@@ -18,13 +18,7 @@ import {
 } from "@/components/ui/select";
 import { Plus, Loader2 } from "lucide-react";
 import GooglePlacesAutocompleteBusstop from "./GooglePlacesAutocompleteBusstop";
-import {
-  DropOffStation,
-  EditPickupStationPayload,
-  NewBusStopPayload,
-  PickUpStation,
-} from "@/types";
-import { BusStopPayload } from "@/api/bus-stops";
+import { NewBusStopPayload} from "@/types";
 
 const NIGERIA_STATES = [
   "Abia",
@@ -97,7 +91,7 @@ export function BusStopDialog({
   // Initialize form with existing data when in edit mode
   useEffect(() => {
     if (mode === "edit" && existingData) {
-      setLocationValue(existingData.location.value);
+      setLocationValue(existingData.address.value);
       setArea(existingData.area);
       setRoutes(existingData.routes);
 
@@ -108,7 +102,7 @@ export function BusStopDialog({
       setSelectedState(normalizedState.toLowerCase());
 
       // Set coordinates [lng, lat]
-      setCoordinates(existingData.location.coordinates);
+      setCoordinates(existingData.address.coordinates);
     } else {
       // Reset form for add mode
       setLocationValue("");
@@ -162,6 +156,7 @@ export function BusStopDialog({
 
   const handleSubmit = () => {
     // Validate coordinates exist (user selected from dropdown)
+
     if (coordinates[0] === 0 && coordinates[1] === 0) {
       alert("Please select a location from the dropdown suggestions");
       return;
@@ -175,10 +170,10 @@ export function BusStopDialog({
     const data: NewBusStopPayload = {
       ...(mode === "edit" &&
         existingData?.bus_stop_id && {
-          drop_off_location_id: existingData.bus_stop_id,
+          bus_stop_id: existingData.bus_stop_id,
         }),
       routes,
-      location: {
+      address: {
         value: locationValue,
         coordinates: coordinates, // [lng, lat]
       },
