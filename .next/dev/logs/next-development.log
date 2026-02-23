@@ -2025,3 +2025,1122 @@ Import trace:
 [54:23:44.174] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772166936}
 [54:23:47.447] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464885 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464885","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772170198}
 [54:23:49.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772171925}
+[54:27:07.491] Server  LOG      ✓ Compiled in 47ms
+[54:27:07.594] Browser ERROR   ./api/buses/index.ts:178:6
+Parsing ecmascript source code failed
+  176 |
+  177 |       return res.data;
+> 178 |     };,
+      |      ^
+  179 |     onSuccess: (data: BusEditResponse) => {
+  180 |       toast.success(`${data.message}`);
+  181 |       //   store.dispatch(updateBusDetails())
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[54:27:12.145] Server  LOG      ✓ Compiled in 24ms
+[54:27:12.247] Browser ERROR   ./api/buses/index.ts:178:6
+Parsing ecmascript source code failed
+  176 |
+  177 |       return res.data;
+> 178 |     };,
+      |      ^
+  179 |     onSuccess: (data: BusEditResponse) => {
+  180 |       toast.success(`${data.message}`);
+  181 |       //   store.dispatch(updateBusDetails())
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[54:27:14.311] Server  LOG      ✓ Compiled in 28ms
+[54:27:14.413] Browser ERROR   ./api/buses/index.ts:169:8
+Parsing ecmascript source code failed
+  167 |       for (let [key, value] of formData.entries()) {
+  168 |         console.log(`${key}:`, value);
+> 169 |       })
+      |        ^
+  170 |
+  171 |       const res = await api.patch(`/api/users/admin/bus/edit`, formData, {
+  172 |         headers: {
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[54:27:16.380] Server  LOG      ✓ Compiled in 24ms
+[54:27:16.483] Browser ERROR   ./api/buses/index.ts:178:6
+Parsing ecmascript source code failed
+  176 |
+  177 |       return res.data;
+> 178 |     };,
+      |      ^
+  179 |     onSuccess: (data: BusEditResponse) => {
+  180 |       toast.success(`${data.message}`);
+  181 |       //   store.dispatch(updateBusDetails())
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[54:27:18.987] Browser ERROR   ./api/buses/index.ts:178:6
+Parsing ecmascript source code failed
+  176 |
+  177 |       return res.data;
+> 178 |     };
+      |      ^
+  179 |     onSuccess: (data: BusEditResponse) => {
+  180 |       toast.success(`${data.message}`);
+  181 |       //   store.dispatch(updateBusDetails())
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[54:27:21.391] Browser ERROR   ./api/buses/index.ts:178:6
+Parsing ecmascript source code failed
+  176 |
+  177 |       return res.data;
+> 178 |     };,
+      |      ^
+  179 |     onSuccess: (data: BusEditResponse) => {
+  180 |       toast.success(`${data.message}`);
+  181 |       //   store.dispatch(updateBusDetails())
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[54:27:31.848] Server  LOG      ✓ Compiled in 21ms
+[54:27:35.647] Server  LOG      ✓ Compiled in 22ms
+[54:27:41.302] Server  LOG      ✓ Compiled in 36ms
+[54:27:44.099] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:27:44.099] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:27:58.202] Browser LOG     image: {}
+[54:27:58.202] Browser LOG     image: {}
+[54:27:58.202] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771316463/GaPonhernz.png
+[54:27:58.202] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[54:27:58.202] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[54:27:58.202] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[54:27:58.202] Browser LOG     id_code: 56464885
+[54:27:58.202] Browser LOG     name_label: G-Wagon
+[54:27:58.202] Browser LOG     plate_number: 44555SSDF
+[54:27:58.202] Browser LOG     capacity: 39
+[54:27:58.202] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[54:27:58.202] Browser LOG     status: true
+[54:27:58.202] Browser LOG     fuel_type: diesel
+[54:27:58.202] Browser LOG     tracker_id: SSDDGGFG
+[54:27:58.202] Browser LOG     mileage: 75000
+[54:27:58.202] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[54:28:34.982] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464885 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464885","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772457724}
+[54:28:42.443] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772465190}
+[54:28:48.587] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:28:48.587] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:28:52.906] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771316463/T7KG9NJBKX.webp
+[54:28:52.906] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[54:28:52.906] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[54:28:52.906] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[54:28:52.906] Browser LOG     id_code: 56464885
+[54:28:52.906] Browser LOG     name_label: G-Wagon
+[54:28:52.906] Browser LOG     plate_number: 44555SSDF
+[54:28:52.906] Browser LOG     capacity: 39
+[54:28:52.906] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[54:28:52.906] Browser LOG     status: true
+[54:28:52.906] Browser LOG     fuel_type: diesel
+[54:28:52.906] Browser LOG     tracker_id: SSDDGGFG
+[54:28:52.906] Browser LOG     mileage: 75000
+[54:28:52.906] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[54:28:57.450] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:28:57.450] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:29:00.647] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464885 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464885","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772483389}
+[54:29:02.964] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772485713}
+[54:29:04.969] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[54:29:05.057] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[54:29:05.228] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[54:29:05.228] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[54:29:05.228] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[54:29:05.228] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771772487990}
+[54:43:50.789] Server  LOG      ✓ Compiled in 42ms
+[54:43:51.815] Server  LOG      ✓ Compiled in 28ms
+[54:43:52.864] Server  LOG      ✓ Compiled in 30ms
+[54:43:52.969] Browser ERROR   ./components/buses/bus-systems-table.tsx:544:32
+Parsing ecmascript source code failed
+  542 |                                 setValue("image", updatedFiles);
+  543 |                                 setValue("delete_bus_photo", deleteUrls);
+> 544 |                               };}
+      |                                ^
+  545 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  546 |                             >
+  547 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[54:43:54.956] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[54:43:55.227] Server  ERROR   Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:55.427] Server  ERROR    ⨯ "unhandledRejection:" Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:55.611] Server  ERROR    ⨯ "unhandledRejection: " Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:55.770] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[54:43:55.770] Browser ERROR   uncaughtError: SyntaxError: Identifier 'updatedUrls' has already been declared
+[54:43:55.880] Server  LOG      ✓ Compiled in 7ms
+[54:43:57.928] Server  LOG      ✓ Compiled in 25ms
+[54:43:57.979] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[54:43:58.214] Server  ERROR   Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:58.401] Server  ERROR    ⨯ "unhandledRejection:" Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:58.575] Server  ERROR    ⨯ "unhandledRejection: " Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:58.766] Server  ERROR   Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:58.942] Server  ERROR    ⨯ "unhandledRejection:" Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:59.141] Server  ERROR    ⨯ "unhandledRejection: " Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[54:43:59.288] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[54:43:59.288] Browser ERROR   uncaughtError: SyntaxError: Identifier 'updatedUrls' has already been declared
+[54:44:03.302] Server  LOG      ✓ Compiled in 25ms
+[54:48:23.502] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[54:48:23.593] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[54:48:23.762] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[54:48:23.762] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[54:48:23.762] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[54:48:23.762] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773646532}
+[54:48:28.481] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:48:28.481] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:48:32.683] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:48:32.683] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:48:47.640] Browser LOG     image: {}
+[54:48:47.640] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp
+[54:48:47.640] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp
+[54:48:47.640] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[54:48:47.640] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[54:48:47.640] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[54:48:47.640] Browser LOG     id_code: 56464885
+[54:48:47.640] Browser LOG     name_label: G-Wagon
+[54:48:47.640] Browser LOG     plate_number: +234 7059785678
+[54:48:47.640] Browser LOG     capacity: 39
+[54:48:47.640] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[54:48:47.640] Browser LOG     status: true
+[54:48:47.640] Browser LOG     fuel_type: diesel
+[54:48:47.640] Browser LOG     tracker_id: SSDDGGFG
+[54:48:47.640] Browser LOG     mileage: 75000
+[54:48:47.640] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[54:48:54.725] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:48:54.725] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:03.169] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:03.169] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:07.179] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464885 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464885","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773689938}
+[54:49:10.058] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773692811}
+[54:49:13.027] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:13.027] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:18.376] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg
+[54:49:18.376] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp
+[54:49:18.376] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp
+[54:49:18.376] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[54:49:18.376] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[54:49:18.376] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[54:49:18.376] Browser LOG     id_code: 56464885
+[54:49:18.376] Browser LOG     name_label: G-Wagon
+[54:49:18.376] Browser LOG     plate_number: +234 7059785678
+[54:49:18.376] Browser LOG     capacity: 39
+[54:49:18.376] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[54:49:18.376] Browser LOG     status: true
+[54:49:18.376] Browser LOG     fuel_type: diesel
+[54:49:18.376] Browser LOG     tracker_id: SSDDGGFG
+[54:49:18.376] Browser LOG     mileage: 75000
+[54:49:18.376] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[54:49:51.350] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:51.350] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:49:58.311] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[54:49:58.475] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[54:49:58.475] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[54:49:58.475] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[54:49:58.475] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773741245}
+[54:50:02.029] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:50:02.029] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:50:05.788] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg
+[54:50:05.788] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp
+[54:50:05.788] Browser LOG     delete_bus_photo: https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp
+[54:50:05.788] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[54:50:05.788] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[54:50:05.788] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[54:50:05.788] Browser LOG     id_code: 56464885
+[54:50:05.788] Browser LOG     name_label: G-Wagon
+[54:50:05.788] Browser LOG     plate_number: +234 7059785678
+[54:50:05.788] Browser LOG     capacity: 39
+[54:50:05.788] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[54:50:05.788] Browser LOG     status: true
+[54:50:05.788] Browser LOG     fuel_type: diesel
+[54:50:05.788] Browser LOG     tracker_id: SSDDGGFG
+[54:50:05.788] Browser LOG     mileage: 75000
+[54:50:05.788] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[54:50:10.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses/56464885 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/56464885","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773753211}
+[54:50:12.512] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773755268}
+[54:50:13.449] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[54:50:13.604] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[54:50:13.604] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[54:50:13.604] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[54:50:13.604] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771773756375}
+[54:50:17.297] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:50:17.297] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:52:41.420] Server  LOG      ✓ Compiled in 42ms
+[54:53:05.548] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[54:53:05.548] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:06:24.357] Browser LOG     image: {}
+[55:06:24.357] Browser LOG     image: {}
+[55:06:24.357] Browser LOG     image: {}
+[55:06:24.357] Browser LOG     image: {}
+[55:06:24.357] Browser LOG     image: {}
+[55:06:24.357] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp"]
+[55:06:24.357] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:06:24.357] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:06:24.357] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:06:24.357] Browser LOG     id_code: 56464885
+[55:06:24.357] Browser LOG     name_label: G-Wagon
+[55:06:24.357] Browser LOG     plate_number: +234 7059785678
+[55:06:24.357] Browser LOG     capacity: 39
+[55:06:24.357] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:06:24.357] Browser LOG     status: true
+[55:06:24.357] Browser LOG     fuel_type: diesel
+[55:06:24.357] Browser LOG     tracker_id: SSDDGGFG
+[55:06:24.357] Browser LOG     mileage: 75000
+[55:06:24.357] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:06:37.648] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:06:37.648] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:06:45.381] Browser LOG     image: {}
+[55:06:45.381] Browser LOG     image: {}
+[55:06:45.381] Browser LOG     image: {}
+[55:06:45.381] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/cQ8-rpE5NI.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/rmU6oe4wKB.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/ehdrmyrKqo.webp"]
+[55:06:45.381] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:06:45.381] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:06:45.381] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:06:45.381] Browser LOG     id_code: 56464885
+[55:06:45.381] Browser LOG     name_label: G-Wagon
+[55:06:45.381] Browser LOG     plate_number: +234 7059785678
+[55:06:45.381] Browser LOG     capacity: 39
+[55:06:45.381] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:06:45.381] Browser LOG     status: true
+[55:06:45.381] Browser LOG     fuel_type: diesel
+[55:06:45.381] Browser LOG     tracker_id: SSDDGGFG
+[55:06:45.381] Browser LOG     mileage: 75000
+[55:06:45.381] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:13:17.302] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:13:17.302] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:13:27.856] Browser LOG     image: {}
+[55:13:27.856] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/cQ8-rpE5NI.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/rmU6oe4wKB.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/ehdrmyrKqo.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/OFAPlAlabL.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/1iDpkDsE5N.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774751/9fy4xABqlb.webp"]
+[55:13:27.856] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:13:27.856] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:13:27.856] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:13:27.856] Browser LOG     id_code: 56464885
+[55:13:27.856] Browser LOG     name_label: G-Wagon
+[55:13:27.856] Browser LOG     plate_number: +234 7059785678
+[55:13:27.856] Browser LOG     capacity: 39
+[55:13:27.856] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:13:27.856] Browser LOG     status: true
+[55:13:27.856] Browser LOG     fuel_type: diesel
+[55:13:27.856] Browser LOG     tracker_id: SSDDGGFG
+[55:13:27.856] Browser LOG     mileage: 75000
+[55:13:27.856] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:13:51.071] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:13:51.071] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:13:59.732] Browser LOG     image: {}
+[55:13:59.732] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/cQ8-rpE5NI.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/rmU6oe4wKB.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/ehdrmyrKqo.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/OFAPlAlabL.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/1iDpkDsE5N.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774751/9fy4xABqlb.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775154/t0oz6DIRin.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774751/nw2jOeiR6Y.jpg"]
+[55:13:59.732] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:13:59.732] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:13:59.732] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:13:59.732] Browser LOG     id_code: 56464885
+[55:13:59.732] Browser LOG     name_label: G-Wagon
+[55:13:59.732] Browser LOG     plate_number: +234 7059785678
+[55:13:59.732] Browser LOG     capacity: 39
+[55:13:59.732] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:13:59.732] Browser LOG     status: true
+[55:13:59.732] Browser LOG     fuel_type: diesel
+[55:13:59.732] Browser LOG     tracker_id: SSDDGGFG
+[55:13:59.732] Browser LOG     mileage: 75000
+[55:13:59.732] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:21:07.297] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:21:07.298] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:21:15.734] Browser LOG     image: {}
+[55:21:15.734] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771773672/bDBqcUX9Zj.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/tCdgnpvk_F.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771772423/gkJnAUJD11.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/cQ8-rpE5NI.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/rmU6oe4wKB.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/ehdrmyrKqo.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/OFAPlAlabL.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774731/1iDpkDsE5N.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774751/9fy4xABqlb.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775154/t0oz6DIRin.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774751/nw2jOeiR6Y.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775186/J3X4iCvEeF.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771774751/H1VmpbZHdk.png"]
+[55:21:15.734] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:21:15.734] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:21:15.734] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:21:15.734] Browser LOG     id_code: 56464885
+[55:21:15.734] Browser LOG     name_label: G-Wagon
+[55:21:15.734] Browser LOG     plate_number: +234 7059785678
+[55:21:15.734] Browser LOG     capacity: 39
+[55:21:15.734] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:21:15.734] Browser LOG     status: true
+[55:21:15.734] Browser LOG     fuel_type: diesel
+[55:21:15.734] Browser LOG     tracker_id: SSDDGGFG
+[55:21:15.734] Browser LOG     mileage: 75000
+[55:21:15.734] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:21:24.238] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:21:24.238] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:21:39.457] Server  LOG      ✓ Compiled in 50ms
+[55:24:51.035] Server  LOG      ✓ Compiled in 64ms
+[55:24:51.149] Browser ERROR   ./components/buses/bus-systems-table.tsx:528:32
+Parsing ecmascript source code failed
+  526 |                                 setValue("imageUrl", updatedUrls);
+  527 |                                 setValue("image", updatedFiles);
+> 528 |                               };}
+      |                                ^
+  529 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  530 |                             >
+  531 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[55:24:53.162] Server  LOG      ✓ Compiled in 27ms
+[55:25:07.598] Server  LOG      ✓ Compiled in 31ms
+[55:25:07.682] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[55:25:07.958] Server  ERROR   Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[55:25:08.137] Server  ERROR    ⨯ "unhandledRejection:" Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[55:25:08.322] Server  ERROR    ⨯ "unhandledRejection: " Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[55:25:08.553] Server  ERROR   Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[55:25:08.742] Server  ERROR    ⨯ "unhandledRejection:" Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[55:25:08.914] Server  ERROR    ⨯ "unhandledRejection: " Error: Failed to load chunk server/chunks/ssr/[root-of-the-server]__fc9d45e6._.js from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/app-menu/buses/page { GLOBAL_ERROR_MODULE => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_0 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_5 => "[project]/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_6 => "[project]/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_7 => "[project]/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_8 => "[project]/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_9 => "[project]/app/(dashboard)/app-menu/buses/page.tsx [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript) <locals>
+[55:25:09.030] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[55:25:09.065] Server  LOG      ✓ Compiled in 1ms
+[55:25:09.214] Browser ERROR   uncaughtError: Error: Could not parse module '[project]/components/buses/bus-systems-table.tsx'
+
+Expected '</', got ';'
+[55:25:09.214] Browser ERROR   ./components/buses/bus-systems-table.tsx:556:32
+Parsing ecmascript source code failed
+  554 |                                 setValue("imageUrl", updatedUrls);
+  555 |                                 setValue("image", updatedFiles);
+> 556 |                               };}
+      |                                ^
+  557 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  558 |                             >
+  559 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[55:25:09.214] Browser ERROR   ./components/buses/bus-systems-table.tsx:556:32
+Parsing ecmascript source code failed
+  554 |                                 setValue("imageUrl", updatedUrls);
+  555 |                                 setValue("image", updatedFiles);
+> 556 |                               };}
+      |                                ^
+  557 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  558 |                             >
+  559 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[55:25:09.214] Browser ERROR   ./components/buses/bus-systems-table.tsx:556:32
+Parsing ecmascript source code failed
+  554 |                                 setValue("imageUrl", updatedUrls);
+  555 |                                 setValue("image", updatedFiles);
+> 556 |                               };}
+      |                                ^
+  557 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  558 |                             >
+  559 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[55:25:19.466] Browser ERROR   ./components/buses/bus-systems-table.tsx:530:32
+Parsing ecmascript source code failed
+  528 |
+  529 |                              
+> 530 |                               };}
+      |                                ^
+  531 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  532 |                             >
+  533 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[55:25:21.628] Server  LOG      ✓ Compiled in 24ms
+[55:25:21.730] Browser ERROR   ./components/buses/bus-systems-table.tsx:531:31
+Parsing ecmascript source code failed
+  529 |                              
+  530 |                               }
+> 531 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+      |                               ^^^^^^^^^
+  532 |                             >
+  533 |                               <X className="h-3 w-3" />
+  534 |                             </button>
+
+Expected '</', got 'className'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[55:25:29.718] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[55:25:29.718] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/buses/bus-systems-table.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[55:25:29.718] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[55:25:29.839] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[55:25:29.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[55:25:30.086] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[55:25:30.086] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[55:25:30.086] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[55:25:30.086] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771775872871}
+[55:25:35.530] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:25:35.530] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:25:39.837] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:25:39.837] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:26:40.933] Browser LOG     image: {}
+[55:26:40.934] Browser LOG     image: {}
+[55:26:40.934] Browser LOG     image: {}
+[55:26:40.934] Browser LOG     image: {}
+[55:26:40.934] Browser LOG     image: {}
+[55:26:40.934] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:26:40.934] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:26:40.934] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:26:40.934] Browser LOG     id_code: 56464885
+[55:26:40.934] Browser LOG     name_label: G-Wagon
+[55:26:40.934] Browser LOG     plate_number: +234 7059785678
+[55:26:40.934] Browser LOG     capacity: 39
+[55:26:40.934] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:26:40.934] Browser LOG     status: true
+[55:26:40.934] Browser LOG     fuel_type: diesel
+[55:26:40.934] Browser LOG     tracker_id: SSDDGGFG
+[55:26:40.934] Browser LOG     mileage: 75000
+[55:26:40.934] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:26:51.993] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:26:51.993] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:27:00.653] Browser LOG     image: {}
+[55:27:00.653] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/iDm8spa-PD.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775948/t9amcs__wW.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775622/jrAR5SI4DG.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/wiX71BGjaf.webp"]
+[55:27:00.653] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:27:00.653] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:27:00.653] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:27:00.653] Browser LOG     id_code: 56464885
+[55:27:00.653] Browser LOG     name_label: G-Wagon
+[55:27:00.653] Browser LOG     plate_number: +234 7059785678
+[55:27:00.653] Browser LOG     capacity: 39
+[55:27:00.653] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:27:00.653] Browser LOG     status: true
+[55:27:00.653] Browser LOG     fuel_type: diesel
+[55:27:00.653] Browser LOG     tracker_id: SSDDGGFG
+[55:27:00.653] Browser LOG     mileage: 75000
+[55:27:00.653] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:27:06.703] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:27:06.703] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:38:56.431] Browser LOG     image: {}
+[55:38:56.431] Browser LOG     image: {}
+[55:38:56.431] Browser LOG     image: {}
+[55:38:56.431] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/iDm8spa-PD.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775948/t9amcs__wW.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775622/jrAR5SI4DG.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/wiX71BGjaf.webp"]
+[55:38:56.431] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:38:56.431] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:38:56.431] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:38:56.431] Browser LOG     id_code: 56464885
+[55:38:56.431] Browser LOG     name_label: G-Wagon
+[55:38:56.431] Browser LOG     plate_number: +234 7059785678
+[55:38:56.431] Browser LOG     capacity: 39
+[55:38:56.431] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:38:56.431] Browser LOG     status: true
+[55:38:56.431] Browser LOG     fuel_type: diesel
+[55:38:56.431] Browser LOG     tracker_id: SSDDGGFG
+[55:38:56.431] Browser LOG     mileage: 75000
+[55:38:56.431] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:39:03.898] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:39:03.898] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     image: {}
+[55:39:36.937] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/iDm8spa-PD.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775948/t9amcs__wW.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775622/jrAR5SI4DG.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/wiX71BGjaf.webp"]
+[55:39:36.937] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:39:36.937] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:39:36.937] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:39:36.937] Browser LOG     id_code: 56464885
+[55:39:36.937] Browser LOG     name_label: G-Wagon
+[55:39:36.937] Browser LOG     plate_number: +234 7059785678
+[55:39:36.937] Browser LOG     capacity: 39
+[55:39:36.937] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:39:36.937] Browser LOG     status: true
+[55:39:36.937] Browser LOG     fuel_type: diesel
+[55:39:36.937] Browser LOG     tracker_id: SSDDGGFG
+[55:39:36.937] Browser LOG     mileage: 75000
+[55:39:36.937] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:40:13.352] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:13.352] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:21.349] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[55:40:21.511] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[55:40:22.008] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[55:40:22.008] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[55:40:22.008] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771776764804}
+[55:40:25.492] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:25.492] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:30.234] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:30.234] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:41.570] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776682/8qDsnaPCKA.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776682/yoZgpDkZaf.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776682/jSUrIofJ5e.webp"]
+[55:40:41.570] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:40:41.570] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:40:41.570] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:40:41.570] Browser LOG     id_code: 56464885
+[55:40:41.570] Browser LOG     name_label: G-Wagon
+[55:40:41.570] Browser LOG     plate_number: +234 7059785678
+[55:40:41.570] Browser LOG     capacity: 39
+[55:40:41.570] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:40:41.570] Browser LOG     status: true
+[55:40:41.570] Browser LOG     fuel_type: diesel
+[55:40:41.570] Browser LOG     tracker_id: SSDDGGFG
+[55:40:41.570] Browser LOG     mileage: 75000
+[55:40:41.570] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:40:48.708] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:48.708] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:53.000] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[55:40:53.180] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[55:40:53.180] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[55:40:53.180] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[55:40:53.180] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771776795953}
+[55:40:53.180] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[55:40:56.510] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:40:56.510] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:41:01.677] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775964/jIB9ZFEbEf.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/9VJxxfou7r.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775948/r22Er5NW6d.webp"]
+[55:41:01.677] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:41:01.677] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:41:01.677] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:41:01.677] Browser LOG     id_code: 56464885
+[55:41:01.677] Browser LOG     name_label: G-Wagon
+[55:41:01.677] Browser LOG     plate_number: +234 7059785678
+[55:41:01.677] Browser LOG     capacity: 39
+[55:41:01.677] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:41:01.677] Browser LOG     status: true
+[55:41:01.677] Browser LOG     fuel_type: diesel
+[55:41:01.677] Browser LOG     tracker_id: SSDDGGFG
+[55:41:01.677] Browser LOG     mileage: 75000
+[55:41:01.677] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:41:06.848] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:41:06.848] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:41:11.188] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:41:11.188] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:41:24.875] Browser LOG     image: {}
+[55:41:24.875] Browser LOG     image: {}
+[55:41:24.875] Browser LOG     image: {}
+[55:41:24.875] Browser LOG     image: {}
+[55:41:24.875] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775964/jIB9ZFEbEf.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/9VJxxfou7r.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775948/r22Er5NW6d.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771316462/a7gHOz3JRO.jpg"]
+[55:41:24.875] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:41:24.875] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:41:24.875] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:41:24.875] Browser LOG     id_code: 56464885
+[55:41:24.875] Browser LOG     name_label: G-Wagon
+[55:41:24.875] Browser LOG     plate_number: +234 7059785678
+[55:41:24.875] Browser LOG     capacity: 39
+[55:41:24.875] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:41:24.875] Browser LOG     status: true
+[55:41:24.875] Browser LOG     fuel_type: diesel
+[55:41:24.875] Browser LOG     tracker_id: SSDDGGFG
+[55:41:24.875] Browser LOG     mileage: 75000
+[55:41:24.875] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:41:33.320] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:41:33.320] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:07.086] Browser LOG     image: {}
+[55:42:07.086] Browser LOG     image: {}
+[55:42:07.086] Browser LOG     image: {}
+[55:42:07.086] Browser LOG     image: {}
+[55:42:07.086] Browser LOG     image: {}
+[55:42:07.086] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775964/jIB9ZFEbEf.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775947/9VJxxfou7r.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771775948/r22Er5NW6d.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771316462/a7gHOz3JRO.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776830/5_11Alt3H0.webp"]
+[55:42:07.086] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:42:07.086] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:42:07.086] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:42:07.086] Browser LOG     id_code: 56464885
+[55:42:07.086] Browser LOG     name_label: G-Wagon
+[55:42:07.086] Browser LOG     plate_number: +234 7059785678
+[55:42:07.086] Browser LOG     capacity: 39
+[55:42:07.086] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:42:07.086] Browser LOG     status: true
+[55:42:07.086] Browser LOG     fuel_type: diesel
+[55:42:07.086] Browser LOG     tracker_id: SSDDGGFG
+[55:42:07.086] Browser LOG     mileage: 75000
+[55:42:07.086] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:42:19.837] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:19.837] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:26.225] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[55:42:26.387] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[55:42:26.387] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[55:42:26.387] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[55:42:26.387] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771776889182}
+[55:42:29.587] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:29.587] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:40.282] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/J0-8Gn-AtL.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/0Y3PfKPuy4.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/PitCPWql0P.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/GCvF6OIDl_.webp"]
+[55:42:40.282] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:42:40.283] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:42:40.283] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:42:40.283] Browser LOG     id_code: 56464885
+[55:42:40.283] Browser LOG     name_label: G-Wagon
+[55:42:40.283] Browser LOG     plate_number: +234 7059785678
+[55:42:40.283] Browser LOG     capacity: 39
+[55:42:40.283] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:42:40.283] Browser LOG     status: true
+[55:42:40.283] Browser LOG     fuel_type: diesel
+[55:42:40.283] Browser LOG     tracker_id: SSDDGGFG
+[55:42:40.283] Browser LOG     mileage: 75000
+[55:42:40.283] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:42:46.515] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:46.515] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:42:54.240] Browser LOG     image: {}
+[55:42:54.240] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/J0-8Gn-AtL.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/0Y3PfKPuy4.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/PitCPWql0P.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/GCvF6OIDl_.webp"]
+[55:42:54.240] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:42:54.240] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:42:54.240] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:42:54.240] Browser LOG     id_code: 56464885
+[55:42:54.240] Browser LOG     name_label: G-Wagon
+[55:42:54.240] Browser LOG     plate_number: +234 7059785678
+[55:42:54.240] Browser LOG     capacity: 39
+[55:42:54.240] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:42:54.240] Browser LOG     status: true
+[55:42:54.240] Browser LOG     fuel_type: diesel
+[55:42:54.240] Browser LOG     tracker_id: SSDDGGFG
+[55:42:54.240] Browser LOG     mileage: 75000
+[55:42:54.240] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:43:02.254] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:43:02.254] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:43:06.865] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:43:06.865] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:43:10.478] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[55:43:10.655] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[55:43:10.655] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[55:43:10.655] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[55:43:10.655] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771776933428}
+[55:43:10.655] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[55:43:14.660] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:43:14.660] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:43:47.404] Browser LOG     image: {}
+[55:43:47.404] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776830/-K0w9nCauG.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776830/ynitySNSe3.webp"]
+[55:43:47.404] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[55:43:47.404] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[55:43:47.404] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[55:43:47.404] Browser LOG     id_code: 56464885
+[55:43:47.404] Browser LOG     name_label: G-Wagon
+[55:43:47.404] Browser LOG     plate_number: +234 7059785678
+[55:43:47.404] Browser LOG     capacity: 39
+[55:43:47.404] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[55:43:47.404] Browser LOG     status: true
+[55:43:47.404] Browser LOG     fuel_type: diesel
+[55:43:47.404] Browser LOG     tracker_id: SSDDGGFG
+[55:43:47.404] Browser LOG     mileage: 75000
+[55:43:47.404] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[55:44:00.433] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[55:44:00.433] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:33:59.389] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:33:59.390] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:36:13.223] Browser LOG     image: {}
+[56:36:13.223] Browser LOG     image: {}
+[56:36:13.223] Browser LOG     image: {}
+[56:36:13.223] Browser LOG     image: {}
+[56:36:13.223] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776830/-K0w9nCauG.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776830/ynitySNSe3.webp"]
+[56:36:13.223] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[56:36:13.223] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[56:36:13.223] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[56:36:13.223] Browser LOG     id_code: 56464885
+[56:36:13.223] Browser LOG     name_label: G-Wagon
+[56:36:13.223] Browser LOG     plate_number: +234 7059785678
+[56:36:13.223] Browser LOG     capacity: 39
+[56:36:13.223] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[56:36:13.223] Browser LOG     status: true
+[56:36:13.223] Browser LOG     fuel_type: diesel
+[56:36:13.223] Browser LOG     tracker_id: SSDDGGFG
+[56:36:13.223] Browser LOG     mileage: 75000
+[56:36:13.223] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[56:36:50.245] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[56:36:51.135] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[56:36:51.135] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[56:36:51.135] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[56:36:51.135] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771780153251}
+[56:37:05.446] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[56:37:05.446] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[56:37:05.446] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1817:21)"}
+[56:37:20.120] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:37:20.120] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:37:25.647] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[56:37:25.808] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[56:37:25.808] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[56:37:25.808] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[56:37:25.808] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771780188611}
+[56:37:34.975] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:37:34.975] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:37:59.419] Browser LOG     image: {}
+[56:37:59.419] Browser LOG     image: {}
+[56:37:59.419] Browser LOG     image: {}
+[56:37:59.419] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[56:37:59.419] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[56:37:59.419] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[56:37:59.419] Browser LOG     id_code: 56464885
+[56:37:59.419] Browser LOG     name_label: G-Wagon
+[56:37:59.419] Browser LOG     plate_number: +234 7059785678
+[56:37:59.419] Browser LOG     capacity: 39
+[56:37:59.419] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[56:37:59.419] Browser LOG     status: true
+[56:37:59.419] Browser LOG     fuel_type: diesel
+[56:37:59.419] Browser LOG     tracker_id: SSDDGGFG
+[56:37:59.419] Browser LOG     mileage: 75000
+[56:37:59.419] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[56:38:07.480] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:38:07.480] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:39:43.193] Browser LOG     image: {}
+[56:39:43.193] Browser LOG     image: {}
+[56:39:43.193] Browser LOG     image: {}
+[56:39:43.193] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776830/12CpCiTsAQ.webp","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776874/DIexRzf37p.webp"]
+[56:39:43.193] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[56:39:43.193] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[56:39:43.193] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[56:39:43.193] Browser LOG     id_code: 56464885
+[56:39:43.193] Browser LOG     name_label: G-Wagon
+[56:39:43.193] Browser LOG     plate_number: +234 7059785678
+[56:39:43.193] Browser LOG     capacity: 39
+[56:39:43.193] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[56:39:43.193] Browser LOG     status: true
+[56:39:43.193] Browser LOG     fuel_type: diesel
+[56:39:43.193] Browser LOG     tracker_id: SSDDGGFG
+[56:39:43.193] Browser LOG     mileage: 75000
+[56:39:43.193] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[56:39:52.753] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[56:39:52.753] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[57:10:57.809] Server  LOG      ✓ Compiled in 50ms
+[57:10:57.913] Browser ERROR   ./components/buses/bus-systems-table.tsx:541:32
+Parsing ecmascript source code failed
+  539 |                                   setValue("image", updatedFiles);
+  540 |                                 }
+> 541 |                               };}
+      |                                ^
+  542 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  543 |                             >
+  544 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[57:11:02.217] Server  LOG      ✓ Compiled in 23ms
+[57:11:04.117] Server  LOG      ✓ Compiled in 23ms
+[57:11:05.396] Server  LOG      ✓ Compiled in 23ms
+[57:11:05.499] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[57:11:15.039] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[57:11:15.039] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[57:11:15.039] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1817:21)"}
+[57:11:31.043] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[57:11:31.043] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[59:49:36.585] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[59:49:36.585] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[60:26:16.690] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[60:26:16.692] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[60:26:16.692] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1817:21)"}
+[60:26:32.688] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[60:26:32.688] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[61:56:51.105] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[61:56:51.105] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[62:26:24.965] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[62:26:24.966] Browser ERROR   ./components/buses/bus-systems-table.tsx:569:32
+Parsing ecmascript source code failed
+  567 |                                 setValue("imageUrl", updatedUrls);
+  568 |                                 setValue("image", updatedFiles);
+> 569 |                               };}
+      |                                ^
+  570 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  571 |                             >
+  572 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[64:47:49.166] Browser ERROR   ./components/buses/bus-systems-table.tsx:543:32
+Parsing ecmascript source code failed
+  541 |
+  542 |                               
+> 543 |                               };}
+      |                                ^
+  544 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  545 |                             >
+  546 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[64:47:52.865] Browser ERROR   ./components/buses/bus-systems-table.tsx:543:32
+Parsing ecmascript source code failed
+  541 |
+  542 |
+> 543 |                               };}
+      |                                ^
+  544 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+  545 |                             >
+  546 |                               <X className="h-3 w-3" />
+
+Expected '</', got ';'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[64:47:54.817] Server  LOG      ✓ Compiled in 35ms
+[64:47:54.916] Browser ERROR   ./components/buses/bus-systems-table.tsx:544:31
+Parsing ecmascript source code failed
+  542 |
+  543 |                               }
+> 544 |                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+      |                               ^^^^^^^^^
+  545 |                             >
+  546 |                               <X className="h-3 w-3" />
+  547 |                             </button>
+
+Expected '</', got 'className'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[64:47:57.592] Server  LOG      ✓ Compiled in 69ms
+[64:48:12.743] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[64:48:12.743] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[64:48:12.743] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1817:21)"}
+[64:48:28.747] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1265:21)"}
+[64:48:28.747] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://deporta-development.onrender.com","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwiaWF0IjoxNzcxNjc4ODgyLCJleHAiOjE3NzIyODM2ODJ9.6OYAyswNInNRnUTRjjNIYuVs7ffYg-Rc5DQj7JTMGIY","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17225:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_95b9dbf4._.js:17970:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1628:21)"}
+[64:50:55.756] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[64:50:56.460] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[64:50:56.614] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[64:50:56.614] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[64:50:56.614] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[64:50:56.614] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771809799474}
+[64:51:01.426] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:01.426] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:26.635] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776920/PcAV9GFPCk.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776976/LK0p1IEHvt.png"]
+[64:51:26.635] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[64:51:26.635] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[64:51:26.635] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[64:51:26.635] Browser LOG     id_code: 56464885
+[64:51:26.635] Browser LOG     name_label: G-Wagon
+[64:51:26.635] Browser LOG     plate_number: +234 7059785678
+[64:51:26.635] Browser LOG     capacity: 39
+[64:51:26.635] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[64:51:26.635] Browser LOG     status: true
+[64:51:26.635] Browser LOG     fuel_type: diesel
+[64:51:26.635] Browser LOG     tracker_id: SSDDGGFG
+[64:51:26.635] Browser LOG     mileage: 75000
+[64:51:26.635] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[64:51:34.327] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:34.327] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:46.777] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776920/PcAV9GFPCk.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771776976/LK0p1IEHvt.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771780225/I4woSnmb1A.jpg","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771780330/rDbVKoUvXF.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771780330/mBmyfnoiJA.png"]
+[64:51:46.777] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[64:51:46.777] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[64:51:46.777] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[64:51:46.777] Browser LOG     id_code: 56464885
+[64:51:46.777] Browser LOG     name_label: G-Wagon
+[64:51:46.777] Browser LOG     plate_number: +234 7059785678
+[64:51:46.777] Browser LOG     capacity: 39
+[64:51:46.777] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[64:51:46.777] Browser LOG     status: true
+[64:51:46.777] Browser LOG     fuel_type: diesel
+[64:51:46.777] Browser LOG     tracker_id: SSDDGGFG
+[64:51:46.777] Browser LOG     mileage: 75000
+[64:51:46.777] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[64:51:52.118] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:52.118] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:55.523] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[64:51:55.705] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[64:51:55.705] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[64:51:55.705] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[64:51:55.705] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1771809858545}
+[64:51:55.705] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[64:51:59.704] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:51:59.704] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:52:13.511] Browser LOG     image: {}
+[64:52:13.511] Browser LOG     image: {}
+[64:52:13.511] Browser LOG     image: {}
+[64:52:13.511] Browser LOG     delete_bus_photo: ["https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771780225/YTKh1w0Q46.png","https://res.cloudinary.com/dzkcbkmmm/image/upload/v1771780225/0zewAh9MvY.webp"]
+[64:52:13.511] Browser LOG     routes_assigned: ["6999bf962368d69374b9d5d6"]
+[64:52:13.511] Browser LOG     drivers_assigned: ["6994369ceb511d36bbd9510b"]
+[64:52:13.511] Browser LOG     bus_id: 697c877d1e0e89cc4a84fc75
+[64:52:13.511] Browser LOG     id_code: 56464885
+[64:52:13.511] Browser LOG     name_label: G-Wagon
+[64:52:13.511] Browser LOG     plate_number: +234 7059785678
+[64:52:13.511] Browser LOG     capacity: 39
+[64:52:13.511] Browser LOG     operation_schedule: {"from":"2025-12-19T23:00","to":"2025-12-27T23:00"}
+[64:52:13.511] Browser LOG     status: true
+[64:52:13.511] Browser LOG     fuel_type: diesel
+[64:52:13.511] Browser LOG     tracker_id: SSDDGGFG
+[64:52:13.511] Browser LOG     mileage: 75000
+[64:52:13.511] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[64:52:22.648] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:52:22.648] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:52:28.596] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[64:52:28.596] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

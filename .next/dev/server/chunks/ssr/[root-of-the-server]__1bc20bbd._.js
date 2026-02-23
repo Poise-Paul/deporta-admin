@@ -1120,6 +1120,9 @@ const useModifyBuses = ()=>{
             formData.append("fuel_type", data.fuel_type);
             formData.append("tracker_id", data.tracker_id);
             formData.append("mileage", data.mileage);
+            for (let [key, value] of formData.entries()){
+                console.log(`${key}:`, value);
+            }
             console.log("Bus Details Update>><>🚌🚐", formData);
             const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/bus/edit`, formData, {
                 headers: {

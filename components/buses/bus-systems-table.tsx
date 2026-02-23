@@ -84,7 +84,7 @@ export function BusSystemsTable() {
 
   const [editMode, setEditMode] = useState(false);
   const [busId, setBusId] = useState("");
-const [deleteBusPhotos, setDeleteBusPhotos] = useState<string[]>([]);
+  const [deleteBusPhotos, setDeleteBusPhotos] = useState<string[]>([]);
 
   const { register, setValue, watch, reset } = useForm<AddBusPayload>({
     values: {
@@ -498,20 +498,46 @@ const [deleteBusPhotos, setDeleteBusPhotos] = useState<string[]>([]);
                             <button
                               type="button"
                               onClick={() => {
+                                // 1. Get the URL of the image being removed
+                                const urlToDelete = imageUrl[index];
+                                const existingDeletes =
+                                  watch("delete_bus_photo") || [];
+
+                                // 🔑 THE FIX: Only add to delete list if it's NOT a new local blob
+                                // This assumes your server images start with 'http' or a specific domain
+                                const isExistingServerImage =
+                                  !urlToDelete.startsWith("blob:");
+
+                                if (isExistingServerImage) {
+                                  setValue("delete_bus_photo", [
+                                    ...existingDeletes,
+                                    urlToDelete,
+                                  ]);
+                                }
+
+                                // 2. Update the UI previews
                                 const updatedUrls = imageUrl.filter(
                                   (_, i) => i !== index,
                                 );
-
-                                const deleteUrls = imageUrl.filter(
-                                  (_, i) => i === index,
-                                );
-
-                                const updatedFiles = (
-                                  watch("image") || []
-                                ).filter((_, i) => i !== index);
                                 setValue("imageUrl", updatedUrls);
-                                setValue("image", updatedFiles);
-                                setValue("delete_bus_photo", deleteUrls);
+
+                                // 3. Update the actual File objects being sent for the 'Add' part of the logic
+                                // We need to find the correct index in the 'image' file array
+                                // New images are usually added to the end of the 'image' array
+                                const currentFiles = watch("image") || [];
+
+                                // If it was a blob, it means it's in our 'image' files array and needs to be removed from there
+                                if (!isExistingServerImage) {
+                                  // Find which index this blob corresponds to in your file array
+                                  // (This logic assumes you keep your files and blob URLs in sync)
+                                  const updatedFiles = currentFiles.filter(
+                                    (_, i) =>
+                                      i !==
+                                      index -
+                                        (imageUrl.length - currentFiles.length),
+                                  );
+                                  setValue("image", updatedFiles);
+                                }
                               }}
                               className="absolute top-1 right-1 bg-destructive text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
                             >

@@ -132,10 +132,11 @@ export const useModifyBuses = () => {
         });
       }
 
-      if (data.delete_bus_photo) {
-        data.delete_bus_photo.forEach((string) => {
-          formData.append("delete_bus_photo", string);
-        });
+      if (data.delete_bus_photo && data.delete_bus_photo.length > 0) {
+        formData.append(
+          "delete_bus_photo",
+          JSON.stringify(data.delete_bus_photo),
+        );
       }
 
       formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
@@ -162,6 +163,10 @@ export const useModifyBuses = () => {
       formData.append("fuel_type", data.fuel_type);
       formData.append("tracker_id", data.tracker_id);
       formData.append("mileage", data.mileage);
+
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}:`, value);
+      }
 
       console.log("Bus Details Update>><>🚌🚐", formData);
 
