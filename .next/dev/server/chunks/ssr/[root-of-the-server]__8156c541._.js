@@ -280,7 +280,7 @@ const busStopSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
         updateBusStopDetails: (state, action)=>{
             if (state.selBusStop) {
                 state.selBusStop.routes = action.payload.routes;
-                state.selBusStop.address = action.payload.location;
+                state.selBusStop.address = action.payload.address;
                 state.selBusStop.area = action.payload.area;
                 state.selBusStop.country = action.payload.country;
                 state.selBusStop.state = action.payload.state;

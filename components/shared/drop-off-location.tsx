@@ -5,30 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import {
   Search,
-  Filter,
-  Plus,
   MoreVertical,
   Eye,
   Loader2,
-  DeleteIcon,
   Edit,
   Trash2,
   X,
@@ -36,13 +24,6 @@ import {
   UserCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
 import {
@@ -54,7 +35,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
 import {
   DropOffPayload,
   getDropOffStations,
@@ -64,7 +44,6 @@ import {
   useModifyDropOffStation,
 } from "@/api/drop-off-locations";
 import { updateSelDropOffStation } from "@/lib/store/slices/drop-off-station-slice";
-import GooglePlacesAutocompleteImpropved from "./GooglePlacesAutocompleteImproved";
 import {
   AddDropOffStationDialog,
   EditDropOffStationDialog,
@@ -333,14 +312,6 @@ export function DropOffStation({
         }
       }
     }
-
-    console.log("Place details:", {
-      address: place.address,
-      area: place.area,
-      city: place.city,
-      state: place.state,
-      country: place.country,
-    });
   };
 
   return (
