@@ -2272,8 +2272,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
             if (formData.routine[day].active) {
                 formData.routine[day].value = formData.routine[day].value.map((slot)=>({
                         from: `${new Date().toISOString().split("T")[0]}T${slot.from}:00`,
-                        too: `${new Date().toISOString().split("T")[0]}T${slot.too}:00`,
-                        status: slot.status
+                        too: `${new Date().toISOString().split("T")[0]}T${slot.too}:00`
                     }));
             }
         });
@@ -4522,8 +4521,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         ...current,
                                                                                         {
                                                                                             from: convertToISO(defaultFrom),
-                                                                                            too: convertToISO(defaultToo),
-                                                                                            status: "pending"
+                                                                                            too: convertToISO(defaultToo)
                                                                                         }
                                                                                     ]);
                                                                                 },

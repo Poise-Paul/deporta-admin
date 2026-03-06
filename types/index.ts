@@ -661,7 +661,7 @@ export type WeekdayType = {
   value: {
     from: string;
     too: string;
-    status: string;
+    // status: string;
   }[];
 };
 

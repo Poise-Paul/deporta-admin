@@ -265,7 +265,7 @@ export function RoutesTable({
           (slot) => ({
             from: `${new Date().toISOString().split("T")[0]}T${slot.from}:00`, // add "T"
             too: `${new Date().toISOString().split("T")[0]}T${slot.too}:00`, // fix typo: "too" -> "to"
-            status: slot.status,
+            // status: slot.status,
           }),
         );
       }
@@ -1638,7 +1638,7 @@ export function RoutesTable({
                                 {
                                   from: convertToISO(defaultFrom),
                                   too: convertToISO(defaultToo),
-                                  status: "pending",
+                                  // status: "pending",
                                 },
                               ]);
                             }}

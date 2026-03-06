@@ -180,6 +180,8 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     );
 
     if (!selRoute) return;
+    console.log("Details", updatedRoutine);
+    
     modifyTripRoute.mutate(
       {
         trip_route_id: selRoute._id,
@@ -725,7 +727,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                               {
                                 from: "08:00",
                                 too: "10:00",
-                                status: "pending",
+                                // status: "pending",
                               },
                             ]);
                           }}
