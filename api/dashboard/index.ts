@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../queryClient";
 import { api } from "../axios";
-import { ErrorrResponse, Response, UpdateStaff } from "@/types";
+import { ErrorrResponse, Response, TotalIncomeResponse, UpdateStaff } from "@/types";
 import toast from "react-hot-toast";
 import axios from "axios";
 
@@ -25,4 +25,16 @@ export const useStaffStatus = () => {
       }
     },
   });
+};
+
+export const getDashboardTotal = async (): Promise<TotalIncomeResponse> => {
+  try {
+    const res = await api.get(
+      "/api/users/admin/income-by-args/total?args=total",
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
 };

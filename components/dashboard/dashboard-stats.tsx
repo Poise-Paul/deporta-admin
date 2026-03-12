@@ -1,3 +1,4 @@
+import { getDashboardTotal } from "@/api/dashboard";
 import { getAllStaffs } from "@/api/staffs";
 import { getAllCustomers } from "@/api/user";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,6 +11,11 @@ export function DashboardStats() {
     queryFn: () => getAllStaffs(),
   });
 
+  const { data: adminTotal } = useQuery({
+    queryKey: ["adminTotal"],
+    queryFn: () => getDashboardTotal(),
+  });
+
   const { data: customertData } = useQuery({
     queryKey: ["customerDashboard"],
     queryFn: () => getAllCustomers(),
@@ -18,7 +24,7 @@ export function DashboardStats() {
   const stats = [
     {
       title: "Total made today",
-      value: "₦ 585,984.87",
+      value: `₦ ${adminTotal?.income[0].amount.toLocaleString()}`,
       icon: Wallet,
       color: "bg-primary/10 text-primary",
     },

@@ -303,6 +303,16 @@ export type StaffDashboardStats = {
   staffs: DashboardStats[];
 };
 
+export type TotalIncomeResponse = {
+  status: true;
+  income: [
+    {
+      _id: any;
+      amount: number;
+    },
+  ];
+};
+
 export type OnsiteDriverDataResponse = {
   status: boolean;
   staffs: {
