@@ -630,6 +630,7 @@ export type NormalStaffData = {
 
 export type EntryPoint = {
   value: string;
+  location_id: string;
   coordinates: [number, number];
 };
 
@@ -680,8 +681,11 @@ export type NewEntryPoint = {
     type: string;
     coordinates: [number, number];
   };
+  location_id: string;
   value: string;
 };
+
+// NewEntryPoint - Old
 
 export type RouteData = {
   starting_point: NewEntryPoint;

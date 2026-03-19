@@ -901,7 +901,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://thalia-diachronic-lisette.ngrok-free.dev",
     timeout: 15000,
     headers: {
         "Content-Type": "application/json",
@@ -946,6 +946,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "getOngoingTrips",
+    ()=>getOngoingTrips,
     "getRoutes",
     ()=>getRoutes,
     "useCreateTripRoute",
@@ -1003,13 +1005,17 @@ const useModifyRoutes = ()=>{
             }
         }["useModifyRoutes.useMutation"],
         onSuccess: {
-            "useModifyRoutes.useMutation": (data)=>{
+            "useModifyRoutes.useMutation": (data, variables)=>{
                 __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
                     queryKey: [
                         "routes"
                     ]
                 });
-                __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateRouteDetails"])(data.trip_route));
+                console.log("Selected Router 🥶🥶🥶", variables.routine);
+                __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["store"].dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateRouteDetails"])({
+                    ...data.trip_route,
+                    routine: variables.routine
+                }));
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
                 return data;
             }
@@ -1018,7 +1024,7 @@ const useModifyRoutes = ()=>{
             "useModifyRoutes.useMutation": (error, variables)=>{
                 if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
                     const err = error.response?.data;
-                    console.log("User Erro", error);
+                    console.log("User Error", error);
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
                 } else {
                     console.error("❌ Unexpected error:", error);
@@ -1121,6 +1127,15 @@ _s2(useDeleteRoute, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
     ];
 });
+const getOngoingTrips = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get?activity=ongoing");
+        return res.data;
+    } catch (error) {
+        console.error("Ongoing Trips Error:", error);
+        throw error;
+    }
+};
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -1855,16 +1870,19 @@ function RouteDetails({ onBack }) {
             code: `${selRoute?.code}`,
             destination: {
                 value: selRoute?.destination?.value || "",
+                location_id: selRoute?.destination.location_id,
                 coordinates: selRoute?.destination.location.coordinates
             },
             starting_point: {
                 value: selRoute?.starting_point?.value || "",
+                location_id: selRoute?.destination.location_id,
                 coordinates: selRoute?.starting_point.location.coordinates
             },
             route_distance: `${selRoute?.route_distance}`,
             number_of_stops: selRoute?.number_of_stops.map({
                 "RouteDetails.useForm": (stop)=>({
                         value: stop.value,
+                        location_id: stop.location_id,
                         coordinates: stop.location.coordinates
                     })
             }["RouteDetails.useForm"]),
@@ -2005,14 +2023,14 @@ function RouteDetails({ onBack }) {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 285,
+                                lineNumber: 288,
                                 columnNumber: 11
                             }, this),
                             " Back to Routes"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 284,
+                        lineNumber: 287,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2026,14 +2044,14 @@ function RouteDetails({ onBack }) {
                                         className: "h-4 w-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 289,
+                                        lineNumber: 292,
                                         columnNumber: 13
                                     }, this),
                                     " Edit Route"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 288,
+                                lineNumber: 291,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2047,32 +2065,32 @@ function RouteDetails({ onBack }) {
                                         className: "animate-spin h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 300,
+                                        lineNumber: 303,
                                         columnNumber: 15
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
                                         className: "h-4 w-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 302,
+                                        lineNumber: 305,
                                         columnNumber: 15
                                     }, this),
                                     "Delete Route"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 291,
+                                lineNumber: 294,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 287,
+                        lineNumber: 290,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/route-details.tsx",
-                lineNumber: 283,
+                lineNumber: 286,
                 columnNumber: 7
             }, this),
             selRoute && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2090,12 +2108,12 @@ function RouteDetails({ onBack }) {
                                             className: "h-10 w-10"
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 314,
+                                            lineNumber: 317,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 313,
+                                        lineNumber: 316,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2103,7 +2121,7 @@ function RouteDetails({ onBack }) {
                                         children: selRoute?.starting_point.value
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 316,
+                                        lineNumber: 319,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2111,7 +2129,7 @@ function RouteDetails({ onBack }) {
                                         children: selRoute?.destination.value
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 319,
+                                        lineNumber: 322,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2120,20 +2138,20 @@ function RouteDetails({ onBack }) {
                                         children: isActive ? "Active Station" : "In-active Station"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 322,
+                                        lineNumber: 325,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 312,
+                                lineNumber: 315,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {
                                 className: "my-6"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 333,
+                                lineNumber: 336,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2146,7 +2164,7 @@ function RouteDetails({ onBack }) {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                lineNumber: 336,
+                                                lineNumber: 339,
                                                 columnNumber: 17
                                             }, this),
                                             " ",
@@ -2158,13 +2176,13 @@ function RouteDetails({ onBack }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                lineNumber: 337,
+                                                lineNumber: 340,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 335,
+                                        lineNumber: 338,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2174,7 +2192,7 @@ function RouteDetails({ onBack }) {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                lineNumber: 342,
+                                                lineNumber: 345,
                                                 columnNumber: 17
                                             }, this),
                                             " ",
@@ -2187,25 +2205,25 @@ function RouteDetails({ onBack }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                lineNumber: 343,
+                                                lineNumber: 346,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 341,
+                                        lineNumber: 344,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 334,
+                                lineNumber: 337,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 311,
+                        lineNumber: 314,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2217,12 +2235,12 @@ function RouteDetails({ onBack }) {
                                     children: "Route Details"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/route-details.tsx",
-                                    lineNumber: 353,
+                                    lineNumber: 356,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 352,
+                                lineNumber: 355,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2233,12 +2251,12 @@ function RouteDetails({ onBack }) {
                                         value: `₦${selRoute.rate}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$radio$2d$tower$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RadioTower$3e$__["RadioTower"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 359,
+                                            lineNumber: 362,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 356,
+                                        lineNumber: 359,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2246,12 +2264,12 @@ function RouteDetails({ onBack }) {
                                         value: `₦${selRoute.flat_rate}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$tag$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Tag$3e$__["Tag"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 364,
+                                            lineNumber: 367,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 361,
+                                        lineNumber: 364,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2259,12 +2277,12 @@ function RouteDetails({ onBack }) {
                                         value: `₦${selRoute.rate_per_km}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$route$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Route$3e$__["Route"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 369,
+                                            lineNumber: 372,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 366,
+                                        lineNumber: 369,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2272,12 +2290,12 @@ function RouteDetails({ onBack }) {
                                         value: `${selRoute.code}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$code$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Code$3e$__["Code"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 374,
+                                            lineNumber: 377,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 371,
+                                        lineNumber: 374,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2285,12 +2303,12 @@ function RouteDetails({ onBack }) {
                                         value: `${selRoute.starting_point.value}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pin$3e$__["Pin"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 379,
+                                            lineNumber: 382,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 376,
+                                        lineNumber: 379,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2298,12 +2316,12 @@ function RouteDetails({ onBack }) {
                                         value: `${selRoute.destination.value}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flag$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Flag$3e$__["Flag"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 384,
+                                            lineNumber: 387,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 381,
+                                        lineNumber: 384,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2311,19 +2329,19 @@ function RouteDetails({ onBack }) {
                                         value: `${selRoute.route_distance} KM`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flag$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Flag$3e$__["Flag"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 389,
+                                            lineNumber: 392,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 386,
+                                        lineNumber: 389,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
                                         label: `Number Of Stops: ${Array.isArray(selRoute?.number_of_stops) ? selRoute.number_of_stops.length : 0}`,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flag$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Flag$3e$__["Flag"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 398,
+                                            lineNumber: 401,
                                             columnNumber: 23
                                         }, void 0),
                                         // 🔑 Change: Render a vertical list instead of a joined string
@@ -2336,7 +2354,7 @@ function RouteDetails({ onBack }) {
                                                             className: "h-2 w-2 rounded-full bg-orange-500 mt-1.5 shrink-0"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 408,
+                                                            lineNumber: 411,
                                                             columnNumber: 29
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2344,23 +2362,23 @@ function RouteDetails({ onBack }) {
                                                             children: stop.value
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 409,
+                                                            lineNumber: 412,
                                                             columnNumber: 29
                                                         }, void 0)
                                                     ]
                                                 }, index, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 406,
+                                                    lineNumber: 409,
                                                     columnNumber: 27
                                                 }, void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 403,
+                                            lineNumber: 406,
                                             columnNumber: 21
                                         }, void 0) : "No stops"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 392,
+                                        lineNumber: 395,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2368,12 +2386,12 @@ function RouteDetails({ onBack }) {
                                         value: selRoute.state,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Globe$3e$__["Globe"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 421,
+                                            lineNumber: 424,
                                             columnNumber: 68
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 421,
+                                        lineNumber: 424,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2381,12 +2399,12 @@ function RouteDetails({ onBack }) {
                                         value: selRoute.country,
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Globe$3e$__["Globe"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 425,
+                                            lineNumber: 428,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 422,
+                                        lineNumber: 425,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoItem, {
@@ -2394,24 +2412,24 @@ function RouteDetails({ onBack }) {
                                         value: new Date(selRoute.createdAt).toDateString(),
                                         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {}, void 0, false, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 430,
+                                            lineNumber: 433,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 427,
+                                        lineNumber: 430,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 355,
+                                lineNumber: 358,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 351,
+                        lineNumber: 354,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2423,12 +2441,12 @@ function RouteDetails({ onBack }) {
                                     children: "Route Trip Schedule"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/route-details.tsx",
-                                    lineNumber: 437,
+                                    lineNumber: 440,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 436,
+                                lineNumber: 439,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2448,7 +2466,7 @@ function RouteDetails({ onBack }) {
                                                             children: day
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 451,
+                                                            lineNumber: 454,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2457,13 +2475,13 @@ function RouteDetails({ onBack }) {
                                                             children: isActive ? "Active" : "Closed"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 452,
+                                                            lineNumber: 455,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 450,
+                                                    lineNumber: 453,
                                                     columnNumber: 23
                                                 }, this),
                                                 isActive && dayData.value && dayData.value.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2478,7 +2496,7 @@ function RouteDetails({ onBack }) {
                                                                             className: "h-3.5 w-3.5 text-primary/80"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                            lineNumber: 468,
+                                                                            lineNumber: 471,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2486,20 +2504,20 @@ function RouteDetails({ onBack }) {
                                                                             children: formatTime(slot.from)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                            lineNumber: 469,
+                                                                            lineNumber: 472,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 467,
+                                                                    lineNumber: 470,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                                     className: "h-3 w-3 opacity-40"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 474,
+                                                                    lineNumber: 477,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2509,59 +2527,59 @@ function RouteDetails({ onBack }) {
                                                                         children: formatTime(slot.too)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                                        lineNumber: 477,
+                                                                        lineNumber: 480,
                                                                         columnNumber: 33
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 476,
+                                                                    lineNumber: 479,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, idx, true, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 463,
+                                                            lineNumber: 466,
                                                             columnNumber: 29
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 461,
+                                                    lineNumber: 464,
                                                     columnNumber: 25
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-[11px] text-muted-foreground italic",
                                                     children: "No trips scheduled for this day."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 485,
+                                                    lineNumber: 488,
                                                     columnNumber: 25
                                                 }, this)
                                             ]
                                         }, day, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 446,
+                                            lineNumber: 449,
                                             columnNumber: 21
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/route-details.tsx",
-                                    lineNumber: 440,
+                                    lineNumber: 443,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 439,
+                                lineNumber: 442,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 435,
+                        lineNumber: 438,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/route-details.tsx",
-                lineNumber: 310,
+                lineNumber: 313,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2572,7 +2590,7 @@ function RouteDetails({ onBack }) {
                         asChild: true
                     }, void 0, false, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 500,
+                        lineNumber: 506,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2584,12 +2602,12 @@ function RouteDetails({ onBack }) {
                                     children: "Edit Route Details"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/route-details.tsx",
-                                    lineNumber: 504,
+                                    lineNumber: 510,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 503,
+                                lineNumber: 509,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2608,7 +2626,7 @@ function RouteDetails({ onBack }) {
                                                             children: "Rate"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 513,
+                                                            lineNumber: 519,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2619,7 +2637,7 @@ function RouteDetails({ onBack }) {
                                                                     children: "₦"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 515,
+                                                                    lineNumber: 521,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2630,19 +2648,19 @@ function RouteDetails({ onBack }) {
                                                                     placeholder: "Enter rate"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 518,
+                                                                    lineNumber: 524,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 514,
+                                                            lineNumber: 520,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 512,
+                                                    lineNumber: 518,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2653,7 +2671,7 @@ function RouteDetails({ onBack }) {
                                                             children: "Flat Rate"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 528,
+                                                            lineNumber: 534,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2664,7 +2682,7 @@ function RouteDetails({ onBack }) {
                                                                     children: "₦"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 530,
+                                                                    lineNumber: 536,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2675,25 +2693,25 @@ function RouteDetails({ onBack }) {
                                                                     placeholder: "Enter Flat Rate"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 533,
+                                                                    lineNumber: 539,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 529,
+                                                            lineNumber: 535,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 527,
+                                                    lineNumber: 533,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 511,
+                                            lineNumber: 517,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2707,7 +2725,7 @@ function RouteDetails({ onBack }) {
                                                             children: "Rate Per KM"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 547,
+                                                            lineNumber: 553,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2718,7 +2736,7 @@ function RouteDetails({ onBack }) {
                                                                     children: "₦"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 549,
+                                                                    lineNumber: 555,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2729,19 +2747,19 @@ function RouteDetails({ onBack }) {
                                                                     placeholder: "Enter Rate Per Km"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 552,
+                                                                    lineNumber: 558,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 548,
+                                                            lineNumber: 554,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 546,
+                                                    lineNumber: 552,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2752,7 +2770,7 @@ function RouteDetails({ onBack }) {
                                                             children: "Code"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 562,
+                                                            lineNumber: 568,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2761,19 +2779,19 @@ function RouteDetails({ onBack }) {
                                                             placeholder: "Enter code"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 563,
+                                                            lineNumber: 569,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 561,
+                                                    lineNumber: 567,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 545,
+                                            lineNumber: 551,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2784,23 +2802,59 @@ function RouteDetails({ onBack }) {
                                                     children: "Starting Point"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 573,
+                                                    lineNumber: 602,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                    id: "starting_point",
-                                                    ...register("starting_point.value"),
-                                                    readOnly: true,
-                                                    className: "bg-background"
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                    onValueChange: (id)=>{
+                                                        const station = pickupStations?.pickup_station.data.find((s)=>s._id === id);
+                                                        if (station) {
+                                                            setValue("starting_point", {
+                                                                value: station.address.value.toLowerCase(),
+                                                                location_id: station._id,
+                                                                coordinates: station.address.location.coordinates
+                                                            });
+                                                        }
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                            className: "bg-background w-full",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                placeholder: watch("starting_point.value") || "Select Pickup Location"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/route-details.tsx",
+                                                                lineNumber: 618,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/shared/route-details.tsx",
+                                                            lineNumber: 617,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                            children: pickupStations?.pickup_station.data.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                    value: stop._id,
+                                                                    children: stop.address.value
+                                                                }, stop._id, false, {
+                                                                    fileName: "[project]/components/shared/route-details.tsx",
+                                                                    lineNumber: 627,
+                                                                    columnNumber: 23
+                                                                }, this))
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/shared/route-details.tsx",
+                                                            lineNumber: 625,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 574,
+                                                    lineNumber: 603,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 572,
+                                            lineNumber: 601,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2811,23 +2865,59 @@ function RouteDetails({ onBack }) {
                                                     children: "Destination"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 583,
+                                                    lineNumber: 637,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                    id: "destination",
-                                                    ...register("destination.value"),
-                                                    readOnly: true,
-                                                    className: "bg-background"
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                                                    onValueChange: (id)=>{
+                                                        const station = dropOffStations?.drop_off_station.data.find((s)=>s._id === id);
+                                                        if (station) {
+                                                            setValue("destination", {
+                                                                value: station.address.value.toLowerCase(),
+                                                                location_id: station._id,
+                                                                coordinates: station.address.location.coordinates
+                                                            });
+                                                        }
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                                            className: "bg-background w-full",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                                                placeholder: watch("destination.value") || "Select Drop Off Location"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/shared/route-details.tsx",
+                                                                lineNumber: 653,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/shared/route-details.tsx",
+                                                            lineNumber: 652,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                                            children: dropOffStations?.drop_off_station.data.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                                                    value: stop._id,
+                                                                    children: stop.address.value
+                                                                }, stop._id, false, {
+                                                                    fileName: "[project]/components/shared/route-details.tsx",
+                                                                    lineNumber: 661,
+                                                                    columnNumber: 23
+                                                                }, this))
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/shared/route-details.tsx",
+                                                            lineNumber: 659,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 584,
+                                                    lineNumber: 638,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 582,
+                                            lineNumber: 636,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2838,7 +2928,7 @@ function RouteDetails({ onBack }) {
                                                     children: "Weekly Operating Schedule"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 594,
+                                                    lineNumber: 671,
                                                     columnNumber: 17
                                                 }, this),
                                                 days.map((day)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2852,7 +2942,7 @@ function RouteDetails({ onBack }) {
                                                                         children: day
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                                        lineNumber: 603,
+                                                                        lineNumber: 680,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2863,7 +2953,7 @@ function RouteDetails({ onBack }) {
                                                                                 children: "Active"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                                lineNumber: 605,
+                                                                                lineNumber: 682,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
@@ -2871,19 +2961,19 @@ function RouteDetails({ onBack }) {
                                                                                 onCheckedChange: (val)=>setValue(`routine.${day}.active`, val)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                                lineNumber: 608,
+                                                                                lineNumber: 685,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                                        lineNumber: 604,
+                                                                        lineNumber: 681,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                lineNumber: 602,
+                                                                lineNumber: 679,
                                                                 columnNumber: 21
                                                             }, this),
                                                             watch(`routine.${day}.active`) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2899,35 +2989,53 @@ function RouteDetails({ onBack }) {
                                                                                             children: "Departure (From)"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                                            lineNumber: 624,
+                                                                                            lineNumber: 701,
                                                                                             columnNumber: 31
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                             type: "time",
-                                                                                            value: slot.from?.length === 5 ? slot.from : formatISOToTime(slot.from),
+                                                                                            value: formatISOToTime(slot.from),
                                                                                             onChange: (e)=>{
-                                                                                                const newTime = e.target.value; // e.g. "14:30"
+                                                                                                const newTime = e.target.value;
                                                                                                 const currentRoutine = [
                                                                                                     ...watch(`routine.${day}.value`)
                                                                                                 ];
-                                                                                                // 🔑 Update the specific slot with the NEW time string
+                                                                                                // 🔑 1. Guard: Check for Duplicates
+                                                                                                const isDuplicate = currentRoutine.some((s, i)=>i !== index && formatISOToTime(s.from) === newTime && formatISOToTime(s.too) === formatISOToTime(slot.too));
+                                                                                                if (isDuplicate) {
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error("This exact time slot already exists.");
+                                                                                                    return;
+                                                                                                }
+                                                                                                // 🔑 2. Guard: Departure must be before Arrival
+                                                                                                if (newTime >= formatISOToTime(slot.too)) {
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error("Departure must be before arrival.");
+                                                                                                    return;
+                                                                                                }
+                                                                                                // currentRoutine[index].from =
+                                                                                                //   convertToISO(newTime);
+                                                                                                // updateValue(
+                                                                                                //   `routine.${day}.value`,
+                                                                                                //   currentRoutine,
+                                                                                                // );
+                                                                                                // 🔑 Create a completely new object for the specific slot so react-hook-form sees the change
                                                                                                 currentRoutine[index] = {
                                                                                                     ...currentRoutine[index],
-                                                                                                    from: newTime
+                                                                                                    from: convertToISO(newTime)
                                                                                                 };
+                                                                                                // Update the value and optionally tell it to validate/dirty the field
                                                                                                 setValue(`routine.${day}.value`, currentRoutine, {
                                                                                                     shouldDirty: true
                                                                                                 });
                                                                                             }
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                                            lineNumber: 645,
+                                                                                            lineNumber: 704,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                                    lineNumber: 623,
+                                                                                    lineNumber: 700,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2937,35 +3045,53 @@ function RouteDetails({ onBack }) {
                                                                                             children: "Arrival (Too)"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                                            lineNumber: 673,
+                                                                                            lineNumber: 758,
                                                                                             columnNumber: 31
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                             type: "time",
-                                                                                            value: slot.too?.length === 5 ? slot.too : formatISOToTime(slot.too),
+                                                                                            value: formatISOToTime(slot.too),
                                                                                             onChange: (e)=>{
-                                                                                                const newTime = e.target.value; // e.g. "14:30"
+                                                                                                const newTime = e.target.value;
                                                                                                 const currentRoutine = [
                                                                                                     ...watch(`routine.${day}.value`)
                                                                                                 ];
-                                                                                                // 🔑 Update the specific slot with the NEW time string
+                                                                                                // 🔑 1. Guard: Check for Duplicates
+                                                                                                const isDuplicate = currentRoutine.some((s, i)=>i !== index && formatISOToTime(s.from) === formatISOToTime(slot.from) && formatISOToTime(s.too) === newTime);
+                                                                                                if (isDuplicate) {
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error("This exact time slot already exists.");
+                                                                                                    return;
+                                                                                                }
+                                                                                                // 🔑 2. Guard: Arrival must be after Departure
+                                                                                                if (newTime <= formatISOToTime(slot.from)) {
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error("Arrival must be after departure.");
+                                                                                                    return;
+                                                                                                }
+                                                                                                // currentRoutine[index].too =
+                                                                                                //   convertToISO(newTime);
+                                                                                                // updateValue(
+                                                                                                //   `routine.${day}.value`,
+                                                                                                //   currentRoutine,
+                                                                                                // );
+                                                                                                // 🔑 Create a completely new object for the specific slot so react-hook-form sees the change
                                                                                                 currentRoutine[index] = {
                                                                                                     ...currentRoutine[index],
-                                                                                                    too: newTime
+                                                                                                    too: convertToISO(newTime)
                                                                                                 };
+                                                                                                // Update the value and optionally tell it to validate/dirty the field
                                                                                                 setValue(`routine.${day}.value`, currentRoutine, {
                                                                                                     shouldDirty: true
                                                                                                 });
                                                                                             }
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                                            lineNumber: 677,
+                                                                                            lineNumber: 761,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                                    lineNumber: 672,
+                                                                                    lineNumber: 757,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2980,18 +3106,18 @@ function RouteDetails({ onBack }) {
                                                                                         size: 14
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                                                        lineNumber: 715,
+                                                                                        lineNumber: 825,
                                                                                         columnNumber: 31
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                                    lineNumber: 704,
+                                                                                    lineNumber: 814,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, index, true, {
                                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                                            lineNumber: 619,
+                                                                            lineNumber: 696,
                                                                             columnNumber: 27
                                                                         }, this)),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3000,11 +3126,20 @@ function RouteDetails({ onBack }) {
                                                                         className: "w-full text-xs",
                                                                         onClick: ()=>{
                                                                             const current = watch(`routine.${day}.value`) || [];
+                                                                            let defaultFrom = "08:00";
+                                                                            if (current.length > 0) {
+                                                                                const lastSlot = current[current.length - 1];
+                                                                                const lastHour = formatISOToTime(lastSlot.too).split(":")[0];
+                                                                                const nextHour = (parseInt(lastHour) + 1) % 24;
+                                                                                defaultFrom = `${nextHour.toString().padStart(2, "0")}:00`;
+                                                                            }
+                                                                            const nextHourAfterFrom = (parseInt(defaultFrom.split(":")[0]) + 1) % 24;
+                                                                            const defaultToo = `${nextHourAfterFrom.toString().padStart(2, "0")}:00`;
                                                                             setValue(`routine.${day}.value`, [
                                                                                 ...current,
                                                                                 {
-                                                                                    from: "08:00",
-                                                                                    too: "10:00"
+                                                                                    from: convertToISO(defaultFrom),
+                                                                                    too: convertToISO(defaultToo)
                                                                                 }
                                                                             ]);
                                                                         },
@@ -3014,32 +3149,32 @@ function RouteDetails({ onBack }) {
                                                                                 className: "mr-1"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                                lineNumber: 735,
+                                                                                lineNumber: 860,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             " Add Time Slot"
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                                        lineNumber: 719,
+                                                                        lineNumber: 829,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                lineNumber: 617,
+                                                                lineNumber: 694,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, day, true, {
                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                        lineNumber: 598,
+                                                        lineNumber: 675,
                                                         columnNumber: 19
                                                     }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 593,
+                                            lineNumber: 670,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3050,7 +3185,7 @@ function RouteDetails({ onBack }) {
                                                     children: "Route Distance"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 745,
+                                                    lineNumber: 872,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3063,7 +3198,7 @@ function RouteDetails({ onBack }) {
                                                             className: "bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 747,
+                                                            lineNumber: 874,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3071,19 +3206,19 @@ function RouteDetails({ onBack }) {
                                                             children: "KM"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 753,
+                                                            lineNumber: 880,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 746,
+                                                    lineNumber: 873,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 744,
+                                            lineNumber: 871,
                                             columnNumber: 15
                                         }, this),
                                         busStops && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3094,7 +3229,7 @@ function RouteDetails({ onBack }) {
                                                     children: "Select Bus-Stops Along this Route"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 762,
+                                                    lineNumber: 889,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3123,12 +3258,12 @@ function RouteDetails({ onBack }) {
                                                                 placeholder: "Add bus-stops..."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                lineNumber: 792,
+                                                                lineNumber: 919,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 791,
+                                                            lineNumber: 918,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3137,18 +3272,18 @@ function RouteDetails({ onBack }) {
                                                                     children: stop.address.value
                                                                 }, stop._id, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 804,
+                                                                    lineNumber: 931,
                                                                     columnNumber: 27
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 794,
+                                                            lineNumber: 921,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 765,
+                                                    lineNumber: 892,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3162,7 +3297,7 @@ function RouteDetails({ onBack }) {
                                                                     children: stopValue.value
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 817,
+                                                                    lineNumber: 944,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3176,29 +3311,29 @@ function RouteDetails({ onBack }) {
                                                                         size: 14
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/route-details.tsx",
-                                                                        lineNumber: 829,
+                                                                        lineNumber: 956,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 818,
+                                                                    lineNumber: 945,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, key, true, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 812,
+                                                            lineNumber: 939,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 810,
+                                                    lineNumber: 937,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 761,
+                                            lineNumber: 888,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3209,7 +3344,7 @@ function RouteDetails({ onBack }) {
                                                     children: "State"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 839,
+                                                    lineNumber: 966,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3222,12 +3357,12 @@ function RouteDetails({ onBack }) {
                                                                 placeholder: "Select a State"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/shared/route-details.tsx",
-                                                                lineNumber: 845,
+                                                                lineNumber: 972,
                                                                 columnNumber: 21
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 844,
+                                                            lineNumber: 971,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3236,24 +3371,24 @@ function RouteDetails({ onBack }) {
                                                                     children: state
                                                                 }, state, false, {
                                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                                    lineNumber: 849,
+                                                                    lineNumber: 976,
                                                                     columnNumber: 23
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/route-details.tsx",
-                                                            lineNumber: 847,
+                                                            lineNumber: 974,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 840,
+                                                    lineNumber: 967,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 838,
+                                            lineNumber: 965,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3264,7 +3399,7 @@ function RouteDetails({ onBack }) {
                                                     children: "Country"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 857,
+                                                    lineNumber: 984,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3274,24 +3409,24 @@ function RouteDetails({ onBack }) {
                                                     defaultValue: "Nigeria"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/route-details.tsx",
-                                                    lineNumber: 858,
+                                                    lineNumber: 985,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/route-details.tsx",
-                                            lineNumber: 856,
+                                            lineNumber: 983,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/route-details.tsx",
-                                    lineNumber: 509,
+                                    lineNumber: 515,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 508,
+                                lineNumber: 514,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3304,42 +3439,42 @@ function RouteDetails({ onBack }) {
                                         className: "h-4 w-4 animate-spin"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/route-details.tsx",
-                                        lineNumber: 876,
+                                        lineNumber: 1003,
                                         columnNumber: 17
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                         children: "Save Changes"
                                     }, void 0, false)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/route-details.tsx",
-                                    lineNumber: 870,
+                                    lineNumber: 997,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/route-details.tsx",
-                                lineNumber: 869,
+                                lineNumber: 996,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 502,
+                        lineNumber: 508,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/route-details.tsx",
-                lineNumber: 499,
+                lineNumber: 505,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/shared/route-details.tsx",
-                lineNumber: 885,
+                lineNumber: 1012,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/shared/route-details.tsx",
-        lineNumber: 282,
+        lineNumber: 285,
         columnNumber: 5
     }, this);
 }
@@ -3365,7 +3500,7 @@ function InfoItem({ label, value, icon }) {
                 children: icon
             }, void 0, false, {
                 fileName: "[project]/components/shared/route-details.tsx",
-                lineNumber: 901,
+                lineNumber: 1028,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3375,7 +3510,7 @@ function InfoItem({ label, value, icon }) {
                         children: label
                     }, void 0, false, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 905,
+                        lineNumber: 1032,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3383,19 +3518,19 @@ function InfoItem({ label, value, icon }) {
                         children: value
                     }, void 0, false, {
                         fileName: "[project]/components/shared/route-details.tsx",
-                        lineNumber: 908,
+                        lineNumber: 1035,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/route-details.tsx",
-                lineNumber: 904,
+                lineNumber: 1031,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/shared/route-details.tsx",
-        lineNumber: 900,
+        lineNumber: 1027,
         columnNumber: 5
     }, this);
 }

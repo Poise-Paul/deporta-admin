@@ -1099,10 +1099,8 @@ const useModifyBuses = ()=>{
                     formData.append("image", file);
                 });
             }
-            if (data.delete_bus_photo) {
-                data.delete_bus_photo.forEach((string)=>{
-                    formData.append("delete_bus_photo", string);
-                });
+            if (data.delete_bus_photo && data.delete_bus_photo.length > 0) {
+                formData.append("delete_bus_photo", JSON.stringify(data.delete_bus_photo));
             }
             formData.append("routes_assigned", JSON.stringify(data.routes_assigned));
             formData.append("drivers_assigned", JSON.stringify(data.drivers_assigned));
@@ -1658,7 +1656,7 @@ function BusDetails({ busId }) {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex flex-wrap gap-1",
-                                                    children: selBus.drivers_assigned?.length > 0 ? selBus.drivers_assigned.map((driver)=>{
+                                                    children: selBus.drivers_assigned?.length > 0 ? selBus.drivers_assigned.map((driver, key)=>{
                                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
                                                             variant: "outline",
                                                             className: "text-[10px] px-1",
@@ -1667,7 +1665,7 @@ function BusDetails({ busId }) {
                                                                 " ",
                                                                 driver.last_name
                                                             ]
-                                                        }, driver._id, true, {
+                                                        }, key, true, {
                                                             fileName: "[project]/components/buses/bus-details.tsx",
                                                             lineNumber: 300,
                                                             columnNumber: 29
@@ -2666,7 +2664,7 @@ function BusDetails({ busId }) {
                                             lineNumber: 706,
                                             columnNumber: 17
                                         }, this),
-                                        selBus.drivers_assigned?.length > 0 ? selBus.drivers_assigned.map((driver)=>{
+                                        selBus.drivers_assigned?.length > 0 ? selBus.drivers_assigned.map((driver, key)=>{
                                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
                                                 variant: "outline",
                                                 className: "text-[10px] px-1",
@@ -2675,7 +2673,7 @@ function BusDetails({ busId }) {
                                                     " ",
                                                     driver.last_name
                                                 ]
-                                            }, driver._id, true, {
+                                            }, key, true, {
                                                 fileName: "[project]/components/buses/bus-details.tsx",
                                                 lineNumber: 710,
                                                 columnNumber: 25
@@ -3672,7 +3670,7 @@ function MaintenanceReport({ busId }) {
                         children: "Maintenance Report"
                     }, void 0, false, {
                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                        lineNumber: 123,
+                        lineNumber: 121,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -3688,19 +3686,19 @@ function MaintenanceReport({ busId }) {
                                             className: "h-4 w-4"
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                            lineNumber: 130,
+                                            lineNumber: 128,
                                             columnNumber: 15
                                         }, this),
                                         "Create New Report"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                    lineNumber: 129,
+                                    lineNumber: 127,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                lineNumber: 128,
+                                lineNumber: 126,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -3712,25 +3710,25 @@ function MaintenanceReport({ busId }) {
                                                 children: "Bus Maintenance Report"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 134,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                                 children: "Record repair details and costs for this vehicle."
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 137,
+                                                lineNumber: 135,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 135,
+                                        lineNumber: 133,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 139,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3750,13 +3748,13 @@ function MaintenanceReport({ busId }) {
                                                                         children: "*"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 146,
+                                                                        lineNumber: 144,
                                                                         columnNumber: 34
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 145,
+                                                                lineNumber: 143,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -3767,12 +3765,12 @@ function MaintenanceReport({ busId }) {
                                                                             placeholder: "Select type of service"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                            lineNumber: 152,
+                                                                            lineNumber: 150,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 151,
+                                                                        lineNumber: 149,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3782,7 +3780,7 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Routine Checkup"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 155,
+                                                                                lineNumber: 153,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3790,7 +3788,7 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Engine Maintenance"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 158,
+                                                                                lineNumber: 156,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3798,7 +3796,7 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Tire Replacement"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 161,
+                                                                                lineNumber: 159,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3806,7 +3804,7 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Brake Repair"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 164,
+                                                                                lineNumber: 162,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3814,25 +3812,25 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Electrical Fix"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 165,
+                                                                                lineNumber: 163,
                                                                                 columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 154,
+                                                                        lineNumber: 152,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 148,
+                                                                lineNumber: 146,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 144,
+                                                        lineNumber: 142,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3846,13 +3844,13 @@ function MaintenanceReport({ busId }) {
                                                                         children: "*"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 174,
+                                                                        lineNumber: 172,
                                                                         columnNumber: 30
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 173,
+                                                                lineNumber: 171,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -3866,12 +3864,12 @@ function MaintenanceReport({ busId }) {
                                                                             placeholder: "Set Priority"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                            lineNumber: 184,
+                                                                            lineNumber: 182,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 183,
+                                                                        lineNumber: 181,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3881,7 +3879,7 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Normal"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 187,
+                                                                                lineNumber: 185,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3889,7 +3887,7 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "High"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 190,
+                                                                                lineNumber: 188,
                                                                                 columnNumber: 23
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3897,31 +3895,31 @@ function MaintenanceReport({ busId }) {
                                                                                 children: "Urgent"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                                lineNumber: 191,
+                                                                                lineNumber: 189,
                                                                                 columnNumber: 23
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 186,
+                                                                        lineNumber: 184,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 176,
+                                                                lineNumber: 174,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 172,
+                                                        lineNumber: 170,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 143,
+                                                lineNumber: 141,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3938,13 +3936,13 @@ function MaintenanceReport({ busId }) {
                                                                         children: "*"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 203,
+                                                                        lineNumber: 201,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 201,
+                                                                lineNumber: 199,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3953,13 +3951,13 @@ function MaintenanceReport({ busId }) {
                                                                 placeholder: "Enter the title"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 205,
+                                                                lineNumber: 203,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 200,
+                                                        lineNumber: 198,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3974,13 +3972,13 @@ function MaintenanceReport({ busId }) {
                                                                         children: "*"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 215,
+                                                                        lineNumber: 213,
                                                                         columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 213,
+                                                                lineNumber: 211,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -3989,19 +3987,19 @@ function MaintenanceReport({ busId }) {
                                                                 className: "min-h-20"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 217,
+                                                                lineNumber: 215,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 212,
+                                                        lineNumber: 210,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 199,
+                                                lineNumber: 197,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4014,7 +4012,7 @@ function MaintenanceReport({ busId }) {
                                                                 children: "Total Cost (₦)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 227,
+                                                                lineNumber: 225,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4022,13 +4020,13 @@ function MaintenanceReport({ busId }) {
                                                                 placeholder: "0.00"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 228,
+                                                                lineNumber: 226,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 226,
+                                                        lineNumber: 224,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4038,7 +4036,7 @@ function MaintenanceReport({ busId }) {
                                                                 children: "Workshop / Technician"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 232,
+                                                                lineNumber: 230,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4046,19 +4044,19 @@ function MaintenanceReport({ busId }) {
                                                                 ...register("report.technician_notes")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 234,
+                                                                lineNumber: 232,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 231,
+                                                        lineNumber: 229,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 225,
+                                                lineNumber: 223,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4070,7 +4068,7 @@ function MaintenanceReport({ busId }) {
                                                             children: "Status"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                            lineNumber: 243,
+                                                            lineNumber: 241,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RadioGroup"], {
@@ -4087,7 +4085,7 @@ function MaintenanceReport({ busId }) {
                                                                             id: "m1"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                            lineNumber: 253,
+                                                                            lineNumber: 251,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -4096,13 +4094,13 @@ function MaintenanceReport({ busId }) {
                                                                             children: "Pending"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                            lineNumber: 257,
+                                                                            lineNumber: 255,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                    lineNumber: 252,
+                                                                    lineNumber: 250,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4113,7 +4111,7 @@ function MaintenanceReport({ busId }) {
                                                                             id: "m2"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                            lineNumber: 262,
+                                                                            lineNumber: 260,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -4122,30 +4120,30 @@ function MaintenanceReport({ busId }) {
                                                                             children: "Completed"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                            lineNumber: 266,
+                                                                            lineNumber: 264,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                    lineNumber: 261,
+                                                                    lineNumber: 259,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                            lineNumber: 244,
+                                                            lineNumber: 242,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 242,
+                                                    lineNumber: 240,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 239,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -4156,38 +4154,38 @@ function MaintenanceReport({ busId }) {
                                                     className: "h-4 w-4 animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 280,
+                                                    lineNumber: 278,
                                                     columnNumber: 19
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                     children: "Submit Maintenance Report"
                                                 }, void 0, false)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 274,
+                                                lineNumber: 272,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 140,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                lineNumber: 134,
+                                lineNumber: 132,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                        lineNumber: 127,
+                        lineNumber: 125,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                lineNumber: 122,
+                lineNumber: 120,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -4207,7 +4205,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "Date"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 294,
+                                                lineNumber: 292,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4215,7 +4213,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "Report"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 297,
+                                                lineNumber: 295,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4223,7 +4221,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "Staff"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 300,
+                                                lineNumber: 298,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4231,7 +4229,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 303,
+                                                lineNumber: 301,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4239,7 +4237,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "Priority"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 306,
+                                                lineNumber: 304,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -4247,18 +4245,18 @@ function MaintenanceReport({ busId }) {
                                                 children: "Others"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 309,
+                                                lineNumber: 307,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 293,
+                                        lineNumber: 291,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                    lineNumber: 292,
+                                    lineNumber: 290,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -4270,7 +4268,7 @@ function MaintenanceReport({ busId }) {
                                                     children: new Date(report.createdAt).toLocaleString()
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 320,
+                                                    lineNumber: 318,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4281,7 +4279,7 @@ function MaintenanceReport({ busId }) {
                                                             children: report.report.title
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                            lineNumber: 324,
+                                                            lineNumber: 322,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4289,13 +4287,13 @@ function MaintenanceReport({ busId }) {
                                                             children: report.report.description
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                            lineNumber: 325,
+                                                            lineNumber: 323,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 323,
+                                                    lineNumber: 321,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4312,20 +4310,20 @@ function MaintenanceReport({ busId }) {
                                                                         alt: report.added_by.first_name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 332,
+                                                                        lineNumber: 330,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                         children: report.added_by.first_name.charAt(0)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                        lineNumber: 339,
+                                                                        lineNumber: 337,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 331,
+                                                                lineNumber: 329,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4337,18 +4335,18 @@ function MaintenanceReport({ busId }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                                lineNumber: 343,
+                                                                lineNumber: 341,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 330,
+                                                        lineNumber: 328,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 327,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4363,12 +4361,12 @@ function MaintenanceReport({ busId }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 349,
+                                                        lineNumber: 347,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 348,
+                                                    lineNumber: 346,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4383,12 +4381,12 @@ function MaintenanceReport({ busId }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 363,
+                                                        lineNumber: 361,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 360,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -4402,39 +4400,39 @@ function MaintenanceReport({ busId }) {
                                                             className: "h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                            lineNumber: 384,
+                                                            lineNumber: 382,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                        lineNumber: 378,
+                                                        lineNumber: 376,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                    lineNumber: 377,
+                                                    lineNumber: 375,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, report._id, true, {
                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                            lineNumber: 316,
+                                            lineNumber: 314,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/buses/maintenance-report.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 312,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                            lineNumber: 291,
+                            lineNumber: 289,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                        lineNumber: 290,
+                        lineNumber: 288,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4454,7 +4452,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 403,
+                                                lineNumber: 401,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -4462,7 +4460,7 @@ function MaintenanceReport({ busId }) {
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 404,
+                                                lineNumber: 402,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -4470,20 +4468,20 @@ function MaintenanceReport({ busId }) {
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                                lineNumber: 405,
+                                                lineNumber: 403,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 398,
+                                        lineNumber: 396,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                lineNumber: 396,
+                                lineNumber: 394,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4498,7 +4496,7 @@ function MaintenanceReport({ busId }) {
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 413,
+                                        lineNumber: 411,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -4514,7 +4512,7 @@ function MaintenanceReport({ busId }) {
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/buses/maintenance-report.tsx",
-                                            lineNumber: 427,
+                                            lineNumber: 425,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -4527,25 +4525,25 @@ function MaintenanceReport({ busId }) {
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                                        lineNumber: 445,
+                                        lineNumber: 443,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                                lineNumber: 411,
+                                lineNumber: 409,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/buses/maintenance-report.tsx",
-                        lineNumber: 394,
+                        lineNumber: 392,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                lineNumber: 289,
+                lineNumber: 287,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$buses$2f$side$2d$reports$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MaintenanceDetailSheet"], {
@@ -4554,13 +4552,13 @@ function MaintenanceReport({ busId }) {
                 onOpenChange: ()=>setSelectedReport(null)
             }, void 0, false, {
                 fileName: "[project]/components/buses/maintenance-report.tsx",
-                lineNumber: 458,
+                lineNumber: 456,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/buses/maintenance-report.tsx",
-        lineNumber: 121,
+        lineNumber: 119,
         columnNumber: 5
     }, this);
 }

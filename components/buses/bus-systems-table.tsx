@@ -955,10 +955,10 @@ export function BusSystemsTable() {
                     <td className="p-4 text-sm text-muted-foreground">
                       <div className="flex flex-wrap gap-1">
                         {bus.drivers_assigned?.length > 0
-                          ? bus.drivers_assigned.map((driver) => {
+                          ? bus.drivers_assigned.map((driver, key) => {
                               return (
                                 <Badge
-                                  key={driver._id}
+                                  key={key}
                                   variant="outline"
                                   className="text-[10px] px-1"
                                 >

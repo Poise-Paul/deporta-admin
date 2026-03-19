@@ -54,7 +54,7 @@ import {
   WeekdayType,
 } from "@/types";
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useDeleteRoute, useModifyRoutes } from "@/api/routes";
 import { useQuery } from "@tanstack/react-query";
@@ -107,15 +107,18 @@ export function RouteDetails({ onBack }: StationDetailProps) {
       code: `${selRoute?.code}`,
       destination: {
         value: selRoute?.destination?.value || "",
+        location_id: selRoute?.destination.location_id,
         coordinates: selRoute?.destination.location.coordinates,
       },
       starting_point: {
         value: selRoute?.starting_point?.value || "",
+        location_id: selRoute?.destination.location_id,
         coordinates: selRoute?.starting_point.location.coordinates,
       },
       route_distance: `${selRoute?.route_distance}`,
       number_of_stops: selRoute?.number_of_stops.map((stop: any) => ({
         value: stop.value,
+        location_id: stop.location_id,
         coordinates: stop.location.coordinates,
       })),
       country: selRoute?.country || "Nigeria",
@@ -181,7 +184,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
 
     if (!selRoute) return;
     console.log("Details", updatedRoutine);
-    
+
     modifyTripRoute.mutate(
       {
         trip_route_id: selRoute._id,
@@ -496,6 +499,9 @@ export function RouteDetails({ onBack }: StationDetailProps) {
       )}
 
       {/* Edit Trip Route Modal */}
+
+      {/* 2nd Edit modal */}
+
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
         <DialogTrigger asChild></DialogTrigger>
         {/* Added h-[90vh] and flex-col to match Add Route layout */}
@@ -569,24 +575,95 @@ export function RouteDetails({ onBack }: StationDetailProps) {
               </div>
 
               {/* Starting Point & Destination (Matches Add Modal Logic) */}
+              {/* <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">
+                    Starting Point
+                  </Label>
+                  <Input
+                    id="starting_point"
+                    {...updateRegister("starting_point.value")}
+                    readOnly
+                    className="bg-background"
+                  />
+                </div> */}
+
+              {/* <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
+                  <Label className="text-primary font-bold">Destination</Label>
+                  <Input
+                    id="destination"
+                    {...updateRegister("destination.value")}
+                    readOnly
+                    className="bg-background"
+                  />
+                </div> */}
+
+              {/* Starting Point (Edit Modal Version) */}
               <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
                 <Label className="text-primary font-bold">Starting Point</Label>
-                <Input
-                  id="starting_point"
-                  {...register("starting_point.value")}
-                  readOnly
-                  className="bg-background"
-                />
+                <Select
+                  onValueChange={(id) => {
+                    const station = pickupStations?.pickup_station.data.find(
+                      (s) => s._id === id,
+                    );
+                    if (station) {
+                      setValue("starting_point", {
+                        value: station.address.value.toLowerCase(),
+                        location_id: station._id,
+                        coordinates: station.address.location.coordinates,
+                      });
+                    }
+                  }}
+                >
+                  <SelectTrigger className="bg-background w-full">
+                    <SelectValue
+                      placeholder={
+                        watch("starting_point.value") ||
+                        "Select Pickup Location"
+                      }
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {pickupStations?.pickup_station.data.map((stop) => (
+                      <SelectItem key={stop._id} value={stop._id}>
+                        {stop.address.value}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
+              {/* Destination (Edit Modal Version) */}
               <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
                 <Label className="text-primary font-bold">Destination</Label>
-                <Input
-                  id="destination"
-                  {...register("destination.value")}
-                  readOnly
-                  className="bg-background"
-                />
+                <Select
+                  onValueChange={(id) => {
+                    const station = dropOffStations?.drop_off_station.data.find(
+                      (s) => s._id === id,
+                    );
+                    if (station) {
+                      setValue("destination", {
+                        value: station.address.value.toLowerCase(),
+                        location_id: station._id,
+                        coordinates: station.address.location.coordinates,
+                      });
+                    }
+                  }}
+                >
+                  <SelectTrigger className="bg-background w-full">
+                    <SelectValue
+                      placeholder={
+                        watch("destination.value") || "Select Drop Off Location"
+                      }
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {dropOffStations?.drop_off_station.data.map((stop) => (
+                      <SelectItem key={stop._id} value={stop._id}>
+                        {stop.address.value}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               {/* --- NEW: Weekly Operating Schedule (Missing from your Edit version) --- */}
@@ -624,43 +701,51 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                               <Label className="text-[10px]">
                                 Departure (From)
                               </Label>
-                              {/* <Input
-                                type="time"
-                                value={formatISOToTime(slot.from)}
-                                // value={slot.from}
-                                onChange={(e) => {
-                                  const newTime = e.target.value; // e.g., "09:30"
-
-                                  // 2. State Update: Convert HH:mm back to ISO before saving
-                                  const isoValue = convertToISO(newTime);
-
-                                  const current = [
-                                    ...watch(`routine.${day}.value`),
-                                  ];
-                                  current[index].from = isoValue;
-
-                                  setValue(`routine.${day}.value`, current);
-                                }}
-                              /> */}
                               <Input
                                 type="time"
-                                value={
-                                  slot.from?.length === 5
-                                    ? slot.from
-                                    : formatISOToTime(slot.from)
-                                }
+                                value={formatISOToTime(slot.from)}
                                 onChange={(e) => {
-                                  const newTime = e.target.value; // e.g. "14:30"
+                                  const newTime = e.target.value;
                                   const currentRoutine = [
                                     ...watch(`routine.${day}.value`),
                                   ];
 
-                                  // 🔑 Update the specific slot with the NEW time string
+                                  // 🔑 1. Guard: Check for Duplicates
+                                  const isDuplicate = currentRoutine.some(
+                                    (s, i) =>
+                                      i !== index &&
+                                      formatISOToTime(s.from) === newTime &&
+                                      formatISOToTime(s.too) ===
+                                        formatISOToTime(slot.too),
+                                  );
+                                  if (isDuplicate) {
+                                    toast.error(
+                                      "This exact time slot already exists.",
+                                    );
+                                    return;
+                                  }
+
+                                  // 🔑 2. Guard: Departure must be before Arrival
+                                  if (newTime >= formatISOToTime(slot.too)) {
+                                    toast.error(
+                                      "Departure must be before arrival.",
+                                    );
+                                    return;
+                                  }
+
+                                  // currentRoutine[index].from =
+                                  //   convertToISO(newTime);
+                                  // updateValue(
+                                  //   `routine.${day}.value`,
+                                  //   currentRoutine,
+                                  // );
+
+                                  // 🔑 Create a completely new object for the specific slot so react-hook-form sees the change
                                   currentRoutine[index] = {
                                     ...currentRoutine[index],
-                                    from: newTime, // Store HH:mm temporarily or convert to ISO here
+                                    from: convertToISO(newTime),
                                   };
-
+                                  // Update the value and optionally tell it to validate/dirty the field
                                   setValue(
                                     `routine.${day}.value`,
                                     currentRoutine,
@@ -673,26 +758,51 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                               <Label className="text-[10px]">
                                 Arrival (Too)
                               </Label>
-
                               <Input
                                 type="time"
-                                value={
-                                  slot.too?.length === 5
-                                    ? slot.too
-                                    : formatISOToTime(slot.too)
-                                }
+                                value={formatISOToTime(slot.too)}
                                 onChange={(e) => {
-                                  const newTime = e.target.value; // e.g. "14:30"
+                                  const newTime = e.target.value;
                                   const currentRoutine = [
                                     ...watch(`routine.${day}.value`),
                                   ];
 
-                                  // 🔑 Update the specific slot with the NEW time string
+                                  // 🔑 1. Guard: Check for Duplicates
+                                  const isDuplicate = currentRoutine.some(
+                                    (s, i) =>
+                                      i !== index &&
+                                      formatISOToTime(s.from) ===
+                                        formatISOToTime(slot.from) &&
+                                      formatISOToTime(s.too) === newTime,
+                                  );
+                                  if (isDuplicate) {
+                                    toast.error(
+                                      "This exact time slot already exists.",
+                                    );
+                                    return;
+                                  }
+
+                                  // 🔑 2. Guard: Arrival must be after Departure
+                                  if (newTime <= formatISOToTime(slot.from)) {
+                                    toast.error(
+                                      "Arrival must be after departure.",
+                                    );
+                                    return;
+                                  }
+
+                                  // currentRoutine[index].too =
+                                  //   convertToISO(newTime);
+                                  // updateValue(
+                                  //   `routine.${day}.value`,
+                                  //   currentRoutine,
+                                  // );
+
+                                  // 🔑 Create a completely new object for the specific slot so react-hook-form sees the change
                                   currentRoutine[index] = {
                                     ...currentRoutine[index],
-                                    too: newTime, // Store HH:mm temporarily or convert to ISO here
+                                    too: convertToISO(newTime),
                                   };
-
+                                  // Update the value and optionally tell it to validate/dirty the field
                                   setValue(
                                     `routine.${day}.value`,
                                     currentRoutine,
@@ -722,11 +832,26 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                           className="w-full text-xs"
                           onClick={() => {
                             const current = watch(`routine.${day}.value`) || [];
+                            let defaultFrom = "08:00";
+
+                            if (current.length > 0) {
+                              const lastSlot = current[current.length - 1];
+                              const lastHour = formatISOToTime(
+                                lastSlot.too,
+                              ).split(":")[0];
+                              const nextHour = (parseInt(lastHour) + 1) % 24;
+                              defaultFrom = `${nextHour.toString().padStart(2, "0")}:00`;
+                            }
+
+                            const nextHourAfterFrom =
+                              (parseInt(defaultFrom.split(":")[0]) + 1) % 24;
+                            const defaultToo = `${nextHourAfterFrom.toString().padStart(2, "0")}:00`;
+
                             setValue(`routine.${day}.value`, [
                               ...current,
                               {
-                                from: "08:00",
-                                too: "10:00",
+                                from: convertToISO(defaultFrom),
+                                too: convertToISO(defaultToo),
                                 // status: "pending",
                               },
                             ]);
@@ -739,6 +864,8 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                   </div>
                 ))}
               </div>
+
+              {/* End Weekly appointment Schedule */}
 
               {/* Route Distance with Unit Suffix */}
               <div className="space-y-2">
@@ -910,3 +1037,8 @@ function InfoItem({
     </div>
   );
 }
+
+
+
+
+

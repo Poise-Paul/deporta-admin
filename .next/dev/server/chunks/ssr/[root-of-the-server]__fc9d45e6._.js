@@ -1444,6 +1444,8 @@ function Skeleton({ className, ...props }) {
 "use strict";
 
 __turbopack_context__.s([
+    "getOngoingTrips",
+    ()=>getOngoingTrips,
     "getRoutes",
     ()=>getRoutes,
     "useCreateTripRoute",
@@ -1509,7 +1511,7 @@ const useModifyRoutes = ()=>{
         onError: (error, variables)=>{
             if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
                 const err = error.response?.data;
-                console.log("User Erro", error);
+                console.log("User Error", error);
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
             } else {
                 console.error("❌ Unexpected error:", error);
@@ -1581,6 +1583,15 @@ const useDeleteRoute = ()=>{
             }
         }
     });
+};
+const getOngoingTrips = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get?activity=ongoing");
+        return res.data;
+    } catch (error) {
+        console.error("Ongoing Trips Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/api/user/index.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -3423,7 +3434,7 @@ function BusSystemsTable() {
                                                         className: "p-4 text-sm text-muted-foreground",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex flex-wrap gap-1",
-                                                            children: bus.drivers_assigned?.length > 0 ? bus.drivers_assigned.map((driver)=>{
+                                                            children: bus.drivers_assigned?.length > 0 ? bus.drivers_assigned.map((driver, key)=>{
                                                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
                                                                     variant: "outline",
                                                                     className: "text-[10px] px-1",
@@ -3432,7 +3443,7 @@ function BusSystemsTable() {
                                                                         " ",
                                                                         driver.last_name
                                                                     ]
-                                                                }, driver._id, true, {
+                                                                }, key, true, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
                                                                     lineNumber: 960,
                                                                     columnNumber: 33

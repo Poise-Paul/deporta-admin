@@ -295,10 +295,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
                   </p>
                   <div className="flex flex-wrap gap-1">
                     {selBus.drivers_assigned?.length > 0
-                      ? selBus.drivers_assigned.map((driver) => {
+                      ? selBus.drivers_assigned.map((driver, key) => {
                           return (
                             <Badge
-                              key={driver._id}
+                              key={key}
                               variant="outline"
                               className="text-[10px] px-1"
                             >
@@ -705,10 +705,10 @@ export function BusDetails({ busId }: BusDetailsProps) {
               <div>
                 <p className="text-xs text-muted-foreground">Driver Assigned</p>
                 {selBus.drivers_assigned?.length > 0
-                  ? selBus.drivers_assigned.map((driver) => {
+                  ? selBus.drivers_assigned.map((driver, key) => {
                       return (
                         <Badge
-                          key={driver._id}
+                          key={key}
                           variant="outline"
                           className="text-[10px] px-1"
                         >

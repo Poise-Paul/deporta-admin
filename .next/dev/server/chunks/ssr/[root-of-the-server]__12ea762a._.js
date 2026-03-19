@@ -101,7 +101,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://thalia-diachronic-lisette.ngrok-free.dev",
     timeout: 15000,
     headers: {
         "Content-Type": "application/json",
@@ -168,6 +168,164 @@ const getDashboardTotal = async ()=>{
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+}),
+"[project]/api/routes/index.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "getOngoingTrips",
+    ()=>getOngoingTrips,
+    "getRoutes",
+    ()=>getRoutes,
+    "useCreateTripRoute",
+    ()=>useCreateTripRoute,
+    "useDeleteRoute",
+    ()=>useDeleteRoute,
+    "useModifyRoutes",
+    ()=>useModifyRoutes
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/axios.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useMutation.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/index.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/slices/route-slice.ts [app-ssr] (ecmascript)");
+;
+;
+;
+;
+;
+;
+;
+const getRoutes = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/get");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const useModifyRoutes = ()=>{
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: async (data)=>{
+            console.log("Route Data", data);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch("/api/users/admin/trip-route/edit", {
+                trip_route_id: data.trip_route_id,
+                rate: data.rate,
+                routine: data.routine,
+                flat_rate: data.flat_rate,
+                rate_per_km: data.rate_per_km,
+                code: data.code,
+                destination: data.destination,
+                starting_point: data.starting_point,
+                state: data.state,
+                country: data.country,
+                route_distance: data.route_distance,
+                number_of_stops: data.number_of_stops
+            });
+            return res.data;
+        },
+        onSuccess: (data, variables)=>{
+            __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                queryKey: [
+                    "routes"
+                ]
+            });
+            console.log("Selected Router 🥶🥶🥶", variables.routine);
+            __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["store"].dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateRouteDetails"])({
+                ...data.trip_route,
+                routine: variables.routine
+            }));
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+            return data;
+        },
+        onError: (error, variables)=>{
+            if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                const err = error.response?.data;
+                console.log("User Error", error);
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+            } else {
+                console.error("❌ Unexpected error:", error);
+            }
+        }
+    });
+};
+const useCreateTripRoute = ()=>{
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: async (data)=>{
+            console.log("Trip Route Details", data);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].post("/api/users/admin/trip-route/create", {
+                rate: data.rate,
+                flat_rate: data.flat_rate,
+                rate_per_km: data.rate_per_km,
+                code: data.code,
+                destination: data.destination,
+                starting_point: data.starting_point,
+                route_distance: data.route_distance,
+                number_of_stops: data.number_of_stops,
+                state: data.state,
+                country: data.country,
+                routine: data.routine
+            });
+            return res.data;
+        },
+        onSuccess: (data)=>{
+            __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                queryKey: [
+                    "routes"
+                ]
+            });
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+            return data;
+        },
+        onError: (error, variables)=>{
+            if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                const err = error.response?.data;
+                console.log("Route ERROR 📍📍", error);
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+            } else {
+                console.error("❌ Unexpected error:", error);
+            }
+        }
+    });
+};
+const useDeleteRoute = ()=>{
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: async (stationId)=>{
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].delete(`/api/users/admin/trip-route/delete/${stationId}`);
+            return res.data;
+        },
+        onSuccess: (data)=>{
+            __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                queryKey: [
+                    "routes"
+                ]
+            });
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].success(`${data.message}`);
+            return data;
+        },
+        onError: (error, variables)=>{
+            if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                const err = error.response?.data;
+                console.log("User Erro", error);
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+            } else {
+                console.error("❌ Unexpected error:", error);
+            }
+        }
+    });
+};
+const getOngoingTrips = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get?activity=ongoing");
+        return res.data;
+    } catch (error) {
+        console.error("Ongoing Trips Error:", error);
         throw error;
     }
 };
@@ -604,6 +762,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$dashboard$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/dashboard/index.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/routes/index.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$staffs$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/staffs/index.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/user/index.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/card.tsx [app-ssr] (ecmascript)");
@@ -613,6 +772,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/users.js [app-ssr] (ecmascript) <export default as Users>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-ssr] (ecmascript) <export default as MapPin>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/bus.js [app-ssr] (ecmascript) <export default as Bus>");
+;
 ;
 ;
 ;
@@ -639,11 +799,11 @@ function DashboardStats() {
         ],
         queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAllCustomers"])()
     });
-    const { data: ongoingData } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
+    const { data: ongoingTrips } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
-            "customerDashboard"
+            "ongoingTotal"
         ],
-        queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAllCustomers"])()
+        queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getOngoingTrips"])()
     });
     const stats = [
         {
@@ -660,7 +820,7 @@ function DashboardStats() {
         },
         {
             title: "Ongoing Trips",
-            value: "913",
+            value: ongoingTrips?.trip_route ? ongoingTrips?.trip_route.data.length : 0,
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"],
             color: "bg-pink-100 text-pink-600"
         },
@@ -687,12 +847,12 @@ function DashboardStats() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                        lineNumber: 63,
+                                        lineNumber: 66,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 65,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -703,19 +863,19 @@ function DashboardStats() {
                                             className: "h-3 w-3"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                            lineNumber: 67,
+                                            lineNumber: 70,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 65,
+                                    lineNumber: 68,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                            lineNumber: 61,
+                            lineNumber: 64,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -726,7 +886,7 @@ function DashboardStats() {
                                     children: stat.value
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 71,
+                                    lineNumber: 74,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -734,29 +894,29 @@ function DashboardStats() {
                                     children: stat.title
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 75,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                            lineNumber: 70,
+                            lineNumber: 73,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                    lineNumber: 60,
+                    lineNumber: 63,
                     columnNumber: 11
                 }, this)
             }, stat.title, false, {
                 fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                lineNumber: 59,
+                lineNumber: 62,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-        lineNumber: 57,
+        lineNumber: 60,
         columnNumber: 5
     }, this);
 }
@@ -3254,4 +3414,4 @@ function DashboardPage() {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__762c0820._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__12ea762a._.js.map

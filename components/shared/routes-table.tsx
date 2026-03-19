@@ -9,7 +9,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -46,12 +45,9 @@ import {
 import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import { useForm } from "react-hook-form";
 import {
-  AddPickupStationPayload,
   AddTripRoute,
   BusStopEntryPoint,
-  EditPickupStationPayload,
   EditTripRoute,
-  EntryPoint,
   WeekdayType,
 } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
@@ -59,14 +55,13 @@ import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { updateSelPickupStation } from "@/lib/store/slices/pickup-station-slice";
 import {
   getRoutes,
   useCreateTripRoute,
   useDeleteRoute,
   useModifyRoutes,
 } from "@/api/routes";
-import { getAllBusStops, useDeleteBusStop } from "@/api/bus-stops";
+import { getAllBusStops } from "@/api/bus-stops";
 import { updateSelRoute } from "@/lib/store/slices/route-slice";
 import { getDropOffStations } from "@/api/drop-off-locations";
 import { Switch } from "../ui/switch";
@@ -157,13 +152,13 @@ export function RoutesTable({
   };
 
   const defaultRoutine = {
-    monday: initialDay,
-    tuesday: initialDay,
-    wednesday: initialDay,
-    thursday: initialDay,
-    friday: initialDay,
-    saturday: initialDay,
-    sunday: initialDay,
+    monday: { active: false, value: [] },
+    tuesday: { active: false, value: [] },
+    wednesday: { active: false, value: [] },
+    thursday: { active: false, value: [] },
+    friday: { active: false, value: [] },
+    saturday: { active: false, value: [] },
+    sunday: { active: false, value: [] },
   };
 
   const { register, reset, setValue, watch } = useForm<AddTripRoute>({
@@ -179,21 +174,24 @@ export function RoutesTable({
       country: "Nigeria",
       state: "lagos",
       routine: {
-        monday: { ...initialDay },
-        tuesday: { ...initialDay },
-        wednesday: { ...initialDay },
-        thursday: { ...initialDay },
-        friday: { ...initialDay },
-        saturday: { ...initialDay },
-        sunday: { ...initialDay },
+        monday: { active: false, value: [] },
+        tuesday: { active: false, value: [] },
+        wednesday: { active: false, value: [] },
+        thursday: { active: false, value: [] },
+        friday: { active: false, value: [] },
+        saturday: { active: false, value: [] },
+        sunday: { active: false, value: [] },
       },
     },
   });
+
+  // ...initialDay
 
   const {
     register: updateRegister,
     setValue: updateValue,
     watch: updateWatch,
+    getValues: updateGetValues,
   } = useForm<AddTripRoute>({
     values: {
       rate: Number(routeId?.rate),
@@ -283,20 +281,26 @@ export function RoutesTable({
   };
 
   const handleModifyPickupStation = () => {
-    const formData = watch();
-    const updatedRoutine = { ...formData.routine };
+    // const formData = watch();
 
-    // 🔑 Cast 'day' as a key of the routine object
+    const formData = updateGetValues();
+    // const updatedRoutine = { ...formData.routine };
+    const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
+
+    // New Routine Setup
     (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
       (day) => {
         if (updatedRoutine[day].active) {
           updatedRoutine[day].value = updatedRoutine[day].value.map(
             (slot: any) => ({
               ...slot,
-              from: convertToISO(slot.from),
-              too: convertToISO(slot.too),
+              from: slot.from,
+              too: slot.too,
             }),
           );
+        } else {
+          // Optional: If active is false, ensure the array is completely empty
+          updatedRoutine[day].value = [];
         }
       },
     );
@@ -304,16 +308,16 @@ export function RoutesTable({
     modifyTripRoute.mutate(
       {
         trip_route_id: routeId?.trip_route_id || "",
-        rate: updateRate,
-        rate_per_km: updateRatePerKm,
-        code: updateCode,
-        flat_rate: updateFlatRate,
-        destination: updateDestination,
-        starting_point: updateStartingPoint,
-        route_distance: updateRouteDistance,
-        number_of_stops: updateNumberOfStops,
-        country: updateCountry,
-        state: updateState,
+        rate: formData.rate, // 🔑 Pull directly from formData to ensure sync
+        rate_per_km: formData.rate_per_km,
+        code: formData.code,
+        flat_rate: formData.flat_rate,
+        destination: formData.destination,
+        starting_point: formData.starting_point,
+        route_distance: formData.route_distance,
+        number_of_stops: formData.number_of_stops,
+        country: formData.country,
+        state: formData.state,
         routine: updatedRoutine,
       },
       {
@@ -1536,11 +1540,23 @@ export function RoutesTable({
                                         return;
                                       }
 
-                                      currentRoutine[index].from =
-                                        convertToISO(newTime);
+                                      // currentRoutine[index].from =
+                                      //   convertToISO(newTime);
+                                      // updateValue(
+                                      //   `routine.${day}.value`,
+                                      //   currentRoutine,
+                                      // );
+
+                                      // 🔑 Create a completely new object for the specific slot so react-hook-form sees the change
+                                      currentRoutine[index] = {
+                                        ...currentRoutine[index],
+                                        from: convertToISO(newTime),
+                                      };
+                                      // Update the value and optionally tell it to validate/dirty the field
                                       updateValue(
                                         `routine.${day}.value`,
                                         currentRoutine,
+                                        { shouldDirty: true },
                                       );
                                     }}
                                   />
@@ -1583,11 +1599,23 @@ export function RoutesTable({
                                         return;
                                       }
 
-                                      currentRoutine[index].too =
-                                        convertToISO(newTime);
+                                      // currentRoutine[index].too =
+                                      //   convertToISO(newTime);
+                                      // updateValue(
+                                      //   `routine.${day}.value`,
+                                      //   currentRoutine,
+                                      // );
+
+                                      // 🔑 Create a completely new object for the specific slot so react-hook-form sees the change
+                                      currentRoutine[index] = {
+                                        ...currentRoutine[index],
+                                        too: convertToISO(newTime),
+                                      };
+                                      // Update the value and optionally tell it to validate/dirty the field
                                       updateValue(
                                         `routine.${day}.value`,
                                         currentRoutine,
+                                        { shouldDirty: true },
                                       );
                                     }}
                                   />

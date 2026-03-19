@@ -45,16 +45,25 @@ export const useModifyRoutes = () => {
       });
       return res.data;
     },
-    onSuccess: (data: GetRoutesResponse) => {
+    onSuccess: (data: GetRoutesResponse, variables) => {
       queryClient.invalidateQueries({ queryKey: ["routes"] });
-      store.dispatch(updateRouteDetails(data.trip_route));
+
+      console.log("Selected Router 🥶🥶🥶", variables.routine);
+
+      store.dispatch(
+        updateRouteDetails({
+          ...data.trip_route,
+          routine: variables.routine,
+        }),
+      );
+
       toast.success(`${data.message}`);
       return data;
     },
     onError: (error, variables) => {
       if (axios.isAxiosError(error)) {
         const err = error.response?.data as ErrorrResponse;
-        console.log("User Erro", error);
+        console.log("User Error", error);
 
         toast.error(`${err?.error.message}`);
       } else {
@@ -126,4 +135,16 @@ export const useDeleteRoute = () => {
       }
     },
   });
+};
+
+export const getOngoingTrips = async (): Promise<GetAllRoutesData> => {
+  try {
+    const res = await api.get(
+      "/api/users/admin/trip-route/activity/get?activity=ongoing",
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Ongoing Trips Error:", error);
+    throw error;
+  }
 };

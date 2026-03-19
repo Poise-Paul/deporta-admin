@@ -393,6 +393,8 @@ api.interceptors.request.use(async (config)=>{
 "use strict";
 
 __turbopack_context__.s([
+    "getDashboardTotal",
+    ()=>getDashboardTotal,
     "useStaffStatus",
     ()=>useStaffStatus
 ]);
@@ -430,6 +432,15 @@ const useStaffStatus = ()=>{
             }
         }
     });
+};
+const getDashboardTotal = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/components/drivers/driver-details.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

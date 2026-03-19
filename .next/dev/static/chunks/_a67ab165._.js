@@ -1599,6 +1599,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "getOngoingTrips",
+    ()=>getOngoingTrips,
     "getRoutes",
     ()=>getRoutes,
     "useCreateTripRoute",
@@ -1671,7 +1673,7 @@ const useModifyRoutes = ()=>{
             "useModifyRoutes.useMutation": (error, variables)=>{
                 if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
                     const err = error.response?.data;
-                    console.log("User Erro", error);
+                    console.log("User Error", error);
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
                 } else {
                     console.error("❌ Unexpected error:", error);
@@ -1774,6 +1776,15 @@ _s2(useDeleteRoute, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
     ];
 });
+const getOngoingTrips = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get?activity=ongoing");
+        return res.data;
+    } catch (error) {
+        console.error("Ongoing Trips Error:", error);
+        throw error;
+    }
+};
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -3645,7 +3656,7 @@ function BusSystemsTable() {
                                                         className: "p-4 text-sm text-muted-foreground",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex flex-wrap gap-1",
-                                                            children: bus.drivers_assigned?.length > 0 ? bus.drivers_assigned.map((driver)=>{
+                                                            children: bus.drivers_assigned?.length > 0 ? bus.drivers_assigned.map((driver, key)=>{
                                                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
                                                                     variant: "outline",
                                                                     className: "text-[10px] px-1",
@@ -3654,7 +3665,7 @@ function BusSystemsTable() {
                                                                         " ",
                                                                         driver.last_name
                                                                     ]
-                                                                }, driver._id, true, {
+                                                                }, key, true, {
                                                                     fileName: "[project]/components/buses/bus-systems-table.tsx",
                                                                     lineNumber: 960,
                                                                     columnNumber: 33

@@ -1,4 +1,5 @@
 import { getDashboardTotal } from "@/api/dashboard";
+import { getOngoingTrips } from "@/api/routes";
 import { getAllStaffs } from "@/api/staffs";
 import { getAllCustomers } from "@/api/user";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,10 +22,15 @@ export function DashboardStats() {
     queryFn: () => getAllCustomers(),
   });
 
+  const { data: ongoingTrips } = useQuery({
+    queryKey: ["ongoingTotal"],
+    queryFn: () => getOngoingTrips(),
+  });
+
   const stats = [
     {
       title: "Total made today",
-      value: `₦ ${adminTotal?.income[0].amount.toLocaleString()}`,
+      value: `₦ ${adminTotal?.income[0].amount.toLocaleString() || 0}`,
       icon: Wallet,
       color: "bg-primary/10 text-primary",
     },
@@ -36,7 +42,9 @@ export function DashboardStats() {
     },
     {
       title: "Ongoing Trips",
-      value: "913",
+      value: ongoingTrips?.trip_route
+        ? ongoingTrips?.trip_route.data.length
+        : 0,
       icon: MapPin,
       color: "bg-pink-100 text-pink-600",
     },
