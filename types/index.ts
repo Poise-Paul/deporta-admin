@@ -519,7 +519,10 @@ export type Bus = {
   fuel_type: string;
   tracker_id: string;
   mileage: string;
-  outsourcing: true;
+  outsourcing: {
+    value: boolean;
+    amount_per_day: number;
+  };
   createdAt: string;
   updatedAt: string;
   __v: number;
@@ -764,7 +767,10 @@ export type DriverUserType = {
     createdAt: string;
     updatedAt: string;
     __v: number;
-    outsourcing: boolean;
+    outsourcing: {
+      value: boolean;
+      amount_per_day: number;
+    };
   };
 };
 

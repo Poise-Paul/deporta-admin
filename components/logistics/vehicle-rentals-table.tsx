@@ -1,5 +1,4 @@
 "use client";
-
 import { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -26,13 +25,23 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Search, Filter, Plus, MoreVertical, Eye, X } from "lucide-react";
+import {
+  Search,
+  Filter,
+  Plus,
+  MoreVertical,
+  Eye,
+  X,
+  Loader2,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { getOutsouceBuses } from "@/api/outsourcing-driver";
 import { Badge } from "../ui/badge";
 import { VehicleDetailSheet } from "./rental-sheet";
 import { Bus } from "@/types";
+import { OutsourcingPayload, useBusOutsourcing } from "@/api/buses";
+import toast, { Toaster } from "react-hot-toast";
 
 type RentalTab = "all" | "active" | "inactive";
 
@@ -47,7 +56,28 @@ export function VehicleRentalsTable() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
 
+  // Vehicle Rentals State
+  const [isEditRentalModalOpen, setIsEditRentalModalOpen] = useState(false);
+  const [selectedRentalBus, setSelectedRentalBus] = useState<any>(null);
+  const [editRentalAmount, setEditRentalAmount] = useState<string>("");
+  const [activeActionId, setActiveActionId] = useState<string | null>(null);
+
   const [selectedBus, setSelectedBus] = useState<Bus | null>(null);
+
+  const modifyBusRental = useBusOutsourcing();
+
+  const handleOutsourcing = (data: OutsourcingPayload) => {
+    setActiveActionId(data.bus_id); // Show spinner on the correct row
+    modifyBusRental.mutate(data, {
+      onSuccess: () => {
+        refetch();
+        setIsEditRentalModalOpen(false);
+      },
+      onSettled: () => {
+        setActiveActionId(null);
+      },
+    });
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -352,6 +382,9 @@ export function VehicleRentalsTable() {
                   Driver(s) assigned
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Amount <small>(Per Day)</small>
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Status
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
@@ -405,6 +438,9 @@ export function VehicleRentalsTable() {
                       })}
                     </span>
                   </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    ₦{rental.outsourcing.amount_per_day.toLocaleString()}
+                  </td>
                   <td className="p-4">
                     <Badge
                       variant="outline"
@@ -432,8 +468,41 @@ export function VehicleRentalsTable() {
                           <Eye className="h-4 w-4 mr-2" />
                           View Details
                         </DropdownMenuItem>
-                        <DropdownMenuItem>Edit Rental</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">
+                        <DropdownMenuItem
+                          className="cursor-pointer"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedRentalBus(rental);
+                            setEditRentalAmount(
+                              rental.outsourcing.amount_per_day?.toString() ||
+                                "",
+                            );
+                            setIsEditRentalModalOpen(true);
+                          }}
+                        >
+                          Edit Rental
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          className="text-destructive cursor-pointer hover:bg-destructive/10"
+                          disabled={
+                            modifyBusRental.isPending &&
+                            activeActionId === rental._id
+                          }
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (
+                              window.confirm(
+                                "Are you sure you want to end this rental?",
+                              )
+                            ) {
+                              handleOutsourcing({
+                                outsourcing: false,
+                                amount_per_day: 0,
+                                bus_id: rental._id,
+                              });
+                            }
+                          }}
+                        >
                           End Rental
                         </DropdownMenuItem>
                       </DropdownMenuContent>
@@ -488,6 +557,74 @@ export function VehicleRentalsTable() {
           </div>
         </div>
       </CardContent>
+
+      {/* Edit Rental Amount Modal */}
+      <Dialog
+        open={isEditRentalModalOpen}
+        onOpenChange={setIsEditRentalModalOpen}
+      >
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Edit Rental Amount</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="edit_rental_amount">Amount Per Day</Label>
+              <div className="flex rounded-md shadow-sm">
+                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                  ₦
+                </span>
+                <Input
+                  id="edit_rental_amount"
+                  type="number"
+                  value={editRentalAmount}
+                  onChange={(e) => setEditRentalAmount(e.target.value)}
+                  className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  placeholder="Enter new daily rental amount"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-end gap-3 pt-4 border-t">
+            <Button
+              variant="outline"
+              onClick={() => setIsEditRentalModalOpen(false)}
+              disabled={modifyBusRental.isPending}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={() => {
+                if (!editRentalAmount || Number(editRentalAmount) <= 0) {
+                  // Ensure you have toast imported
+                  toast.error("Please enter a valid amount per day.");
+                  return;
+                }
+
+                if (selectedRentalBus) {
+                  handleOutsourcing({
+                    outsourcing: true, // Keep it outsourced, just update the amount
+                    amount_per_day: Number(editRentalAmount),
+                    bus_id: selectedRentalBus._id,
+                  });
+                }
+              }}
+              className="bg-primary hover:bg-primary/90 text-white"
+              disabled={modifyBusRental.isPending}
+            >
+              {modifyBusRental.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Saving...
+                </>
+              ) : (
+                "Save Changes"
+              )}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Vehicle Rental Sheet */}
       <VehicleDetailSheet
         bus={selectedBus}

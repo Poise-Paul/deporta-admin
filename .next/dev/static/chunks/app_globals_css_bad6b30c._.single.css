@@ -1727,6 +1727,10 @@
     justify-content: center;
   }
 
+  .justify-end {
+    justify-content: flex-end;
+  }
+
   .justify-start {
     justify-content: flex-start;
   }
@@ -2301,6 +2305,10 @@
     .bg-blue-500\/90 {
       background-color: color-mix(in oklab, var(--color-blue-500) 90%, transparent);
     }
+  }
+
+  .bg-blue-600 {
+    background-color: var(--color-blue-600);
   }
 
   .bg-border {
@@ -3041,6 +3049,10 @@
 
   .text-background {
     color: var(--background);
+  }
+
+  .text-black {
+    color: var(--color-black);
   }
 
   .text-blue-200\/60 {
@@ -3997,6 +4009,12 @@
   @media (hover: hover) {
     .hover\:bg-amber-100:hover {
       background-color: var(--color-amber-100);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-blue-700:hover {
+      background-color: var(--color-blue-700);
     }
   }
 

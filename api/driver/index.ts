@@ -7,6 +7,7 @@ import { ErrorrResponse } from "@/types";
 
 export interface DriverOutsourceType {
   outsourcing: boolean;
+  amount_per_day: number;
   driver_id: string;
 }
 

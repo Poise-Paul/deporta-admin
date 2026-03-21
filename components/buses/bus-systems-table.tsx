@@ -40,6 +40,7 @@ import {
   UserX,
   UserCheck,
   Wrench,
+  Bus,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
@@ -50,7 +51,9 @@ import {
   BusStatusType,
   getAllBuses,
   MaintainancePayload,
+  OutsourcingPayload,
   useBusMaintenanceStatus,
+  useBusOutsourcing,
   useBusStatus,
   useCreateBus,
   useCreateReport,
@@ -61,7 +64,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { getRoutes } from "@/api/routes";
 import { getStaffList } from "@/api/user";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { updateSelBus } from "@/lib/store/slices/bus-slice";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -85,6 +88,13 @@ export function BusSystemsTable() {
   const [editMode, setEditMode] = useState(false);
   const [busId, setBusId] = useState("");
   const [deleteBusPhotos, setDeleteBusPhotos] = useState<string[]>([]);
+
+  // Outsouce Bus
+  const [isOutsourceModalOpen, setIsOutsourceModalOpen] = useState(false);
+  const [selectedBusForOutsource, setSelectedBusForOutsource] = useState<
+    string | null
+  >(null);
+  const [outsourceAmount, setOutsourceAmount] = useState<string>("");
 
   const { register, setValue, watch, reset } = useForm<AddBusPayload>({
     values: {
@@ -311,6 +321,7 @@ export function BusSystemsTable() {
 
   const deleteBusMitation = useDeleteBus();
   const maintainBusMutation = useBusMaintenanceStatus();
+  const outsourcingMutation = useBusOutsourcing();
 
   const handleDelBus = (busId: string) => {
     deleteBusMitation.mutate(busId, {
@@ -321,6 +332,15 @@ export function BusSystemsTable() {
   const handleMaintenance = (data: MaintainancePayload) => {
     maintainBusMutation.mutate(data, {
       onSuccess: () => refetch(),
+    });
+  };
+
+  const handleOutsourcing = (data: OutsourcingPayload) => {
+    outsourcingMutation.mutate(data, {
+      onSuccess: () => {
+        refetch();
+        setIsOutsourceModalOpen(false); // Close modal on success
+      },
     });
   };
 
@@ -900,6 +920,9 @@ export function BusSystemsTable() {
                   Driver(s) Assigned
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Outsource
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Maintenance
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
@@ -968,6 +991,19 @@ export function BusSystemsTable() {
                             })
                           : "No Drivers Assigned"}
                       </div>
+                    </td>
+                    <td className="p-4">
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          bus.outsourcing.value
+                            ? "border-orange-500 text-orange-600 bg-yellow-50"
+                            : "border-green-500 text-green-600 bg-green-50",
+                        )}
+                      >
+                        {bus.outsourcing.value ? "Outsourced" : "In-House"}
+                      </Badge>
                     </td>
                     <td className="p-4">
                       <Badge
@@ -1115,6 +1151,40 @@ export function BusSystemsTable() {
                           <DropdownMenuItem
                             onClick={(e) => {
                               e.preventDefault();
+
+                              if (bus.outsourcing) {
+                                // 1. Bus is currently outsourced. Action: "Move In House"
+                                // Bypass modal, submit false and 0 directly.
+                                handleOutsourcing({
+                                  outsourcing: false,
+                                  amount_per_day: 0,
+                                  bus_id: bus._id,
+                                });
+                              } else {
+                                // 2. Bus is In House. Action: "Outsource / Rent Bus"
+                                // Open modal to capture the amount per day.
+                                setSelectedBusForOutsource(bus._id);
+                                setOutsourceAmount(""); // Clear any previous input
+                                setIsOutsourceModalOpen(true);
+                              }
+                            }}
+                            className={`${bus.outsourcing ? "text-green-600 focus:text-green-700" : "text-black"} cursor-pointer`}
+                            // 🔑 Fixed: Changed from maintainBusMutation to outsourcingMutation
+                            disabled={outsourcingMutation.isPending}
+                          >
+                            {outsourcingMutation.isPending ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <Bus className="mr-2 h-4 w-4" />
+                            )}
+
+                            {bus.outsourcing
+                              ? "Move In House"
+                              : "Outsource / Rent Bus"}
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={(e) => {
+                              e.preventDefault();
                               handleDelBus(bus._id);
                             }}
                             className="text-destructive"
@@ -1149,6 +1219,73 @@ export function BusSystemsTable() {
             </tbody>
           </table>
         </div>
+
+        {/* Outsource Bus Modal */}
+        <Dialog
+          open={isOutsourceModalOpen}
+          onOpenChange={setIsOutsourceModalOpen}
+        >
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Set Outsourcing Amount</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="outsource_amount">Amount Per Day</Label>
+                <div className="flex rounded-md shadow-sm">
+                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                    ₦
+                  </span>
+                  <Input
+                    id="outsource_amount"
+                    type="number"
+                    value={outsourceAmount}
+                    onChange={(e) => setOutsourceAmount(e.target.value)}
+                    className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                    placeholder="Enter daily rental amount"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-end gap-3 pt-4 border-t">
+              <Button
+                variant="outline"
+                onClick={() => setIsOutsourceModalOpen(false)}
+                disabled={outsourcingMutation.isPending}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  if (!outsourceAmount || Number(outsourceAmount) <= 0) {
+                    toast.error("Please enter a valid amount per day.");
+                    return;
+                  }
+
+                  if (selectedBusForOutsource) {
+                    handleOutsourcing({
+                      outsourcing: true,
+                      amount_per_day: Number(outsourceAmount),
+                      bus_id: selectedBusForOutsource,
+                    });
+                  }
+                }}
+                className="bg-primary hover:bg-primary/90 text-white"
+                disabled={outsourcingMutation.isPending}
+              >
+                {outsourcingMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Saving...
+                  </>
+                ) : (
+                  "Confirm Outsourcing"
+                )}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+        {/* End Outsourcing Modal */}
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">

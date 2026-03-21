@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
@@ -36,6 +37,12 @@ export const VehicleDetailSheet = ({ bus, isOpen, onOpenChange }: any) => {
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetContent className="sm:max-w-lg p-0 flex flex-col h-full border-l-0 shadow-2xl">
+        <SheetHeader className="sr-only">
+          <SheetTitle>Vehicle Details for {bus.id_code}</SheetTitle>
+          <SheetDescription>
+            View technical and operational details for this bus.
+          </SheetDescription>
+        </SheetHeader>
         <ScrollArea className="flex-1">
           {/* 1. Dynamic Hero Section */}
           <div className="relative h-64 bg-slate-900 overflow-hidden">

@@ -45,7 +45,7 @@ import { getOutsouceDrivers } from "@/api/outsourcing-driver";
 import { Badge } from "../ui/badge";
 import { DriverOutsourceType, useOutsourceStatus } from "@/api/driver";
 import { queryClient } from "@/api/queryClient";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Skeleton } from "../ui/skeleton";
 import { getDriversList } from "@/api/staffs";
 import {
@@ -79,7 +79,18 @@ export function DriverOutsourcingTable() {
   // Get All Users
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10; 
+  const itemsPerPage = 10;
+
+  // Ougsource details
+  const [isDriverOutsourceModalOpen, setIsDriverOutsourceModalOpen] =
+    useState(false);
+  const [selectedDriverForOutsource, setSelectedDriverForOutsource] = useState<
+    string | null
+  >(null);
+  const [driverOutsourceAmount, setDriverOutsourceAmount] =
+    useState<string>("");
+  const [addOutsourceAmount, setAddOutsourceAmount] = useState<string>("");
+  // End Outsource Details
 
   const { data, isLoading, isRefetching, refetch } = useQuery({
     queryKey: ["outsourceDrivers", currentPage],
@@ -140,7 +151,7 @@ export function DriverOutsourcingTable() {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["outsourceDrivers"] });
         refetch();
-        setIsAddDialogOpen(false)
+        setIsAddDialogOpen(false);
       },
     });
   };
@@ -285,6 +296,7 @@ export function DriverOutsourcingTable() {
             </Dialog> */}
 
             {/* Second Add Table */}
+
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
@@ -297,6 +309,7 @@ export function DriverOutsourcingTable() {
                   <DialogTitle>Add Outsourced Driver</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
+                  {/* Driver Selector */}
                   <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger className="w-full" asChild>
                       <Button
@@ -306,7 +319,7 @@ export function DriverOutsourcingTable() {
                       >
                         {selectedDriverId
                           ? `${selectedDriverId.first_name} ${selectedDriverId.last_name}`
-                          : "Outsource new driver..."}
+                          : "Search and select driver..."}
                         <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                       </Button>
                     </PopoverTrigger>
@@ -315,8 +328,6 @@ export function DriverOutsourcingTable() {
                       onOpenAutoFocus={(e) => e.preventDefault()}
                     >
                       <Command shouldFilter={false}>
-                        {" "}
-                        {/* shouldFilter={false} because we filter on server */}
                         <CommandInput
                           placeholder="Type name or ID code..."
                           onValueChange={(val) => setDriverSearch(val)}
@@ -335,8 +346,9 @@ export function DriverOutsourcingTable() {
                               <CommandItem
                                 key={driver._id}
                                 value={driver._id}
-                                onSelect={(currentValue) => {
+                                onSelect={() => {
                                   setSelectedDriverId(driver);
+                                  setAddOutsourceAmount(""); // Reset amount when new driver selected
                                   setOpen(false);
                                 }}
                               >
@@ -384,24 +396,64 @@ export function DriverOutsourcingTable() {
                     </PopoverContent>
                   </Popover>
 
+                  {/* 🔑 Only show the Amount Input if a driver is selected AND they are NOT currently outsourced */}
+                  {selectedDriverId &&
+                    !selectedDriverId.user_type.type_id.outsourcing && (
+                      <div className="space-y-2">
+                        <Label htmlFor="add_outsource_amount">
+                          Amount Per Day
+                        </Label>
+                        <div className="flex rounded-md shadow-sm">
+                          <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                            ₦
+                          </span>
+                          <Input
+                            id="add_outsource_amount"
+                            type="number"
+                            value={addOutsourceAmount}
+                            onChange={(e) =>
+                              setAddOutsourceAmount(e.target.value)
+                            }
+                            className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                            placeholder="Enter daily outsource amount"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                  {/* Action Button */}
                   <Button
                     disabled={
                       !selectedDriverId || updateOutsourceMutation.isPending
                     }
                     onClick={() => {
+                      const isCurrentlyOutsourced =
+                        selectedDriverId?.user_type.type_id.outsourcing;
+
+                      // 🔑 Validation: If we are outsourcing them, ensure the amount is valid
+                      if (
+                        !isCurrentlyOutsourced &&
+                        (!addOutsourceAmount || Number(addOutsourceAmount) <= 0)
+                      ) {
+                        toast.error("Please enter a valid amount per day.");
+                        return;
+                      }
+
                       handleOutsourceStatus({
-                        outsourcing: selectedDriverId?.user_type.type_id
-                          .outsourcing
-                          ? false
-                          : true,
+                        outsourcing: !isCurrentlyOutsourced, // Toggle the status
+                        amount_per_day: isCurrentlyOutsourced
+                          ? 0
+                          : Number(addOutsourceAmount),
                         driver_id:
                           selectedDriverId?.user_type.type_id._id || "",
                       });
                     }}
-                    className={`w-full bg-primary ${updateOutsourceMutation.isPending && "opacity-30"} hover:bg-primary/90 text-primary-foreground`}
+                    className={`w-full ${selectedDriverId?.user_type.type_id.outsourcing ? "bg-blue-600 hover:bg-blue-700" : "bg-primary hover:bg-primary/90"} text-white ${updateOutsourceMutation.isPending && "opacity-30"}`}
                   >
                     {updateOutsourceMutation.isPending ? (
                       <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    ) : selectedDriverId?.user_type.type_id.outsourcing ? (
+                      "Move In-House Instead"
                     ) : (
                       "Add Outsourced Driver"
                     )}
@@ -409,6 +461,8 @@ export function DriverOutsourcingTable() {
                 </div>
               </DialogContent>
             </Dialog>
+
+            {/* Update Driver Outsourcing  */}
           </div>
         </div>
       </CardHeader>
@@ -441,6 +495,9 @@ export function DriverOutsourcingTable() {
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Status
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Amount <small>(Per Day)</small>
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Date Added
@@ -512,6 +569,10 @@ export function DriverOutsourcingTable() {
                       </Badge>
                     </td>
                     <td className="p-4 text-sm text-muted-foreground">
+                      ₦
+                      {driver.user_type.type_id.outsourcing.amount_per_day.toLocaleString()}
+                    </td>
+                    <td className="p-4 text-sm text-muted-foreground">
                       {new Date(driver.createdAt).toLocaleString()}
                     </td>
                     <td className="p-4">
@@ -538,6 +599,7 @@ export function DriverOutsourcingTable() {
                                   .outsourcing
                                   ? false
                                   : true,
+                                amount_per_day: 0,
                                 driver_id: driver.user_type.type_id._id,
                               });
                             }}
@@ -580,6 +642,76 @@ export function DriverOutsourcingTable() {
             </tbody>
           </table>
         </div>
+
+        {/* Driver Outsource Modal */}
+        <Dialog
+          open={isDriverOutsourceModalOpen}
+          onOpenChange={setIsDriverOutsourceModalOpen}
+        >
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Set Driver Outsourcing Amount</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="driver_outsource_amount">Amount Per Day</Label>
+                <div className="flex rounded-md shadow-sm">
+                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-border bg-muted text-muted-foreground text-sm font-medium">
+                    ₦
+                  </span>
+                  <Input
+                    id="driver_outsource_amount"
+                    type="number"
+                    value={driverOutsourceAmount}
+                    onChange={(e) => setDriverOutsourceAmount(e.target.value)}
+                    className="rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                    placeholder="Enter daily outsource amount"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-end gap-3 pt-4 border-t">
+              <Button
+                variant="outline"
+                onClick={() => setIsDriverOutsourceModalOpen(false)}
+                disabled={updateOutsourceMutation.isPending}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  if (
+                    !driverOutsourceAmount ||
+                    Number(driverOutsourceAmount) <= 0
+                  ) {
+                    toast.error("Please enter a valid amount per day.");
+                    return;
+                  }
+
+                  if (selectedDriverForOutsource) {
+                    handleOutsourceStatus({
+                      outsourcing: true,
+                      amount_per_day: Number(driverOutsourceAmount),
+                      driver_id: selectedDriverForOutsource,
+                    });
+                  }
+                }}
+                className="bg-primary hover:bg-primary/90 text-white"
+                disabled={updateOutsourceMutation.isPending}
+              >
+                {updateOutsourceMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Saving...
+                  </>
+                ) : (
+                  "Confirm Outsourcing"
+                )}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+        {/* End In-House Drivers */}
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">

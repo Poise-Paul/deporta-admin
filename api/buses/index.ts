@@ -25,6 +25,12 @@ export interface MaintainancePayload {
   bus_id: string;
 }
 
+export interface OutsourcingPayload {
+  outsourcing: boolean;
+  amount_per_day: number;
+  bus_id: string;
+}
+
 export const getAllBuses = async (): Promise<BusesResponse> => {
   try {
     const res = await api.get("/api/users/admin/bus/get");
@@ -222,6 +228,31 @@ export const useBusMaintenanceStatus = () => {
     mutationFn: async (data: MaintainancePayload) => {
       const res = await api.patch(
         `/api/users/admin/bus/change/maintenance`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["buses"] });
+      toast.success("Updated Successfully");
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};
+
+export const useBusOutsourcing = () => {
+  return useMutation({
+    mutationFn: async (data: OutsourcingPayload) => {
+      const res = await api.patch(
+        `/api/users/admin/bus/change/outsourcing`,
         data,
       );
       return res.data;

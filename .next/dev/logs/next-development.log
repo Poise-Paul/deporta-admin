@@ -3660,3 +3660,1806 @@ Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
 [93:29:29.700] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [93:29:29.700] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [93:29:49.107] Server  LOG      ✓ Compiled in 51ms
+[93:31:22.901] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[93:31:22.901] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[93:31:22.901] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053028764} /_vercel/insights/view
+[93:31:26.828] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053032730} /_vercel/insights/view
+[93:31:28.230] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[93:31:28.230] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[93:31:28.230] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053034111} /_vercel/insights/view
+[93:31:30.424] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053036319} /_vercel/insights/view
+[93:31:31.685] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[93:31:31.685] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[93:31:31.685] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053037567} /_vercel/insights/view
+[93:32:03.215] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053069121} /_vercel/insights/view
+[93:32:09.352] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers/69aaa81b0bb765bb06406cfd color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers/[id]","o":"http://localhost:3000/app-menu/drivers/69aaa81b0bb765bb06406cfd","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053075259} /_vercel/insights/view
+[93:32:33.909] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053099799} /_vercel/insights/view
+[93:33:15.665] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:33:15.665] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:37:07.781] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053373682} /_vercel/insights/view
+[93:37:14.734] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69bd93e45651eaee98e2823d color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69bd93e45651eaee98e2823d","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053380617} /_vercel/insights/view
+[93:37:16.955] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053382839} /_vercel/insights/view
+[93:37:18.982] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:37:18.982] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:37:39.679] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:37:39.679] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:37:44.238] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053410141} /_vercel/insights/view
+[93:38:00.278] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:38:00.278] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:38:42.989] Browser LOG     routes_assigned: ["69bd93e45651eaee98e2823d"]
+[93:38:42.989] Browser LOG     drivers_assigned: ["69bde73d03024a012c534e81"]
+[93:38:42.989] Browser LOG     bus_id: 69aaabde0bb765bb06406dcd
+[93:38:42.989] Browser LOG     id_code: DEPORTA-2
+[93:38:42.989] Browser LOG     name_label: Deporta Toyota
+[93:38:42.989] Browser LOG     plate_number: LAG123
+[93:38:42.989] Browser LOG     capacity: 23
+[93:38:42.989] Browser LOG     operation_schedule: {"from":"2026-03-06T11:26","to":"2026-03-21T11:26"}
+[93:38:42.989] Browser LOG     status: true
+[93:38:42.989] Browser LOG     fuel_type: petrol
+[93:38:42.989] Browser LOG     tracker_id: DEPORTA-2
+[93:38:42.989] Browser LOG     mileage: 72000
+[93:38:42.989] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[93:38:55.512] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:38:55.512] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:39:15.739] Browser LOG     routes_assigned: ["69bd93e45651eaee98e2823d"]
+[93:39:15.739] Browser LOG     drivers_assigned: ["69bde73d03024a012c534e81"]
+[93:39:15.739] Browser LOG     bus_id: 69aaabde0bb765bb06406dcd
+[93:39:15.739] Browser LOG     id_code: DEPORTA-2
+[93:39:15.739] Browser LOG     name_label: Deporta Toyota
+[93:39:15.739] Browser LOG     plate_number: LAG123
+[93:39:15.739] Browser LOG     capacity: 23
+[93:39:15.739] Browser LOG     operation_schedule: {"from":"2026-03-06T11:26","to":"2026-03-21T11:26"}
+[93:39:15.739] Browser LOG     status: true
+[93:39:15.739] Browser LOG     fuel_type: petrol
+[93:39:15.739] Browser LOG     tracker_id: DEPORTA-2
+[93:39:15.739] Browser LOG     mileage: 72000
+[93:39:15.739] Browser LOG     Bus Details Update>><>🚌🚐 {}
+[93:40:57.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:40:57.213] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[93:40:59.981] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses/DEPORTA-2 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/DEPORTA-2","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053605877} /_vercel/insights/view
+[93:41:09.790] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053615679} /_vercel/insights/view
+[93:41:13.453] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses/DEPORTA-2 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/DEPORTA-2","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774053619334} /_vercel/insights/view
+[94:24:30.949] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[94:24:30.949] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[94:24:30.949] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056216820} /_vercel/insights/view
+[94:24:38.508] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056224418} /_vercel/insights/view
+[94:32:25.233] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056691144} /_vercel/insights/view
+[94:32:33.352] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056699267} /_vercel/insights/view
+[94:33:12.289] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056738199} /_vercel/insights/view
+[94:34:58.995] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056844888} /_vercel/insights/view
+[94:35:08.284] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056854194} /_vercel/insights/view
+[94:35:14.928] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056860823} /_vercel/insights/view
+[94:35:21.405] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056867314} /_vercel/insights/view
+[94:35:28.005] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774056873922} /_vercel/insights/view
+[94:39:18.484] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774057104379} /_vercel/insights/view
+[94:41:16.484] Server  LOG      ✓ Compiled in 42ms
+[94:41:25.778] Server  LOG      ✓ Compiled in 34ms
+[94:41:28.867] Server  LOG      ✓ Compiled in 22ms
+[94:41:45.141] Server  LOG      ✓ Compiled in 23ms
+[94:41:54.602] Server  LOG      ✓ Compiled in 38ms
+[94:43:20.322] Server  LOG      ✓ Compiled in 37ms
+[94:43:20.432] Browser ERROR   uncaughtError: ReferenceError: Bud is not defined
+[94:43:23.358] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[94:43:23.422] Server  LOG      ✓ Compiled in 29ms
+[94:43:23.480] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[94:43:24.064] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[94:43:24.226] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[94:43:24.226] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[94:43:24.226] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[94:43:24.226] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774057350142} /_vercel/insights/view
+[94:43:24.673] Server  LOG      ✓ Compiled in 316ms
+[94:43:46.258] Server  LOG      ✓ Compiled in 29ms
+[94:43:49.937] Server  LOG      ✓ Compiled in 37ms
+[94:44:28.226] Server  LOG      ✓ Compiled in 36ms
+[94:44:30.881] Server  LOG      ✓ Compiled in 78ms
+[94:45:09.937] Server  LOG      ✓ Compiled in 36ms
+[94:45:16.844] Server  LOG      ✓ Compiled in 23ms
+[94:45:21.920] Server  LOG      ✓ Compiled in 24ms
+[94:45:22.025] Browser ERROR   ./components/buses/bus-systems-table.tsx:329:9
+Ecmascript file had an error
+  327 |
+  328 |   // Outsource / Rent Bus
+> 329 |   const handleMaintenance = (data: MaintainancePayload) => {
+      |         ^^^^^^^^^^^^^^^^^
+  330 |     maintainBusMutation.mutate(data, {
+  331 |       onSuccess: () => refetch(),
+  332 |     });
+
+the name `handleMaintenance` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[94:45:22.682] Browser ERROR   ./components/buses/bus-systems-table.tsx:329:9
+Ecmascript file had an error
+  327 |
+  328 |   // Outsource / Rent Bus
+> 329 |   const handleMaintenance = (data: MaintainancePayload) => {
+      |         ^^^^^^^^^^^^^^^^^
+  330 |     maintainBusMutation.mutate(data, {
+  331 |       onSuccess: () => refetch(),
+  332 |     });
+
+the name `handleMaintenance` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:12:17.568] Server  LOG      ✓ Compiled in 42ms
+[95:12:17.677] Browser ERROR   ./api/buses/index.ts:245:14
+Ecmascript file had an error
+  243 | };
+  244 |
+> 245 | export const useBusMaintenanceStatus = () => {
+      |              ^^^^^^^^^^^^^^^^^^^^^^^
+  246 |   return useMutation({
+  247 |     mutationFn: async (data: MaintainancePayload) => {
+  248 |       const res = await api.patch(
+
+the name `useBusMaintenanceStatus` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:12:17.692] Browser ERROR   ./api/buses/index.ts:245:14
+Ecmascript file had an error
+  243 | };
+  244 |
+> 245 | export const useBusMaintenanceStatus = () => {
+      |              ^^^^^^^^^^^^^^^^^^^^^^^
+  246 |   return useMutation({
+  247 |     mutationFn: async (data: MaintainancePayload) => {
+  248 |       const res = await api.patch(
+
+the name `useBusMaintenanceStatus` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:12:31.243] Server  LOG      ✓ Compiled in 29ms
+[95:12:47.617] Server  LOG      ✓ Compiled in 29ms
+[95:12:50.171] Server  LOG      ✓ Compiled in 24ms
+[95:13:27.149] Server  LOG      ✓ Compiled in 23ms
+[95:13:27.252] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface Out
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:27.683] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface Out
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:29.858] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface Outsour
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:30.683] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface Outsour
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:33.212] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface OutsourcingPayload
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:33.681] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface OutsourcingPayload
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:34.394] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface OutsourcingPayload 
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:34.683] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface OutsourcingPayload 
+     |        ^^^^^^^^^
+  29 |
+  30 | export const getAllBuses = async (): Promise<BusesResponse> => {
+  31 |   try {
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:13:59.590] Server  LOG      ✓ Compiled in 26ms
+[95:13:59.691] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface OutsourcingPayload {
+     |        ^^^^^^^^^
+  29 |   outsourcing: boolean;
+  30 |   amount_per_day: number;
+  31 |   bus_id: string
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:14:00.683] Browser ERROR   ./api/buses/index.ts:28:8
+Parsing ecmascript source code failed
+  26 | }
+  27 |
+> 28 | export interface OutsourcingPayload {
+     |        ^^^^^^^^^
+  29 |   outsourcing: boolean;
+  30 |   amount_per_day: number;
+  31 |   bus_id: string
+
+Expected '{', got 'interface'
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[95:15:08.666] Server  LOG      ✓ Compiled in 27ms
+[95:15:08.769] Browser ERROR   ./components/buses/bus-systems-table.tsx:317:3
+Parsing ecmascript source code failed
+  315 |   const 
+  316 |
+> 317 |   const handleDelBus = (busId: string) => {
+      |   ^^^^^
+  318 |     deleteBusMitation.mutate(busId, {
+  319 |       onSuccess: () => refetch(),
+  320 |     });
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:15:09.684] Browser ERROR   ./components/buses/bus-systems-table.tsx:317:3
+Parsing ecmascript source code failed
+  315 |   const 
+  316 |
+> 317 |   const handleDelBus = (busId: string) => {
+      |   ^^^^^
+  318 |     deleteBusMitation.mutate(busId, {
+  319 |       onSuccess: () => refetch(),
+  320 |     });
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:15:18.610] Server  LOG      ✓ Compiled in 22ms
+[95:15:18.713] Browser ERROR   ./components/buses/bus-systems-table.tsx:315:9
+Parsing ecmascript source code failed
+  313 |   const deleteBusMitation = useDeleteBus();
+  314 |   const maintainBusMutation = useBusMaintenanceStatus();
+> 315 |   const outsourcing
+      |         ^^^^^^^^^^^
+  316 |
+  317 |   const handleDelBus = (busId: string) => {
+  318 |     deleteBusMitation.mutate(busId, {
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:15:19.685] Browser ERROR   ./components/buses/bus-systems-table.tsx:315:9
+Parsing ecmascript source code failed
+  313 |   const deleteBusMitation = useDeleteBus();
+  314 |   const maintainBusMutation = useBusMaintenanceStatus();
+> 315 |   const outsourcing
+      |         ^^^^^^^^^^^
+  316 |
+  317 |   const handleDelBus = (busId: string) => {
+  318 |     deleteBusMitation.mutate(busId, {
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:15:24.504] Browser ERROR   uncaughtError: ReferenceError: useOut is not defined
+[95:15:29.270] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[95:15:29.387] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[95:15:29.389] Server  LOG      ✓ Compiled in 28ms
+[95:15:29.476] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[95:15:29.634] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[95:15:29.634] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[95:15:29.634] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[95:15:29.634] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774059275553} /_vercel/insights/view
+[95:15:41.923] Server  LOG      ✓ Compiled in 34ms
+[95:15:44.083] Server  LOG      ✓ Compiled in 28ms
+[95:15:49.256] Server  LOG      ✓ Compiled in 28ms
+[95:16:06.464] Server  LOG      ✓ Compiled in 23ms
+[95:23:27.916] Server  LOG      ✓ Compiled in 40ms
+[95:24:30.546] Server  LOG      ✓ Compiled in 32ms
+[95:24:32.305] Server  LOG      ✓ Compiled in 30ms
+[95:24:52.923] Server  LOG      ✓ Compiled in 33ms
+[95:24:53.024] Browser ERROR   ./components/buses/bus-systems-table.tsx:1132:39
+Parsing ecmascript source code failed
+  1130 |                                 outsourcing: !bus.outsourcing,
+  1131 |                                 amount_per_day:
+> 1132 |                                 bus_id: bus._id,
+       |                                       ^
+  1133 |                               });
+  1134 |                             }}
+  1135 |                             className={` ${bus.outsourcing ? "text-green-600 focus:text-green-700" : "text-black"}  cursor-pointer`}
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:24:53.682] Browser ERROR   ./components/buses/bus-systems-table.tsx:1132:39
+Parsing ecmascript source code failed
+  1130 |                                 outsourcing: !bus.outsourcing,
+  1131 |                                 amount_per_day:
+> 1132 |                                 bus_id: bus._id,
+       |                                       ^
+  1133 |                               });
+  1134 |                             }}
+  1135 |                             className={` ${bus.outsourcing ? "text-green-600 focus:text-green-700" : "text-black"}  cursor-pointer`}
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:24:54.238] Server  LOG      ✓ Compiled in 36ms
+[95:35:07.350] Server  LOG      ✓ Compiled in 64ms
+[95:35:07.453] Browser ERROR   ./components/buses/bus-systems-table.tsx:339:9
+Ecmascript file had an error
+  337 |
+  338 |
+> 339 |   const handleOutsourcing = (data: OutsourcingPayload) => {
+      |         ^^^^^^^^^^^^^^^^^
+  340 |     outsourcingMutation.mutate(data, {
+  341 |       onSuccess: () => {
+  342 |         refetch();
+
+the name `handleOutsourcing` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:35:07.685] Browser ERROR   ./components/buses/bus-systems-table.tsx:339:9
+Ecmascript file had an error
+  337 |
+  338 |
+> 339 |   const handleOutsourcing = (data: OutsourcingPayload) => {
+      |         ^^^^^^^^^^^^^^^^^
+  340 |     outsourcingMutation.mutate(data, {
+  341 |       onSuccess: () => {
+  342 |         refetch();
+
+the name `handleOutsourcing` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:36:28.971] Server  LOG      ✓ Compiled in 29ms
+[95:36:34.291] Server  LOG      ✓ Compiled in 29ms
+[95:36:36.325] Server  LOG      ✓ Compiled in 26ms
+[95:38:34.015] Server  LOG      ✓ Compiled in 42ms
+[95:38:35.641] Server  LOG      ✓ Compiled in 29ms
+[95:38:41.045] Server  LOG      ✓ Compiled in 33ms
+[95:38:44.060] Server  LOG      ✓ Compiled in 33ms
+[95:38:55.814] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[95:38:56.479] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[95:38:56.636] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[95:38:56.637] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[95:38:56.637] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[95:38:56.637] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774060682554} /_vercel/insights/view
+[95:39:20.608] Server  LOG      ✓ Compiled in 60ms
+[95:39:20.713] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[95:39:20.713] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[95:39:31.081] Server  LOG      ✓ Compiled in 28ms
+[95:39:44.237] Server  LOG      ✓ Compiled in 31ms
+[95:39:44.341] Browser ERROR   ./components/buses/bus-systems-table.tsx:67:54
+Parsing ecmascript source code failed
+  65 | import { getRoutes } from "@/api/routes";
+  66 | import { getStaffList } from "@/api/user";
+> 67 | import toast from "react-hot-toast";{ Toaster } from "react-hot-toast";
+     |                                                      ^^^^^^^^^^^^^^^^^
+  68 | import { updateSelBus } from "@/lib/store/slices/bus-slice";
+  69 | import { useRouter } from "next/navigation";
+  70 | import { useDispatch } from "react-redux";
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:39:44.682] Browser ERROR   ./components/buses/bus-systems-table.tsx:67:54
+Parsing ecmascript source code failed
+  65 | import { getRoutes } from "@/api/routes";
+  66 | import { getStaffList } from "@/api/user";
+> 67 | import toast from "react-hot-toast";{ Toaster } from "react-hot-toast";
+     |                                                      ^^^^^^^^^^^^^^^^^
+  68 | import { updateSelBus } from "@/lib/store/slices/bus-slice";
+  69 | import { useRouter } from "next/navigation";
+  70 | import { useDispatch } from "react-redux";
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[95:40:21.388] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[95:40:21.388] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[95:42:01.109] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[95:42:01.174] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[95:42:01.324] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[95:42:01.324] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[95:42:01.324] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[95:42:01.324] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774060867245} /_vercel/insights/view
+[95:47:09.897] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[95:47:10.054] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[95:47:10.054] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[95:47:10.054] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[95:47:10.054] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774061175975} /_vercel/insights/view
+[95:49:55.261] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[95:49:55.261] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[95:52:27.909] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[95:52:28.064] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[95:52:28.064] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[95:52:28.064] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[95:52:28.064] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774061493985} /_vercel/insights/view
+[95:52:32.694] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[95:52:32.869] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[95:52:32.870] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[95:52:32.870] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[95:52:32.870] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774061498769} /_vercel/insights/view
+[95:52:32.870] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[96:03:58.127] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:03:58.287] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[96:03:58.287] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[96:03:58.287] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[96:03:58.287] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062184209} /_vercel/insights/view
+[96:04:12.973] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062198890} /_vercel/insights/view
+[96:04:24.677] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062210599} /_vercel/insights/view
+[96:04:47.656] Server  LOG      ✓ Compiled in 46ms
+[96:04:55.062] Server  LOG      ✓ Compiled in 29ms
+[96:05:00.019] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062245925} /_vercel/insights/view
+[96:05:51.767] Server  LOG      ✓ Compiled in 29ms
+[96:05:54.435] Server  LOG      ✓ Compiled in 34ms
+[96:05:56.380] Server  LOG      ✓ Compiled in 31ms
+[96:06:01.849] Server  LOG      ✓ Compiled in 23ms
+[96:06:03.665] Server  LOG      ✓ Compiled in 25ms
+[96:06:07.343] Server  LOG      ✓ Compiled in 29ms
+[96:06:14.319] Server  LOG      ✓ Compiled in 32ms
+[96:06:24.907] Server  LOG      ✓ Compiled in 31ms
+[96:06:27.826] Server  LOG      ✓ Compiled in 40ms
+[96:06:51.102] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[96:06:51.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:06:51.362] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[96:06:51.362] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[96:06:51.362] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/buses","route":"/app-menu/buses"}
+[96:06:51.362] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062357284} /_vercel/insights/view
+[96:06:55.786] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062361707} /_vercel/insights/view
+[96:06:58.785] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062364683} /_vercel/insights/view
+[96:07:04.005] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062369921} /_vercel/insights/view
+[96:07:06.877] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062372798} /_vercel/insights/view
+[96:07:15.452] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062381366} /_vercel/insights/view
+[96:07:23.280] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062389201} /_vercel/insights/view
+[96:09:22.491] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774062508407} /_vercel/insights/view
+[96:13:12.898] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[96:13:12.898] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[96:19:16.997] Server  LOG      ✓ Compiled in 162ms
+[96:19:17.088] Browser ERROR   uncaughtError: ReferenceError: isDriverOutsourceModalOpen is not defined
+[96:19:24.612] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[96:19:24.699] Server  LOG      ✓ Compiled in 22ms
+[96:19:24.752] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[96:19:24.759] Browser ERROR   uncaughtError: ReferenceError: isDriverOutsourceModalOpen is not defined
+[96:19:24.759] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774063110635} /_vercel/insights/view
+[96:19:24.820] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:19:24.949] Browser ERROR   uncaughtError: ReferenceError: isDriverOutsourceModalOpen is not defined
+[96:19:49.243] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[96:19:49.293] Server  LOG      ✓ Compiled in 20ms
+[96:19:49.331] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[96:19:49.387] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:19:49.514] Browser ERROR   uncaughtError: ReferenceError: isDriverOutsourceModalOpen is not defined
+[96:19:55.419] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[96:19:55.479] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[96:19:55.481] Server  LOG      ✓ Compiled in 21ms
+[96:19:55.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:19:55.663] Browser ERROR   uncaughtError: ReferenceError: isDriverOutsourceModalOpen is not defined
+[96:19:58.168] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[96:19:58.231] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[96:19:58.233] Server  LOG      ✓ Compiled in 25ms
+[96:19:58.279] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:19:58.404] Browser ERROR   uncaughtError: ReferenceError: isDriverOutsourceModalOpen is not defined
+[96:20:27.115] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[96:20:27.168] Server  LOG      ✓ Compiled in 24ms
+[96:20:27.209] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[96:20:27.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[96:20:27.408] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[96:20:27.408] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[96:20:27.408] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/driver-outsourcing","route":"/logistics/driver-outsourcing"}
+[96:20:27.408] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774063173328} /_vercel/insights/view
+[96:20:28.861] Server  LOG      ✓ Compiled in 24ms
+[96:20:33.753] Server  LOG      ✓ Compiled in 22ms
+[96:20:35.099] Server  LOG      ✓ Compiled in 21ms
+[96:20:40.608] Server  LOG      ✓ Compiled in 24ms
+[96:20:59.030] Server  LOG      ✓ Compiled in 23ms
+[96:20:59.133] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:48:54
+Parsing ecmascript source code failed
+  46 | import { DriverOutsourceType, useOutsourceStatus } from "@/api/driver";
+  47 | import { queryClient } from "@/api/queryClient";
+> 48 | import toast from "react-hot-toast";{ Toaster } from "react-hot-toast";
+     |                                                      ^^^^^^^^^^^^^^^^^
+  49 | import { Skeleton } from "../ui/skeleton";
+  50 | import { getDriversList } from "@/api/staffs";
+  51 | import {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[96:20:59.685] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:48:54
+Parsing ecmascript source code failed
+  46 | import { DriverOutsourceType, useOutsourceStatus } from "@/api/driver";
+  47 | import { queryClient } from "@/api/queryClient";
+> 48 | import toast from "react-hot-toast";{ Toaster } from "react-hot-toast";
+     |                                                      ^^^^^^^^^^^^^^^^^
+  49 | import { Skeleton } from "../ui/skeleton";
+  50 | import { getDriversList } from "@/api/staffs";
+  51 | import {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[96:21:00.254] Server  LOG      ✓ Compiled in 24ms
+[96:21:00.357] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:48:12
+Parsing ecmascript source code failed
+  46 | import { DriverOutsourceType, useOutsourceStatus } from "@/api/driver";
+  47 | import { queryClient } from "@/api/queryClient";
+> 48 | import toas{ Toaster } from "react-hot-toast";
+     |            ^
+  49 | import { Skeleton } from "../ui/skeleton";
+  50 | import { getDriversList } from "@/api/staffs";
+  51 | import {
+
+Expected ',', got '{'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[96:21:00.687] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:48:12
+Parsing ecmascript source code failed
+  46 | import { DriverOutsourceType, useOutsourceStatus } from "@/api/driver";
+  47 | import { queryClient } from "@/api/queryClient";
+> 48 | import toas{ Toaster } from "react-hot-toast";
+     |            ^
+  49 | import { Skeleton } from "../ui/skeleton";
+  50 | import { getDriversList } from "@/api/staffs";
+  51 | import {
+
+Expected ',', got '{'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[99:22:19.472] Browser ERROR   Fetch Outsource Driver Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MDU2MjE2LCJleHAiOjE3NzQ2NjEwMTZ9.upzf0k8A3razlmYAjeBtbd2N1VeG_JKAQvWDbJJ7fdE","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drivers?outsourcing=true&limit=10&page=1","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_6bfa7e83._.js:13164:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_6bfa7e83._.js:13909:49)\n    at async getOutsouceDrivers (http://localhost:3000/_next/static/chunks/_ee07e2c6._.js:811:21)"}
+[99:22:19.472] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MDU2MjE2LCJleHAiOjE3NzQ2NjEwMTZ9.upzf0k8A3razlmYAjeBtbd2N1VeG_JKAQvWDbJJ7fdE","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drivers?limit=10","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_6bfa7e83._.js:13164:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_6bfa7e83._.js:13909:49)\n    at async getDriversList (http://localhost:3000/_next/static/chunks/_ee07e2c6._.js:1292:21)"}
+[99:22:19.472] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'pagination')
+[99:22:20.460] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MDQ5OTkxLCJleHAiOjE3NzQ2NTQ3OTF9.OC0LrQ9a-N8tHLD6Dr-CsnFDubMlFrfiZglkG_yxz-U","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13947:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1446:21)"}
+[99:22:20.460] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MDQ5OTkxLCJleHAiOjE3NzQ2NTQ3OTF9.OC0LrQ9a-N8tHLD6Dr-CsnFDubMlFrfiZglkG_yxz-U","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13947:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_bf2a69c5._.js:622:21)"}
+[99:22:20.460] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MDQ5OTkxLCJleHAiOjE3NzQ2NTQ3OTF9.OC0LrQ9a-N8tHLD6Dr-CsnFDubMlFrfiZglkG_yxz-U","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/maintenance-report/get?limit=10&page=1","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:13947:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_02dec30a._.js:14692:49)\n    at async getMaintenanceReports (http://localhost:3000/_next/static/chunks/_6505b912._.js?id=%255Bproject%255D%252Fapi%252Fbuses%252Findex.ts+%255Bapp-client%255D+%2528ecmascript%2529:366:21)"}
+[104:08:24.679] Server  LOG      ✓ Compiled in 29ms
+[104:08:24.781] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:407:34
+Parsing ecmascript source code failed
+  405 |                           : true,
+  406 |                           amount_per_day:
+> 407 |                         driver_id:
+      |                                  ^
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+  410 |                     }}
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:08:25.358] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:407:34
+Parsing ecmascript source code failed
+  405 |                           : true,
+  406 |                           amount_per_day:
+> 407 |                         driver_id:
+      |                                  ^
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+  410 |                     }}
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:08:26.872] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[104:08:27.051] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[104:08:27.057] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774091252848} /_vercel/insights/view
+[104:08:27.996] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[104:08:28.172] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[104:08:28.172] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[104:08:28.172] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/driver-outsourcing","route":"/logistics/driver-outsourcing"}
+[104:08:28.172] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774091254021} /_vercel/insights/view
+[104:08:28.172] Browser WARN    Image with src "/Deporta-Logo.svg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[104:08:53.455] Server  LOG      ✓ Compiled in 29ms
+[104:08:59.239] Server  LOG      ✓ Compiled in 32ms
+[104:08:59.345] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:552:42
+Parsing ecmascript source code failed
+  550 |                                   : true,
+  551 |                                   amount_per_day:
+> 552 |                                 driver_id: driver.user_type.type_id._id,
+      |                                          ^
+  553 |                               });
+  554 |                             }}
+  555 |                             className="text-destructive"
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:08:59.358] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:552:42
+Parsing ecmascript source code failed
+  550 |                                   : true,
+  551 |                                   amount_per_day:
+> 552 |                                 driver_id: driver.user_type.type_id._id,
+      |                                          ^
+  553 |                               });
+  554 |                             }}
+  555 |                             className="text-destructive"
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:09:02.231] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:552:42
+Parsing ecmascript source code failed
+  550 |                                   : true,
+  551 |                                   amount_per_day:driver.
+> 552 |                                 driver_id: driver.user_type.type_id._id,
+      |                                          ^
+  553 |                               });
+  554 |                             }}
+  555 |                             className="text-destructive"
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:09:02.362] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:552:42
+Parsing ecmascript source code failed
+  550 |                                   : true,
+  551 |                                   amount_per_day:driver.
+> 552 |                                 driver_id: driver.user_type.type_id._id,
+      |                                          ^
+  553 |                               });
+  554 |                             }}
+  555 |                             className="text-destructive"
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:09:12.488] Server  LOG      ✓ Compiled in 30ms
+[104:09:12.590] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:552:42
+Parsing ecmascript source code failed
+  550 |                                   : true,
+  551 |                                 amount_per_day:driver.
+> 552 |                                 driver_id: driver.user_type.type_id._id,
+      |                                          ^
+  553 |                               });
+  554 |                             }}
+  555 |                             className="text-destructive"
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:09:13.358] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:552:42
+Parsing ecmascript source code failed
+  550 |                                   : true,
+  551 |                                 amount_per_day:driver.
+> 552 |                                 driver_id: driver.user_type.type_id._id,
+      |                                          ^
+  553 |                               });
+  554 |                             }}
+  555 |                             className="text-destructive"
+
+Expected '</', got ':'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:42:34.013] Server  LOG      ✓ Compiled in 24ms
+[104:42:34.117] Browser ERROR   ./types/index.ts:758:13
+Parsing ecmascript source code failed
+  756 | };
+  757 |
+> 758 | export type DriverUserType = {
+      |             ^^^^^^^^^^^^^^
+  759 |   value: string;
+  760 |   type_id: {
+  761 |     _id: string;
+
+Expected '{', got 'DriverUserType'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[104:42:34.359] Browser ERROR   ./types/index.ts:758:13
+Parsing ecmascript source code failed
+  756 | };
+  757 |
+> 758 | export type DriverUserType = {
+      |             ^^^^^^^^^^^^^^
+  759 |   value: string;
+  760 |   type_id: {
+  761 |     _id: string;
+
+Expected '{', got 'DriverUserType'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[104:42:53.588] Server  LOG      ✓ Compiled in 36ms
+[104:42:55.618] Server  LOG      ✓ Compiled in 31ms
+[104:42:57.982] Server  LOG      ✓ Compiled in 33ms
+[104:42:58.084] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:58
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId.,
+      |                                                          ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:42:58.359] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:58
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId.,
+      |                                                          ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:01.183] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:69
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId?.user_type.,
+      |                                                                     ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:01.359] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:69
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId?.user_type.,
+      |                                                                     ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:04.544] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:77
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId?.user_type.type_id.,
+      |                                                                             ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:05.362] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:77
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId?.user_type.type_id.,
+      |                                                                             ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:08.470] Server  LOG      ✓ Compiled in 21ms
+[104:43:08.572] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:89
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId?.user_type.type_id.outsourcing.,
+      |                                                                                         ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:09.361] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:406:89
+Parsing ecmascript source code failed
+  404 |                           ? false
+  405 |                           : true,
+> 406 |                         amount_per_day: selectedDriverId?.user_type.type_id.outsourcing.,
+      |                                                                                         ^
+  407 |                         driver_id:
+  408 |                           selectedDriverId?.user_type.type_id._id || "",
+  409 |                       });
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:43:26.517] Server  LOG      ✓ Compiled in 23ms
+[104:44:23.626] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[104:44:23.626] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[104:46:37.291] Server  LOG      ✓ Compiled in 32ms
+[104:46:50.824] Server  LOG      ✓ Compiled in 31ms
+[104:47:21.378] Server  LOG      ✓ Compiled in 62ms
+[104:47:37.443] Server  LOG      ✓ Compiled in 30ms
+[104:47:41.419] Server  LOG      ✓ Compiled in 24ms
+[104:47:42.357] Server  LOG      ✓ Compiled in 23ms
+[104:47:48.043] Server  LOG      ✓ Compiled in 31ms
+[104:48:01.571] Server  LOG      ✓ Compiled in 25ms
+[104:48:04.234] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[104:48:04.234] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[104:48:25.507] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[104:48:25.507] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[104:48:49.539] Server  LOG      ✓ Compiled in 35ms
+[104:49:06.118] Server  LOG      ✓ Compiled in 28ms
+[104:49:11.738] Server  LOG      ✓ Compiled in 35ms
+[104:49:14.582] Server  LOG      ✓ Compiled in 23ms
+[104:49:15.748] Server  LOG      ✓ Compiled in 26ms
+[104:50:42.557] Server  LOG      ✓ Compiled in 31ms
+[104:50:47.677] Server  LOG      ✓ Compiled in 25ms
+[104:50:54.356] Server  LOG      ✓ Compiled in 32ms
+[104:50:54.460] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:572:31
+Parsing ecmascript source code failed
+  570 |                     </td>
+  571 |                     <td className="p-4 text-sm text-muted-foreground">
+> 572 |                       {driver.}
+      |                               ^
+  573 |                     </td>
+  574 |                     <td className="p-4 text-sm text-muted-foreground">
+  575 |                       {new Date(driver.createdAt).toLocaleString()}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:50:55.364] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:572:31
+Parsing ecmascript source code failed
+  570 |                     </td>
+  571 |                     <td className="p-4 text-sm text-muted-foreground">
+> 572 |                       {driver.}
+      |                               ^
+  573 |                     </td>
+  574 |                     <td className="p-4 text-sm text-muted-foreground">
+  575 |                       {new Date(driver.createdAt).toLocaleString()}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:50:59.796] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:572:49
+Parsing ecmascript source code failed
+  570 |                     </td>
+  571 |                     <td className="p-4 text-sm text-muted-foreground">
+> 572 |                       {driver.user_type.type_id.}
+      |                                                 ^
+  573 |                     </td>
+  574 |                     <td className="p-4 text-sm text-muted-foreground">
+  575 |                       {new Date(driver.createdAt).toLocaleString()}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:51:00.362] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:572:49
+Parsing ecmascript source code failed
+  570 |                     </td>
+  571 |                     <td className="p-4 text-sm text-muted-foreground">
+> 572 |                       {driver.user_type.type_id.}
+      |                                                 ^
+  573 |                     </td>
+  574 |                     <td className="p-4 text-sm text-muted-foreground">
+  575 |                       {new Date(driver.createdAt).toLocaleString()}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:51:02.693] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:572:61
+Parsing ecmascript source code failed
+  570 |                     </td>
+  571 |                     <td className="p-4 text-sm text-muted-foreground">
+> 572 |                       {driver.user_type.type_id.outsourcing.}
+      |                                                             ^
+  573 |                     </td>
+  574 |                     <td className="p-4 text-sm text-muted-foreground">
+  575 |                       {new Date(driver.createdAt).toLocaleString()}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:51:03.358] Browser ERROR   ./components/logistics/driver-outsourcing-table.tsx:572:61
+Parsing ecmascript source code failed
+  570 |                     </td>
+  571 |                     <td className="p-4 text-sm text-muted-foreground">
+> 572 |                       {driver.user_type.type_id.outsourcing.}
+      |                                                             ^
+  573 |                     </td>
+  574 |                     <td className="p-4 text-sm text-muted-foreground">
+  575 |                       {new Date(driver.createdAt).toLocaleString()}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/driver-outsourcing-table.tsx
+    ./app/(dashboard)/logistics/driver-outsourcing/page.tsx
+[104:51:21.486] Server  LOG      ✓ Compiled in 30ms
+[104:51:29.544] Server  LOG      ✓ Compiled in 23ms
+[104:51:53.543] Server  LOG      ✓ Compiled in 37ms
+[104:51:55.804] Server  LOG      ✓ Compiled in 29ms
+[104:51:57.182] Server  LOG      ✓ Compiled in 27ms
+[104:52:21.866] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774093887740} /_vercel/insights/view
+[104:58:33.548] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094259414} /_vercel/insights/view
+[104:59:13.782] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094299654} /_vercel/insights/view
+[104:59:24.451] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094310300} /_vercel/insights/view
+[104:59:38.868] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094324740} /_vercel/insights/view
+[105:01:48.369] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094454219} /_vercel/insights/view
+[105:07:52.330] Server  LOG      ✓ Compiled in 45ms
+[105:07:52.439] Browser ERROR   ./types/index.ts:504:13
+Parsing ecmascript source code failed
+  502 | };
+  503 |
+> 504 | export type Bus = {
+      |             ^^^
+  505 |   operation_schedule: {
+  506 |     from: string;
+  507 |     to: string;
+
+Expected '{', got 'Bus'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[105:07:53.362] Browser ERROR   ./types/index.ts:504:13
+Parsing ecmascript source code failed
+  502 | };
+  503 |
+> 504 | export type Bus = {
+      |             ^^^
+  505 |   operation_schedule: {
+  506 |     from: string;
+  507 |     to: string;
+
+Expected '{', got 'Bus'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[105:08:39.385] Server  LOG      ✓ Compiled in 25ms
+[105:08:39.488] Browser ERROR   ./components/buses/bus-systems-table.tsx:1005:43
+Parsing ecmascript source code failed
+  1003 |                         )}
+  1004 |                       >
+> 1005 |                         {bus.outsourcing. ? "Outsourced" : "In-House"}
+       |                                           ^
+  1006 |                       </Badge>
+  1007 |                     </td>
+  1008 |                     <td className="p-4">
+
+Expected '</', got '?'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[105:08:40.358] Browser ERROR   ./components/buses/bus-systems-table.tsx:1005:43
+Parsing ecmascript source code failed
+  1003 |                         )}
+  1004 |                       >
+> 1005 |                         {bus.outsourcing. ? "Outsourced" : "In-House"}
+       |                                           ^
+  1006 |                       </Badge>
+  1007 |                     </td>
+  1008 |                     <td className="p-4">
+
+Expected '</', got '?'
+
+Import trace:
+  Server Component:
+    ./components/buses/bus-systems-table.tsx
+    ./app/(dashboard)/app-menu/buses/page.tsx
+[105:09:17.163] Server  LOG      ✓ Compiled in 37ms
+[105:09:25.417] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094911288} /_vercel/insights/view
+[105:10:24.768] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774094970628} /_vercel/insights/view
+[105:11:10.253] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774095016124} /_vercel/insights/view
+[105:11:59.457] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:11:59.457] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:11:59.457] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:11:59.457] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:12:27.273] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:12:27.274] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:12:27.274] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:12:27.274] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:29:17.981] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:29:17.981] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:29:17.981] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:29:17.981] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:29:20.295] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[105:29:20.362] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[105:29:20.506] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[105:29:20.506] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[105:29:20.506] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/vehicle-rentals","route":"/logistics/vehicle-rentals"}
+[105:29:20.506] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774096106380} /_vercel/insights/view
+[105:30:16.432] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:30:16.432] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:30:16.432] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:30:16.432] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:33:54.497] Server  LOG      ✓ Compiled in 53ms
+[105:34:00.540] Server  LOG      ✓ Compiled in 26ms
+[105:34:04.038] Server  LOG      ✓ Compiled in 26ms
+[105:34:07.593] Server  LOG      ✓ Compiled in 25ms
+[105:34:08.876] Server  LOG      ✓ Compiled in 25ms
+[105:34:14.184] Server  LOG      ✓ Compiled in 30ms
+[105:34:19.999] Server  LOG      ✓ Compiled in 28ms
+[105:34:21.870] Server  LOG      ✓ Compiled in 31ms
+[105:34:44.199] Server  LOG      ✓ Compiled in 26ms
+[105:35:04.231] Server  LOG      ✓ Compiled in 28ms
+[105:35:10.193] Server  LOG      ✓ Compiled in 23ms
+[105:35:10.297] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:412:29
+Parsing ecmascript source code failed
+  410 |                   </td>
+  411 |                   <td className="p-4 text-sm text-muted-foreground">
+> 412 |                     {rental.}
+      |                             ^
+  413 |                   </td>
+  414 |                   <td className="p-4">
+  415 |                     <Badge
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:35:10.358] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:412:29
+Parsing ecmascript source code failed
+  410 |                   </td>
+  411 |                   <td className="p-4 text-sm text-muted-foreground">
+> 412 |                     {rental.}
+      |                             ^
+  413 |                   </td>
+  414 |                   <td className="p-4">
+  415 |                     <Badge
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:35:12.886] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:412:41
+Parsing ecmascript source code failed
+  410 |                   </td>
+  411 |                   <td className="p-4 text-sm text-muted-foreground">
+> 412 |                     {rental.outsourcing.}
+      |                                         ^
+  413 |                   </td>
+  414 |                   <td className="p-4">
+  415 |                     <Badge
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:35:13.362] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:412:41
+Parsing ecmascript source code failed
+  410 |                   </td>
+  411 |                   <td className="p-4 text-sm text-muted-foreground">
+> 412 |                     {rental.outsourcing.}
+      |                                         ^
+  413 |                   </td>
+  414 |                   <td className="p-4">
+  415 |                     <Badge
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:35:23.661] Server  LOG      ✓ Compiled in 23ms
+[105:35:52.964] Server  LOG      ✓ Compiled in 36ms
+[105:37:16.714] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:37:16.714] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:37:16.714] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[105:37:16.714] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[105:39:43.499] Server  LOG      ✓ Compiled in 41ms
+[105:39:54.006] Server  LOG      ✓ Compiled in 29ms
+[105:43:47.643] Server  LOG      ✓ Compiled in 38ms
+[105:43:47.747] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:54:3
+Parsing ecmascript source code failed
+  52 |   const 
+  53 |
+> 54 |   const [isOpen, setIsOpen] = useState(false);
+     |   ^^^^^
+  55 |
+  56 |   const [currentPage, setCurrentPage] = useState(1);
+  57 |   const itemsPerPage = 10;
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:43:48.364] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:54:3
+Parsing ecmascript source code failed
+  52 |   const 
+  53 |
+> 54 |   const [isOpen, setIsOpen] = useState(false);
+     |   ^^^^^
+  55 |
+  56 |   const [currentPage, setCurrentPage] = useState(1);
+  57 |   const itemsPerPage = 10;
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:43:59.171] Server  LOG      ✓ Compiled in 26ms
+[105:43:59.274] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:52:9
+Parsing ecmascript source code failed
+  50 |   const [selectedBus, setSelectedBus] = useState<Bus | null>(null);
+  51 |
+> 52 |   const modifyBusRenta
+     |         ^^^^^^^^^^^^^^
+  53 |
+  54 |   const [isOpen, setIsOpen] = useState(false);
+  55 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:43:59.361] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:52:9
+Parsing ecmascript source code failed
+  50 |   const [selectedBus, setSelectedBus] = useState<Bus | null>(null);
+  51 |
+> 52 |   const modifyBusRenta
+     |         ^^^^^^^^^^^^^^
+  53 |
+  54 |   const [isOpen, setIsOpen] = useState(false);
+  55 |
+
+'const' declarations must be initialized
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:44:03.181] Browser ERROR   uncaughtError: ReferenceError: use is not defined
+[105:44:10.146] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[105:44:10.187] Server  LOG      ✓ Compiled in 30ms
+[105:44:10.229] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[105:44:10.782] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[105:44:10.906] Browser ERROR   uncaughtError: ReferenceError: useBusRental is not defined
+[105:44:12.249] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[105:44:12.288] Server  LOG      ✓ Compiled in 22ms
+[105:44:12.319] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[105:44:12.373] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[105:44:12.499] Browser ERROR   uncaughtError: ReferenceError: useBusRental is not defined
+[105:44:59.038] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[105:44:59.094] Server  LOG      ✓ Compiled in 30ms
+[105:44:59.130] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[105:44:59.186] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[105:44:59.307] Browser ERROR   uncaughtError: ReferenceError: useBusOutsourcing is not defined
+[105:45:01.214] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[105:45:01.226] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[105:45:01.314] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[105:45:01.349] Server  LOG      ✓ Compiled in 0ms
+[105:45:01.460] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[105:45:01.460] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[105:45:01.460] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/vehicle-rentals","route":"/logistics/vehicle-rentals"}
+[105:45:01.460] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774097047335} /_vercel/insights/view
+[105:45:32.762] Server  LOG      ✓ Compiled in 27ms
+[105:45:33.148] Server  LOG      ✓ Compiled in 24ms
+[105:45:37.825] Server  LOG      ✓ Compiled in 24ms
+[105:46:06.826] Server  LOG      ✓ Compiled in 25ms
+[105:46:18.807] Server  LOG      ✓ Compiled in 30ms
+[105:46:20.371] Server  LOG      ✓ Compiled in 23ms
+[105:46:22.478] Server  LOG      ✓ Compiled in 33ms
+[105:46:26.844] Server  LOG      ✓ Compiled in 23ms
+[105:47:00.918] Server  LOG      ✓ Compiled in 25ms
+[105:47:01.021] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:452:54
+Parsing ecmascript source code failed
+  450 |                           View Details
+  451 |                         </DropdownMenuItem>
+> 452 |                         <DropdownMenuItem onClick={()}>
+      |                                                      ^
+  453 |                           Edit Rental
+  454 |                         </DropdownMenuItem>
+  455 |                         <DropdownMenuItem className="text-destructive">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:47:01.359] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:452:54
+Parsing ecmascript source code failed
+  450 |                           View Details
+  451 |                         </DropdownMenuItem>
+> 452 |                         <DropdownMenuItem onClick={()}>
+      |                                                      ^
+  453 |                           Edit Rental
+  454 |                         </DropdownMenuItem>
+  455 |                         <DropdownMenuItem className="text-destructive">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:47:05.960] Server  LOG      ✓ Compiled in 27ms
+[105:47:06.063] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:454:25
+Parsing ecmascript source code failed
+  452 |                         <DropdownMenuItem onClick={(e) => {
+  453 |                           e.
+> 454 |                         }}>
+      |                         ^
+  455 |                           Edit Rental
+  456 |                         </DropdownMenuItem>
+  457 |                         <DropdownMenuItem className="text-destructive">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:47:06.362] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:454:25
+Parsing ecmascript source code failed
+  452 |                         <DropdownMenuItem onClick={(e) => {
+  453 |                           e.
+> 454 |                         }}>
+      |                         ^
+  455 |                           Edit Rental
+  456 |                         </DropdownMenuItem>
+  457 |                         <DropdownMenuItem className="text-destructive">
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[105:47:20.195] Server  LOG      ✓ Compiled in 23ms
+[111:40:31.251] Browser ERROR   uncaughtError: ReferenceError: bus is not defined
+[111:40:44.928] Server  LOG      ✓ Compiled in 54ms
+[111:40:45.030] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:460:29
+Parsing ecmascript source code failed
+  458 |                               amount_per_day: 0,
+  459 |                               bus_id: rental.
+> 460 |                             });
+      |                             ^
+  461 |                           }}
+  462 |                         >
+  463 |                           Edit Rental
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[111:40:45.363] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:460:29
+Parsing ecmascript source code failed
+  458 |                               amount_per_day: 0,
+  459 |                               bus_id: rental.
+> 460 |                             });
+      |                             ^
+  461 |                           }}
+  462 |                         >
+  463 |                           Edit Rental
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[111:46:30.323] Server  LOG      ✓ Compiled in 59ms
+[111:46:42.036] Server  LOG      ✓ Compiled in 28ms
+[111:46:45.158] Server  LOG      ✓ Compiled in 25ms
+[111:46:47.435] Server  LOG      ✓ Compiled in 27ms
+[111:47:47.067] Server  LOG      ✓ Compiled in 26ms
+[111:48:38.199] Server  LOG      ✓ Compiled in 37ms
+[111:48:46.136] Server  LOG      ✓ Compiled in 35ms
+[111:48:55.795] Server  LOG      ✓ Compiled in 30ms
+[111:49:08.196] Server  LOG      ✓ Compiled in 25ms
+[111:49:08.299] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:476:54
+Parsing ecmascript source code failed
+  474 |                           Edit Rental
+  475 |                         </DropdownMenuItem>
+> 476 |                         <DropdownMenuItem onClick={()} className="text-destructive">
+      |                                                      ^
+  477 |                           End Rental
+  478 |                         </DropdownMenuItem>
+  479 |                       </DropdownMenuContent>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[111:49:08.358] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:476:54
+Parsing ecmascript source code failed
+  474 |                           Edit Rental
+  475 |                         </DropdownMenuItem>
+> 476 |                         <DropdownMenuItem onClick={()} className="text-destructive">
+      |                                                      ^
+  477 |                           End Rental
+  478 |                         </DropdownMenuItem>
+  479 |                       </DropdownMenuContent>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[111:49:10.107] Browser ERROR   uncaughtError: ReferenceError: e is not defined
+[111:49:11.899] Server  LOG      ✓ Compiled in 22ms
+[111:49:12.001] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:476:59
+Parsing ecmascript source code failed
+  474 |                           Edit Rental
+  475 |                         </DropdownMenuItem>
+> 476 |                         <DropdownMenuItem onClick={(e) => } className="text-destructive">
+      |                                                           ^
+  477 |                           End Rental
+  478 |                         </DropdownMenuItem>
+  479 |                       </DropdownMenuContent>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[111:49:12.361] Browser ERROR   ./components/logistics/vehicle-rentals-table.tsx:476:59
+Parsing ecmascript source code failed
+  474 |                           Edit Rental
+  475 |                         </DropdownMenuItem>
+> 476 |                         <DropdownMenuItem onClick={(e) => } className="text-destructive">
+      |                                                           ^
+  477 |                           End Rental
+  478 |                         </DropdownMenuItem>
+  479 |                       </DropdownMenuContent>
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-table.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[111:49:13.371] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[111:49:13.483] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[111:49:13.494] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774118899349} /_vercel/insights/view
+[111:49:13.744] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[111:49:13.888] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[111:49:13.888] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[111:49:13.888] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/vehicle-rentals","route":"/logistics/vehicle-rentals"}
+[111:49:13.888] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774118899769} /_vercel/insights/view
+[111:49:26.634] Server  LOG      ✓ Compiled in 26ms
+[111:49:26.834] Server  LOG      ✓ Compiled in 25ms
+[111:49:35.601] Server  LOG      ✓ Compiled in 27ms
+[111:49:40.705] Server  LOG      ✓ Compiled in 25ms
+[111:49:44.214] Server  LOG      ✓ Compiled in 24ms
+[111:50:47.072] Server  LOG      ✓ Compiled in 65ms
+[111:50:56.388] Server  LOG      ✓ Compiled in 30ms
+[111:51:26.653] Server  LOG      ✓ Compiled in 33ms
+[111:51:26.733] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[111:51:26.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[111:51:26.918] Browser ERROR   uncaughtError: ReferenceError: Toaster is not defined
+[111:51:28.611] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[111:51:28.611] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/logistics/vehicle-rentals-table.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[111:51:28.611] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[111:51:28.658] Server  LOG      ✓ Compiled in 25ms
+[111:51:28.687] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[111:51:28.758] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[111:51:28.896] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[111:51:28.896] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[111:51:28.896] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/vehicle-rentals","route":"/logistics/vehicle-rentals"}
+[111:51:28.896] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774119034776} /_vercel/insights/view
+[111:51:30.429] Server  LOG      ✓ Compiled in 23ms
+[111:51:34.096] Server  LOG      ✓ Compiled in 29ms
+[111:51:43.972] Server  LOG      ✓ Compiled in 28ms
