@@ -5463,3 +5463,461 @@ Import trace:
 [111:51:30.429] Server  LOG      ✓ Compiled in 23ms
 [111:51:34.096] Server  LOG      ✓ Compiled in 29ms
 [111:51:43.972] Server  LOG      ✓ Compiled in 28ms
+[111:53:03.385] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[111:53:03.385] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[112:08:22.826] Server  LOG      ✓ Compiled in 47ms
+[112:08:26.054] Server  LOG      ✓ Compiled in 38ms
+[112:08:34.510] Server  LOG      ✓ Compiled in 30ms
+[112:08:34.612] Browser ERROR   ./api/buses/index.ts:317:14
+Ecmascript file had an error
+  315 |
+  316 | // Dashboard Stats
+> 317 | export const getMaintenanceReports = async (
+      |              ^^^^^^^^^^^^^^^^^^^^^
+  318 |   currentPage: number,
+  319 |   perPage: number,
+  320 | ): Promise<MaintenanceReportResponse> => {
+
+the name `getMaintenanceReports` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[112:08:35.359] Browser ERROR   ./api/buses/index.ts:317:14
+Ecmascript file had an error
+  315 |
+  316 | // Dashboard Stats
+> 317 | export const getMaintenanceReports = async (
+      |              ^^^^^^^^^^^^^^^^^^^^^
+  318 |   currentPage: number,
+  319 |   perPage: number,
+  320 | ): Promise<MaintenanceReportResponse> => {
+
+the name `getMaintenanceReports` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[112:08:44.432] Server  LOG      ✓ Compiled in 27ms
+[112:08:56.286] Server  LOG      ✓ Compiled in 24ms
+[112:09:05.884] Server  LOG      ✓ Compiled in 38ms
+[112:09:05.987] Browser ERROR   ./types/index.ts:839:12
+Parsing ecmascript source code failed
+  837 | };
+  838 |
+> 839 | export type 
+      |            ^
+
+Expected '{', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[112:09:06.368] Browser ERROR   ./types/index.ts:839:12
+Parsing ecmascript source code failed
+  837 | };
+  838 |
+> 839 | export type 
+      |            ^
+
+Expected '{', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[112:10:39.705] Server  LOG      ✓ Compiled in 25ms
+[112:10:39.808] Browser ERROR   ./types/index.ts:839:13
+Parsing ecmascript source code failed
+  837 | };
+  838 |
+> 839 | export type BookingTotalIncome = {
+      |             ^^^^^^^^^^^^^^^^^^
+  840 |   status: boolean;
+  841 |   booking: [
+  842 |     {
+
+Expected '{', got 'BookingTotalIncome'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[112:10:40.358] Browser ERROR   ./types/index.ts:839:13
+Parsing ecmascript source code failed
+  837 | };
+  838 |
+> 839 | export type BookingTotalIncome = {
+      |             ^^^^^^^^^^^^^^^^^^
+  840 |   status: boolean;
+  841 |   booking: [
+  842 |     {
+
+Expected '{', got 'BookingTotalIncome'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[112:11:31.902] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774120237775} /_vercel/insights/view
+[112:11:33.866] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774120239744} /_vercel/insights/view
+[112:11:51.312] Server  LOG      ✓ Compiled in 28ms
+[114:17:19.350] Server  LOG      ✓ Compiled in 34ms
+[114:17:19.454] Browser ERROR   ./api/buses/index.ts:328:14
+Ecmascript file had an error
+  326 | };
+  327 |
+> 328 | export const getTotalIncome = async (): Promise<BookingTotalIncomeResponse> => {
+      |              ^^^^^^^^^^^^^^
+  329 |   try {
+  330 |     const res = await api.get(`/api/users/admin/booking/get/total/income`);
+  331 |     return res.data;
+
+the name `getTotalIncome` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:17:20.359] Browser ERROR   ./api/buses/index.ts:328:14
+Ecmascript file had an error
+  326 | };
+  327 |
+> 328 | export const getTotalIncome = async (): Promise<BookingTotalIncomeResponse> => {
+      |              ^^^^^^^^^^^^^^
+  329 |   try {
+  330 |     const res = await api.get(`/api/users/admin/booking/get/total/income`);
+  331 |     return res.data;
+
+the name `getTotalIncome` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./api/buses/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./api/buses/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:17:23.218] Server  LOG      ✓ Compiled in 28ms
+[114:18:41.871] Server  LOG      ✓ Compiled in 27ms
+[114:18:41.974] Browser ERROR   ./types/index.ts:849:12
+Parsing ecmascript source code failed
+  847 | };
+  848 |
+> 849 | export type 
+      |            ^
+
+Expected '{', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:18:42.359] Browser ERROR   ./types/index.ts:849:12
+Parsing ecmascript source code failed
+  847 | };
+  848 |
+> 849 | export type 
+      |            ^
+
+Expected '{', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:18:52.399] Server  LOG      ✓ Compiled in 31ms
+[114:18:52.502] Browser ERROR   ./types/index.ts:849:13
+Parsing ecmascript source code failed
+  847 | };
+  848 |
+> 849 | export type BookingTotalResponse = {
+      |             ^^^^^^^^^^^^^^^^^^^^
+  850 |   {
+  851 |   "status": true,
+  852 |   "booking": [
+
+Expected '{', got 'BookingTotalResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:18:53.358] Browser ERROR   ./types/index.ts:849:13
+Parsing ecmascript source code failed
+  847 | };
+  848 |
+> 849 | export type BookingTotalResponse = {
+      |             ^^^^^^^^^^^^^^^^^^^^
+  850 |   {
+  851 |   "status": true,
+  852 |   "booking": [
+
+Expected '{', got 'BookingTotalResponse'
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:18:53.834] Server  LOG      ✓ Compiled in 27ms
+[114:18:53.937] Browser ERROR   ./types/index.ts:859:1
+Parsing ecmascript source code failed
+  857 |   ]
+  858 | }
+> 859 | }
+      | ^
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:18:54.359] Browser ERROR   ./types/index.ts:859:1
+Parsing ecmascript source code failed
+  857 |   ]
+  858 | }
+> 859 | }
+      | ^
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./types/index.ts [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Client Component Browser]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./types/index.ts [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Client Component SSR]
+    ./components/buses/bus-systems-table.tsx [Server Component]
+    ./app/(dashboard)/app-menu/buses/page.tsx [Server Component]
+[114:20:58.566] Server  ERROR    ⨯ ReferenceError: useQuery is not defined
+[114:20:58.706] Browser ERROR   uncaughtError: ReferenceError: useQuery is not defined
+[114:21:01.942] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:02.009] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:02.168] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:02.205] Server  LOG      ✓ Compiled in 4ms
+[114:21:02.227] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:04.948] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:04.976] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:05.031] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:05.153] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:07.332] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:07.358] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:07.416] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:07.535] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:09.079] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:09.106] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:09.159] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:09.281] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:13.726] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:13.748] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:13.777] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:13.846] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:13.982] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:48.792] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:48.804] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:48.855] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:48.938] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:49.062] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:56.771] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:56.783] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:21:56.817] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:21:56.889] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:21:57.008] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:03.179] Browser ERROR   ./components/logistics/vehicle-rentals-stats.tsx:41:11
+Ecmascript file had an error
+  39 |   });
+  40 |
+> 41 |   const { data } = useQuery({
+     |           ^^^^
+  42 |     queryKey: ["totalBookings"],
+  43 |     queryFn: () => getTotalBooking(),
+  44 |   });
+
+the name `data` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-stats.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[114:22:03.361] Browser ERROR   ./components/logistics/vehicle-rentals-stats.tsx:41:11
+Ecmascript file had an error
+  39 |   });
+  40 |
+> 41 |   const { data } = useQuery({
+     |           ^^^^
+  42 |     queryKey: ["totalBookings"],
+  43 |     queryFn: () => getTotalBooking(),
+  44 |   });
+
+the name `data` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-stats.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[114:22:08.561] Browser ERROR   ./components/logistics/vehicle-rentals-stats.tsx:36:17
+Parsing ecmascript source code failed
+  34 |
+  35 | export function VehicleRentalsStats() {
+> 36 |   const { data: } = useQuery({
+     |                 ^
+  37 |     queryKey: ["totalBookings"],
+  38 |     queryFn: () => getTotalBooking(),
+  39 |   });
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-stats.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[114:22:09.359] Browser ERROR   ./components/logistics/vehicle-rentals-stats.tsx:36:17
+Parsing ecmascript source code failed
+  34 |
+  35 | export function VehicleRentalsStats() {
+> 36 |   const { data: } = useQuery({
+     |                 ^
+  37 |     queryKey: ["totalBookings"],
+  38 |     queryFn: () => getTotalBooking(),
+  39 |   });
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/logistics/vehicle-rentals-stats.tsx
+    ./app/(dashboard)/logistics/vehicle-rentals/page.tsx
+[114:22:12.811] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:12.830] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:12.871] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:12.926] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:22:13.049] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:15.689] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:15.701] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:15.729] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:15.787] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:22:15.911] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:20.794] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:20.808] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:20.836] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:20.889] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:22:21.012] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:26.134] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:26.147] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:26.181] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:26.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:22:26.368] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:32.276] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:32.290] Server  ERROR    ⨯ Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+[114:22:32.319] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[114:22:32.373] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[114:22:32.496] Browser ERROR   uncaughtError: Error: Attempted to call useQuery() from the server but useQuery is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.

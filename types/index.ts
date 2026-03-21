@@ -835,3 +835,23 @@ export type MaintenanceReportResponse = {
     pagination: Pagination;
   };
 };
+
+export type BookingTotalIncomeResponse = {
+  status: boolean;
+  booking: [
+    {
+      _id: any;
+      amount: number;
+    },
+  ];
+};
+
+export type BookingTotalResponse = {
+  status: boolean;
+  booking: [
+    {
+      _id: any;
+      count: number;
+    },
+  ];
+};

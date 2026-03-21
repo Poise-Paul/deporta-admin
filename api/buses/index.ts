@@ -1,5 +1,6 @@
 import {
   AddBusPayload,
+  BookingTotalIncomeResponse,
   BusEditResponse,
   BusesResponse,
   EditBusPayload,
@@ -312,3 +313,4 @@ export const getMaintenanceReports = async (
     throw error;
   }
 };
+
