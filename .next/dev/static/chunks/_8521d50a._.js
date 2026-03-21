@@ -326,6 +326,7 @@ const routeSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
                 state.selRoute.rate_per_km = action.payload.rate_per_km;
                 state.selRoute.flat_rate = action.payload.flat_rate;
                 state.selRoute.status = action.payload.status;
+                state.selRoute.routine = action.payload.routine;
             }
         },
         resetTripRoute: ()=>initialState

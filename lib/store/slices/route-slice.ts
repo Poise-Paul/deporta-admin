@@ -29,6 +29,7 @@ const routeSlice = createSlice({
         state.selRoute.rate_per_km = action.payload.rate_per_km;
         state.selRoute.flat_rate = action.payload.flat_rate;
         state.selRoute.status = action.payload.status;
+        state.selRoute.routine = action.payload.routine
       }
     },
     resetTripRoute: () => initialState,

@@ -280,35 +280,96 @@ export function RoutesTable({
     });
   };
 
-  const handleModifyPickupStation = () => {
-    // const formData = watch();
+  // Old Routing data formatter
 
+  // const handleRouteUpdate = () => {
+  //   // const formData = watch();
+
+  //   const formData = updateGetValues();
+  //   // const updatedRoutine = { ...formData.routine };
+  //   const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
+
+  //   // New Routine Setup
+  //   (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
+  //     (day) => {
+  //       if (updatedRoutine[day].active) {
+  //         updatedRoutine[day].value = updatedRoutine[day].value.map(
+  //           (slot: any) => ({
+  //             // ...slot,
+  //             from: convertToISO(slot.from),
+  //             too: convertToISO(slot.too),
+  //           }),
+  //         );
+  //       } else {
+  //         // Optional: If active is false, ensure the array is completely empty
+  //         updatedRoutine[day].value = [];
+  //       }
+  //     },
+  //   );
+
+  //   modifyTripRoute.mutate(
+  //     {
+  //       trip_route_id: routeId?.trip_route_id || "",
+  //       rate: formData.rate, // 🔑 Pull directly from formData to ensure sync
+  //       rate_per_km: formData.rate_per_km,
+  //       code: formData.code,
+  //       flat_rate: formData.flat_rate,
+  //       destination: formData.destination,
+  //       starting_point: formData.starting_point,
+  //       route_distance: formData.route_distance,
+  //       number_of_stops: formData.number_of_stops,
+  //       country: formData.country,
+  //       state: formData.state,
+  //       routine: updatedRoutine,
+  //     },
+  //     {
+  //       onSuccess: () => refetch(),
+  //       onSettled: () => setIsEditDialogOpen(false),
+  //     },
+  //   );
+  // };
+
+  const handleModifyRoute = () => {
     const formData = updateGetValues();
-    // const updatedRoutine = { ...formData.routine };
     const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
 
-    // New Routine Setup
     (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
       (day) => {
         if (updatedRoutine[day].active) {
           updatedRoutine[day].value = updatedRoutine[day].value.map(
-            (slot: any) => ({
-              ...slot,
-              from: slot.from,
-              too: slot.too,
-            }),
+            (slot: any) => {
+              // Construct a valid local date for Departure
+              const fromDate = new Date();
+              const [fromH, fromM] = slot.from.split(":");
+              fromDate.setHours(parseInt(fromH), parseInt(fromM), 0, 0);
+
+              // Construct a valid local date for Arrival
+              const tooDate = new Date();
+              const [tooH, tooM] = slot.too.split(":");
+              tooDate.setHours(parseInt(tooH), parseInt(tooM), 0, 0);
+
+              // 🔑 Overnight Guard: If arrival time is earlier than departure (e.g. 23:00 to 00:00),
+              // push the arrival date to the next day so the backend doesn't throw the Invalid Range error.
+              if (tooDate <= fromDate) {
+                tooDate.setDate(tooDate.getDate() + 1);
+              }
+
+              return {
+                // ...slot,
+                from: fromDate.toISOString(), // Send clean ISO back to database
+                too: tooDate.toISOString(),
+              };
+            },
           );
         } else {
-          // Optional: If active is false, ensure the array is completely empty
           updatedRoutine[day].value = [];
         }
       },
     );
-
     modifyTripRoute.mutate(
       {
         trip_route_id: routeId?.trip_route_id || "",
-        rate: formData.rate, // 🔑 Pull directly from formData to ensure sync
+        rate: formData.rate,
         rate_per_km: formData.rate_per_km,
         code: formData.code,
         flat_rate: formData.flat_rate,
@@ -321,7 +382,8 @@ export function RoutesTable({
         routine: updatedRoutine,
       },
       {
-        onSuccess: () => refetch(),
+        // Reset the UI using formData (which retains the nice HH:mm times)
+        onSuccess: () => reset(formData),
         onSettled: () => setIsEditDialogOpen(false),
       },
     );
@@ -1469,7 +1531,7 @@ export function RoutesTable({
                 </div>
 
                 {/* --- NEW: Weekly Operating Schedule (Missing from your Edit version) --- */}
-                <div className="space-y-4 border-t pt-4">
+                {/* <div className="space-y-4 border-t pt-4">
                   <Label className="text-lg font-bold">
                     Weekly Operating Schedule
                   </Label>
@@ -1677,6 +1739,211 @@ export function RoutesTable({
                       )}
                     </div>
                   ))}
+                </div> */}
+
+                <div className="space-y-4 border-t pt-4">
+                  <Label className="text-lg font-bold">
+                    Weekly Operating Schedule
+                  </Label>
+                  {days.map((day) => {
+                    const active = updateWatch(`routine.${day}.active`);
+                    const slots = updateWatch(`routine.${day}.value`) || [];
+
+                    return (
+                      <div
+                        key={day}
+                        className="p-3 border rounded-md bg-muted/10 space-y-3"
+                      >
+                        <div className="flex items-center justify-between">
+                          <Label className="capitalize font-semibold">
+                            {day}
+                          </Label>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs text-muted-foreground">
+                              Active
+                            </span>
+                            <Switch
+                              checked={active}
+                              onCheckedChange={(val) =>
+                                updateValue(`routine.${day}.active`, val, {
+                                  shouldDirty: true,
+                                })
+                              }
+                            />
+                          </div>
+                        </div>
+
+                        {active && (
+                          <div className="space-y-2">
+                            {slots.map((slot: any, index: number) => (
+                              <div
+                                key={index}
+                                className="grid grid-cols-3 gap-2 items-end bg-background p-2 rounded border"
+                              >
+                                {/* Departure Input */}
+                                <div>
+                                  <Label className="text-[10px]">
+                                    Departure (From)
+                                  </Label>
+                                  <Input
+                                    type="time"
+                                    value={slot.from} // 🔑 Removed formatISOToTime
+                                    onChange={(e) => {
+                                      const newTime = e.target.value;
+                                      const currentRoutine = [...slots];
+
+                                      // 🔑 1. Guard: Check for Duplicates (Simplified)
+                                      const isDuplicate = currentRoutine.some(
+                                        (s, i) =>
+                                          i !== index &&
+                                          s.from === newTime &&
+                                          s.too === slot.too,
+                                      );
+                                      if (isDuplicate) {
+                                        toast.error(
+                                          "This exact time slot already exists.",
+                                        );
+                                        return;
+                                      }
+
+                                      // 🔑 2. Guard: Departure must be before Arrival (Simplified)
+                                      // Only check if slot.too exists and isn't empty
+                                      if (slot.too && newTime >= slot.too) {
+                                        toast.error(
+                                          "Departure must be before arrival.",
+                                        );
+                                        return;
+                                      }
+
+                                      currentRoutine[index] = {
+                                        ...currentRoutine[index],
+                                        from: newTime, // 🔑 Removed convertToISO
+                                      };
+
+                                      updateValue(
+                                        `routine.${day}.value`,
+                                        currentRoutine,
+                                        {
+                                          shouldDirty: true,
+                                        },
+                                      );
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Arrival Input */}
+                                <div>
+                                  <Label className="text-[10px]">
+                                    Arrival (To)
+                                  </Label>
+                                  <Input
+                                    type="time"
+                                    value={slot.too} // 🔑 Removed formatISOToTime
+                                    onChange={(e) => {
+                                      const newTime = e.target.value;
+                                      const currentRoutine = [...slots];
+
+                                      // 🔑 1. Guard: Check for Duplicates (Simplified)
+                                      const isDuplicate = currentRoutine.some(
+                                        (s, i) =>
+                                          i !== index &&
+                                          s.from === slot.from &&
+                                          s.too === newTime,
+                                      );
+                                      if (isDuplicate) {
+                                        toast.error(
+                                          "This exact time slot already exists.",
+                                        );
+                                        return;
+                                      }
+
+                                      // 🔑 2. Guard: Arrival must be after Departure (Simplified)
+                                      if (slot.from && newTime <= slot.from) {
+                                        toast.error(
+                                          "Arrival must be after departure.",
+                                        );
+                                        return;
+                                      }
+
+                                      currentRoutine[index] = {
+                                        ...currentRoutine[index],
+                                        too: newTime, // 🔑 Removed convertToISO
+                                      };
+
+                                      updateValue(
+                                        `routine.${day}.value`,
+                                        currentRoutine,
+                                        {
+                                          shouldDirty: true,
+                                        },
+                                      );
+                                    }}
+                                  />
+                                </div>
+
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  className="text-destructive"
+                                  onClick={() => {
+                                    const current = slots.filter(
+                                      (_: any, i: number) => i !== index,
+                                    );
+                                    updateValue(
+                                      `routine.${day}.value`,
+                                      current,
+                                      { shouldDirty: true },
+                                    );
+                                  }}
+                                >
+                                  <X size={14} />
+                                </Button>
+                              </div>
+                            ))}
+
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full text-xs"
+                              onClick={() => {
+                                let defaultFrom = "08:00";
+
+                                if (slots.length > 0) {
+                                  const lastSlot = slots[slots.length - 1];
+                                  const lastHour = parseInt(
+                                    lastSlot.too.split(":")[0],
+                                    10,
+                                  );
+                                  const nextHour = (lastHour + 1) % 24;
+                                  defaultFrom = `${nextHour.toString().padStart(2, "0")}:00`;
+                                }
+
+                                const nextHourAfterFrom =
+                                  (parseInt(defaultFrom.split(":")[0], 10) +
+                                    1) %
+                                  24;
+                                const defaultToo = `${nextHourAfterFrom.toString().padStart(2, "0")}:00`;
+
+                                updateValue(
+                                  `routine.${day}.value`,
+                                  [
+                                    ...slots,
+                                    {
+                                      from: defaultFrom, // 🔑 Removed convertToISO
+                                      too: defaultToo, // 🔑 Removed convertToISO
+                                    },
+                                  ],
+                                  { shouldDirty: true },
+                                );
+                              }}
+                            >
+                              <Plus size={12} className="mr-1" /> Add Time Slot
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* End Weekly appointment Schedule */}
@@ -1813,7 +2080,7 @@ export function RoutesTable({
             <div className="pt-4 p-6 border-t bg-background">
               <Button
                 disabled={modifyTripRoute.isPending || holdEditPickupBtn}
-                onClick={handleModifyPickupStation}
+                onClick={handleModifyRoute}
                 className={`w-full bg-primary ${modifyTripRoute.isPending || holdEditPickupBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`}
               >
                 {modifyTripRoute.isPending ? (
