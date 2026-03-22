@@ -855,3 +855,34 @@ export type BookingTotalResponse = {
     },
   ];
 };
+
+export type Booking = {
+  _id: string;
+  driver_assigned: string[];
+  buses_assigned: string[];
+  added_by: NormalStaffData;
+  booking_type: string;
+  rental_charge_rate: number;
+  contract_start: string;
+  contract_end: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type AllBookingsResponse = {
+  status: boolean;
+  booking: {
+    data: Booking[];
+    pagination: Pagination;
+  };
+};
+
+export type NewBookingPayload = {
+  cooperate_user_id: string;
+  buses_assigned: string[];
+  driver_assigned: string[];
+  contract_start: string;
+  contract_end: string;
+};

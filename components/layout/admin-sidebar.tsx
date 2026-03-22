@@ -67,6 +67,7 @@ const navItems: NavItem[] = [
     children: [
       { title: "Driver Outsourcing", href: "/logistics/driver-outsourcing" },
       { title: "Vehicle Rentals", href: "/logistics/vehicle-rentals" },
+      { title: "Bookings", href: "/logistics/bookings" },
     ],
   },
   {

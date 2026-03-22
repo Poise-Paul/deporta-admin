@@ -156,7 +156,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$scri
 const metadata = {
     title: "DEPORTA Admin Portal",
     description: "Admin portal for DEPORTA Transport Management - Manage customers, drivers, routes, and more",
-    generator: "v0.app",
+    generator: "Switchmoon Nigeria",
     icons: {
         icon: [
             {

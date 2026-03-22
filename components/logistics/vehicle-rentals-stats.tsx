@@ -1,36 +1,9 @@
+"use client";
+
 import { getTotalBooking, getTotalIncome } from "@/api/bookings";
 import { Card, CardContent } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { TrendingUp } from "lucide-react";
-
-const stats = [
-  {
-    title: "Total amount made",
-    value: "₦2,040,342",
-    change: "+18.2%",
-    borderColor: "border-l-primary",
-  },
-  {
-    title: "Total rentals made",
-    value: "89",
-    change: "+18.2%",
-    borderColor: "border-l-secondary",
-  },
-  {
-    title: "Rentals",
-    value: "72",
-    change: "+18.2%",
-    label: "Active",
-    borderColor: "border-l-pink-500",
-  },
-  {
-    title: "Buses on rentals",
-    value: "18",
-    change: "+18.2%",
-    label: "Overdue Rentals",
-    borderColor: "border-l-green-500",
-  },
-];
 
 export function VehicleRentalsStats() {
   const { data: allBookings } = useQuery({
@@ -42,6 +15,35 @@ export function VehicleRentalsStats() {
     queryKey: ["totalIncome"],
     queryFn: () => getTotalIncome(),
   });
+
+  const stats = [
+    {
+      title: "Total amount made",
+      value: allIncome?.booking[0].amount || 0,
+      change: "+18.2%",
+      borderColor: "border-l-primary",
+    },
+    {
+      title: "Total rentals made",
+      value: allBookings?.booking[0].count,
+      change: "+18.2%",
+      borderColor: "border-l-secondary",
+    },
+    {
+      title: "Rentals",
+      value: "72",
+      change: "+18.2%",
+      label: "Active",
+      borderColor: "border-l-pink-500",
+    },
+    {
+      title: "Buses on rentals",
+      value: "18",
+      change: "+18.2%",
+      label: "Overdue Rentals",
+      borderColor: "border-l-green-500",
+    },
+  ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

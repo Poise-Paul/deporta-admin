@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "DEPORTA Admin Portal",
   description:
     "Admin portal for DEPORTA Transport Management - Manage customers, drivers, routes, and more",
-  generator: "v0.app",
+  generator: "Switchmoon Nigeria",
   icons: {
     icon: [
       {

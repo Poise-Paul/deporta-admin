@@ -662,9 +662,11 @@ export default function DriversPage() {
                                     .outsourcing
                                     ? false
                                     : true,
+                                  amount_per_day: 0,
                                   driver_id: driver.user_type.type_id._id,
                                 });
                               }}
+                              // TODO: - Fix the amount per day update on the drivers page
                               className="cursor-pointer"
                             >
                               {updateOutsourceMutation.isPending && (
