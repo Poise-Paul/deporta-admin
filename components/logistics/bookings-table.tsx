@@ -355,7 +355,7 @@ export function BookingsTable() {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search driver name"
+              placeholder="Search by booking type or client name"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 w-72 bg-transparent"
@@ -659,6 +659,9 @@ export function BookingsTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
+                {/* <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Co-Operate User
+                </th> */}
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Booking Type
                 </th>

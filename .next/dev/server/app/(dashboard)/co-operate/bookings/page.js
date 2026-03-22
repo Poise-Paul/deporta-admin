@@ -1,6 +1,6 @@
 var R=require("../../../../chunks/ssr/[turbopack]_runtime.js")("server/app/(dashboard)/co-operate/bookings/page.js")
 R.c("server/chunks/ssr/node_modules_next_dist_27922fa2._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__a380685c._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__69ad5f68._.js")
 R.c("server/chunks/ssr/node_modules_next_dist_3b4d20e1._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__7f148858._.js")
 R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js")

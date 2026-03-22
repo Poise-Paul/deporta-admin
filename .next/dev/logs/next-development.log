@@ -9759,3 +9759,89 @@ Import trace:
 [127:45:08.549] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176254370} /_vercel/insights/view
 [127:45:22.894] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/bookings","o":"http://localhost:3000/co-operate/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176268724} /_vercel/insights/view
 [127:45:24.419] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176270239} /_vercel/insights/view
+[127:47:30.313] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[127:47:30.313] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[127:47:30.313] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176396104} /_vercel/insights/view
+[127:47:34.616] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[127:50:01.091] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176546910} /_vercel/insights/view
+[127:52:35.741] Server  ERROR    ⨯ ReferenceError: Cop is not defined
+[127:52:35.763] Server  ERROR    ⨯ ReferenceError: Cop is not defined
+[127:52:35.829] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[127:52:35.836] Server  LOG      ✓ Compiled in 0ms
+[127:52:35.854] Server  ERROR    ⨯ ReferenceError: Cop is not defined
+[127:52:35.871] Browser ERROR   uncaughtError: ReferenceError: Cop is not defined
+[127:52:36.647] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[127:52:36.768] Browser ERROR   uncaughtError: ReferenceError: Cop is not defined
+[127:52:38.039] Server  ERROR    ⨯ ReferenceError: Cooper is not defined
+[127:52:38.057] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[127:52:38.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[127:52:38.249] Browser ERROR   uncaughtError: ReferenceError: Cooper is not defined
+[127:52:39.328] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[127:52:39.384] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[127:52:39.535] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[127:52:39.535] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[127:52:39.535] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/co-operate/accounts","route":"/co-operate/accounts"}
+[127:52:39.535] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176705365} /_vercel/insights/view
+[127:53:07.894] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/bookings","o":"http://localhost:3000/co-operate/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176733723} /_vercel/insights/view
+[127:53:33.780] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176759606} /_vercel/insights/view
+[127:53:34.574] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/bookings","o":"http://localhost:3000/co-operate/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774176760392} /_vercel/insights/view
+[127:54:06.940] Server  LOG      ✓ Compiled in 29ms
+[127:54:09.364] Server  LOG      ✓ Compiled in 29ms
+[127:54:13.141] Server  LOG      ✓ Compiled in 28ms
+[127:54:14.883] Server  LOG      ✓ Compiled in 26ms
+[127:55:07.966] Server  LOG      ✓ Compiled in 32ms
+[127:55:14.850] Server  LOG      ✓ Compiled in 25ms
+[127:55:26.346] Server  LOG      ✓ Compiled in 27ms
+[127:55:29.839] Server  LOG      ✓ Compiled in 28ms
+[127:55:33.941] Server  LOG      ✓ Compiled in 24ms
+[127:55:34.046] Browser ERROR   ./components/logistics/bookings-table.tsx:708:32
+Parsing ecmascript source code failed
+  706 |                   >
+  707 |                     <td className="p-4 text-sm font-medium">
+> 708 |                       {booking.}
+      |                                ^
+  709 |                     </td>
+  710 |                     <td className="p-4 text-sm font-medium">
+  711 |                       {booking.booking_type}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/co-operate/bookings/page.tsx
+[127:55:34.421] Browser ERROR   ./components/logistics/bookings-table.tsx:708:32
+Parsing ecmascript source code failed
+  706 |                   >
+  707 |                     <td className="p-4 text-sm font-medium">
+> 708 |                       {booking.}
+      |                                ^
+  709 |                     </td>
+  710 |                     <td className="p-4 text-sm font-medium">
+  711 |                       {booking.booking_type}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/co-operate/bookings/page.tsx
+[127:56:42.657] Server  LOG      ✓ Compiled in 26ms
+[127:56:47.046] Server  LOG      ✓ Compiled in 26ms
+[127:58:02.858] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/accounts color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/accounts","o":"http://localhost:3000/co-operate/accounts","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177028685} /_vercel/insights/view
+[127:58:05.381] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/co-operate/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/co-operate/bookings","o":"http://localhost:3000/co-operate/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177031201} /_vercel/insights/view
+[127:58:24.731] Server  LOG      ✓ Compiled in 44ms
+[127:58:50.722] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177076544} /_vercel/insights/view
+[127:58:53.579] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/cms color: rgb(120, 120, 120) color: inherit {"dp":"/cms","o":"http://localhost:3000/cms","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177079407} /_vercel/insights/view
+[127:59:11.255] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/support color: rgb(120, 120, 120) color: inherit {"dp":"/support","o":"http://localhost:3000/support","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177097085} /_vercel/insights/view
+[127:59:28.812] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3000/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177114636} /_vercel/insights/view
+[127:59:33.285] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/cms color: rgb(120, 120, 120) color: inherit {"dp":"/cms","o":"http://localhost:3000/cms","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177119113} /_vercel/insights/view
+[128:00:09.417] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/settings color: rgb(120, 120, 120) color: inherit {"dp":"/settings","o":"http://localhost:3000/settings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177155238} /_vercel/insights/view
+[128:00:10.161] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/support color: rgb(120, 120, 120) color: inherit {"dp":"/support","o":"http://localhost:3000/support","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177155990} /_vercel/insights/view
+[128:00:20.512] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/cms color: rgb(120, 120, 120) color: inherit {"dp":"/cms","o":"http://localhost:3000/cms","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774177166340} /_vercel/insights/view

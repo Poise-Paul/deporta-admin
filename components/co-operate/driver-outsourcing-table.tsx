@@ -1,24 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, Filter, Plus, MoreVertical, Eye } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Search, Filter, Plus, MoreVertical, Eye } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-type OutsourcingTab = "all" | "active" | "inactive"
+type OutsourcingTab = "all" | "active" | "inactive";
 
 const tabs: { id: OutsourcingTab; label: string }[] = [
-  { id: "all", label: "All Drivers" },
-  { id: "active", label: "Active Contracts" },
-  { id: "inactive", label: "In-Active Contracts" },
-]
+  { id: "all", label: "All Accounts" },
+  { id: "active", label: "Active Co-operates" },
+  { id: "inactive", label: "In-Active Co-operates" },
+];
 
 const outsourcedDrivers = [
   {
@@ -87,12 +104,12 @@ const outsourcedDrivers = [
     dateAdded: "20/07/2025",
     avatar: "/diverse-woman-smiling.png",
   },
-]
+];
 
-export function DriverOutsourcingTable() {
-  const [activeTab, setActiveTab] = useState<OutsourcingTab>("all")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
+export function CooperateTable() {
+  const [activeTab, setActiveTab] = useState<OutsourcingTab>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
   return (
     <Card className="bg-card border border-border">
@@ -187,41 +204,73 @@ export function DriverOutsourcingTable() {
 
       <CardContent className="p-0">
         <div className="px-6 py-3 border-b border-border">
-          <CardTitle className="text-base font-semibold">All Drivers Outsource list</CardTitle>
+          <CardTitle className="text-base font-semibold">
+            All Co-Operate Accounts
+          </CardTitle>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Drivers Name</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Drivers Tel</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Agency /Client Name</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Contract Start</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Contract End</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">State / Country</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Date Added</th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Drivers Name
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Drivers Tel
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Agency /Client Name
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Contract Start
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Contract End
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  State / Country
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Date Added
+                </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
               </tr>
             </thead>
             <tbody>
               {outsourcedDrivers.map((driver) => (
-                <tr key={driver.id} className="border-b border-border last:border-0 hover:bg-muted/50">
+                <tr
+                  key={driver.id}
+                  className="border-b border-border last:border-0 hover:bg-muted/50"
+                >
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={driver.avatar || "/placeholder.svg"} alt={driver.name} />
+                        <AvatarImage
+                          src={driver.avatar || "/placeholder.svg"}
+                          alt={driver.name}
+                        />
                         <AvatarFallback>{driver.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <span className="font-medium text-sm">{driver.name}</span>
                     </div>
                   </td>
-                  <td className="p-4 text-sm text-muted-foreground">{driver.phone}</td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {driver.phone}
+                  </td>
                   <td className="p-4 text-sm font-medium">{driver.agency}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{driver.contractStart}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{driver.contractEnd}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{driver.state}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{driver.dateAdded}</td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {driver.contractStart}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {driver.contractEnd}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {driver.state}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {driver.dateAdded}
+                  </td>
                   <td className="p-4">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -235,7 +284,9 @@ export function DriverOutsourcingTable() {
                           View
                         </DropdownMenuItem>
                         <DropdownMenuItem>Edit Contract</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">End Contract</DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">
+                          End Contract
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </td>
@@ -277,5 +328,5 @@ export function DriverOutsourcingTable() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///Users/makanga/Documents/Projects/Websites/Deporta/deporta-admin-portal/app/%28dashboard%29/co-operate/accounts/page.tsx"],"sourcesContent":["import { DriverOutsourcingTable } from \"@/components/logistics/driver-outsourcing-table\";\n\nexport default function DriverOutsourcingPage() {\n  return (\n    <div className=\"space-y-6\">\n      <Cooper />\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;;;;;;;;;;AAGP"}}]
+}

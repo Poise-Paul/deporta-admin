@@ -360,10 +360,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://thalia-diachronic-lisette.ngrok-free.dev",
     timeout: 15000,
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": true
     }
 });
 // Interceptor to inject the Bearer token automatically
@@ -386,10 +387,14 @@ __turbopack_context__.s([
     ()=>getAllDrivers,
     "getCustomerList",
     ()=>getCustomerList,
+    "getOnsiteData",
+    ()=>getOnsiteData,
     "getOnsiteDrivers",
     ()=>getOnsiteDrivers,
     "getStaffList",
     ()=>getStaffList,
+    "getTotalUsers",
+    ()=>getTotalUsers,
     "getUser",
     ()=>getUser,
     "getUsersList",
@@ -461,6 +466,32 @@ const getOnsiteDrivers = async ()=>{
         return res.data;
     } catch (error) {
         console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getOnsiteData = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/drivers/onsite");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Onsite Drivers Error:", error);
+        // Return a default structure
+        return {
+            data: [],
+            total: 0
+        };
+    }
+};
+const getTotalUsers = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/users/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch All Users Error:", error);
         // Return a default structure
         return {
             data: [],
@@ -675,6 +706,8 @@ const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
 __turbopack_context__.s([
     "getAllStaffs",
     ()=>getAllStaffs,
+    "getDriversList",
+    ()=>getDriversList,
     "useCreateAdmin",
     ()=>useCreateAdmin,
     "useCreateRequest",
@@ -849,6 +882,15 @@ const useStatusUpdate = ()=>{
 const getAllStaffs = async ()=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/staff/total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const getDriversList = async (currentPage, perPage = 10, searchTerm)=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/drivers?limit=${perPage}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);

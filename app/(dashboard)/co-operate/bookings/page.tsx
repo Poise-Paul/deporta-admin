@@ -1,9 +1,9 @@
-import React from "react";
+import { BookingsTable } from "@/components/logistics/bookings-table";
 
-type Props = {};
-
-const page = (props: Props) => {
-  return <div>Co-Operate Bookings</div>;
-};
-
-export default page;
+export default function DriverOutsourcingPage() {
+  return (
+    <div className="space-y-6">
+      <BookingsTable />
+    </div>
+  );
+}
