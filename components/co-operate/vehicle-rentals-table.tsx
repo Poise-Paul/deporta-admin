@@ -1,24 +1,42 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Search, Filter, Plus, MoreVertical, Eye } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Search, Filter, Plus, MoreVertical, Eye } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Skeleton } from "../ui/skeleton";
 
-type RentalTab = "all" | "active" | "inactive"
+type RentalTab = "all" | "active" | "inactive";
 
 const tabs: { id: RentalTab; label: string }[] = [
   { id: "all", label: "All Rentals" },
   { id: "active", label: "Active Contracts" },
   { id: "inactive", label: "In-Active Contracts" },
-]
+];
 
 const rentals = [
   {
@@ -87,12 +105,12 @@ const rentals = [
     status: "rented" as const,
     image: "/shuttle-bus.png",
   },
-]
+];
 
 export function VehicleRentalsTable() {
-  const [activeTab, setActiveTab] = useState<RentalTab>("all")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState<RentalTab>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
 
   return (
     <Card className="bg-card border border-border">
@@ -133,7 +151,10 @@ export function VehicleRentalsTable() {
               <Filter className="h-4 w-4" />
             </Button>
 
-            <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+            <Dialog
+              open={isCreateDialogOpen}
+              onOpenChange={setIsCreateDialogOpen}
+            >
               <DialogTrigger asChild>
                 <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
                   <Plus className="h-4 w-4 mr-2" />
@@ -142,8 +163,12 @@ export function VehicleRentalsTable() {
               </DialogTrigger>
               <DialogContent className="sm:max-w-lg">
                 <DialogHeader>
-                  <DialogTitle className="text-xl">Create new booking</DialogTitle>
-                  <p className="text-sm text-muted-foreground">Enter details for the new vehicle rental</p>
+                  <DialogTitle className="text-xl">
+                    Create new booking
+                  </DialogTitle>
+                  <p className="text-sm text-muted-foreground">
+                    Enter details for the new vehicle rental
+                  </p>
                 </DialogHeader>
                 <div className="space-y-4 py-4 max-h-[70vh] overflow-y-auto">
                   {/* Bus Selection */}
@@ -153,7 +178,11 @@ export function VehicleRentalsTable() {
                       <SelectTrigger className="h-12">
                         <SelectValue placeholder="Select bus">
                           <div className="flex items-center gap-3">
-                            <img src="/transport-bus-black.jpg" alt="Bus" className="w-10 h-6 rounded object-cover" />
+                            <img
+                              src="/transport-bus-black.jpg"
+                              alt="Bus"
+                              className="w-10 h-6 rounded object-cover"
+                            />
                             <span>DEP-02-AJAH</span>
                           </div>
                         </SelectValue>
@@ -168,15 +197,25 @@ export function VehicleRentalsTable() {
 
                   {/* Client Info */}
                   <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">Client and Contact Information*</Label>
+                    <Label className="text-xs text-muted-foreground">
+                      Client and Contact Information*
+                    </Label>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="clientName">Client /Company Name</Label>
-                        <Input id="clientName" placeholder="Enter Client Name" />
+                        <Input
+                          id="clientName"
+                          placeholder="Enter Client Name"
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="contactPerson">Contact Person Name</Label>
-                        <Input id="contactPerson" placeholder="Enter Contact Person" />
+                        <Label htmlFor="contactPerson">
+                          Contact Person Name
+                        </Label>
+                        <Input
+                          id="contactPerson"
+                          placeholder="Enter Contact Person"
+                        />
                       </div>
                     </div>
                   </div>
@@ -189,7 +228,11 @@ export function VehicleRentalsTable() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Contact Email Address</Label>
-                      <Input id="email" type="email" placeholder="Enter Contact Email" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter Contact Email"
+                      />
                     </div>
                   </div>
 
@@ -218,7 +261,11 @@ export function VehicleRentalsTable() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="startDate">Contract Start</Label>
-                      <Input id="startDate" type="date" placeholder="DD/MM/YYY" />
+                      <Input
+                        id="startDate"
+                        type="date"
+                        placeholder="DD/MM/YYY"
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="endDate">Contract End</Label>
@@ -248,7 +295,9 @@ export function VehicleRentalsTable() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="chargeDuration">Charges Applied Duration</Label>
+                        <Label htmlFor="chargeDuration">
+                          Charges Applied Duration
+                        </Label>
                         <Select>
                           <SelectTrigger>
                             <SelectValue placeholder="Daily" />
@@ -260,7 +309,9 @@ export function VehicleRentalsTable() {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="chargeFee">Charges Applied Fee (₦)</Label>
+                        <Label htmlFor="chargeFee">
+                          Charges Applied Fee (₦)
+                        </Label>
                         <Input id="chargeFee" placeholder="E.g ₦50,000" />
                       </div>
                     </div>
@@ -285,24 +336,41 @@ export function VehicleRentalsTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Bus Image</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Bus ID / Code</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Vehicle Type / Model</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Client Company</th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Bus Image
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Bus ID / Code
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Vehicle Type / Model
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Client Company
+                </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Rental Rate
                   <br />
                   <span className="text-xs font-normal">(Daily)*</span>
                 </th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Rent Duration</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Payment Status</th>
-                <th className="text-left p-4 text-sm font-medium text-muted-foreground">Status</th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Rent Duration
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Payment Status
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Status
+                </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground"></th>
               </tr>
             </thead>
             <tbody>
               {rentals.map((rental) => (
-                <tr key={rental.id} className="border-b border-border last:border-0 hover:bg-muted/50">
+                <tr
+                  key={rental.id}
+                  className="border-b border-border last:border-0 hover:bg-muted/50"
+                >
                   <td className="p-4">
                     <img
                       src={rental.image || "/placeholder.svg"}
@@ -310,11 +378,19 @@ export function VehicleRentalsTable() {
                       className="w-16 h-10 rounded object-cover"
                     />
                   </td>
-                  <td className="p-4 font-medium text-sm text-secondary">{rental.busId}</td>
+                  <td className="p-4 font-medium text-sm text-secondary">
+                    {rental.busId}
+                  </td>
                   <td className="p-4 text-sm">{rental.vehicleType}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{rental.client}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{rental.rentalRate}</td>
-                  <td className="p-4 text-sm text-muted-foreground">{rental.duration}</td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {rental.client}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {rental.rentalRate}
+                  </td>
+                  <td className="p-4 text-sm text-muted-foreground">
+                    {rental.duration}
+                  </td>
                   <td className="p-4">
                     <span
                       className={cn(
@@ -322,8 +398,10 @@ export function VehicleRentalsTable() {
                         rental.paymentStatus === "paid" && "text-green-600",
                         rental.paymentStatus === "pending" && "text-orange-600",
                         rental.paymentStatus === "overdue" && "text-red-600",
-                        rental.paymentStatus === "deposit" && "text-muted-foreground",
-                        rental.paymentStatus === "na" && "text-muted-foreground",
+                        rental.paymentStatus === "deposit" &&
+                          "text-muted-foreground",
+                        rental.paymentStatus === "na" &&
+                          "text-muted-foreground",
                       )}
                     >
                       {rental.paymentStatus === "paid" && "Paid (Full)"}
@@ -360,7 +438,9 @@ export function VehicleRentalsTable() {
                           View Details
                         </DropdownMenuItem>
                         <DropdownMenuItem>Edit Rental</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">End Rental</DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">
+                          End Rental
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </td>
@@ -402,5 +482,5 @@ export function VehicleRentalsTable() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

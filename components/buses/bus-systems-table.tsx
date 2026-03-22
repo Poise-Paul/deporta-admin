@@ -1152,7 +1152,7 @@ export function BusSystemsTable() {
                             onClick={(e) => {
                               e.preventDefault();
 
-                              if (bus.outsourcing) {
+                              if (bus.outsourcing.value) {
                                 // 1. Bus is currently outsourced. Action: "Move In House"
                                 // Bypass modal, submit false and 0 directly.
                                 handleOutsourcing({
@@ -1161,14 +1161,12 @@ export function BusSystemsTable() {
                                   bus_id: bus._id,
                                 });
                               } else {
-                                // 2. Bus is In House. Action: "Outsource / Rent Bus"
-                                // Open modal to capture the amount per day.
                                 setSelectedBusForOutsource(bus._id);
                                 setOutsourceAmount(""); // Clear any previous input
                                 setIsOutsourceModalOpen(true);
                               }
                             }}
-                            className={`${bus.outsourcing ? "text-green-600 focus:text-green-700" : "text-black"} cursor-pointer`}
+                            className={`${bus.outsourcing.value ? "text-green-600 focus:text-green-700" : "text-black"} cursor-pointer`}
                             // 🔑 Fixed: Changed from maintainBusMutation to outsourcingMutation
                             disabled={outsourcingMutation.isPending}
                           >
@@ -1178,7 +1176,7 @@ export function BusSystemsTable() {
                               <Bus className="mr-2 h-4 w-4" />
                             )}
 
-                            {bus.outsourcing
+                            {bus.outsourcing.value
                               ? "Move In House"
                               : "Outsource / Rent Bus"}
                           </DropdownMenuItem>

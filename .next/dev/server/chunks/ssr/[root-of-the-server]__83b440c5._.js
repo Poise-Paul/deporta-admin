@@ -83,7 +83,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://thalia-diachronic-lisette.ngrok-free.dev",
     timeout: 15000,
     headers: {
         "Content-Type": "application/json",
@@ -920,6 +920,8 @@ const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
 "use strict";
 
 __turbopack_context__.s([
+    "getDashboardTotal",
+    ()=>getDashboardTotal,
     "useStaffStatus",
     ()=>useStaffStatus
 ]);
@@ -957,6 +959,15 @@ const useStaffStatus = ()=>{
             }
         }
     });
+};
+const getDashboardTotal = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/components/users/user-management-table.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

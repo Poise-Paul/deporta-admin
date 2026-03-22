@@ -102,6 +102,9 @@ export function LocationTable({
   const [searchQuery, setSearchQuery] = useState("");
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
   const [pickupId, setPickupId] = useState<PickUpStation>();
 
@@ -119,7 +122,7 @@ export function LocationTable({
     isLoading,
   } = useQuery({
     queryKey: ["pickupStations"],
-    queryFn: () => getPickupStations(),
+    queryFn: () => getPickupStations(currentPage, itemsPerPage),
   });
 
   const { register, reset, setValue, watch } = useForm<AddPickupStationPayload>(
@@ -210,16 +213,18 @@ export function LocationTable({
     refetch();
   }, [pickupStations]);
 
-  // Pagination
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(10);
-
   // Role Integration
 
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = pickupStations?.pickup_station?.data || [];
 
-    // 1. Filter by Search Query (Checking multiple fields)
+    // Use API pagination if available, otherwise compute from allStations
+    const originalTotal =
+      pickupStations?.pickup_station?.pagination?.totalPages ||
+      Math.ceil(allStations.length / itemsPerPage) ||
+      1;
+
+    // 1. Filter by Search Query
     let filtered = allStations.filter((station) => {
       const searchStr = searchQuery.toLowerCase();
       return (
@@ -236,12 +241,20 @@ export function LocationTable({
       filtered = filtered.filter((s) => s.status === "in-active");
     }
 
-    // 3. Calculate Total Pages based on the filtered/searched list
-    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+    // 3. Calculate Total Pages
+    const total =
+      searchQuery !== ""
+        ? Math.ceil(filtered.length / itemsPerPage)
+        : originalTotal;
 
     // 4. Slice the data for the current page
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+    const slicedData =
+      filtered.length > 0
+        ? filtered.slice(startIndex, startIndex + itemsPerPage)
+        : allStations.slice(startIndex, startIndex + itemsPerPage);
+
+    console.log("Page Totals", total, originalTotal, filtered);
 
     return { paginatedData: slicedData, totalPages: total };
   }, [pickupStations, activeTab, currentPage, itemsPerPage, searchQuery]);
@@ -555,7 +568,10 @@ export function LocationTable({
             Show
             <select
               value={itemsPerPage}
-              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              onChange={(e) => {
+                setItemsPerPage(Number(e.target.value));
+                setCurrentPage(1); // reset to first page when items per page changes
+              }}
               className="border border-border rounded px-2 py-1 text-sm bg-background"
             >
               <option value={5}>5</option>
@@ -573,7 +589,7 @@ export function LocationTable({
               size="icon"
               className="h-8 w-8"
               disabled={currentPage === 1}
-              onClick={() => setCurrentPage((prev) => prev - 1)}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             >
               {"<"}
             </Button>
@@ -589,7 +605,7 @@ export function LocationTable({
                   className={cn(
                     "h-8 w-8",
                     currentPage === pageNumber
-                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90"
                       : "text-muted-foreground",
                   )}
                   onClick={() => setCurrentPage(pageNumber)}
@@ -605,7 +621,9 @@ export function LocationTable({
               size="icon"
               className="h-8 w-8"
               disabled={currentPage >= totalPages}
-              onClick={() => setCurrentPage((prev) => prev + 1)}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
             >
               {">"}
             </Button>

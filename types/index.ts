@@ -633,7 +633,7 @@ export type NormalStaffData = {
 
 export type EntryPoint = {
   value: string;
-  location_id: string;
+  location_id?: string;
   coordinates: [number, number];
 };
 

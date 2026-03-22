@@ -42,6 +42,7 @@ import { VehicleDetailSheet } from "./rental-sheet";
 import { Bus } from "@/types";
 import { OutsourcingPayload, useBusOutsourcing } from "@/api/buses";
 import toast, { Toaster } from "react-hot-toast";
+import { Skeleton } from "../ui/skeleton";
 
 type RentalTab = "all" | "active" | "inactive";
 
@@ -117,6 +118,36 @@ export function VehicleRentalsTable() {
     });
   }, [data, activeTab, searchQuery]);
 
+  // Table Loader
+  const TableRowSkeleton = () => (
+    <tr className="border-b border-border animate-pulse">
+      <td className="p-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-20" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-40" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-24" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-28" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-8 w-8 rounded-md" />
+      </td>
+    </tr>
+  );
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -170,182 +201,6 @@ export function VehicleRentalsTable() {
             >
               <Filter className="h-4 w-4" />
             </Button>
-
-            <Dialog
-              open={isCreateDialogOpen}
-              onOpenChange={setIsCreateDialogOpen}
-            >
-              <DialogTrigger asChild>
-                <Button
-                  disabled
-                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground"
-                >
-                  <Plus className="h-4 w-4 mr-2" />
-                  Create Booking
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-lg">
-                <DialogHeader>
-                  <DialogTitle className="text-xl">
-                    Create new booking
-                  </DialogTitle>
-                  <p className="text-sm text-muted-foreground">
-                    Enter details for the new vehicle rental
-                  </p>
-                </DialogHeader>
-                <div className="space-y-4 py-4 max-h-[70vh] overflow-y-auto">
-                  {/* Bus Selection */}
-                  <div className="space-y-2">
-                    <Label>Select BUS To Rent</Label>
-                    <Select>
-                      <SelectTrigger className="h-12">
-                        <SelectValue placeholder="Select bus">
-                          <div className="flex items-center gap-3">
-                            <img
-                              src="/transport-bus-black.jpg"
-                              alt="Bus"
-                              className="w-10 h-6 rounded object-cover"
-                            />
-                            <span>DEP-02-AJAH</span>
-                          </div>
-                        </SelectValue>
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="dep-02">DEP-02-AJAH</SelectItem>
-                        <SelectItem value="dep-04">DEP-04-OSHODI</SelectItem>
-                        <SelectItem value="dep-05">DEP-05-FESTAC</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Client Info */}
-                  <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">
-                      Client and Contact Information*
-                    </Label>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="clientName">Client /Company Name</Label>
-                        <Input
-                          id="clientName"
-                          placeholder="Enter Client Name"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="contactPerson">
-                          Contact Person Name
-                        </Label>
-                        <Input
-                          id="contactPerson"
-                          placeholder="Enter Contact Person"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Contact Details */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Contact Phone Number</Label>
-                      <Input id="phone" placeholder="Enter Contact Phone" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Contact Email Address</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="Enter Contact Email"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Rental Charge */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="chargeType">Rental Charge By (₦)</Label>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Daily" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="daily">Daily</SelectItem>
-                          <SelectItem value="weekly">Weekly</SelectItem>
-                          <SelectItem value="monthly">Monthly</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="chargeRate">Rental Charge Rate (₦)</Label>
-                      <Input id="chargeRate" placeholder="E.g ₦50,000" />
-                    </div>
-                  </div>
-
-                  {/* Contract Dates */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="startDate">Contract Start</Label>
-                      <Input
-                        id="startDate"
-                        type="date"
-                        placeholder="DD/MM/YYY"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="endDate">Contract End</Label>
-                      <Input id="endDate" type="date" placeholder="DD/MM/YYY" />
-                    </div>
-                  </div>
-
-                  {/* Overdue Charges */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-4">
-                      <Label>Charges Applied on Overdue Rentals</Label>
-                      <RadioGroup defaultValue="yes" className="flex gap-4">
-                        <div className="flex items-center gap-2">
-                          <RadioGroupItem value="yes" id="yes" />
-                          <Label htmlFor="yes" className="font-normal">
-                            Yes
-                          </Label>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <RadioGroupItem value="no" id="no" />
-                          <Label htmlFor="no" className="font-normal">
-                            No
-                          </Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="chargeDuration">
-                          Charges Applied Duration
-                        </Label>
-                        <Select>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Daily" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="daily">Daily</SelectItem>
-                            <SelectItem value="weekly">Weekly</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="chargeFee">
-                          Charges Applied Fee (₦)
-                        </Label>
-                        <Input id="chargeFee" placeholder="E.g ₦50,000" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <Button className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground h-12">
-                    Create Booking
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
           </div>
         </div>
       </CardHeader>
@@ -391,125 +246,143 @@ export function VehicleRentalsTable() {
               </tr>
             </thead>
             <tbody>
-              {filteredData.map((rental) => (
-                <tr
-                  key={rental._id}
-                  className="border-b border-border last:border-0 hover:bg-muted/50"
-                >
-                  <td className="p-4">
-                    <img
-                      src={rental.bus_photos[0] || "/placeholder.svg"}
-                      alt={rental.id_code}
-                      className="w-16 h-10 rounded object-cover"
-                    />
-                  </td>
-                  <td className="p-4 font-medium text-sm text-secondary">
-                    {rental.id_code}
-                  </td>
-                  <td className="p-4 text-sm">{rental.name_label}</td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {rental.mileage}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {rental.tracker_id}
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    {new Date(rental.createdAt).toLocaleString()}
-                  </td>
-                  <td className="p-4">
-                    {/* <span
+              {isLoading ? (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <TableRowSkeleton key={i} />
+                  ))}
+                </>
+              ) : (
+                <>
+                  {filteredData.length > 0 &&
+                    filteredData.map((rental) => (
+                      <tr
+                        key={rental._id}
+                        className="border-b border-border last:border-0 hover:bg-muted/50"
+                      >
+                        <td className="p-4">
+                          <img
+                            src={rental.bus_photos[0] || "/placeholder.svg"}
+                            alt={rental.id_code}
+                            className="w-16 h-10 rounded object-cover"
+                          />
+                        </td>
+                        <td className="p-4 font-medium text-sm text-secondary">
+                          {rental.id_code}
+                        </td>
+                        <td className="p-4 text-sm">{rental.name_label}</td>
+                        <td className="p-4 text-sm text-muted-foreground">
+                          {rental.mileage}
+                        </td>
+                        <td className="p-4 text-sm text-muted-foreground">
+                          {rental.tracker_id}
+                        </td>
+                        <td className="p-4 text-sm text-muted-foreground">
+                          {new Date(rental.createdAt).toLocaleString()}
+                        </td>
+                        <td className="p-4">
+                          {/* <span
                       className={cn(
                         "text-sm font-medium",
                         rental.status === "paid" && "text-green-600",
                         rental.status === "pending" && "text-orange-600",
                       )}
                     ></span> */}
-                    <span className="flex flex-wrap gap-1">
-                      {rental.drivers_assigned.map((driver) => {
-                        return (
+                          <span className="flex flex-wrap gap-1">
+                            {rental.drivers_assigned.map((driver) => {
+                              return (
+                                <Badge
+                                  key={driver._id}
+                                  variant="outline"
+                                  className="text-[10px] px-1"
+                                >
+                                  {driver.first_name} {driver.last_name}
+                                </Badge>
+                              );
+                            })}
+                          </span>
+                        </td>
+                        <td className="p-4 text-sm text-muted-foreground">
+                          ₦{rental.outsourcing.amount_per_day.toLocaleString()}
+                        </td>
+                        <td className="p-4">
                           <Badge
-                            key={driver._id}
                             variant="outline"
-                            className="text-[10px] px-1"
+                            className={cn(
+                              "font-normal",
+                              rental.status === "active"
+                                ? "border-green-500 text-green-600 bg-green-50"
+                                : "border-yellow-500 text-yellow-600 bg-yellow-50",
+                            )}
                           >
-                            {driver.first_name} {driver.last_name}
+                            {rental.status === "active"
+                              ? "Active"
+                              : "In Active"}
                           </Badge>
-                        );
-                      })}
-                    </span>
-                  </td>
-                  <td className="p-4 text-sm text-muted-foreground">
-                    ₦{rental.outsourcing.amount_per_day.toLocaleString()}
-                  </td>
-                  <td className="p-4">
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "font-normal",
-                        rental.status === "active"
-                          ? "border-green-500 text-green-600 bg-green-50"
-                          : "border-yellow-500 text-yellow-600 bg-yellow-50",
-                      )}
-                    >
-                      {rental.status === "active" ? "Active" : "In Active"}
-                    </Badge>
-                  </td>
-                  <td className="p-4">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem
-                          onClick={() => setSelectedBus(rental)}
-                        >
-                          <Eye className="h-4 w-4 mr-2" />
-                          View Details
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          className="cursor-pointer"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setSelectedRentalBus(rental);
-                            setEditRentalAmount(
-                              rental.outsourcing.amount_per_day?.toString() ||
-                                "",
-                            );
-                            setIsEditRentalModalOpen(true);
-                          }}
-                        >
-                          Edit Rental
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          className="text-destructive cursor-pointer hover:bg-destructive/10"
-                          disabled={
-                            modifyBusRental.isPending &&
-                            activeActionId === rental._id
-                          }
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (
-                              window.confirm(
-                                "Are you sure you want to end this rental?",
-                              )
-                            ) {
-                              handleOutsourcing({
-                                outsourcing: false,
-                                amount_per_day: 0,
-                                bus_id: rental._id,
-                              });
-                            }
-                          }}
-                        >
-                          End Rental
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </td>
-                </tr>
-              ))}
+                        </td>
+                        <td className="p-4">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8"
+                              >
+                                <MoreVertical className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuItem
+                                onClick={() => setSelectedBus(rental)}
+                              >
+                                <Eye className="h-4 w-4 mr-2" />
+                                View Details
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="cursor-pointer"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setSelectedRentalBus(rental);
+                                  setEditRentalAmount(
+                                    rental.outsourcing.amount_per_day?.toString() ||
+                                      "",
+                                  );
+                                  setIsEditRentalModalOpen(true);
+                                }}
+                              >
+                                Edit Rental
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="text-destructive cursor-pointer hover:bg-destructive/10"
+                                disabled={
+                                  modifyBusRental.isPending &&
+                                  activeActionId === rental._id
+                                }
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  if (
+                                    window.confirm(
+                                      "Are you sure you want to end this rental?",
+                                    )
+                                  ) {
+                                    handleOutsourcing({
+                                      outsourcing: false,
+                                      amount_per_day: 0,
+                                      bus_id: rental._id,
+                                    });
+                                  }
+                                }}
+                              >
+                                End Rental
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </td>
+                      </tr>
+                    ))}
+                </>
+              )}
+
               {!isLoading && filteredData.length === 0 && (
                 <tr>
                   <td
