@@ -2230,3 +2230,396 @@ Import trace:
 [21:49:44.191] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MjU3Mjc5LCJleHAiOjE3NzQ4NjIwNzl9.7p1AW2LZfaA3hBAGDQNagSXdGsxSFLKSsQRkWzfbPOU","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/pickup-station/get?page=1&limit=10","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_a5e6d6e8._.js:13947:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_a5e6d6e8._.js:14692:49)\n    at async getPickupStations (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1164:21)\n    at async fetchPage (http://localhost:3000/_next/static/chunks/node_modules_674c847e._.js:2339:34)\n    at async Object.fetchFn [as fn] (http://localhost:3000/_next/static/chunks/node_modules_674c847e._.js:2363:34)"}
 [21:49:44.191] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MjU3Mjc5LCJleHAiOjE3NzQ4NjIwNzl9.7p1AW2LZfaA3hBAGDQNagSXdGsxSFLKSsQRkWzfbPOU","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/drop-off-station/get?page=1&limit=10","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_a5e6d6e8._.js:13947:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_a5e6d6e8._.js:14692:49)\n    at async getDropOffStations (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1865:21)\n    at async fetchPage (http://localhost:3000/_next/static/chunks/node_modules_674c847e._.js:2339:34)\n    at async Object.fetchFn [as fn] (http://localhost:3000/_next/static/chunks/node_modules_674c847e._.js:2363:34)"}
 [21:49:44.191] Browser ERROR   All BusStops Failed! {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0MjU3Mjc5LCJleHAiOjE3NzQ4NjIwNzl9.7p1AW2LZfaA3hBAGDQNagSXdGsxSFLKSsQRkWzfbPOU","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus-stop/get?page=1&limit=10","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_a5e6d6e8._.js:13947:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_a5e6d6e8._.js:14692:49)\n    at async getAllBusStops (http://localhost:3000/_next/static/chunks/_392e96bb._.js:1652:21)\n    at async fetchPage (http://localhost:3000/_next/static/chunks/node_modules_674c847e._.js:2339:34)\n    at async Object.fetchFn [as fn] (http://localhost:3000/_next/static/chunks/node_modules_674c847e._.js:2363:34)"}
+[34:24:12.026] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:24:12.196] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:24:12.196] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:24:12.196] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[34:24:12.196] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381112038} /_vercel/insights/view
+[34:29:09.387] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:30:28.419] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:30:28.585] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:30:28.585] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:30:28.585] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[34:30:28.585] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381488427} /_vercel/insights/view
+[34:30:35.711] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:30:35.880] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:30:35.880] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:30:35.880] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[34:30:35.880] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381495722} /_vercel/insights/view
+[34:30:40.156] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381499993} /_vercel/insights/view
+[34:30:42.602] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381502437} /_vercel/insights/view
+[34:30:44.224] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:30:44.281] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:30:44.423] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:30:44.423] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:30:44.423] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/pickup-stations","route":"/app-menu/pickup-stations"}
+[34:30:44.424] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381504266} /_vercel/insights/view
+[34:30:46.530] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381506364} /_vercel/insights/view
+[34:30:52.361] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:30:58.700] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:30:58.757] Server  LOG      ✓ Compiled in 35ms
+[34:30:58.820] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:30:58.889] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:30:59.044] Browser ERROR   uncaughtError: ReferenceError: useInfiniteQuery is not defined
+[34:31:02.608] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:31:02.655] Server  LOG      ✓ Compiled in 46ms
+[34:31:02.707] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:31:02.768] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:31:03.044] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:31:03.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:31:03.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:31:03.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381522784} /_vercel/insights/view
+[34:31:05.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:31:15.996] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:31:16.037] Server  LOG      ✓ Compiled in 26ms
+[34:31:16.080] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:31:16.139] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:31:16.868] Server  LOG      ✓ Compiled in 22ms
+[34:31:17.044] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:31:17.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:31:17.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:31:17.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381536163} /_vercel/insights/view
+[34:31:18.046] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:31:32.527] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:31:32.575] Server  LOG      ✓ Compiled in 26ms
+[34:31:32.637] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:31:32.712] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:31:33.044] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:31:33.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:31:33.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:31:33.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381552735} /_vercel/insights/view
+[34:31:34.049] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:32:17.849] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:32:17.906] Server  LOG      ✓ Compiled in 39ms
+[34:32:17.963] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:32:18.023] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:32:19.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:32:19.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:32:19.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381598033} /_vercel/insights/view
+[34:32:20.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:34:37.050] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:34:37.101] Server  LOG      ✓ Compiled in 31ms
+[34:34:37.158] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:34:37.227] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:34:38.045] Browser ERROR   uncaughtError: ReferenceError: all is not defined
+[34:34:40.879] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:34:40.925] Server  LOG      ✓ Compiled in 32ms
+[34:34:40.967] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:34:41.028] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:34:42.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:34:49.668] Server  LOG      ✓ Compiled in 36ms
+[34:34:50.045] Browser ERROR   ./components/shared/route-details.tsx:701:41
+Parsing ecmascript source code failed
+  699 |                   </SelectTrigger>
+  700 |                   <SelectContent>
+> 701 |                     {allPickupStations?..data.map((stop) => (
+      |                                         ^
+  702 |                       <SelectItem key={stop._id} value={stop._id}>
+  703 |                         {stop.address.value}
+  704 |                       </SelectItem>
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[34:34:51.466] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:34:51.553] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:34:51.616] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:34:52.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[34:34:54.247] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:34:54.292] Server  LOG      ✓ Compiled in 38ms
+[34:34:54.335] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:34:54.395] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:34:55.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:34:55.047] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:34:55.047] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381754408} /_vercel/insights/view
+[34:34:56.047] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:35:29.734] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:35:29.774] Server  LOG      ✓ Compiled in 24ms
+[34:35:29.816] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:35:29.882] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:35:31.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:35:31.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:35:31.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381789899} /_vercel/insights/view
+[34:35:32.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:35:57.902] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:35:57.947] Server  LOG      ✓ Compiled in 39ms
+[34:35:57.990] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:35:58.047] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:35:59.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:35:59.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:35:59.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381818064} /_vercel/insights/view
+[34:36:00.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:00.379] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:00.421] Server  LOG      ✓ Compiled in 27ms
+[34:36:00.460] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:00.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:01.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:01.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:01.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381820538} /_vercel/insights/view
+[34:36:02.047] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:05.802] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:05.849] Server  LOG      ✓ Compiled in 36ms
+[34:36:05.889] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:05.947] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:07.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:07.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:07.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381825953} /_vercel/insights/view
+[34:36:07.267] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:07.267] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:07.312] Server  LOG      ✓ Compiled in 27ms
+[34:36:07.353] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:07.420] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:08.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:08.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:08.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381827426} /_vercel/insights/view
+[34:36:09.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:27.653] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:27.706] Server  LOG      ✓ Compiled in 33ms
+[34:36:27.750] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:27.809] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:28.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:28.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:28.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381847820} /_vercel/insights/view
+[34:36:30.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:31.942] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:31.990] Server  LOG      ✓ Compiled in 36ms
+[34:36:32.032] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:32.095] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:33.046] Browser ERROR   uncaughtError: ReferenceError: hasNext is not defined
+[34:36:37.939] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:37.984] Server  LOG      ✓ Compiled in 34ms
+[34:36:38.027] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:38.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:39.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:39.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:39.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381858106} /_vercel/insights/view
+[34:36:40.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:43.489] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:43.538] Server  LOG      ✓ Compiled in 31ms
+[34:36:43.582] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:43.638] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:44.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:44.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:44.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381863641} /_vercel/insights/view
+[34:36:45.414] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:45.415] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:45.486] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:45.498] Server  LOG      ✓ Compiled in 34ms
+[34:36:45.545] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:46.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:46.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:46.046] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381865552} /_vercel/insights/view
+[34:36:47.042] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:47.042] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:47.110] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:47.123] Server  LOG      ✓ Compiled in 25ms
+[34:36:47.170] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:48.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:48.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:48.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381867183} /_vercel/insights/view
+[34:36:49.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:55.147] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:55.221] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:55.232] Server  LOG      ✓ Compiled in 34ms
+[34:36:55.272] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:56.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:56.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:56.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381875282} /_vercel/insights/view
+[34:36:57.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:36:57.166] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:36:57.233] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:36:57.246] Server  LOG      ✓ Compiled in 25ms
+[34:36:57.291] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:36:58.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:36:58.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:36:58.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381877317} /_vercel/insights/view
+[34:36:59.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:37:00.103] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:00.173] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:00.186] Server  LOG      ✓ Compiled in 30ms
+[34:37:00.235] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:01.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:37:01.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:37:01.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381880263} /_vercel/insights/view
+[34:37:02.048] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:37:13.264] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:13.332] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:13.346] Server  LOG      ✓ Compiled in 22ms
+[34:37:13.392] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:14.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:37:14.990] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:15.063] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:15.076] Server  LOG      ✓ Compiled in 31ms
+[34:37:15.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:16.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'map')
+[34:37:16.707] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:16.783] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:16.795] Server  LOG      ✓ Compiled in 33ms
+[34:37:16.850] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:17.043] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:37:17.043] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:37:17.043] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381896862} /_vercel/insights/view
+[34:37:19.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:37:24.983] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:25.060] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:25.074] Server  LOG      ✓ Compiled in 34ms
+[34:37:25.116] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:26.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:37:26.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:37:26.046] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381905131} /_vercel/insights/view
+[34:37:26.868] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:26.868] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:37:26.941] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:26.954] Server  LOG      ✓ Compiled in 32ms
+[34:37:26.998] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:29.044] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:37:29.044] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:37:29.044] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381907012} /_vercel/insights/view
+[34:37:29.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:37:29.843] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:37:29.913] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:37:29.927] Server  LOG      ✓ Compiled in 29ms
+[34:37:29.978] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:37:31.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:37:31.045] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:37:31.045] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774381909999} /_vercel/insights/view
+[34:37:31.045] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:39:28.544] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:39:28.626] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:39:28.639] Server  LOG      ✓ Compiled in 22ms
+[34:39:28.686] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:39:29.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:39:29.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:39:29.046] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382028702} /_vercel/insights/view
+[34:39:31.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:39:54.792] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:39:54.864] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:39:54.877] Server  LOG      ✓ Compiled in 25ms
+[34:39:54.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:39:56.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:39:56.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:39:56.046] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382054937} /_vercel/insights/view
+[34:39:57.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'data')
+[34:40:14.182] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:40:14.252] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:40:14.266] Server  LOG      ✓ Compiled in 39ms
+[34:40:14.320] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:40:15.045] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:40:15.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:40:15.046] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382074329} /_vercel/insights/view
+[34:40:16.044] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'filter')
+[34:40:16.399] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[34:40:16.471] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[34:40:16.484] Server  LOG      ✓ Compiled in 32ms
+[34:40:16.533] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:40:17.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[34:40:17.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes/69c192470ffd68cf2720f53c","route":"/app-menu/routes/[id]"}
+[34:40:17.046] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382076541} /_vercel/insights/view
+[34:40:18.557] Server  LOG      ✓ Compiled in 32ms
+[34:40:19.046] Browser ERROR   ./components/shared/route-details.tsx:1010:25
+Parsing ecmascript source code failed
+  1008 |                     <SelectContent>
+  1009 |                       {allBusStops?.
+> 1010 |                         .filter(
+       |                         ^
+  1011 |                           (stop) =>
+  1012 |                             !watch("number_of_stops")?.some(
+  1013 |                               (s) =>
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[34:40:19.046] Browser ERROR   ./components/shared/route-details.tsx:1010:25
+Parsing ecmascript source code failed
+  1008 |                     <SelectContent>
+  1009 |                       {allBusStops?.
+> 1010 |                         .filter(
+       |                         ^
+  1011 |                           (stop) =>
+  1012 |                             !watch("number_of_stops")?.some(
+  1013 |                               (s) =>
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[34:40:23.045] Browser ERROR   ./components/shared/route-details.tsx:1010:25
+Parsing ecmascript source code failed
+  1008 |                     <SelectContent>
+  1009 |                       {allBusStops.
+> 1010 |                         .filter(
+       |                         ^
+  1011 |                           (stop) =>
+  1012 |                             !watch("number_of_stops")?.some(
+  1013 |                               (s) =>
+
+Expected '</', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./components/shared/route-details.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component Browser]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/shared/route-details.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Client Component SSR]
+    ./app/(dashboard)/app-menu/routes/[id]/page.tsx [Server Component]
+[34:40:32.670] Server  LOG      ✓ Compiled in 29ms
+[34:40:34.875] Server  LOG      ✓ Compiled in 22ms
+[34:40:36.460] Server  LOG      ✓ Compiled in 30ms
+[34:40:42.293] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[34:40:45.592] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/bus-stops color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/bus-stops","o":"http://localhost:3000/app-menu/bus-stops","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382105429} /_vercel/insights/view
+[34:40:48.558] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382108388} /_vercel/insights/view
+[34:40:51.922] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382111753} /_vercel/insights/view
+[34:41:16.140] Server  LOG      ✓ Compiled in 30ms
+[34:42:50.192] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382230007} /_vercel/insights/view
+[34:43:01.314] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382241144} /_vercel/insights/view
+[34:43:24.693] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382264512} /_vercel/insights/view
+[34:43:27.433] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[34:43:27.433] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[34:43:35.496] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382275327} /_vercel/insights/view
+[34:43:44.474] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses/DEPORTA-2 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/DEPORTA-2","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382284299} /_vercel/insights/view
+[34:43:53.347] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382293160} /_vercel/insights/view
+[34:44:31.104] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382330923} /_vercel/insights/view
+[34:44:39.206] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69bd93e45651eaee98e2823d color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69bd93e45651eaee98e2823d","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382339030} /_vercel/insights/view
+[34:44:57.062] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382356880} /_vercel/insights/view
+[34:45:04.805] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382364620} /_vercel/insights/view
+[34:49:15.703] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[34:49:15.703] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[34:49:15.703] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382615496} /_vercel/insights/view
+[34:52:29.133] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382808966} /_vercel/insights/view
+[34:52:31.551] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/driver-outsourcing color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/driver-outsourcing","o":"http://localhost:3000/logistics/driver-outsourcing","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382811384} /_vercel/insights/view
+[34:52:32.377] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774382812214} /_vercel/insights/view

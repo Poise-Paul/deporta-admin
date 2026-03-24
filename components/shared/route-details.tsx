@@ -57,7 +57,7 @@ import { NIGERIA_STATES } from "@/constants/nigeria-states";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useDeleteRoute, useModifyRoutes } from "@/api/routes";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { getAllBusStops } from "@/api/bus-stops";
 import { getDropOffStations } from "@/api/drop-off-locations";
 import { getPickupStations } from "@/api/pick-up-stations";
@@ -141,19 +141,50 @@ export function RouteDetails({ onBack }: StationDetailProps) {
 
   const modifyTripRoute = useModifyRoutes();
 
-  const { data: busStops } = useQuery({
+  const {
+    data: busStops,
+    fetchNextPage: fetchNextBusStopPage,
+    hasNextPage: hasNextBusStopPage,
+    isFetchingNextPage: isFetchingMoreBusStops,
+  } = useInfiniteQuery({
     queryKey: ["busStops"],
-    queryFn: () => getAllBusStops(),
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getAllBusStops(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages = lastPage?.bus_stop?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages?.length + 1 : undefined;
+    },
   });
 
-  const { data: pickupStations } = useQuery({
-    queryKey: ["pickupStations", pickupCurrentPage, pickupPages],
-    queryFn: () => getPickupStations(pickupCurrentPage, pickupPages),
+  const {
+    data: pickupStations,
+    fetchNextPage: fetchNextPickupPage,
+    hasNextPage: hasNextPickupPage,
+    isFetchingNextPage: isFetchingMorePickups,
+  } = useInfiniteQuery({
+    queryKey: ["pickupStations"],
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getPickupStations(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages = lastPage?.pickup_station?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages.length + 1 : undefined;
+    },
   });
 
-  const { data: dropOffStations } = useQuery({
-    queryKey: ["dropOffStations", dropOffCurrentPage, dropOffPages],
-    queryFn: () => getDropOffStations(dropOffCurrentPage, dropOffPages),
+  const {
+    data: dropOffStations,
+    fetchNextPage: fetchNextDropOffPage,
+    hasNextPage: hasNextDropOffPage,
+    isFetchingNextPage: isFetchingMoreDropOffs,
+  } = useInfiniteQuery({
+    queryKey: ["dropOffStations"],
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages =
+        lastPage?.drop_off_station?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages.length + 1 : undefined;
+    },
   });
 
   const handleWatch = watch();
@@ -312,6 +343,19 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     return date.toISOString();
   };
 
+  // Flatten all data
+  const allPickupStations =
+    pickupStations?.pages.flatMap((page) => page?.pickup_station?.data || []) ||
+    [];
+
+  const allDropOffStations =
+    dropOffStations?.pages.flatMap(
+      (page) => page?.drop_off_station?.data || [],
+    ) || [];
+
+  const allBusStops =
+    busStops?.pages.flatMap((page) => page?.bus_stop?.data || []) || [];
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -389,7 +433,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
             <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InfoItem
                 label="Rate"
-                value={`₦${selRoute.rate}`}
+                value={`₦${selRoute.rate.toLocaleString()}`}
                 icon={<RadioTower />}
               />
               <InfoItem
@@ -633,7 +677,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                 <Label className="text-primary font-bold">Starting Point</Label>
                 <Select
                   onValueChange={(id) => {
-                    const station = pickupStations?.pickup_station.data.find(
+                    const station = allPickupStations?.find(
                       (s) => s._id === id,
                     );
                     if (station) {
@@ -654,11 +698,25 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                     />
                   </SelectTrigger>
                   <SelectContent>
-                    {pickupStations?.pickup_station.data.map((stop) => (
+                    {allPickupStations.map((stop) => (
                       <SelectItem key={stop._id} value={stop._id}>
                         {stop.address.value}
                       </SelectItem>
                     ))}
+                    {/* Pickup Station Load Button */}
+                    {hasNextPickupPage && (
+                      <Button
+                        variant="ghost"
+                        className="w-full text-sm mt-2"
+                        onClick={(e) => {
+                          e.preventDefault(); // Stop dropdown from closing
+                          fetchNextPickupPage();
+                        }}
+                        disabled={isFetchingMorePickups}
+                      >
+                        {isFetchingMorePickups ? "Loading..." : "Load More"}
+                      </Button>
+                    )}
                   </SelectContent>
                 </Select>
               </div>
@@ -668,7 +726,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                 <Label className="text-primary font-bold">Destination</Label>
                 <Select
                   onValueChange={(id) => {
-                    const station = dropOffStations?.drop_off_station.data.find(
+                    const station = allDropOffStations?.find(
                       (s) => s._id === id,
                     );
                     if (station) {
@@ -688,11 +746,25 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                     />
                   </SelectTrigger>
                   <SelectContent>
-                    {dropOffStations?.drop_off_station.data.map((stop) => (
+                    {allDropOffStations?.map((stop) => (
                       <SelectItem key={stop._id} value={stop._id}>
                         {stop.address.value}
                       </SelectItem>
                     ))}
+                    {/* Load More Button */}
+                    {hasNextDropOffPage && (
+                      <Button
+                        variant="ghost"
+                        className="w-full text-sm mt-2"
+                        onClick={(e) => {
+                          e.preventDefault(); // Stop dropdown from closing
+                          fetchNextDropOffPage();
+                        }}
+                        disabled={isFetchingMoreDropOffs}
+                      >
+                        {isFetchingMoreDropOffs ? "Loading..." : "Load More"}
+                      </Button>
+                    )}
                   </SelectContent>
                 </Select>
               </div>
@@ -907,7 +979,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                   <Select
                     value=""
                     onValueChange={(id) => {
-                      const selectedStop = busStops?.bus_stop.data.find(
+                      const selectedStop = allBusStops?.find(
                         (s) => s._id === id,
                       );
                       if (selectedStop) {
@@ -934,7 +1006,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                       <SelectValue placeholder="Add bus-stops..." />
                     </SelectTrigger>
                     <SelectContent>
-                      {busStops?.bus_stop.data
+                      {allBusStops
                         .filter(
                           (stop) =>
                             !watch("number_of_stops")?.some(
@@ -947,6 +1019,20 @@ export function RouteDetails({ onBack }: StationDetailProps) {
                             {stop.address.value}
                           </SelectItem>
                         ))}
+                      {/* Load More Buttons */}
+                      {hasNextBusStopPage && (
+                        <Button
+                          variant="ghost"
+                          className="w-full text-sm mt-2"
+                          onClick={(e) => {
+                            e.preventDefault(); // Stop dropdown from closing
+                            fetchNextBusStopPage();
+                          }}
+                          disabled={isFetchingMoreBusStops}
+                        >
+                          {isFetchingMoreBusStops ? "Loading..." : "Load More"}
+                        </Button>
+                      )}
                     </SelectContent>
                   </Select>
                   <div className="flex flex-wrap gap-2 mt-3">
