@@ -12,15 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { usePlacesWidget } from "react-google-autocomplete";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
 import {
   Search,
   Filter,
@@ -36,13 +27,6 @@ import {
   UserCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   getPickupStations,
   PickupPayload,
@@ -121,7 +105,7 @@ export function LocationTable({
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["pickupStations"],
+    queryKey: ["pickupStations", currentPage, itemsPerPage],
     queryFn: () => getPickupStations(currentPage, itemsPerPage),
   });
 
@@ -214,25 +198,27 @@ export function LocationTable({
   }, [pickupStations]);
 
   // Role Integration
-
+  
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = pickupStations?.pickup_station?.data || [];
 
-    // Use API pagination if available, otherwise compute from allStations
+    // Rely on the API's total pages
     const originalTotal =
-      pickupStations?.pickup_station?.pagination?.totalPages ||
-      Math.ceil(allStations.length / itemsPerPage) ||
-      1;
+      pickupStations?.pickup_station?.pagination?.totalPages || 1;
 
     // 1. Filter by Search Query
-    let filtered = allStations.filter((station) => {
+    let filtered = allStations;
+
+    if (searchQuery) {
       const searchStr = searchQuery.toLowerCase();
-      return (
-        station.address?.value.toLowerCase().includes(searchStr) ||
-        station.area?.toLowerCase().includes(searchStr) ||
-        station.state?.toLowerCase().includes(searchStr)
-      );
-    });
+      filtered = filtered.filter((station) => {
+        return (
+          station.address?.value.toLowerCase().includes(searchStr) ||
+          station.area?.toLowerCase().includes(searchStr) ||
+          station.state?.toLowerCase().includes(searchStr)
+        );
+      });
+    }
 
     // 2. Filter by Tab Status
     if (activeTab === "active") {
@@ -241,22 +227,12 @@ export function LocationTable({
       filtered = filtered.filter((s) => s.status === "in-active");
     }
 
-    // 3. Calculate Total Pages
-    const total =
-      searchQuery !== ""
-        ? Math.ceil(filtered.length / itemsPerPage)
-        : originalTotal;
-
-    // 4. Slice the data for the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData =
-      filtered.length > 0
-        ? filtered.slice(startIndex, startIndex + itemsPerPage)
-        : allStations.slice(startIndex, startIndex + itemsPerPage);
-
-    console.log("Page Totals", total, originalTotal, filtered);
-
-    return { paginatedData: slicedData, totalPages: total };
+    // We removed the slicing! Since the API gives us exactly the page
+    // we asked for, the filtered data IS the paginated data.
+    return {
+      paginatedData: filtered,
+      totalPages: originalTotal,
+    };
   }, [pickupStations, activeTab, currentPage, itemsPerPage, searchQuery]);
 
   React.useEffect(() => {

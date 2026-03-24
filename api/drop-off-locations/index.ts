@@ -20,9 +20,19 @@ export interface DropOffPayload {
   drop_off_station_id: string;
 }
 
-export const getDropOffStations = async (): Promise<DropOffDetails> => {
+export const getDropOffStations = async (
+  page: number = 1,
+  limit: number = 10,
+): Promise<DropOffDetails> => {
   try {
-    const res = await api.get("/api/users/admin/drop-off-station/get");
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+    });
+
+    const res = await api.get(
+      `/api/users/admin/drop-off-station/get?${params.toString()}`,
+    );
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

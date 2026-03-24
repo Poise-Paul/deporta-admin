@@ -65,6 +65,7 @@ import { getAllBusStops } from "@/api/bus-stops";
 import { updateSelRoute } from "@/lib/store/slices/route-slice";
 import { getDropOffStations } from "@/api/drop-off-locations";
 import { Switch } from "../ui/switch";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -120,11 +121,6 @@ export function RoutesTable({
   } = useQuery({
     queryKey: ["routes"],
     queryFn: () => getRoutes(),
-  });
-
-  const { data: busStops } = useQuery({
-    queryKey: ["busStops"],
-    queryFn: () => getAllBusStops(),
   });
 
   type Day =
@@ -526,18 +522,67 @@ export function RoutesTable({
     </tr>
   );
 
-  const { data: pickupStations } = useQuery({
+  const {
+    data: pickupStations,
+    fetchNextPage: fetchNextPickupPage,
+    hasNextPage: hasNextPickupPage,
+    isFetchingNextPage: isFetchingMorePickups,
+  } = useInfiniteQuery({
     queryKey: ["pickupStations"],
-    queryFn: () => getPickupStations(),
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getPickupStations(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages = lastPage?.pickup_station?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages.length + 1 : undefined;
+    },
   });
 
-  const { data: dropOffStations } = useQuery({
+  const {
+    data: dropOffStations,
+    fetchNextPage: fetchNextDropOffPage,
+    hasNextPage: hasNextDropOffPage,
+    isFetchingNextPage: isFetchingMoreDropOffs,
+  } = useInfiniteQuery({
     queryKey: ["dropOffStations"],
-    queryFn: () => getDropOffStations(),
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages =
+        lastPage?.drop_off_station?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages.length + 1 : undefined;
+    },
+  });
+
+  const {
+    data: busStops,
+    fetchNextPage: fetchNextBusStopPage,
+    hasNextPage: hasNextBusStopPage,
+    isFetchingNextPage: isFetchingMoreBusStops,
+  } = useInfiniteQuery({
+    queryKey: ["busStops"],
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getAllBusStops(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages = lastPage?.bus_stop?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages?.length + 1 : undefined;
+    },
   });
 
   const router = useRouter();
   const dispatch = useDispatch();
+
+  // Flatten all data
+  const allPickupStations =
+    pickupStations?.pages.flatMap((page) => page?.pickup_station?.data || []) ||
+    [];
+
+  const allDropOffStations =
+    dropOffStations?.pages.flatMap(
+      (page) => page?.drop_off_station?.data || [],
+    ) || [];
+
+  const allBusStops =
+    busStops?.pages.flatMap((page) => page?.bus_stop?.data || []) || [];
 
   // Calculate Distance
 
@@ -588,26 +633,6 @@ export function RoutesTable({
     }
   }, [starting_point, destination]);
 
-  // Weekly Extractor
-  const formatISOToTime = (isoString: string) => {
-    if (!isoString || isoString.length < 5) return isoString || "";
-    // If it's already HH:mm, return it. If it's ISO, format it.
-    if (!isoString.includes("T")) return isoString;
-
-    const date = new Date(isoString);
-    const hours = date.getUTCHours().toString().padStart(2, "0");
-    const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-    return `${hours}:${minutes}`;
-  };
-
-  // Converts "08:00" -> "2026-02-14T08:00:00.000Z"
-  const convertToISO = (timeString: string) => {
-    if (!timeString) return "";
-    const [hours, minutes] = timeString.split(":");
-    const date = new Date(); // Uses today's date
-    date.setUTCHours(parseInt(hours), parseInt(minutes), 0, 0);
-    return date.toISOString();
-  };
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -735,10 +760,9 @@ export function RoutesTable({
                       <Select
                         onValueChange={(id) => {
                           // Search in the same data source you used for the list!
-                          const station =
-                            pickupStations?.pickup_station.data.find(
-                              (s) => s._id === id,
-                            );
+                          const station = allPickupStations?.find(
+                            (s) => s._id === id,
+                          );
 
                           if (station) {
                             setValue("starting_point", {
@@ -759,11 +783,26 @@ export function RoutesTable({
                           />
                         </SelectTrigger>
                         <SelectContent>
-                          {pickupStations?.pickup_station.data.map((stop) => (
+                          {allPickupStations.map((stop) => (
                             <SelectItem key={stop._id} value={stop._id}>
                               {stop.address.value}
                             </SelectItem>
                           ))}
+                          {hasNextPickupPage && (
+                            <Button
+                              variant="ghost"
+                              className="w-full text-sm mt-2"
+                              onClick={(e) => {
+                                e.preventDefault(); // Stop dropdown from closing
+                                fetchNextPickupPage();
+                              }}
+                              disabled={isFetchingMorePickups}
+                            >
+                              {isFetchingMorePickups
+                                ? "Loading..."
+                                : "Load More"}
+                            </Button>
+                          )}
                         </SelectContent>
                       </Select>
                     </div>
@@ -776,10 +815,9 @@ export function RoutesTable({
                       <Select
                         onValueChange={(id) => {
                           // Search in the same data source you used for the list!
-                          const station =
-                            dropOffStations?.drop_off_station.data.find(
-                              (s) => s._id === id,
-                            );
+                          const station = allDropOffStations.find(
+                            (s) => s._id === id,
+                          );
 
                           if (station) {
                             setValue("destination", {
@@ -799,12 +837,26 @@ export function RoutesTable({
                           />
                         </SelectTrigger>
                         <SelectContent>
-                          {dropOffStations?.drop_off_station.data.map(
-                            (stop) => (
-                              <SelectItem key={stop._id} value={stop._id}>
-                                {stop.address.value}
-                              </SelectItem>
-                            ),
+                          {allDropOffStations.map((stop) => (
+                            <SelectItem key={stop._id} value={stop._id}>
+                              {stop.address.value}
+                            </SelectItem>
+                          ))}
+                          {/* Dropdown more list */}
+                          {hasNextDropOffPage && (
+                            <Button
+                              variant="ghost"
+                              className="w-full text-sm mt-2"
+                              onClick={(e) => {
+                                e.preventDefault(); // Stop dropdown from closing
+                                fetchNextDropOffPage();
+                              }}
+                              disabled={isFetchingMoreDropOffs}
+                            >
+                              {isFetchingMoreDropOffs
+                                ? "Loading..."
+                                : "Load More"}
+                            </Button>
                           )}
                         </SelectContent>
                       </Select>
@@ -1042,7 +1094,7 @@ export function RoutesTable({
                           value="" // Keep placeholder visible
                           onValueChange={(id) => {
                             // 1. Find the full stop object from your data source
-                            const selectedStop = busStops?.bus_stop.data.find(
+                            const selectedStop = allBusStops?.find(
                               (s) => s._id === id,
                             );
 
@@ -1076,7 +1128,7 @@ export function RoutesTable({
                             <SelectValue placeholder="Add bus-stops..." />
                           </SelectTrigger>
                           <SelectContent>
-                            {busStops?.bus_stop.data
+                            {allBusStops
                               .filter(
                                 (stop) =>
                                   // Filter out if the location value already exists in the number_of_stops array
@@ -1091,6 +1143,22 @@ export function RoutesTable({
                                   {stop.address.value}
                                 </SelectItem>
                               ))}
+                            {/* Has More Bus Stops */}
+                            {hasNextBusStopPage && (
+                              <Button
+                                variant="ghost"
+                                className="w-full text-sm mt-2"
+                                onClick={(e) => {
+                                  e.preventDefault(); // Stop dropdown from closing
+                                  fetchNextBusStopPage();
+                                }}
+                                disabled={isFetchingMoreBusStops}
+                              >
+                                {isFetchingMoreBusStops
+                                  ? "Loading..."
+                                  : "Load More"}
+                              </Button>
+                            )}
                           </SelectContent>
                         </Select>
 
@@ -1464,7 +1532,7 @@ export function RoutesTable({
                   </Label>
                   <Select
                     onValueChange={(id) => {
-                      const station = pickupStations?.pickup_station.data.find(
+                      const station = allPickupStations?.find(
                         (s) => s._id === id,
                       );
                       if (station) {
@@ -1485,11 +1553,26 @@ export function RoutesTable({
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {pickupStations?.pickup_station.data.map((stop) => (
-                        <SelectItem key={stop._id} value={stop._id}>
-                          {stop.address.value}
+                      {allPickupStations?.map((station) => (
+                        <SelectItem key={station._id} value={station._id}>
+                          {station.address.value}
                         </SelectItem>
                       ))}
+
+                      {/* Load more pickup stations */}
+                      {hasNextPickupPage && (
+                        <Button
+                          variant="ghost"
+                          className="w-full text-sm mt-2"
+                          onClick={(e) => {
+                            e.preventDefault(); // Stop dropdown from closing
+                            fetchNextPickupPage();
+                          }}
+                          disabled={isFetchingMorePickups}
+                        >
+                          {isFetchingMorePickups ? "Loading..." : "Load More"}
+                        </Button>
+                      )}
                     </SelectContent>
                   </Select>
                 </div>
@@ -1499,10 +1582,9 @@ export function RoutesTable({
                   <Label className="text-primary font-bold">Destination</Label>
                   <Select
                     onValueChange={(id) => {
-                      const station =
-                        dropOffStations?.drop_off_station.data.find(
-                          (s) => s._id === id,
-                        );
+                      const station = allDropOffStations?.find(
+                        (s) => s._id === id,
+                      );
                       if (station) {
                         updateValue("destination", {
                           value: station.address.value.toLowerCase(),
@@ -1521,11 +1603,25 @@ export function RoutesTable({
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {dropOffStations?.drop_off_station.data.map((stop) => (
+                      {allDropOffStations?.map((stop) => (
                         <SelectItem key={stop._id} value={stop._id}>
                           {stop.address.value}
                         </SelectItem>
                       ))}
+                      {/* fetch more dropoffs */}
+                      {hasNextDropOffPage && (
+                        <Button
+                          variant="ghost"
+                          className="w-full text-sm mt-2"
+                          onClick={(e) => {
+                            e.preventDefault(); // Stop dropdown from closing
+                            fetchNextDropOffPage();
+                          }}
+                          disabled={isFetchingMoreDropOffs}
+                        >
+                          {isFetchingMoreDropOffs ? "Loading..." : "Load More"}
+                        </Button>
+                      )}
                     </SelectContent>
                   </Select>
                 </div>
@@ -1973,7 +2069,7 @@ export function RoutesTable({
                     <Select
                       value=""
                       onValueChange={(id) => {
-                        const selectedStop = busStops?.bus_stop.data.find(
+                        const selectedStop = allBusStops?.find(
                           (s) => s._id === id,
                         );
                         if (selectedStop) {
@@ -2003,7 +2099,7 @@ export function RoutesTable({
                         <SelectValue placeholder="Add bus-stops..." />
                       </SelectTrigger>
                       <SelectContent>
-                        {busStops?.bus_stop.data
+                        {allBusStops
                           .filter(
                             (stop) =>
                               !updateWatch("number_of_stops")?.some(
@@ -2016,6 +2112,22 @@ export function RoutesTable({
                               {stop.address.value}
                             </SelectItem>
                           ))}
+                        {/* Has More BusStops */}
+                        {hasNextBusStopPage && (
+                          <Button
+                            variant="ghost"
+                            className="w-full text-sm mt-2"
+                            onClick={(e) => {
+                              e.preventDefault(); // Stop dropdown from closing
+                              fetchNextBusStopPage();
+                            }}
+                            disabled={isFetchingMoreBusStops}
+                          >
+                            {isFetchingMoreBusStops
+                              ? "Loading..."
+                              : "Load More"}
+                          </Button>
+                        )}
                       </SelectContent>
                     </Select>
                     <div className="flex flex-wrap gap-2 mt-3">

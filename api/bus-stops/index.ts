@@ -20,12 +20,22 @@ export interface BusStopPayload {
   bus_stop_id: string;
 }
 
-export const getAllBusStops = async (): Promise<BusStopData> => {
+export const getAllBusStops = async (
+  page: number = 1,
+  limit: number = 10,
+): Promise<BusStopData> => {
   try {
-    const res = await api.get("/api/users/admin/bus-stop/get");
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+    });
+
+    const res = await api.get(
+      `/api/users/admin/bus-stop/get?${params.toString()}`,
+    );
     return res.data;
   } catch (error) {
-    console.error("Fetch User Error:", error);
+    console.error("All BusStops Failed!", error);
     throw error;
   }
 };
@@ -64,7 +74,7 @@ export const useModifyBusStop = () => {
   return useMutation({
     mutationFn: async (data: NewBusStopPayload) => {
       console.log("Bus-Stop ID >>>", data);
-      
+
       const res = await api.patch("/api/users/admin/bus-stop/edit", {
         bus_stop_id: data.bus_stop_id,
         routes: data.routes,

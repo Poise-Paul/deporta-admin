@@ -25,8 +25,8 @@ export interface PickupPayload {
 }
 
 export const getPickupStations = async (
-  page: number,
-  limit: number,
+  page: number = 1,
+  limit: number = 10,
 ): Promise<PickupStationDetails> => {
   try {
     const params = new URLSearchParams({

@@ -92,6 +92,14 @@ export function RouteDetails({ onBack }: StationDetailProps) {
 
   const router = useRouter();
 
+  // Pickup station Settings
+  const [pickupCurrentPage, setPickupCurrentPage] = useState(1);
+  const [pickupPages, setPickupPages] = useState(10);
+
+  // Drop-Off Locations
+  const [dropOffCurrentPage, setDropOffCurrentPage] = useState(1);
+  const [dropOffPages, setDropOffPages] = useState(10);
+
   const handleDeleteRoute = (stationId: string) => {
     deleteMutation.mutate(stationId, {
       onSettled: () => router.push("/app-menu/routes"),
@@ -139,13 +147,13 @@ export function RouteDetails({ onBack }: StationDetailProps) {
   });
 
   const { data: pickupStations } = useQuery({
-    queryKey: ["pickupStations"],
-    queryFn: () => getPickupStations(),
+    queryKey: ["pickupStations", pickupCurrentPage, pickupPages],
+    queryFn: () => getPickupStations(pickupCurrentPage, pickupPages),
   });
 
   const { data: dropOffStations } = useQuery({
-    queryKey: ["dropOffStations"],
-    queryFn: () => getDropOffStations(),
+    queryKey: ["dropOffStations", dropOffCurrentPage, dropOffPages],
+    queryFn: () => getDropOffStations(dropOffCurrentPage, dropOffPages),
   });
 
   const handleWatch = watch();
@@ -162,104 +170,6 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     state,
     routine,
   } = handleWatch;
-
-  // const handleModifyRoute = () => {
-  //   const formData = watch(); // Get current form state
-
-  //   // 🔑 Transform the routine times back to ISO before sending to backend
-  //   const updatedRoutine = { ...formData.routine };
-
-  //   // 🔑 Cast 'day' as a key of the routine object
-  //   (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
-  //     (day) => {
-  //       if (updatedRoutine[day].active) {
-  //         updatedRoutine[day].value = updatedRoutine[day].value.map(
-  //           (slot: any) => ({
-  //             // ...slot,
-  //             from: convertToISO(slot.from),
-  //             too: convertToISO(slot.too),
-  //           }),
-  //         );
-  //       }
-  //     },
-  //   );
-
-  //   if (!selRoute) return;
-  //   console.log("Details", updatedRoutine);
-
-  //   modifyTripRoute.mutate(
-  //     {
-  //       trip_route_id: selRoute._id,
-  //       rate,
-  //       flat_rate,
-  //       rate_per_km,
-  //       code,
-  //       destination,
-  //       starting_point,
-  //       state,
-  //       country,
-  //       route_distance,
-  //       number_of_stops,
-  //       routine: updatedRoutine,
-  //     },
-  //     {
-  //       onSuccess: () => reset({ ...formData, routine: updatedRoutine }),
-  //       onSettled: () => setIsEditDialogOpen(false),
-  //     },
-  //   );
-  // };
-
-  // const handleModifyRoute = () => {
-  //   const formData = watch(); // Get current form state (which has nice HH:mm times)
-
-  //   // 🔑 1. DEEP CLONE the routine so we don't accidentally mutate the live UI state
-  //   const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
-
-  //   // 🔑 Cast 'day' as a key of the routine object
-  //   (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
-  //     (day) => {
-  //       if (updatedRoutine[day].active) {
-  //         updatedRoutine[day].value = updatedRoutine[day].value.map(
-  //           (slot: any) => ({
-  //             // ...slot,
-  //             // Convert to ISO *only* on our cloned object intended for the backend
-  //             from: convertToISO(slot.from),
-  //             too: convertToISO(slot.too),
-  //           }),
-  //         );
-  //       } else {
-  //         // Ensure inactive days are cleared out securely
-  //         updatedRoutine[day].value = [];
-  //       }
-  //     },
-  //   );
-
-  //   if (!selRoute) return;
-  //   console.log("Payload going to backend:", updatedRoutine);
-
-  //   modifyTripRoute.mutate(
-  //     {
-  //       trip_route_id: selRoute._id,
-  //       rate,
-  //       flat_rate,
-  //       rate_per_km,
-  //       code,
-  //       destination,
-  //       starting_point,
-  //       state,
-  //       country,
-  //       route_distance,
-  //       number_of_stops,
-  //       routine: updatedRoutine, // Send the ISO-formatted clone to the backend
-  //     },
-  //     {
-  //       // 🔑 2. CRITICAL FIX: Reset the form with the ORIGINAL formData (which still has HH:mm).
-  //       // Do NOT reset it with updatedRoutine!
-  //       onSuccess: () => reset(formData),
-  //       onSettled: () => setIsEditDialogOpen(false),
-  //     },
-  //   );
-  // };
 
   const handleModifyRoute = () => {
     const formData = getValues();
@@ -381,18 +291,6 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     const m = date.getMinutes().toString().padStart(2, "0");
     return `${h}:${m}`;
   };
-
-  // const formatISOToTime = (isoString: string) => {
-  //   if (!isoString) return "";
-  //   // If it's already HH:mm (length 5), return it as is
-  //   if (isoString.length === 5 && isoString.includes(":")) return isoString;
-
-  //   const date = new Date(isoString);
-  //   // Use UTC to avoid the +1 hour jump in Nigeria
-  //   const hours = date.getUTCHours().toString().padStart(2, "0");
-  //   const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-  //   return `${hours}:${minutes}`;
-  // };
 
   const formatISOToTime = (isoOrTime: string) => {
     if (!isoOrTime) return "";

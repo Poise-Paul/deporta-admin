@@ -96,6 +96,10 @@ export function DropOffStation({
   const [selectedState, setSelectedState] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
   const deleteMutation = useDeleteDropOffStation();
 
   const {
@@ -103,8 +107,8 @@ export function DropOffStation({
     refetch,
     isLoading: dropOffLoader,
   } = useQuery({
-    queryKey: ["dropOffStations"],
-    queryFn: () => getDropOffStations(),
+    queryKey: ["dropOffStations", currentPage, itemsPerPage],
+    queryFn: () => getDropOffStations(currentPage, itemsPerPage),
   });
 
   const { register, setValue, watch, reset } = useForm<AddPickupStationPayload>(
@@ -177,12 +181,11 @@ export function DropOffStation({
 
   const modifyStationMutation = useModifyDropOffStation();
 
-  // Pagination
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(10);
-
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = dropOffStations?.drop_off_station?.data || [];
+
+    const originalTotal =
+      dropOffStations?.drop_off_station?.pagination?.totalPages || 1;
 
     // 1. Filter by Search Query first
     let filtered = allStations.filter((station) => {
@@ -202,14 +205,10 @@ export function DropOffStation({
       filtered = filtered.filter((s) => s.status === "in-active");
     }
 
-    // 3. Calculate Total Pages based on the FILTERED results
-    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
-
-    // 4. Slice the data for the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-    return { paginatedData: slicedData, totalPages: total };
+    return {
+      paginatedData: filtered,
+      totalPages: originalTotal,
+    };
   }, [dropOffStations, activeTab, currentPage, itemsPerPage, searchQuery]);
 
   React.useEffect(() => {
@@ -264,8 +263,6 @@ export function DropOffStation({
     latitude: 0,
     longitude: 0,
   });
-
-  const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   const handlePlaceSelect = (place: {
     address: string;

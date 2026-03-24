@@ -24,9 +24,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  NewBusStopPayload,
-} from "@/types";
+import { NewBusStopPayload } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
@@ -90,13 +88,17 @@ export function BusStopTable({
 
   const deleteMutation = useDeleteBusStop();
 
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
   const {
     data: busStops,
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["busStops"],
-    queryFn: () => getAllBusStops(),
+    queryKey: ["busStops", currentPage, itemsPerPage],
+    queryFn: () => getAllBusStops(currentPage, itemsPerPage),
   });
 
   const handleDeleteBustop = (stationId: string) => {
@@ -108,10 +110,6 @@ export function BusStopTable({
   useEffect(() => {
     refetch();
   }, [busStops]);
-
-  // Pagination
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allBustops = busStops?.bus_stop.data || [];
