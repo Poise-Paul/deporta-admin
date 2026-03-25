@@ -106,6 +106,10 @@ api.interceptors.request.use(async (config)=>{
 __turbopack_context__.s([
     "getAllBookings",
     ()=>getAllBookings,
+    "getCooperateAccounts",
+    ()=>getCooperateAccounts,
+    "getPendingBookings",
+    ()=>getPendingBookings,
     "getTotalBooking",
     ()=>getTotalBooking,
     "getTotalIncome",
@@ -135,18 +139,33 @@ const getTotalIncome = async ()=>{
         throw error;
     }
 };
-const getTotalBooking = async ()=>{
+const getTotalBooking = async (status)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get/total`);
+        // If a status is passed, add the query parameter. Otherwise, just use the base URL.
+        const url = status ? `/api/users/admin/booking/get/total?status=${status}` : `/api/users/admin/booking/get/total`;
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(url);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Booking Error:", error);
+        throw error;
+    }
+};
+const getPendingBookings = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get/total?status`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
         throw error;
     }
 };
-const getAllBookings = async ()=>{
+const getAllBookings = async (page = 1, limit = 10)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get`);
+        const params = new URLSearchParams({
+            page: page.toString(),
+            limit: limit.toString()
+        });
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get?${params.toString()}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
@@ -218,6 +237,19 @@ const useDeleteBooking = ()=>{
             }
         }
     });
+};
+const getCooperateAccounts = async (page = 1, limit = 10)=>{
+    const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString()
+    });
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/corporate?${params.toString()}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/components/ui/card.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -353,34 +385,51 @@ function VehicleRentalsStats() {
         ],
         queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bookings$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTotalIncome"])()
     });
+    // 2. Pending Bookings
+    const { data: pendingBookings, isLoading: isLoadingPending } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "totalBookings",
+            "pending"
+        ],
+        queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bookings$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTotalBooking"])("pending")
+    });
+    // 3. Paid Bookings
+    const { data: paidBookings, isLoading: isLoadingPaid } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
+        queryKey: [
+            "totalBookings",
+            "paid"
+        ],
+        queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bookings$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTotalBooking"])("paid")
+    });
     const stats = [
         {
             title: "Total amount made",
             value: allIncome?.booking[0].amount || 0,
-            change: "+18.2%",
+            change: `+${allIncome?.prev_percentage}`,
             borderColor: "border-l-primary"
         },
         {
             title: "Total rentals made",
             value: allBookings?.booking[0].count,
-            change: "+18.2%",
+            change: `+${allBookings?.prev_percentage}%`,
             borderColor: "border-l-secondary"
         },
         {
-            title: "Rentals",
-            value: "72",
-            change: "+18.2%",
-            label: "Active",
+            title: "Pending Rentals",
+            value: pendingBookings?.booking[0].count,
+            change: `+${pendingBookings?.prev_percentage}`,
+            label: "Pending",
             borderColor: "border-l-pink-500"
         },
         {
-            title: "Buses on rentals",
-            value: "18",
-            change: "+18.2%",
-            label: "Overdue Rentals",
+            title: "Rentals",
+            value: paidBookings?.booking[0].count,
+            change: `+${paidBookings?.prev_percentage}`,
+            label: "Paid",
             borderColor: "border-l-green-500"
         }
     ];
+    // Previously Overdue Rentals
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4",
         children: stats.map((stat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -393,7 +442,7 @@ function VehicleRentalsStats() {
                             children: stat.label || stat.title.split(" ").slice(0, 2).join(" ")
                         }, void 0, false, {
                             fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                            lineNumber: 56,
+                            lineNumber: 69,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -404,7 +453,7 @@ function VehicleRentalsStats() {
                                     children: stat.value
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 73,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -415,19 +464,19 @@ function VehicleRentalsStats() {
                                             className: "h-3 w-3"
                                         }, void 0, false, {
                                             fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                                            lineNumber: 65,
+                                            lineNumber: 78,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 76,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                            lineNumber: 59,
+                            lineNumber: 72,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -435,23 +484,23 @@ function VehicleRentalsStats() {
                             children: stat.title
                         }, void 0, false, {
                             fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                            lineNumber: 68,
+                            lineNumber: 81,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                    lineNumber: 55,
+                    lineNumber: 68,
                     columnNumber: 11
                 }, this)
             }, stat.title, false, {
                 fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-                lineNumber: 51,
+                lineNumber: 64,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/logistics/vehicle-rentals-stats.tsx",
-        lineNumber: 49,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }

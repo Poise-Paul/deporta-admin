@@ -16,35 +16,48 @@ export function VehicleRentalsStats() {
     queryFn: () => getTotalIncome(),
   });
 
+  // 2. Pending Bookings
+  const { data: pendingBookings, isLoading: isLoadingPending } = useQuery({
+    queryKey: ["totalBookings", "pending"],
+    queryFn: () => getTotalBooking("pending"),
+  });
+
+  // 3. Paid Bookings
+  const { data: paidBookings, isLoading: isLoadingPaid } = useQuery({
+    queryKey: ["totalBookings", "paid"],
+    queryFn: () => getTotalBooking("paid"),
+  });
+
   const stats = [
     {
       title: "Total amount made",
       value: allIncome?.booking[0].amount || 0,
-      change: "+18.2%",
+      change: `+${allIncome?.prev_percentage}`,
       borderColor: "border-l-primary",
     },
     {
       title: "Total rentals made",
       value: allBookings?.booking[0].count,
-      change: "+18.2%",
+      change: `+${allBookings?.prev_percentage}%`,
       borderColor: "border-l-secondary",
     },
     {
-      title: "Rentals",
-      value: "72",
-      change: "+18.2%",
-      label: "Active",
+      title: "Pending Rentals",
+      value: pendingBookings?.booking[0].count,
+      change: `+${pendingBookings?.prev_percentage}`,
+      label: "Pending",
       borderColor: "border-l-pink-500",
     },
     {
-      title: "Buses on rentals",
-      value: "18",
-      change: "+18.2%",
-      label: "Overdue Rentals",
+      title: "Rentals",
+      value: paidBookings?.booking[0].count,
+      change: `+${paidBookings?.prev_percentage}`,
+      label: "Paid",
       borderColor: "border-l-green-500",
     },
   ];
 
+  // Previously Overdue Rentals
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat) => (

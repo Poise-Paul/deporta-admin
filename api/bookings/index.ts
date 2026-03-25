@@ -2,6 +2,7 @@ import {
   AllBookingsResponse,
   BookingTotalIncomeResponse,
   BookingTotalResponse,
+  CoOperateAccountsResponse,
   NewBookingPayload,
   Response,
 } from "@/types";
@@ -21,9 +22,26 @@ export const getTotalIncome = async (): Promise<BookingTotalIncomeResponse> => {
   }
 };
 
-export const getTotalBooking = async (): Promise<BookingTotalResponse> => {
+export const getTotalBooking = async (
+  status?: "pending" | "paid",
+): Promise<BookingTotalResponse> => {
   try {
-    const res = await api.get(`/api/users/admin/booking/get/total`);
+    // If a status is passed, add the query parameter. Otherwise, just use the base URL.
+    const url = status
+      ? `/api/users/admin/booking/get/total?status=${status}`
+      : `/api/users/admin/booking/get/total`;
+
+    const res = await api.get(url);
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Booking Error:", error);
+    throw error;
+  }
+};
+
+export const getPendingBookings = async (): Promise<BookingTotalResponse> => {
+  try {
+    const res = await api.get(`/api/users/admin/booking/get/total?status`);
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);
@@ -31,9 +49,19 @@ export const getTotalBooking = async (): Promise<BookingTotalResponse> => {
   }
 };
 
-export const getAllBookings = async (): Promise<AllBookingsResponse> => {
+export const getAllBookings = async (
+  page: number = 1,
+  limit: number = 10,
+): Promise<AllBookingsResponse> => {
   try {
-    const res = await api.get(`/api/users/admin/booking/get`);
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+    });
+
+    const res = await api.get(
+      `/api/users/admin/booking/get?${params.toString()}`,
+    );
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);
@@ -102,4 +130,25 @@ export const useDeleteBooking = () => {
       }
     },
   });
+};
+
+// Co-Operate Endpoints
+export const getCooperateAccounts = async (
+  page: number = 1,
+  limit: number = 10,
+): Promise<CoOperateAccountsResponse> => {
+  const params = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+  });
+
+  try {
+    const res = await api.get(
+      `/api/users/admin/corporate?${params.toString()}`,
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
 };

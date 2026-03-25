@@ -19,7 +19,8 @@ import dropOffStationReducer from "./slices/drop-off-station-slice";
 import busStopReducer from "./slices/bus-stop-slice";
 import routesReducer from "./slices/route-slice";
 import busReducer from "./slices/bus-slice";
-import driverReducer from "./slices/driver-slice"
+import driverReducer from "./slices/driver-slice";
+import corporateReducer from "./slices/co-operate-slice";
 
 const persistConfig = {
   key: "deporta-admin",
@@ -48,6 +49,7 @@ const rootReducer = combineReducers({
   driver: driverReducer,
   routes: routesReducer,
   bus: busReducer,
+  corporate: corporateReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

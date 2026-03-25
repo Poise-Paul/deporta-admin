@@ -1234,6 +1234,10 @@ function PopoverAnchor({ ...props }) {
 __turbopack_context__.s([
     "getAllBookings",
     ()=>getAllBookings,
+    "getCooperateAccounts",
+    ()=>getCooperateAccounts,
+    "getPendingBookings",
+    ()=>getPendingBookings,
     "getTotalBooking",
     ()=>getTotalBooking,
     "getTotalIncome",
@@ -1263,18 +1267,33 @@ const getTotalIncome = async ()=>{
         throw error;
     }
 };
-const getTotalBooking = async ()=>{
+const getTotalBooking = async (status)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get/total`);
+        // If a status is passed, add the query parameter. Otherwise, just use the base URL.
+        const url = status ? `/api/users/admin/booking/get/total?status=${status}` : `/api/users/admin/booking/get/total`;
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(url);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Booking Error:", error);
+        throw error;
+    }
+};
+const getPendingBookings = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get/total?status`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
         throw error;
     }
 };
-const getAllBookings = async ()=>{
+const getAllBookings = async (page = 1, limit = 10)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get`);
+        const params = new URLSearchParams({
+            page: page.toString(),
+            limit: limit.toString()
+        });
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get?${params.toString()}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
@@ -1346,6 +1365,19 @@ const useDeleteBooking = ()=>{
             }
         }
     });
+};
+const getCooperateAccounts = async (page = 1, limit = 10)=>{
+    const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString()
+    });
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/corporate?${params.toString()}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/components/logistics/bookings-table.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -1474,12 +1506,16 @@ function BookingsTable() {
     const [driverOutsourceAmount, setDriverOutsourceAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [addOutsourceAmount, setAddOutsourceAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     // End Outsource Details
+    const [bookingCurPage, setBookingCurrentPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
+    const [bookingItemsPerPage, setBookingsItemsPerPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(10);
     const { data, isLoading, isRefetching, refetch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
-            "bookings"
+            "bookings",
+            bookingCurPage,
+            bookingItemsPerPage
         ],
         retry: false,
-        queryFn: __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bookings$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAllBookings"]
+        queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bookings$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAllBookings"])(bookingCurPage, bookingItemsPerPage)
     });
     const { data: outsourceDrivers, isLoading: driverLoader, isRefetching: isDriversRefetching, refetch: refetchDrivers } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
@@ -1526,7 +1562,8 @@ function BookingsTable() {
             // 2. Filter by Search Query
             // We check name, email, or any other relevant field
             const searchLower = searchQuery.toLowerCase();
-            const matchesSearch = item.booking_type?.toLowerCase().includes(searchLower);
+            const matchesSearch = !item.added_by || // if added_by is null, always include
+            item.added_by?.user_type?.type_id?.company_name?.toLowerCase().includes(searchLower) || item.added_by?.first_name?.toLowerCase().includes(searchLower) || item.added_by?.last_name?.toLowerCase().includes(searchLower);
             return matchesStatus && matchesSearch;
         });
     }, [
@@ -1572,25 +1609,25 @@ function BookingsTable() {
                                 className: "h-8 w-8 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                lineNumber: 253,
+                                lineNumber: 260,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-4 w-32"
                             }, void 0, false, {
                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                lineNumber: 254,
+                                lineNumber: 261,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 252,
+                        lineNumber: 259,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 251,
+                    lineNumber: 258,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1599,12 +1636,12 @@ function BookingsTable() {
                         className: "h-4 w-20"
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 258,
+                        lineNumber: 265,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 257,
+                    lineNumber: 264,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1613,12 +1650,12 @@ function BookingsTable() {
                         className: "h-4 w-40"
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 261,
+                        lineNumber: 268,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 260,
+                    lineNumber: 267,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1627,12 +1664,12 @@ function BookingsTable() {
                         className: "h-4 w-24"
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 264,
+                        lineNumber: 271,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 263,
+                    lineNumber: 270,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1641,12 +1678,12 @@ function BookingsTable() {
                         className: "h-4 w-28"
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 267,
+                        lineNumber: 274,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 266,
+                    lineNumber: 273,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1655,12 +1692,12 @@ function BookingsTable() {
                         className: "h-5 w-16 rounded-full"
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 270,
+                        lineNumber: 277,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 269,
+                    lineNumber: 276,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1669,18 +1706,18 @@ function BookingsTable() {
                         className: "h-8 w-8 rounded-md"
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 273,
+                        lineNumber: 280,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 272,
+                    lineNumber: 279,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/logistics/bookings-table.tsx",
-            lineNumber: 250,
+            lineNumber: 257,
             columnNumber: 5
         }, this);
     //   Handlers
@@ -1753,7 +1790,7 @@ function BookingsTable() {
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 356,
+                                    lineNumber: 363,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1763,7 +1800,7 @@ function BookingsTable() {
                                     className: "pl-9 w-72 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 357,
+                                    lineNumber: 364,
                                     columnNumber: 13
                                 }, this),
                                 searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1775,18 +1812,18 @@ function BookingsTable() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                        lineNumber: 370,
+                                        lineNumber: 377,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 364,
+                                    lineNumber: 371,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                            lineNumber: 355,
+                            lineNumber: 362,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1803,7 +1840,7 @@ function BookingsTable() {
                                                 children: tab.label
                                             }, tab.id, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 379,
+                                                lineNumber: 386,
                                                 columnNumber: 17
                                             }, this)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1814,20 +1851,20 @@ function BookingsTable() {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                    lineNumber: 397,
+                                                    lineNumber: 404,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Add New Booking"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                            lineNumber: 393,
+                                            lineNumber: 400,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 377,
+                                    lineNumber: 384,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1842,12 +1879,12 @@ function BookingsTable() {
                                                     children: editingBookingId ? "Edit Booking" : "Create New Booking"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                    lineNumber: 410,
+                                                    lineNumber: 417,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 409,
+                                                lineNumber: 416,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1860,7 +1897,7 @@ function BookingsTable() {
                                                                 children: "Co-operate User *"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 418,
+                                                                lineNumber: 425,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
@@ -1880,18 +1917,18 @@ function BookingsTable() {
                                                                                     className: "ml-2 h-4 w-4 opacity-50"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 432,
+                                                                                    lineNumber: 439,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 424,
+                                                                            lineNumber: 431,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 423,
+                                                                        lineNumber: 430,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1902,14 +1939,14 @@ function BookingsTable() {
                                                                                     placeholder: "Search user..."
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 437,
+                                                                                    lineNumber: 444,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandEmpty"], {
                                                                                     children: "No user found."
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 438,
+                                                                                    lineNumber: 445,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandGroup"], {
@@ -1927,42 +1964,42 @@ function BookingsTable() {
                                                                                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mr-2 h-4 w-4", bookingForm.cooperate_user_id === user._id ? "opacity-100" : "opacity-0")
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                                    lineNumber: 452,
+                                                                                                    lineNumber: 459,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 user.company_name || user.first_name
                                                                                             ]
                                                                                         }, user._id, true, {
                                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                            lineNumber: 442,
+                                                                                            lineNumber: 449,
                                                                                             columnNumber: 31
                                                                                         }, this))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 439,
+                                                                                    lineNumber: 446,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 436,
+                                                                            lineNumber: 443,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 435,
+                                                                        lineNumber: 442,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 419,
+                                                                lineNumber: 426,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 417,
+                                                        lineNumber: 424,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1972,7 +2009,7 @@ function BookingsTable() {
                                                                 children: "Assign Buses"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 471,
+                                                                lineNumber: 478,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
@@ -1990,18 +2027,18 @@ function BookingsTable() {
                                                                                     className: "ml-2 h-4 w-4 opacity-50"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 484,
+                                                                                    lineNumber: 491,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 477,
+                                                                            lineNumber: 484,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 476,
+                                                                        lineNumber: 483,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -2012,7 +2049,7 @@ function BookingsTable() {
                                                                                     placeholder: "Search buses..."
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 489,
+                                                                                    lineNumber: 496,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandGroup"], {
@@ -2033,7 +2070,7 @@ function BookingsTable() {
                                                                                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mr-2 h-4 w-4", bookingForm.buses_assigned.includes(bus._id) ? "opacity-100" : "opacity-0")
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                                    lineNumber: 513,
+                                                                                                    lineNumber: 520,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 bus.id_code,
@@ -2042,35 +2079,35 @@ function BookingsTable() {
                                                                                             ]
                                                                                         }, bus._id, true, {
                                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                            lineNumber: 493,
+                                                                                            lineNumber: 500,
                                                                                             columnNumber: 31
                                                                                         }, this))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 490,
+                                                                                    lineNumber: 497,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 488,
+                                                                            lineNumber: 495,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 487,
+                                                                        lineNumber: 494,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 472,
+                                                                lineNumber: 479,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 470,
+                                                        lineNumber: 477,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2080,7 +2117,7 @@ function BookingsTable() {
                                                                 children: "Assign Drivers"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 532,
+                                                                lineNumber: 539,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
@@ -2098,18 +2135,18 @@ function BookingsTable() {
                                                                                     className: "ml-2 h-4 w-4 opacity-50"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 545,
+                                                                                    lineNumber: 552,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 538,
+                                                                            lineNumber: 545,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 537,
+                                                                        lineNumber: 544,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -2120,7 +2157,7 @@ function BookingsTable() {
                                                                                     placeholder: "Search drivers..."
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 550,
+                                                                                    lineNumber: 557,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandGroup"], {
@@ -2141,7 +2178,7 @@ function BookingsTable() {
                                                                                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mr-2 h-4 w-4", bookingForm.driver_assigned.includes(driver._id) ? "opacity-100" : "opacity-0")
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                                    lineNumber: 575,
+                                                                                                    lineNumber: 582,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 driver.first_name,
@@ -2150,35 +2187,35 @@ function BookingsTable() {
                                                                                             ]
                                                                                         }, driver._id, true, {
                                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                            lineNumber: 555,
+                                                                                            lineNumber: 562,
                                                                                             columnNumber: 33
                                                                                         }, this))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 551,
+                                                                                    lineNumber: 558,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 549,
+                                                                            lineNumber: 556,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 548,
+                                                                        lineNumber: 555,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 533,
+                                                                lineNumber: 540,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 531,
+                                                        lineNumber: 538,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2191,7 +2228,7 @@ function BookingsTable() {
                                                                         children: "Contract Start *"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 598,
+                                                                        lineNumber: 605,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2203,13 +2240,13 @@ function BookingsTable() {
                                                                             })
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 599,
+                                                                        lineNumber: 606,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 597,
+                                                                lineNumber: 604,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2219,7 +2256,7 @@ function BookingsTable() {
                                                                         children: "Contract End *"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 611,
+                                                                        lineNumber: 618,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2231,25 +2268,25 @@ function BookingsTable() {
                                                                             })
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 612,
+                                                                        lineNumber: 619,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 610,
+                                                                lineNumber: 617,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 596,
+                                                        lineNumber: 603,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 415,
+                                                lineNumber: 422,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2261,7 +2298,7 @@ function BookingsTable() {
                                                         children: "Cancel"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 627,
+                                                        lineNumber: 634,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2273,48 +2310,48 @@ function BookingsTable() {
                                                                 className: "mr-2 h-4 w-4 animate-spin"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                lineNumber: 639,
+                                                                lineNumber: 646,
                                                                 columnNumber: 23
                                                             }, this),
                                                             editingBookingId ? "Update Booking" : "Create Booking"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 633,
+                                                        lineNumber: 640,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 626,
+                                                lineNumber: 633,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                        lineNumber: 408,
+                                        lineNumber: 415,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 404,
+                                    lineNumber: 411,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                            lineNumber: 376,
+                            lineNumber: 383,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                    lineNumber: 353,
+                    lineNumber: 360,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                lineNumber: 352,
+                lineNumber: 359,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2327,12 +2364,12 @@ function BookingsTable() {
                             children: "All Bookings"
                         }, void 0, false, {
                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                            lineNumber: 653,
+                            lineNumber: 660,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 652,
+                        lineNumber: 659,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2346,10 +2383,18 @@ function BookingsTable() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground",
-                                                children: "Booking Type"
+                                                children: "Client"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 665,
+                                                lineNumber: 669,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "text-left p-4 text-sm font-medium text-muted-foreground",
+                                                children: "Client Type"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/logistics/bookings-table.tsx",
+                                                lineNumber: 672,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2357,7 +2402,7 @@ function BookingsTable() {
                                                 children: "Bus Assigned"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 668,
+                                                lineNumber: 675,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2365,7 +2410,7 @@ function BookingsTable() {
                                                 children: "Drivers Assigned"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 671,
+                                                lineNumber: 678,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2373,7 +2418,7 @@ function BookingsTable() {
                                                 children: "Rental Charge Rate"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 675,
+                                                lineNumber: 682,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2381,7 +2426,7 @@ function BookingsTable() {
                                                 children: "Contract Start"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 678,
+                                                lineNumber: 685,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2389,7 +2434,7 @@ function BookingsTable() {
                                                 children: "Contract End"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 681,
+                                                lineNumber: 688,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2397,7 +2442,7 @@ function BookingsTable() {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 684,
+                                                lineNumber: 691,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2405,25 +2450,25 @@ function BookingsTable() {
                                                 children: "Created At"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 687,
+                                                lineNumber: 694,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 690,
+                                                lineNumber: 697,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                        lineNumber: 661,
+                                        lineNumber: 668,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 660,
+                                    lineNumber: 667,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2433,34 +2478,53 @@ function BookingsTable() {
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                    lineNumber: 697,
+                                                    lineNumber: 704,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : filteredData.length > 0 && filteredData.map((booking)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                 className: "border-b border-border last:border-0 hover:bg-muted/50",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    booking.added_by ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         className: "p-4 text-sm font-medium",
-                                                        children: booking.booking_type
+                                                        children: booking.added_by.user_type.value == "corporate" ? booking.added_by.user_type.type_id.company_name : `${booking.added_by.first_name} ${booking.added_by.last_name}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 707,
+                                                        lineNumber: 715,
+                                                        columnNumber: 23
+                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                        className: "p-4 text-sm font-medium",
+                                                        children: "No user assigned"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/logistics/bookings-table.tsx",
+                                                        lineNumber: 721,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                        className: "p-4 text-sm capitalize font-medium",
+                                                        children: booking.added_by ? booking.added_by.user_type.value : "No User Type"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/logistics/bookings-table.tsx",
+                                                        lineNumber: 725,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         className: "p-4",
-                                                        children: booking.buses_assigned.length
+                                                        children: booking.buses_assigned.name_label
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 710,
+                                                        lineNumber: 730,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         className: "p-4 text-sm text-muted-foreground",
-                                                        children: booking.driver_assigned.length
-                                                    }, void 0, false, {
+                                                        children: [
+                                                            booking.driver_assigned.first_name,
+                                                            " ",
+                                                            booking.driver_assigned.last_name
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 711,
+                                                        lineNumber: 731,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2471,7 +2535,7 @@ function BookingsTable() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 715,
+                                                        lineNumber: 736,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2479,7 +2543,7 @@ function BookingsTable() {
                                                         children: new Date(booking.contract_start).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 718,
+                                                        lineNumber: 739,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2487,7 +2551,7 @@ function BookingsTable() {
                                                         children: new Date(booking.contract_end).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 721,
+                                                        lineNumber: 742,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2498,12 +2562,12 @@ function BookingsTable() {
                                                             children: booking.status
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                            lineNumber: 725,
+                                                            lineNumber: 746,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 724,
+                                                        lineNumber: 745,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2511,7 +2575,7 @@ function BookingsTable() {
                                                         children: new Date(booking.createdAt).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 737,
+                                                        lineNumber: 758,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2528,17 +2592,17 @@ function BookingsTable() {
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 774,
+                                                                            lineNumber: 795,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                        lineNumber: 769,
+                                                                        lineNumber: 790,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                    lineNumber: 768,
+                                                                    lineNumber: 789,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2551,14 +2615,14 @@ function BookingsTable() {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 779,
+                                                                                    lineNumber: 800,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 " View"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 778,
+                                                                            lineNumber: 799,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2569,14 +2633,14 @@ function BookingsTable() {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 787,
+                                                                                    lineNumber: 808,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 " Edit Booking"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 783,
+                                                                            lineNumber: 804,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2588,43 +2652,43 @@ function BookingsTable() {
                                                                                     className: "h-4 w-4 mr-2 animate-spin"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 797,
+                                                                                    lineNumber: 818,
                                                                                     columnNumber: 31
                                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash$3e$__["Trash"], {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                                    lineNumber: 799,
+                                                                                    lineNumber: 820,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 "Delete Booking"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                            lineNumber: 791,
+                                                                            lineNumber: 812,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                                    lineNumber: 777,
+                                                                    lineNumber: 798,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                            lineNumber: 767,
+                                                            lineNumber: 788,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 740,
+                                                        lineNumber: 761,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, booking._id, true, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 703,
+                                                lineNumber: 710,
                                                 columnNumber: 19
                                             }, this)),
                                         !isLoading && filteredData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2634,29 +2698,29 @@ function BookingsTable() {
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 812,
+                                                lineNumber: 833,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                            lineNumber: 811,
+                                            lineNumber: 832,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 693,
+                                    lineNumber: 700,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                            lineNumber: 659,
+                            lineNumber: 666,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 658,
+                        lineNumber: 665,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2670,12 +2734,12 @@ function BookingsTable() {
                                         children: "Set Driver Outsourcing Amount"
                                     }, void 0, false, {
                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                        lineNumber: 833,
+                                        lineNumber: 854,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 832,
+                                    lineNumber: 853,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2688,7 +2752,7 @@ function BookingsTable() {
                                                 children: "Amount Per Day"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 837,
+                                                lineNumber: 858,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2699,7 +2763,7 @@ function BookingsTable() {
                                                         children: "₦"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 839,
+                                                        lineNumber: 860,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2711,24 +2775,24 @@ function BookingsTable() {
                                                         placeholder: "Enter daily outsource amount"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 842,
+                                                        lineNumber: 863,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 838,
+                                                lineNumber: 859,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                        lineNumber: 836,
+                                        lineNumber: 857,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 835,
+                                    lineNumber: 856,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2741,7 +2805,7 @@ function BookingsTable() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                            lineNumber: 854,
+                                            lineNumber: 875,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2766,7 +2830,7 @@ function BookingsTable() {
                                                         className: "mr-2 h-4 w-4 animate-spin"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                        lineNumber: 884,
+                                                        lineNumber: 905,
                                                         columnNumber: 21
                                                     }, this),
                                                     "Saving..."
@@ -2774,24 +2838,24 @@ function BookingsTable() {
                                             }, void 0, true) : "Confirm Outsourcing"
                                         }, void 0, false, {
                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                            lineNumber: 861,
+                                            lineNumber: 882,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 853,
+                                    lineNumber: 874,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                            lineNumber: 831,
+                            lineNumber: 852,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 827,
+                        lineNumber: 848,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2800,91 +2864,120 @@ function BookingsTable() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center gap-2 text-sm text-muted-foreground",
                                 children: [
-                                    "Showing ",
-                                    currentPage,
-                                    " of ",
-                                    totalPages,
-                                    " Pages"
+                                    "Show",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        value: itemsPerPage,
+                                        onChange: (e)=>setBookingsItemsPerPage(Number(e.target.value)),
+                                        className: "border border-border rounded px-2 py-1 text-sm bg-background",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: 5,
+                                                children: "5"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/logistics/bookings-table.tsx",
+                                                lineNumber: 927,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: 10,
+                                                children: "10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/logistics/bookings-table.tsx",
+                                                lineNumber: 928,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: 20,
+                                                children: "20"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/logistics/bookings-table.tsx",
+                                                lineNumber: 929,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/logistics/bookings-table.tsx",
+                                        lineNumber: 922,
+                                        columnNumber: 13
+                                    }, this),
+                                    "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                lineNumber: 899,
+                                lineNumber: 920,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-2",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-1",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                            variant: "ghost",
+                                className: "flex items-center gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "h-8 w-8",
+                                        disabled: currentPage === 1,
+                                        onClick: ()=>setBookingCurrentPage((prev)=>prev - 1),
+                                        children: "<"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/logistics/bookings-table.tsx",
+                                        lineNumber: 937,
+                                        columnNumber: 13
+                                    }, this),
+                                    Array.from({
+                                        length: totalPages
+                                    }, (_, index)=>{
+                                        const pageNumber = index + 1;
+                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                            variant: currentPage === pageNumber ? "default" : "ghost",
                                             size: "icon",
-                                            className: "h-8 w-8",
-                                            disabled: currentPage === 1 || isLoading,
-                                            onClick: ()=>setCurrentPage((prev)=>Math.max(prev - 1, 1)),
-                                            children: "<"
-                                        }, void 0, false, {
+                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("h-8 w-8", currentPage === pageNumber ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                                             : "text-muted-foreground"),
+                                            onClick: ()=>setBookingCurrentPage(pageNumber),
+                                            children: pageNumber
+                                        }, pageNumber, false, {
                                             fileName: "[project]/components/logistics/bookings-table.tsx",
-                                            lineNumber: 907,
-                                            columnNumber: 15
-                                        }, this),
-                                        Array.from({
-                                            length: totalPages
-                                        }, (_, i)=>i + 1).map((page)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                variant: currentPage === page ? "default" : "ghost",
-                                                size: "icon",
-                                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("h-8 w-8", currentPage === page ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" : "text-muted-foreground"),
-                                                onClick: ()=>setCurrentPage(page),
-                                                children: page
-                                            }, page, false, {
-                                                fileName: "[project]/components/logistics/bookings-table.tsx",
-                                                lineNumber: 920,
-                                                columnNumber: 19
-                                            }, this)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                            variant: "ghost",
-                                            size: "icon",
-                                            className: "h-8 w-8",
-                                            disabled: currentPage === totalPages || isLoading,
-                                            onClick: ()=>setCurrentPage((prev)=>Math.min(prev + 1, totalPages)),
-                                            children: ">"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/logistics/bookings-table.tsx",
-                                            lineNumber: 938,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/logistics/bookings-table.tsx",
-                                    lineNumber: 905,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
+                                            lineNumber: 951,
+                                            columnNumber: 17
+                                        }, this);
+                                    }),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "h-8 w-8",
+                                        disabled: currentPage >= totalPages,
+                                        onClick: ()=>setBookingCurrentPage((prev)=>prev + 1),
+                                        children: ">"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/logistics/bookings-table.tsx",
+                                        lineNumber: 969,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                                lineNumber: 904,
+                                lineNumber: 935,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/logistics/bookings-table.tsx",
-                        lineNumber: 897,
+                        lineNumber: 918,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                lineNumber: 651,
+                lineNumber: 658,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/logistics/bookings-table.tsx",
-                lineNumber: 953,
+                lineNumber: 981,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/logistics/bookings-table.tsx",
-        lineNumber: 351,
+        lineNumber: 358,
         columnNumber: 5
     }, this);
 }

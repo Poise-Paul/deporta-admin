@@ -844,6 +844,7 @@ export type BookingTotalIncomeResponse = {
       amount: number;
     },
   ];
+  prev_percentage: number;
 };
 
 export type BookingTotalResponse = {
@@ -854,13 +855,29 @@ export type BookingTotalResponse = {
       count: number;
     },
   ];
+  prev_percentage: number;
+};
+
+export type DriverAssigned = {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  profile_image: string;
+  email: string;
+};
+
+export type BusAssigned = {
+  _id: string;
+  id_code: string;
+  name_label: string;
+  bus_photos: string[];
 };
 
 export type Booking = {
   _id: string;
-  driver_assigned: string[];
-  buses_assigned: string[];
-  added_by: NormalStaffData;
+  driver_assigned: DriverAssigned[];
+  buses_assigned: BusAssigned[];
+  added_by: CoOperateUser;
   booking_type: string;
   rental_charge_rate: number;
   contract_start: string;
@@ -885,4 +902,48 @@ export type NewBookingPayload = {
   driver_assigned: string[];
   contract_start: string;
   contract_end: string;
+};
+
+export type CoOperateUser = {
+  user_type: {
+    value: string;
+    type_id: {
+      _id: string;
+      company_name: string;
+      registration_number: string;
+      residential_address: string;
+      operating_address: string;
+      business_email: string;
+      official_phone_number: string;
+      referral_code: string;
+      certificate_of_incorporation: string;
+      createdAt: string;
+      updatedAt: string;
+      __v: 0;
+      corporate_hash: string;
+    };
+  };
+  otp: {
+    date: string;
+  };
+  _id: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  profile_image: string;
+  email: string;
+  date_of_birth: any;
+  verify_email: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type CoOperateAccountsResponse = {
+  status: true;
+  corporate: {
+    data: CoOperateUser[];
+    pagination: Pagination;
+  };
 };

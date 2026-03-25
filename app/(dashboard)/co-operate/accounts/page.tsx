@@ -1,4 +1,4 @@
-import { CooperateTable } from "@/components/co-operate/driver-outsourcing-table";
+import { CooperateTable } from "@/components/co-operate/cooperate-accounts";
 
 export default function DriverOutsourcingPage() {
   return (

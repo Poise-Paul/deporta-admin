@@ -136,10 +136,13 @@ export function BookingsTable() {
   const [addOutsourceAmount, setAddOutsourceAmount] = useState<string>("");
   // End Outsource Details
 
+  const [bookingCurPage, setBookingCurrentPage] = useState(1);
+  const [bookingItemsPerPage, setBookingsItemsPerPage] = useState(10);
+
   const { data, isLoading, isRefetching, refetch } = useQuery({
-    queryKey: ["bookings"],
+    queryKey: ["bookings", bookingCurPage, bookingItemsPerPage],
     retry: false,
-    queryFn: getAllBookings,
+    queryFn: () => getAllBookings(bookingCurPage, bookingItemsPerPage),
   });
 
   const {
@@ -204,9 +207,13 @@ export function BookingsTable() {
       // 2. Filter by Search Query
       // We check name, email, or any other relevant field
       const searchLower = searchQuery.toLowerCase();
-      const matchesSearch = item.booking_type
-        ?.toLowerCase()
-        .includes(searchLower);
+      const matchesSearch =
+        !item.added_by || // if added_by is null, always include
+        item.added_by?.user_type?.type_id?.company_name
+          ?.toLowerCase()
+          .includes(searchLower) ||
+        item.added_by?.first_name?.toLowerCase().includes(searchLower) ||
+        item.added_by?.last_name?.toLowerCase().includes(searchLower);
 
       return matchesStatus && matchesSearch;
     });
@@ -659,11 +666,11 @@ export function BookingsTable() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                {/* <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Co-Operate User
-                </th> */}
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
-                  Booking Type
+                  Client
+                </th>
+                <th className="text-left p-4 text-sm font-medium text-muted-foreground">
+                  Client Type
                 </th>
                 <th className="text-left p-4 text-sm font-medium text-muted-foreground">
                   Bus Assigned
@@ -704,12 +711,26 @@ export function BookingsTable() {
                     key={booking._id}
                     className="border-b border-border last:border-0 hover:bg-muted/50"
                   >
-                    <td className="p-4 text-sm font-medium">
-                      {booking.booking_type}
+                    {booking.added_by ? (
+                      <td className="p-4 text-sm font-medium">
+                        {booking.added_by.user_type.value == "corporate"
+                          ? booking.added_by.user_type.type_id.company_name
+                          : `${booking.added_by.first_name} ${booking.added_by.last_name}`}
+                      </td>
+                    ) : (
+                      <td className="p-4 text-sm font-medium">
+                        No user assigned
+                      </td>
+                    )}
+                    <td className="p-4 text-sm capitalize font-medium">
+                      {booking.added_by
+                        ? booking.added_by.user_type.value
+                        : "No User Type"}
                     </td>
-                    <td className="p-4">{booking.buses_assigned.length}</td>
+                    <td className="p-4">{booking.buses_assigned.name_label}</td>
                     <td className="p-4 text-sm text-muted-foreground">
-                      {booking.driver_assigned.length}
+                      {booking.driver_assigned.first_name}{" "}
+                      {booking.driver_assigned.last_name}
                     </td>
 
                     <td className="p-4 text-sm text-muted-foreground">
@@ -895,58 +916,65 @@ export function BookingsTable() {
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-border">
-          {/* Items Info */}
+          {/* Items Per Page Selector */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            Showing {currentPage} of {totalPages} Pages
+            Show
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setBookingsItemsPerPage(Number(e.target.value))}
+              className="border border-border rounded px-2 py-1 text-sm bg-background"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+            </select>
+            per page
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              {/* Previous Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8"
-                disabled={currentPage === 1 || isLoading}
-                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              >
-                {"<"}
-              </Button>
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-1">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 1}
+              onClick={() => setBookingCurrentPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </Button>
 
-              {/* Page Numbers */}
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page) => (
-                  <Button
-                    key={page}
-                    variant={currentPage === page ? "default" : "ghost"}
-                    size="icon"
-                    className={cn(
-                      "h-8 w-8",
-                      currentPage === page
-                        ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90"
-                        : "text-muted-foreground",
-                    )}
-                    onClick={() => setCurrentPage(page)}
-                  >
-                    {page}
-                  </Button>
-                ),
-              )}
+            {/* Dynamic Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <Button
+                  key={pageNumber}
+                  variant={currentPage === pageNumber ? "default" : "ghost"}
+                  size="icon"
+                  className={cn(
+                    "h-8 w-8",
+                    currentPage === pageNumber
+                      ? "bg-[#0A1942] text-white hover:bg-[#0A1942]/90" // Matches your dark blue style
+                      : "text-muted-foreground",
+                  )}
+                  onClick={() => setBookingCurrentPage(pageNumber)}
+                >
+                  {pageNumber}
+                </Button>
+              );
+            })}
 
-              {/* Next Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8"
-                disabled={currentPage === totalPages || isLoading}
-                onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                }
-              >
-                {">"}
-              </Button>
-            </div>
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage >= totalPages}
+              onClick={() => setBookingCurrentPage((prev) => prev + 1)}
+            >
+              {">"}
+            </Button>
           </div>
         </div>
       </CardContent>
