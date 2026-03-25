@@ -1,25 +1,52 @@
-[00:00:00.544] Server  LOG      ✓ Ready in 391ms
-[00:00:08.840] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:09.415] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:09.577] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:09.578] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:09.578] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
-[00:00:09.578] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774441460317} /_vercel/insights/view
-[00:01:12.342] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:12.498] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:01:12.498] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:12.498] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
-[00:01:12.498] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774441523237} /_vercel/insights/view
-[00:01:52.967] Server  LOG      ✓ Compiled in 39ms
-[00:01:53.972] Browser ERROR   ./components/logistics/bookings-table.tsx:732:48
+[00:00:00.465] Server  LOG      ✓ Ready in 297ms
+[00:00:27.463] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:00:27.551] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:27.689] Browser ERROR   uncaughtError: ReferenceError: data is not defined
+[00:00:32.231] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:00:32.285] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:00:32.289] Server  LOG      ✓ Compiled in 42ms
+[00:00:32.335] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:34.143] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:34.143] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:00:34.143] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774446908828} /_vercel/insights/view
+[00:00:49.139] Server  LOG      ✓ Compiled in 34ms
+[00:00:53.480] Server  LOG      ✓ Compiled in 34ms
+[00:01:02.290] Server  LOG      ✓ Compiled in 19ms
+[00:01:02.985] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:12.392] Server  LOG      ✓ Compiled in 37ms
+[00:01:15.134] Server  LOG      ✓ Compiled in 35ms
+[00:01:17.753] Server  LOG      ✓ Compiled in 38ms
+[00:01:21.517] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/vehicle-rentals color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/vehicle-rentals","o":"http://localhost:3000/logistics/vehicle-rentals","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774446957083} /_vercel/insights/view
+[00:01:24.985] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774446960511} /_vercel/insights/view
+[00:01:31.067] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:01:31.797] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:32.033] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:32.033] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:32.033] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:01:32.033] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774446967604} /_vercel/insights/view
+[00:01:35.465] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:02:18.263] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:18.538] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:02:18.538] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:18.538] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:02:18.538] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447014109} /_vercel/insights/view
+[00:02:19.923] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:02:31.045] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:31.285] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:02:31.285] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:31.285] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:02:31.285] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447026856} /_vercel/insights/view
+[00:02:32.650] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:03:08.835] Server  LOG      ✓ Compiled in 31ms
+[00:03:09.142] Browser ERROR   ./components/logistics/bookings-table.tsx:730:50
 Parsing ecmascript source code failed
-  730 |                     <td className="p-4">{booking.buses_assigned.name_label}</td>
+  728 |                         : "No User Type"}
+  729 |                     </td>
+> 730 |                     <td className="p-4">{booking.}</td>
+      |                                                  ^
   731 |                     <td className="p-4 text-sm text-muted-foreground">
-> 732 |                       {booking.driver_assigned.}{" "}
-      |                                                ^
+  732 |                       {booking.driver_assigned.first_name}{" "}
   733 |                       {booking.driver_assigned.last_name}
-  734 |                     </td>
-  735 |
 
 Expected '</', got '}'
 
@@ -27,42 +54,192 @@ Import trace:
   Server Component:
     ./components/logistics/bookings-table.tsx
     ./app/(dashboard)/logistics/bookings/page.tsx
-[00:01:55.973] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: object with keys {_id, first_name, last_name, profile_image, email}). If you meant to render a collection of children, use an array instead.
-[00:01:56.092] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:01:56.154] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:01:56.157] Server  LOG      ✓ Compiled in 26ms
-[00:01:56.204] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:56.974] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:01:56.974] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:56.974] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
-[00:01:56.974] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774441567114} /_vercel/insights/view
-[00:03:09.393] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:03:09.393] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:03:09.393] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774441640090} /_vercel/insights/view
-[00:03:11.584] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774441642313} /_vercel/insights/view
-[00:03:16.100] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:03:16.100] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:03:16.100] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774441646816} /_vercel/insights/view
-[01:13:12.449] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/drivers color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/drivers","o":"http://localhost:3000/app-menu/drivers","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774445843187} /_vercel/insights/view
-[01:24:53.417] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[01:24:53.417] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[01:24:53.417] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774446544130} /_vercel/insights/view
-[01:28:17.450] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774446748179} /_vercel/insights/view
+[00:03:16.143] Browser ERROR   ./components/logistics/bookings-table.tsx:730:50
+Parsing ecmascript source code failed
+  728 |                         : "No User Type"}
+  729 |                     </td>
+> 730 |                     <td className="p-4">{booking.}</td>
+      |                                                  ^
+  731 |                     <td className="p-4 text-sm text-muted-foreground">
+  732 |                       {booking.driver_assigned.first_name}{" "}
+  733 |                       {booking.driver_assigned.last_name}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/logistics/bookings/page.tsx
+[00:03:21.142] Browser ERROR   ./components/logistics/bookings-table.tsx:730:50
+Parsing ecmascript source code failed
+  728 |                         : "No User Type"}
+  729 |                     </td>
+> 730 |                     <td className="p-4">{booking.}</td>
+      |                                                  ^
+  731 |                     <td className="p-4 text-sm text-muted-foreground">
+  732 |                       {booking.driver_assigned.first_name}{" "}
+  733 |                       {booking.driver_assigned.last_name}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/logistics/bookings/page.tsx
+[00:03:24.142] Browser ERROR   ./components/logistics/bookings-table.tsx:730:50
+Parsing ecmascript source code failed
+  728 |                         : "No User Type"}
+  729 |                     </td>
+> 730 |                     <td className="p-4">{booking.}</td>
+      |                                                  ^
+  731 |                     <td className="p-4 text-sm text-muted-foreground">
+  732 |                       {booking.driver_assigned.first_name}{" "}
+  733 |                       {booking.driver_assigned.last_name}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/logistics/bookings/page.tsx
+[00:03:30.142] Browser ERROR   ./components/logistics/bookings-table.tsx:730:50
+Parsing ecmascript source code failed
+  728 |                         : "No User Type"}
+  729 |                     </td>
+> 730 |                     <td className="p-4">{booking.}</td>
+      |                                                  ^
+  731 |                     <td className="p-4 text-sm text-muted-foreground">
+  732 |                       {booking.driver_assigned.first_name}{" "}
+  733 |                       {booking.driver_assigned.last_name}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/logistics/bookings/page.tsx
+[00:03:42.142] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:03:44.128] Server  LOG      ✓ Compiled in 27ms
+[00:03:45.143] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: object with keys {_id, id_code, name_label, bus_photos}). If you meant to render a collection of children, use an array instead.
+[00:03:56.748] Server  LOG      ✓ Compiled in 31ms
+[00:03:57.148] Browser ERROR   ./components/logistics/bookings-table.tsx:730:68
+Parsing ecmascript source code failed
+  728 |                         : "No User Type"}
+  729 |                     </td>
+> 730 |                     <td className="p-4">{booking.buses_assigned[0].}</td>
+      |                                                                    ^
+  731 |                     <td className="p-4 text-sm text-muted-foreground">
+  732 |                       {booking.driver_assigned.first_name}{" "}
+  733 |                       {booking.driver_assigned.last_name}
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/logistics/bookings-table.tsx
+    ./app/(dashboard)/logistics/bookings/page.tsx
+[00:04:25.748] Server  LOG      ✓ Compiled in 36ms
+[00:04:25.889] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:04:25.895] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:25.982] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:27.145] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:04:27.145] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:27.145] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:04:27.145] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447141852} /_vercel/insights/view
+[00:04:28.143] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:04:28.143] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'name_label')
+[00:04:31.306] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:31.364] Server  LOG      ✓ Compiled in 37ms
+[00:04:31.411] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:04:31.505] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:32.147] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:32.147] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:04:32.147] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447147352} /_vercel/insights/view
+[00:04:34.142] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:04:34.142] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'first_name')
+[00:04:51.677] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:51.735] Server  LOG      ✓ Compiled in 34ms
+[00:04:51.789] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:04:51.881] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:53.144] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:53.144] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:04:53.144] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447167739} /_vercel/insights/view
+[00:04:54.143] Browser LOG     Booking Results ✅✅✅ ==  {"booking":{"data":[{"__v":0,"_id":"69bfc6277c5b51762a936e26","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-08-26T00:00:00.000Z","contract_start":"2026-03-25T00:00:00.000Z","createdAt":"2026-03-22T10:36:23.467Z","driver_assigned":["[Object]"],"rental_charge_rate":8470000,"status":"pending","updatedAt":"2026-03-22T10:43:38.372Z"},{"__v":0,"_id":"69bf2be17c5b51762a936be7","added_by":null,"booking_type":"buses-&-drivers","buses_assigned":["[Object]"],"contract_end":"2026-04-04T00:00:00.000Z","contract_start":"2026-03-22T00:00:00.000Z","createdAt":"2026-03-21T23:38:09.934Z","driver_assigned":["[Object]"],"rental_charge_rate":1040000,"status":"pending","updatedAt":"2026-03-21T23:38:09.934Z"},{"__v":0,"_id":"69bf2b6d7c5b51762a936bcd","added_by":null,"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2026-12-25T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T23:36:13.452Z","driver_assigned":["[Object]"],"rental_charge_rate":10950000,"status":"pending","updatedAt":"2026-03-21T23:36:13.452Z"},{"__v":0,"_id":"69be64f927b1b5fcd30e9707","added_by":{"__v":0,"_id":"697d3676ff13088529ec3953","createdAt":"2026-01-30T22:53:42.117Z","date_of_birth":null,"deactivate":false,"email":"victor@example.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1769813619/FqVy2ee9po.png","status":"active","updatedAt":"2026-01-30T22:53:42.117Z","user_type":"[Object]","verify_email":false},"booking_type":"buses","buses_assigned":["[Object]"],"contract_end":"2025-12-26T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-21T09:29:29.464Z","driver_assigned":[],"rental_charge_rate":300,"status":"pending","updatedAt":"2026-03-21T09:31:37.421Z"},{"__v":1,"_id":"69b44a8de81eb4982002c2bb","added_by":{"__v":0,"_id":"69b2ccc2c36d75fcb04c553c","createdAt":"2026-03-12T14:25:06.632Z","date_of_birth":null,"email":"pasivek540@devlug.com","first_name":"Victor","last_name":"Christopher","otp":"[Object]","phone_number":"+234 8120139810","profile_image":"https://res.cloudinary.com/dzkcbkmmm/image/upload/v1773325500/WEUp4RUNY3.png","status":"active","updatedAt":"2026-03-23T20:46:25.865Z","user_type":"[Object]","verify_email":true},"booking_type":"drivers","buses_assigned":[],"contract_end":"2025-12-27T00:00:00.000Z","contract_start":"2025-12-25T00:00:00.000Z","createdAt":"2026-03-13T17:34:05.809Z","driver_assigned":["[Object]"],"paid_at":"2026-03-23T21:47:48.355Z","rental_charge_rate":40,"status":"paid","updatedAt":"2026-03-23T21:47:48.356Z"}],"pagination":{"count":5,"limit":10,"page":1,"totalPages":1}},"status":true}
+[00:04:54.143] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'first_name')
+[00:05:23.956] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:05:24.021] Server  LOG      ✓ Compiled in 34ms
+[00:05:24.087] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:05:24.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:25.145] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:25.145] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:05:25.145] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447200046} /_vercel/insights/view
+[00:05:26.142] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'first_name')
+[00:05:47.669] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:05:47.721] Server  LOG      ✓ Compiled in 25ms
+[00:05:47.774] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:05:47.868] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:49.152] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:49.152] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:05:49.152] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447223726} /_vercel/insights/view
+[00:05:49.502] Server  LOG      ✓ Compiled in 33ms
+[00:05:50.108] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'name_label')
+[00:06:25.810] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:06:25.863] Server  LOG      ✓ Compiled in 32ms
+[00:06:25.914] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:06:26.073] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:26.341] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:06:26.341] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:26.341] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[00:06:26.341] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447261913} /_vercel/insights/view
+[00:06:43.160] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774447278725} /_vercel/insights/view
+[02:58:15.243] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774457570796} /_vercel/insights/view
+[02:58:20.816] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774457576356} /_vercel/insights/view
+[02:59:00.255] Server  LOG      ✓ Compiled in 22ms
+[02:59:02.667] Server  LOG      ✓ Compiled in 27ms
+[02:59:06.536] Server  LOG      ✓ Compiled in 25ms
+[02:59:11.584] Server  LOG      ✓ Compiled in 33ms
+[02:59:12.745] Server  LOG      ✓ Compiled in 26ms
+[02:59:20.120] Server  LOG      ✓ Compiled in 37ms
+[02:59:23.919] Server  LOG      ✓ Compiled in 28ms
+[02:59:59.850] Server  LOG      ✓ Compiled in 27ms
+[03:00:02.699] Server  LOG      ✓ Compiled in 32ms
+[03:00:06.659] Server  LOG      ✓ Compiled in 27ms
+[03:00:09.470] Server  LOG      ✓ Compiled in 34ms
+[03:00:15.079] Server  LOG      ✓ Compiled in 27ms
+[03:23:45.143] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0NDAyNzY1LCJleHAiOjE3NzUwMDc1NjV9.mvujKIoGl6EUe6WDiO0H1p6jxW0RLuJP-6x_wm1a_H8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/bus/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_119579d6._.js:13143:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_119579d6._.js:13888:49)\n    at async getAllBuses (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1267:21)"}
+[03:23:45.143] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0NDAyNzY1LCJleHAiOjE3NzUwMDc1NjV9.mvujKIoGl6EUe6WDiO0H1p6jxW0RLuJP-6x_wm1a_H8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/trip-route/get","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_119579d6._.js:13143:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_119579d6._.js:13888:49)\n    at async getRoutes (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1669:21)"}
+[03:23:45.143] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0NDAyNzY1LCJleHAiOjE3NzUwMDc1NjV9.mvujKIoGl6EUe6WDiO0H1p6jxW0RLuJP-6x_wm1a_H8","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_119579d6._.js:13143:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_119579d6._.js:13888:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_a67ab165._.js:1871:21)"}
+[03:28:31.935] Server  LOG      ✓ Compiled in 38ms
+[03:28:36.225] Server  LOG      ✓ Compiled in 33ms
+[03:28:38.660] Server  LOG      ✓ Compiled in 22ms
+[03:28:54.205] Server  LOG      ✓ Compiled in 31ms
+[03:28:55.220] Server  LOG      ✓ Compiled in 30ms
+[03:49:45.608] Server  LOG      ✓ Compiled in 34ms
+[03:49:52.201] Server  LOG      ✓ Compiled in 21ms
+[03:49:53.594] Server  LOG      ✓ Compiled in 23ms
+[03:49:57.256] Server  LOG      ✓ Compiled in 23ms
+[03:50:00.826] Server  LOG      ✓ Compiled in 32ms
+[03:50:13.053] Server  LOG      ✓ Compiled in 28ms
+[03:50:15.124] Server  LOG      ✓ Compiled in 31ms
+[03:50:19.190] Server  LOG      ✓ Compiled in 25ms
+[03:50:22.219] Server  LOG      ✓ Compiled in 32ms
+[03:53:26.305] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774460881860} /_vercel/insights/view
+[03:53:31.823] Browser ERROR   uncaughtError: ReferenceError: driver is not defined
+[03:53:45.806] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:53:45.856] Server  LOG      ✓ Compiled in 22ms
+[03:53:45.922] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[03:53:45.992] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:53:47.143] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[03:53:47.143] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[03:53:47.143] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774460901732} /_vercel/insights/view
+[03:53:48.142] Browser ERROR   uncaughtError: ReferenceError: driver is not defined
+[03:53:49.498] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:53:49.547] Server  LOG      ✓ Compiled in 21ms
+[03:53:49.594] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[03:53:49.653] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:53:49.986] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[03:53:49.986] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/logistics/bookings","route":"/logistics/bookings"}
+[03:53:49.986] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/logistics/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/logistics/bookings","o":"http://localhost:3000/logistics/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774460905391} /_vercel/insights/view
+[03:53:50.095] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[03:54:37.098] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:54:37.098] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

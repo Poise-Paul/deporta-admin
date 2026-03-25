@@ -727,10 +727,35 @@ export function BookingsTable() {
                         ? booking.added_by.user_type.value
                         : "No User Type"}
                     </td>
-                    <td className="p-4">{booking.buses_assigned.name_label}</td>
+                    <td className="p-4">
+                      {booking.buses_assigned?.length > 0
+                        ? booking.buses_assigned.map((bus) => {
+                            return (
+                              <Badge
+                                key={bus._id}
+                                variant="outline"
+                                className="text-[10px] px-1"
+                              >
+                                {bus.name_label}
+                              </Badge>
+                            );
+                          })
+                        : "No Bus Assigned!"}
+                    </td>
                     <td className="p-4 text-sm text-muted-foreground">
-                      {booking.driver_assigned.first_name}{" "}
-                      {booking.driver_assigned.last_name}
+                      {booking.driver_assigned?.length > 0
+                        ? booking.driver_assigned.map((driver) => {
+                            return (
+                              <Badge
+                                key={driver._id}
+                                variant="outline"
+                                className="text-[10px] px-1"
+                              >
+                                {driver.first_name} {driver.last_name}
+                              </Badge>
+                            );
+                          })
+                        : "No Driver Assigned!"}
                     </td>
 
                     <td className="p-4 text-sm text-muted-foreground">

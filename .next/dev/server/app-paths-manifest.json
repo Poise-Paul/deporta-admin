@@ -1,6 +1,5 @@
 {
-  "/(dashboard)/app-menu/drivers/page": "app/(dashboard)/app-menu/drivers/page.js",
-  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/app-menu/buses/page": "app/(dashboard)/app-menu/buses/page.js",
   "/(dashboard)/logistics/bookings/page": "app/(dashboard)/logistics/bookings/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/(dashboard)/logistics/vehicle-rentals/page": "app/(dashboard)/logistics/vehicle-rentals/page.js"
 }

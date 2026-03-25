@@ -98,6 +98,7 @@ const getAllBookings = async (page = 1, limit = 10)=>{
             limit: limit.toString()
         });
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/booking/get?${params.toString()}`);
+        console.log("Booking Results ✅✅✅ == ", res.data);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
