@@ -2699,3 +2699,471 @@ Import traces:
 [08:34:36.337] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774500399143} /_vercel/insights/view
 [08:35:49.475] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [08:35:49.475] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[08:48:09.691] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses","o":"http://localhost:3000/app-menu/buses","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774501212497} /_vercel/insights/view
+[08:48:14.260] Browser ERROR   In HTML, whitespace text nodes cannot be a child of <%s>. Make sure you don't have any extra whitespace between tags on each line of your source code.
+This will cause a hydration error.%s tbody 
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/app-menu/..." tree={[...]} params={{id:"DEPORTA-2"}} cacheNode={{lazyData:null, ...}} ...>
+            <SegmentViewNode type="page" pagePath="(dashboard...">
+              <SegmentTrieNode>
+              <BusDetailPage>
+                <div className="space-y-6">
+                  <div>
+                  <BusDetails>
+                  <MaintenanceReport busId="DEPORTA-2">
+                    <Card className="bg-card bo...">
+                      <div data-slot="card" className="text-card-...">
+                        <CardHeader>
+                        <CardContent className="p-0">
+                          <div data-slot="card-content" className="p-0">
+                            <div className="overflow-x...">
+                              <table className="w-full">
+                                <thead>
+>                               <tbody>
+>                                 {" "}
+                                  ...
+                            ...
+                        ...
+            ...
+          ...
+
+[08:48:14.260] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/buses/DEPORTA-2 color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/buses/[id]","o":"http://localhost:3000/app-menu/buses/DEPORTA-2","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774501217062} /_vercel/insights/view
+[08:48:31.565] Server  LOG      ✓ Compiled in 28ms
+[08:49:33.286] Server  LOG      ✓ Compiled in 25ms
+[08:50:06.858] Server  LOG      ✓ Compiled in 24ms
+[08:50:21.138] Server  LOG      ✓ Compiled in 24ms
+[08:50:29.346] Server  LOG      ✓ Compiled in 30ms
+[08:50:58.049] Server  LOG      ✓ Compiled in 28ms
+[08:50:58.795] Browser ERROR   ./components/shared/routes-table.tsx:69:33
+Ecmascript file had an error
+  67 | import { Switch } from "../ui/switch";
+  68 | import { useInfiniteQuery } from "@tanstack/react-query";
+> 69 | import { Check, ChevronsUpDown, Search } from "lucide-react";
+     |                                 ^^^^^^
+  70 |
+  71 | type LocationTab = "all" | "active" | "inactive";
+  72 |
+
+the name `Search` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:51:04.046] Server  LOG      ✓ Compiled in 31ms
+[08:52:08.599] Server  LOG      ✓ Compiled in 24ms
+[08:52:13.712] Server  LOG      ✓ Compiled in 58ms
+[08:52:17.593] Server  LOG      ✓ Compiled in 24ms
+[08:53:14.172] Server  LOG      ✓ Compiled in 32ms
+[08:53:26.988] Server  LOG      ✓ Compiled in 31ms
+[08:54:13.911] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774501576717} /_vercel/insights/view
+[08:54:15.428] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[08:54:15.428] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[08:56:51.070] Server  LOG      ✓ Compiled in 28ms
+[08:56:54.559] Server  LOG      ✓ Compiled in 25ms
+[08:56:54.795] Browser ERROR   ./components/shared/routes-table.tsx:137:10
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [pickupSearch, setPickupSearch] = useState("");
+> 137 |   const [pickupSearch, setPickupSearch] = useState("");
+      |          ^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `pickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:56:54.795] Browser ERROR   ./components/shared/routes-table.tsx:137:24
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [pickupSearch, setPickupSearch] = useState("");
+> 137 |   const [pickupSearch, setPickupSearch] = useState("");
+      |                        ^^^^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `setPickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:56:58.585] Server  LOG      ✓ Compiled in 35ms
+[08:56:58.794] Browser ERROR   ./components/shared/routes-table.tsx:137:10
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setPickupSearch] = useState("");
+> 137 |   const [pickupSearch, setPickupSearch] = useState("");
+      |          ^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `pickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:56:58.794] Browser ERROR   ./components/shared/routes-table.tsx:137:24
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setPickupSearch] = useState("");
+> 137 |   const [pickupSearch, setPickupSearch] = useState("");
+      |                        ^^^^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `setPickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:57:04.312] Server  LOG      ✓ Compiled in 25ms
+[08:57:04.796] Browser ERROR   ./components/shared/routes-table.tsx:137:10
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setDropOffSearch] = useState("");
+> 137 |   const [pickupSearch, setPickupSearch] = useState("");
+      |          ^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `pickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:57:04.796] Browser ERROR   ./components/shared/routes-table.tsx:137:24
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setDropOffSearch] = useState("");
+> 137 |   const [pickupSearch, setPickupSearch] = useState("");
+      |                        ^^^^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `setPickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:57:07.961] Server  LOG      ✓ Compiled in 23ms
+[08:57:08.795] Browser ERROR   ./components/shared/routes-table.tsx:137:22
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setDropOffSearch] = useState("");
+> 137 |   const [buysSearch, setPickupSearch] = useState("");
+      |                      ^^^^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `setPickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:57:12.009] Server  LOG      ✓ Compiled in 22ms
+[08:57:12.795] Browser ERROR   ./components/shared/routes-table.tsx:137:17
+Parsing ecmascript source code failed
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setDropOffSearch] = useState("");
+> 137 |   const [busStop[Search, setPickupSearch] = useState("");
+      |                 ^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+Expected ',', got '['
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:57:13.226] Server  LOG      ✓ Compiled in 24ms
+[08:57:13.795] Browser ERROR   ./components/shared/routes-table.tsx:137:25
+Ecmascript file had an error
+  135 |   const [pickupSearch, setPickupSearch] = useState("");
+  136 |   const [dropoffSearch, setDropOffSearch] = useState("");
+> 137 |   const [busStopSearch, setPickupSearch] = useState("");
+      |                         ^^^^^^^^^^^^^^^
+  138 |
+  139 |   // End Locations Filter
+  140 |
+
+the name `setPickupSearch` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:58:26.169] Server  LOG      ✓ Compiled in 23ms
+[08:58:26.795] Browser ERROR   ./components/shared/routes-table.tsx:957:41
+Parsing ecmascript source code failed
+  955 |                             </Button>
+  956 |                           )}
+> 957 |                         </SelectContent>
+      |                                         ^
+> 958 |                       </Select> */}
+      | ^^^^^^^^^^^^^^^^^^^^^^^
+  959 |                     </div>
+  960 |
+  961 |                     {/* Weekly SAcheduler */}
+
+Expected '</', got 'jsx text (
+                      )'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[08:58:29.575] Server  LOG      ✓ Compiled in 23ms
+[08:58:51.280] Server  LOG      ✓ Compiled in 26ms
+[08:58:59.845] Server  LOG      ✓ Compiled in 24ms
+[08:59:01.545] Server  LOG      ✓ Compiled in 27ms
+[08:59:58.784] Server  LOG      ✓ Compiled in 25ms
+[09:00:10.267] Server  LOG      ✓ Compiled in 25ms
+[09:00:12.588] Server  LOG      ✓ Compiled in 38ms
+[09:00:15.536] Server  LOG      ✓ Compiled in 25ms
+[09:00:19.702] Server  LOG      ✓ Compiled in 24ms
+[09:00:25.087] Server  LOG      ✓ Compiled in 25ms
+[09:00:26.821] Server  LOG      ✓ Compiled in 23ms
+[09:00:28.852] Server  LOG      ✓ Compiled in 22ms
+[09:00:33.031] Server  LOG      ✓ Compiled in 21ms
+[09:00:34.165] Server  LOG      ✓ Compiled in 24ms
+[09:00:56.365] Server  LOG      ✓ Compiled in 26ms
+[09:01:01.489] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:01:01.489] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:01:55.348] Server  LOG      ✓ Compiled in 25ms
+[09:01:56.554] Server  LOG      ✓ Compiled in 24ms
+[09:01:56.795] Browser ERROR   ./components/shared/routes-table.tsx:854:78
+Parsing ecmascript source code failed
+  852 |                             <CommandInput placeholder="Search pickup locations..." value=" />
+  853 |                             <CommandEmpty>No location found.</CommandEmpty>
+> 854 |                             <CommandGroup className="max-h-60 overflow-y-auto">
+      |                                                                              ^^
+  855 |                               {allPickupStations?.map((stop) => (
+  856 |                                 <CommandItem
+  857 |                                   key={stop._id}
+
+Unterminated string constant
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:02:03.583] Server  LOG      ✓ Compiled in 24ms
+[09:02:03.687] Browser ERROR   ./components/shared/routes-table.tsx:852:123
+Parsing ecmascript source code failed
+  850 |                         <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+  851 |                           <Command>
+> 852 |                             <CommandInput placeholder="Search pickup locations..." value={pickupSearch} onValueChange={} />
+      |                                                                                                                           ^
+  853 |                             <CommandEmpty>No location found.</CommandEmpty>
+  854 |                             <CommandGroup className="max-h-60 overflow-y-auto">
+  855 |                               {allPickupStations?.map((stop) => (
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:02:09.795] Browser ERROR   uncaughtError: ReferenceError: text is not defined
+[09:02:11.029] Server  LOG      ✓ Compiled in 22ms
+[09:02:11.796] Browser ERROR   ./components/shared/routes-table.tsx:852:130
+Parsing ecmascript source code failed
+  850 |                         <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+  851 |                           <Command>
+> 852 |                             <CommandInput placeholder="Search pickup locations..." value={pickupSearch} onValueChange={(text) => } />
+      |                                                                                                                                  ^
+  853 |                             <CommandEmpty>No location found.</CommandEmpty>
+  854 |                             <CommandGroup className="max-h-60 overflow-y-auto">
+  855 |                               {allPickupStations?.map((stop) => (
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:02:15.863] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[09:02:15.879] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[09:02:15.945] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:02:16.797] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[09:02:16.797] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[09:02:16.797] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[09:02:16.797] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502058971} /_vercel/insights/view
+[09:02:34.783] Server  LOG      ✓ Compiled in 23ms
+[09:02:36.605] Server  LOG      ✓ Compiled in 22ms
+[09:02:36.794] Browser ERROR   uncaughtError: ReferenceError: drop is not defined
+[09:02:38.129] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[09:02:38.193] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[09:02:38.206] Server  LOG      ✓ Compiled in 26ms
+[09:02:38.248] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:02:38.796] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[09:02:38.797] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[09:02:38.797] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[09:02:38.797] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502081239} /_vercel/insights/view
+[09:02:43.720] Server  LOG      ✓ Compiled in 23ms
+[09:03:01.886] Server  LOG      ✓ Compiled in 23ms
+[09:03:09.603] Server  LOG      ✓ Compiled in 26ms
+[09:03:12.600] Server  LOG      ✓ Compiled in 22ms
+[09:03:38.507] Server  LOG      ✓ Compiled in 26ms
+[09:03:45.023] Server  LOG      ✓ Compiled in 25ms
+[09:03:49.448] Server  LOG      ✓ Compiled in 25ms
+[09:03:56.530] Server  LOG      ✓ Compiled in 24ms
+[09:04:26.918] Server  LOG      ✓ Compiled in 30ms
+[09:04:36.268] Server  LOG      ✓ Compiled in 26ms
+[09:05:20.554] Server  LOG      ✓ Compiled in 29ms
+[09:05:38.586] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:05:38.586] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:05:53.373] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/pickup-stations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/pickup-stations","o":"http://localhost:3000/app-menu/pickup-stations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502276181} /_vercel/insights/view
+[09:06:12.462] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502295253} /_vercel/insights/view
+[09:06:13.992] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:06:13.992] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:06:36.860] Server  LOG      ✓ Compiled in 26ms
+[09:06:58.483] Server  LOG      ✓ Compiled in 28ms
+[09:06:58.795] Browser ERROR   ./components/shared/routes-table.tsx:570:34
+Parsing ecmascript source code failed
+  568 |     isFetchingNextPage: isFetchingMoreDropOffs,
+  569 |   } = useInfiniteQuery({
+> 570 |     queryKey: ["dropOffStations".],
+      |                                  ^
+  571 |     initialPageParam: 1,
+  572 |     queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10, dropoffSearch),
+  573 |     getNextPageParam: (lastPage, allPages) => {
+
+Expected ident
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:07:00.807] Browser ERROR   uncaughtError: ReferenceError: drop is not defined
+[09:07:01.889] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[09:07:01.966] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[09:07:01.978] Server  LOG      ✓ Compiled in 27ms
+[09:07:02.027] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[09:07:02.796] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[09:07:02.796] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/app-menu/routes","route":"/app-menu/routes"}
+[09:07:02.796] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502345025} /_vercel/insights/view
+[09:07:09.612] Server  LOG      ✓ Compiled in 31ms
+[09:07:09.937] Browser WARN    Image with src "http://localhost:3000/Deporta-Logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[09:07:47.328] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes/[id]","o":"http://localhost:3000/app-menu/routes/69c192470ffd68cf2720f53c","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502390133} /_vercel/insights/view
+[09:07:49.756] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502392561} /_vercel/insights/view
+[09:07:53.096] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:07:53.096] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:08:44.423] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/dropoff-locations color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/dropoff-locations","o":"http://localhost:3000/app-menu/dropoff-locations","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502447232} /_vercel/insights/view
+[09:09:07.103] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/app-menu/routes color: rgb(120, 120, 120) color: inherit {"dp":"/app-menu/routes","o":"http://localhost:3000/app-menu/routes","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1774502469892} /_vercel/insights/view
+[09:09:08.651] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:09:08.651] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:09:42.510] Server  LOG      ✓ Compiled in 28ms
+[09:09:42.796] Browser ERROR   ./components/shared/routes-table.tsx:585:5
+Ecmascript file had an error
+  583 |     hasNextPage: hasNextBusStopPage,
+  584 |     isFetchingNextPage: isFetchingMoreBusStops,
+> 585 |     isLoading
+      |     ^^^^^^^^^
+  586 |   } = useInfiniteQuery({
+  587 |     queryKey: ["busStops", busStopSearch],
+  588 |     initialPageParam: 1,
+
+the name `isLoading` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:09:44.424] Server  LOG      ✓ Compiled in 24ms
+[09:09:44.795] Browser ERROR   ./components/shared/routes-table.tsx:586:3
+Parsing ecmascript source code failed
+  584 |     isFetchingNextPage: isFetchingMoreBusStops,
+  585 |     isLoading:
+> 586 |   } = useInfiniteQuery({
+      |   ^
+  587 |     queryKey: ["busStops", busStopSearch],
+  588 |     initialPageParam: 1,
+  589 |     queryFn: ({ pageParam = 1 }) => getAllBusStops(pageParam, 10, busStopSearch),
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:09:50.978] Server  LOG      ✓ Compiled in 24ms
+[09:09:56.508] Server  LOG      ✓ Compiled in 24ms
+[09:10:02.463] Server  LOG      ✓ Compiled in 22ms
+[09:10:02.796] Browser ERROR   ./components/shared/routes-table.tsx:570:3
+Parsing ecmascript source code failed
+  568 |     isFetchingNextPage: isFetchingMoreDropOffs,
+  569 |     isLoading: 
+> 570 |   } = useInfiniteQuery({
+      |   ^
+  571 |     queryKey: ["dropOffStations", dropoffSearch],
+  572 |     initialPageParam: 1,
+  573 |     queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10, dropoffSearch),
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:10:09.152] Server  LOG      ✓ Compiled in 22ms
+[09:10:12.190] Server  LOG      ✓ Compiled in 22ms
+[09:10:12.797] Browser ERROR   ./components/shared/routes-table.tsx:554:5
+Ecmascript file had an error
+  552 |     hasNextPage: hasNextPickupPage,
+  553 |     isFetchingNextPage: isFetchingMorePickups,
+> 554 |     isLoading
+      |     ^^^^^^^^^
+  555 |   } = useInfiniteQuery({
+  556 |     queryKey: ["pickupStations", pickupSearch],
+  557 |     initialPageParam: 1,
+
+the name `isLoading` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:10:14.135] Server  LOG      ✓ Compiled in 24ms
+[09:10:14.794] Browser ERROR   ./components/shared/routes-table.tsx:555:3
+Parsing ecmascript source code failed
+  553 |     isFetchingNextPage: isFetchingMorePickups,
+  554 |     isLoading: 
+> 555 |   } = useInfiniteQuery({
+      |   ^
+  556 |     queryKey: ["pickupStations", pickupSearch],
+  557 |     initialPageParam: 1,
+  558 |     queryFn: ({ pageParam = 1 }) => getPickupStations(pageParam, 10, pickupSearch),
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Server Component:
+    ./components/shared/routes-table.tsx
+    ./app/(dashboard)/app-menu/routes/page.tsx
+[09:10:38.686] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:10:38.686] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[09:15:07.797] Browser ERROR   Fetch User Error: {"code":"ECONNABORTED","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://thalia-diachronic-lisette.ngrok-free.dev","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDkiLCJ1c2VyX3R5cGUiOnsidmFsdWUiOiJhZG1pbiIsInR5cGVfaWQiOiI2OTYxYTk5ZmNiNDBiZDM3NTc2N2ZjMDcifSwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc0NDc2MTgyLCJleHAiOjE3NzUwODA5ODJ9.Gtt7TZjw8-7DoaEp8tVdiNTsWtHnRaiEPeOw1UbXnoI","Content-Type":"application/json","ngrok-skip-browser-warning":"true"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":15000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/users/admin/staffs","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"timeout of 15000ms exceeded","name":"AxiosError","stack":"AxiosError: timeout of 15000ms exceeded\n    at XMLHttpRequest.handleTimeout (http://localhost:3000/_next/static/chunks/node_modules_8dd498bf._.js:15373:20)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_8dd498bf._.js:16118:49)\n    at async getStaffList (http://localhost:3000/_next/static/chunks/_13e1030b._.js:686:21)"}
+[13:41:53.268] Server  LOG      ✓ Compiled in 33ms

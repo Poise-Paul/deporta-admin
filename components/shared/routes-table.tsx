@@ -66,6 +66,19 @@ import { updateSelRoute } from "@/lib/store/slices/route-slice";
 import { getDropOffStations } from "@/api/drop-off-locations";
 import { Switch } from "../ui/switch";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { Check, ChevronsUpDown } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command";
 
 type LocationTab = "all" | "active" | "inactive";
 
@@ -113,6 +126,17 @@ export function RoutesTable({
   const modifyTripRoute = useModifyRoutes();
 
   const deleteMutation = useDeleteRoute();
+
+  // Locations Filter
+  const [openPickup, setOpenPickup] = useState(false);
+  const [openDropOff, setOpenDropOff] = useState(false);
+  const [openBusStop, setOpenBusStop] = useState(false);
+
+  const [pickupSearch, setPickupSearch] = useState("");
+  const [dropoffSearch, setDropOffSearch] = useState("");
+  const [busStopSearch, setBusStopSearch] = useState("");
+
+  // End Locations Filter
 
   const {
     data: tripRoutes,
@@ -527,10 +551,11 @@ export function RoutesTable({
     fetchNextPage: fetchNextPickupPage,
     hasNextPage: hasNextPickupPage,
     isFetchingNextPage: isFetchingMorePickups,
+    isLoading: pickupLoader
   } = useInfiniteQuery({
-    queryKey: ["pickupStations"],
+    queryKey: ["pickupStations", pickupSearch],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getPickupStations(pageParam, 10),
+    queryFn: ({ pageParam = 1 }) => getPickupStations(pageParam, 10, pickupSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages = lastPage?.pickup_station?.pagination?.totalPages || 1;
       return allPages.length < totalPages ? allPages.length + 1 : undefined;
@@ -542,10 +567,11 @@ export function RoutesTable({
     fetchNextPage: fetchNextDropOffPage,
     hasNextPage: hasNextDropOffPage,
     isFetchingNextPage: isFetchingMoreDropOffs,
+    isLoading: dropOffLoader
   } = useInfiniteQuery({
-    queryKey: ["dropOffStations"],
+    queryKey: ["dropOffStations", dropoffSearch],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10),
+    queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10, dropoffSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages =
         lastPage?.drop_off_station?.pagination?.totalPages || 1;
@@ -558,10 +584,11 @@ export function RoutesTable({
     fetchNextPage: fetchNextBusStopPage,
     hasNextPage: hasNextBusStopPage,
     isFetchingNextPage: isFetchingMoreBusStops,
+    isLoading:busStopLoader
   } = useInfiniteQuery({
-    queryKey: ["busStops"],
+    queryKey: ["busStops", busStopSearch],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getAllBusStops(pageParam, 10),
+    queryFn: ({ pageParam = 1 }) => getAllBusStops(pageParam, 10, busStopSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages = lastPage?.bus_stop?.pagination?.totalPages || 1;
       return allPages.length < totalPages ? allPages?.length + 1 : undefined;
@@ -757,7 +784,7 @@ export function RoutesTable({
                         Starting Point
                       </Label>
 
-                      <Select
+                      {/* <Select
                         onValueChange={(id) => {
                           // Search in the same data source you used for the list!
                           const station = allPickupStations?.find(
@@ -804,7 +831,83 @@ export function RoutesTable({
                             </Button>
                           )}
                         </SelectContent>
-                      </Select>
+                      </Select> */}
+
+                      {/* New Test */}
+                      <Popover open={openPickup} onOpenChange={setOpenPickup}>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            role="combobox"
+                            aria-expanded={openPickup}
+                            className="w-full justify-between bg-background font-normal"
+                          >
+                            <span className="truncate">
+                              {watch("starting_point.value") ||
+                                "Select Pickup Location"}
+                            </span>
+                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                          </Button>
+                        </PopoverTrigger>
+                        {/* Match the width of the trigger button exactly */}
+                        <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                          <Command>
+                            <CommandInput
+                              placeholder="Search pickup locations..."
+                              value={pickupSearch}
+                              onValueChange={(text) => setPickupSearch(text)}
+                            />
+                            <CommandEmpty>No location found.</CommandEmpty>
+                            <CommandGroup className="max-h-60 overflow-y-auto">
+                              {allPickupStations?.map((stop) => (
+                                <CommandItem
+                                  key={stop._id}
+                                  value={stop.address.value} // cmdk filters by this value
+                                  onSelect={() => {
+                                    setValue("starting_point", {
+                                      value: stop.address.value.toLowerCase(),
+                                      location_id: stop._id,
+                                      coordinates:
+                                        stop.address.location.coordinates,
+                                    });
+                                    setOpenPickup(false);
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      watch("starting_point.location_id") ===
+                                        stop._id
+                                        ? "opacity-100"
+                                        : "opacity-0",
+                                    )}
+                                  />
+                                  {stop.address.value}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+
+                            {/* Load More Button inside the Popover but outside the scrolling Group */}
+                            {hasNextPickupPage && (
+                              <div className="p-1 border-t">
+                                <Button
+                                  variant="ghost"
+                                  className="w-full text-sm"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    fetchNextPickupPage();
+                                  }}
+                                  disabled={isFetchingMorePickups}
+                                >
+                                  {isFetchingMorePickups
+                                    ? "Loading..."
+                                    : "Load More"}
+                                </Button>
+                              </div>
+                            )}
+                          </Command>
+                        </PopoverContent>
+                      </Popover>
                     </div>
 
                     <div className="space-y-3 p-3 border rounded-lg bg-muted/20">
@@ -812,9 +915,8 @@ export function RoutesTable({
                         Destination
                       </Label>
 
-                      <Select
+                      {/* <Select
                         onValueChange={(id) => {
-                          // Search in the same data source you used for the list!
                           const station = allDropOffStations.find(
                             (s) => s._id === id,
                           );
@@ -842,7 +944,6 @@ export function RoutesTable({
                               {stop.address.value}
                             </SelectItem>
                           ))}
-                          {/* Dropdown more list */}
                           {hasNextDropOffPage && (
                             <Button
                               variant="ghost"
@@ -859,7 +960,80 @@ export function RoutesTable({
                             </Button>
                           )}
                         </SelectContent>
-                      </Select>
+                      </Select> */}
+
+                      <Popover open={openDropOff} onOpenChange={setOpenDropOff}>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            role="combobox"
+                            aria-expanded={openDropOff}
+                            className="w-full justify-between bg-background font-normal"
+                          >
+                            <span className="truncate">
+                              {watch("destination.value") ||
+                                "Select Drop Off Location"}
+                            </span>
+                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                          <Command>
+                            <CommandInput
+                              placeholder="Search drop off locations..."
+                              value={dropoffSearch}
+                              onValueChange={(text) => setDropOffSearch(text)}
+                            />
+                            <CommandEmpty>No location found.</CommandEmpty>
+                            <CommandGroup className="max-h-60 overflow-y-auto">
+                              {allDropOffStations?.map((stop) => (
+                                <CommandItem
+                                  key={stop._id}
+                                  value={stop.address.value}
+                                  onSelect={() => {
+                                    setValue("destination", {
+                                      value: stop.address.value.toLowerCase(),
+                                      location_id: stop._id,
+                                      coordinates:
+                                        stop.address.location.coordinates,
+                                    });
+                                    setOpenDropOff(false);
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      watch("destination.location_id") ===
+                                        stop._id
+                                        ? "opacity-100"
+                                        : "opacity-0",
+                                    )}
+                                  />
+                                  {stop.address.value}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+
+                            {hasNextDropOffPage && (
+                              <div className="p-1 border-t">
+                                <Button
+                                  variant="ghost"
+                                  className="w-full text-sm"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    fetchNextDropOffPage();
+                                  }}
+                                  disabled={isFetchingMoreDropOffs}
+                                >
+                                  {isFetchingMoreDropOffs
+                                    ? "Loading..."
+                                    : "Load More"}
+                                </Button>
+                              </div>
+                            )}
+                          </Command>
+                        </PopoverContent>
+                      </Popover>
                     </div>
 
                     {/* Weekly SAcheduler */}
@@ -1090,10 +1264,9 @@ export function RoutesTable({
                         <label className="text-sm font-medium">
                           Select Bus-Stops Along this Route
                         </label>
-                        <Select
-                          value="" // Keep placeholder visible
+                        {/* <Select
+                          value=""
                           onValueChange={(id) => {
-                            // 1. Find the full stop object from your data source
                             const selectedStop = allBusStops?.find(
                               (s) => s._id === id,
                             );
@@ -1102,7 +1275,6 @@ export function RoutesTable({
                               const currentStops =
                                 watch("number_of_stops") || [];
 
-                              // 2. Create the EntryPoint object
                               const newEntry: BusStopEntryPoint = {
                                 value: selectedStop.address.value.toLowerCase(),
                                 location_id: selectedStop._id,
@@ -1110,7 +1282,6 @@ export function RoutesTable({
                                   selectedStop.address.location.coordinates,
                               };
 
-                              // 3. Check for duplicates based on coordinates or value
                               const isDuplicate = currentStops.some(
                                 (s) => s.value === newEntry.value,
                               );
@@ -1131,7 +1302,6 @@ export function RoutesTable({
                             {allBusStops
                               .filter(
                                 (stop) =>
-                                  // Filter out if the location value already exists in the number_of_stops array
                                   !watch("number_of_stops")?.some(
                                     (s) =>
                                       s.value ===
@@ -1143,7 +1313,6 @@ export function RoutesTable({
                                   {stop.address.value}
                                 </SelectItem>
                               ))}
-                            {/* Has More Bus Stops */}
                             {hasNextBusStopPage && (
                               <Button
                                 variant="ghost"
@@ -1160,7 +1329,92 @@ export function RoutesTable({
                               </Button>
                             )}
                           </SelectContent>
-                        </Select>
+                        </Select> */}
+
+                        <Popover
+                          open={openBusStop}
+                          onOpenChange={setOpenBusStop}
+                        >
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              role="combobox"
+                              aria-expanded={openBusStop}
+                              className="w-full justify-between bg-transparent font-normal"
+                            >
+                              <span className="text-muted-foreground">
+                                Search and add bus-stops...
+                              </span>
+                              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                            <Command>
+                              <CommandInput
+                                placeholder="Search bus stops..."
+                                value={busStopSearch}
+                                onValueChange={(text) => setBusStopSearch(text)}
+                              />
+                              <CommandEmpty>No bus stops found.</CommandEmpty>
+                              <CommandGroup className="max-h-60 overflow-y-auto">
+                                {allBusStops
+                                  ?.filter(
+                                    (stop) =>
+                                      !watch("number_of_stops")?.some(
+                                        (s) =>
+                                          s.value ===
+                                          stop.address.value.toLowerCase(),
+                                      ),
+                                  )
+                                  .map((stop) => (
+                                    <CommandItem
+                                      key={stop._id}
+                                      value={stop.address.value}
+                                      onSelect={() => {
+                                        const currentStops =
+                                          watch("number_of_stops") || [];
+                                        const newEntry = {
+                                          value:
+                                            stop.address.value.toLowerCase(),
+                                          location_id: stop._id,
+                                          coordinates:
+                                            stop.address.location.coordinates,
+                                        };
+                                        setValue("number_of_stops", [
+                                          ...currentStops,
+                                          newEntry,
+                                        ]);
+                                        // Note: Intentionally NOT setting openBusStop to false here
+                                        // so they can keep clicking to add multiple stops!
+                                      }}
+                                    >
+                                      <Plus className="mr-2 h-4 w-4" />{" "}
+                                      {/* Swapped Check for Plus */}
+                                      {stop.address.value}
+                                    </CommandItem>
+                                  ))}
+                              </CommandGroup>
+
+                              {hasNextBusStopPage && (
+                                <div className="p-1 border-t">
+                                  <Button
+                                    variant="ghost"
+                                    className="w-full text-sm"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      fetchNextBusStopPage();
+                                    }}
+                                    disabled={isFetchingMoreBusStops}
+                                  >
+                                    {isFetchingMoreBusStops
+                                      ? "Loading..."
+                                      : "Load More"}
+                                  </Button>
+                                </div>
+                              )}
+                            </Command>
+                          </PopoverContent>
+                        </Popover>
 
                         {/* 2. Display Selected Bus-Stops as Badges */}
                         <div className="flex flex-wrap gap-2 mt-3">

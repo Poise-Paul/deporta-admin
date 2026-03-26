@@ -347,7 +347,6 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
             <tbody>
               {isLoading ? (
                 <>
-                  {" "}
                   {[...Array(5)].map((_, i) => (
                     <TableRowSkeleton key={i} />
                   ))}

@@ -23,12 +23,17 @@ export interface BusStopPayload {
 export const getAllBusStops = async (
   page: number = 1,
   limit: number = 10,
+  search?: string,
+  status?: string,
 ): Promise<BusStopData> => {
   try {
     const params = new URLSearchParams({
       page: page.toString(),
       limit: limit.toString(),
     });
+
+    if (search) params.append("search", search);
+    if (status && status !== "all") params.append("status", status);
 
     const res = await api.get(
       `/api/users/admin/bus-stop/get?${params.toString()}`,

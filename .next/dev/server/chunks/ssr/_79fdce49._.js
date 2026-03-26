@@ -1384,12 +1384,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$bu
 ;
 ;
 ;
-const getAllBusStops = async (page = 1, limit = 10)=>{
+const getAllBusStops = async (page = 1, limit = 10, search, status)=>{
     try {
         const params = new URLSearchParams({
             page: page.toString(),
             limit: limit.toString()
         });
+        if (search) params.append("search", search);
+        if (status && status !== "all") params.append("status", status);
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/bus-stop/get?${params.toString()}`);
         return res.data;
     } catch (error) {
@@ -1711,6 +1713,268 @@ function Switch({ className, ...props }) {
 }
 ;
 }),
+"[project]/components/ui/popover.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Popover",
+    ()=>Popover,
+    "PopoverAnchor",
+    ()=>PopoverAnchor,
+    "PopoverContent",
+    ()=>PopoverContent,
+    "PopoverTrigger",
+    ()=>PopoverTrigger
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popover$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-popover/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-ssr] (ecmascript)");
+'use client';
+;
+;
+;
+function Popover({ ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popover$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Root"], {
+        "data-slot": "popover",
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/popover.tsx",
+        lineNumber: 11,
+        columnNumber: 10
+    }, this);
+}
+function PopoverTrigger({ ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popover$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Trigger"], {
+        "data-slot": "popover-trigger",
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/popover.tsx",
+        lineNumber: 17,
+        columnNumber: 10
+    }, this);
+}
+function PopoverContent({ className, align = 'center', sideOffset = 4, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popover$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Portal"], {
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popover$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Content"], {
+            "data-slot": "popover-content",
+            align: align,
+            sideOffset: sideOffset,
+            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden', className),
+            ...props
+        }, void 0, false, {
+            fileName: "[project]/components/ui/popover.tsx",
+            lineNumber: 28,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/components/ui/popover.tsx",
+        lineNumber: 27,
+        columnNumber: 5
+    }, this);
+}
+function PopoverAnchor({ ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popover$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Anchor"], {
+        "data-slot": "popover-anchor",
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/popover.tsx",
+        lineNumber: 45,
+        columnNumber: 10
+    }, this);
+}
+;
+}),
+"[project]/components/ui/command.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Command",
+    ()=>Command,
+    "CommandDialog",
+    ()=>CommandDialog,
+    "CommandEmpty",
+    ()=>CommandEmpty,
+    "CommandGroup",
+    ()=>CommandGroup,
+    "CommandInput",
+    ()=>CommandInput,
+    "CommandItem",
+    ()=>CommandItem,
+    "CommandList",
+    ()=>CommandList,
+    "CommandSeparator",
+    ()=>CommandSeparator,
+    "CommandShortcut",
+    ()=>CommandShortcut
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/cmdk/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__SearchIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-ssr] (ecmascript) <export default as SearchIcon>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/dialog.tsx [app-ssr] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+function Command({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"], {
+        "data-slot": "command",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 21,
+        columnNumber: 5
+    }, this);
+}
+function CommandDialog({ title = 'Command Palette', description = 'Search for a command to run...', children, className, showCloseButton = true, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
+        ...props,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogHeader"], {
+                className: "sr-only",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogTitle"], {
+                        children: title
+                    }, void 0, false, {
+                        fileName: "[project]/components/ui/command.tsx",
+                        lineNumber: 48,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogDescription"], {
+                        children: description
+                    }, void 0, false, {
+                        fileName: "[project]/components/ui/command.tsx",
+                        lineNumber: 49,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/ui/command.tsx",
+                lineNumber: 47,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
+                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('overflow-hidden p-0', className),
+                showCloseButton: showCloseButton,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Command, {
+                    className: "[&_[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5",
+                    children: children
+                }, void 0, false, {
+                    fileName: "[project]/components/ui/command.tsx",
+                    lineNumber: 55,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/ui/command.tsx",
+                lineNumber: 51,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 46,
+        columnNumber: 5
+    }, this);
+}
+function CommandInput({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "command-input-wrapper",
+        className: "flex h-9 items-center gap-2 border-b px-3",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__SearchIcon$3e$__["SearchIcon"], {
+                className: "size-4 shrink-0 opacity-50"
+            }, void 0, false, {
+                fileName: "[project]/components/ui/command.tsx",
+                lineNumber: 72,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"].Input, {
+                "data-slot": "command-input",
+                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50', className),
+                ...props
+            }, void 0, false, {
+                fileName: "[project]/components/ui/command.tsx",
+                lineNumber: 73,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 68,
+        columnNumber: 5
+    }, this);
+}
+function CommandList({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"].List, {
+        "data-slot": "command-list",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 90,
+        columnNumber: 5
+    }, this);
+}
+function CommandEmpty({ ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"].Empty, {
+        "data-slot": "command-empty",
+        className: "py-6 text-center text-sm",
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 105,
+        columnNumber: 5
+    }, this);
+}
+function CommandGroup({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"].Group, {
+        "data-slot": "command-group",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('text-foreground [&_[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 118,
+        columnNumber: 5
+    }, this);
+}
+function CommandSeparator({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"].Separator, {
+        "data-slot": "command-separator",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('bg-border -mx-1 h-px', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 134,
+        columnNumber: 5
+    }, this);
+}
+function CommandItem({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$cmdk$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"].Item, {
+        "data-slot": "command-item",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 147,
+        columnNumber: 5
+    }, this);
+}
+function CommandShortcut({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+        "data-slot": "command-shortcut",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('text-muted-foreground ml-auto text-xs tracking-widest', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/command.tsx",
+        lineNumber: 163,
+        columnNumber: 5
+    }, this);
+}
+;
+}),
 "[project]/components/shared/routes-table.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -1753,7 +2017,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useInfiniteQuery.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/check.js [app-ssr] (ecmascript) <export default as Check>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$up$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsUpDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevrons-up-down.js [app-ssr] (ecmascript) <export default as ChevronsUpDown>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/popover.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/command.tsx [app-ssr] (ecmascript)");
 "use client";
+;
+;
 ;
 ;
 ;
@@ -1810,6 +2078,9 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
     const [openPickup, setOpenPickup] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [openDropOff, setOpenDropOff] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [openBusStop, setOpenBusStop] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [pickupSearch, setPickupSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [dropoffSearch, setDropOffSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [busStopSearch, setBusStopSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     // End Locations Filter
     const { data: tripRoutes, refetch, isLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
@@ -2161,25 +2432,25 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                 className: "h-8 w-8 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                lineNumber: 508,
+                                lineNumber: 524,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-4 w-32"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                lineNumber: 509,
+                                lineNumber: 525,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 507,
+                        lineNumber: 523,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 506,
+                    lineNumber: 522,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2188,12 +2459,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                         className: "h-4 w-20"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 513,
+                        lineNumber: 529,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 512,
+                    lineNumber: 528,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2202,12 +2473,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                         className: "h-4 w-40"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 516,
+                        lineNumber: 532,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 515,
+                    lineNumber: 531,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2216,12 +2487,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                         className: "h-4 w-24"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 519,
+                        lineNumber: 535,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 518,
+                    lineNumber: 534,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2230,12 +2501,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                         className: "h-4 w-28"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 522,
+                        lineNumber: 538,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 521,
+                    lineNumber: 537,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2244,12 +2515,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                         className: "h-5 w-16 rounded-full"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 525,
+                        lineNumber: 541,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 524,
+                    lineNumber: 540,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2258,48 +2529,51 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                         className: "h-8 w-8 rounded-md"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 528,
+                        lineNumber: 544,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 527,
+                    lineNumber: 543,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/shared/routes-table.tsx",
-            lineNumber: 505,
+            lineNumber: 521,
             columnNumber: 5
         }, this);
-    const { data: pickupStations, fetchNextPage: fetchNextPickupPage, hasNextPage: hasNextPickupPage, isFetchingNextPage: isFetchingMorePickups } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInfiniteQuery"])({
+    const { data: pickupStations, fetchNextPage: fetchNextPickupPage, hasNextPage: hasNextPickupPage, isFetchingNextPage: isFetchingMorePickups, isLoading: pickupLoader } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInfiniteQuery"])({
         queryKey: [
-            "pickupStations"
+            "pickupStations",
+            pickupSearch
         ],
         initialPageParam: 1,
-        queryFn: ({ pageParam = 1 })=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$pick$2d$up$2d$stations$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getPickupStations"])(pageParam, 10),
+        queryFn: ({ pageParam = 1 })=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$pick$2d$up$2d$stations$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getPickupStations"])(pageParam, 10, pickupSearch),
         getNextPageParam: (lastPage, allPages)=>{
             const totalPages = lastPage?.pickup_station?.pagination?.totalPages || 1;
             return allPages.length < totalPages ? allPages.length + 1 : undefined;
         }
     });
-    const { data: dropOffStations, fetchNextPage: fetchNextDropOffPage, hasNextPage: hasNextDropOffPage, isFetchingNextPage: isFetchingMoreDropOffs } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInfiniteQuery"])({
+    const { data: dropOffStations, fetchNextPage: fetchNextDropOffPage, hasNextPage: hasNextDropOffPage, isFetchingNextPage: isFetchingMoreDropOffs, isLoading: dropOffLoader } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInfiniteQuery"])({
         queryKey: [
-            "dropOffStations"
+            "dropOffStations",
+            dropoffSearch
         ],
         initialPageParam: 1,
-        queryFn: ({ pageParam = 1 })=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getDropOffStations"])(pageParam, 10),
+        queryFn: ({ pageParam = 1 })=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$drop$2d$off$2d$locations$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getDropOffStations"])(pageParam, 10, dropoffSearch),
         getNextPageParam: (lastPage, allPages)=>{
             const totalPages = lastPage?.drop_off_station?.pagination?.totalPages || 1;
             return allPages.length < totalPages ? allPages.length + 1 : undefined;
         }
     });
-    const { data: busStops, fetchNextPage: fetchNextBusStopPage, hasNextPage: hasNextBusStopPage, isFetchingNextPage: isFetchingMoreBusStops } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInfiniteQuery"])({
+    const { data: busStops, fetchNextPage: fetchNextBusStopPage, hasNextPage: hasNextBusStopPage, isFetchingNextPage: isFetchingMoreBusStops, isLoading: busStopLoader } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useInfiniteQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInfiniteQuery"])({
         queryKey: [
-            "busStops"
+            "busStops",
+            busStopSearch
         ],
         initialPageParam: 1,
-        queryFn: ({ pageParam = 1 })=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAllBusStops"])(pageParam, 10),
+        queryFn: ({ pageParam = 1 })=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$bus$2d$stops$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAllBusStops"])(pageParam, 10, busStopSearch),
         getNextPageParam: (lastPage, allPages)=>{
             const totalPages = lastPage?.bus_stop?.pagination?.totalPages || 1;
             return allPages.length < totalPages ? allPages?.length + 1 : undefined;
@@ -2347,7 +2621,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 650,
+                                    lineNumber: 669,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2357,7 +2631,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                     className: "pl-9 pr-2 w-72 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 651,
+                                    lineNumber: 670,
                                     columnNumber: 13
                                 }, this),
                                 searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2369,18 +2643,18 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 664,
+                                        lineNumber: 683,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 658,
+                                    lineNumber: 677,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/routes-table.tsx",
-                            lineNumber: 649,
+                            lineNumber: 668,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2396,12 +2670,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             children: tab.id === "all" ? `All ${title}` : tab.label
                                         }, tab.id, false, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 673,
+                                            lineNumber: 692,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 671,
+                                    lineNumber: 690,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2417,19 +2691,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 692,
+                                                        lineNumber: 711,
                                                         columnNumber: 19
                                                     }, this),
                                                     addButtonText
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 691,
+                                                lineNumber: 710,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 690,
+                                            lineNumber: 709,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2443,12 +2717,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 698,
+                                                        lineNumber: 717,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 697,
+                                                    lineNumber: 716,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2467,7 +2741,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: "Rate"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 704,
+                                                                                lineNumber: 723,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2478,7 +2752,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         children: "₦"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 707,
+                                                                                        lineNumber: 726,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2489,19 +2763,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 711,
+                                                                                        lineNumber: 730,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 705,
+                                                                                lineNumber: 724,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 703,
+                                                                        lineNumber: 722,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2512,7 +2786,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: "Flat Rate"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 721,
+                                                                                lineNumber: 740,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2523,7 +2797,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         children: "₦"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 723,
+                                                                                        lineNumber: 742,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2534,25 +2808,25 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 726,
+                                                                                        lineNumber: 745,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 722,
+                                                                                lineNumber: 741,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 720,
+                                                                        lineNumber: 739,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 702,
+                                                                lineNumber: 721,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2566,7 +2840,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: "Rate Per KM"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 739,
+                                                                                lineNumber: 758,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2577,7 +2851,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         children: "₦"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 741,
+                                                                                        lineNumber: 760,
                                                                                         columnNumber: 27
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2588,19 +2862,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 744,
+                                                                                        lineNumber: 763,
                                                                                         columnNumber: 27
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 740,
+                                                                                lineNumber: 759,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 738,
+                                                                        lineNumber: 757,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2611,7 +2885,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: "Code"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 754,
+                                                                                lineNumber: 773,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2620,19 +2894,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 placeholder: "Enter Code"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 755,
+                                                                                lineNumber: 774,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 753,
+                                                                        lineNumber: 772,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 737,
+                                                                lineNumber: 756,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2643,14 +2917,14 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "Starting Point"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 764,
+                                                                        lineNumber: 783,
                                                                         columnNumber: 23
                                                                     }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Popover, {
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
                                                                         open: openPickup,
                                                                         onOpenChange: setOpenPickup,
                                                                         children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PopoverTrigger, {
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverTrigger"], {
                                                                                 asChild: true,
                                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                                                                     variant: "outline",
@@ -2663,48 +2937,50 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                             children: watch("starting_point.value") || "Select Pickup Location"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 826,
+                                                                                            lineNumber: 845,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$up$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsUpDown$3e$__["ChevronsUpDown"], {
                                                                                             className: "ml-2 h-4 w-4 shrink-0 opacity-50"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 830,
+                                                                                            lineNumber: 849,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 820,
+                                                                                    lineNumber: 839,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 819,
+                                                                                lineNumber: 838,
                                                                                 columnNumber: 25
                                                                             }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PopoverContent, {
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
                                                                                 className: "w-[--radix-popover-trigger-width] p-0",
-                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Command, {
+                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"], {
                                                                                     children: [
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CommandInput, {
-                                                                                            placeholder: "Search pickup locations..."
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandInput"], {
+                                                                                            placeholder: "Search pickup locations...",
+                                                                                            value: pickupSearch,
+                                                                                            onValueChange: (text)=>setPickupSearch(text)
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 836,
+                                                                                            lineNumber: 855,
                                                                                             columnNumber: 29
                                                                                         }, this),
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CommandEmpty, {
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandEmpty"], {
                                                                                             children: "No location found."
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 837,
+                                                                                            lineNumber: 860,
                                                                                             columnNumber: 29
                                                                                         }, this),
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CommandGroup, {
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandGroup"], {
                                                                                             className: "max-h-60 overflow-y-auto",
-                                                                                            children: allPickupStations?.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CommandItem, {
+                                                                                            children: allPickupStations?.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandItem"], {
                                                                                                     value: stop.address.value,
                                                                                                     onSelect: ()=>{
                                                                                                         setValue("starting_point", {
@@ -2719,19 +2995,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mr-2 h-4 w-4", watch("starting_point.location_id") === stop._id ? "opacity-100" : "opacity-0")
                                                                                                         }, void 0, false, {
                                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                            lineNumber: 853,
+                                                                                                            lineNumber: 876,
                                                                                                             columnNumber: 35
                                                                                                         }, this),
                                                                                                         stop.address.value
                                                                                                     ]
                                                                                                 }, stop._id, true, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 840,
+                                                                                                    lineNumber: 863,
                                                                                                     columnNumber: 33
                                                                                                 }, this))
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 838,
+                                                                                            lineNumber: 861,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         hasNextPickupPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2747,35 +3023,35 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                 children: isFetchingMorePickups ? "Loading..." : "Load More"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                lineNumber: 870,
+                                                                                                lineNumber: 893,
                                                                                                 columnNumber: 33
                                                                                             }, this)
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 869,
+                                                                                            lineNumber: 892,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 835,
+                                                                                    lineNumber: 854,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 834,
+                                                                                lineNumber: 853,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 818,
+                                                                        lineNumber: 837,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 763,
+                                                                lineNumber: 782,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2786,76 +3062,141 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "Destination"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 891,
+                                                                        lineNumber: 914,
                                                                         columnNumber: 23
                                                                     }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
-                                                                        onValueChange: (id)=>{
-                                                                            // Search in the same data source you used for the list!
-                                                                            const station = allDropOffStations.find((s)=>s._id === id);
-                                                                            if (station) {
-                                                                                setValue("destination", {
-                                                                                    value: station.address.value.toLowerCase(),
-                                                                                    location_id: station._id,
-                                                                                    coordinates: station.address.location.coordinates
-                                                                                });
-                                                                            }
-                                                                        },
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
+                                                                        open: openDropOff,
+                                                                        onOpenChange: setOpenDropOff,
                                                                         children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                                                                className: "bg-background w-full",
-                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {
-                                                                                    placeholder: watch("destination.value") || "Select Drop Off Location"
-                                                                                }, void 0, false, {
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverTrigger"], {
+                                                                                asChild: true,
+                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                    variant: "outline",
+                                                                                    role: "combobox",
+                                                                                    "aria-expanded": openDropOff,
+                                                                                    className: "w-full justify-between bg-background font-normal",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                            className: "truncate",
+                                                                                            children: watch("destination.value") || "Select Drop Off Location"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 973,
+                                                                                            columnNumber: 29
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$up$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsUpDown$3e$__["ChevronsUpDown"], {
+                                                                                            className: "ml-2 h-4 w-4 shrink-0 opacity-50"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 977,
+                                                                                            columnNumber: 29
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 912,
+                                                                                    lineNumber: 967,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 911,
+                                                                                lineNumber: 966,
                                                                                 columnNumber: 25
                                                                             }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                                                children: [
-                                                                                    allDropOffStations.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                                            value: stop._id,
-                                                                                            children: stop.address.value
-                                                                                        }, stop._id, false, {
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
+                                                                                className: "w-[--radix-popover-trigger-width] p-0",
+                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"], {
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandInput"], {
+                                                                                            placeholder: "Search drop off locations...",
+                                                                                            value: dropoffSearch,
+                                                                                            onValueChange: (text)=>setDropOffSearch(text)
+                                                                                        }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 921,
+                                                                                            lineNumber: 982,
                                                                                             columnNumber: 29
-                                                                                        }, this)),
-                                                                                    hasNextDropOffPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                                                        variant: "ghost",
-                                                                                        className: "w-full text-sm mt-2",
-                                                                                        onClick: (e)=>{
-                                                                                            e.preventDefault(); // Stop dropdown from closing
-                                                                                            fetchNextDropOffPage();
-                                                                                        },
-                                                                                        disabled: isFetchingMoreDropOffs,
-                                                                                        children: isFetchingMoreDropOffs ? "Loading..." : "Load More"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 927,
-                                                                                        columnNumber: 29
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandEmpty"], {
+                                                                                            children: "No location found."
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 987,
+                                                                                            columnNumber: 29
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandGroup"], {
+                                                                                            className: "max-h-60 overflow-y-auto",
+                                                                                            children: allDropOffStations?.map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandItem"], {
+                                                                                                    value: stop.address.value,
+                                                                                                    onSelect: ()=>{
+                                                                                                        setValue("destination", {
+                                                                                                            value: stop.address.value.toLowerCase(),
+                                                                                                            location_id: stop._id,
+                                                                                                            coordinates: stop.address.location.coordinates
+                                                                                                        });
+                                                                                                        setOpenDropOff(false);
+                                                                                                    },
+                                                                                                    children: [
+                                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__["Check"], {
+                                                                                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mr-2 h-4 w-4", watch("destination.location_id") === stop._id ? "opacity-100" : "opacity-0")
+                                                                                                        }, void 0, false, {
+                                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                            lineNumber: 1003,
+                                                                                                            columnNumber: 35
+                                                                                                        }, this),
+                                                                                                        stop.address.value
+                                                                                                    ]
+                                                                                                }, stop._id, true, {
+                                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                    lineNumber: 990,
+                                                                                                    columnNumber: 33
+                                                                                                }, this))
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 988,
+                                                                                            columnNumber: 29
+                                                                                        }, this),
+                                                                                        hasNextDropOffPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                            className: "p-1 border-t",
+                                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                                variant: "ghost",
+                                                                                                className: "w-full text-sm",
+                                                                                                onClick: (e)=>{
+                                                                                                    e.preventDefault();
+                                                                                                    fetchNextDropOffPage();
+                                                                                                },
+                                                                                                disabled: isFetchingMoreDropOffs,
+                                                                                                children: isFetchingMoreDropOffs ? "Loading..." : "Load More"
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                lineNumber: 1019,
+                                                                                                columnNumber: 33
+                                                                                            }, this)
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 1018,
+                                                                                            columnNumber: 31
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 981,
+                                                                                    columnNumber: 27
+                                                                                }, this)
+                                                                            }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 919,
+                                                                                lineNumber: 980,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 895,
+                                                                        lineNumber: 965,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 890,
+                                                                lineNumber: 913,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2866,7 +3207,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "Weekly Operating Schedule"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 947,
+                                                                        lineNumber: 1041,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     days.map((day)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2880,7 +3221,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                             children: day
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 957,
+                                                                                            lineNumber: 1051,
                                                                                             columnNumber: 29
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2891,7 +3232,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     children: "Active"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 961,
+                                                                                                    lineNumber: 1055,
                                                                                                     columnNumber: 31
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Switch"], {
@@ -2899,19 +3240,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     onCheckedChange: (val)=>setValue(`routine.${day}.active`, val)
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 964,
+                                                                                                    lineNumber: 1058,
                                                                                                     columnNumber: 31
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 960,
+                                                                                            lineNumber: 1054,
                                                                                             columnNumber: 29
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 956,
+                                                                                    lineNumber: 1050,
                                                                                     columnNumber: 27
                                                                                 }, this),
                                                                                 watch(`routine.${day}.active`) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2927,7 +3268,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                                 children: "Departure (From)"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                                lineNumber: 982,
+                                                                                                                lineNumber: 1076,
                                                                                                                 columnNumber: 39
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2954,13 +3295,13 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                                 }
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                                lineNumber: 985,
+                                                                                                                lineNumber: 1079,
                                                                                                                 columnNumber: 39
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                        lineNumber: 981,
+                                                                                                        lineNumber: 1075,
                                                                                                         columnNumber: 37
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2970,7 +3311,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                                 children: "Arrival (Too)"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                                lineNumber: 1027,
+                                                                                                                lineNumber: 1121,
                                                                                                                 columnNumber: 39
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2997,13 +3338,13 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                                 }
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                                lineNumber: 1030,
+                                                                                                                lineNumber: 1124,
                                                                                                                 columnNumber: 39
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                        lineNumber: 1026,
+                                                                                                        lineNumber: 1120,
                                                                                                         columnNumber: 37
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -3018,18 +3359,18 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                             size: 14
                                                                                                         }, void 0, false, {
                                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                            lineNumber: 1085,
+                                                                                                            lineNumber: 1179,
                                                                                                             columnNumber: 39
                                                                                                         }, this)
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                        lineNumber: 1071,
+                                                                                                        lineNumber: 1165,
                                                                                                         columnNumber: 37
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, index, true, {
                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                lineNumber: 977,
+                                                                                                lineNumber: 1071,
                                                                                                 columnNumber: 35
                                                                                             }, this)),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -3072,32 +3413,32 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     className: "mr-1"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 1141,
+                                                                                                    lineNumber: 1235,
                                                                                                     columnNumber: 33
                                                                                                 }, this),
                                                                                                 " Add Time Slot"
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 1091,
+                                                                                            lineNumber: 1185,
                                                                                             columnNumber: 31
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 974,
+                                                                                    lineNumber: 1068,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, day, true, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 952,
+                                                                            lineNumber: 1046,
                                                                             columnNumber: 25
                                                                         }, this))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 946,
+                                                                lineNumber: 1040,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3108,7 +3449,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "Route Distance"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1153,
+                                                                        lineNumber: 1247,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3122,7 +3463,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 className: "bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1155,
+                                                                                lineNumber: 1249,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3130,19 +3471,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: "KM"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1163,
+                                                                                lineNumber: 1257,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1154,
+                                                                        lineNumber: 1248,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 1152,
+                                                                lineNumber: 1246,
                                                                 columnNumber: 21
                                                             }, this),
                                                             busStops && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3153,82 +3494,142 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "Select Bus-Stops Along this Route"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1170,
+                                                                        lineNumber: 1264,
                                                                         columnNumber: 25
                                                                     }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
-                                                                        value: "",
-                                                                        onValueChange: (id)=>{
-                                                                            // 1. Find the full stop object from your data source
-                                                                            const selectedStop = allBusStops?.find((s)=>s._id === id);
-                                                                            if (selectedStop) {
-                                                                                const currentStops = watch("number_of_stops") || [];
-                                                                                // 2. Create the EntryPoint object
-                                                                                const newEntry = {
-                                                                                    value: selectedStop.address.value.toLowerCase(),
-                                                                                    location_id: selectedStop._id,
-                                                                                    coordinates: selectedStop.address.location.coordinates
-                                                                                };
-                                                                                // 3. Check for duplicates based on coordinates or value
-                                                                                const isDuplicate = currentStops.some((s)=>s.value === newEntry.value);
-                                                                                if (!isDuplicate) {
-                                                                                    setValue("number_of_stops", [
-                                                                                        ...currentStops,
-                                                                                        newEntry
-                                                                                    ]);
-                                                                                }
-                                                                            }
-                                                                        },
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Popover"], {
+                                                                        open: openBusStop,
+                                                                        onOpenChange: setOpenBusStop,
                                                                         children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                                                                className: "w-full bg-transparent border-border",
-                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {
-                                                                                    placeholder: "Add bus-stops..."
-                                                                                }, void 0, false, {
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverTrigger"], {
+                                                                                asChild: true,
+                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                    variant: "outline",
+                                                                                    role: "combobox",
+                                                                                    "aria-expanded": openBusStop,
+                                                                                    className: "w-full justify-between bg-transparent font-normal",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                            className: "text-muted-foreground",
+                                                                                            children: "Search and add bus-stops..."
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 1345,
+                                                                                            columnNumber: 31
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$up$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsUpDown$3e$__["ChevronsUpDown"], {
+                                                                                            className: "ml-2 h-4 w-4 shrink-0 opacity-50"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 1348,
+                                                                                            columnNumber: 31
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 1208,
+                                                                                    lineNumber: 1339,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1207,
+                                                                                lineNumber: 1338,
                                                                                 columnNumber: 27
                                                                             }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                                                children: [
-                                                                                    allBusStops.filter((stop)=>// Filter out if the location value already exists in the number_of_stops array
-                                                                                        !watch("number_of_stops")?.some((s)=>s.value === stop.address.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                                            value: stop._id,
-                                                                                            children: stop.address.value
-                                                                                        }, stop._id, false, {
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopoverContent"], {
+                                                                                className: "w-[--radix-popover-trigger-width] p-0",
+                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Command"], {
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandInput"], {
+                                                                                            placeholder: "Search bus stops...",
+                                                                                            value: busStopSearch,
+                                                                                            onValueChange: (text)=>setBusStopSearch(text)
+                                                                                        }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 1222,
+                                                                                            lineNumber: 1353,
+                                                                                            columnNumber: 31
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandEmpty"], {
+                                                                                            children: "No bus stops found."
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 1358,
+                                                                                            columnNumber: 31
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandGroup"], {
+                                                                                            className: "max-h-60 overflow-y-auto",
+                                                                                            children: allBusStops?.filter((stop)=>!watch("number_of_stops")?.some((s)=>s.value === stop.address.value.toLowerCase())).map((stop)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$command$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CommandItem"], {
+                                                                                                    value: stop.address.value,
+                                                                                                    onSelect: ()=>{
+                                                                                                        const currentStops = watch("number_of_stops") || [];
+                                                                                                        const newEntry = {
+                                                                                                            value: stop.address.value.toLowerCase(),
+                                                                                                            location_id: stop._id,
+                                                                                                            coordinates: stop.address.location.coordinates
+                                                                                                        };
+                                                                                                        setValue("number_of_stops", [
+                                                                                                            ...currentStops,
+                                                                                                            newEntry
+                                                                                                        ]);
+                                                                                                    // Note: Intentionally NOT setting openBusStop to false here
+                                                                                                    // so they can keep clicking to add multiple stops!
+                                                                                                    },
+                                                                                                    children: [
+                                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
+                                                                                                            className: "mr-2 h-4 w-4"
+                                                                                                        }, void 0, false, {
+                                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                            lineNumber: 1391,
+                                                                                                            columnNumber: 39
+                                                                                                        }, this),
+                                                                                                        " ",
+                                                                                                        stop.address.value
+                                                                                                    ]
+                                                                                                }, stop._id, true, {
+                                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                    lineNumber: 1370,
+                                                                                                    columnNumber: 37
+                                                                                                }, this))
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 1359,
+                                                                                            columnNumber: 31
+                                                                                        }, this),
+                                                                                        hasNextBusStopPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                            className: "p-1 border-t",
+                                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                                variant: "ghost",
+                                                                                                className: "w-full text-sm",
+                                                                                                onClick: (e)=>{
+                                                                                                    e.preventDefault();
+                                                                                                    fetchNextBusStopPage();
+                                                                                                },
+                                                                                                disabled: isFetchingMoreBusStops,
+                                                                                                children: isFetchingMoreBusStops ? "Loading..." : "Load More"
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                                lineNumber: 1400,
+                                                                                                columnNumber: 35
+                                                                                            }, this)
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                            lineNumber: 1399,
                                                                                             columnNumber: 33
-                                                                                        }, this)),
-                                                                                    hasNextBusStopPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                                                        variant: "ghost",
-                                                                                        className: "w-full text-sm mt-2",
-                                                                                        onClick: (e)=>{
-                                                                                            e.preventDefault(); // Stop dropdown from closing
-                                                                                            fetchNextBusStopPage();
-                                                                                        },
-                                                                                        disabled: isFetchingMoreBusStops,
-                                                                                        children: isFetchingMoreBusStops ? "Loading..." : "Load More"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1228,
-                                                                                        columnNumber: 31
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/components/shared/routes-table.tsx",
+                                                                                    lineNumber: 1352,
+                                                                                    columnNumber: 29
+                                                                                }, this)
+                                                                            }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1210,
+                                                                                lineNumber: 1351,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1173,
+                                                                        lineNumber: 1334,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3242,7 +3643,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         children: stopValue.value
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1253,
+                                                                                        lineNumber: 1427,
                                                                                         columnNumber: 31
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3256,29 +3657,29 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                             size: 14
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 1267,
+                                                                                            lineNumber: 1441,
                                                                                             columnNumber: 33
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1256,
+                                                                                        lineNumber: 1430,
                                                                                         columnNumber: 31
                                                                                     }, this)
                                                                                 ]
                                                                             }, key, true, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1248,
+                                                                                lineNumber: 1422,
                                                                                 columnNumber: 29
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1246,
+                                                                        lineNumber: 1420,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 1169,
+                                                                lineNumber: 1263,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3289,7 +3690,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "State"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1275,
+                                                                        lineNumber: 1449,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -3302,12 +3703,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     placeholder: "Select a State"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 1281,
+                                                                                    lineNumber: 1455,
                                                                                     columnNumber: 27
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1280,
+                                                                                lineNumber: 1454,
                                                                                 columnNumber: 25
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3316,24 +3717,24 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         children: state
                                                                                     }, state, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1285,
+                                                                                        lineNumber: 1459,
                                                                                         columnNumber: 29
                                                                                     }, this))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1283,
+                                                                                lineNumber: 1457,
                                                                                 columnNumber: 25
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1276,
+                                                                        lineNumber: 1450,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 1274,
+                                                                lineNumber: 1448,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3344,7 +3745,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         children: "Country"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1293,
+                                                                        lineNumber: 1467,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3355,24 +3756,24 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         placeholder: "Enter country"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1294,
+                                                                        lineNumber: 1468,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 1292,
+                                                                lineNumber: 1466,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 701,
+                                                        lineNumber: 720,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 700,
+                                                    lineNumber: 719,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3385,7 +3786,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             className: "h-4 w-4 animate-spin"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1313,
+                                                            lineNumber: 1487,
                                                             columnNumber: 23
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                             children: [
@@ -3395,41 +3796,41 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         }, void 0, true)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1305,
+                                                        lineNumber: 1479,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1304,
+                                                    lineNumber: 1478,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 696,
+                                            lineNumber: 715,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 689,
+                                    lineNumber: 708,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/routes-table.tsx",
-                            lineNumber: 670,
+                            lineNumber: 689,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/shared/routes-table.tsx",
-                    lineNumber: 647,
+                    lineNumber: 666,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/shared/routes-table.tsx",
-                lineNumber: 646,
+                lineNumber: 665,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -3442,12 +3843,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                             children: tableTitle
                         }, void 0, false, {
                             fileName: "[project]/components/shared/routes-table.tsx",
-                            lineNumber: 1327,
+                            lineNumber: 1501,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 1326,
+                        lineNumber: 1500,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3464,7 +3865,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Starting Point"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1336,
+                                                lineNumber: 1510,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3472,7 +3873,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Destination"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1339,
+                                                lineNumber: 1513,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3480,7 +3881,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Code"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1342,
+                                                lineNumber: 1516,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3488,7 +3889,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "State / Country"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1345,
+                                                lineNumber: 1519,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3496,7 +3897,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Added By"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1348,
+                                                lineNumber: 1522,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3504,7 +3905,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Date Added"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1351,
+                                                lineNumber: 1525,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3512,25 +3913,25 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1354,
+                                                lineNumber: 1528,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1357,
+                                                lineNumber: 1531,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 1335,
+                                        lineNumber: 1509,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 1334,
+                                    lineNumber: 1508,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -3540,7 +3941,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1364,
+                                                    lineNumber: 1538,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : paginatedData && paginatedData.map((station)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -3551,7 +3952,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: station.starting_point.value
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1374,
+                                                        lineNumber: 1548,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3559,7 +3960,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: station.destination.value
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1377,
+                                                        lineNumber: 1551,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3567,7 +3968,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: station.code
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1380,
+                                                        lineNumber: 1554,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3579,7 +3980,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1383,
+                                                        lineNumber: 1557,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3591,7 +3992,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1386,
+                                                        lineNumber: 1560,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3599,7 +4000,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                         children: new Date(station.createdAt).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1389,
+                                                        lineNumber: 1563,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3610,12 +4011,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: station.status === "active" ? "Active" : "In-active"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1393,
+                                                            lineNumber: 1567,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1392,
+                                                        lineNumber: 1566,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3632,17 +4033,17 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1413,
+                                                                            lineNumber: 1587,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1408,
+                                                                        lineNumber: 1582,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1407,
+                                                                    lineNumber: 1581,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -3658,14 +4059,14 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 1423,
+                                                                                    lineNumber: 1597,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "View"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1417,
+                                                                            lineNumber: 1591,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -3705,14 +4106,14 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 1464,
+                                                                                    lineNumber: 1638,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "Edit"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1426,
+                                                                            lineNumber: 1600,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -3729,7 +4130,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "h-4 w-4 mr-2 animate-spin"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1479,
+                                                                                        lineNumber: 1653,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Deleting..."
@@ -3740,7 +4141,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "h-4 w-4 mr-2 text-destructive"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1484,
+                                                                                        lineNumber: 1658,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Delete"
@@ -3748,30 +4149,30 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             }, void 0, true)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1467,
+                                                                            lineNumber: 1641,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1416,
+                                                                    lineNumber: 1590,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1406,
+                                                            lineNumber: 1580,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                        lineNumber: 1405,
+                                                        lineNumber: 1579,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, station._id, true, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1370,
+                                                lineNumber: 1544,
                                                 columnNumber: 19
                                             }, this)),
                                         !isLoading && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -3781,29 +4182,29 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 1498,
+                                                lineNumber: 1672,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 1497,
+                                            lineNumber: 1671,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                    lineNumber: 1360,
+                                    lineNumber: 1534,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/routes-table.tsx",
-                            lineNumber: 1333,
+                            lineNumber: 1507,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 1332,
+                        lineNumber: 1506,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -3814,7 +4215,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                 asChild: true
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                lineNumber: 1514,
+                                lineNumber: 1688,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -3829,12 +4230,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 1518,
+                                            lineNumber: 1692,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 1517,
+                                        lineNumber: 1691,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3853,7 +4254,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     children: "Rate"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1527,
+                                                                    lineNumber: 1701,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3864,7 +4265,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: "₦"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1529,
+                                                                            lineNumber: 1703,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3875,19 +4276,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             placeholder: "Enter rate"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1532,
+                                                                            lineNumber: 1706,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1528,
+                                                                    lineNumber: 1702,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1526,
+                                                            lineNumber: 1700,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3898,7 +4299,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     children: "Flat Rate"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1542,
+                                                                    lineNumber: 1716,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3909,7 +4310,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: "₦"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1544,
+                                                                            lineNumber: 1718,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3920,25 +4321,25 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             placeholder: "Enter Flat Rate"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1547,
+                                                                            lineNumber: 1721,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1543,
+                                                                    lineNumber: 1717,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1541,
+                                                            lineNumber: 1715,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1525,
+                                                    lineNumber: 1699,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3952,7 +4353,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     children: "Rate Per KM"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1561,
+                                                                    lineNumber: 1735,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3963,7 +4364,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: "₦"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1563,
+                                                                            lineNumber: 1737,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3974,19 +4375,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             placeholder: "Enter Rate Per Km"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1566,
+                                                                            lineNumber: 1740,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1562,
+                                                                    lineNumber: 1736,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1560,
+                                                            lineNumber: 1734,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3997,7 +4398,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     children: "Code"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1576,
+                                                                    lineNumber: 1750,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4006,19 +4407,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     placeholder: "Enter code"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1577,
+                                                                    lineNumber: 1751,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1575,
+                                                            lineNumber: 1749,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1559,
+                                                    lineNumber: 1733,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4029,7 +4430,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "Starting Point"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1610,
+                                                            lineNumber: 1784,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4050,12 +4451,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         placeholder: updateWatch("starting_point.value") || "Select Pickup Location"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1628,
+                                                                        lineNumber: 1802,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1627,
+                                                                    lineNumber: 1801,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4065,7 +4466,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: station.address.value
                                                                             }, station._id, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1637,
+                                                                                lineNumber: 1811,
                                                                                 columnNumber: 25
                                                                             }, this)),
                                                                         hasNextPickupPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -4079,25 +4480,25 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: isFetchingMorePickups ? "Loading..." : "Load More"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1644,
+                                                                            lineNumber: 1818,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1635,
+                                                                    lineNumber: 1809,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1613,
+                                                            lineNumber: 1787,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1609,
+                                                    lineNumber: 1783,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4108,7 +4509,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "Destination"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1662,
+                                                            lineNumber: 1836,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4129,12 +4530,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         placeholder: updateWatch("destination.value") || "Select Drop Off Location"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1678,
+                                                                        lineNumber: 1852,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1677,
+                                                                    lineNumber: 1851,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4144,7 +4545,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: stop.address.value
                                                                             }, stop._id, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1687,
+                                                                                lineNumber: 1861,
                                                                                 columnNumber: 25
                                                                             }, this)),
                                                                         hasNextDropOffPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -4158,25 +4559,25 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: isFetchingMoreDropOffs ? "Loading..." : "Load More"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 1693,
+                                                                            lineNumber: 1867,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 1685,
+                                                                    lineNumber: 1859,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1663,
+                                                            lineNumber: 1837,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1661,
+                                                    lineNumber: 1835,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4187,7 +4588,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "Weekly Operating Schedule"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 1921,
+                                                            lineNumber: 2095,
                                                             columnNumber: 19
                                                         }, this),
                                                         days.map((day)=>{
@@ -4204,7 +4605,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: day
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1934,
+                                                                                lineNumber: 2108,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4215,7 +4616,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         children: "Active"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1938,
+                                                                                        lineNumber: 2112,
                                                                                         columnNumber: 29
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Switch"], {
@@ -4225,19 +4626,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                             })
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 1941,
+                                                                                        lineNumber: 2115,
                                                                                         columnNumber: 29
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 1937,
+                                                                                lineNumber: 2111,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1933,
+                                                                        lineNumber: 2107,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     active && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4253,7 +4654,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     children: "Departure (From)"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 1961,
+                                                                                                    lineNumber: 2135,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4286,13 +4687,13 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     }
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 1964,
+                                                                                                    lineNumber: 2138,
                                                                                                     columnNumber: 35
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 1960,
+                                                                                            lineNumber: 2134,
                                                                                             columnNumber: 33
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4302,7 +4703,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     children: "Arrival (To)"
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 2012,
+                                                                                                    lineNumber: 2186,
                                                                                                     columnNumber: 35
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4334,13 +4735,13 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                     }
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                    lineNumber: 2015,
+                                                                                                    lineNumber: 2189,
                                                                                                     columnNumber: 35
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 2011,
+                                                                                            lineNumber: 2185,
                                                                                             columnNumber: 33
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -4357,18 +4758,18 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                                 size: 14
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                                lineNumber: 2075,
+                                                                                                lineNumber: 2249,
                                                                                                 columnNumber: 35
                                                                                             }, this)
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                            lineNumber: 2060,
+                                                                                            lineNumber: 2234,
                                                                                             columnNumber: 33
                                                                                         }, this)
                                                                                     ]
                                                                                 }, index, true, {
                                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                    lineNumber: 1955,
+                                                                                    lineNumber: 2129,
                                                                                     columnNumber: 31
                                                                                 }, this)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -4401,33 +4802,33 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                         className: "mr-1"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                        lineNumber: 2116,
+                                                                                        lineNumber: 2290,
                                                                                         columnNumber: 31
                                                                                     }, this),
                                                                                     " Add Time Slot"
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 2080,
+                                                                                lineNumber: 2254,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 1953,
+                                                                        lineNumber: 2127,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, day, true, {
                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                lineNumber: 1929,
+                                                                lineNumber: 2103,
                                                                 columnNumber: 23
                                                             }, this);
                                                         })
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 1920,
+                                                    lineNumber: 2094,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4438,7 +4839,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "Route Distance"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2129,
+                                                            lineNumber: 2303,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4451,7 +4852,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     className: "bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2131,
+                                                                    lineNumber: 2305,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4459,19 +4860,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                     children: "KM"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2137,
+                                                                    lineNumber: 2311,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2130,
+                                                            lineNumber: 2304,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 2128,
+                                                    lineNumber: 2302,
                                                     columnNumber: 17
                                                 }, this),
                                                 busStops && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4482,7 +4883,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "Select Bus-Stops Along this Route"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2146,
+                                                            lineNumber: 2320,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4511,12 +4912,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         placeholder: "Add bus-stops..."
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 2179,
+                                                                        lineNumber: 2353,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2178,
+                                                                    lineNumber: 2352,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4526,7 +4927,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 children: stop.address.value
                                                                             }, stop._id, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 2191,
+                                                                                lineNumber: 2365,
                                                                                 columnNumber: 29
                                                                             }, this)),
                                                                         hasNextBusStopPage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -4540,19 +4941,19 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: isFetchingMoreBusStops ? "Loading..." : "Load More"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 2197,
+                                                                            lineNumber: 2371,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2181,
+                                                                    lineNumber: 2355,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2149,
+                                                            lineNumber: 2323,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4566,7 +4967,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: stopValue.value
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 2220,
+                                                                            lineNumber: 2394,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4580,29 +4981,29 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                                 size: 14
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                                                lineNumber: 2232,
+                                                                                lineNumber: 2406,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 2221,
+                                                                            lineNumber: 2395,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, key, true, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2215,
+                                                                    lineNumber: 2389,
                                                                     columnNumber: 25
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2213,
+                                                            lineNumber: 2387,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 2145,
+                                                    lineNumber: 2319,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4613,7 +5014,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "State"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2242,
+                                                            lineNumber: 2416,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4626,12 +5027,12 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                         placeholder: "Select a State"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                                                        lineNumber: 2248,
+                                                                        lineNumber: 2422,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2247,
+                                                                    lineNumber: 2421,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4640,24 +5041,24 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                                             children: state
                                                                         }, state, false, {
                                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                                            lineNumber: 2252,
+                                                                            lineNumber: 2426,
                                                                             columnNumber: 25
                                                                         }, this))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                                    lineNumber: 2250,
+                                                                    lineNumber: 2424,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2243,
+                                                            lineNumber: 2417,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 2241,
+                                                    lineNumber: 2415,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4668,7 +5069,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             children: "Country"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2260,
+                                                            lineNumber: 2434,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4678,24 +5079,24 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                             defaultValue: "Nigeria"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                                            lineNumber: 2261,
+                                                            lineNumber: 2435,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/shared/routes-table.tsx",
-                                                    lineNumber: 2259,
+                                                    lineNumber: 2433,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 1523,
+                                            lineNumber: 1697,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 1522,
+                                        lineNumber: 1696,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4708,31 +5109,31 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 className: "h-4 w-4 animate-spin"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 2279,
+                                                lineNumber: 2453,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                 children: "Save Changes"
                                             }, void 0, false)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 2273,
+                                            lineNumber: 2447,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 2272,
+                                        lineNumber: 2446,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                lineNumber: 1516,
+                                lineNumber: 1690,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 1513,
+                        lineNumber: 1687,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4752,7 +5153,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 2300,
+                                                lineNumber: 2474,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -4760,7 +5161,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 2301,
+                                                lineNumber: 2475,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -4768,20 +5169,20 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                                lineNumber: 2302,
+                                                lineNumber: 2476,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 2295,
+                                        lineNumber: 2469,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                lineNumber: 2293,
+                                lineNumber: 2467,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4796,7 +5197,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 2310,
+                                        lineNumber: 2484,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -4812,7 +5213,7 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/shared/routes-table.tsx",
-                                            lineNumber: 2324,
+                                            lineNumber: 2498,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -4825,40 +5226,40 @@ function RoutesTable({ title, addButtonText, searchPlaceholder, tableTitle }) {
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/routes-table.tsx",
-                                        lineNumber: 2342,
+                                        lineNumber: 2516,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/routes-table.tsx",
-                                lineNumber: 2308,
+                                lineNumber: 2482,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/routes-table.tsx",
-                        lineNumber: 2291,
+                        lineNumber: 2465,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/routes-table.tsx",
-                lineNumber: 1325,
+                lineNumber: 1499,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/shared/routes-table.tsx",
-                lineNumber: 2354,
+                lineNumber: 2528,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/shared/routes-table.tsx",
-        lineNumber: 645,
+        lineNumber: 664,
         columnNumber: 5
     }, this);
 }
 }),
 ];
 
-//# sourceMappingURL=_6f7de11e._.js.map
+//# sourceMappingURL=_79fdce49._.js.map
