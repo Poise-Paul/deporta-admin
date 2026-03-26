@@ -242,7 +242,11 @@ __turbopack_context__.s([
     "ActiveType",
     ()=>ActiveType,
     "FuelType",
-    ()=>FuelType
+    ()=>FuelType,
+    "MaintenanceStatusType",
+    ()=>MaintenanceStatusType,
+    "PriorityType",
+    ()=>PriorityType
 ]);
 var ActiveType = /*#__PURE__*/ function(ActiveType) {
     ActiveType["Active"] = "active";
@@ -253,6 +257,17 @@ var FuelType = /*#__PURE__*/ function(FuelType) {
     FuelType["Petrol"] = "petrol";
     FuelType["Diesel"] = "diesel";
     return FuelType;
+}({});
+var PriorityType = /*#__PURE__*/ function(PriorityType) {
+    PriorityType["Normal"] = "normal";
+    PriorityType["High"] = "high";
+    PriorityType["Urgent"] = "urgent";
+    return PriorityType;
+}({});
+var MaintenanceStatusType = /*#__PURE__*/ function(MaintenanceStatusType) {
+    MaintenanceStatusType["Pending"] = "pending";
+    MaintenanceStatusType["Completed"] = "completed";
+    return MaintenanceStatusType;
 }({});
 }),
 "[project]/api/queryClient.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -357,10 +372,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://thalia-diachronic-lisette.ngrok-free.dev",
     timeout: 15000,
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": true
     }
 });
 // Interceptor to inject the Bearer token automatically
@@ -377,6 +393,10 @@ api.interceptors.request.use(async (config)=>{
 "use strict";
 
 __turbopack_context__.s([
+    "getAdminTransactions",
+    ()=>getAdminTransactions,
+    "getDashboardTotal",
+    ()=>getDashboardTotal,
     "useStaffStatus",
     ()=>useStaffStatus
 ]);
@@ -414,6 +434,28 @@ const useStaffStatus = ()=>{
             }
         }
     });
+};
+const getDashboardTotal = async ()=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=total");
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const getAdminTransactions = async (page = 1, limit = 10)=>{
+    const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString()
+    });
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/transactions?${params.toString()}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch User Error:", error);
+        throw error;
+    }
 };
 }),
 "[project]/components/customers/customer-details.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -822,7 +864,7 @@ function CustomerDetails({ onBack }) {
                                                 disabled: customerDetails.status === "active" ? false : true,
                                                 variant: "outline",
                                                 onClick: ()=>handleStatusChange(2),
-                                                className: "text-destructive border-destructive hover:bg-destructive/10",
+                                                className: "text-destructive border-destructive hover:bg-destructive/10 hover:text-destructive",
                                                 children: [
                                                     statusMutation.isPending && btnUsed === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                         className: "h-4 w-4 animate-spin mr-2"

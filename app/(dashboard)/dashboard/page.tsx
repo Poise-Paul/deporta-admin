@@ -6,7 +6,7 @@ import { DashboardCustomers } from "@/components/dashboard/dashboard-customers";
 import { DashboardOngoingTrips } from "@/components/dashboard/dashboard-ongoing-trips";
 import { DashboardDrivers } from "@/components/dashboard/dashboard-drivers";
 import { Toaster } from "react-hot-toast";
-
+import DashboardTransactions from "@/components/dashboard/dashboard-transactions";
 
 export default function DashboardPage() {
   return (
@@ -49,6 +49,11 @@ export default function DashboardPage() {
         <div>
           <DashboardDrivers />
         </div>
+      </div>
+
+      {/* NEW: Transactions Table (Full Width) */}
+      <div className="w-full">
+        <DashboardTransactions />
       </div>
       <Toaster />
     </div>

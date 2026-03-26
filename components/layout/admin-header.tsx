@@ -5,6 +5,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useAppSelector } from "@/lib/store/hooks";
+import { useQuery } from "@tanstack/react-query";
+import { getAllStaffs } from "@/api/staffs";
+import { getStaffList } from "@/api/user";
 
 const pageTitles: Record<string, string> = {
   "/dashboard": "Dashboard",
@@ -36,32 +39,26 @@ export function AdminHeader() {
       ([path]) => pathname === path || pathname.startsWith(path + "/"),
     )?.[1] || "Dashboard";
 
+  // Staff Images
+  const { data, isLoading, isRefetching, refetch } = useQuery({
+    queryKey: ["staff-profiles"],
+    retry: false,
+    queryFn: getStaffList,
+  });
+
   return (
     <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between sticky top-0 z-10">
       <h1 className="text-xl font-bold text-foreground">{title}</h1>
 
       <div className="flex items-center gap-4">
         {/* Replace the Add Quick Staff Button */}
-        {/* {pathname === "/dashboard" && (
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Plus className="h-4 w-4 mr-2" />
-            Add Staff
-          </Button>
-        )} */}
-
         <div className="flex -space-x-2">
-          <Avatar className="h-8 w-8 border-2 border-card">
-            <AvatarImage src="/woman-brown-hair.png" />
-            <AvatarFallback>U1</AvatarFallback>
-          </Avatar>
-          <Avatar className="h-8 w-8 border-2 border-card">
-            <AvatarImage src="/thoughtful-man-glasses.png" />
-            <AvatarFallback>U2</AvatarFallback>
-          </Avatar>
-          <Avatar className="h-8 w-8 border-2 border-card">
-            <AvatarImage src="/professional-woman.png" />
-            <AvatarFallback>U3</AvatarFallback>
-          </Avatar>
+          {data?.staffs.data.slice(0, 3).map((staff, key) => (
+            <Avatar key={key} className="h-8 w-8 border-2 border-card">
+              <AvatarImage src={staff.profile_image} />
+              <AvatarFallback>S{key + 1}</AvatarFallback>
+            </Avatar>
+          ))}
         </div>
       </div>
     </header>

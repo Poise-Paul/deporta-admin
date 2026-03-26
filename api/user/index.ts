@@ -51,9 +51,17 @@ export const getAllCustomers = async (): Promise<CustomerDashboardStats> => {
   }
 };
 
-export const getCustomerList = async (): Promise<CustomerListResponse> => {
+export const getCustomerList = async (
+  page: number,
+  limit: number,
+): Promise<CustomerListResponse> => {
   try {
-    const res = await api.get("/api/users/admin/customer");
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+    });
+
+    const res = await api.get(`/api/users/admin/customer?${params.toString()}`);
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

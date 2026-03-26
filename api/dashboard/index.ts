@@ -1,7 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../queryClient";
 import { api } from "../axios";
-import { ErrorrResponse, Response, TotalIncomeResponse, UpdateStaff } from "@/types";
+import {
+  AdminTransactionResponse,
+  DashboardChartsResponse,
+  ErrorrResponse,
+  Response,
+  TotalIncomeResponse,
+  UpdateStaff,
+} from "@/types";
 import toast from "react-hot-toast";
 import axios from "axios";
 
@@ -38,3 +45,34 @@ export const getDashboardTotal = async (): Promise<TotalIncomeResponse> => {
     throw error;
   }
 };
+
+// Get All Transactions
+export const getAdminTransactions = async (
+  page: number = 1,
+  limit: number = 10,
+): Promise<AdminTransactionResponse> => {
+  const params = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+  });
+  try {
+    const res = await api.get(
+      `/api/users/admin/transactions?${params.toString()}`,
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Fetch User Error:", error);
+    throw error;
+  }
+};
+
+export const getDashboardCharts =
+  async (): Promise<DashboardChartsResponse> => {
+    try {
+      const res = await api.get(`api/users/admin/income/chart`);
+      return res.data;
+    } catch (error) {
+      console.error("Fetch User Error:", error);
+      throw error;
+    }
+  };

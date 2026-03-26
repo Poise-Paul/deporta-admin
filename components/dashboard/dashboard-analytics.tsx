@@ -21,10 +21,12 @@ import {
 import { addDays, format } from "date-fns"; // Useful for formatting
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
+import { useQuery } from "@tanstack/react-query";
+import { getDashboardCharts } from "@/api/dashboard";
 
 ("recharts");
 
-const data = [
+const transaction = [
   { month: "Jan", value: 100000 },
   { month: "Feb", value: 150000 },
   { month: "Mar", value: 180000 },
@@ -40,6 +42,19 @@ const data = [
 ];
 
 export function DashboardAnalytics() {
+  // Get Charts
+  const {
+    data,
+    error: userError,
+    refetch: refetchCustomers,
+    isRefetching,
+    isLoading,
+  } = useQuery({
+    queryKey: ["charts"],
+    retry: false,
+    queryFn: getDashboardCharts,
+  });
+
   // 1. Initialize Date State
   const [date, setDate] = useState<DateRange | undefined>({
     from: new Date(2026, 0, 18),
@@ -50,7 +65,8 @@ export function DashboardAnalytics() {
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-lg font-semibold">Analytics</CardTitle>
         {/* Popover here */}
-        <Popover>
+        {/* This should just be for the current year they should be able to change the years */}
+        {/* <Popover>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
@@ -83,13 +99,14 @@ export function DashboardAnalytics() {
               pagedNavigation
             />
           </PopoverContent>
-        </Popover>
+        </Popover> */}
         {/* End PopOver */}
       </CardHeader>
       <CardContent>
         <div className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data}>
+            {/* Make sure you are passing data.income to the chart */}
+            <AreaChart data={data?.income || []}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#EA6A12" stopOpacity={0.1} />
@@ -106,12 +123,22 @@ export function DashboardAnalytics() {
                 axisLine={false}
                 tickLine={false}
                 tick={{ fill: "#666", fontSize: 12 }}
+                // Capitalize the lowercase months from the API
+                tickFormatter={(str) =>
+                  str.charAt(0).toUpperCase() + str.slice(1)
+                }
               />
               <YAxis
                 axisLine={false}
                 tickLine={false}
                 tick={{ fill: "#666", fontSize: 12 }}
-                tickFormatter={(value) => `₦${value / 1000}K`}
+                // Dynamically format for Millions (M) or Thousands (K)
+                tickFormatter={(value) => {
+                  if (value >= 1000000)
+                    return `₦${(value / 1000000).toFixed(1)}M`;
+                  if (value >= 1000) return `₦${(value / 1000).toFixed(0)}K`;
+                  return `₦${value}`;
+                }}
               />
               <Tooltip
                 contentStyle={{
@@ -120,6 +147,11 @@ export function DashboardAnalytics() {
                   borderRadius: "8px",
                   padding: "12px",
                 }}
+                // Capitalize the tooltip title (the month)
+                labelFormatter={(label) =>
+                  label.charAt(0).toUpperCase() + label.slice(1)
+                }
+                // Format the tooltip value with commas
                 formatter={(value: number) => [
                   `₦${value.toLocaleString()}`,
                   "Revenue",
@@ -127,7 +159,8 @@ export function DashboardAnalytics() {
               />
               <Area
                 type="monotone"
-                dataKey="value"
+                // CHANGED from "value" to "amount" to match the new API JSON
+                dataKey="amount"
                 stroke="#EA6A12"
                 strokeWidth={2}
                 fill="url(#colorValue)"

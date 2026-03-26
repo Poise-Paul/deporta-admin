@@ -50,7 +50,7 @@ import {
   EditDropOffStationDialog as EditPickupStation,
 } from "./DropOffStationDialogue";
 
-type LocationTab = "all" | "active" | "inactive";
+type LocationTab = "all" | "active" | "in-active";
 
 interface Location {
   id: number;
@@ -59,7 +59,7 @@ interface Location {
   state: string;
   addedBy: string;
   dateAdded: string;
-  status: "active" | "inactive";
+  status: "active" | "in-active";
 }
 
 interface LocationTableProps {
@@ -73,7 +73,7 @@ interface LocationTableProps {
 const tabs: { id: LocationTab; label: string }[] = [
   { id: "all", label: "All" },
   { id: "active", label: "Active" },
-  { id: "inactive", label: "In-Active" },
+  { id: "in-active", label: "In-Active" },
 ];
 
 export function LocationTable({
@@ -105,8 +105,15 @@ export function LocationTable({
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["pickupStations", currentPage, itemsPerPage],
-    queryFn: () => getPickupStations(currentPage, itemsPerPage),
+    queryKey: [
+      "pickupStations",
+      currentPage,
+      itemsPerPage,
+      searchQuery,
+      activeTab,
+    ],
+    queryFn: () =>
+      getPickupStations(currentPage, itemsPerPage, searchQuery, activeTab),
   });
 
   const { register, reset, setValue, watch } = useForm<AddPickupStationPayload>(
@@ -198,42 +205,16 @@ export function LocationTable({
   }, [pickupStations]);
 
   // Role Integration
-  
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = pickupStations?.pickup_station?.data || [];
-
-    // Rely on the API's total pages
     const originalTotal =
       pickupStations?.pickup_station?.pagination?.totalPages || 1;
 
-    // 1. Filter by Search Query
-    let filtered = allStations;
-
-    if (searchQuery) {
-      const searchStr = searchQuery.toLowerCase();
-      filtered = filtered.filter((station) => {
-        return (
-          station.address?.value.toLowerCase().includes(searchStr) ||
-          station.area?.toLowerCase().includes(searchStr) ||
-          station.state?.toLowerCase().includes(searchStr)
-        );
-      });
-    }
-
-    // 2. Filter by Tab Status
-    if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status === "active");
-    } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => s.status === "in-active");
-    }
-
-    // We removed the slicing! Since the API gives us exactly the page
-    // we asked for, the filtered data IS the paginated data.
     return {
-      paginatedData: filtered,
+      paginatedData: allStations,
       totalPages: originalTotal,
     };
-  }, [pickupStations, activeTab, currentPage, itemsPerPage, searchQuery]);
+  }, [pickupStations]);
 
   React.useEffect(() => {
     setCurrentPage(1);

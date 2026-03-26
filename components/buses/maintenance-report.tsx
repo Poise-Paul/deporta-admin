@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Skeleton } from "../ui/skeleton";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
@@ -70,19 +71,18 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
 
   const mutationReport = useCreateReport();
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    const { data, refetch, isLoading } = useQuery({
-      // ✅ Adding parameters to the key ensures refetching on change
-      queryKey: ["maintenanceReports", currentPage, itemsPerPage],
-      queryFn: () => getMaintenanceReports(currentPage, itemsPerPage),
-    });
+  const { data, refetch, isLoading } = useQuery({
+    // ✅ Adding parameters to the key ensures refetching on change
+    queryKey: ["maintenanceReports", currentPage, itemsPerPage],
+    queryFn: () => getMaintenanceReports(currentPage, itemsPerPage),
+  });
 
-    // Extract pagination info safely from your MaintenanceReportResponse
-    const pagination = data?.maintenance_report?.pagination;
-    const totalPages = pagination?.totalPages || 1;
-
+  // Extract pagination info safely from your MaintenanceReportResponse
+  const pagination = data?.maintenance_report?.pagination;
+  const totalPages = pagination?.totalPages || 1;
 
   const handleMutationReport = () => {
     const currentData = watch();
@@ -96,7 +96,7 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
     mutationReport.mutate(currentData, {
       onSuccess: () => {
         reset();
-        refetch()
+        refetch();
         setIsMaintenanceOpen(false);
       },
     });
@@ -114,6 +114,41 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
     setHoldBtn(!isFormValid);
   }, [handleWatchMaintenance]);
 
+  // Table Loader
+  const TableRowSkeleton = () => (
+    <tr className="border-b border-border animate-pulse">
+      <td className="p-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-20" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-40" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-24" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-4 w-28" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-8 w-8 rounded-md" />
+      </td>
+    </tr>
+  );
 
   return (
     <Card className="bg-card border border-border">
@@ -310,80 +345,95 @@ export function MaintenanceReport({ busId }: MaintenanceReportProps) {
               </tr>
             </thead>
             <tbody>
-              {data?.maintenance_report.data.map((report) => (
-                <tr
-                  key={report._id}
-                  className="border-b border-border last:border-0 hover:bg-muted/50"
-                >
-                  <td className="p-4 text-sm text-muted-foreground whitespace-nowrap">
-                    {new Date(report.createdAt).toLocaleString()}
-                  </td>
-                  <td className="p-4 max-w-md">
-                    <p className="font-medium text-sm">{report.report.title}</p>
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                      {report.report.description}
-                    </p>
-                  </td>
-                  <td className="p-4">
-                    <div className="flex items-center gap-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage
-                          className="object-cover"
-                          src={
-                            report.added_by.profile_image || "/placeholder.svg"
-                          }
-                          alt={report.added_by.first_name}
-                        />
-                        <AvatarFallback>
-                          {report.added_by.first_name.charAt(0)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="text-sm">
-                        {report.added_by.first_name} {report.added_by.last_name}
+              {isLoading ? (
+                <>
+                  {" "}
+                  {[...Array(5)].map((_, i) => (
+                    <TableRowSkeleton key={i} />
+                  ))}
+                </>
+              ) : (
+                data?.maintenance_report.data.map((report) => (
+                  <tr
+                    key={report._id}
+                    className="border-b border-border last:border-0 hover:bg-muted/50"
+                  >
+                    <td className="p-4 text-sm text-muted-foreground whitespace-nowrap">
+                      {new Date(report.createdAt).toLocaleString()}
+                    </td>
+                    <td className="p-4 max-w-md">
+                      <p className="font-medium text-sm">
+                        {report.report.title}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                        {report.report.description}
+                      </p>
+                    </td>
+                    <td className="p-4">
+                      <div className="flex items-center gap-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage
+                            className="object-cover"
+                            src={
+                              report.added_by.profile_image ||
+                              "/placeholder.svg"
+                            }
+                            alt={report.added_by.first_name}
+                          />
+                          <AvatarFallback>
+                            {report.added_by.first_name.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="text-sm">
+                          {report.added_by.first_name}{" "}
+                          {report.added_by.last_name}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="p-4">
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "font-normal",
+                          report.status === "completed"
+                            ? "border-green-500 text-green-600"
+                            : "border-orange-500 text-orange-600",
+                        )}
+                      >
+                        {report.status === "completed"
+                          ? "Completed"
+                          : "Pending"}{" "}
+                        •
+                      </Badge>
+                    </td>
+                    <td className="p-4">
+                      <span
+                        className={cn(
+                          "text-sm font-medium",
+                          report.priority === "urgent" && "text-red-600",
+                          report.priority === "high" && "text-orange-600",
+                          report.priority === "normal" && "text-foreground",
+                        )}
+                      >
+                        {report.priority.charAt(0).toUpperCase() +
+                          report.priority.slice(1)}{" "}
+                        {report.priority === "urgent" && "•"}
+                        {report.priority === "high" && "•"}
                       </span>
-                    </div>
-                  </td>
-                  <td className="p-4">
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "font-normal",
-                        report.status === "completed"
-                          ? "border-green-500 text-green-600"
-                          : "border-orange-500 text-orange-600",
-                      )}
-                    >
-                      {report.status === "completed" ? "Completed" : "Pending"}{" "}
-                      •
-                    </Badge>
-                  </td>
-                  <td className="p-4">
-                    <span
-                      className={cn(
-                        "text-sm font-medium",
-                        report.priority === "urgent" && "text-red-600",
-                        report.priority === "high" && "text-orange-600",
-                        report.priority === "normal" && "text-foreground",
-                      )}
-                    >
-                      {report.priority.charAt(0).toUpperCase() +
-                        report.priority.slice(1)}{" "}
-                      {report.priority === "urgent" && "•"}
-                      {report.priority === "high" && "•"}
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    <Button
-                      variant="ghost"
-                      onClick={() => setSelectedReport(report)}
-                      size="icon"
-                      className="h-8 w-8"
-                    >
-                      <MoreVertical className="h-4 w-4" />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                    <td className="p-4">
+                      <Button
+                        variant="ghost"
+                        onClick={() => setSelectedReport(report)}
+                        size="icon"
+                        className="h-8 w-8"
+                      >
+                        <MoreVertical className="h-4 w-4" />
+                      </Button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

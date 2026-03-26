@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,7 +35,7 @@ import {
   Trash,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { getOutsouceBuses, getOutsouceDrivers } from "@/api/outsourcing-driver";
 import { Badge } from "../ui/badge";
 import { DriverOutsourceType, useOutsourceStatus } from "@/api/driver";
@@ -59,10 +59,14 @@ import {
 import { Driver, DriverData } from "@/types";
 import {
   getAllBookings,
+  getCooperateAccounts,
   useCreateBooking,
   useDeleteBooking,
   useEditBooking,
 } from "@/api/bookings";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { updateSelBooking } from "@/lib/store/slices/booking-slice";
 
 type OutsourcingTab = "all" | "paid" | "pending";
 
@@ -70,49 +74,6 @@ const tabs: { id: OutsourcingTab; label: string }[] = [
   { id: "all", label: "All Bookings" },
   { id: "paid", label: "Paid Bookings" },
   { id: "pending", label: "Pending Bookings" },
-];
-
-const cooperateUsersList = [
-  {
-    _id: "corp_1a2b3c4d5e",
-    company_name: "TechFlow Solutions",
-    first_name: "TechFlow",
-    last_name: "Admin",
-    email: "admin@techflow.com",
-    phone: "+234 801 234 5678",
-  },
-  {
-    _id: "corp_6f7g8h9i0j",
-    company_name: "Apex Global Logistics",
-    first_name: "Apex",
-    last_name: "Global",
-    email: "logistics@apexglobal.ng",
-    phone: "+234 802 345 6789",
-  },
-  {
-    _id: "corp_1k2l3m4n5o",
-    company_name: "", // Testing the fallback to first_name
-    first_name: "Sarah",
-    last_name: "Jenkins",
-    email: "sarah.j@enterprise.com",
-    phone: "+234 803 456 7890",
-  },
-  {
-    _id: "corp_6p7q8r9s0t",
-    company_name: "Zenith Holdings Ltd",
-    first_name: "Zenith",
-    last_name: "Holdings",
-    email: "contact@zenithholdings.com",
-    phone: "+234 804 567 8901",
-  },
-  {
-    _id: "corp_1u2v3w4x5y",
-    company_name: "Pinnacle Transport",
-    first_name: "Pinnacle",
-    last_name: "Admin",
-    email: "hello@pinnacle.ng",
-    phone: "+234 805 678 9012",
-  },
 ];
 
 export function BookingsTable() {
@@ -166,6 +127,25 @@ export function BookingsTable() {
     retry: false,
     queryFn: () => getOutsouceBuses(currentPage, itemsPerPage),
   });
+
+  // Client Data
+  const {
+    data: clientData,
+    fetchNextPage: fetchNextClientPage,
+    hasNextPage: hasNextBusClientPage,
+    isFetchingNextPage: isFetchingMoreClientData,
+  } = useInfiniteQuery({
+    queryKey: ["co-operate"],
+    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getCooperateAccounts(pageParam, 10),
+    getNextPageParam: (lastPage, allPages) => {
+      const totalPages = lastPage?.corporate?.pagination?.totalPages || 1;
+      return allPages.length < totalPages ? allPages?.length + 1 : undefined;
+    },
+  });
+
+  const allClients =
+    clientData?.pages.flatMap((page) => page?.corporate?.data || []) || [];
 
   // 🔑 Modal & Form States
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -277,6 +257,12 @@ export function BookingsTable() {
         <Skeleton className="h-5 w-16 rounded-full" />
       </td>
       <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
         <Skeleton className="h-8 w-8 rounded-md" />
       </td>
     </tr>
@@ -299,7 +285,6 @@ export function BookingsTable() {
     // Safely format dates for the backend to avoid timezone shifts
     const payload = {
       ...bookingForm,
-      cooperate_user_id: "69b2ccc0c36d75fcb04c553a",
       contract_start: `${bookingForm.contract_start}T00:00:00.000Z`,
       contract_end: `${bookingForm.contract_end}T00:00:00.000Z`,
     };
@@ -328,10 +313,21 @@ export function BookingsTable() {
 
   const openEditModal = (booking: any) => {
     setEditingBookingId(booking._id);
+
+    // Safely extract the user ID whether it's in 'added_by', a populated object, or a raw string
+    const clientId =
+      booking.added_by?._id ||
+      booking.cooperate_user_id?._id ||
+      booking.cooperate_user_id ||
+      "";
+
     setBookingForm({
-      cooperate_user_id: booking.cooperate_user_id || "",
-      buses_assigned: booking.buses_assigned || [],
-      driver_assigned: booking.driver_assigned || [],
+      cooperate_user_id: clientId,
+      buses_assigned:
+        booking.buses_assigned?.map((bus: any) => bus._id || bus) || [],
+      driver_assigned:
+        booking.driver_assigned?.map((driver: any) => driver._id || driver) ||
+        [],
       contract_start: booking.contract_start
         ? booking.contract_start.split("T")[0]
         : "",
@@ -354,6 +350,12 @@ export function BookingsTable() {
     setIsBookingModalOpen(true);
   };
 
+  // Client Search
+  const [clientQuerySearch, setClientQuerySearch] = React.useState("");
+  const searchLower = searchQuery.toLowerCase();
+
+  const router = useRouter();
+  const dispatch = useDispatch();
   return (
     <Card className="bg-card border border-border">
       <CardHeader className="pb-4">
@@ -434,39 +436,55 @@ export function BookingsTable() {
                           className="w-full justify-between font-normal"
                         >
                           {bookingForm.cooperate_user_id
-                            ? "User Selected (ID Linked)" // Update with finding user name if possible
+                            ? allClients?.find(
+                                (c: any) =>
+                                  c._id === bookingForm.cooperate_user_id,
+                              )?.user_type?.type_id?.company_name ||
+                              allClients?.find(
+                                (c: any) =>
+                                  c._id === bookingForm.cooperate_user_id,
+                              )?.first_name ||
+                              "User Selected"
                             : "Search and select user..."}
                           <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                      <PopoverContent className=" p-0">
                         <Command>
                           <CommandInput placeholder="Search user..." />
                           <CommandEmpty>No user found.</CommandEmpty>
                           <CommandGroup className="max-h-64 overflow-auto">
                             {/* ⚠️ REPLACE WITH YOUR ACTUAL DATA MAP */}
-                            {cooperateUsersList?.map((user: any) => (
-                              <CommandItem
-                                key={user._id}
-                                onSelect={() => {
-                                  setBookingForm({
-                                    ...bookingForm,
-                                    cooperate_user_id: user._id,
-                                  });
-                                  setUserDropdownOpen(false);
-                                }}
-                              >
-                                <Check
-                                  className={cn(
-                                    "mr-2 h-4 w-4",
-                                    bookingForm.cooperate_user_id === user._id
-                                      ? "opacity-100"
-                                      : "opacity-0",
-                                  )}
-                                />
-                                {user.company_name || user.first_name}
-                              </CommandItem>
-                            ))}
+                            {allClients
+                              ?.filter((client: any) =>
+                                `${client.user_type.type_id.company_name}`
+                                  .toLowerCase()
+                                  .includes(searchLower),
+                              )
+                              .map((client: any) => (
+                                <CommandItem
+                                  key={client._id}
+                                  onSelect={() => {
+                                    setBookingForm({
+                                      ...bookingForm,
+                                      cooperate_user_id: client._id,
+                                    });
+                                    setUserDropdownOpen(false);
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      bookingForm.cooperate_user_id ===
+                                        client._id
+                                        ? "opacity-100"
+                                        : "opacity-0",
+                                    )}
+                                  />
+                                  {client.user_type.type_id.company_name ||
+                                    client.first_name}
+                                </CommandItem>
+                              ))}
                           </CommandGroup>
                         </Command>
                       </PopoverContent>
@@ -784,32 +802,6 @@ export function BookingsTable() {
                       {new Date(booking.createdAt).toDateString()}
                     </td>
                     <td className="p-4">
-                      {/* <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-8 w-8"
-                          >
-                            <MoreVertical className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem>
-                            <Eye className="h-4 w-4 mr-2" />
-                            View
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <Eye className="h-4 w-4 mr-2" />
-                            Edit Booking
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <Eye className="h-4 w-4 mr-2" />
-                            Delete Booking
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu> */}
-
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button
@@ -821,7 +813,13 @@ export function BookingsTable() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem className="cursor-pointer">
+                          <DropdownMenuItem
+                            onClick={() => {
+                              dispatch(updateSelBooking(booking));
+                              router.push(`/logistics/bookings/${booking._id}`);
+                            }}
+                            className="cursor-pointer"
+                          >
                             <Eye className="h-4 w-4 mr-2" /> View
                           </DropdownMenuItem>
 

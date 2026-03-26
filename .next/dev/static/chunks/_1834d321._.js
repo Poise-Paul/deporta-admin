@@ -520,7 +520,8 @@ const rootReducer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
     driver: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$driver$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
     routes: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$route$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
     bus: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$bus$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
-    corporate: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$co$2d$operate$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]
+    corporate: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$slices$2f$co$2d$operate$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
+    bookings
 });
 const persistedReducer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$redux$2d$persist$2f$es$2f$persistReducer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__persistReducer$3e$__["persistReducer"])(persistConfig, rootReducer);
 const store = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["configureStore"])({

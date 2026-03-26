@@ -23,12 +23,17 @@ export interface DropOffPayload {
 export const getDropOffStations = async (
   page: number = 1,
   limit: number = 10,
+  search?: string,
+  status?: string,
 ): Promise<DropOffDetails> => {
   try {
     const params = new URLSearchParams({
       page: page.toString(),
       limit: limit.toString(),
     });
+
+    if (search) params.append("search", search);
+    if (status && status !== "all") params.append("status", status);
 
     const res = await api.get(
       `/api/users/admin/drop-off-station/get?${params.toString()}`,

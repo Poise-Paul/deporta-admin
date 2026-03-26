@@ -62,7 +62,7 @@ export const getAllBookings = async (
     const res = await api.get(
       `/api/users/admin/booking/get?${params.toString()}`,
     );
-    
+
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

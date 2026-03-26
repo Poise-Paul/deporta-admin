@@ -1,5 +1,20 @@
 {
+  "/(dashboard)/app-menu/bus-stops/page": "app/(dashboard)/app-menu/bus-stops/page.js",
+  "/(dashboard)/app-menu/buses/[id]/page": "app/(dashboard)/app-menu/buses/[id]/page.js",
   "/(dashboard)/app-menu/buses/page": "app/(dashboard)/app-menu/buses/page.js",
+  "/(dashboard)/app-menu/dropoff-locations/page": "app/(dashboard)/app-menu/dropoff-locations/page.js",
+  "/(dashboard)/app-menu/pickup-stations/[id]/page": "app/(dashboard)/app-menu/pickup-stations/[id]/page.js",
+  "/(dashboard)/app-menu/pickup-stations/page": "app/(dashboard)/app-menu/pickup-stations/page.js",
+  "/(dashboard)/app-menu/routes/[id]/page": "app/(dashboard)/app-menu/routes/[id]/page.js",
+  "/(dashboard)/app-menu/routes/page": "app/(dashboard)/app-menu/routes/page.js",
+  "/(dashboard)/co-operate/accounts/page": "app/(dashboard)/co-operate/accounts/page.js",
+  "/(dashboard)/customers/[id]/page": "app/(dashboard)/customers/[id]/page.js",
+  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/logistics/bookings/[id]/page": "app/(dashboard)/logistics/bookings/[id]/page.js",
   "/(dashboard)/logistics/bookings/page": "app/(dashboard)/logistics/bookings/page.js",
-  "/(dashboard)/logistics/vehicle-rentals/page": "app/(dashboard)/logistics/vehicle-rentals/page.js"
+  "/(dashboard)/trips/page": "app/(dashboard)/trips/page.js",
+  "/(dashboard)/users/page": "app/(dashboard)/users/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
 }

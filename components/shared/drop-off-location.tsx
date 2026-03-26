@@ -49,7 +49,7 @@ import {
   EditDropOffStationDialog,
 } from "./DropOffStationDialogue";
 
-type LocationTab = "all" | "active" | "inactive";
+type LocationTab = "all" | "active" | "in-active";
 
 interface Location {
   id: number;
@@ -58,7 +58,7 @@ interface Location {
   state: string;
   addedBy: string;
   dateAdded: string;
-  status: "active" | "inactive";
+  status: "active" | "in-active";
 }
 
 interface LocationTableProps {
@@ -72,7 +72,7 @@ interface LocationTableProps {
 const tabs: { id: LocationTab; label: string }[] = [
   { id: "all", label: "All" },
   { id: "active", label: "Active" },
-  { id: "inactive", label: "In-Active" },
+  { id: "in-active", label: "In-Active" },
 ];
 
 export function DropOffStation({
@@ -107,8 +107,8 @@ export function DropOffStation({
     refetch,
     isLoading: dropOffLoader,
   } = useQuery({
-    queryKey: ["dropOffStations", currentPage, itemsPerPage],
-    queryFn: () => getDropOffStations(currentPage, itemsPerPage),
+    queryKey: ["dropOffStations", currentPage, itemsPerPage, searchQuery, activeTab],
+    queryFn: () => getDropOffStations(currentPage, itemsPerPage, searchQuery, activeTab),
   });
 
   const { register, setValue, watch, reset } = useForm<AddPickupStationPayload>(
@@ -183,33 +183,14 @@ export function DropOffStation({
 
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStations = dropOffStations?.drop_off_station?.data || [];
-
     const originalTotal =
       dropOffStations?.drop_off_station?.pagination?.totalPages || 1;
 
-    // 1. Filter by Search Query first
-    let filtered = allStations.filter((station) => {
-      const searchStr = searchQuery.toLowerCase();
-      return (
-        station.address?.value.toLowerCase().includes(searchStr) ||
-        station.area?.toLowerCase().includes(searchStr) ||
-        station.state?.toLowerCase().includes(searchStr) ||
-        station.country?.toLowerCase().includes(searchStr)
-      );
-    });
-
-    // 2. Then filter by Active/Inactive Tab
-    if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status === "active");
-    } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => s.status === "in-active");
-    }
-
     return {
-      paginatedData: filtered,
+      paginatedData: allStations,
       totalPages: originalTotal,
     };
-  }, [dropOffStations, activeTab, currentPage, itemsPerPage, searchQuery]);
+  }, [dropOffStations]);
 
   React.useEffect(() => {
     setCurrentPage(1);

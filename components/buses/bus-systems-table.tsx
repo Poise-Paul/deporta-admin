@@ -369,6 +369,12 @@ export function BusSystemsTable() {
         <Skeleton className="h-5 w-16 rounded-full" />
       </td>
       <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
+        <Skeleton className="h-5 w-16 rounded-full" />
+      </td>
+      <td className="p-4">
         <Skeleton className="h-8 w-8 rounded-md" />
       </td>
     </tr>

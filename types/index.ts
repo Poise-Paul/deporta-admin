@@ -888,6 +888,17 @@ export type Booking = {
   __v: number;
 };
 
+export type Transaction = {
+  _id: string;
+  amount: number;
+  type: string;
+  status: string;
+  user_id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v?: number;
+};
+
 export type AllBookingsResponse = {
   status: boolean;
   booking: {
@@ -946,4 +957,22 @@ export type CoOperateAccountsResponse = {
     data: CoOperateUser[];
     pagination: Pagination;
   };
+};
+
+export type AdminTransactionResponse = {
+  status: true;
+  transaction: {
+    data: Transaction[];
+    pagination: Pagination;
+  };
+};
+
+export type MonthlyData = {
+  month: string;
+  amount: number;
+};
+
+export type DashboardChartsResponse = {
+  status: boolean;
+  income: MonthlyData[];
 };

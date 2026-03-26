@@ -27,6 +27,8 @@ export interface PickupPayload {
 export const getPickupStations = async (
   page: number = 1,
   limit: number = 10,
+  search?: string,
+  status?: string,
 ): Promise<PickupStationDetails> => {
   try {
     const params = new URLSearchParams({
@@ -34,12 +36,15 @@ export const getPickupStations = async (
       limit: limit.toString(),
     });
 
+    if (search) params.append("search", search);
+    if (status && status !== "all") params.append("status", status);
+
     const res = await api.get(
       `/api/users/admin/pickup-station/get?${params.toString()}`,
     );
     return res.data;
   } catch (error) {
-    console.error("Fetch User Error:", error);
+    console.error("Fetch Pickup Station Error:", error);
     throw error;
   }
 };
