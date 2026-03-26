@@ -2,6 +2,7 @@
   "/(dashboard)/app-menu/bus-stops/page": "app/(dashboard)/app-menu/bus-stops/page.js",
   "/(dashboard)/app-menu/buses/[id]/page": "app/(dashboard)/app-menu/buses/[id]/page.js",
   "/(dashboard)/app-menu/buses/page": "app/(dashboard)/app-menu/buses/page.js",
+  "/(dashboard)/app-menu/drivers/page": "app/(dashboard)/app-menu/drivers/page.js",
   "/(dashboard)/app-menu/dropoff-locations/page": "app/(dashboard)/app-menu/dropoff-locations/page.js",
   "/(dashboard)/app-menu/pickup-stations/[id]/page": "app/(dashboard)/app-menu/pickup-stations/[id]/page.js",
   "/(dashboard)/app-menu/pickup-stations/page": "app/(dashboard)/app-menu/pickup-stations/page.js",

@@ -650,6 +650,10 @@ export type MaintenancePayload = {
   report: MaintenanceReport;
 };
 
+export interface EditMaintenancePayload extends MaintenancePayload {
+  maintenance_report_id: string;
+}
+
 export type MaintenanceResponse = {
   status: boolean;
   maintenance_report: {

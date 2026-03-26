@@ -4,6 +4,7 @@ import {
   BusEditResponse,
   BusesResponse,
   EditBusPayload,
+  EditMaintenancePayload,
   ErrorrResponse,
   MaintenancePayload,
   MaintenanceReportResponse,
@@ -314,3 +315,28 @@ export const getMaintenanceReports = async (
   }
 };
 
+// Update Maintenance Report
+export const useMaintenanceUpdate = () => {
+  return useMutation({
+    mutationFn: async (data: EditMaintenancePayload) => {
+      const res = await api.patch(
+        `/api/users/admin/maintenance-report/edit`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["maintenanceReports"] });
+      toast.success("Updated Successfully");
+      return data;
+    },
+    onError: (error, variables) => {
+      if (axios.isAxiosError(error)) {
+        const err = error.response?.data as ErrorrResponse;
+        toast.error(`${err?.error.message}`);
+      } else {
+        console.error("❌ Unexpected error:", error);
+      }
+    },
+  });
+};

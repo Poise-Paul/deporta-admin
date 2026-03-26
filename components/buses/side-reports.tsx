@@ -7,20 +7,129 @@ import {
   Hash,
   Download,
   CheckCircle2,
+  Loader2,
 } from "lucide-react";
+import { jsPDF } from "jspdf";
 import { Badge } from "../ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
+import { useMaintenanceUpdate } from "@/api/buses";
+import { MaintenanceStatusType } from "@/types";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const MaintenanceDetailSheet = ({
   report,
   isOpen,
   onOpenChange,
 }: any) => {
+  const queryClient = useQueryClient();
   const isUrgent = report?.priority === "urgent";
   const isCompleted = report?.status === "completed";
+
+  // 1. Setup the Mutation for Marking as Resolved
+
+  const editMaintenanceReport = useMaintenanceUpdate();
+
+  const handleMaintenanceReport = () => {
+    editMaintenanceReport.mutate(
+      {
+        maintenance_report_id: report._id,
+        bus_id: report.bus_id,
+        priority: report.priority,
+        status: MaintenanceStatusType.Completed,
+        report: {
+          title: report.report.title,
+          description: report.report.description,
+          technician_notes: report.report.technician_notes || "",
+        },
+      },
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ["maintenanceReports"] });
+          onOpenChange(false);
+        },
+      },
+    );
+  };
+
+  // 2. Setup the PDF Generator
+  const handleExportPDF = () => {
+    if (!report) return;
+    const doc = new jsPDF();
+    const margin = 20;
+    let yPos = 20;
+
+    // Header
+    doc.setFontSize(20);
+    doc.setTextColor(10, 25, 66); // Dark blue text
+    doc.text("Maintenance Report", margin, yPos);
+
+    // Metadata block
+    yPos += 15;
+    doc.setFontSize(11);
+    doc.setTextColor(100, 100, 100); // Gray text
+    doc.text(`Report ID: ${report._id}`, margin, yPos);
+    yPos += 8;
+    doc.text(
+      `Date Logged: ${new Date(report.createdAt).toLocaleDateString()}`,
+      margin,
+      yPos,
+    );
+    yPos += 8;
+    doc.text(`Priority: ${report.priority.toUpperCase()}`, margin, yPos);
+    yPos += 8;
+    doc.text(`Status: ${report.status.toUpperCase()}`, margin, yPos);
+    yPos += 8;
+    doc.text(
+      `Reported By: ${report.added_by.first_name} ${report.added_by.last_name}`,
+      margin,
+      yPos,
+    );
+
+    // Title
+    yPos += 15;
+    doc.setFontSize(14);
+    doc.setTextColor(0, 0, 0);
+    doc.text("Title:", margin, yPos);
+    yPos += 7;
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    // Word wrap the title
+    const titleLines = doc.splitTextToSize(report.report.title, 170);
+    doc.text(titleLines, margin, yPos);
+    yPos += titleLines.length * 7;
+
+    // Description
+    yPos += 10;
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("Description:", margin, yPos);
+    yPos += 7;
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    // Word wrap the description to fit page width
+    const descLines = doc.splitTextToSize(report.report.description, 170);
+    doc.text(descLines, margin, yPos);
+    yPos += descLines.length * 7;
+
+    // Technician Notes
+    yPos += 10;
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("Technician Notes:", margin, yPos);
+    yPos += 7;
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "italic");
+    const notes =
+      report.report.technician_notes || "No technician notes provided.";
+    const noteLines = doc.splitTextToSize(notes, 170);
+    doc.text(noteLines, margin, yPos);
+
+    // Save the PDF with a dynamic name
+    doc.save(`Deporta_Maintenance_${report._id.slice(-6)}.pdf`);
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
@@ -134,14 +243,27 @@ export const MaintenanceDetailSheet = ({
             <div className="pt-8 space-y-3">
               {!isCompleted && (
                 <Button
+                  onClick={handleMaintenanceReport}
+                  disabled={editMaintenanceReport.isPending}
                   className="w-full gap-2 shadow-lg shadow-primary/20 h-11"
                   size="lg"
                 >
-                  <CheckCircle2 className="h-4 w-4" />
-                  Mark as Resolved
+                  {editMaintenanceReport.isPending ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <CheckCircle2 className="h-4 w-4" />
+                  )}
+                  {editMaintenanceReport.isPending
+                    ? "Updating..."
+                    : "Mark as Resolved"}
                 </Button>
               )}
-              <Button variant="outline" className="w-full gap-2 h-11" size="lg">
+              <Button
+                onClick={handleExportPDF}
+                variant="outline"
+                className="w-full gap-2 h-11"
+                size="lg"
+              >
                 <Download className="h-4 w-4" />
                 Export Report PDF
               </Button>

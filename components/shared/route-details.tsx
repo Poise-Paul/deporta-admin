@@ -443,7 +443,7 @@ export function RouteDetails({ onBack }: StationDetailProps) {
               />
               <InfoItem
                 label="Rate Per KM"
-                value={`₦${selRoute.rate_per_km}`}
+                value={`₦${selRoute.rate_per_km.toLocaleString()}`}
                 icon={<Route />}
               />
               <InfoItem

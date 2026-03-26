@@ -657,12 +657,14 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 ;
 ;
-const getAllBusStops = async (page = 1, limit = 10)=>{
+const getAllBusStops = async (page = 1, limit = 10, search, status)=>{
     try {
         const params = new URLSearchParams({
             page: page.toString(),
             limit: limit.toString()
         });
+        if (search) params.append("search", search);
+        if (status && status !== "all") params.append("status", status);
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/bus-stop/get?${params.toString()}`);
         return res.data;
     } catch (error) {

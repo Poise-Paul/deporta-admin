@@ -869,6 +869,8 @@ __turbopack_context__.s([
     ()=>useCreateReport,
     "useDeleteBus",
     ()=>useDeleteBus,
+    "useMaintenanceUpdate",
+    ()=>useMaintenanceUpdate,
     "useModifyBuses",
     ()=>useModifyBuses
 ]);
@@ -877,7 +879,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/queryClient.ts [app-client] (ecmascript)");
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature(), _s5 = __turbopack_context__.k.signature(), _s6 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature(), _s5 = __turbopack_context__.k.signature(), _s6 = __turbopack_context__.k.signature(), _s7 = __turbopack_context__.k.signature();
 ;
 ;
 ;
@@ -1221,6 +1223,43 @@ const getMaintenanceReports = async (currentPage, perPage)=>{
         throw error;
     }
 };
+const useMaintenanceUpdate = ()=>{
+    _s7();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"])({
+        mutationFn: {
+            "useMaintenanceUpdate.useMutation": async (data)=>{
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch(`/api/users/admin/maintenance-report/edit`, data);
+                return res.data;
+            }
+        }["useMaintenanceUpdate.useMutation"],
+        onSuccess: {
+            "useMaintenanceUpdate.useMutation": (data)=>{
+                __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$queryClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["queryClient"].invalidateQueries({
+                    queryKey: [
+                        "maintenanceReports"
+                    ]
+                });
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].success("Updated Successfully");
+                return data;
+            }
+        }["useMaintenanceUpdate.useMutation"],
+        onError: {
+            "useMaintenanceUpdate.useMutation": (error, variables)=>{
+                if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+                    const err = error.response?.data;
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].error(`${err?.error.message}`);
+                } else {
+                    console.error("❌ Unexpected error:", error);
+                }
+            }
+        }["useMaintenanceUpdate.useMutation"]
+    });
+};
+_s7(useMaintenanceUpdate, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMutation"]
+    ];
+});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -3325,11 +3364,21 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$hash$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Hash$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/hash.js [app-client] (ecmascript) <export default as Hash>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/badge.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$sheet$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/sheet.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/separator.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$buses$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/api/buses/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$types$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/types/index.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$QueryClientProvider$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+;
+;
+;
 ;
 ;
 ;
@@ -3338,8 +3387,95 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
+    _s();
+    const queryClient = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$QueryClientProvider$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQueryClient"])();
     const isUrgent = report?.priority === "urgent";
     const isCompleted = report?.status === "completed";
+    // 1. Setup the Mutation for Marking as Resolved
+    const editMaintenanceReport = (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$buses$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMaintenanceUpdate"])();
+    const handleMaintenanceReport = ()=>{
+        editMaintenanceReport.mutate({
+            maintenance_report_id: report._id,
+            bus_id: report.bus_id,
+            priority: report.priority,
+            status: __TURBOPACK__imported__module__$5b$project$5d2f$types$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MaintenanceStatusType"].Completed,
+            report: {
+                title: report.report.title,
+                description: report.report.description,
+                technician_notes: report.report.technician_notes || ""
+            }
+        }, {
+            onSuccess: ()=>{
+                queryClient.invalidateQueries({
+                    queryKey: [
+                        "maintenanceReports"
+                    ]
+                });
+                onOpenChange(false);
+            }
+        });
+    };
+    // 2. Setup the PDF Generator
+    const handleExportPDF = ()=>{
+        if (!report) return;
+        const doc = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsPDF"]();
+        const margin = 20;
+        let yPos = 20;
+        // Header
+        doc.setFontSize(20);
+        doc.setTextColor(10, 25, 66); // Dark blue text
+        doc.text("Maintenance Report", margin, yPos);
+        // Metadata block
+        yPos += 15;
+        doc.setFontSize(11);
+        doc.setTextColor(100, 100, 100); // Gray text
+        doc.text(`Report ID: ${report._id}`, margin, yPos);
+        yPos += 8;
+        doc.text(`Date Logged: ${new Date(report.createdAt).toLocaleDateString()}`, margin, yPos);
+        yPos += 8;
+        doc.text(`Priority: ${report.priority.toUpperCase()}`, margin, yPos);
+        yPos += 8;
+        doc.text(`Status: ${report.status.toUpperCase()}`, margin, yPos);
+        yPos += 8;
+        doc.text(`Reported By: ${report.added_by.first_name} ${report.added_by.last_name}`, margin, yPos);
+        // Title
+        yPos += 15;
+        doc.setFontSize(14);
+        doc.setTextColor(0, 0, 0);
+        doc.text("Title:", margin, yPos);
+        yPos += 7;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        // Word wrap the title
+        const titleLines = doc.splitTextToSize(report.report.title, 170);
+        doc.text(titleLines, margin, yPos);
+        yPos += titleLines.length * 7;
+        // Description
+        yPos += 10;
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Description:", margin, yPos);
+        yPos += 7;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        // Word wrap the description to fit page width
+        const descLines = doc.splitTextToSize(report.report.description, 170);
+        doc.text(descLines, margin, yPos);
+        yPos += descLines.length * 7;
+        // Technician Notes
+        yPos += 10;
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Technician Notes:", margin, yPos);
+        yPos += 7;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "italic");
+        const notes = report.report.technician_notes || "No technician notes provided.";
+        const noteLines = doc.splitTextToSize(notes, 170);
+        doc.text(noteLines, margin, yPos);
+        // Save the PDF with a dynamic name
+        doc.save(`Deporta_Maintenance_${report._id.slice(-6)}.pdf`);
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$sheet$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Sheet"], {
         open: isOpen,
         onOpenChange: onOpenChange,
@@ -3350,7 +3486,7 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                     className: `h-1.5 w-full ${isUrgent ? "bg-destructive" : "bg-primary"}`
                 }, void 0, false, {
                     fileName: "[project]/components/buses/side-reports.tsx",
-                    lineNumber: 29,
+                    lineNumber: 138,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3368,7 +3504,7 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                             children: report?.status
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 36,
+                                            lineNumber: 145,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3378,7 +3514,7 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     className: "h-3 w-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 49,
+                                                    lineNumber: 158,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3386,19 +3522,19 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     children: report?._id.slice(-6)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 50,
+                                                    lineNumber: 159,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 48,
+                                            lineNumber: 157,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 35,
+                                    lineNumber: 144,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$sheet$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SheetTitle"], {
@@ -3406,13 +3542,13 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                     children: report?.report.title
                                 }, void 0, false, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 164,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/buses/side-reports.tsx",
-                            lineNumber: 34,
+                            lineNumber: 143,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3431,7 +3567,7 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                             className: "h-3.5 w-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                                            lineNumber: 65,
+                                                            lineNumber: 174,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3439,13 +3575,13 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                             children: "Priority"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                                            lineNumber: 66,
+                                                            lineNumber: 175,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 64,
+                                                    lineNumber: 173,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3453,13 +3589,13 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     children: report?.priority
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 70,
+                                                    lineNumber: 179,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 63,
+                                            lineNumber: 172,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3472,7 +3608,7 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                             className: "h-3.5 w-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                                            lineNumber: 78,
+                                                            lineNumber: 187,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3480,13 +3616,13 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                             children: "Date Logged"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                                            lineNumber: 79,
+                                                            lineNumber: 188,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 77,
+                                                    lineNumber: 186,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3494,24 +3630,24 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     children: report?.createdAt ? new Date(report.createdAt).toLocaleDateString() : "N/A"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 83,
+                                                    lineNumber: 192,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 76,
+                                            lineNumber: 185,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 200,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -3526,12 +3662,12 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                         className: "h-4 w-4 text-primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/side-reports.tsx",
-                                                        lineNumber: 97,
+                                                        lineNumber: 206,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 96,
+                                                    lineNumber: 205,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -3539,13 +3675,13 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     children: "Problem Description"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 99,
+                                                    lineNumber: 208,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 204,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3555,18 +3691,18 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                 children: report?.report.description
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/side-reports.tsx",
-                                                lineNumber: 104,
+                                                lineNumber: 213,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 103,
+                                            lineNumber: 212,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 94,
+                                    lineNumber: 203,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -3581,12 +3717,12 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                         className: "h-4 w-4 text-amber-600"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/buses/side-reports.tsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 223,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 113,
+                                                    lineNumber: 222,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -3594,13 +3730,13 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     children: "Workshop & Technical Notes"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 116,
+                                                    lineNumber: 225,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 112,
+                                            lineNumber: 221,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3614,49 +3750,58 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/buses/side-reports.tsx",
-                                                lineNumber: 122,
+                                                lineNumber: 231,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-sm text-muted-foreground italic flex items-center gap-2",
                                                 children: "No technician notes recorded yet."
                                             }, void 0, false, {
                                                 fileName: "[project]/components/buses/side-reports.tsx",
-                                                lineNumber: 126,
+                                                lineNumber: 235,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 229,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 111,
+                                    lineNumber: 220,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "pt-8 space-y-3",
                                     children: [
                                         !isCompleted && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                            onClick: handleMaintenanceReport,
+                                            disabled: editMaintenanceReport.isPending,
                                             className: "w-full gap-2 shadow-lg shadow-primary/20 h-11",
                                             size: "lg",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                editMaintenanceReport.isPending ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                    className: "h-4 w-4 animate-spin"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/buses/side-reports.tsx",
+                                                    lineNumber: 252,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 140,
-                                                    columnNumber: 19
+                                                    lineNumber: 254,
+                                                    columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
-                                                "Mark as Resolved"
+                                                editMaintenanceReport.isPending ? "Updating..." : "Mark as Resolved"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 136,
+                                            lineNumber: 245,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                            onClick: handleExportPDF,
                                             variant: "outline",
                                             className: "w-full gap-2 h-11",
                                             size: "lg",
@@ -3665,46 +3810,52 @@ const MaintenanceDetailSheet = ({ report, isOpen, onOpenChange })=>{
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                                    lineNumber: 145,
+                                                    lineNumber: 267,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 "Export Report PDF"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/buses/side-reports.tsx",
-                                            lineNumber: 144,
+                                            lineNumber: 261,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/buses/side-reports.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 243,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/buses/side-reports.tsx",
-                            lineNumber: 60,
+                            lineNumber: 169,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/buses/side-reports.tsx",
-                    lineNumber: 33,
+                    lineNumber: 142,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/buses/side-reports.tsx",
-            lineNumber: 27,
+            lineNumber: 136,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/buses/side-reports.tsx",
-        lineNumber: 26,
+        lineNumber: 135,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
+_s(MaintenanceDetailSheet, "2AZtn1l72c1dnbkN1tsDSSlWWiQ=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$QueryClientProvider$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQueryClient"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$buses$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMaintenanceUpdate"]
+    ];
+});
 _c = MaintenanceDetailSheet;
 var _c;
 __turbopack_context__.k.register(_c, "MaintenanceDetailSheet");
