@@ -51,21 +51,11 @@ import {
 
 type LocationTab = "all" | "active" | "in-active";
 
-interface Location {
-  id: number;
-  name: string;
-  area: string;
-  state: string;
-  addedBy: string;
-  dateAdded: string;
-  status: "active" | "in-active";
-}
 
 interface LocationTableProps {
   title: string;
   addButtonText: string;
   searchPlaceholder: string;
-  locations: Location[];
   tableTitle: string;
 }
 
@@ -78,7 +68,6 @@ const tabs: { id: LocationTab; label: string }[] = [
 export function DropOffStation({
   title,
   addButtonText,
-  locations,
   searchPlaceholder,
   tableTitle,
 }: LocationTableProps) {
@@ -107,8 +96,15 @@ export function DropOffStation({
     refetch,
     isLoading: dropOffLoader,
   } = useQuery({
-    queryKey: ["dropOffStations", currentPage, itemsPerPage, searchQuery, activeTab],
-    queryFn: () => getDropOffStations(currentPage, itemsPerPage, searchQuery, activeTab),
+    queryKey: [
+      "dropOffStations",
+      currentPage,
+      itemsPerPage,
+      searchQuery,
+      activeTab,
+    ],
+    queryFn: () =>
+      getDropOffStations(currentPage, itemsPerPage, searchQuery, activeTab),
   });
 
   const { register, setValue, watch, reset } = useForm<AddPickupStationPayload>(

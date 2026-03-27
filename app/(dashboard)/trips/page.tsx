@@ -1,80 +1,38 @@
 "use client";
 
-import { MapPin, Clock, Users, ChevronRight, Search } from "lucide-react";
+import { MapPin, Clock, Users, ChevronRight, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Trip } from "@/types";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BackButton } from "@/components/ui/back-button";
+import { useQuery } from "@tanstack/react-query";
+import { getOngoingTrips } from "@/api/routes";
+import { calculateETA } from "@/utils/timeConvert";
 
 interface OngoingTripsProps {
   trips: Trip[]; // Define that 'trips' is an array of Trip objects
 }
 
 export default function OngoingTripsScreen() {
-  const trips = [
-    {
-      id: 1,
-      busImage: "/transport-bus-black.jpg",
-      pickupLocation: "Ajah Under Bridge",
-      destination: "Lekki First Gate",
-      journeyCode: "DEPO 96-185",
-      pickupTime: "06:00 AM",
-      duration: "45 Mins",
-      passengers: 20,
-    },
-    {
-      id: 2,
-      busImage: "/passenger-bus.jpg",
-      pickupLocation: "Sangotedo, Shoprite",
-      destination: "Marina, CMS",
-      journeyCode: "DEPO 94-T18",
-      pickupTime: "08:00 AM",
-      duration: "60 Mins",
-      passengers: 20,
-    },
-    {
-      id: 3,
-      busImage: "/shuttle-bus.png",
-      pickupLocation: "Sangotedo, Shoprite",
-      destination: "Marina, CMS",
-      journeyCode: "DEPO 94-T18",
-      pickupTime: "08:00 AM",
-      duration: "60 Mins",
-      passengers: 20,
-    },
-    {
-      id: 4,
-      busImage: "/passenger-bus.jpg",
-      pickupLocation: "Co-Operative, Badore",
-      destination: "Igbara, Jakande",
-      journeyCode: "DEPO 98-T19",
-      pickupTime: "08:00 AM",
-      duration: "60 Mins",
-      passengers: 20,
-    },
-    {
-      id: 5,
-      busImage: "/transport-bus-black.jpg",
-      pickupLocation: "Sangotedo, Shoprite",
-      destination: "Marina, CMS",
-      journeyCode: "DEPO 94-T18",
-      pickupTime: "08:00 AM",
-      duration: "60 Mins",
-      passengers: 20,
-    },
-  ];
-
   const [searchTerm, setSearchTerm] = useState("");
 
   const router = useRouter();
 
+  const { data: ongoingTrips } = useQuery({
+    queryKey: ["ongoingTotal"],
+    queryFn: () => getOngoingTrips(),
+  });
+
   // Filter logic: match code or location
-  const filteredTrips = trips.filter(
+  const filteredTrips = ongoingTrips?.trip_route.data.filter(
     (trip) =>
-      trip.journeyCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      trip.pickupLocation.toLowerCase().includes(searchTerm.toLowerCase()),
+      trip.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      trip.starting_point.value
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()),
   );
+
   return (
     <div className="flex-1 bg-gray-50 min-h-screen pb-10">
       {/* Header with Search */}
@@ -87,22 +45,33 @@ export default function OngoingTripsScreen() {
           <Input
             placeholder="Search trip code or location..."
             className="pl-9 bg-gray-50"
+            value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          {searchTerm && (
+            <button
+              onClick={() => setSearchTerm("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+              type="button"
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
       </div>
 
       {/* Trips List */}
       <div className="p-4 space-y-4">
-        {filteredTrips.map((trip) => (
+        {filteredTrips?.map((trip) => (
           <div
-            key={trip.id}
+            key={trip._id}
             className="p-4 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow"
           >
             {/* Top Row: Trip Code & Status */}
             <div className="flex justify-between items-center mb-4">
               <span className="text-xs font-bold px-2 py-1 bg-orange-100 text-orange-600 rounded">
-                {trip.journeyCode}
+                {trip.code}
               </span>
               <div className="flex items-center gap-1 text-[10px] text-green-600 font-bold uppercase tracking-wider">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-600 animate-pulse" />
@@ -130,7 +99,7 @@ export default function OngoingTripsScreen() {
                       Pickup
                     </p>
                     <p className="text-sm font-semibold truncate">
-                      {trip.pickupLocation}
+                      {trip.starting_point.value}
                     </p>
                   </div>
                 </div>
@@ -143,14 +112,14 @@ export default function OngoingTripsScreen() {
                       Destination
                     </p>
                     <p className="text-sm font-semibold truncate">
-                      {trip.destination}
+                      {trip.destination.value}
                     </p>
                   </div>
                 </div>
               </div>
 
               <ChevronRight
-                onClick={() => router.push(`/trips/${trip.id}`)}
+                onClick={() => router.push(`/trips/${trip._id}`)}
                 className="h-5 w-5 text-gray-300 self-center"
               />
             </div>
@@ -166,7 +135,7 @@ export default function OngoingTripsScreen() {
                 </span>
               </div>
               <span className="font-medium text-gray-900">
-                {trip.duration} remaining
+                {calculateETA(Number(trip.route_distance))} remaining
               </span>
             </div>
           </div>

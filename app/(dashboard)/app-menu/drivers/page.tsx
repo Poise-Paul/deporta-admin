@@ -56,12 +56,12 @@ import {
 } from "@/components/ui/dialog";
 import { useForm } from "react-hook-form";
 
-type DriverTab = "all" | "active" | "inactive";
+type DriverTab = "all" | "active" | "in-active";
 
 const tabs: { id: DriverTab; label: string }[] = [
   { id: "all", label: "All Drivers" },
   { id: "active", label: "Active" },
-  { id: "inactive", label: "In-Active" },
+  { id: "in-active", label: "In-Active" },
 ];
 
 export default function DriversPage() {
@@ -81,50 +81,74 @@ export default function DriversPage() {
 
   // get the current user
   const { data, refetch, isLoading } = useQuery({
-    queryKey: ["drivers"],
+    queryKey: [
+      "drivers",
+      currentPage,
+      itemsPerPage,
+      searchQuery,
+      activeTab,
+      roleFilter,
+    ],
     retry: false,
-    queryFn: () => getDriversList(),
+    queryFn: () =>
+      getDriversList(
+        currentPage,
+        itemsPerPage,
+        searchQuery,
+        activeTab,
+        roleFilter,
+      ),
   });
+
+  // const { paginatedData, totalPages } = React.useMemo(() => {
+  //   const allStaffs = data?.staffs?.data || [];
+
+  //   // 1. Filter by Search Query (Checking multiple fields)
+  //   let filtered = allStaffs.filter((driver) => {
+  //     const searchStr = searchQuery.toLowerCase();
+  //     return (
+  //       driver.first_name?.toLowerCase().includes(searchStr) ||
+  //       driver.last_name?.toLowerCase().includes(searchStr)
+  //     );
+  //   });
+
+  //   // 2. Filter by Tab Status
+  //   if (activeTab === "active") {
+  //     filtered = filtered.filter((s) => s.status === "active");
+  //   } else if (activeTab === "inactive") {
+  //     filtered = filtered.filter((s) => s.status === "in-active");
+  //   }
+
+  //   // Role Logic
+  //   if (roleFilter !== "all") {
+  //     filtered = filtered.filter((s) => {
+  //       // 1. Handle Verification Filters
+  //       if (roleFilter === "outsourcing")
+  //         return s.user_type.type_id.outsourcing;
+  //       if (roleFilter === "on-site") return s.user_type.type_id.is_on_site;
+  //       if (roleFilter === "off-site") return !s.user_type.type_id.is_on_site;
+  //     });
+  //   }
+
+  //   // 3. Calculate Total Pages based on the filtered/searched list
+  //   const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+
+  //   // 4. Slice the data for the current page
+  //   const startIndex = (currentPage - 1) * itemsPerPage;
+  //   const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+  //   return { paginatedData: slicedData, totalPages: total };
+  // }, [data, activeTab, currentPage, itemsPerPage, searchQuery, roleFilter]);
 
   const { paginatedData, totalPages } = React.useMemo(() => {
     const allStaffs = data?.staffs?.data || [];
+    const originalTotal = data?.staffs?.pagination?.totalPages || 1;
 
-    // 1. Filter by Search Query (Checking multiple fields)
-    let filtered = allStaffs.filter((driver) => {
-      const searchStr = searchQuery.toLowerCase();
-      return (
-        driver.first_name?.toLowerCase().includes(searchStr) ||
-        driver.last_name?.toLowerCase().includes(searchStr)
-      );
-    });
-
-    // 2. Filter by Tab Status
-    if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status === "active");
-    } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => s.status === "in-active");
-    }
-
-    // Role Logic
-    if (roleFilter !== "all") {
-      filtered = filtered.filter((s) => {
-        // 1. Handle Verification Filters
-        if (roleFilter === "outsourcing")
-          return s.user_type.type_id.outsourcing;
-        if (roleFilter === "on-site") return s.user_type.type_id.is_on_site;
-        if (roleFilter === "off-site") return !s.user_type.type_id.is_on_site;
-      });
-    }
-
-    // 3. Calculate Total Pages based on the filtered/searched list
-    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
-
-    // 4. Slice the data for the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-    return { paginatedData: slicedData, totalPages: total };
-  }, [data, activeTab, currentPage, itemsPerPage, searchQuery, roleFilter]);
+    return {
+      paginatedData: allStaffs,
+      totalPages: originalTotal,
+    };
+  }, [data]);
 
   const updateMutation = useStaffStatus();
   const updateOnsiteMutation = useSiteStatus();

@@ -41,30 +41,19 @@ import {
 import { updateSelBusStop } from "@/lib/store/slices/bus-stop-slice";
 import { AddBusStopDialog, EditBusStopDialog } from "./BusStopDialogue";
 
-type LocationTab = "all" | "active" | "inactive";
-
-interface Location {
-  id: number;
-  name: string;
-  area: string;
-  state: string;
-  addedBy: string;
-  dateAdded: string;
-  status: "active" | "inactive";
-}
+type LocationTab = "all" | "active" | "in-active";
 
 interface LocationTableProps {
   title: string;
   addButtonText: string;
   searchPlaceholder: string;
-  locations: Location[];
   tableTitle: string;
 }
 
 const tabs: { id: LocationTab; label: string }[] = [
   { id: "all", label: "All" },
   { id: "active", label: "Active" },
-  { id: "inactive", label: "In-Active" },
+  { id: "in-active", label: "In-Active" },
 ];
 
 export function BusStopTable({
@@ -97,8 +86,9 @@ export function BusStopTable({
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["busStops", currentPage, itemsPerPage],
-    queryFn: () => getAllBusStops(currentPage, itemsPerPage),
+    queryKey: ["busStops", currentPage, itemsPerPage, searchQuery, activeTab],
+    queryFn: () =>
+      getAllBusStops(currentPage, itemsPerPage, searchQuery, activeTab),
   });
 
   const handleDeleteBustop = (stationId: string) => {
@@ -112,34 +102,14 @@ export function BusStopTable({
   }, [busStops]);
 
   const { paginatedData, totalPages } = React.useMemo(() => {
-    const allBustops = busStops?.bus_stop.data || [];
+    const allStations = busStops?.bus_stop?.data || [];
+    const originalTotal = busStops?.bus_stop?.pagination?.totalPages || 1;
 
-    // 1. Filter by Search Query (Checking multiple fields)
-    let filtered = allBustops.filter((station) => {
-      const searchStr = searchQuery.toLowerCase();
-      return (
-        station.address?.value.toLowerCase().includes(searchStr) ||
-        station.area?.toLowerCase().includes(searchStr) ||
-        station.state?.toLowerCase().includes(searchStr)
-      );
-    });
-
-    // 2. Filter by Tab Status
-    if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status === "active");
-    } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => s.status === "in-active");
-    }
-
-    // 3. Calculate Total Pages based on the filtered/searched list
-    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
-
-    // 4. Slice the data for the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-    return { paginatedData: slicedData, totalPages: total };
-  }, [busStops, activeTab, currentPage, itemsPerPage, searchQuery]);
+    return {
+      paginatedData: allStations,
+      totalPages: originalTotal,
+    };
+  }, [busStops]);
 
   React.useEffect(() => {
     setCurrentPage(1);

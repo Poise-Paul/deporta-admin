@@ -352,31 +352,29 @@ export function RoutesTable({
   const handleModifyRoute = () => {
     const formData = updateGetValues();
     const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
-
+    
     (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
       (day) => {
         if (updatedRoutine[day].active) {
           updatedRoutine[day].value = updatedRoutine[day].value.map(
             (slot: any) => {
-              // Construct a valid local date for Departure
+              // 🔑 Use setUTCHours to prevent the timezone from shifting into the previous day
               const fromDate = new Date();
               const [fromH, fromM] = slot.from.split(":");
-              fromDate.setHours(parseInt(fromH), parseInt(fromM), 0, 0);
+              fromDate.setUTCHours(parseInt(fromH), parseInt(fromM), 0, 0);
 
-              // Construct a valid local date for Arrival
               const tooDate = new Date();
               const [tooH, tooM] = slot.too.split(":");
-              tooDate.setHours(parseInt(tooH), parseInt(tooM), 0, 0);
+              tooDate.setUTCHours(parseInt(tooH), parseInt(tooM), 0, 0);
 
-              // 🔑 Overnight Guard: If arrival time is earlier than departure (e.g. 23:00 to 00:00),
-              // push the arrival date to the next day so the backend doesn't throw the Invalid Range error.
+              // 🔑 Overnight Guard (Updated to use UTC date logic)
               if (tooDate <= fromDate) {
-                tooDate.setDate(tooDate.getDate() + 1);
+                tooDate.setUTCDate(tooDate.getUTCDate() + 1);
               }
 
               return {
                 // ...slot,
-                from: fromDate.toISOString(), // Send clean ISO back to database
+                from: fromDate.toISOString(),
                 too: tooDate.toISOString(),
               };
             },
@@ -386,6 +384,7 @@ export function RoutesTable({
         }
       },
     );
+
     modifyTripRoute.mutate(
       {
         trip_route_id: routeId?.trip_route_id || "",
@@ -551,11 +550,12 @@ export function RoutesTable({
     fetchNextPage: fetchNextPickupPage,
     hasNextPage: hasNextPickupPage,
     isFetchingNextPage: isFetchingMorePickups,
-    isLoading: pickupLoader
+    isLoading: pickupLoader,
   } = useInfiniteQuery({
     queryKey: ["pickupStations", pickupSearch],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getPickupStations(pageParam, 10, pickupSearch),
+    queryFn: ({ pageParam = 1 }) =>
+      getPickupStations(pageParam, 10, pickupSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages = lastPage?.pickup_station?.pagination?.totalPages || 1;
       return allPages.length < totalPages ? allPages.length + 1 : undefined;
@@ -567,11 +567,12 @@ export function RoutesTable({
     fetchNextPage: fetchNextDropOffPage,
     hasNextPage: hasNextDropOffPage,
     isFetchingNextPage: isFetchingMoreDropOffs,
-    isLoading: dropOffLoader
+    isLoading: dropOffLoader,
   } = useInfiniteQuery({
     queryKey: ["dropOffStations", dropoffSearch],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getDropOffStations(pageParam, 10, dropoffSearch),
+    queryFn: ({ pageParam = 1 }) =>
+      getDropOffStations(pageParam, 10, dropoffSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages =
         lastPage?.drop_off_station?.pagination?.totalPages || 1;
@@ -584,11 +585,12 @@ export function RoutesTable({
     fetchNextPage: fetchNextBusStopPage,
     hasNextPage: hasNextBusStopPage,
     isFetchingNextPage: isFetchingMoreBusStops,
-    isLoading:busStopLoader
+    isLoading: busStopLoader,
   } = useInfiniteQuery({
     queryKey: ["busStops", busStopSearch],
     initialPageParam: 1,
-    queryFn: ({ pageParam = 1 }) => getAllBusStops(pageParam, 10, busStopSearch),
+    queryFn: ({ pageParam = 1 }) =>
+      getAllBusStops(pageParam, 10, busStopSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages = lastPage?.bus_stop?.pagination?.totalPages || 1;
       return allPages.length < totalPages ? allPages?.length + 1 : undefined;

@@ -193,12 +193,25 @@ export const getAllStaffs = async (): Promise<StaffDashboardStats> => {
 };
 
 export const getDriversList = async (
-  currentPage?: number,
+  currentPage: number = 1,
   perPage: number = 10,
   searchTerm?: string,
+  status?: string,
+  others?: string,
 ): Promise<DriversDataResponse> => {
   try {
-    const res = await api.get(`/api/users/admin/drivers?limit=${perPage}`);
+    const params = new URLSearchParams({
+      page: currentPage.toString(),
+      limit: perPage.toString(),
+    });
+
+    if (searchTerm) params.append("search", searchTerm);
+    if (status && status !== "all") params.append("status", status);
+    if (others === "outsourcing") params.append("outsourcing", "true");
+    if (others === "on-site") params.append("onsite", "true");
+     if (others === "off-site") params.append("onsite", "false");
+
+    const res = await api.get(`/api/users/admin/drivers?${params.toString()}`);
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

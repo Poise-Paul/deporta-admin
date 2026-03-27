@@ -207,38 +207,36 @@ export function RouteDetails({ onBack }: StationDetailProps) {
     const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
 
     (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
-      (day) => {
-        if (updatedRoutine[day].active) {
-          updatedRoutine[day].value = updatedRoutine[day].value.map(
-            (slot: any) => {
-              // Construct a valid local date for Departure
-              const fromDate = new Date();
-              const [fromH, fromM] = slot.from.split(":");
-              fromDate.setHours(parseInt(fromH), parseInt(fromM), 0, 0);
+    (day) => {
+      if (updatedRoutine[day].active) {
+        updatedRoutine[day].value = updatedRoutine[day].value.map(
+          (slot: any) => {
+            // 🔑 Use setUTCHours to prevent the timezone from shifting into the previous day
+            const fromDate = new Date();
+            const [fromH, fromM] = slot.from.split(":");
+            fromDate.setUTCHours(parseInt(fromH), parseInt(fromM), 0, 0);
 
-              // Construct a valid local date for Arrival
-              const tooDate = new Date();
-              const [tooH, tooM] = slot.too.split(":");
-              tooDate.setHours(parseInt(tooH), parseInt(tooM), 0, 0);
+            const tooDate = new Date();
+            const [tooH, tooM] = slot.too.split(":");
+            tooDate.setUTCHours(parseInt(tooH), parseInt(tooM), 0, 0);
 
-              // 🔑 Overnight Guard: If arrival time is earlier than departure (e.g. 23:00 to 00:00),
-              // push the arrival date to the next day so the backend doesn't throw the Invalid Range error.
-              if (tooDate <= fromDate) {
-                tooDate.setDate(tooDate.getDate() + 1);
-              }
+            // 🔑 Overnight Guard (Updated to use UTC date logic)
+            if (tooDate <= fromDate) {
+              tooDate.setUTCDate(tooDate.getUTCDate() + 1);
+            }
 
-              return {
-                // ...slot,
-                from: fromDate.toISOString(), // Send clean ISO back to database
-                too: tooDate.toISOString(),
-              };
-            },
-          );
-        } else {
-          updatedRoutine[day].value = [];
-        }
-      },
-    );
+            return {
+              // ...slot,
+              from: fromDate.toISOString(),
+              too: tooDate.toISOString(),
+            };
+          },
+        );
+      } else {
+        updatedRoutine[day].value = [];
+      }
+    },
+  );
 
     if (!selRoute) return;
 

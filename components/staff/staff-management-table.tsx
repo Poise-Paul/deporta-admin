@@ -50,12 +50,12 @@ import { useDispatch } from "react-redux";
 import { updateSelStaff } from "@/lib/store/slices/staff-slice";
 import { useStaffStatus } from "@/api/dashboard";
 
-type StaffTab = "all" | "active" | "inactive";
+type StaffTab = "all" | "active" | "in-active";
 
 const tabs: { id: StaffTab; label: string }[] = [
   { id: "all", label: "All Staffs" },
   { id: "active", label: "Active" },
-  { id: "inactive", label: "In-Active" },
+  { id: "in-active", label: "In-Active" },
 ];
 
 export function StaffManagementTable() {
@@ -64,19 +64,6 @@ export function StaffManagementTable() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
   const [staffLoading, setStaffLoading] = useState(false);
-
-  // get the current user
-  const {
-    data: staffData,
-    error: staffError,
-    refetch: refetchStaffs,
-    isRefetching,
-    isLoading: staffLoader,
-  } = useQuery({
-    queryKey: ["staffs"],
-    retry: false,
-    queryFn: () => getStaffList(),
-  });
 
   const {
     register,
@@ -97,57 +84,94 @@ export function StaffManagementTable() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
+  // get the current user
+  const {
+    data: staffData,
+    error: staffError,
+    refetch: refetchStaffs,
+    isRefetching,
+    isLoading: staffLoader,
+  } = useQuery({
+    queryKey: [
+      "staffs",
+      currentPage,
+      itemsPerPage,
+      searchQuery,
+      activeTab,
+      roleFilter,
+    ],
+    retry: false,
+    queryFn: () =>
+      getStaffList(
+        currentPage,
+        itemsPerPage,
+        searchQuery,
+        activeTab,
+        roleFilter,
+      ),
+  });
+
+  // Old Pagination with Role Filter
+
+  // const { paginatedData, totalPages } = React.useMemo(() => {
+  //   const allStaffs = staffData?.staffs?.data || [];
+
+  //   // 1. Filter by Search Query (Checking multiple fields)
+  //   let filtered = allStaffs.filter((staff) => {
+  //     const searchStr = searchQuery.toLowerCase();
+  //     return (
+  //       staff.first_name?.toLowerCase().includes(searchStr) ||
+  //       staff.last_name?.toLowerCase().includes(searchStr)
+  //     );
+  //   });
+
+  //   // 2. Filter by Tab Status
+  //   if (activeTab === "active") {
+  //     filtered = filtered.filter((s) => s.status === "active");
+  //   } else if (activeTab === "inactive") {
+  //     filtered = filtered.filter((s) => s.status === "in-active");
+  //   }
+  //   // Role Logic
+  //   if (roleFilter !== "all") {
+  //     filtered = filtered.filter(
+  //       (s) =>
+  //         s.user_type.type_id.role.toLowerCase() === roleFilter.toLowerCase(),
+  //     );
+  //   }
+
+  //   // 3. Calculate Total Pages based on the filtered/searched list
+  //   const total = Math.ceil(filtered.length / itemsPerPage) || 1;
+
+  //   // 4. Slice the data for the current page
+  //   const startIndex = (currentPage - 1) * itemsPerPage;
+  //   const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+  //   return { paginatedData: slicedData, totalPages: total };
+  // }, [
+  //   staffData,
+  //   activeTab,
+  //   currentPage,
+  //   itemsPerPage,
+  //   searchQuery,
+  //   roleFilter,
+  // ]);
+
   const { paginatedData, totalPages } = React.useMemo(() => {
-    const allStaffs = staffData?.staffs?.data || [];
+    const allStaffs = staffData?.staffs.data || [];
+    const originalTotal = staffData?.staffs?.pagination?.totalPages || 1;
 
-    // 1. Filter by Search Query (Checking multiple fields)
-    let filtered = allStaffs.filter((staff) => {
-      const searchStr = searchQuery.toLowerCase();
-      return (
-        staff.first_name?.toLowerCase().includes(searchStr) ||
-        staff.last_name?.toLowerCase().includes(searchStr)
-      );
-    });
-
-    // 2. Filter by Tab Status
-    if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status === "active");
-    } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => s.status === "in-active");
-    }
-    // Role Logic
-    if (roleFilter !== "all") {
-      filtered = filtered.filter(
-        (s) =>
-          s.user_type.type_id.role.toLowerCase() === roleFilter.toLowerCase(),
-      );
-    }
-
-    // 3. Calculate Total Pages based on the filtered/searched list
-    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
-
-    // 4. Slice the data for the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-    return { paginatedData: slicedData, totalPages: total };
-  }, [
-    staffData,
-    activeTab,
-    currentPage,
-    itemsPerPage,
-    searchQuery,
-    roleFilter,
-  ]);
+    return {
+      paginatedData: allStaffs,
+      totalPages: originalTotal,
+    };
+  }, [staffData]);
 
   const handleWatch = watch();
 
   // Clamps the current page if it exceeds the new total pages
-  useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
-      setCurrentPage(totalPages);
-    }
-  }, [totalPages, currentPage]);
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, activeTab]);
 
   const { first_name, last_name, phone_number, email, otp, role, gender } =
     handleWatch;
@@ -201,8 +225,8 @@ export function StaffManagementTable() {
         {
           onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["staffs"] });
-            reset()
-            refetchStaffs()
+            reset();
+            refetchStaffs();
             setIsAddDialogOpen(false);
           },
           onSettled: () => {

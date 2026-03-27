@@ -5,6 +5,7 @@ import { getAllCustomers } from "@/api/user";
 import { Card, CardContent } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRight, Wallet, Users, MapPin, Bus } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function DashboardStats() {
   const { data: adminData } = useQuery({
@@ -33,12 +34,14 @@ export function DashboardStats() {
       value: `₦ ${adminTotal?.income[0].amount.toLocaleString() || 0}`,
       icon: Wallet,
       color: "bg-primary/10 text-primary",
+      showDetail: false,
     },
     {
       title: "Total Staffs",
       value: adminData?.staffs ? adminData?.staffs[0].count : "0",
       icon: Users,
       color: "bg-secondary/10 text-secondary",
+      showDetail: true,
     },
     {
       title: "Ongoing Trips",
@@ -47,15 +50,18 @@ export function DashboardStats() {
         : 0,
       icon: MapPin,
       color: "bg-pink-100 text-pink-600",
+      showDetail: true,
     },
     {
       title: "Customers on the app",
       value: customertData?.customers ? customertData?.customers[0].count : "0",
       icon: Bus,
       color: "bg-blue-100 text-blue-600",
+      showDetail: true,
     },
   ];
 
+  const router = useRouter();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {stats.map((stat) => (
@@ -65,10 +71,23 @@ export function DashboardStats() {
               <div className={`p-2 rounded-lg ${stat.color}`}>
                 <stat.icon className="h-5 w-5" />
               </div>
-              <button className="text-muted-foreground hover:text-foreground text-sm flex items-center gap-1">
-                View details
-                <ArrowUpRight className="h-3 w-3" />
-              </button>
+              {stat.showDetail && (
+                <button
+                  onClick={() => {
+                    if (stat.title === "Total Staffs") {
+                      router.push("/staff");
+                    } else if (stat.title === "Ongoing Trips") {
+                      router.push("/trips");
+                    }else if (stat.title === "Customers on the app") {
+                      router.push("/users");
+                    }
+                  }}
+                  className="text-muted-foreground hover:text-foreground text-sm flex items-center gap-1"
+                >
+                  View details
+                  <ArrowUpRight className="h-3 w-3" />
+                </button>
+              )}
             </div>
             <div className="mt-3">
               <p className="text-2xl font-bold text-foreground">{stat.value}</p>

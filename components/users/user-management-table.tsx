@@ -33,28 +33,32 @@ import { useDispatch } from "react-redux";
 import { updateSelCustomer } from "@/lib/store/slices/customer-slice";
 import { useRouter } from "next/navigation";
 
-type UserTab = "all" | "active" | "inactive";
+type UserTab = "all" | "active" | "in-active";
 
 const tabs: { id: UserTab; label: string }[] = [
   { id: "all", label: "All Users" },
   { id: "active", label: "Active" },
-  { id: "inactive", label: "In-Active" },
+  { id: "in-active", label: "In-Active" },
 ];
 export function UserManagementTable() {
   const [activeTab, setActiveTab] = useState<UserTab>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+
   // Get All Users
   const {
     data,
-    error: userError,
+    error,
     refetch: refetchUsers,
-    isRefetching,
     isLoading,
   } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", currentPage, itemsPerPage, searchQuery, activeTab],
     retry: false,
-    queryFn: () => getUsersList(),
+    queryFn: () =>
+      getUsersList(currentPage, itemsPerPage, searchQuery, activeTab),
   });
 
   const handleDownload = () => {
@@ -100,55 +104,20 @@ export function UserManagementTable() {
   // Role Integration
   const [roleFilter, setRoleFilter] = useState<string>("all");
 
-  // Pagination
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(10);
-
   const { paginatedData, totalPages } = React.useMemo(() => {
-    const allStaffs = data?.users?.data || [];
+    const allUsers = data?.users.data || [];
+    const originalTotal = data?.users?.pagination?.totalPages || 1;
 
-    // 1. Filter by Search Query (Checking multiple fields)
-    let filtered = allStaffs.filter((staff) => {
-      const searchStr = searchQuery.toLowerCase();
-      return (
-        staff.first_name?.toLowerCase().includes(searchStr) ||
-        staff.last_name?.toLowerCase().includes(searchStr)
-      );
-    });
-
-    // 2. Filter by Tab Status
-    if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status === "active");
-    } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => s.status === "in-active");
-    }
-    // Role Logic
-    if (roleFilter !== "all") {
-      filtered = filtered.filter((s) => {
-        // 1. Handle Verification Filters
-        if (roleFilter === "verified") return s.verify_email;
-        if (roleFilter === "non-verified") return !s.verify_email;
-
-        return s.user_type?.value?.toLowerCase() === roleFilter.toLowerCase();
-      });
-    }
-
-    // 3. Calculate Total Pages based on the filtered/searched list
-    const total = Math.ceil(filtered.length / itemsPerPage) || 1;
-
-    // 4. Slice the data for the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const slicedData = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-    return { paginatedData: slicedData, totalPages: total };
-  }, [data, activeTab, currentPage, itemsPerPage, searchQuery, roleFilter]);
+    return {
+      paginatedData: allUsers,
+      totalPages: originalTotal,
+    };
+  }, [data]);
 
   // Clamps the current page if it exceeds the new total pages
-  useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
-      setCurrentPage(totalPages);
-    }
-  }, [totalPages, currentPage]);
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, activeTab]);
 
   // Loader
   const TableRowSkeleton = () => (

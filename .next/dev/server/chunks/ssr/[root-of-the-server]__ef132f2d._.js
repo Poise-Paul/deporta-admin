@@ -60,35 +60,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bus$2d$stops$2f$bus$2d$stop$2d$table$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/bus-stops/bus-stop-table.tsx [app-rsc] (ecmascript)");
 ;
 ;
-const busStops = [
-    {
-        id: 1,
-        name: "Ajah Bridge Bus Stop",
-        area: "Ajah",
-        state: "Lagos, Nigeria",
-        addedBy: "admin@deportalogistics.com",
-        dateAdded: "05/05/2025",
-        status: "active"
-    },
-    {
-        id: 2,
-        name: "Sangotedo Junction",
-        area: "Sangotedo",
-        state: "Lagos, Nigeria",
-        addedBy: "admin@deportalogistics.com",
-        dateAdded: "12/05/2025",
-        status: "active"
-    },
-    {
-        id: 3,
-        name: "Lekki Phase 1 Gate",
-        area: "Lekki",
-        state: "Lagos, Nigeria",
-        addedBy: "admin@deportalogistics.com",
-        dateAdded: "16/06/2025",
-        status: "inactive"
-    }
-];
 function BusStopsPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-6",
@@ -96,16 +67,15 @@ function BusStopsPage() {
             title: "Bus-Stops",
             addButtonText: "Add Bus Stop",
             searchPlaceholder: "Search Bus Stop By Name",
-            locations: busStops,
             tableTitle: "All Bus-Stops"
         }, void 0, false, {
             fileName: "[project]/app/(dashboard)/app-menu/bus-stops/page.tsx",
-            lineNumber: 36,
+            lineNumber: 7,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/(dashboard)/app-menu/bus-stops/page.tsx",
-        lineNumber: 35,
+        lineNumber: 6,
         columnNumber: 5
     }, this);
 }

@@ -722,6 +722,8 @@ export type RouteData = {
   __v: number;
 };
 
+
+
 export interface GetAllRoutesData {
   status: boolean;
   trip_route: {

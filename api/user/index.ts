@@ -21,9 +21,22 @@ export const getUser = async (): Promise<UserDataResponse> => {
   }
 };
 
-export const getStaffList = async (): Promise<StaffListResponse> => {
+export const getStaffList = async (
+  page: number,
+  limit: number,
+  search?: string,
+  status?: string,
+  role?: string,
+): Promise<StaffListResponse> => {
+  const params = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+  });
+  if (search) params.append("search", search);
+  if (status && status !== "all") params.append("status", status);
+
   try {
-    const res = await api.get("/api/users/admin/staffs");
+    const res = await api.get(`/api/users/admin/staffs?${params.toString()}`);
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);
@@ -31,9 +44,21 @@ export const getStaffList = async (): Promise<StaffListResponse> => {
   }
 };
 
-export const getUsersList = async (): Promise<UsersDataListResponse> => {
+export const getUsersList = async (
+  page: number = 1,
+  limit: number = 10,
+  search?: string,
+  status?: string,
+): Promise<UsersDataListResponse> => {
   try {
-    const res = await api.get("/api/users/admin/users");
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+    });
+
+    if (search) params.append("search", search);
+    if (status && status !== "all") params.append("status", status);
+    const res = await api.get(`/api/users/admin/users?${params.toString()}`);
     return res.data;
   } catch (error) {
     console.error("Fetch User Error:", error);

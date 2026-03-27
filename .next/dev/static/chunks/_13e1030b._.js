@@ -681,18 +681,30 @@ const getUser = async ()=>{
         throw error;
     }
 };
-const getStaffList = async ()=>{
+const getStaffList = async (page, limit, search, status, role)=>{
+    const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString()
+    });
+    if (search) params.append("search", search);
+    if (status && status !== "all") params.append("status", status);
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/staffs");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/staffs?${params.toString()}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
         throw error;
     }
 };
-const getUsersList = async ()=>{
+const getUsersList = async (page = 1, limit = 10, search, status)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/users");
+        const params = new URLSearchParams({
+            page: page.toString(),
+            limit: limit.toString()
+        });
+        if (search) params.append("search", search);
+        if (status && status !== "all") params.append("status", status);
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/users?${params.toString()}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
