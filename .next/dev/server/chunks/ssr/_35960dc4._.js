@@ -1053,9 +1053,18 @@ const getAllStaffs = async ()=>{
         throw error;
     }
 };
-const getDriversList = async (currentPage, perPage = 10, searchTerm)=>{
+const getDriversList = async (currentPage = 1, perPage = 10, searchTerm, status, others)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/drivers?limit=${perPage}`);
+        const params = new URLSearchParams({
+            page: currentPage.toString(),
+            limit: perPage.toString()
+        });
+        if (searchTerm) params.append("search", searchTerm);
+        if (status && status !== "all") params.append("status", status);
+        if (others === "outsourcing") params.append("outsourcing", "true");
+        if (others === "on-site") params.append("onsite", "true");
+        if (others === "off-site") params.append("onsite", "false");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/drivers?${params.toString()}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);

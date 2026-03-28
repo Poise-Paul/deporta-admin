@@ -45,9 +45,7 @@ export function DashboardStats() {
     },
     {
       title: "Ongoing Trips",
-      value: ongoingTrips?.trip_route
-        ? ongoingTrips?.trip_route.data.length
-        : 0,
+      value: ongoingTrips?.trip_route ? ongoingTrips?.trip_route.length : 0,
       icon: MapPin,
       color: "bg-pink-100 text-pink-600",
       showDetail: true,
@@ -78,7 +76,7 @@ export function DashboardStats() {
                       router.push("/staff");
                     } else if (stat.title === "Ongoing Trips") {
                       router.push("/trips");
-                    }else if (stat.title === "Customers on the app") {
+                    } else if (stat.title === "Customers on the app") {
                       router.push("/users");
                     }
                   }}

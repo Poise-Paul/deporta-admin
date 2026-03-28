@@ -3,6 +3,7 @@ import {
   EditTripRoute,
   ErrorrResponse,
   GetAllRoutesData,
+  GetAllRoutesDataActivity,
   GetRoutesResponse,
   Response,
 } from "@/types";
@@ -137,11 +138,9 @@ export const useDeleteRoute = () => {
   });
 };
 
-export const getOngoingTrips = async (): Promise<GetAllRoutesData> => {
+export const getOngoingTrips = async (): Promise<GetAllRoutesDataActivity> => {
   try {
-    const res = await api.get(
-      "/api/users/admin/trip-route/activity/get?activity=ongoing",
-    );
+    const res = await api.get("/api/users/admin/trip-route/activity/get");
     return res.data;
   } catch (error) {
     console.error("Ongoing Trips Error:", error);

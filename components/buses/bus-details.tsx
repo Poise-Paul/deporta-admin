@@ -66,10 +66,12 @@ export function BusDetails({ busId }: BusDetailsProps) {
   >(null);
 
   const [holdBtn, setHoldBtn] = useState(true);
+
+  // Update List
   const { data: staffData, refetch: refetchStaffs } = useQuery({
     queryKey: ["staffs"],
     retry: false,
-    queryFn: () => getStaffList(),
+    queryFn: () => getStaffList(1,10),
   });
 
   const formatDateForInput = (dateString?: string) => {

@@ -371,6 +371,9 @@ export function StaffManagementTable() {
                 <DropdownMenuItem onClick={() => setRoleFilter("driver")}>
                   Driver
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setRoleFilter("developer")}>
+                  Developer
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setRoleFilter("customer-rep")}>
                   Customer-Rep
                 </DropdownMenuItem>

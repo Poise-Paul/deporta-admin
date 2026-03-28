@@ -2411,7 +2411,7 @@ const tabs = [
         label: "In-Active"
     }
 ];
-function DropOffStation({ title, addButtonText, locations, searchPlaceholder, tableTitle }) {
+function DropOffStation({ title, addButtonText, searchPlaceholder, tableTitle }) {
     _s();
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
@@ -2548,25 +2548,25 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                 className: "h-8 w-8 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 203,
+                                lineNumber: 199,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Skeleton"], {
                                 className: "h-4 w-32"
                             }, void 0, false, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 204,
+                                lineNumber: 200,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 202,
+                        lineNumber: 198,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 201,
+                    lineNumber: 197,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2575,12 +2575,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                         className: "h-4 w-20"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 208,
+                        lineNumber: 204,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 207,
+                    lineNumber: 203,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2589,12 +2589,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                         className: "h-4 w-40"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 211,
+                        lineNumber: 207,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 210,
+                    lineNumber: 206,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2603,12 +2603,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                         className: "h-4 w-24"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 214,
+                        lineNumber: 210,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 213,
+                    lineNumber: 209,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2617,12 +2617,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                         className: "h-4 w-28"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 217,
+                        lineNumber: 213,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 216,
+                    lineNumber: 212,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2631,12 +2631,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                         className: "h-5 w-16 rounded-full"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 220,
+                        lineNumber: 216,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 219,
+                    lineNumber: 215,
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2645,18 +2645,18 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                         className: "h-8 w-8 rounded-md"
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 223,
+                        lineNumber: 219,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 222,
+                    lineNumber: 218,
                     columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/shared/drop-off-location.tsx",
-            lineNumber: 200,
+            lineNumber: 196,
             columnNumber: 5
         }, this);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
@@ -2715,7 +2715,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                     className: "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 301,
+                                    lineNumber: 297,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2725,7 +2725,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                     className: "pl-9 pr-2 w-72 bg-transparent"
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 302,
+                                    lineNumber: 298,
                                     columnNumber: 13
                                 }, this),
                                 searchQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2737,18 +2737,18 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 315,
+                                        lineNumber: 311,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 309,
+                                    lineNumber: 305,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 300,
+                            lineNumber: 296,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2764,12 +2764,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                             children: tab.id === "all" ? `All ${title}` : tab.label
                                         }, tab.id, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 324,
+                                            lineNumber: 320,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 322,
+                                    lineNumber: 318,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$shared$2f$DropOffStationDialogue$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AddDropOffStationDialog"], {
@@ -2788,24 +2788,24 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                     isLoading: dropOffStationMutation.isPending
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 340,
+                                    lineNumber: 336,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 321,
+                            lineNumber: 317,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                    lineNumber: 298,
+                    lineNumber: 294,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 297,
+                lineNumber: 293,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2818,12 +2818,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                             children: tableTitle
                         }, void 0, false, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 361,
+                            lineNumber: 357,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 360,
+                        lineNumber: 356,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2840,7 +2840,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "Name"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 370,
+                                                lineNumber: 366,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2848,7 +2848,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "Area"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 373,
+                                                lineNumber: 369,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2856,7 +2856,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "State / Country"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 376,
+                                                lineNumber: 372,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2864,7 +2864,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "Added By"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 379,
+                                                lineNumber: 375,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2872,7 +2872,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "Date Added"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 382,
+                                                lineNumber: 378,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -2880,25 +2880,25 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "Status"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 385,
+                                                lineNumber: 381,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 className: "text-left p-4 text-sm font-medium text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 388,
+                                                lineNumber: 384,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 369,
+                                        lineNumber: 365,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 368,
+                                    lineNumber: 364,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -2908,7 +2908,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 ...Array(5)
                                             ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TableRowSkeleton, {}, i, false, {
                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                    lineNumber: 395,
+                                                    lineNumber: 391,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false) : paginatedData && paginatedData.map((station)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -2919,7 +2919,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                         children: station.address.value
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 405,
+                                                        lineNumber: 401,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2927,7 +2927,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                         children: station.area
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 408,
+                                                        lineNumber: 404,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2939,7 +2939,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 411,
+                                                        lineNumber: 407,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2951,7 +2951,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 414,
+                                                        lineNumber: 410,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2959,7 +2959,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                         children: new Date(station.createdAt).toDateString()
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 417,
+                                                        lineNumber: 413,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2970,12 +2970,12 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                             children: station.status === "active" ? "Active" : "In-active"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 421,
+                                                            lineNumber: 417,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 420,
+                                                        lineNumber: 416,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2992,17 +2992,17 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                             className: "h-4 w-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 441,
+                                                                            lineNumber: 437,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                        lineNumber: 436,
+                                                                        lineNumber: 432,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 435,
+                                                                    lineNumber: 431,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -3018,14 +3018,14 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                    lineNumber: 453,
+                                                                                    lineNumber: 449,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "View"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 445,
+                                                                            lineNumber: 441,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -3042,20 +3042,20 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                                     className: "mr-2 h-4 w-4 animate-spin"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                    lineNumber: 474,
+                                                                                    lineNumber: 470,
                                                                                     columnNumber: 31
                                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                                                     children: station.status === "active" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserX$3e$__["UserX"], {
                                                                                         className: "mr-2 text-destructive h-4 w-4"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                        lineNumber: 478,
+                                                                                        lineNumber: 474,
                                                                                         columnNumber: 35
                                                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"], {
                                                                                         className: "mr-2 text-success h-4 w-4"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                        lineNumber: 480,
+                                                                                        lineNumber: 476,
                                                                                         columnNumber: 35
                                                                                     }, this)
                                                                                 }, void 0, false),
@@ -3063,7 +3063,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 456,
+                                                                            lineNumber: 452,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -3086,14 +3086,14 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                                     className: "h-4 w-4 mr-2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                    lineNumber: 507,
+                                                                                    lineNumber: 503,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 "Edit"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 489,
+                                                                            lineNumber: 485,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -3109,7 +3109,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                                         className: "h-4 w-4 mr-2 animate-spin"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                        lineNumber: 520,
+                                                                                        lineNumber: 516,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Deleting..."
@@ -3120,7 +3120,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                                         className: "h-4 w-4 mr-2 text-destructive"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                                        lineNumber: 525,
+                                                                                        lineNumber: 521,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     "Delete"
@@ -3128,30 +3128,30 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                                             }, void 0, true)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                            lineNumber: 510,
+                                                                            lineNumber: 506,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                                    lineNumber: 444,
+                                                                    lineNumber: 440,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                            lineNumber: 434,
+                                                            lineNumber: 430,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                        lineNumber: 433,
+                                                        lineNumber: 429,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, station._id, true, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 401,
+                                                lineNumber: 397,
                                                 columnNumber: 19
                                             }, this)),
                                         !dropOffLoader && paginatedData.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -3161,29 +3161,29 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: `No results found ${searchQuery && `for "${searchQuery}"`}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 539,
+                                                lineNumber: 535,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 538,
+                                            lineNumber: 534,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/shared/drop-off-location.tsx",
-                                    lineNumber: 391,
+                                    lineNumber: 387,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                            lineNumber: 367,
+                            lineNumber: 363,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 366,
+                        lineNumber: 362,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3203,7 +3203,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "5"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 563,
+                                                lineNumber: 559,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3211,7 +3211,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "10"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 564,
+                                                lineNumber: 560,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3219,20 +3219,20 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                                 children: "20"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                                lineNumber: 565,
+                                                lineNumber: 561,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 558,
+                                        lineNumber: 554,
                                         columnNumber: 13
                                     }, this),
                                     "per page"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 556,
+                                lineNumber: 552,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3247,7 +3247,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                         children: "<"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 573,
+                                        lineNumber: 569,
                                         columnNumber: 13
                                     }, this),
                                     Array.from({
@@ -3263,7 +3263,7 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                             children: pageNumber
                                         }, pageNumber, false, {
                                             fileName: "[project]/components/shared/drop-off-location.tsx",
-                                            lineNumber: 587,
+                                            lineNumber: 583,
                                             columnNumber: 17
                                         }, this);
                                     }),
@@ -3276,30 +3276,30 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                                         children: ">"
                                     }, void 0, false, {
                                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                                        lineNumber: 605,
+                                        lineNumber: 601,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                                lineNumber: 571,
+                                lineNumber: 567,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/shared/drop-off-location.tsx",
-                        lineNumber: 554,
+                        lineNumber: 550,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 359,
+                lineNumber: 355,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toaster"], {}, void 0, false, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 617,
+                lineNumber: 613,
                 columnNumber: 7
             }, this),
             dropOffId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$shared$2f$DropOffStationDialogue$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EditDropOffStationDialog"], {
@@ -3317,13 +3317,13 @@ function DropOffStation({ title, addButtonText, locations, searchPlaceholder, ta
                 isLoading: modifyStationMutation.isPending
             }, void 0, false, {
                 fileName: "[project]/components/shared/drop-off-location.tsx",
-                lineNumber: 621,
+                lineNumber: 617,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/shared/drop-off-location.tsx",
-        lineNumber: 296,
+        lineNumber: 292,
         columnNumber: 5
     }, this);
 }

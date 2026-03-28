@@ -1,6 +1,14 @@
 "use client";
 
-import { MapPin, Clock, Users, ChevronRight, Search, X } from "lucide-react";
+import {
+  MapPin,
+  Clock,
+  Users,
+  ChevronRight,
+  Search,
+  X,
+  SearchX,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Trip } from "@/types";
 import { useState } from "react";
@@ -25,7 +33,7 @@ export default function OngoingTripsScreen() {
   });
 
   // Filter logic: match code or location
-  const filteredTrips = ongoingTrips?.trip_route.data.filter(
+  const filteredTrips = ongoingTrips?.trip_route.filter(
     (trip) =>
       trip.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
       trip.starting_point.value
@@ -63,83 +71,104 @@ export default function OngoingTripsScreen() {
 
       {/* Trips List */}
       <div className="p-4 space-y-4">
-        {filteredTrips?.map((trip) => (
-          <div
-            key={trip._id}
-            className="p-4 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow"
-          >
-            {/* Top Row: Trip Code & Status */}
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-xs font-bold px-2 py-1 bg-orange-100 text-orange-600 rounded">
-                {trip.code}
-              </span>
-              <div className="flex items-center gap-1 text-[10px] text-green-600 font-bold uppercase tracking-wider">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-600 animate-pulse" />
-                Live Tracking
-              </div>
+        {!filteredTrips || filteredTrips.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-16 px-4 text-center border-2 border-dashed border-border rounded-xl bg-muted/20">
+            <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center mb-4">
+              <SearchX className="h-8 w-8 text-muted-foreground opacity-50" />
             </div>
-
-            {/* Middle Row: Visual Route */}
-            <div className="flex items-start gap-4">
-              <img
-                src={trip.busImage || "/placeholder.svg"}
-                alt="Bus"
-                className="w-20 h-14 rounded-lg object-cover border border-gray-100"
-              />
-
-              <div className="flex-1 space-y-3">
-                {/* Pickup */}
-                <div className="flex gap-2">
-                  <div className="flex flex-col items-center">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                    <div className="w-0.5 h-6 bg-gray-200" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground leading-none">
-                      Pickup
-                    </p>
-                    <p className="text-sm font-semibold truncate">
-                      {trip.starting_point.value}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Destination */}
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full border-2 border-primary bg-white" />
-                  <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground leading-none">
-                      Destination
-                    </p>
-                    <p className="text-sm font-semibold truncate">
-                      {trip.destination.value}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <ChevronRight
-                onClick={() => router.push(`/trips/${trip._id}`)}
-                className="h-5 w-5 text-gray-300 self-center"
-              />
-            </div>
-
-            {/* Bottom Row: Stats Divider */}
-            <div className="mt-4 pt-4 border-t flex items-center justify-between text-xs text-muted-foreground">
-              <div className="flex gap-4">
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5" /> {trip.pickupTime}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Users className="h-3.5 w-3.5" /> {trip.passengers} pax
-                </span>
-              </div>
-              <span className="font-medium text-gray-900">
-                {calculateETA(Number(trip.route_distance))} remaining
-              </span>
-            </div>
+            <h3 className="text-lg font-bold text-foreground">
+              No Live Trips Found
+            </h3>
+            <p className="text-sm text-muted-foreground mt-2 max-w-sm">
+              We couldn't find any active trips matching your current search or
+              filters. Try adjusting your criteria to see more results.
+            </p>
           </div>
-        ))}
+        ) : (
+          filteredTrips?.map((trip) => (
+            <div
+              key={trip._id}
+              className="p-4 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow"
+            >
+              {/* Top Row: Trip Code & Status */}
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-xs font-bold px-2 py-1 bg-orange-100 text-orange-600 rounded">
+                  {trip.code}
+                </span>
+                <div className="flex items-center gap-1 text-[10px] text-green-600 font-bold uppercase tracking-wider">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-600 animate-pulse" />
+                  Live Tracking
+                </div>
+              </div>
+
+              {/* Middle Row: Visual Route */}
+              <div className="flex items-start gap-4">
+                <img
+                  src={
+                    (trip.ongoing?.value?.bus_image &&
+                      trip.ongoing?.value?.bus_image[0]) ||
+                    "/placeholder.svg"
+                  }
+                  alt="Bus"
+                  className="w-20 h-14 rounded-lg object-cover border border-gray-100"
+                />
+
+                <div className="flex-1 space-y-3">
+                  {/* Pickup */}
+                  <div className="flex gap-2">
+                    <div className="flex flex-col items-center">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <div className="w-0.5 h-6 bg-gray-200" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[10px] text-muted-foreground leading-none">
+                        Pickup
+                      </p>
+                      <p className="text-sm font-semibold capitalize truncate">
+                        {trip.starting_point.value}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Destination */}
+                  <div className="flex gap-2">
+                    <div className="w-2 h-2 rounded-full border-2 border-primary bg-white" />
+                    <div className="min-w-0">
+                      <p className="text-[10px] text-muted-foreground leading-none">
+                        Destination
+                      </p>
+                      <p className="text-sm font-semibold capitalize truncate">
+                        {trip.destination.value}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <ChevronRight
+                  onClick={() => router.push(`/trips/${trip._id}`)}
+                  className="h-5 w-5 text-gray-300 self-center"
+                />
+              </div>
+
+              {/* Bottom Row: Stats Divider */}
+              <div className="mt-4 pt-4 border-t flex items-center justify-between text-xs text-muted-foreground">
+                <div className="flex gap-4">
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5" />{" "}
+                    {trip.starting_point.value}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Users className="h-3.5 w-3.5" />{" "}
+                    {trip.ongoing.value.capacity_taken} pax
+                  </span>
+                </div>
+                <span className="font-medium text-gray-900">
+                  {calculateETA(Number(trip.route_distance))} remaining
+                </span>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

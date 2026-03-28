@@ -247,7 +247,7 @@ const useDeleteRoute = ()=>{
 };
 const getOngoingTrips = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get?activity=ongoing");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get");
         return res.data;
     } catch (error) {
         console.error("Ongoing Trips Error:", error);
@@ -443,9 +443,18 @@ const getAllStaffs = async ()=>{
         throw error;
     }
 };
-const getDriversList = async (currentPage, perPage = 10, searchTerm)=>{
+const getDriversList = async (currentPage = 1, perPage = 10, searchTerm, status, others)=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/drivers?limit=${perPage}`);
+        const params = new URLSearchParams({
+            page: currentPage.toString(),
+            limit: perPage.toString()
+        });
+        if (searchTerm) params.append("search", searchTerm);
+        if (status && status !== "all") params.append("status", status);
+        if (others === "outsourcing") params.append("outsourcing", "true");
+        if (others === "on-site") params.append("onsite", "true");
+        if (others === "off-site") params.append("onsite", "false");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/drivers?${params.toString()}`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
@@ -626,7 +635,7 @@ function DashboardStats() {
         },
         {
             title: "Ongoing Trips",
-            value: ongoingTrips?.trip_route ? ongoingTrips?.trip_route.data.length : 0,
+            value: ongoingTrips?.trip_route ? ongoingTrips?.trip_route.length : 0,
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"],
             color: "bg-pink-100 text-pink-600",
             showDetail: true
@@ -656,12 +665,12 @@ function DashboardStats() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                        lineNumber: 72,
+                                        lineNumber: 70,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 71,
+                                    lineNumber: 69,
                                     columnNumber: 15
                                 }, this),
                                 stat.showDetail && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -681,19 +690,19 @@ function DashboardStats() {
                                             className: "h-3 w-3"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                            lineNumber: 88,
+                                            lineNumber: 86,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 75,
+                                    lineNumber: 73,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                            lineNumber: 70,
+                            lineNumber: 68,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -704,7 +713,7 @@ function DashboardStats() {
                                     children: stat.value
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 93,
+                                    lineNumber: 91,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -712,29 +721,29 @@ function DashboardStats() {
                                     children: stat.title
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                                    lineNumber: 94,
+                                    lineNumber: 92,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                            lineNumber: 92,
+                            lineNumber: 90,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                    lineNumber: 69,
+                    lineNumber: 67,
                     columnNumber: 11
                 }, this)
             }, stat.title, false, {
                 fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-                lineNumber: 68,
+                lineNumber: 66,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/dashboard/dashboard-stats.tsx",
-        lineNumber: 66,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 }
@@ -2199,14 +2208,14 @@ function DashboardOngoingTrips() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
                 className: "space-y-4",
                 children: [
-                    ongoingTrips?.trip_route.data.map((trip)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    ongoingTrips?.trip_route.map((trip)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "p-3 rounded-lg border border-border bg-background",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "flex items-start gap-3",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                            src: trip.busImage || "/placeholder.svg",
+                                            src: trip.ongoing?.value?.bus_image && trip.ongoing?.value?.bus_image[0] || "/placeholder.svg",
                                             alt: "Bus",
                                             className: "w-16 h-12 rounded object-cover"
                                         }, void 0, false, {
@@ -2227,20 +2236,20 @@ function DashboardOngoingTrips() {
                                                                     className: "h-3 w-3"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                                    lineNumber: 34,
+                                                                    lineNumber: 38,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "Pickup Location"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                                    lineNumber: 35,
+                                                                    lineNumber: 39,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                            lineNumber: 33,
+                                                            lineNumber: 37,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2248,13 +2257,13 @@ function DashboardOngoingTrips() {
                                                             children: trip.code
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                            lineNumber: 37,
+                                                            lineNumber: 41,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 32,
+                                                    lineNumber: 36,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2262,13 +2271,13 @@ function DashboardOngoingTrips() {
                                                     children: trip.starting_point.value
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 41,
+                                                    lineNumber: 45,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                            lineNumber: 31,
+                                            lineNumber: 35,
                                             columnNumber: 15
                                         }, this)
                                     ]
@@ -2290,34 +2299,11 @@ function DashboardOngoingTrips() {
                                                             className: "h-3 w-3"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                            lineNumber: 49,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: trip.pickupTime
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                            lineNumber: 50,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 48,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex items-center gap-1 text-muted-foreground",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
-                                                            className: "h-3 w-3 text-destructive"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
                                                             lineNumber: 53,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: trip.destination.value
+                                                            children: trip.ongoing.routine[0]?.from
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
                                                             lineNumber: 54,
@@ -2328,11 +2314,34 @@ function DashboardOngoingTrips() {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
                                                     lineNumber: 52,
                                                     columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-1 text-muted-foreground",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                                            className: "h-3 w-3 text-destructive"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
+                                                            lineNumber: 57,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            children: trip.destination.value
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
+                                                            lineNumber: 58,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
+                                                    lineNumber: 56,
+                                                    columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                            lineNumber: 47,
+                                            lineNumber: 51,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2342,40 +2351,40 @@ function DashboardOngoingTrips() {
                                                     className: "h-3 w-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 58,
+                                                    lineNumber: 62,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$timeConvert$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["calculateETA"])(Number(trip.route_distance))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 59,
+                                                    lineNumber: 63,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
                                                     className: "h-3 w-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 60,
+                                                    lineNumber: 64,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    children: trip.passengers
+                                                    children: trip.ongoing.value.capacity_taken
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                                    lineNumber: 61,
+                                                    lineNumber: 65,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                            lineNumber: 57,
+                                            lineNumber: 61,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                                    lineNumber: 46,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -2390,7 +2399,7 @@ function DashboardOngoingTrips() {
                         children: "View All Ongoing Trips"
                     }, void 0, false, {
                         fileName: "[project]/components/dashboard/dashboard-ongoing-trips.tsx",
-                        lineNumber: 67,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, this)
                 ]

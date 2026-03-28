@@ -681,13 +681,14 @@ const getUser = async ()=>{
         throw error;
     }
 };
-const getStaffList = async (page, limit, search, status, role)=>{
+const getStaffList = async (page = 1, limit = 10, search, status, role)=>{
     const params = new URLSearchParams({
         page: page.toString(),
         limit: limit.toString()
     });
     if (search) params.append("search", search);
     if (status && status !== "all") params.append("status", status);
+    if (role) params.append("role", role);
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/staffs?${params.toString()}`);
         return res.data;
@@ -843,7 +844,9 @@ function AdminHeader() {
             "staff-profiles"
         ],
         retry: false,
-        queryFn: __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getStaffList"]
+        queryFn: {
+            "AdminHeader.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getStaffList"])()
+        }["AdminHeader.useQuery"]
     });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: "h-16 border-b border-border bg-card px-6 flex items-center justify-between sticky top-0 z-10",

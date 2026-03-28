@@ -209,7 +209,7 @@ export const getDriversList = async (
     if (status && status !== "all") params.append("status", status);
     if (others === "outsourcing") params.append("outsourcing", "true");
     if (others === "on-site") params.append("onsite", "true");
-     if (others === "off-site") params.append("onsite", "false");
+    if (others === "off-site") params.append("onsite", "false");
 
     const res = await api.get(`/api/users/admin/drivers?${params.toString()}`);
     return res.data;

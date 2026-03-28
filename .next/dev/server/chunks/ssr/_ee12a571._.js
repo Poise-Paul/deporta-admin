@@ -294,7 +294,7 @@ const useDeleteRoute = ()=>{
 };
 const getOngoingTrips = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get?activity=ongoing");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/trip-route/activity/get");
         return res.data;
     } catch (error) {
         console.error("Ongoing Trips Error:", error);
@@ -373,7 +373,7 @@ function OngoingTripsScreen() {
         queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$routes$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getOngoingTrips"])()
     });
     // Filter logic: match code or location
-    const filteredTrips = ongoingTrips?.trip_route.data.filter((trip)=>trip.code.toLowerCase().includes(searchTerm.toLowerCase()) || trip.starting_point.value.toLowerCase().includes(searchTerm.toLowerCase()));
+    const filteredTrips = ongoingTrips?.trip_route.filter((trip)=>trip.code.toLowerCase().includes(searchTerm.toLowerCase()) || trip.starting_point.value.toLowerCase().includes(searchTerm.toLowerCase()));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex-1 bg-gray-50 min-h-screen pb-10",
         children: [
@@ -447,7 +447,45 @@ function OngoingTripsScreen() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "p-4 space-y-4",
-                children: filteredTrips?.map((trip)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                children: !filteredTrips || filteredTrips.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex flex-col items-center justify-center py-16 px-4 text-center border-2 border-dashed border-border rounded-xl bg-muted/20",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "h-16 w-16 rounded-full bg-muted flex items-center justify-center mb-4",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SearchX, {
+                                className: "h-8 w-8 text-muted-foreground opacity-50"
+                            }, void 0, false, {
+                                fileName: "[project]/app/(dashboard)/trips/page.tsx",
+                                lineNumber: 69,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/(dashboard)/trips/page.tsx",
+                            lineNumber: 68,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                            className: "text-lg font-bold text-foreground",
+                            children: "No Live Trips Found"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(dashboard)/trips/page.tsx",
+                            lineNumber: 71,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm text-muted-foreground mt-2 max-w-sm",
+                            children: "We couldn't find any active trips matching your current search or filters. Try adjusting your criteria to see more results."
+                        }, void 0, false, {
+                            fileName: "[project]/app/(dashboard)/trips/page.tsx",
+                            lineNumber: 74,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(dashboard)/trips/page.tsx",
+                    lineNumber: 67,
+                    columnNumber: 11
+                }, this) : filteredTrips?.map((trip)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "p-4 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -458,8 +496,8 @@ function OngoingTripsScreen() {
                                         children: trip.code
                                     }, void 0, false, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 73,
-                                        columnNumber: 15
+                                        lineNumber: 87,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center gap-1 text-[10px] text-green-600 font-bold uppercase tracking-wider",
@@ -468,33 +506,33 @@ function OngoingTripsScreen() {
                                                 className: "h-1.5 w-1.5 rounded-full bg-green-600 animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                lineNumber: 77,
-                                                columnNumber: 17
+                                                lineNumber: 91,
+                                                columnNumber: 19
                                             }, this),
                                             "Live Tracking"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 76,
-                                        columnNumber: 15
+                                        lineNumber: 90,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                lineNumber: 72,
-                                columnNumber: 13
+                                lineNumber: 86,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-start gap-4",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                        src: trip.busImage || "/placeholder.svg",
+                                        src: trip.ongoing?.value?.bus_image && trip.ongoing?.value?.bus_image[0] || "/placeholder.svg",
                                         alt: "Bus",
                                         className: "w-20 h-14 rounded-lg object-cover border border-gray-100"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 84,
-                                        columnNumber: 15
+                                        lineNumber: 98,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex-1 space-y-3",
@@ -509,21 +547,21 @@ function OngoingTripsScreen() {
                                                                 className: "w-2 h-2 rounded-full bg-primary"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                                lineNumber: 94,
-                                                                columnNumber: 21
+                                                                lineNumber: 112,
+                                                                columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "w-0.5 h-6 bg-gray-200"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                                lineNumber: 95,
-                                                                columnNumber: 21
+                                                                lineNumber: 113,
+                                                                columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                        lineNumber: 93,
-                                                        columnNumber: 19
+                                                        lineNumber: 111,
+                                                        columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "min-w-0",
@@ -533,28 +571,28 @@ function OngoingTripsScreen() {
                                                                 children: "Pickup"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                                lineNumber: 98,
-                                                                columnNumber: 21
+                                                                lineNumber: 116,
+                                                                columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-sm font-semibold truncate",
+                                                                className: "text-sm font-semibold capitalize truncate",
                                                                 children: trip.starting_point.value
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                                lineNumber: 101,
-                                                                columnNumber: 21
+                                                                lineNumber: 119,
+                                                                columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                        lineNumber: 97,
-                                                        columnNumber: 19
+                                                        lineNumber: 115,
+                                                        columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                lineNumber: 92,
-                                                columnNumber: 17
+                                                lineNumber: 110,
+                                                columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex gap-2",
@@ -563,8 +601,8 @@ function OngoingTripsScreen() {
                                                         className: "w-2 h-2 rounded-full border-2 border-primary bg-white"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                        lineNumber: 109,
-                                                        columnNumber: 19
+                                                        lineNumber: 127,
+                                                        columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "min-w-0",
@@ -574,48 +612,48 @@ function OngoingTripsScreen() {
                                                                 children: "Destination"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                                lineNumber: 111,
-                                                                columnNumber: 21
+                                                                lineNumber: 129,
+                                                                columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-sm font-semibold truncate",
+                                                                className: "text-sm font-semibold capitalize truncate",
                                                                 children: trip.destination.value
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                                lineNumber: 114,
-                                                                columnNumber: 21
+                                                                lineNumber: 132,
+                                                                columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                        lineNumber: 110,
-                                                        columnNumber: 19
+                                                        lineNumber: 128,
+                                                        columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                lineNumber: 108,
-                                                columnNumber: 17
+                                                lineNumber: 126,
+                                                columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 90,
-                                        columnNumber: 15
+                                        lineNumber: 108,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
                                         onClick: ()=>router.push(`/trips/${trip._id}`),
                                         className: "h-5 w-5 text-gray-300 self-center"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 121,
-                                        columnNumber: 15
+                                        lineNumber: 139,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                lineNumber: 83,
-                                columnNumber: 13
+                                lineNumber: 97,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "mt-4 pt-4 border-t flex items-center justify-between text-xs text-muted-foreground",
@@ -630,16 +668,16 @@ function OngoingTripsScreen() {
                                                         className: "h-3.5 w-3.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                        lineNumber: 131,
-                                                        columnNumber: 19
+                                                        lineNumber: 149,
+                                                        columnNumber: 21
                                                     }, this),
                                                     " ",
-                                                    trip.pickupTime
+                                                    trip.starting_point.value
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                lineNumber: 130,
-                                                columnNumber: 17
+                                                lineNumber: 148,
+                                                columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "flex items-center gap-1",
@@ -648,23 +686,23 @@ function OngoingTripsScreen() {
                                                         className: "h-3.5 w-3.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                        lineNumber: 134,
-                                                        columnNumber: 19
+                                                        lineNumber: 153,
+                                                        columnNumber: 21
                                                     }, this),
                                                     " ",
-                                                    trip.passengers,
+                                                    trip.ongoing.value.capacity_taken,
                                                     " pax"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                                lineNumber: 133,
-                                                columnNumber: 17
+                                                lineNumber: 152,
+                                                columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 129,
-                                        columnNumber: 15
+                                        lineNumber: 147,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "font-medium text-gray-900",
@@ -674,20 +712,20 @@ function OngoingTripsScreen() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                        lineNumber: 137,
-                                        columnNumber: 15
+                                        lineNumber: 157,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                                lineNumber: 128,
-                                columnNumber: 13
+                                lineNumber: 146,
+                                columnNumber: 15
                             }, this)
                         ]
                     }, trip._id, true, {
                         fileName: "[project]/app/(dashboard)/trips/page.tsx",
-                        lineNumber: 67,
-                        columnNumber: 11
+                        lineNumber: 81,
+                        columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/(dashboard)/trips/page.tsx",

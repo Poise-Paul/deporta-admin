@@ -22,8 +22,8 @@ export const getUser = async (): Promise<UserDataResponse> => {
 };
 
 export const getStaffList = async (
-  page: number,
-  limit: number,
+  page: number = 1,
+  limit: number = 10,
   search?: string,
   status?: string,
   role?: string,
@@ -32,8 +32,10 @@ export const getStaffList = async (
     page: page.toString(),
     limit: limit.toString(),
   });
+
   if (search) params.append("search", search);
   if (status && status !== "all") params.append("status", status);
+  if (role) params.append("role", role);
 
   try {
     const res = await api.get(`/api/users/admin/staffs?${params.toString()}`);

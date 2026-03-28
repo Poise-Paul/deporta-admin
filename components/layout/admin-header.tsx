@@ -43,7 +43,7 @@ export function AdminHeader() {
   const { data, isLoading, isRefetching, refetch } = useQuery({
     queryKey: ["staff-profiles"],
     retry: false,
-    queryFn: getStaffList,
+    queryFn: () => getStaffList(),
   });
 
   return (

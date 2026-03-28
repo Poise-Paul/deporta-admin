@@ -674,13 +674,16 @@ export type MaintenanceResponse = {
   message: string;
 };
 
+export type WeekTypeValue = {
+  from: string;
+  too: string;
+  from_formated?: number;
+  too_formated?: number;
+};
+
 export type WeekdayType = {
   active: boolean;
-  value: {
-    from: string;
-    too: string;
-    // status: string;
-  }[];
+  value: WeekTypeValue[];
 };
 
 export type NewEntryPoint = {
@@ -692,7 +695,18 @@ export type NewEntryPoint = {
   value: string;
 };
 
-// NewEntryPoint - Old
+export type ActivityData = {
+  bus_image: string[];
+  capacity_taken: number;
+  customer_with_ongoing_status: number;
+  customer_with_pending_status: number;
+  free_capacity: number | null;
+};
+
+export type RoutineData = {
+  from: string;
+  too: string;
+};
 
 export type RouteData = {
   starting_point: NewEntryPoint;
@@ -722,7 +736,45 @@ export type RouteData = {
   __v: number;
 };
 
-
+export type RouteData02 = {
+  starting_point: NewEntryPoint;
+  destination: NewEntryPoint;
+  routine: {
+    monday: WeekdayType;
+    tuesday: WeekdayType;
+    wednesday: WeekdayType;
+    thursday: WeekdayType;
+    friday: WeekdayType;
+    saturday: WeekdayType;
+    sunday: WeekdayType;
+  };
+  _id: string;
+  code: string;
+  number_of_stops: EntryPoint[];
+  route_distance: string;
+  state: string;
+  country: string;
+  added_by: NormalStaffData;
+  rate: number;
+  rate_per_km: number;
+  flat_rate: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  upcoming: {
+    value: ActivityData;
+    routine: RoutineData[];
+  };
+  ongoing: {
+    value: ActivityData;
+    routine: RoutineData[];
+  };
+  recent: {
+    value: ActivityData;
+    routine: RoutineData[];
+  };
+};
 
 export interface GetAllRoutesData {
   status: boolean;
@@ -730,6 +782,11 @@ export interface GetAllRoutesData {
     data: RouteData[];
     pagination: Pagination;
   };
+}
+
+export interface GetAllRoutesDataActivity {
+  status: boolean;
+  trip_route: RouteData02[];
 }
 
 export interface Trip {

@@ -263,11 +263,12 @@ export function BusSystemsTable() {
     queryFn: () => getRoutes(),
   });
 
+  // Update this staff list to use the dedicated staff with pagination (Change to Drivers List)
   // get the current user
   const { data: staffData, refetch: refetchStaffs } = useQuery({
     queryKey: ["staffs"],
     retry: false,
-    queryFn: () => getStaffList(),
+    queryFn: () => getStaffList(1, 10),
   });
 
   const [currentPage, setCurrentPage] = React.useState(1);
