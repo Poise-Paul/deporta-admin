@@ -801,6 +801,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 __turbopack_context__.s([
     "getAdminTransactions",
     ()=>getAdminTransactions,
+    "getAdminTripPaymentById",
+    ()=>getAdminTripPaymentById,
+    "getAdminTripPayments",
+    ()=>getAdminTripPayments,
     "getDashboardCharts",
     ()=>getDashboardCharts,
     "getDashboardTotal",
@@ -858,7 +862,7 @@ _s(useStaffStatus, "wwwtpB20p0aLiHIvSy5P98MwIUg=", false, function() {
 });
 const getDashboardTotal = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=daily");
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
@@ -884,6 +888,28 @@ const getDashboardCharts = async ()=>{
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const getAdminTripPayments = async (page = 1, limit = 10)=>{
+    const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString()
+    });
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/trip-payment?${params.toString()}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Trip Payments Error:", error);
+        throw error;
+    }
+};
+const getAdminTripPaymentById = async (id)=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/trip-payment/${id}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Trip Payment Error:", error);
         throw error;
     }
 };

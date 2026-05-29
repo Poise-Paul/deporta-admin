@@ -37,7 +37,7 @@ export const useStaffStatus = () => {
 export const getDashboardTotal = async (): Promise<TotalIncomeResponse> => {
   try {
     const res = await api.get(
-      "/api/users/admin/income-by-args/total?args=total",
+      "/api/users/admin/income-by-args/total?args=daily",
     );
     return res.data;
   } catch (error) {
@@ -66,6 +66,17 @@ export const getAdminTransactions = async (
   }
 };
 
+// Get Single Transaction
+export const getAdminTransactionById = async (id: string): Promise<any> => {
+  try {
+    const res = await api.get(`/api/users/admin/transactions/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Transaction Error:", error);
+    throw error;
+  }
+};
+
 export const getDashboardCharts =
   async (): Promise<DashboardChartsResponse> => {
     try {
@@ -76,3 +87,36 @@ export const getDashboardCharts =
       throw error;
     }
   };
+
+
+
+  // Dashboard Trip payments
+
+  // Get All Trip Payments
+export const getAdminTripPayments = async (
+  page: number = 1,
+  limit: number = 10,
+): Promise<any> => {
+  const params = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+  });
+  try {
+    const res = await api.get(`/api/users/admin/trip-payment?${params.toString()}`);
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Trip Payments Error:", error);
+    throw error;
+  }
+};
+
+// Get Single Trip Payment
+export const getAdminTripPaymentById = async (id: string): Promise<any> => {
+  try {
+    const res = await api.get(`/api/users/admin/trip-payment/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error("Fetch Trip Payment Error:", error);
+    throw error;
+  }
+};

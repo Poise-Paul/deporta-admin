@@ -28,10 +28,20 @@ export function DashboardStats() {
     queryFn: () => getOngoingTrips(),
   });
 
+  const incomeData = Array.isArray(adminTotal?.income)
+    ? (adminTotal.income[0] as { _id: null; amount: number } | undefined)
+    : (adminTotal?.income as { _id: null; amount: number } | undefined);
+
   const stats = [
     {
       title: "Total made today",
-      value: `₦ ${adminTotal?.income[0].amount.toLocaleString() || 0}`,
+      value: `₦ ${
+        (
+          (Array.isArray(adminTotal?.income)
+            ? adminTotal.income[0]
+            : adminTotal?.income) as { amount?: number } | undefined
+        )?.amount?.toLocaleString() ?? 0
+      }`,
       icon: Wallet,
       color: "bg-primary/10 text-primary",
       showDetail: false,
