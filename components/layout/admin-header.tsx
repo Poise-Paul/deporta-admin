@@ -39,11 +39,17 @@ export function AdminHeader() {
       ([path]) => pathname === path || pathname.startsWith(path + "/"),
     )?.[1] || "Dashboard";
 
-  // Staff Images
-  const { data, isLoading, isRefetching, refetch } = useQuery({
+  // Staff Images — decorative only; swallow errors so network timeouts don't surface as overlay errors
+  const { data } = useQuery({
     queryKey: ["staff-profiles"],
     retry: false,
-    queryFn: () => getStaffList(),
+    queryFn: async () => {
+      try {
+        return await getStaffList();
+      } catch {
+        return null;
+      }
+    },
   });
 
   return (

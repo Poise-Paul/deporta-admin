@@ -11,6 +11,8 @@ import {
   Calendar,
   CheckCircle,
   XCircle,
+  CreditCard,
+  Loader2,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,11 +20,14 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
+import { useEditCorporateCreditPayment } from "@/api/bookings";
 
 export default function CorporateDetailsPage() {
   const router = useRouter();
 
   const { selCoOperate } = useSelector((state: RootState) => state.corporate);
+  const { mutate: editCreditPayment, isPending: isCreditPending } =
+    useEditCorporateCreditPayment();
 
   // Helper to format dates safely
   const formatDate = (dateString: string) => {
@@ -49,17 +54,47 @@ export default function CorporateDetailsPage() {
           </div>
         </div>
 
-        <Badge
-          variant="outline"
-          className={cn(
-            "px-4 py-1 text-sm font-medium capitalize",
-            selCoOperate?.status === "active"
-              ? "border-green-500 text-green-600 bg-green-50"
-              : "border-orange-500 text-orange-600 bg-orange-50",
-          )}
-        >
-          {selCoOperate?.status}
-        </Badge>
+        <div className="flex items-center gap-3">
+          <Button
+            onClick={() =>
+              editCreditPayment({
+                allow_credit_payment:
+                  !selCoOperate?.user_type.type_id.is_credit_allowed,
+                corporate_type_id: selCoOperate?.user_type.type_id._id ?? "",
+              })
+            }
+            disabled={isCreditPending}
+            variant="outline"
+            size="sm"
+            className={cn(
+              "gap-2",
+              selCoOperate?.user_type.type_id.is_credit_allowed
+                ? "border-red-400 text-red-600 hover:bg-red-50"
+                : "border-green-500 text-green-600 hover:bg-green-50",
+            )}
+          >
+            {isCreditPending ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <CreditCard className="h-4 w-4" />
+            )}
+            {selCoOperate?.user_type.type_id.is_credit_allowed
+              ? "Revoke Credit Payment"
+              : "Approve Credit Payment"}
+          </Button>
+
+          <Badge
+            variant="outline"
+            className={cn(
+              "px-4 py-1 text-sm font-medium capitalize",
+              selCoOperate?.status === "active"
+                ? "border-green-500 text-green-600 bg-green-50"
+                : "border-orange-500 text-orange-600 bg-orange-50",
+            )}
+          >
+            {selCoOperate?.status}
+          </Badge>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

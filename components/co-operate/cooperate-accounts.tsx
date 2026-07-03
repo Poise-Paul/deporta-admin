@@ -28,10 +28,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Filter, Plus, MoreVertical, Eye, X } from "lucide-react";
+import { Search, Filter, Plus, MoreVertical, Eye, X, CreditCard, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import { getCooperateAccounts, getTotalBooking } from "@/api/bookings";
+import { getCooperateAccounts, getTotalBooking, useEditCorporateCreditPayment } from "@/api/bookings";
 import { useDispatch } from "react-redux";
 import { updateSelCorporate } from "@/lib/store/slices/co-operate-slice";
 import { useRouter } from "next/navigation";
@@ -53,9 +53,10 @@ export function CooperateTable() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["co-operate", currentPage, itemsPerPage],
     queryFn: () => getCooperateAccounts(currentPage, itemsPerPage),
+    retry: 1,
   });
 
   // Pagination
@@ -117,6 +118,8 @@ export function CooperateTable() {
 
   const dispatch = useDispatch();
   const router = useRouter();
+  const { mutate: editCreditPayment, isPending: isCreditPending, variables: creditVariables } =
+    useEditCorporateCreditPayment();
 
   return (
     <Card className="bg-card border border-border">
@@ -263,6 +266,17 @@ export function CooperateTable() {
                     <TableRowSkeleton key={i} />
                   ))}
                 </>
+              ) : isError ? (
+                <tr>
+                  <td colSpan={8} className="p-8 text-center text-muted-foreground">
+                    <div className="flex flex-col items-center gap-2">
+                      <span>Failed to load accounts. Check your connection and try again.</span>
+                      <Button variant="outline" size="sm" onClick={() => refetch()}>
+                        Retry
+                      </Button>
+                    </div>
+                  </td>
+                </tr>
               ) : (
                 paginatedData?.map((account) => (
                   <tr
@@ -334,10 +348,31 @@ export function CooperateTable() {
                             <Eye className="h-4 w-4 mr-2" />
                             View
                           </DropdownMenuItem>
-                          {/* <DropdownMenuItem>Edit Contract</DropdownMenuItem> */}
-                          {/* <DropdownMenuItem className="text-destructive">
-                            End Contract
-                          </DropdownMenuItem> */}
+                          <DropdownMenuItem
+                            disabled={
+                              isCreditPending &&
+                              creditVariables?.corporate_type_id ===
+                                account.user_type.type_id._id
+                            }
+                            onClick={() =>
+                              editCreditPayment({
+                                allow_credit_payment:
+                                  !account.user_type.type_id.is_credit_allowed,
+                                corporate_type_id: account.user_type.type_id._id,
+                              })
+                            }
+                          >
+                            {isCreditPending &&
+                            creditVariables?.corporate_type_id ===
+                              account.user_type.type_id._id ? (
+                              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                            ) : (
+                              <CreditCard className="h-4 w-4 mr-2" />
+                            )}
+                            {account.user_type.type_id.is_credit_allowed
+                              ? "Revoke Credit Payment"
+                              : "Approve Credit Payment"}
+                          </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </td>

@@ -134,6 +134,33 @@ export const useDeleteBooking = () => {
 };
 
 // Co-Operate Endpoints
+export const useEditCorporateCreditPayment = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (data: {
+      allow_credit_payment: boolean;
+      corporate_type_id: string;
+    }) => {
+      const res = await api.patch(
+        `/api/users/admin/corporate/credit-payment/edit`,
+        data,
+      );
+      return res.data;
+    },
+    onSuccess: (data: Response) => {
+      queryClient.invalidateQueries({ queryKey: ["co-operate"] });
+      toast.success(data.message);
+    },
+    onError: (error: any) => {
+      if (axios.isAxiosError(error)) {
+        toast.error(
+          `${error.response?.data?.error?.message || "Update failed"}`,
+        );
+      }
+    },
+  });
+};
+
 export const getCooperateAccounts = async (
   page: number = 1,
   limit: number = 10,

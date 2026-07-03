@@ -838,14 +838,20 @@ function AdminHeader() {
     }["AdminHeader.useAppSelector"]);
     // Find the matching title, handling nested routes
     const title = Object.entries(pageTitles).find(([path])=>pathname === path || pathname.startsWith(path + "/"))?.[1] || "Dashboard";
-    // Staff Images
-    const { data, isLoading, isRefetching, refetch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+    // Staff Images — decorative only; swallow errors so network timeouts don't surface as overlay errors
+    const { data } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
             "staff-profiles"
         ],
         retry: false,
         queryFn: {
-            "AdminHeader.useQuery": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getStaffList"])()
+            "AdminHeader.useQuery": async ()=>{
+                try {
+                    return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$user$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getStaffList"])();
+                } catch  {
+                    return null;
+                }
+            }
         }["AdminHeader.useQuery"]
     });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -856,7 +862,7 @@ function AdminHeader() {
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/layout/admin-header.tsx",
-                lineNumber: 51,
+                lineNumber: 57,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -870,7 +876,7 @@ function AdminHeader() {
                                     src: staff.profile_image
                                 }, void 0, false, {
                                     fileName: "[project]/components/layout/admin-header.tsx",
-                                    lineNumber: 58,
+                                    lineNumber: 64,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -880,33 +886,33 @@ function AdminHeader() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/layout/admin-header.tsx",
-                                    lineNumber: 59,
+                                    lineNumber: 65,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, key, true, {
                             fileName: "[project]/components/layout/admin-header.tsx",
-                            lineNumber: 57,
+                            lineNumber: 63,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/layout/admin-header.tsx",
-                    lineNumber: 55,
+                    lineNumber: 61,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/layout/admin-header.tsx",
-                lineNumber: 53,
+                lineNumber: 59,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/layout/admin-header.tsx",
-        lineNumber: 50,
+        lineNumber: 56,
         columnNumber: 5
     }, this);
 }
-_s(AdminHeader, "jLFLxxb6WUPEMzQc2g7OuFBGILc=", false, function() {
+_s(AdminHeader, "VxonEQKHiFv+hHpWp4KbxltAp+4=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"],
         __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"],

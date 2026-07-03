@@ -991,6 +991,8 @@ export type CoOperateUser = {
       official_phone_number: string;
       referral_code: string;
       certificate_of_incorporation: string;
+      is_credit_allowed: boolean;
+      payment_type: string;
       createdAt: string;
       updatedAt: string;
       __v: 0;

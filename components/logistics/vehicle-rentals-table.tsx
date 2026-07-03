@@ -289,10 +289,10 @@ export function VehicleRentalsTable() {
                       )}
                     ></span> */}
                           <span className="flex flex-wrap gap-1">
-                            {rental.drivers_assigned.map((driver) => {
+                            {rental.drivers_assigned.map((driver, key) => {
                               return (
                                 <Badge
-                                  key={driver._id}
+                                  key={key}
                                   variant="outline"
                                   className="text-[10px] px-1"
                                 >

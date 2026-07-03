@@ -303,27 +303,27 @@ function VehicleRentalsStats() {
     const stats = [
         {
             title: "Total amount made",
-            value: allIncome?.booking[0].amount || 0,
-            change: `+${allIncome?.prev_percentage}`,
+            value: allIncome?.booking[0].amount.toLocaleString() || 0,
+            change: `+${allIncome?.prev_percentage.toFixed(2) || 0}%`,
             borderColor: "border-l-primary"
         },
         {
             title: "Total rentals made",
             value: allBookings?.booking[0].count,
-            change: `+${allBookings?.prev_percentage}%`,
+            change: `+${allBookings?.prev_percentage.toFixed(2) || 0}%`,
             borderColor: "border-l-secondary"
         },
         {
             title: "Pending Rentals",
             value: pendingBookings?.booking[0].count,
-            change: `+${pendingBookings?.prev_percentage}`,
+            change: `+${pendingBookings?.prev_percentage.toFixed(2) || 0}%`,
             label: "Pending",
             borderColor: "border-l-pink-500"
         },
         {
             title: "Rentals",
             value: paidBookings?.booking[0].count,
-            change: `+${paidBookings?.prev_percentage}`,
+            change: `+${paidBookings?.prev_percentage.toFixed(2) || 0}%`,
             label: "Paid",
             borderColor: "border-l-green-500"
         }
@@ -2864,7 +2864,7 @@ function VehicleRentalsTable() {
                                                             className: "p-4",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 className: "flex flex-wrap gap-1",
-                                                                children: rental.drivers_assigned.map((driver)=>{
+                                                                children: rental.drivers_assigned.map((driver, key)=>{
                                                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
                                                                         variant: "outline",
                                                                         className: "text-[10px] px-1",
@@ -2873,7 +2873,7 @@ function VehicleRentalsTable() {
                                                                             " ",
                                                                             driver.last_name
                                                                         ]
-                                                                    }, driver._id, true, {
+                                                                    }, key, true, {
                                                                         fileName: "[project]/components/logistics/vehicle-rentals-table.tsx",
                                                                         lineNumber: 294,
                                                                         columnNumber: 33

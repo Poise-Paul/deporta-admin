@@ -31,27 +31,27 @@ export function VehicleRentalsStats() {
   const stats = [
     {
       title: "Total amount made",
-      value: allIncome?.booking[0].amount || 0,
-      change: `+${allIncome?.prev_percentage}`,
+      value: allIncome?.booking[0].amount.toLocaleString() || 0,
+      change: `+${allIncome?.prev_percentage.toFixed(2) || 0}%`,
       borderColor: "border-l-primary",
     },
     {
       title: "Total rentals made",
       value: allBookings?.booking[0].count,
-      change: `+${allBookings?.prev_percentage}%`,
+      change: `+${allBookings?.prev_percentage.toFixed(2) || 0}%`,
       borderColor: "border-l-secondary",
     },
     {
       title: "Pending Rentals",
       value: pendingBookings?.booking[0].count,
-      change: `+${pendingBookings?.prev_percentage}`,
+      change: `+${pendingBookings?.prev_percentage.toFixed(2) || 0}%`,
       label: "Pending",
       borderColor: "border-l-pink-500",
     },
     {
       title: "Rentals",
       value: paidBookings?.booking[0].count,
-      change: `+${paidBookings?.prev_percentage}`,
+      change: `+${paidBookings?.prev_percentage.toFixed(2) || 0}%`,
       label: "Paid",
       borderColor: "border-l-green-500",
     },
