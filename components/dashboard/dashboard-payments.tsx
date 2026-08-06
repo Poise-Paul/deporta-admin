@@ -82,7 +82,7 @@ const DashboardTripPayments = () => {
         <div className="p-6 border-b border-gray-100 flex justify-between items-center">
           <div>
             <h2 className="text-lg font-semibold text-gray-800">
-              Trip Payments
+              Trips
             </h2>
             <p className="text-sm text-gray-400 mt-0.5">
               All customer trip payment records

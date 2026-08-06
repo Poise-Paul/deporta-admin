@@ -173,7 +173,26 @@ export function BusDetails({ busId }: BusDetailsProps) {
       },
       {
         onSettled: (data) => {
-          dispatch(updateSelBus(data?.buses));
+          if (data?.buses) {
+            // The edit response may return routes/drivers as unpopulated
+            // id strings, so resolve them against the already-loaded lists
+            // instead of trusting the response shape.
+            dispatch(
+              updateSelBus({
+                ...data.buses,
+                routes_assigned: (routes_assigned ?? [])
+                  .map((id) =>
+                    tripRoutes?.trip_route.data.find((r) => r._id === id),
+                  )
+                  .filter((r): r is RouteData => Boolean(r)),
+                drivers_assigned: (drivers_assigned ?? [])
+                  .map((id) =>
+                    staffData?.staffs.data.find((s) => s._id === id),
+                  )
+                  .filter((d): d is StaffData => Boolean(d)),
+              }),
+            );
+          }
           setIsDialogueOpen(false);
         },
       },
