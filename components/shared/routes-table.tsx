@@ -352,32 +352,16 @@ export function RoutesTable({
   const handleModifyRoute = () => {
     const formData = updateGetValues();
     const updatedRoutine = JSON.parse(JSON.stringify(formData.routine));
-    
+    const dateStr = new Date().toISOString().split("T")[0];
+
     (Object.keys(updatedRoutine) as Array<keyof typeof updatedRoutine>).forEach(
       (day) => {
         if (updatedRoutine[day].active) {
           updatedRoutine[day].value = updatedRoutine[day].value.map(
-            (slot: any) => {
-              // 🔑 Use setUTCHours to prevent the timezone from shifting into the previous day
-              const fromDate = new Date();
-              const [fromH, fromM] = slot.from.split(":");
-              fromDate.setUTCHours(parseInt(fromH), parseInt(fromM), 0, 0);
-
-              const tooDate = new Date();
-              const [tooH, tooM] = slot.too.split(":");
-              tooDate.setUTCHours(parseInt(tooH), parseInt(tooM), 0, 0);
-
-              // 🔑 Overnight Guard (Updated to use UTC date logic)
-              if (tooDate <= fromDate) {
-                tooDate.setUTCDate(tooDate.getUTCDate() + 1);
-              }
-
-              return {
-                // ...slot,
-                from: fromDate.toISOString(),
-                too: tooDate.toISOString(),
-              };
-            },
+            (slot: any) => ({
+              from: `${dateStr}T${slot.from}:00`,
+              too: `${dateStr}T${slot.too}:00`,
+            }),
           );
         } else {
           updatedRoutine[day].value = [];

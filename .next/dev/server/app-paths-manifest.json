@@ -1,11 +1,7 @@
 {
-  "/(dashboard)/app-menu/bus-stops/page": "app/(dashboard)/app-menu/bus-stops/page.js",
+  "/(dashboard)/app-menu/routes/[id]/page": "app/(dashboard)/app-menu/routes/[id]/page.js",
   "/(dashboard)/app-menu/routes/page": "app/(dashboard)/app-menu/routes/page.js",
-  "/(dashboard)/co-operate/accounts/[id]/page": "app/(dashboard)/co-operate/accounts/[id]/page.js",
-  "/(dashboard)/co-operate/accounts/page": "app/(dashboard)/co-operate/accounts/page.js",
-  "/(dashboard)/co-operate/bookings/page": "app/(dashboard)/co-operate/bookings/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
-  "/(dashboard)/logistics/vehicle-rentals/page": "app/(dashboard)/logistics/vehicle-rentals/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js"
 }
