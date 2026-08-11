@@ -762,8 +762,14 @@ const getDriversList = async (currentPage = 1, perPage = 10, searchTerm, status,
 "use strict";
 
 __turbopack_context__.s([
+    "getAdminTransactionById",
+    ()=>getAdminTransactionById,
     "getAdminTransactions",
     ()=>getAdminTransactions,
+    "getAdminTripPaymentById",
+    ()=>getAdminTripPaymentById,
+    "getAdminTripPayments",
+    ()=>getAdminTripPayments,
     "getDashboardCharts",
     ()=>getDashboardCharts,
     "getDashboardTotal",
@@ -808,7 +814,7 @@ const useStaffStatus = ()=>{
 };
 const getDashboardTotal = async ()=>{
     try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=total");
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/api/users/admin/income-by-args/total?args=daily");
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
@@ -828,12 +834,43 @@ const getAdminTransactions = async (page = 1, limit = 10)=>{
         throw error;
     }
 };
+const getAdminTransactionById = async (id)=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/transactions/${id}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Transaction Error:", error);
+        throw error;
+    }
+};
 const getDashboardCharts = async ()=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`api/users/admin/income/chart`);
         return res.data;
     } catch (error) {
         console.error("Fetch User Error:", error);
+        throw error;
+    }
+};
+const getAdminTripPayments = async (page = 1, limit = 10)=>{
+    const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString()
+    });
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/trip-payment?${params.toString()}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Trip Payments Error:", error);
+        throw error;
+    }
+};
+const getAdminTripPaymentById = async (id)=>{
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/trip-payment/${id}`);
+        return res.data;
+    } catch (error) {
+        console.error("Fetch Trip Payment Error:", error);
         throw error;
     }
 };

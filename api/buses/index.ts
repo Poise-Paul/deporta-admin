@@ -108,7 +108,7 @@ export const useCreateBus = () => {
 export const useDeleteBus = () => {
   return useMutation({
     mutationFn: async (stationId: string) => {
-      const res = await api.delete(`/api/users/admin/buses/bus/${stationId}`);
+      const res = await api.delete(`/api/users/admin/bus/delete/${stationId}`);
       return res.data;
     },
     onSuccess: (data: Response) => {
