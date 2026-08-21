@@ -1,39 +1,56 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { MessageSquare, Phone, Mail, Clock } from "lucide-react"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { MessageSquare, Ticket, CalendarClock, Clock, ExternalLink, Loader2 } from "lucide-react"
+import { useSupportOverview, type SupportChannelOverview } from "@/api/support"
 
-const recentTickets = [
+const CHANNELS = [
   {
-    id: "TKT-001",
-    subject: "Payment not reflecting",
-    customer: "David Kolawole",
-    status: "open",
-    priority: "high",
-    date: "2 hours ago",
+    key: "customer" as const,
+    label: "Customer Support",
+    propertyId: process.env.NEXT_PUBLIC_TAWK_CUSTOMER_PROPERTY_ID,
   },
   {
-    id: "TKT-002",
-    subject: "App crash on Android",
-    customer: "Jessica Franklin",
-    status: "in-progress",
-    priority: "medium",
-    date: "5 hours ago",
-  },
-  {
-    id: "TKT-003",
-    subject: "Route inquiry",
-    customer: "Miracle Jerly",
-    status: "resolved",
-    priority: "low",
-    date: "1 day ago",
+    key: "driver" as const,
+    label: "Driver Support",
+    propertyId: process.env.NEXT_PUBLIC_TAWK_DRIVER_PROPERTY_ID,
   },
 ]
 
-export default function SupportPage() {
+const ticketStatusStyle: Record<string, string> = {
+  open: "border-red-500 text-red-600",
+  pending: "border-orange-500 text-orange-600",
+  closed: "border-green-500 text-green-600",
+  unknown: "border-muted-foreground text-muted-foreground",
+}
+
+function timeAgo(iso?: string) {
+  if (!iso) return "—"
+  const diffMs = Date.now() - new Date(iso).getTime()
+  const minutes = Math.round(diffMs / 60000)
+  if (minutes < 1) return "just now"
+  if (minutes < 60) return `${minutes}m ago`
+  const hours = Math.round(minutes / 60)
+  if (hours < 24) return `${hours}h ago`
+  return `${Math.round(hours / 24)}d ago`
+}
+
+function SupportChannelPanel({
+  overview,
+  isLoading,
+  isError,
+  tawkDashboardUrl,
+}: {
+  overview: SupportChannelOverview | undefined
+  isLoading: boolean
+  isError: boolean
+  tawkDashboardUrl: string
+}) {
   return (
     <div className="space-y-6">
-      {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="bg-card border border-border">
           <CardContent className="p-6 flex items-center gap-4">
@@ -42,81 +59,133 @@ export default function SupportPage() {
             </div>
             <div>
               <p className="font-semibold">Live Chat</p>
-              <p className="text-sm text-muted-foreground">5 active chats</p>
+              <p className="text-sm text-muted-foreground">
+                {isLoading ? "Loading…" : `${overview?.activeChats ?? 0} active chats`}
+              </p>
             </div>
           </CardContent>
         </Card>
         <Card className="bg-card border border-border">
           <CardContent className="p-6 flex items-center gap-4">
             <div className="p-3 rounded-lg bg-secondary/10">
-              <Phone className="h-6 w-6 text-secondary" />
+              <Ticket className="h-6 w-6 text-secondary" />
             </div>
             <div>
-              <p className="font-semibold">Call Queue</p>
-              <p className="text-sm text-muted-foreground">3 waiting</p>
+              <p className="font-semibold">Support Tickets</p>
+              <p className="text-sm text-muted-foreground">
+                {isLoading ? "Loading…" : `${overview?.openTickets ?? 0} open`}
+              </p>
             </div>
           </CardContent>
         </Card>
         <Card className="bg-card border border-border">
           <CardContent className="p-6 flex items-center gap-4">
             <div className="p-3 rounded-lg bg-green-100">
-              <Mail className="h-6 w-6 text-green-600" />
+              <CalendarClock className="h-6 w-6 text-green-600" />
             </div>
             <div>
-              <p className="font-semibold">Email Support</p>
-              <p className="text-sm text-muted-foreground">12 unread</p>
+              <p className="font-semibold">Chats Today</p>
+              <p className="text-sm text-muted-foreground">
+                {isLoading ? "Loading…" : `${overview?.chatsToday ?? 0} started today`}
+              </p>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Recent Tickets */}
+      {isError && (
+        <Card className="bg-card border border-destructive/50">
+          <CardContent className="p-4 text-sm text-destructive">
+            Couldn&apos;t reach support data. The tawk.io webhook may not be configured yet, or Sanity credentials are missing.
+          </CardContent>
+        </Card>
+      )}
+
       <Card className="bg-card border border-border">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Recent Support Tickets</CardTitle>
-          <Button variant="outline">View All Tickets</Button>
+          <Button variant="outline" asChild>
+            <a href={tawkDashboardUrl} target="_blank" rel="noopener noreferrer">
+              Open in Tawk.to
+              <ExternalLink className="h-3.5 w-3.5 ml-1.5" />
+            </a>
+          </Button>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {recentTickets.map((ticket) => (
-              <div
-                key={ticket.id}
-                className="flex items-center justify-between p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors"
-              >
-                <div className="flex items-center gap-4">
-                  <div>
-                    <p className="font-medium">{ticket.subject}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {ticket.id} · {ticket.customer}
-                    </p>
+          {isLoading ? (
+            <div className="flex items-center justify-center py-10 text-muted-foreground">
+              <Loader2 className="h-5 w-5 animate-spin mr-2" />
+              Loading tickets…
+            </div>
+          ) : !overview?.tickets.length ? (
+            <p className="py-10 text-center text-sm text-muted-foreground">
+              No tickets yet. Once the tawk.io webhook is wired up and a ticket comes in, it&apos;ll show up here.
+            </p>
+          ) : (
+            <div className="space-y-4">
+              {overview.tickets.map((ticket) => (
+                <div
+                  key={ticket._id}
+                  className="flex items-center justify-between p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors"
+                >
+                  <div className="flex items-center gap-4">
+                    <div>
+                      <p className="font-medium">{ticket.subject ?? "Untitled ticket"}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {ticket.ticketId} · {ticket.requesterName ?? ticket.requesterEmail ?? "Unknown requester"}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Badge variant="outline" className={ticketStatusStyle[ticket.status]}>
+                      {ticket.status}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {timeAgo(ticket.updatedAt ?? ticket.createdAt)}
+                    </span>
+                    <Button size="sm" variant="ghost" asChild>
+                      <a href={tawkDashboardUrl} target="_blank" rel="noopener noreferrer">
+                        View
+                      </a>
+                    </Button>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Badge
-                    variant="outline"
-                    className={
-                      ticket.status === "open"
-                        ? "border-red-500 text-red-600"
-                        : ticket.status === "in-progress"
-                          ? "border-orange-500 text-orange-600"
-                          : "border-green-500 text-green-600"
-                    }
-                  >
-                    {ticket.status}
-                  </Badge>
-                  <span className="text-sm text-muted-foreground flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    {ticket.date}
-                  </span>
-                  <Button size="sm" variant="ghost">
-                    View
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
+  )
+}
+
+export default function SupportPage() {
+  const { data, isLoading, isError } = useSupportOverview()
+
+  return (
+    <Tabs defaultValue="customer" className="space-y-6">
+      <TabsList>
+        {CHANNELS.map((channel) => (
+          <TabsTrigger key={channel.key} value={channel.key}>
+            {channel.label}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      {CHANNELS.map((channel) => (
+        <TabsContent key={channel.key} value={channel.key}>
+          <SupportChannelPanel
+            overview={data?.data[channel.key]}
+            isLoading={isLoading}
+            isError={isError}
+            tawkDashboardUrl={
+              channel.propertyId
+                ? `https://dashboard.tawk.to/#/admin/${channel.propertyId}`
+                : "https://dashboard.tawk.to/"
+            }
+          />
+        </TabsContent>
+      ))}
+    </Tabs>
   )
 }

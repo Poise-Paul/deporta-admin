@@ -1120,6 +1120,10 @@
     margin-left: calc(var(--spacing) * 1);
   }
 
+  .ml-1\.5 {
+    margin-left: calc(var(--spacing) * 1.5);
+  }
+
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
@@ -2349,6 +2353,16 @@
     border-color: var(--destructive);
   }
 
+  .border-destructive\/50 {
+    border-color: var(--destructive);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-destructive\/50 {
+      border-color: color-mix(in oklab, var(--destructive) 50%, transparent);
+    }
+  }
+
   .border-emerald-100 {
     border-color: var(--color-emerald-100);
   }
@@ -2379,6 +2393,10 @@
 
   .border-muted {
     border-color: var(--muted);
+  }
+
+  .border-muted-foreground {
+    border-color: var(--muted-foreground);
   }
 
   .border-orange-100 {
@@ -3095,6 +3113,10 @@
 
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
+  }
+
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
   }
 
   .py-12 {

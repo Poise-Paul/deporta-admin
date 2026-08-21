@@ -1,0 +1,10 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/tawk/webhook/route.js")
+R.c("server/chunks/node_modules_@sanity_client_dist_794a25de._.js")
+R.c("server/chunks/node_modules_next_6f4a66e8._.js")
+R.c("server/chunks/node_modules_@sanity_client_dist_2daf49d4._.js")
+R.c("server/chunks/node_modules_rxjs_dist_cjs_80c646f2._.js")
+R.c("server/chunks/node_modules_b2dade53._.js")
+R.c("server/chunks/[root-of-the-server]__9426ea4e._.js")
+R.c("server/chunks/_next-internal_server_app_api_tawk_webhook_route_actions_476436aa.js")
+R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/tawk/webhook/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/tawk/webhook/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports

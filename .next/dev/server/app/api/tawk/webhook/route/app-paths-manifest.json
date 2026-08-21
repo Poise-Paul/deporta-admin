@@ -1,0 +1,3 @@
+{
+  "/api/tawk/webhook/route": "app/api/tawk/webhook/route.js"
+}
