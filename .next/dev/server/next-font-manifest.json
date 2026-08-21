@@ -1,66 +1,10 @@
 {
   "app": {
-    "[project]/app/(dashboard)/app-menu/bus-stops/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/app-menu/buses/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/app-menu/drivers/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/app-menu/dropoff-locations/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/app-menu/pickup-stations/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/app-menu/routes/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
     "[project]/app/(dashboard)/cms/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.29207c2f.woff2"
     ],
-    "[project]/app/(dashboard)/co-operate/accounts/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/co-operate/bookings/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
     "[project]/app/(dashboard)/dashboard/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/logistics/bookings/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/logistics/driver-outsourcing/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/logistics/vehicle-rentals/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/settings/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/staff/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.29207c2f.woff2"
-    ],
-    "[project]/app/(dashboard)/support/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.29207c2f.woff2"
     ],
