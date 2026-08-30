@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Bell, Info, Mail, Send } from "lucide-react"
+import { useEffect, useState } from "react"
+import { Bell, Mail, Send } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Label } from "@/components/ui/label"
@@ -21,18 +21,20 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { NotificationPreview } from "@/components/cms/notification-preview"
-import { useSendBroadcastEmail, useSendPushNotification } from "@/api/cms"
+import { EmailPreview } from "@/components/cms/email-preview"
+import { useSendBroadcastEmail, useSendPushNotification, type Audience } from "@/api/cms"
+import { getSentTodayCount, recordSentToday } from "@/lib/notification-log"
 
 const TITLE_LIMIT = 65
 const MESSAGE_LIMIT = 240
+const DEFAULT_UNSUBSCRIBE_LINK = "https://deporta.com/unsubscribe"
 
-const AUDIENCE_OPTIONS = [
-  { value: "all", label: "All Users" },
+const AUDIENCE_OPTIONS: { value: Audience; label: string }[] = [
+  { value: "all-users", label: "All Users" },
   { value: "drivers", label: "Drivers" },
-  { value: "staff", label: "All Staff" },
-] as const
-
-type Audience = (typeof AUDIENCE_OPTIONS)[number]["value"]
+  { value: "staffs", label: "Staff" },
+  { value: "customers", label: "Customers" },
+]
 
 function AudienceSelect({ value, onChange, idPrefix }: { value: Audience; onChange: (v: Audience) => void; idPrefix: string }) {
   return (
@@ -50,32 +52,27 @@ function AudienceSelect({ value, onChange, idPrefix }: { value: Audience; onChan
           ))}
         </SelectContent>
       </Select>
-      <p className="flex items-start gap-1.5 text-xs text-amber-600 dark:text-amber-500">
-        <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-        Audience targeting isn&apos;t wired up yet — every send currently reaches all users regardless of this
-        selection.
-      </p>
     </div>
   )
 }
 
-function PushNotificationTab() {
+function PushNotificationTab({ onSent }: { onSent: () => void }) {
   const [title, setTitle] = useState("")
   const [message, setMessage] = useState("")
-  const [audience, setAudience] = useState<Audience>("all")
+  const [audience, setAudience] = useState<Audience>("all-users")
   const { mutate, isPending } = useSendPushNotification()
 
   const canSend = title.trim().length > 0 && message.trim().length > 0
   const audienceLabel = AUDIENCE_OPTIONS.find((option) => option.value === audience)?.label
 
   const handleSend = () => {
-    // audience is intentionally not sent yet — backend only supports "all users" for now
     mutate(
-      { title: title.trim(), message: message.trim() },
+      { title: title.trim(), message: message.trim(), user_type: audience },
       {
         onSuccess: () => {
           setTitle("")
           setMessage("")
+          onSent()
         },
       },
     )
@@ -124,16 +121,10 @@ function PushNotificationTab() {
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Send this notification to all users?</AlertDialogTitle>
+              <AlertDialogTitle>Send this notification to {audienceLabel?.toLowerCase()}?</AlertDialogTitle>
               <AlertDialogDescription>
-                This push notification will be delivered immediately to every user on the platform. This
+                This push notification will be delivered immediately to {audienceLabel?.toLowerCase()}. This
                 can&apos;t be undone once sent.
-                {audience !== "all" && (
-                  <span className="mt-2 block text-amber-600 dark:text-amber-500">
-                    Note: audience targeting isn&apos;t live yet, so this will go to all users, not just{" "}
-                    {audienceLabel}.
-                  </span>
-                )}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
@@ -149,52 +140,132 @@ function PushNotificationTab() {
   )
 }
 
-function EmailBroadcastTab() {
-  const [title, setTitle] = useState("")
-  const [message, setMessage] = useState("")
-  const [audience, setAudience] = useState<Audience>("all")
+function EmailBroadcastTab({ onSent }: { onSent: () => void }) {
+  const [audience, setAudience] = useState<Audience>("all-users")
+  const [messageTitle, setMessageTitle] = useState("")
+  const [messageBody, setMessageBody] = useState("")
+  const [highlightLabel, setHighlightLabel] = useState("")
+  const [highlightValue, setHighlightValue] = useState("")
+  const [ctaLabel, setCtaLabel] = useState("")
+  const [ctaUrl, setCtaUrl] = useState("")
+  const [unsubscribeLink, setUnsubscribeLink] = useState(DEFAULT_UNSUBSCRIBE_LINK)
   const { mutate, isPending } = useSendBroadcastEmail()
 
-  const canSend = title.trim().length > 0 && message.trim().length > 0
+  const canSend =
+    messageTitle.trim().length > 0 &&
+    messageBody.trim().length > 0 &&
+    ctaLabel.trim().length > 0 &&
+    ctaUrl.trim().length > 0 &&
+    unsubscribeLink.trim().length > 0
   const audienceLabel = AUDIENCE_OPTIONS.find((option) => option.value === audience)?.label
 
   const handleSend = () => {
-    // audience is intentionally not sent yet — backend only supports "all users" for now
     mutate(
-      { title: title.trim(), message: message.trim() },
+      {
+        Highlight_Label: highlightLabel.trim(),
+        Highlight_Value: highlightValue.trim(),
+        Message_Title: messageTitle.trim(),
+        Message_Body: messageBody.trim(),
+        Unsubscribe_Link: unsubscribeLink.trim(),
+        CTA_URL: ctaUrl.trim(),
+        CTA_Label: ctaLabel.trim(),
+        user_type: audience,
+      },
       {
         onSuccess: () => {
-          setTitle("")
-          setMessage("")
+          setMessageTitle("")
+          setMessageBody("")
+          setHighlightLabel("")
+          setHighlightValue("")
+          setCtaLabel("")
+          setCtaUrl("")
+          onSent()
         },
       },
     )
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_320px]">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_360px]">
       <div className="space-y-4">
         <AudienceSelect value={audience} onChange={setAudience} idPrefix="email" />
 
         <div className="space-y-2">
-          <Label htmlFor="email-title">Subject</Label>
+          <Label htmlFor="email-message-title">Message Title</Label>
           <Input
-            id="email-title"
-            placeholder="Important Announcement"
-            value={title}
-            maxLength={TITLE_LIMIT}
-            onChange={(e) => setTitle(e.target.value)}
+            id="email-message-title"
+            placeholder="New Route Alert: Ajah ⇄ Lekki is Live!"
+            value={messageTitle}
+            onChange={(e) => setMessageTitle(e.target.value)}
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email-message">Message</Label>
+          <Label htmlFor="email-message-body">Message Body</Label>
           <Textarea
-            id="email-message"
-            placeholder="We have updated our terms and conditions."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="min-h-40"
+            id="email-message-body"
+            placeholder="Commuting along the expressway just got easier."
+            value={messageBody}
+            onChange={(e) => setMessageBody(e.target.value)}
+            className="min-h-24"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="email-highlight-label">Highlight Label (optional)</Label>
+            <Input
+              id="email-highlight-label"
+              placeholder="New Route"
+              value={highlightLabel}
+              onChange={(e) => setHighlightLabel(e.target.value)}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email-highlight-value">Highlight Value (optional)</Label>
+            <Input
+              id="email-highlight-value"
+              placeholder="Ajah to Lekki"
+              value={highlightValue}
+              onChange={(e) => setHighlightValue(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="email-cta-label">CTA Label</Label>
+            <Input
+              id="email-cta-label"
+              placeholder="Book Ride Now"
+              value={ctaLabel}
+              onChange={(e) => setCtaLabel(e.target.value)}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email-cta-url">CTA URL</Label>
+            <Input
+              id="email-cta-url"
+              placeholder="https://deporta.app.link/book?route=ajah-lekki"
+              value={ctaUrl}
+              onChange={(e) => setCtaUrl(e.target.value)}
+            />
+          </div>
+        </div>
+        <p className="-mt-2 text-xs text-muted-foreground">
+          This should be a smart/deferred link that opens the app directly if it's installed, and otherwise sends
+          the user to the App Store or Play Store depending on their device. The admin portal doesn't generate that
+          link — paste the smart-link URL from wherever it's hosted (e.g. a Branch/OneLink link, or a redirect page
+          on the main Deporta site). A raw <code className="rounded bg-muted px-1 py-0.5">deporta://...</code>{" "}
+          scheme link alone won't work for recipients without the app installed.
+        </p>
+
+        <div className="space-y-2">
+          <Label htmlFor="email-unsubscribe">Unsubscribe Link</Label>
+          <Input
+            id="email-unsubscribe"
+            value={unsubscribeLink}
+            onChange={(e) => setUnsubscribeLink(e.target.value)}
           />
         </div>
 
@@ -207,16 +278,10 @@ function EmailBroadcastTab() {
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Send this email to all users?</AlertDialogTitle>
+              <AlertDialogTitle>Send this email to {audienceLabel?.toLowerCase()}?</AlertDialogTitle>
               <AlertDialogDescription>
-                This email will be delivered immediately to every user&apos;s inbox. This can&apos;t be undone
-                once sent.
-                {audience !== "all" && (
-                  <span className="mt-2 block text-amber-600 dark:text-amber-500">
-                    Note: audience targeting isn&apos;t live yet, so this will go to all users, not just{" "}
-                    {audienceLabel}.
-                  </span>
-                )}
+                This email will be delivered immediately to {audienceLabel?.toLowerCase()}. This can&apos;t be
+                undone once sent.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
@@ -227,26 +292,32 @@ function EmailBroadcastTab() {
         </AlertDialog>
       </div>
 
-      <div className="rounded-lg border border-border bg-muted/30 p-4">
-        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Preview</p>
-        <div className="mt-3 rounded-md border border-border bg-background p-4">
-          <p className="text-xs text-muted-foreground">From: Deporta Transport</p>
-          <p className="mt-2 font-semibold text-foreground">{title || "Subject line"}</p>
-          <p className="mt-2 whitespace-pre-wrap text-sm text-muted-foreground">
-            {message || "Your message will appear here as you type."}
-          </p>
-        </div>
-      </div>
+      <EmailPreview
+        highlightLabel={highlightLabel}
+        highlightValue={highlightValue}
+        messageTitle={messageTitle}
+        messageBody={messageBody}
+        ctaLabel={ctaLabel}
+      />
     </div>
   )
 }
 
-export function BroadcastComposer() {
+export function BroadcastComposer({ onSentTodayChange }: { onSentTodayChange?: (count: number) => void }) {
+  useEffect(() => {
+    onSentTodayChange?.(getSentTodayCount())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const handleSent = () => {
+    onSentTodayChange?.(recordSentToday())
+  }
+
   return (
     <Card className="bg-card border border-border">
       <CardHeader>
         <CardTitle>Broadcast Message</CardTitle>
-        <CardDescription>Send a push notification or email to every user on the platform.</CardDescription>
+        <CardDescription>Send a push notification or email to users on the platform.</CardDescription>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="push">
@@ -261,10 +332,10 @@ export function BroadcastComposer() {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="push" className="pt-4">
-            <PushNotificationTab />
+            <PushNotificationTab onSent={handleSent} />
           </TabsContent>
           <TabsContent value="email" className="pt-4">
-            <EmailBroadcastTab />
+            <EmailBroadcastTab onSent={handleSent} />
           </TabsContent>
         </Tabs>
       </CardContent>

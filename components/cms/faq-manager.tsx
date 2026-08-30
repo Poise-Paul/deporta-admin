@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ChevronDown, Pencil, Plus, Trash2 } from "lucide-react"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Spinner } from "@/components/ui/spinner"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
   Dialog,
@@ -27,53 +28,30 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { cn } from "@/lib/utils"
-
-export type FaqItem = {
-  id: string
-  question: string
-  answer: string
-}
-
-const SEED_FAQS: FaqItem[] = [
-  {
-    id: "faq-1",
-    question: "How do I book a trip on the Deporta app?",
-    answer:
-      "Open the app, enter your pickup and drop-off locations, choose an available route or bus, and confirm your seat. You'll get a booking confirmation with your ticket details.",
-  },
-  {
-    id: "faq-2",
-    question: "How can I track my driver in real time?",
-    answer:
-      "Once a driver is assigned to your trip, the Live Tracking screen shows their current location and estimated arrival time until you're picked up.",
-  },
-  {
-    id: "faq-3",
-    question: "What payment methods are supported?",
-    answer: "You can pay with a debit/credit card, bank transfer, or your in-app wallet balance.",
-  },
-  {
-    id: "faq-4",
-    question: "How do I cancel or reschedule a booking?",
-    answer:
-      "Go to My Trips, select the booking you want to change, then choose Cancel or Reschedule. Cancellation policies may apply depending on how close it is to departure.",
-  },
-]
+import { useCreateFaq, useDeleteFaq, useEditFaq, useFaqs, type FaqRecord } from "@/api/faqs"
 
 type FaqManagerProps = {
-  faqs: FaqItem[]
-  onFaqsChange: (faqs: FaqItem[]) => void
+  onCountChange?: (count: number) => void
 }
 
-export { SEED_FAQS }
+export function FaqManager({ onCountChange }: FaqManagerProps) {
+  const { data, isLoading } = useFaqs()
+  const faqs = data?.faqs ?? []
+  const total = data?.total ?? faqs.length
+  const createFaq = useCreateFaq()
+  const editFaq = useEditFaq()
+  const deleteFaq = useDeleteFaq()
 
-export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
   const [openIds, setOpenIds] = useState<Set<string>>(new Set())
   const [dialogOpen, setDialogOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
-  const [question, setQuestion] = useState("")
-  const [answer, setAnswer] = useState("")
-  const [deleteTarget, setDeleteTarget] = useState<FaqItem | null>(null)
+  const [title, setTitle] = useState("")
+  const [paragraph, setParagraph] = useState("")
+  const [deleteTarget, setDeleteTarget] = useState<FaqRecord | null>(null)
+
+  useEffect(() => {
+    onCountChange?.(total)
+  }, [total, onCountChange])
 
   const toggleOpen = (id: string) => {
     setOpenIds((prev) => {
@@ -86,52 +64,47 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
 
   const openAddDialog = () => {
     setEditingId(null)
-    setQuestion("")
-    setAnswer("")
+    setTitle("")
+    setParagraph("")
     setDialogOpen(true)
   }
 
-  const openEditDialog = (faq: FaqItem) => {
-    setEditingId(faq.id)
-    setQuestion(faq.question)
-    setAnswer(faq.answer)
+  const openEditDialog = (faq: FaqRecord) => {
+    setEditingId(faq._id)
+    setTitle(faq.title)
+    setParagraph(faq.paragraph)
     setDialogOpen(true)
   }
 
-  const canSave = question.trim().length > 0 && answer.trim().length > 0
+  const canSave = title.trim().length > 0 && paragraph.trim().length > 0
+  const isSaving = createFaq.isPending || editFaq.isPending
 
   const handleSave = () => {
     if (!canSave) return
 
     if (editingId) {
-      onFaqsChange(
-        faqs.map((faq) => (faq.id === editingId ? { ...faq, question: question.trim(), answer: answer.trim() } : faq)),
+      editFaq.mutate(
+        { faq_id: editingId, title: title.trim(), paragraph: paragraph.trim() },
+        { onSuccess: () => setDialogOpen(false) },
       )
     } else {
-      onFaqsChange([
-        ...faqs,
-        { id: `faq-${Date.now()}`, question: question.trim(), answer: answer.trim() },
-      ])
+      createFaq.mutate(
+        { title: title.trim(), paragraph: paragraph.trim() },
+        { onSuccess: () => setDialogOpen(false) },
+      )
     }
-    setDialogOpen(false)
   }
 
   const handleDelete = () => {
     if (!deleteTarget) return
-    onFaqsChange(faqs.filter((faq) => faq.id !== deleteTarget.id))
-    setDeleteTarget(null)
+    deleteFaq.mutate(deleteTarget._id, { onSuccess: () => setDeleteTarget(null) })
   }
 
   return (
     <Card id="faq-manager" className="bg-card border border-border scroll-mt-6">
       <CardHeader>
         <CardTitle>Frequently Asked Questions</CardTitle>
-        <CardDescription>
-          Manage the FAQs shown to customers and drivers in the app.{" "}
-          <span className="text-amber-600 dark:text-amber-500">
-            Not wired to a backend yet — changes here reset on refresh.
-          </span>
-        </CardDescription>
+        <CardDescription>Manage the FAQs shown to customers and drivers in the app.</CardDescription>
         <CardAction>
           <Button onClick={openAddDialog} className="gap-2">
             <Plus className="h-4 w-4" />
@@ -140,23 +113,28 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
         </CardAction>
       </CardHeader>
       <CardContent>
-        {faqs.length === 0 ? (
+        {isLoading ? (
+          <div className="flex items-center justify-center gap-2 py-8 text-sm text-muted-foreground">
+            <Spinner className="h-4 w-4" />
+            Loading FAQs...
+          </div>
+        ) : faqs.length === 0 ? (
           <p className="py-8 text-center text-sm text-muted-foreground">
-            No FAQs yet. Click "Add FAQ" to create the first one.
+            No FAQs yet. Click &quot;Add FAQ&quot; to create the first one.
           </p>
         ) : (
           <div className="space-y-2">
             {faqs.map((faq) => {
-              const isOpen = openIds.has(faq.id)
+              const isOpen = openIds.has(faq._id)
               return (
-                <Collapsible key={faq.id} open={isOpen} onOpenChange={() => toggleOpen(faq.id)}>
+                <Collapsible key={faq._id} open={isOpen} onOpenChange={() => toggleOpen(faq._id)}>
                   <div className="flex items-center gap-1 rounded-lg border border-border px-3 py-1">
                     <CollapsibleTrigger asChild>
                       <button
                         type="button"
                         className="flex flex-1 items-center justify-between gap-3 py-3 text-left text-sm font-medium text-foreground"
                       >
-                        <span>{faq.question}</span>
+                        <span>{faq.title}</span>
                         <ChevronDown
                           className={cn(
                             "h-4 w-4 shrink-0 text-muted-foreground transition-transform",
@@ -180,7 +158,7 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
                     </Button>
                   </div>
                   <CollapsibleContent className="px-3 pb-3 text-sm text-muted-foreground">
-                    {faq.answer}
+                    {faq.paragraph}
                   </CollapsibleContent>
                 </Collapsible>
               )
@@ -203,8 +181,8 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
               <Input
                 id="faq-question"
                 placeholder="How do I book a trip on the Deporta app?"
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -212,8 +190,8 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
               <Textarea
                 id="faq-answer"
                 placeholder="Open the app, enter your pickup and drop-off locations..."
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
+                value={paragraph}
+                onChange={(e) => setParagraph(e.target.value)}
                 className="min-h-28"
               />
             </div>
@@ -222,8 +200,8 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
             <Button variant="outline" onClick={() => setDialogOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={handleSave} disabled={!canSave}>
-              {editingId ? "Save Changes" : "Add FAQ"}
+            <Button onClick={handleSave} disabled={!canSave || isSaving}>
+              {isSaving ? "Saving..." : editingId ? "Save Changes" : "Add FAQ"}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -234,16 +212,17 @@ export function FaqManager({ faqs, onFaqsChange }: FaqManagerProps) {
           <AlertDialogHeader>
             <AlertDialogTitle>Delete this FAQ?</AlertDialogTitle>
             <AlertDialogDescription>
-              {deleteTarget && `"${deleteTarget.question}" will be removed from the list.`}
+              {deleteTarget && `"${deleteTarget.title}" will be removed from the list.`}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDelete}
+              disabled={deleteFaq.isPending}
               className="bg-destructive text-white hover:bg-destructive/90"
             >
-              Delete
+              {deleteFaq.isPending ? "Deleting..." : "Delete"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

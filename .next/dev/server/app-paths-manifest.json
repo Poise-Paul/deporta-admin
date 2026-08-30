@@ -1,6 +1,9 @@
 {
   "/(dashboard)/cms/page": "app/(dashboard)/cms/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/support/page": "app/(dashboard)/support/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/support/route": "app/api/support/route.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js"
 }

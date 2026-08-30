@@ -4,19 +4,33 @@ import { toast } from "react-hot-toast";
 import { api } from "../axios";
 import { ErrorrResponse, Response } from "@/types";
 
-export type BroadcastPayload = {
+export type Audience = "all-users" | "drivers" | "staffs" | "customers";
+
+export type PushNotificationPayload = {
   title: string;
   message: string;
+  user_type: Audience;
+};
+
+export type BroadcastEmailPayload = {
+  Highlight_Label: string;
+  Highlight_Value: string;
+  Message_Title: string;
+  Message_Body: string;
+  Unsubscribe_Link: string;
+  CTA_URL: string;
+  CTA_Label: string;
+  user_type: Audience;
 };
 
 export const useSendPushNotification = () => {
   return useMutation({
-    mutationFn: async (data: BroadcastPayload) => {
+    mutationFn: async (data: PushNotificationPayload) => {
       const res = await api.post("/api/users/admin/cms/notification", data);
       return res.data;
     },
     onSuccess: (data: Response) => {
-      toast.success(data?.message || "Push notification sent to all users");
+      toast.success(data?.message || "Push notification sent");
     },
     onError: (error) => {
       if (axios.isAxiosError(error)) {
@@ -31,12 +45,12 @@ export const useSendPushNotification = () => {
 
 export const useSendBroadcastEmail = () => {
   return useMutation({
-    mutationFn: async (data: BroadcastPayload) => {
+    mutationFn: async (data: BroadcastEmailPayload) => {
       const res = await api.post("/api/users/admin/cms/email", data);
       return res.data;
     },
     onSuccess: (data: Response) => {
-      toast.success(data?.message || "Broadcast email sent to all users");
+      toast.success(data?.message || "Broadcast email sent");
     },
     onError: (error) => {
       if (axios.isAxiosError(error)) {

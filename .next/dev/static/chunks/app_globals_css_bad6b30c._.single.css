@@ -92,6 +92,7 @@
 
 @layer theme {
   :root, :host {
+    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --color-red-50: #fef2f2;
     --color-red-100: #ffe2e2;
     --color-red-300: #ffa3a3;
@@ -891,6 +892,10 @@
     margin-block: calc(var(--spacing) * 6);
   }
 
+  .-mt-2 {
+    margin-top: calc(var(--spacing) * -2);
+  }
+
   .-mt-4 {
     margin-top: calc(var(--spacing) * -4);
   }
@@ -1342,12 +1347,12 @@
     min-height: calc(var(--spacing) * 20);
   }
 
-  .min-h-28 {
-    min-height: calc(var(--spacing) * 28);
+  .min-h-24 {
+    min-height: calc(var(--spacing) * 24);
   }
 
-  .min-h-40 {
-    min-height: calc(var(--spacing) * 40);
+  .min-h-28 {
+    min-height: calc(var(--spacing) * 28);
   }
 
   .min-h-\[400px\] {
@@ -2358,6 +2363,16 @@
     }
   }
 
+  .border-primary\/60 {
+    border-color: var(--primary);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-primary\/60 {
+      border-color: color-mix(in oklab, var(--primary) 60%, transparent);
+    }
+  }
+
   .border-red-100 {
     border-color: var(--color-red-100);
   }
@@ -3203,6 +3218,10 @@
     font-family: Inter, Inter Fallback, system-ui, sans-serif;
   }
 
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -3362,10 +3381,6 @@
 
   .whitespace-nowrap {
     white-space: nowrap;
-  }
-
-  .whitespace-pre-wrap {
-    white-space: pre-wrap;
   }
 
   .text-accent-foreground {
@@ -6265,8 +6280,8 @@
   }
 
   @media (min-width: 64rem) {
-    .lg\:grid-cols-\[1fr_320px\] {
-      grid-template-columns: 1fr 320px;
+    .lg\:grid-cols-\[1fr_360px\] {
+      grid-template-columns: 1fr 360px;
     }
   }
 
@@ -6350,10 +6365,6 @@
 
   .dark\:bg-transparent:is(.dark *) {
     background-color: #0000;
-  }
-
-  .dark\:text-amber-500:is(.dark *) {
-    color: var(--color-amber-500);
   }
 
   .dark\:text-muted-foreground:is(.dark *) {
