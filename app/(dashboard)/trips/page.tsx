@@ -88,7 +88,8 @@ export default function OngoingTripsScreen() {
           filteredTrips?.map((trip) => (
             <div
               key={trip._id}
-              className="p-4 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow"
+              onClick={() => router.push(`/trips/${trip._id}`)}
+              className="p-4 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer"
             >
               {/* Top Row: Trip Code & Status */}
               <div className="flex justify-between items-center mb-4">
@@ -145,7 +146,6 @@ export default function OngoingTripsScreen() {
                 </div>
 
                 <ChevronRight
-                  onClick={() => router.push(`/trips/${trip._id}`)}
                   className="h-5 w-5 text-gray-300 self-center"
                 />
               </div>

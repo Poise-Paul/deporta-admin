@@ -527,6 +527,12 @@ export type Bus = {
   updatedAt: string;
   __v: number;
   is_maintenance: boolean;
+  // Last known GPS position of the bus (GeoJSON order: [longitude, latitude]).
+  current_location?: {
+    type: string;
+    coordinates: [number, number];
+    updatedAt?: string;
+  };
 };
 
 export type BusesResponse = {
@@ -701,6 +707,12 @@ export type ActivityData = {
   customer_with_ongoing_status: number;
   customer_with_pending_status: number;
   free_capacity: number | null;
+  // Last known GPS position of the bus on this trip ([longitude, latitude]).
+  current_location?: {
+    type: string;
+    coordinates: [number, number];
+    updatedAt?: string;
+  };
 };
 
 export type RoutineData = {

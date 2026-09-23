@@ -44,7 +44,13 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
-import { AddBusPayload, FuelType, RouteData, StaffData } from "@/types";
+import {
+  AddBusPayload,
+  DriverBusData,
+  FuelType,
+  RouteData,
+  StaffData,
+} from "@/types";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import {
@@ -63,12 +69,12 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "../ui/skeleton";
 import { getRoutes } from "@/api/routes";
-import { getStaffList } from "@/api/user";
 import toast, { Toaster } from "react-hot-toast";
 import { updateSelBus } from "@/lib/store/slices/bus-slice";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { Textarea } from "../ui/textarea";
+import { DriverMultiSelect } from "./driver-multi-select";
 
 type BusTab = "all" | "active" | "maintenance" | "inactive";
 
@@ -87,6 +93,7 @@ export function BusSystemsTable() {
 
   const [editMode, setEditMode] = useState(false);
   const [busId, setBusId] = useState("");
+  const [editingDrivers, setEditingDrivers] = useState<DriverBusData[]>([]);
   const [deleteBusPhotos, setDeleteBusPhotos] = useState<string[]>([]);
 
   // Outsouce Bus
@@ -261,14 +268,6 @@ export function BusSystemsTable() {
   } = useQuery({
     queryKey: ["routes"],
     queryFn: () => getRoutes(),
-  });
-
-  // Update this staff list to use the dedicated staff with pagination (Change to Drivers List)
-  // get the current user
-  const { data: staffData, refetch: refetchStaffs } = useQuery({
-    queryKey: ["staffs"],
-    retry: false,
-    queryFn: () => getStaffList(1, 10),
   });
 
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -680,64 +679,11 @@ export function BusSystemsTable() {
                         Assign Drivers{" "}
                         <span className="text-destructive">*</span>
                       </label>
-                      <Select
-                        onValueChange={(value) => {
-                          const current = watch("drivers_assigned") || [];
-                          if (!current.includes(value)) {
-                            setValue("drivers_assigned", [...current, value]);
-                          }
-                        }}
-                      >
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Add a driver..." />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {staffData?.staffs.data
-                            .filter(
-                              (d) =>
-                                d.user_type.type_id.role === "driver" &&
-                                !watch("drivers_assigned").includes(d._id),
-                            )
-                            .map((driver) => (
-                              <SelectItem key={driver._id} value={driver._id}>
-                                {driver.first_name} {driver.last_name}
-                              </SelectItem>
-                            ))}
-                        </SelectContent>
-                      </Select>
-                      {/* Selected Drivers */}
-
-                      <div className="flex flex-wrap gap-2">
-                        {watch("drivers_assigned")
-                          .filter((id) => id !== "")
-                          .map((driverId) => {
-                            const driver = staffData?.staffs.data.find(
-                              (d: StaffData) => d._id === driverId,
-                            );
-                            return (
-                              <Badge
-                                key={driverId}
-                                variant="secondary"
-                                className="pl-2 pr-1 py-1"
-                              >
-                                {driver?.first_name} {driver?.last_name}
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    const current = watch("drivers_assigned");
-                                    setValue(
-                                      "drivers_assigned",
-                                      current.filter((id) => id !== driverId),
-                                    );
-                                  }}
-                                  className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
-                                >
-                                  <X size={12} />
-                                </button>
-                              </Badge>
-                            );
-                          })}
-                      </div>
+                      <DriverMultiSelect
+                        value={watch("drivers_assigned") || []}
+                        onChange={(ids) => setValue("drivers_assigned", ids)}
+                        knownDrivers={editMode ? editingDrivers : undefined}
+                      />
                     </div>
                   </div>
 
@@ -1085,6 +1031,7 @@ export function BusSystemsTable() {
                               setValue("name_label", bus.name_label);
                               setValue("routes_assigned", routeIds);
                               setValue("drivers_assigned", driverIds);
+                              setEditingDrivers(bus.drivers_assigned);
                               setValue("plate_number", bus.plate_number);
                               setValue("capacity", `${bus.capacity}`);
                               setValue(

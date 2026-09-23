@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Edit, Loader2, Plus, Upload, X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
-import { getStaffList } from "@/api/user";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -29,10 +28,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AddBusPayload,
+  DriverBusData,
   EditBusPayload,
   FuelType,
   MaintenancePayload,
@@ -51,6 +51,11 @@ import { getRoutes } from "@/api/routes";
 import toast, { Toaster } from "react-hot-toast";
 import { updateSelBus } from "@/lib/store/slices/bus-slice";
 import { Textarea } from "../ui/textarea";
+import { DriverMultiSelect } from "./driver-multi-select";
+import { BusLiveMap } from "./bus-live-map";
+
+// Fallback position (Lagos) until the bus reports a location.
+const DEFAULT_BUS_POSITION = { lat: 6.5244, lng: 3.3792 };
 
 interface BusDetailsProps {
   busId: string;
@@ -67,12 +72,9 @@ export function BusDetails({ busId }: BusDetailsProps) {
 
   const [holdBtn, setHoldBtn] = useState(true);
 
-  // Update List
-  const { data: staffData, refetch: refetchStaffs } = useQuery({
-    queryKey: ["staffs"],
-    retry: false,
-    queryFn: () => getStaffList(1,10),
-  });
+  // Full driver objects for the current selection, used to update the
+  // details view after saving without refetching.
+  const selectedDriversRef = useRef<DriverBusData[]>([]);
 
   const formatDateForInput = (dateString?: string) => {
     if (!dateString) return "";
@@ -185,11 +187,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
                     tripRoutes?.trip_route.data.find((r) => r._id === id),
                   )
                   .filter((r): r is RouteData => Boolean(r)),
-                drivers_assigned: (drivers_assigned ?? [])
-                  .map((id) =>
-                    staffData?.staffs.data.find((s) => s._id === id),
-                  )
-                  .filter((d): d is StaffData => Boolean(d)),
+                drivers_assigned: selectedDriversRef.current,
               }),
             );
           }
@@ -483,64 +481,14 @@ export function BusDetails({ busId }: BusDetailsProps) {
                         <label className="text-sm font-medium">
                           Assign Drivers
                         </label>
-                        <Select
-                          onValueChange={(value) => {
-                            const current = watch("drivers_assigned") || [];
-                            if (!current.includes(value)) {
-                              setValue("drivers_assigned", [...current, value]);
-                            }
+                        <DriverMultiSelect
+                          value={watch("drivers_assigned") || []}
+                          onChange={(ids) => setValue("drivers_assigned", ids)}
+                          knownDrivers={selBus?.drivers_assigned}
+                          onSelectedDriversChange={(drivers) => {
+                            selectedDriversRef.current = drivers;
                           }}
-                        >
-                          <SelectTrigger className="w-full">
-                            <SelectValue placeholder="Add a driver..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {staffData?.staffs.data
-                              .filter(
-                                (d) =>
-                                  d.user_type.type_id.role === "driver" &&
-                                  !watch("drivers_assigned").includes(d._id),
-                              )
-                              .map((driver) => (
-                                <SelectItem key={driver._id} value={driver._id}>
-                                  {driver.first_name} {driver.last_name}
-                                </SelectItem>
-                              ))}
-                          </SelectContent>
-                        </Select>
-                        {/* Selected Drivers */}
-
-                        <div className="flex flex-wrap gap-2">
-                          {watch("drivers_assigned")
-                            .filter((id) => id !== "")
-                            .map((driverId) => {
-                              const driver = staffData?.staffs.data.find(
-                                (d: StaffData) => d._id === driverId,
-                              );
-                              return (
-                                <Badge
-                                  key={driverId}
-                                  variant="secondary"
-                                  className="pl-2 pr-1 py-1"
-                                >
-                                  {driver?.first_name} {driver?.last_name}
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      const current = watch("drivers_assigned");
-                                      setValue(
-                                        "drivers_assigned",
-                                        current.filter((id) => id !== driverId),
-                                      );
-                                    }}
-                                    className="ml-2 hover:bg-destructive hover:text-white rounded-full p-0.5"
-                                  >
-                                    <X size={12} />
-                                  </button>
-                                </Badge>
-                              );
-                            })}
-                        </div>
+                        />
                       </div>
                     </div>
 
@@ -809,13 +757,20 @@ export function BusDetails({ busId }: BusDetailsProps) {
       {/* Right Section - Map */}
       <Card className="bg-card border border-border">
         <CardContent className="p-0 h-full min-h-[400px]">
-          <div className="w-full h-full bg-muted rounded-lg flex items-center justify-center">
-            <img
-              src="/lagos-map-with-route-markers-and-bus-stops.jpg"
-              alt="Route Map"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </div>
+          <BusLiveMap
+            position={
+              selBus?.current_location?.coordinates
+                ? {
+                    lat: selBus.current_location.coordinates[1],
+                    lng: selBus.current_location.coordinates[0],
+                  }
+                : DEFAULT_BUS_POSITION
+            }
+            label={
+              selBus ? `${selBus.name_label} (${selBus.id_code})` : undefined
+            }
+            lastUpdated={selBus?.current_location?.updatedAt}
+          />
         </CardContent>
       </Card>
       <Toaster />

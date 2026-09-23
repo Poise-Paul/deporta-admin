@@ -1,20 +1,85 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { BackButton } from "../ui/back-button";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { getOngoingTrips } from "@/api/routes";
+import { calculateETA } from "@/utils/timeConvert";
+import { SearchX } from "lucide-react";
+import { useMemo } from "react";
+import { BusLiveMap, MapWaypoint } from "../buses/bus-live-map";
+
+// GeoJSON coordinates are [longitude, latitude].
+const toLatLng = (coords?: [number, number]) =>
+  coords && coords.length === 2 ? { lat: coords[1], lng: coords[0] } : null;
 
 export function TripDetailView() {
-  const trip = {
-    id: 5,
-    busImage: "/transport-bus-black.jpg",
-    pickupLocation: "Sangotedo, Shoprite",
-    destination: "Marina, CMS",
-    journeyCode: "DEPO 94-T18",
-    pickupTime: "08:00 AM",
-    duration: "60 Mins",
-    passengers: 20,
-  };
   const router = useRouter();
+  const { id } = useParams<{ id: string }>();
+
+  // Same query as the ongoing trips list, so this is usually served from cache.
+  const { data: ongoingTrips, isLoading } = useQuery({
+    queryKey: ["ongoingTotal"],
+    queryFn: () => getOngoingTrips(),
+  });
+
+  const trip = ongoingTrips?.trip_route.find((t) => t._id === id);
+
+  const waypoints = useMemo<MapWaypoint[]>(() => {
+    if (!trip) return [];
+    const points: (MapWaypoint | null)[] = [
+      (() => {
+        const p = toLatLng(trip.starting_point.location?.coordinates);
+        return p
+          ? { position: p, label: trip.starting_point.value, kind: "pickup" }
+          : null;
+      })(),
+      ...(trip.number_of_stops ?? []).map((stop) => {
+        const p = toLatLng(stop.coordinates);
+        return p ? { position: p, label: stop.value, kind: "stop" as const } : null;
+      }),
+      (() => {
+        const p = toLatLng(trip.destination.location?.coordinates);
+        return p
+          ? { position: p, label: trip.destination.value, kind: "destination" }
+          : null;
+      })(),
+    ];
+    return points.filter((w): w is MapWaypoint => w !== null);
+  }, [trip]);
+
+  if (isLoading) {
+    return (
+      <div className="p-6 space-y-6 max-w-4xl mx-auto">
+        <Skeleton className="h-8 w-48" />
+        <Skeleton className="h-40 w-full" />
+      </div>
+    );
+  }
+
+  if (!trip) {
+    return (
+      <div className="p-6 space-y-6 max-w-4xl mx-auto">
+        <BackButton onClick={() => router.back()} label="All Ongoing Trips" />
+        <div className="flex flex-col items-center justify-center py-16 px-4 text-center border-2 border-dashed border-border rounded-xl bg-muted/20">
+          <SearchX className="h-8 w-8 text-muted-foreground opacity-50 mb-4" />
+          <h3 className="text-lg font-bold">Trip not found</h3>
+          <p className="text-sm text-muted-foreground mt-2 max-w-sm">
+            This trip is no longer ongoing or doesn&apos;t exist.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const ongoing = trip.ongoing?.value;
+  const schedule = trip.ongoing?.routine?.[0];
+  const busImage = ongoing?.bus_image?.[0];
+  // Until the tracking socket is live, fall back to the pickup point.
+  const busPosition =
+    toLatLng(ongoing?.current_location?.coordinates) ?? waypoints[0]?.position;
+
   return (
     <div className="p-6 space-y-6 max-w-4xl mx-auto">
       {/* Header Info */}
@@ -22,8 +87,12 @@ export function TripDetailView() {
 
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-2xl font-bold">{trip.journeyCode}</h2>
-          <p className="text-muted-foreground">Started at {trip.pickupTime}</p>
+          <h2 className="text-2xl font-bold">{trip.code}</h2>
+          {schedule && (
+            <p className="text-muted-foreground">
+              Scheduled {schedule.from} – {schedule.too}
+            </p>
+          )}
         </div>
         <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">
           Ongoing
@@ -39,39 +108,79 @@ export function TripDetailView() {
             </CardHeader>
             <CardContent>
               <div className="relative pl-6 border-l-2 border-dashed border-gray-200 space-y-8">
-                <div>
-                  <div className="absolute -left-[9px] w-4 h-4 rounded-full bg-primary" />
-                  <p className="font-bold">{trip.pickupLocation}</p>
-                  <p className="text-xs text-muted-foreground">
-                    Departed 10:30 AM
+                <div className="relative">
+                  <div className="absolute -left-[33px] w-4 h-4 rounded-full bg-primary" />
+                  <p className="font-bold capitalize">
+                    {trip.starting_point.value}
                   </p>
+                  <p className="text-xs text-muted-foreground">Pickup</p>
                 </div>
-                <div>
-                  <div className="absolute -left-[9px] w-4 h-4 rounded-full bg-gray-300" />
-                  <p className="font-bold">{trip.destination}</p>
+                {trip.number_of_stops?.map((stop, i) => (
+                  <div key={stop.location_id ?? i} className="relative">
+                    <div className="absolute -left-[31px] w-3 h-3 rounded-full bg-gray-300" />
+                    <p className="text-sm font-medium capitalize">
+                      {stop.value}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Stop {i + 1}
+                    </p>
+                  </div>
+                ))}
+                <div className="relative">
+                  <div className="absolute -left-[33px] w-4 h-4 rounded-full border-2 border-primary bg-white" />
+                  <p className="font-bold capitalize">
+                    {trip.destination.value}
+                  </p>
                   <p className="text-xs text-muted-foreground">
-                    Estimated Arrival: 2:00 PM
+                    Destination · ~{calculateETA(Number(trip.route_distance))}{" "}
+                    ({trip.route_distance} km)
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
+
+          {busPosition && (
+            <Card className="p-0 overflow-hidden">
+              <BusLiveMap
+                position={busPosition}
+                label={trip.code}
+                lastUpdated={ongoing?.current_location?.updatedAt}
+                waypoints={waypoints}
+              />
+            </Card>
+          )}
         </div>
 
-        {/* Column 2: Driver & Bus Info */}
+        {/* Column 2: Passengers & Bus Info */}
         <div className="space-y-4">
           <Card className="bg-orange-50/50 border-orange-100">
             <CardHeader>
-              <CardTitle className="text-sm">Assigned Driver</CardTitle>
+              <CardTitle className="text-sm">Passengers</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-orange-200" />
-                <div>
-                  <p className="text-sm font-bold">John Doe</p>
-                  <p className="text-xs">+234 812 345 6789</p>
-                </div>
+            <CardContent className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Seats taken</span>
+                <span className="font-bold">{ongoing?.capacity_taken ?? 0}</span>
               </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">On board</span>
+                <span className="font-bold">
+                  {ongoing?.customer_with_ongoing_status ?? 0}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Pending pickup</span>
+                <span className="font-bold">
+                  {ongoing?.customer_with_pending_status ?? 0}
+                </span>
+              </div>
+              {ongoing?.free_capacity != null && (
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Free seats</span>
+                  <span className="font-bold">{ongoing.free_capacity}</span>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -80,8 +189,11 @@ export function TripDetailView() {
               <CardTitle className="text-sm">Vehicle</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm font-bold">Toyota Coaster</p>
-              <p className="text-xs text-muted-foreground">Plate: APP-123-XY</p>
+              <img
+                src={busImage || "/placeholder.svg"}
+                alt="Bus"
+                className="w-full h-32 rounded-lg object-cover border border-gray-100"
+              />
             </CardContent>
           </Card>
         </div>
