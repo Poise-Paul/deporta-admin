@@ -1053,3 +1053,46 @@ export type DashboardChartsResponse = {
   status: boolean;
   income: MonthlyData[];
 };
+
+export type AuditLogUser = {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  profile_image?: string;
+  email: string;
+};
+
+export type AuditLog = {
+  _id: string;
+  // Populated user; may be null if the user was deleted.
+  user_id: AuditLogUser | null;
+  role: string;
+  action: string;
+  method: string;
+  endpoint: string;
+  ip_address: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type AuditLogsResponse = {
+  status: boolean;
+  message: string;
+  data: {
+    data: AuditLog[];
+    pagination: Pagination;
+  };
+};
+
+export type AuditLogFilters = {
+  page: number;
+  limit: number;
+  user_id?: string;
+  role?: string;
+  action?: string;
+  date_from?: string;
+  date_to?: string;
+  name?: string;
+  email?: string;
+};

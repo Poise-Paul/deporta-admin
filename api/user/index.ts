@@ -33,9 +33,10 @@ export const getStaffList = async (
     limit: limit.toString(),
   });
 
-  if (search) params.append("search", search);
+  // Only send filters that are actually set; "all" means no filter.
+  if (search?.trim()) params.append("search", search.trim());
   if (status && status !== "all") params.append("status", status);
-  if (role) params.append("role", role);
+  if (role && role !== "all") params.append("role", role);
 
   try {
     const res = await api.get(`/api/users/admin/staffs?${params.toString()}`);

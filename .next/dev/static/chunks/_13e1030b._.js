@@ -627,7 +627,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
-    baseURL: "https://deporta-development.onrender.com",
+    baseURL: "https://thalia-diachronic-lisette.ngrok-free.dev",
     timeout: 15000,
     headers: {
         "Content-Type": "application/json",
@@ -686,9 +686,10 @@ const getStaffList = async (page = 1, limit = 10, search, status, role)=>{
         page: page.toString(),
         limit: limit.toString()
     });
-    if (search) params.append("search", search);
+    // Only send filters that are actually set; "all" means no filter.
+    if (search?.trim()) params.append("search", search.trim());
     if (status && status !== "all") params.append("status", status);
-    if (role) params.append("role", role);
+    if (role && role !== "all") params.append("role", role);
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/api/users/admin/staffs?${params.toString()}`);
         return res.data;

@@ -52,7 +52,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { updateSelBus } from "@/lib/store/slices/bus-slice";
 import { Textarea } from "../ui/textarea";
 import { DriverMultiSelect } from "./driver-multi-select";
-import { BusLiveMap } from "./bus-live-map";
+import { BusLiveMap, LiveVehicle } from "./bus-live-map";
+import { useWatchDrivers } from "@/hooks/use-watch-drivers";
 
 // Fallback position (Lagos) until the bus reports a location.
 const DEFAULT_BUS_POSITION = { lat: 6.5244, lng: 3.3792 };
@@ -63,6 +64,42 @@ interface BusDetailsProps {
 
 export function BusDetails({ busId }: BusDetailsProps) {
   const { selBus } = useSelector((state: RootState) => state.bus);
+
+  const driverLocations = useWatchDrivers(
+    selBus?.drivers_assigned?.map((d) => d._id) ?? [],
+  );
+
+  // One pin per driver reporting a live location; until any do, fall back to
+  // the bus's last stored location.
+  const liveVehicles: LiveVehicle[] = (selBus?.drivers_assigned ?? [])
+    .filter((d) => driverLocations[d._id])
+    .map((d) => {
+      const loc = driverLocations[d._id];
+      return {
+        id: d._id,
+        position: { lat: loc.lat, lng: loc.lng },
+        label: `${d.first_name} ${d.last_name} · ${selBus?.id_code}`,
+        lastUpdated: loc.receivedAt,
+      };
+    });
+  const mapVehicles: LiveVehicle[] =
+    liveVehicles.length > 0
+      ? liveVehicles
+      : [
+          {
+            id: "bus",
+            position: selBus?.current_location?.coordinates
+              ? {
+                  lat: selBus.current_location.coordinates[1],
+                  lng: selBus.current_location.coordinates[0],
+                }
+              : DEFAULT_BUS_POSITION,
+            label: selBus
+              ? `${selBus.name_label} (${selBus.id_code})`
+              : "Bus",
+            lastUpdated: selBus?.current_location?.updatedAt,
+          },
+        ];
 
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
 
@@ -757,20 +794,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
       {/* Right Section - Map */}
       <Card className="bg-card border border-border">
         <CardContent className="p-0 h-full min-h-[400px]">
-          <BusLiveMap
-            position={
-              selBus?.current_location?.coordinates
-                ? {
-                    lat: selBus.current_location.coordinates[1],
-                    lng: selBus.current_location.coordinates[0],
-                  }
-                : DEFAULT_BUS_POSITION
-            }
-            label={
-              selBus ? `${selBus.name_label} (${selBus.id_code})` : undefined
-            }
-            lastUpdated={selBus?.current_location?.updatedAt}
-          />
+          <BusLiveMap vehicles={mapVehicles} />
         </CardContent>
       </Card>
       <Toaster />

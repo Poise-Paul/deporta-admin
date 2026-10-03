@@ -1893,12 +1893,17 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+const WAYPOINT_COLORS = {
+    pickup: "#ea580c",
+    stop: "#9ca3af",
+    destination: "#16a34a"
+};
 const containerStyle = {
     width: "100%",
     height: "100%",
     minHeight: 400
 };
-function BusLiveMap({ position, label, lastUpdated }) {
+function BusLiveMap({ position, label, lastUpdated, waypoints }) {
     _s();
     // The Maps script is loaded globally in app/layout.tsx.
     const [isLoaded, setIsLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
@@ -1924,13 +1929,31 @@ function BusLiveMap({ position, label, lastUpdated }) {
     }["BusLiveMap.useEffect"], [
         isLoaded
     ]);
-    // Keep the bus in view as its position changes.
+    const hasWaypoints = !!waypoints && waypoints.length > 0;
+    // Frame the full route once the map and route points are ready.
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "BusLiveMap.useEffect": ()=>{
-            map?.panTo(position);
+            if (!map || !hasWaypoints) return;
+            const bounds = new google.maps.LatLngBounds();
+            waypoints.forEach({
+                "BusLiveMap.useEffect": (w)=>bounds.extend(w.position)
+            }["BusLiveMap.useEffect"]);
+            bounds.extend(position);
+            map.fitBounds(bounds, 60);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }
     }["BusLiveMap.useEffect"], [
         map,
+        hasWaypoints
+    ]);
+    // Without a route to frame, keep the bus in view as its position changes.
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "BusLiveMap.useEffect": ()=>{
+            if (!hasWaypoints) map?.panTo(position);
+        }
+    }["BusLiveMap.useEffect"], [
+        map,
+        hasWaypoints,
         position.lat,
         position.lng
     ]);
@@ -1941,12 +1964,12 @@ function BusLiveMap({ position, label, lastUpdated }) {
                 className: "h-6 w-6 animate-spin text-muted-foreground"
             }, void 0, false, {
                 fileName: "[project]/components/buses/bus-live-map.tsx",
-                lineNumber: 49,
+                lineNumber: 81,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/buses/bus-live-map.tsx",
-            lineNumber: 48,
+            lineNumber: 80,
             columnNumber: 7
         }, this);
     }
@@ -1964,70 +1987,90 @@ function BusLiveMap({ position, label, lastUpdated }) {
                     mapTypeControl: false,
                     fullscreenControl: true
                 },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MarkerF"], {
-                    position: position,
-                    title: label,
-                    onClick: ()=>setShowInfo(true),
-                    icon: {
-                        url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#0f172a" stroke="#fff" stroke-width="3"/><g transform="translate(10 10)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></g></svg>`),
-                        scaledSize: new google.maps.Size(44, 44),
-                        anchor: new google.maps.Point(22, 22)
-                    },
-                    children: showInfo && label && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InfoWindowF"], {
-                        position: position,
-                        onCloseClick: ()=>setShowInfo(false),
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-xs",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "font-semibold",
-                                    children: label
-                                }, void 0, false, {
-                                    fileName: "[project]/components/buses/bus-live-map.tsx",
-                                    lineNumber: 87,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    children: [
-                                        position.lat.toFixed(5),
-                                        ", ",
-                                        position.lng.toFixed(5)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/buses/bus-live-map.tsx",
-                                    lineNumber: 88,
-                                    columnNumber: 17
-                                }, this),
-                                lastUpdated && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-500",
-                                    children: [
-                                        "Updated ",
-                                        new Date(lastUpdated).toLocaleString()
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/buses/bus-live-map.tsx",
-                                    lineNumber: 92,
-                                    columnNumber: 19
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                children: [
+                    waypoints?.map((w, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MarkerF"], {
+                            position: w.position,
+                            title: w.label,
+                            zIndex: 1,
+                            icon: {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                scale: w.kind === "stop" ? 6 : 9,
+                                fillColor: WAYPOINT_COLORS[w.kind],
+                                fillOpacity: 1,
+                                strokeColor: "#ffffff",
+                                strokeWeight: 2
+                            }
+                        }, `${w.kind}-${i}`, false, {
                             fileName: "[project]/components/buses/bus-live-map.tsx",
-                            lineNumber: 86,
-                            columnNumber: 15
+                            lineNumber: 101,
+                            columnNumber: 11
+                        }, this)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MarkerF"], {
+                        position: position,
+                        title: label,
+                        zIndex: 2,
+                        onClick: ()=>setShowInfo(true),
+                        icon: {
+                            url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#0f172a" stroke="#fff" stroke-width="3"/><g transform="translate(10 10)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></g></svg>`),
+                            scaledSize: new google.maps.Size(44, 44),
+                            anchor: new google.maps.Point(22, 22)
+                        },
+                        children: showInfo && label && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InfoWindowF"], {
+                            position: position,
+                            onCloseClick: ()=>setShowInfo(false),
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-xs",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "font-semibold",
+                                        children: label
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/buses/bus-live-map.tsx",
+                                        lineNumber: 136,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: [
+                                            position.lat.toFixed(5),
+                                            ", ",
+                                            position.lng.toFixed(5)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/buses/bus-live-map.tsx",
+                                        lineNumber: 137,
+                                        columnNumber: 17
+                                    }, this),
+                                    lastUpdated && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-gray-500",
+                                        children: [
+                                            "Updated ",
+                                            new Date(lastUpdated).toLocaleString()
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/buses/bus-live-map.tsx",
+                                        lineNumber: 141,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/buses/bus-live-map.tsx",
+                                lineNumber: 135,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/buses/bus-live-map.tsx",
+                            lineNumber: 131,
+                            columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/buses/bus-live-map.tsx",
-                        lineNumber: 82,
-                        columnNumber: 13
+                        lineNumber: 116,
+                        columnNumber: 9
                     }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/buses/bus-live-map.tsx",
-                    lineNumber: 68,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/buses/bus-live-map.tsx",
-                lineNumber: 56,
+                lineNumber: 88,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2037,24 +2080,24 @@ function BusLiveMap({ position, label, lastUpdated }) {
                         className: "h-2 w-2 rounded-full bg-green-500"
                     }, void 0, false, {
                         fileName: "[project]/components/buses/bus-live-map.tsx",
-                        lineNumber: 102,
+                        lineNumber: 151,
                         columnNumber: 9
                     }, this),
                     "Live location"
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/buses/bus-live-map.tsx",
-                lineNumber: 101,
+                lineNumber: 150,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/buses/bus-live-map.tsx",
-        lineNumber: 55,
+        lineNumber: 87,
         columnNumber: 5
     }, this);
 }
-_s(BusLiveMap, "7qIzRFd+FOWzHFVLDgTfCxKmaHU=");
+_s(BusLiveMap, "lRG1fVlyWxbteWS51+FI8gmzA7M=");
 _c = BusLiveMap;
 var _c;
 __turbopack_context__.k.register(_c, "BusLiveMap");

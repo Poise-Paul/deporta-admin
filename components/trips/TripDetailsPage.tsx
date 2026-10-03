@@ -5,10 +5,16 @@ import { BackButton } from "../ui/back-button";
 import { useParams, useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getOngoingTrips } from "@/api/routes";
+import { getAllBuses } from "@/api/buses";
+import { useWatchDrivers } from "@/hooks/use-watch-drivers";
 import { calculateETA } from "@/utils/timeConvert";
 import { SearchX } from "lucide-react";
 import { useMemo } from "react";
-import { BusLiveMap, MapWaypoint } from "../buses/bus-live-map";
+import {
+  BusLiveMap,
+  LiveVehicle,
+  MapWaypoint,
+} from "../buses/bus-live-map";
 
 // GeoJSON coordinates are [longitude, latitude].
 const toLatLng = (coords?: [number, number]) =>
@@ -25,6 +31,42 @@ export function TripDetailView() {
   });
 
   const trip = ongoingTrips?.trip_route.find((t) => t._id === id);
+
+  // Trips don't carry drivers, so watch the drivers of every bus on this route.
+  const { data: buses } = useQuery({
+    queryKey: ["allBuses"],
+    queryFn: () => getAllBuses(),
+  });
+  const routeDrivers = useMemo(
+    () =>
+      (buses?.buses.data ?? [])
+        .filter((bus) => bus.routes_assigned?.some((r) => r._id === id))
+        .flatMap((bus) =>
+          (bus.drivers_assigned ?? []).map((d) => ({
+            id: d._id,
+            label: `${d.first_name} ${d.last_name} · ${bus.id_code}`,
+          })),
+        ),
+    [buses, id],
+  );
+  const driverLocations = useWatchDrivers(routeDrivers.map((d) => d.id));
+
+  // One pin per driver on this trip. A driver reporting a different trip_id
+  // is driving another trip right now, so leave them off this map.
+  const liveVehicles: LiveVehicle[] = routeDrivers
+    .filter((d, i, arr) => arr.findIndex((x) => x.id === d.id) === i)
+    .flatMap((d) => {
+      const loc = driverLocations[d.id];
+      if (!loc || (loc.trip_id && loc.trip_id !== id)) return [];
+      return [
+        {
+          id: d.id,
+          position: { lat: loc.lat, lng: loc.lng },
+          label: d.label,
+          lastUpdated: loc.receivedAt,
+        },
+      ];
+    });
 
   const waypoints = useMemo<MapWaypoint[]>(() => {
     if (!trip) return [];
@@ -79,6 +121,19 @@ export function TripDetailView() {
   // Until the tracking socket is live, fall back to the pickup point.
   const busPosition =
     toLatLng(ongoing?.current_location?.coordinates) ?? waypoints[0]?.position;
+  const mapVehicles: LiveVehicle[] =
+    liveVehicles.length > 0
+      ? liveVehicles
+      : busPosition
+        ? [
+            {
+              id: "bus",
+              position: busPosition,
+              label: trip.code,
+              lastUpdated: ongoing?.current_location?.updatedAt,
+            },
+          ]
+        : [];
 
   return (
     <div className="p-6 space-y-6 max-w-4xl mx-auto">
@@ -140,14 +195,9 @@ export function TripDetailView() {
             </CardContent>
           </Card>
 
-          {busPosition && (
+          {mapVehicles.length > 0 && (
             <Card className="p-0 overflow-hidden">
-              <BusLiveMap
-                position={busPosition}
-                label={trip.code}
-                lastUpdated={ongoing?.current_location?.updatedAt}
-                waypoints={waypoints}
-              />
+              <BusLiveMap vehicles={mapVehicles} waypoints={waypoints} />
             </Card>
           )}
         </div>

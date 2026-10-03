@@ -11,6 +11,7 @@ import { useAppSelector, useAppDispatch } from "@/lib/store/hooks"
 import { logout } from "@/lib/store/slices/auth-slice"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { useCanViewAuditLogs } from "@/lib/permissions"
 import {
   LayoutDashboard,
   Users,
@@ -24,6 +25,8 @@ import {
   Headphones,
   Building2,
   FileText,
+  ScrollText,
+  Lock,
 } from "lucide-react"
 
 interface NavItem {
@@ -31,6 +34,8 @@ interface NavItem {
   href?: string
   icon: React.ComponentType<{ className?: string }>
   children?: { title: string; href: string }[]
+  // Only super admins and admin staff can open this item.
+  adminOnly?: boolean
 }
 
 const navItems: NavItem[] = [
@@ -89,6 +94,12 @@ const navItems: NavItem[] = [
     icon: Headphones,
   },
   {
+    title: "Audit Logs",
+    href: "/audit-logs",
+    icon: ScrollText,
+    adminOnly: true,
+  },
+  {
     title: "Settings",
     href: "/settings",
     icon: Settings,
@@ -99,6 +110,7 @@ export function AdminSidebar() {
   const pathname = usePathname()
   const dispatch = useAppDispatch()
   const { user } = useAppSelector((state) => state.auth)
+  const { allowed: canViewAuditLogs, isLoading: permissionsLoading } = useCanViewAuditLogs()
   const [expandedItems, setExpandedItems] = useState<string[]>(["App Menu", "Logistics"])
 
   const toggleExpand = (title: string) => {
@@ -171,6 +183,18 @@ export function AdminSidebar() {
                     </div>
                   )}
                 </>
+              ) : item.adminOnly && !permissionsLoading && !canViewAuditLogs ? (
+                <div
+                  title="Only super admins and admin staff can view this"
+                  aria-disabled="true"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground/50 cursor-not-allowed"
+                >
+                  <span className="flex items-center gap-3">
+                    <item.icon className="h-5 w-5" />
+                    {item.title}
+                  </span>
+                  <Lock className="h-4 w-4" />
+                </div>
               ) : (
                 <Link
                   href={item.href!}

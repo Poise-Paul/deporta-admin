@@ -26,6 +26,7 @@ const pageTitles: Record<string, string> = {
   "/co-operate/accounts": "Co-Operate Accounts",
   "/co-operate/bookings": "Co-Operate Bookings",
   "/support": "Support Tools",
+  "/audit-logs": "Audit Logs",
   "/settings": "Settings",
 };
 
