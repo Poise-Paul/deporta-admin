@@ -135,6 +135,7 @@ export function RoutesTable({
   const [pickupSearch, setPickupSearch] = useState("");
   const [dropoffSearch, setDropOffSearch] = useState("");
   const [busStopSearch, setBusStopSearch] = useState("");
+  const [distanceError, setDistanceError] = useState<string | null>(null);
 
   // End Locations Filter
 
@@ -599,50 +600,68 @@ export function RoutesTable({
 
   // Calculate Distance
 
-  const calculateDistance = (origin: string, destination: string) => {
-    // 🔑 More robust check for the specific library needed
-    if (
-      typeof window === "undefined" ||
-      !window.google?.maps?.DistanceMatrixService
-    ) {
-      console.log("Google Maps library not yet loaded");
+  // Driving distance via the Routes API. The legacy Distance Matrix service
+  // isn't available on this Google Cloud project.
+  const calculateDistance = async (origin: string, destination: string) => {
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+    if (!apiKey) {
+      console.error("[route distance] NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is missing");
+      setDistanceError("Google Maps API key is missing.");
       return;
     }
 
-    const service = new google.maps.DistanceMatrixService();
+    try {
+      const res = await fetch(
+        "https://routes.googleapis.com/directions/v2:computeRoutes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": apiKey,
+            "X-Goog-FieldMask": "routes.distanceMeters",
+          },
+          body: JSON.stringify({
+            origin: { address: origin },
+            destination: { address: destination },
+            travelMode: "DRIVE",
+            units: "METRIC",
+          }),
+        },
+      );
+      const data = await res.json();
 
-    service.getDistanceMatrix(
-      {
-        origins: [origin],
-        destinations: [destination],
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC,
-      },
-      (response, status) => {
-        if (
-          status === "OK" &&
-          response &&
-          response.rows[0].elements[0].status !== "ZERO_RESULTS"
-        ) {
-          const distanceInMeters = response.rows[0].elements[0].distance.value;
-          const distanceInKm = (distanceInMeters / 1000).toFixed(2);
+      if (!res.ok) {
+        // e.g. 403 PERMISSION_DENIED when the Routes API isn't enabled or the
+        // key doesn't allow it.
+        console.error("[route distance] Routes API failed", data?.error ?? data);
+        setDistanceError(
+          `Couldn't calculate distance (${data?.error?.status ?? res.status}).`,
+        );
+        return;
+      }
 
-          // 🔑 Use setValue, not watch, to update the form state
-          setValue("route_distance", distanceInKm);
-        }
-      },
-    );
+      const meters = data?.routes?.[0]?.distanceMeters;
+      if (typeof meters !== "number") {
+        setDistanceError("No driving route found between these points.");
+        return;
+      }
+
+      setDistanceError(null);
+      // 🔑 Use setValue, not watch, to update the form state
+      setValue("route_distance", (meters / 1000).toFixed(2));
+    } catch (err) {
+      console.error("[route distance] Routes API request error", err);
+      setDistanceError("Couldn't calculate distance. Please try again.");
+    }
   };
   useEffect(() => {
     if (starting_point?.value && destination?.value) {
-      // 🔑 Ensure we don't call Google if it's not ready
-      if (typeof window !== "undefined" && window.google) {
-        const delayDebounceFn = setTimeout(() => {
-          calculateDistance(starting_point.value, destination.value);
-        }, 1000);
+      setDistanceError(null);
+      const delayDebounceFn = setTimeout(() => {
+        calculateDistance(starting_point.value, destination.value);
+      }, 1000);
 
-        return () => clearTimeout(delayDebounceFn);
-      }
+      return () => clearTimeout(delayDebounceFn);
     }
   }, [starting_point, destination]);
 
@@ -1244,6 +1263,11 @@ export function RoutesTable({
                           KM
                         </span>
                       </div>
+                      {distanceError && (
+                        <p className="text-xs text-destructive">
+                          {distanceError}
+                        </p>
+                      )}
                     </div>
                     {busStops && (
                       <div className="space-y-2">
