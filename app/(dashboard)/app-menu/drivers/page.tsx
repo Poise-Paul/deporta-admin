@@ -79,13 +79,26 @@ export default function DriversPage() {
 
   const [holdBtn, setHoldBtn] = useState(true);
 
+  // Wait for typing to pause, and ignore stray spaces, before searching.
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedSearch(searchQuery.trim()), 400);
+    return () => clearTimeout(t);
+  }, [searchQuery]);
+
+  // New search/filter results start from the first page; otherwise searching
+  // from page 2+ asks for a page of results that doesn't exist.
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [debouncedSearch, activeTab, roleFilter, itemsPerPage]);
+
   // get the current user
   const { data, refetch, isLoading } = useQuery({
     queryKey: [
       "drivers",
       currentPage,
       itemsPerPage,
-      searchQuery,
+      debouncedSearch,
       activeTab,
       roleFilter,
     ],
@@ -94,7 +107,7 @@ export default function DriversPage() {
       getDriversList(
         currentPage,
         itemsPerPage,
-        searchQuery,
+        debouncedSearch,
         activeTab,
         roleFilter,
       ),

@@ -1096,3 +1096,35 @@ export type AuditLogFilters = {
   name?: string;
   email?: string;
 };
+
+export type ReviewUser = {
+  _id: string;
+  first_name?: string;
+  last_name?: string;
+  profile_image?: string;
+  email?: string;
+};
+
+export type DriverReview = {
+  _id: string;
+  // A bare id today; may be populated by the backend later.
+  user_id: string | ReviewUser | null;
+  driver_id: string | null;
+  trip_id: string | null;
+  message: string;
+  // The API sends stars as a string (e.g. "3").
+  stars: string | number;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type DriverReviewsResponse = {
+  status: boolean;
+  reviews: {
+    data: DriverReview[];
+    pagination: Pagination;
+  };
+  average_stars: number;
+  total: number;
+};

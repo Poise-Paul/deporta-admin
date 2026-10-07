@@ -26,6 +26,7 @@ import { RootState } from "@/lib/store";
 import { useStaffStatus } from "@/api/dashboard";
 import { updateSelCustomer } from "@/lib/store/slices/customer-slice";
 import { updateSelDriver } from "@/lib/store/slices/driver-slice";
+import { DriverReviews } from "./driver-reviews";
 
 // Assuming you pass the staff object as a prop or fetch it via ID
 export function DriverDetails({ onBack }: { onBack: () => void }) {
@@ -171,6 +172,8 @@ export function DriverDetails({ onBack }: { onBack: () => void }) {
                 />
               </CardContent>
             </Card>
+
+            <DriverReviews driverId={driverDetails._id} />
 
             <Card className="border-border">
               <CardHeader>
