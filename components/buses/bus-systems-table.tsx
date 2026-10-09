@@ -289,10 +289,11 @@ export function BusSystemsTable() {
     });
 
     // 2. Filter by Tab Status
+    // status is the string "active" / "in-active", not a boolean.
     if (activeTab === "active") {
-      filtered = filtered.filter((s) => s.status);
+      filtered = filtered.filter((s) => s.status === "active");
     } else if (activeTab === "inactive") {
-      filtered = filtered.filter((s) => !s.status);
+      filtered = filtered.filter((s) => s.status !== "active");
     } else if (activeTab === "maintenance") {
       filtered = filtered.filter((s) => s.is_maintenance);
     }
@@ -301,7 +302,9 @@ export function BusSystemsTable() {
     if (roleFilter !== "all") {
       filtered = filtered.filter((s) => {
         // 1. Handle Verification Filters
-        if (roleFilter === "outsourcing") return s.outsourcing;
+        // outsourcing is an object; the flag lives in .value.
+        if (roleFilter === "outsourcing") return s.outsourcing?.value === true;
+        return true;
       });
     }
 
@@ -317,7 +320,7 @@ export function BusSystemsTable() {
 
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, activeTab]);
+  }, [searchQuery, activeTab, roleFilter, itemsPerPage]);
 
   const deleteBusMitation = useDeleteBus();
   const maintainBusMutation = useBusMaintenanceStatus();

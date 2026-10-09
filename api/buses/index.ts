@@ -35,8 +35,32 @@ export interface OutsourcingPayload {
 
 export const getAllBuses = async (): Promise<BusesResponse> => {
   try {
-    const res = await api.get("/api/users/admin/bus/get");
-    return res.data;
+    // First call is the plain list, with no query params.
+    const res = await api.get<BusesResponse>("/api/users/admin/bus/get");
+    const first = res.data;
+    const pagination = first?.buses?.pagination;
+
+    // If the backend paginates by default, fetch the remaining pages too so
+    // the table (which filters client-side) sees every bus.
+    if (!pagination || pagination.totalPages <= 1) return first;
+
+    const rest = await Promise.all(
+      Array.from({ length: pagination.totalPages - 1 }, (_, i) =>
+        api
+          .get<BusesResponse>(
+            `/api/users/admin/bus/get?page=${i + 2}&limit=${pagination.limit}`,
+          )
+          .then((r) => r.data.buses.data),
+      ),
+    );
+
+    return {
+      ...first,
+      buses: {
+        ...first.buses,
+        data: [...first.buses.data, ...rest.flat()],
+      },
+    };
   } catch (error) {
     console.error("Fetch User Error:", error);
     throw error;
