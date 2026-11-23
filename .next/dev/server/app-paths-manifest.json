@@ -1,6 +1,1 @@
-{
-  "/(dashboard)/app-menu/buses/page": "app/(dashboard)/app-menu/buses/page.js",
-  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js"
-}
+{}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -81,6 +81,76 @@ import {
 } from "@/components/ui/command";
 
 type LocationTab = "all" | "active" | "inactive";
+
+type RoutePoint = { value: string; coordinates?: number[] };
+
+// The stored [lng, lat] of a picked station, when it has a real one. Routing
+// by coordinates measures to the exact place that was picked; routing by the
+// address text lets Google re-geocode it, which can land on a different place
+// with a similar name.
+const toRoutesWaypoint = (point: RoutePoint) => {
+  const [lng, lat] = point.coordinates ?? [];
+  if (
+    Number.isFinite(lat) &&
+    Number.isFinite(lng) &&
+    !(lat === 0 && lng === 0)
+  ) {
+    return { location: { latLng: { latitude: lat, longitude: lng } } };
+  }
+  return { address: point.value };
+};
+
+// Driving distance in km (2 decimals) via the Routes API. The legacy Distance
+// Matrix service isn't available on this Google Cloud project.
+const fetchDrivingDistanceKm = async (
+  origin: RoutePoint,
+  destination: RoutePoint,
+): Promise<{ km: string } | { error: string }> => {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  if (!apiKey) {
+    console.error("[route distance] NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is missing");
+    return { error: "Google Maps API key is missing." };
+  }
+
+  try {
+    const res = await fetch(
+      "https://routes.googleapis.com/directions/v2:computeRoutes",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": apiKey,
+          "X-Goog-FieldMask": "routes.distanceMeters",
+        },
+        body: JSON.stringify({
+          origin: toRoutesWaypoint(origin),
+          destination: toRoutesWaypoint(destination),
+          travelMode: "DRIVE",
+          units: "METRIC",
+        }),
+      },
+    );
+    const data = await res.json();
+
+    if (!res.ok) {
+      // e.g. 403 PERMISSION_DENIED when the Routes API isn't enabled or the
+      // key doesn't allow it.
+      console.error("[route distance] Routes API failed", data?.error ?? data);
+      return {
+        error: `Couldn't calculate distance (${data?.error?.status ?? res.status}).`,
+      };
+    }
+
+    const meters = data?.routes?.[0]?.distanceMeters;
+    if (typeof meters !== "number") {
+      return { error: "No driving route found between these points." };
+    }
+    return { km: (meters / 1000).toFixed(2) };
+  } catch (err) {
+    console.error("[route distance] Routes API request error", err);
+    return { error: "Couldn't calculate distance. Please try again." };
+  }
+};
 
 interface Location {
   id: number;
@@ -600,70 +670,57 @@ export function RoutesTable({
 
   // Calculate Distance
 
-  // Driving distance via the Routes API. The legacy Distance Matrix service
-  // isn't available on this Google Cloud project.
-  const calculateDistance = async (origin: string, destination: string) => {
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-    if (!apiKey) {
-      console.error("[route distance] NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is missing");
-      setDistanceError("Google Maps API key is missing.");
+  // Add form: recalculate whenever the start or destination changes.
+  const calculateDistance = async (
+    origin: RoutePoint,
+    destination: RoutePoint,
+  ) => {
+    const result = await fetchDrivingDistanceKm(origin, destination);
+    if ("error" in result) {
+      setDistanceError(result.error);
       return;
     }
-
-    try {
-      const res = await fetch(
-        "https://routes.googleapis.com/directions/v2:computeRoutes",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Goog-Api-Key": apiKey,
-            "X-Goog-FieldMask": "routes.distanceMeters",
-          },
-          body: JSON.stringify({
-            origin: { address: origin },
-            destination: { address: destination },
-            travelMode: "DRIVE",
-            units: "METRIC",
-          }),
-        },
-      );
-      const data = await res.json();
-
-      if (!res.ok) {
-        // e.g. 403 PERMISSION_DENIED when the Routes API isn't enabled or the
-        // key doesn't allow it.
-        console.error("[route distance] Routes API failed", data?.error ?? data);
-        setDistanceError(
-          `Couldn't calculate distance (${data?.error?.status ?? res.status}).`,
-        );
-        return;
-      }
-
-      const meters = data?.routes?.[0]?.distanceMeters;
-      if (typeof meters !== "number") {
-        setDistanceError("No driving route found between these points.");
-        return;
-      }
-
-      setDistanceError(null);
-      // 🔑 Use setValue, not watch, to update the form state
-      setValue("route_distance", (meters / 1000).toFixed(2));
-    } catch (err) {
-      console.error("[route distance] Routes API request error", err);
-      setDistanceError("Couldn't calculate distance. Please try again.");
-    }
+    setDistanceError(null);
+    // 🔑 Use setValue, not watch, to update the form state
+    setValue("route_distance", result.km);
   };
   useEffect(() => {
     if (starting_point?.value && destination?.value) {
       setDistanceError(null);
       const delayDebounceFn = setTimeout(() => {
-        calculateDistance(starting_point.value, destination.value);
+        calculateDistance(starting_point, destination);
       }, 1000);
 
       return () => clearTimeout(delayDebounceFn);
     }
   }, [starting_point, destination]);
+
+  // Edit form: recalculate only when the admin picks a new start or
+  // destination, so opening a route to change something else (a fare, a time
+  // slot) never silently changes its distance.
+  const [editDistanceError, setEditDistanceError] = useState<string | null>(
+    null,
+  );
+  const [editDistanceLoading, setEditDistanceLoading] = useState(false);
+  const editDistanceRequest = useRef(0);
+  const recalculateEditDistance = async () => {
+    const origin = updateGetValues("starting_point");
+    const destination = updateGetValues("destination");
+    if (!origin?.value || !destination?.value) return;
+
+    // A later pick wins over an earlier request that answers late.
+    const request = ++editDistanceRequest.current;
+    setEditDistanceLoading(true);
+    setEditDistanceError(null);
+    const result = await fetchDrivingDistanceKm(origin, destination);
+    if (request !== editDistanceRequest.current) return;
+    setEditDistanceLoading(false);
+    if ("error" in result) {
+      setEditDistanceError(result.error);
+      return;
+    }
+    updateValue("route_distance", result.km, { shouldDirty: true });
+  };
 
   return (
     <Card className="bg-card border border-border">
@@ -1642,6 +1699,11 @@ export function RoutesTable({
                                 routine: station.routine,
                               });
 
+                              // Drop any distance request or error left over
+                              // from the previously edited route.
+                              editDistanceRequest.current++;
+                              setEditDistanceLoading(false);
+                              setEditDistanceError(null);
                               setIsEditDialogOpen(true);
                             }}
                           >
@@ -1805,6 +1867,7 @@ export function RoutesTable({
                           location_id: station._id,
                           coordinates: station.address.location.coordinates,
                         });
+                        recalculateEditDistance();
                       }
                     }}
                   >
@@ -1855,6 +1918,7 @@ export function RoutesTable({
                           location_id: station._id,
                           coordinates: station.address.location.coordinates,
                         });
+                        recalculateEditDistance();
                       }
                     }}
                   >
@@ -2316,12 +2380,30 @@ export function RoutesTable({
                       id="edit_route_distance"
                       {...updateRegister("route_distance")}
                       readOnly
-                      className="bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className={cn(
+                        "bg-muted/50 cursor-not-allowed rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                        editDistanceLoading && "text-muted-foreground",
+                      )}
                     />
                     <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-border bg-muted text-muted-foreground text-xs font-semibold">
                       KM
                     </span>
                   </div>
+                  {editDistanceLoading ? (
+                    <p className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                      Recalculating distance…
+                    </p>
+                  ) : editDistanceError ? (
+                    <p className="text-xs text-destructive">
+                      {editDistanceError} The distance shown is the old one.
+                    </p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground">
+                      Driving distance from the starting point to the
+                      destination. Updates when you change either one.
+                    </p>
+                  )}
                 </div>
 
                 {/* Bus Stops Logic (Corrected Filter) */}
@@ -2455,9 +2537,13 @@ export function RoutesTable({
             {/* Footer Action Button */}
             <div className="pt-4 p-6 border-t bg-background">
               <Button
-                disabled={modifyTripRoute.isPending || holdEditPickupBtn}
+                disabled={
+                  modifyTripRoute.isPending ||
+                  holdEditPickupBtn ||
+                  editDistanceLoading
+                }
                 onClick={handleModifyRoute}
-                className={`w-full bg-primary ${modifyTripRoute.isPending || holdEditPickupBtn ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`}
+                className={`w-full bg-primary ${modifyTripRoute.isPending || holdEditPickupBtn || editDistanceLoading ? "opacity-30" : ""} hover:bg-primary/90 text-primary-foreground`}
               >
                 {modifyTripRoute.isPending ? (
                   <Loader2 className="h-4 w-4 animate-spin" />

@@ -11,6 +11,8 @@ import { getStaffList } from "@/api/user";
 
 const pageTitles: Record<string, string> = {
   "/dashboard": "Dashboard",
+  "/live-map": "Live Fleet Map",
+  "/trips": "Ongoing Trips",
   "/users": "User Management",
   "/staff": "Staff Management",
   "/app-menu/pickup-stations": "Pick up station",

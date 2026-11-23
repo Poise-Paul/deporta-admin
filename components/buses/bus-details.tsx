@@ -794,7 +794,7 @@ export function BusDetails({ busId }: BusDetailsProps) {
       {/* Right Section - Map */}
       <Card className="bg-card border border-border">
         <CardContent className="p-0 h-full min-h-[400px]">
-          <BusLiveMap vehicles={mapVehicles} />
+          <BusLiveMap vehicles={mapVehicles} infoOpenByDefault />
         </CardContent>
       </Card>
       <Toaster />

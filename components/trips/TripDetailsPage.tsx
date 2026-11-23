@@ -10,15 +10,9 @@ import { useWatchDrivers } from "@/hooks/use-watch-drivers";
 import { calculateETA } from "@/utils/timeConvert";
 import { SearchX } from "lucide-react";
 import { useMemo } from "react";
-import {
-  BusLiveMap,
-  LiveVehicle,
-  MapWaypoint,
-} from "../buses/bus-live-map";
+import { BusLiveMap, LiveVehicle } from "../buses/bus-live-map";
+import { toLatLng, tripWaypoints } from "@/lib/trip-geo";
 
-// GeoJSON coordinates are [longitude, latitude].
-const toLatLng = (coords?: [number, number]) =>
-  coords && coords.length === 2 ? { lat: coords[1], lng: coords[0] } : null;
 
 export function TripDetailView() {
   const router = useRouter();
@@ -63,33 +57,17 @@ export function TripDetailView() {
           id: d.id,
           position: { lat: loc.lat, lng: loc.lng },
           label: d.label,
+          heading: loc.heading,
           lastUpdated: loc.receivedAt,
         },
       ];
     });
 
-  const waypoints = useMemo<MapWaypoint[]>(() => {
-    if (!trip) return [];
-    const points: (MapWaypoint | null)[] = [
-      (() => {
-        const p = toLatLng(trip.starting_point.location?.coordinates);
-        return p
-          ? { position: p, label: trip.starting_point.value, kind: "pickup" }
-          : null;
-      })(),
-      ...(trip.number_of_stops ?? []).map((stop) => {
-        const p = toLatLng(stop.coordinates);
-        return p ? { position: p, label: stop.value, kind: "stop" as const } : null;
-      }),
-      (() => {
-        const p = toLatLng(trip.destination.location?.coordinates);
-        return p
-          ? { position: p, label: trip.destination.value, kind: "destination" }
-          : null;
-      })(),
-    ];
-    return points.filter((w): w is MapWaypoint => w !== null);
-  }, [trip]);
+  // Pickup, stops and destination in travel order. Stops used to be read
+  // from `stop.coordinates`, but trip routes carry them under
+  // `stop.location.coordinates` (as both mobile apps read them), so no stop
+  // was ever drawn and the bus seemed to head away from the route.
+  const waypoints = useMemo(() => tripWaypoints(trip), [trip]);
 
   if (isLoading) {
     return (
@@ -120,7 +98,7 @@ export function TripDetailView() {
   const busImage = ongoing?.bus_image?.[0];
   // Until the tracking socket is live, fall back to the pickup point.
   const busPosition =
-    toLatLng(ongoing?.current_location?.coordinates) ?? waypoints[0]?.position;
+    toLatLng(ongoing?.current_location) ?? waypoints[0]?.position;
   const mapVehicles: LiveVehicle[] =
     liveVehicles.length > 0
       ? liveVehicles
@@ -131,6 +109,7 @@ export function TripDetailView() {
               position: busPosition,
               label: trip.code,
               lastUpdated: ongoing?.current_location?.updatedAt,
+              stale: true,
             },
           ]
         : [];
@@ -197,7 +176,7 @@ export function TripDetailView() {
 
           {mapVehicles.length > 0 && (
             <Card className="p-0 overflow-hidden">
-              <BusLiveMap vehicles={mapVehicles} waypoints={waypoints} />
+              <BusLiveMap vehicles={mapVehicles} waypoints={waypoints} infoOpenByDefault />
             </Card>
           )}
         </div>

@@ -27,6 +27,7 @@ import {
   FileText,
   ScrollText,
   Lock,
+  MapPinned,
 } from "lucide-react"
 
 interface NavItem {
@@ -43,6 +44,11 @@ const navItems: NavItem[] = [
     title: "Dashboard",
     href: "/dashboard",
     icon: LayoutDashboard,
+  },
+  {
+    title: "Live Fleet Map",
+    href: "/live-map",
+    icon: MapPinned,
   },
   {
     title: "User Management",
