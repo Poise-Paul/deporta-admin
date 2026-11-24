@@ -65,7 +65,7 @@ import { getAllBusStops } from "@/api/bus-stops";
 import { updateSelRoute } from "@/lib/store/slices/route-slice";
 import { getDropOffStations } from "@/api/drop-off-locations";
 import { Switch } from "../ui/switch";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 import { Check, ChevronsUpDown } from "lucide-react";
 import {
   Popover,
@@ -83,6 +83,17 @@ import {
 type LocationTab = "all" | "active" | "inactive";
 
 type RoutePoint = { value: string; coordinates?: number[] };
+
+// The value once it has stopped changing for `delayMs`, so a search box
+// queries the server when typing pauses instead of on every keystroke.
+function useDebouncedValue<T>(value: T, delayMs = 300) {
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const timer = setTimeout(() => setDebounced(value), delayMs);
+    return () => clearTimeout(timer);
+  }, [value, delayMs]);
+  return debounced;
+}
 
 // The stored [lng, lat] of a picked station, when it has a real one. Routing
 // by coordinates measures to the exact place that was picked; routing by the
@@ -205,6 +216,11 @@ export function RoutesTable({
   const [pickupSearch, setPickupSearch] = useState("");
   const [dropoffSearch, setDropOffSearch] = useState("");
   const [busStopSearch, setBusStopSearch] = useState("");
+  // The searches below use these, so the lists aren't refetched (and
+  // emptied) on every keystroke.
+  const debouncedPickupSearch = useDebouncedValue(pickupSearch);
+  const debouncedDropoffSearch = useDebouncedValue(dropoffSearch);
+  const debouncedBusStopSearch = useDebouncedValue(busStopSearch);
   const [distanceError, setDistanceError] = useState<string | null>(null);
 
   // End Locations Filter
@@ -606,11 +622,14 @@ export function RoutesTable({
     hasNextPage: hasNextPickupPage,
     isFetchingNextPage: isFetchingMorePickups,
     isLoading: pickupLoader,
+    isFetching: pickupFetching,
   } = useInfiniteQuery({
-    queryKey: ["pickupStations", pickupSearch],
+    queryKey: ["pickupStations", debouncedPickupSearch],
+    // Keep showing the previous results while a new search loads.
+    placeholderData: keepPreviousData,
     initialPageParam: 1,
     queryFn: ({ pageParam = 1 }) =>
-      getPickupStations(pageParam, 10, pickupSearch),
+      getPickupStations(pageParam, 10, debouncedPickupSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages = lastPage?.pickup_station?.pagination?.totalPages || 1;
       return allPages.length < totalPages ? allPages.length + 1 : undefined;
@@ -623,11 +642,14 @@ export function RoutesTable({
     hasNextPage: hasNextDropOffPage,
     isFetchingNextPage: isFetchingMoreDropOffs,
     isLoading: dropOffLoader,
+    isFetching: dropOffFetching,
   } = useInfiniteQuery({
-    queryKey: ["dropOffStations", dropoffSearch],
+    queryKey: ["dropOffStations", debouncedDropoffSearch],
+    // Keep showing the previous results while a new search loads.
+    placeholderData: keepPreviousData,
     initialPageParam: 1,
     queryFn: ({ pageParam = 1 }) =>
-      getDropOffStations(pageParam, 10, dropoffSearch),
+      getDropOffStations(pageParam, 10, debouncedDropoffSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages =
         lastPage?.drop_off_station?.pagination?.totalPages || 1;
@@ -641,11 +663,14 @@ export function RoutesTable({
     hasNextPage: hasNextBusStopPage,
     isFetchingNextPage: isFetchingMoreBusStops,
     isLoading: busStopLoader,
+    isFetching: busStopFetching,
   } = useInfiniteQuery({
-    queryKey: ["busStops", busStopSearch],
+    queryKey: ["busStops", debouncedBusStopSearch],
+    // Keep showing the previous results while a new search loads.
+    placeholderData: keepPreviousData,
     initialPageParam: 1,
     queryFn: ({ pageParam = 1 }) =>
-      getAllBusStops(pageParam, 10, busStopSearch),
+      getAllBusStops(pageParam, 10, debouncedBusStopSearch),
     getNextPageParam: (lastPage, allPages) => {
       const totalPages = lastPage?.bus_stop?.pagination?.totalPages || 1;
       return allPages.length < totalPages ? allPages?.length + 1 : undefined;
@@ -913,13 +938,15 @@ export function RoutesTable({
                         </PopoverTrigger>
                         {/* Match the width of the trigger button exactly */}
                         <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-                          <Command>
+                          <Command shouldFilter={false}>
                             <CommandInput
                               placeholder="Search pickup locations..."
                               value={pickupSearch}
                               onValueChange={(text) => setPickupSearch(text)}
                             />
-                            <CommandEmpty>No location found.</CommandEmpty>
+                            <CommandEmpty>
+                              {pickupFetching ? "Searching..." : "No location found."}
+                            </CommandEmpty>
                             <CommandGroup className="max-h-60 overflow-y-auto">
                               {allPickupStations?.map((stop) => (
                                 <CommandItem
@@ -1040,13 +1067,15 @@ export function RoutesTable({
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-                          <Command>
+                          <Command shouldFilter={false}>
                             <CommandInput
                               placeholder="Search drop off locations..."
                               value={dropoffSearch}
                               onValueChange={(text) => setDropOffSearch(text)}
                             />
-                            <CommandEmpty>No location found.</CommandEmpty>
+                            <CommandEmpty>
+                              {dropOffFetching ? "Searching..." : "No location found."}
+                            </CommandEmpty>
                             <CommandGroup className="max-h-60 overflow-y-auto">
                               {allDropOffStations?.map((stop) => (
                                 <CommandItem
@@ -1171,7 +1200,13 @@ export function RoutesTable({
                                             return; // Block the update
                                           }
 
-                                          currentRoutine[index].from = newFrom;
+                                          // New object, not a mutation: react-hook-form
+                                          // ignores setValue when the stored value
+                                          // already equals the new one.
+                                          currentRoutine[index] = {
+                                            ...currentRoutine[index],
+                                            from: newFrom,
+                                          };
                                           setValue(
                                             `routine.${day}.value`,
                                             currentRoutine,
@@ -1216,7 +1251,10 @@ export function RoutesTable({
                                             return;
                                           }
 
-                                          currentRoutine[index].too = newToo;
+                                          currentRoutine[index] = {
+                                            ...currentRoutine[index],
+                                            too: newToo,
+                                          };
                                           setValue(
                                             `routine.${day}.value`,
                                             currentRoutine,
@@ -1416,13 +1454,15 @@ export function RoutesTable({
                             </Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-                            <Command>
+                            <Command shouldFilter={false}>
                               <CommandInput
                                 placeholder="Search bus stops..."
                                 value={busStopSearch}
                                 onValueChange={(text) => setBusStopSearch(text)}
                               />
-                              <CommandEmpty>No bus stops found.</CommandEmpty>
+                              <CommandEmpty>
+                              {busStopFetching ? "Searching..." : "No bus stops found."}
+                            </CommandEmpty>
                               <CommandGroup className="max-h-60 overflow-y-auto">
                                 {allBusStops
                                   ?.filter(

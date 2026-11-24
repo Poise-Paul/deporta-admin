@@ -95,19 +95,16 @@ const busIconSvg = (heading: number | null, stale: boolean) => {
   const arrow =
     heading === null
       ? ""
-      : `<g transform="rotate(${heading} 26 26)"><path d="M26 0 L33 10 L19 10 Z" fill="#ea580c" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></g>`;
+      : `<g transform="rotate(${heading} 26 26)"><path d="M26 0 L36 13 L26 10 L16 13 Z" fill="#ea580c" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></g>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">${arrow}<circle cx="26" cy="26" r="16" fill="${fill}" stroke="#fff" stroke-width="3"/><g transform="translate(17 17) scale(0.75)" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></g></svg>`;
 };
 
-// Direction of travel from the bus's own movement; the device compass is
-// only used before it has moved (a parked phone reports 0 / -1).
+// Direction of travel from the bus's own movement. Until it has moved far
+// enough to tell, the latest heading the phone reported is used (GPS course
+// while driving). 0 is skipped: the driver app sends it when it has none.
 function useTravelHeading(position: LatLng, reported?: number) {
   const anchorRef = useRef<LatLng | null>(null);
-  const [heading, setHeading] = useState<number | null>(
-    typeof reported === "number" && reported > 0 && reported < 360
-      ? reported
-      : null,
-  );
+  const [travelHeading, setTravelHeading] = useState<number | null>(null);
 
   useEffect(() => {
     const anchor = anchorRef.current;
@@ -116,12 +113,16 @@ function useTravelHeading(position: LatLng, reported?: number) {
       return;
     }
     if (distanceMeters(anchor, position) < MIN_HEADING_MOVE_M) return;
-    setHeading(bearingDegrees(anchor, position));
+    setTravelHeading(bearingDegrees(anchor, position));
     anchorRef.current = position;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position.lat, position.lng]);
 
-  return heading;
+  const reportedHeading =
+    typeof reported === "number" && reported > 0 && reported < 360
+      ? reported
+      : null;
+  return travelHeading ?? reportedHeading;
 }
 
 function VehicleMarker({
@@ -181,6 +182,9 @@ function VehicleMarker({
       zIndex={3}
       onClick={() => onOpenChange(true)}
       icon={icon}
+      // Only the disc and its arrow are clickable, not the icon's transparent
+      // corners, so stops right next to the bus can still be clicked.
+      shape={{ type: "circle", coords: [26, 26, 20] }}
       label={
         tag
           ? {
@@ -328,6 +332,8 @@ export function BusLiveMap({
 
   const hasWaypoints = !!waypoints && waypoints.length > 0;
   const routePath = useRoadRoute(waypoints, isLoaded);
+  // Pickup / stop / destination whose details are showing.
+  const [openWaypoint, setOpenWaypoint] = useState<number | null>(null);
 
   // Frame the route and all vehicles whenever the set of pins changes
   // (not on every position update, so the admin can pan around freely).
@@ -417,17 +423,18 @@ export function BusLiveMap({
         )}
         {waypoints?.map((w, i) => {
           const number = w.kind === "stop" ? ++stopNumber : null;
+          const heading =
+            w.kind === "pickup"
+              ? "Pickup"
+              : w.kind === "destination"
+                ? "Destination"
+                : `Stop ${number}`;
           return (
             <MarkerF
               key={`${w.kind}-${i}`}
               position={w.position}
-              title={
-                w.kind === "pickup"
-                  ? `Pickup: ${w.label}`
-                  : w.kind === "destination"
-                    ? `Destination: ${w.label}`
-                    : `Stop ${number}: ${w.label}`
-              }
+              title={`${heading}: ${w.label}`}
+              onClick={() => setOpenWaypoint(i)}
               zIndex={2}
               label={
                 number !== null
@@ -442,7 +449,35 @@ export function BusLiveMap({
                 strokeColor: "#ffffff",
                 strokeWeight: 2,
               }}
-            />
+            >
+              {openWaypoint === i && (
+                <InfoWindowF
+                  position={w.position}
+                  onCloseClick={() => setOpenWaypoint(null)}
+                >
+                  <div className="text-xs space-y-0.5 max-w-[240px]">
+                    <p
+                      className="font-semibold"
+                      style={{ color: WAYPOINT_COLORS[w.kind] }}
+                    >
+                      {heading}
+                    </p>
+                    <p className="capitalize">{w.label || "Unnamed location"}</p>
+                    <p className="text-gray-500">
+                      {w.position.lat.toFixed(5)}, {w.position.lng.toFixed(5)}
+                    </p>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${w.position.lat},${w.position.lng}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block pt-1 font-semibold text-orange-600 hover:underline"
+                    >
+                      Open in Google Maps →
+                    </a>
+                  </div>
+                </InfoWindowF>
+              )}
+            </MarkerF>
           );
         })}
         {vehicles.map((v) => (

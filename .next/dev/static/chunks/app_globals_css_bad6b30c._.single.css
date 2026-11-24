@@ -760,6 +760,10 @@
     bottom: calc(var(--spacing) * 4);
   }
 
+  .bottom-8 {
+    bottom: calc(var(--spacing) * 8);
+  }
+
   .-left-12 {
     left: calc(var(--spacing) * -12);
   }
@@ -838,6 +842,14 @@
 
   .z-\[100\] {
     z-index: 100;
+  }
+
+  .order-1 {
+    order: 1;
+  }
+
+  .order-2 {
+    order: 2;
   }
 
   .order-first {
@@ -1259,6 +1271,10 @@
     height: 1.15rem;
   }
 
+  .h-\[60vh\] {
+    height: 60vh;
+  }
+
   .h-\[90vh\] {
     height: 90vh;
   }
@@ -1341,6 +1357,10 @@
 
   .max-h-screen {
     max-height: 100vh;
+  }
+
+  .\!min-h-0 {
+    min-height: calc(var(--spacing) * 0) !important;
   }
 
   .min-h-0 {
@@ -1577,6 +1597,14 @@
 
   .max-w-\[200px\] {
     max-width: 200px;
+  }
+
+  .max-w-\[220px\] {
+    max-width: 220px;
+  }
+
+  .max-w-\[240px\] {
+    max-width: 240px;
   }
 
   .max-w-\[calc\(100\%-2rem\)\] {
@@ -1935,6 +1963,12 @@
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+  :where(.space-y-0\.5 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * .5) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * .5) * calc(1 - var(--tw-space-y-reverse)));
   }
 
   :where(.space-y-1 > :not(:last-child)) {
@@ -2333,6 +2367,10 @@
 
   .border-gray-300 {
     border-color: var(--color-gray-300);
+  }
+
+  .border-green-100 {
+    border-color: var(--color-green-100);
   }
 
   .border-green-200 {
@@ -6297,6 +6335,18 @@
   }
 
   @media (min-width: 64rem) {
+    .lg\:order-1 {
+      order: 1;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:order-2 {
+      order: 2;
+    }
+  }
+
+  @media (min-width: 64rem) {
     .lg\:col-span-1 {
       grid-column: span 1 / span 1;
     }
@@ -6317,6 +6367,12 @@
   @media (min-width: 64rem) {
     .lg\:flex {
       display: flex;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:h-\[calc\(100vh-200px\)\] {
+      height: calc(100vh - 200px);
     }
   }
 
@@ -6353,6 +6409,12 @@
   @media (min-width: 64rem) {
     .lg\:grid-cols-\[1fr_auto\] {
       grid-template-columns: 1fr auto;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:grid-cols-\[300px_1fr\] {
+      grid-template-columns: 300px 1fr;
     }
   }
 

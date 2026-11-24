@@ -1,1 +1,13 @@
-{}
+{
+  "/(dashboard)/app-menu/bus-stops/page": "app/(dashboard)/app-menu/bus-stops/page.js",
+  "/(dashboard)/app-menu/buses/page": "app/(dashboard)/app-menu/buses/page.js",
+  "/(dashboard)/app-menu/pickup-stations/[id]/page": "app/(dashboard)/app-menu/pickup-stations/[id]/page.js",
+  "/(dashboard)/app-menu/pickup-stations/page": "app/(dashboard)/app-menu/pickup-stations/page.js",
+  "/(dashboard)/app-menu/routes/page": "app/(dashboard)/app-menu/routes/page.js",
+  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/live-map/page": "app/(dashboard)/live-map/page.js",
+  "/(dashboard)/trips/[id]/page": "app/(dashboard)/trips/[id]/page.js",
+  "/(dashboard)/trips/page": "app/(dashboard)/trips/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}

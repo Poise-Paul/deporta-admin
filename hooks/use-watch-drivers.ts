@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { getSocket } from "@/lib/socket";
 
 const WATCH_INTERVAL_MS = 5000;
+// A cached position is ignored this long after a live one arrived.
+const CACHE_YIELDS_TO_LIVE_MS = 10_000;
 
 // Payload of the server's `driver:location` event.
 export interface DriverLocation {
@@ -48,25 +50,32 @@ export function useWatchDrivers(driverIds: string[]) {
       typeof loc.lat === "number" &&
       typeof loc.lng === "number";
 
+    // When each driver's last live (non-cached) fix arrived, by this
+    // browser's clock.
+    const lastLiveAt: Record<string, number> = {};
+
+    // Positions are applied in the order they arrive. Timestamps are not
+    // compared: they come from different clocks (server cache, driver's
+    // phone), and one stamped ahead used to block every later update until
+    // the page was reopened. The one exception: a cached position from the
+    // watch snapshot must not replace a live one that just arrived.
     const applyLocations = (incoming: RawDriverLocation[]) => {
       const valid = incoming.filter(isValid);
       if (valid.length === 0) return;
+      const now = Date.now();
       setLocations((prev) => {
         const next = { ...prev };
         valid.forEach((loc) => {
-          // Never let an older (e.g. cached) fix overwrite a newer one.
-          const current = next[loc.driver_user_id];
-          if (
-            current?.timestamp &&
-            loc.timestamp &&
-            loc.timestamp < current.timestamp
-          ) {
-            return;
+          const id = loc.driver_user_id;
+          if (loc.from_cache) {
+            if (now - (lastLiveAt[id] ?? 0) < CACHE_YIELDS_TO_LIVE_MS) return;
+          } else {
+            lastLiveAt[id] = now;
           }
-          next[loc.driver_user_id] = {
-            ...loc,
-            receivedAt: new Date(loc.timestamp ?? Date.now()).toISOString(),
-          };
+          // Show the fix's own time unless it's implausibly in the future.
+          const fixTime =
+            loc.timestamp && loc.timestamp <= now + 60_000 ? loc.timestamp : now;
+          next[id] = { ...loc, receivedAt: new Date(fixTime).toISOString() };
         });
         return next;
       });
