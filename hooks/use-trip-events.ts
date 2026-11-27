@@ -5,8 +5,9 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { getSocket } from "@/lib/socket";
 
-// Payload of the server's `trip:started:admin` event.
-export interface TripStartedAdminPayload {
+// Payload of the server's `trip:started:admin` and `trip:completed:admin`
+// events (both carry the same fields).
+export interface TripAdminPayload {
   driver_id?: string;
   trip_id?: string;
   bus_id?: string;
@@ -16,19 +17,27 @@ export interface TripStartedAdminPayload {
   total_customers?: number;
 }
 
+// The backend sends trip events to drivers and customers on the same socket.
+// Customers get `trip:started` / `trip:completed` (one per payment); the
+// admin portal ignores those and handles only the `:admin` events below.
 const TRIP_STARTED_ADMIN = "trip:started:admin";
+const TRIP_COMPLETED_ADMIN = "trip:completed:admin";
 
-// The backend broadcasts trip events to drivers and customers on the same
-// socket, so only the `:admin` start event is handled here; the customer one
-// (`trip:started`, one per payment) is ignored. Completion is matched loosely
-// (trip:completed / trip:complete / trip:ended / trip:end / trip:finished,
-// with or without `:admin`) until its exact name is settled with the backend.
-const TRIP_FINISHED = /^trip:(completed?|ended?|finished)(:admin)?$/;
+// "Scheduled 07:00 – 08:00 · 12 customers"
+const describeTrip = (payload: TripAdminPayload | undefined) => {
+  const when = [payload?.from, payload?.too].filter(Boolean).join(" – ");
+  const customers = payload?.total_customers;
+  return (
+    [
+      when && `Scheduled ${when}`,
+      customers != null && `${customers} customer${customers === 1 ? "" : "s"}`,
+    ]
+      .filter(Boolean)
+      .join(" · ") || undefined
+  );
+};
 
-// Queries that list or count ongoing trips, refreshed on every trip event.
-const ONGOING_TRIP_QUERIES = [["ongoingTotal"]];
-
-// Listens for trips starting and finishing and refreshes every ongoing-trip
+// Listens for trips starting and completing and refreshes every ongoing-trip
 // list (dashboard, trips page, trip page, live map) straight away instead of
 // waiting for the next poll. Mount once, inside the authenticated layout.
 export function useTripEvents() {
@@ -38,41 +47,33 @@ export function useTripEvents() {
     const socket = getSocket();
 
     const refreshOngoing = () =>
-      ONGOING_TRIP_QUERIES.forEach((queryKey) =>
-        queryClient.invalidateQueries({ queryKey }),
-      );
+      queryClient.invalidateQueries({ queryKey: ["ongoingTotal"] });
 
-    const onTripStarted = (payload: TripStartedAdminPayload) => {
+    const onTripStarted = (payload: TripAdminPayload) => {
       refreshOngoing();
       // The bus list maps drivers to trips; refresh it so a newly assigned
       // driver starts being watched on the map.
       queryClient.invalidateQueries({ queryKey: ["allBuses"] });
-      const when = [payload?.from, payload?.too].filter(Boolean).join(" – ");
       toast.success("Trip started", {
         // One toast per trip, however many times the event repeats.
         id: `trip-started-${payload?.trip_id ?? ""}`,
-        description: [
-          when && `Scheduled ${when}`,
-          payload?.total_customers != null &&
-            `${payload.total_customers} customer${payload.total_customers === 1 ? "" : "s"}`,
-        ]
-          .filter(Boolean)
-          .join(" · ") || undefined,
+        description: describeTrip(payload),
       });
     };
 
-    const onAnyEvent = (event: string) => {
-      if (!TRIP_FINISHED.test(event)) return;
+    const onTripCompleted = (payload: TripAdminPayload) => {
       refreshOngoing();
-      // The same completion can arrive once per customer; show one toast.
-      toast("Trip completed", { id: "trip-completed" });
+      toast("Trip completed", {
+        id: `trip-completed-${payload?.trip_id ?? ""}`,
+        description: describeTrip(payload),
+      });
     };
 
     socket.on(TRIP_STARTED_ADMIN, onTripStarted);
-    socket.onAny(onAnyEvent);
+    socket.on(TRIP_COMPLETED_ADMIN, onTripCompleted);
     return () => {
       socket.off(TRIP_STARTED_ADMIN, onTripStarted);
-      socket.offAny(onAnyEvent);
+      socket.off(TRIP_COMPLETED_ADMIN, onTripCompleted);
     };
   }, [queryClient]);
 }

@@ -1110,26 +1110,32 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$socket$2e$ts__$5b$app
 ;
 ;
 ;
+// The backend sends trip events to drivers and customers on the same socket.
+// Customers get `trip:started` / `trip:completed` (one per payment); the
+// admin portal ignores those and handles only the `:admin` events below.
 const TRIP_STARTED_ADMIN = "trip:started:admin";
-// The backend broadcasts trip events to drivers and customers on the same
-// socket, so only the `:admin` start event is handled here; the customer one
-// (`trip:started`, one per payment) is ignored. Completion is matched loosely
-// (trip:completed / trip:complete / trip:ended / trip:end / trip:finished,
-// with or without `:admin`) until its exact name is settled with the backend.
-const TRIP_FINISHED = /^trip:(completed?|ended?|finished)(:admin)?$/;
-// Queries that list or count ongoing trips, refreshed on every trip event.
-const ONGOING_TRIP_QUERIES = [
-    [
-        "ongoingTotal"
-    ]
-];
+const TRIP_COMPLETED_ADMIN = "trip:completed:admin";
+// "Scheduled 07:00 – 08:00 · 12 customers"
+const describeTrip = (payload)=>{
+    const when = [
+        payload?.from,
+        payload?.too
+    ].filter(Boolean).join(" – ");
+    const customers = payload?.total_customers;
+    return [
+        when && `Scheduled ${when}`,
+        customers != null && `${customers} customer${customers === 1 ? "" : "s"}`
+    ].filter(Boolean).join(" · ") || undefined;
+};
 function useTripEvents() {
     const queryClient = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$QueryClientProvider$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQueryClient"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const socket = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$socket$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSocket"])();
-        const refreshOngoing = ()=>ONGOING_TRIP_QUERIES.forEach((queryKey)=>queryClient.invalidateQueries({
-                    queryKey
-                }));
+        const refreshOngoing = ()=>queryClient.invalidateQueries({
+                queryKey: [
+                    "ongoingTotal"
+                ]
+            });
         const onTripStarted = (payload)=>{
             refreshOngoing();
             // The bus list maps drivers to trips; refresh it so a newly assigned
@@ -1139,32 +1145,24 @@ function useTripEvents() {
                     "allBuses"
                 ]
             });
-            const when = [
-                payload?.from,
-                payload?.too
-            ].filter(Boolean).join(" – ");
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"].success("Trip started", {
                 // One toast per trip, however many times the event repeats.
                 id: `trip-started-${payload?.trip_id ?? ""}`,
-                description: [
-                    when && `Scheduled ${when}`,
-                    payload?.total_customers != null && `${payload.total_customers} customer${payload.total_customers === 1 ? "" : "s"}`
-                ].filter(Boolean).join(" · ") || undefined
+                description: describeTrip(payload)
             });
         };
-        const onAnyEvent = (event)=>{
-            if (!TRIP_FINISHED.test(event)) return;
+        const onTripCompleted = (payload)=>{
             refreshOngoing();
-            // The same completion can arrive once per customer; show one toast.
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"])("Trip completed", {
-                id: "trip-completed"
+                id: `trip-completed-${payload?.trip_id ?? ""}`,
+                description: describeTrip(payload)
             });
         };
         socket.on(TRIP_STARTED_ADMIN, onTripStarted);
-        socket.onAny(onAnyEvent);
+        socket.on(TRIP_COMPLETED_ADMIN, onTripCompleted);
         return ()=>{
             socket.off(TRIP_STARTED_ADMIN, onTripStarted);
-            socket.offAny(onAnyEvent);
+            socket.off(TRIP_COMPLETED_ADMIN, onTripCompleted);
         };
     }, [
         queryClient
