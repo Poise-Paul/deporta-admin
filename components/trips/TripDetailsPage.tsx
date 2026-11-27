@@ -19,9 +19,12 @@ export function TripDetailView() {
   const { id } = useParams<{ id: string }>();
 
   // Same query as the ongoing trips list, so this is usually served from cache.
+  // Trip start/complete socket events refresh it at once; the interval is a
+  // fallback in case an event is missed.
   const { data: ongoingTrips, isLoading } = useQuery({
     queryKey: ["ongoingTotal"],
     queryFn: () => getOngoingTrips(),
+    refetchInterval: 30_000,
   });
 
   const trip = ongoingTrips?.trip_route.find((t) => t._id === id);

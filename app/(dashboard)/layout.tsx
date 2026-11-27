@@ -7,6 +7,14 @@ import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/lib/store/hooks"
 import { AdminSidebar } from "@/components/layout/admin-sidebar"
 import { AdminHeader } from "@/components/layout/admin-header"
+import { useTripEvents } from "@/hooks/use-trip-events"
+
+// Socket listeners that must run on every dashboard page. Rendered only once
+// the admin is signed in, so the socket connects with their token.
+function DashboardSocketListeners() {
+  useTripEvents()
+  return null
+}
 
 export default function DashboardLayout({
   children,
@@ -28,6 +36,7 @@ export default function DashboardLayout({
 
   return (
     <div className="min-h-screen flex bg-muted/30">
+      <DashboardSocketListeners />
       <AdminSidebar />
       <div className="flex-1 flex flex-col min-h-screen">
         <AdminHeader />

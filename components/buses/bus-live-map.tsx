@@ -8,7 +8,7 @@ import {
   MarkerF,
   PolylineF,
 } from "@react-google-maps/api";
-import { Loader2 } from "lucide-react";
+import { Loader2, Maximize2, Minimize2 } from "lucide-react";
 import { bearingDegrees, distanceMeters } from "@/lib/trip-geo";
 
 export interface LatLng {
@@ -372,6 +372,61 @@ export function BusLiveMap({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, selectedId]);
 
+  // The bus being followed (the selected one, or the only one on the map)
+  // is panned back into view if it drives off the visible area, so it never
+  // looks frozen at the edge — most noticeable on the enlarged map.
+  const followed =
+    selected ?? (vehicles.length === 1 ? vehicles[0].position : null);
+  useEffect(() => {
+    if (!map || !followed) return;
+    const bounds = map.getBounds();
+    if (bounds && !bounds.contains(followed)) map.panTo(followed);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map, followed?.lat, followed?.lng]);
+
+  // Enlarged view. This used to be Google's own fullscreen button, which
+  // moves the map into the browser's fullscreen layer; admins saw the bus stop
+  // moving there while the small map kept updating. Enlarging is now done in the
+  // page itself (a fixed overlay around the same map instance), so the map
+  // keeps rendering exactly as it does when small.
+  const [enlarged, setEnlarged] = useState(false);
+  useEffect(() => {
+    if (!enlarged) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setEnlarged(false);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [enlarged]);
+
+  // Re-frame the route and buses for the new size once the map has resized.
+  const prevEnlargedRef = useRef(enlarged);
+  useEffect(() => {
+    if (prevEnlargedRef.current === enlarged) return;
+    prevEnlargedRef.current = enlarged;
+    if (!map) return;
+    const timer = setTimeout(() => {
+      const points = [
+        ...(waypoints ?? []).map((w) => w.position),
+        ...vehicles.map((v) => v.position),
+      ];
+      if (points.length < 2) {
+        if (points[0]) map.panTo(points[0]);
+        return;
+      }
+      const bounds = new google.maps.LatLngBounds();
+      points.forEach((p) => bounds.extend(p));
+      map.fitBounds(bounds, 60);
+    }, 150);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enlarged]);
+
   if (!isLoaded) {
     return (
       <div className="flex h-full min-h-[400px] items-center justify-center rounded-lg bg-muted">
@@ -383,7 +438,13 @@ export function BusLiveMap({
   let stopNumber = 0;
 
   return (
-    <div className={`relative h-full min-h-[400px] overflow-hidden rounded-lg ${className ?? ""}`}>
+    <div
+      className={
+        enlarged
+          ? "fixed inset-0 z-[60] overflow-hidden bg-background"
+          : `relative h-full min-h-[400px] overflow-hidden rounded-lg ${className ?? ""}`
+      }
+    >
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={vehicles[0]?.position ?? waypoints?.[0]?.position ?? { lat: 6.4474, lng: 3.4723 }}
@@ -393,7 +454,8 @@ export function BusLiveMap({
         options={{
           streetViewControl: false,
           mapTypeControl: false,
-          fullscreenControl: true,
+          // Replaced by our own enlarge button (see `enlarged` above).
+          fullscreenControl: false,
         }}
       >
         {routePath && (
@@ -493,6 +555,15 @@ export function BusLiveMap({
         <span className="h-2 w-2 rounded-full bg-green-500" />
         Live location
       </div>
+      <button
+        type="button"
+        onClick={() => setEnlarged((v) => !v)}
+        title={enlarged ? "Exit enlarged map (Esc)" : "Enlarge map"}
+        aria-label={enlarged ? "Exit enlarged map" : "Enlarge map"}
+        className="absolute right-[10px] top-[10px] flex h-10 w-10 items-center justify-center rounded-sm bg-white text-gray-600 shadow-[0_1px_4px_-1px_rgba(0,0,0,0.3)] hover:text-gray-900"
+      >
+        {enlarged ? <Minimize2 className="h-5 w-5" /> : <Maximize2 className="h-5 w-5" />}
+      </button>
       {hasWaypoints && (
         <div className="absolute left-3 bottom-8 flex flex-wrap items-center gap-3 rounded-md bg-white/90 px-3 py-1.5 text-[11px] shadow">
           <span className="flex items-center gap-1">
